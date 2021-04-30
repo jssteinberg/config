@@ -2,8 +2,10 @@
 vim.o.mouse = 'a' -- mouse can be used for all modes
 vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'
 vim.o.hidden = true -- allow hiding unsaved files
+vim.o.sessionoptions = 'blank,curdir,folds,help,tabpages,winsize'
+vim.o.ignorecase = true -- generally ignore case
 -- searching
-vim.o.smartcase = true -- ignore case when lowercase
+vim.o.smartcase = true -- smartcase for search
 vim.o.gdefault = true -- default substitute to global
 
 -- Window-local options
@@ -12,11 +14,28 @@ vim.wo.list = true
 vim.wo.breakindent = true
 
 -- Buffer-local options
-vim.bo.swapfile = false
-vim.bo.synmaxcol = 200
+vim.bo.synmaxcol = 200 -- maximum column in which to search for syntax items
 vim.bo.copyindent = true
+vim.bo.swapfile = false
+vim.bo.undofile = true
+
+-- Key mappings
+
+-- leader: space
+vim.api.nvim_set_keymap('n', '<space>', '', {})
+vim.g.mapleader = ' ' -- 'vim.g' sets global variables
+
+-- esc: qq
+vim.api.nvim_set_keymap('i', 'qq', '<esc>', {noremap = true})
+vim.api.nvim_set_keymap('x', 'qq', '<esc>', {noremap = true})
+vim.api.nvim_set_keymap('t', 'qq', '<c-\\><c-n>', {noremap = true})
+
+-- previous buffer: leader bb
+vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
+
+-- jump to definition: leader l
+vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
 
 -- Require
-require('maps') -- key mappings
+require('netrw')
 require('paq') -- plugins via paq
--- require('packer') -- plugins via packer (does not work)

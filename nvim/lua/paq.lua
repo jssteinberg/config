@@ -11,26 +11,47 @@ vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 
 paq 'editorconfig/editorconfig-vim' -- auto respect editorconfig files
-paq 'tpope/vim-surround' -- surround stuff with stuff
-paq 'tpope/vim-repeat' -- repeat surround and more
+paq 'blackCauldron7/surround.nvim' -- surround stuff with stuff (org. tpope/vim-surround)
+-- paq 'tpope/vim-repeat' -- repeat surround and more
 paq 'bronson/vim-visual-star-search' -- search visual with *
-paq 'b3nj5m1n/kommentary' -- gcc in normal mode, gc in visual mode, to (un)comment
-paq '9mm/vim-closer' -- auto close stuff -- doesn't seem too good
-paq 'kdav5758/TrueZen.nvim' -- activate zen mode; centered or simple
+paq 'b3nj5m1n/kommentary' -- gcc, gc in visual mode, to (un)comment. Lua
+-- paq 'kdav5758/TrueZen.nvim' -- activate zen mode; centered or simple
 
 paq 'junegunn/vim-easy-align'
 vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
+-- Fuzzy file search (fuzzy search more)
 paq {'junegunn/fzf', run='fzf#install()'}
 paq 'junegunn/fzf.vim'
 vim.api.nvim_set_keymap('n', '<leader>ff', ':FZF<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader><tab>', ':Buffers<cr>', {noremap = true})
 vim.api.nvim_set_keymap('x', '<leader>aa', 'y:Ag <c-r>"', {noremap = true})
 
+-- Treesitter
 paq {'nvim-treesitter/nvim-treesitter'}
 local ts = require 'nvim-treesitter.configs'
 ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
+-- uses treesitter
+paq 'windwp/nvim-ts-autotag' -- pair tags. Lua
+require'nvim-treesitter.configs'.setup {
+	autotag = {
+		enable = true,
+	}
+}
+paq 'windwp/nvim-autopairs' -- auto pair. Lua
+local npairs = require("nvim-autopairs")
+npairs.setup({
+	check_ts = true,
+	ts_config = {
+		lua = {'string'},-- it will not add pair on that treesitter node
+		javascript = {'template_string'},
+		java = false,-- don't check treesitter on java
+	}
+})
+require('nvim-treesitter.configs').setup {
+	autopairs = {enable = true}
+}
 
 -- Auto completion
 -- https://github.com/hrsh7th/nvim-compe
