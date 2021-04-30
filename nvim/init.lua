@@ -16,8 +16,8 @@ vim.wo.breakindent = true
 -- Buffer-local options
 vim.bo.synmaxcol = 200 -- maximum column in which to search for syntax items
 vim.bo.copyindent = true
-vim.bo.swapfile = false
-vim.bo.undofile = true
+vim.bo.swapfile = false -- no swapfiles
+vim.bo.undofile = true -- activate undofiles for persistent undo
 
 -- Key mappings
 
