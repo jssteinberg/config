@@ -14,7 +14,7 @@ paq 'editorconfig/editorconfig-vim' -- auto respect editorconfig files
 paq 'tpope/vim-surround' -- surround stuff with stuff
 paq 'tpope/vim-repeat' -- repeat surround and more
 paq 'bronson/vim-visual-star-search' -- search visual with *
-paq 'tomtom/tcomment_vim' -- gcc in normal mode, gc in visual mode, to (un)comment
+paq 'b3nj5m1n/kommentary' -- gcc in normal mode, gc in visual mode, to (un)comment
 paq '9mm/vim-closer' -- auto close stuff -- doesn't seem too good
 paq 'kdav5758/TrueZen.nvim' -- activate zen mode; centered or simple
 
