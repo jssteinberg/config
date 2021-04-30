@@ -4,6 +4,7 @@ vim.o.mouse = 'a'
 vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'
 vim.o.title = true
 vim.o.gdefault = true -- default substitute to global
+vim.o.hidden = true -- allow hiding unsaved files
 
 -- window-local options
 vim.wo.relativenumber = true
