@@ -2,6 +2,9 @@
 
 window:
   decorations: buttonless
+  padding:
+    x: 10
+    y: 10 # Keep 10 for y
 
 # Font configuration
 font:
