@@ -8,7 +8,7 @@ Install a package manager (homebrew) and zsh if needed, git, alacritty, tmux, ag
 
 ## Neovim
 
-Install neovim...
+Install neovim v. > 0.5 and [paq](https://github.com/savq/paq-nvim)...
 
 - Neovim config requires version > 0.5 for Lua.
 - Neovim config uses paq for managing plugins.
