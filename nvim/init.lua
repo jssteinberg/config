@@ -4,6 +4,7 @@ vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'
 vim.o.hidden = true -- allow hiding unsaved files
 vim.o.sessionoptions = 'blank,curdir,folds,help,tabpages,winsize'
 vim.o.ignorecase = true -- generally ignore case
+vim.o.listchars = vim.o.listchars .. ',tab:│ '
 -- searching
 vim.o.smartcase = true -- smartcase for search
 vim.o.gdefault = true -- default substitute to global
@@ -18,6 +19,7 @@ vim.bo.synmaxcol = 200 -- maximum column in which to search for syntax items
 vim.bo.copyindent = true
 vim.bo.swapfile = false -- no swapfiles
 vim.bo.undofile = true -- activate undofiles for persistent undo
+vim.bo.tabstop = 3 -- number of spaces for tab char
 
 -- Key mappings
 
@@ -28,7 +30,7 @@ vim.g.mapleader = ' ' -- 'vim.g' sets global variables
 -- esc: qq
 vim.api.nvim_set_keymap('i', 'qq', '<esc>', {noremap = true})
 vim.api.nvim_set_keymap('x', 'qq', '<esc>', {noremap = true})
-vim.api.nvim_set_keymap('t', 'qq', '<c-\\><c-n>', {noremap = true})
+vim.api.nvim_set_keymap('t', 'qq', '<c-\\><c-n>', {noremap = true}) -- esc to normal mode in :terminal
 
 -- previous buffer: leader bb
 vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
