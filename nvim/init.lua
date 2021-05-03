@@ -19,7 +19,9 @@ vim.bo.synmaxcol = 200 -- maximum column in which to search for syntax items
 vim.bo.copyindent = true
 vim.bo.swapfile = false -- no swapfiles
 vim.bo.undofile = true -- activate undofiles for persistent undo
+-- tabs -- noexpandtab is default
 vim.bo.tabstop = 3 -- number of spaces for tab char
+vim.bo.shiftwidth = 3 -- number of spaces for autoindent
 
 -- Key mappings
 
