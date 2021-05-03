@@ -12,7 +12,9 @@ vim.o.gdefault = true -- default substitute to global
 -- Window-local options
 vim.wo.relativenumber = true
 vim.wo.list = true
-vim.wo.breakindent = true
+-- wrap
+vim.wo.breakindent = true -- softwrap folloing indent
+vim.wo.linebreak = true -- break word by 'breakat'
 
 -- Buffer-local options
 vim.bo.synmaxcol = 200 -- maximum column in which to search for syntax items
