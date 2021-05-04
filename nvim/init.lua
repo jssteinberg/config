@@ -43,5 +43,6 @@ vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
 
 -- Require
+require('statusline')
 require('netrw')
 require('paq') -- plugins via paq
