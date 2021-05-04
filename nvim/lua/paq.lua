@@ -18,6 +18,12 @@ vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
 -- Fuzzy file search (fuzzy search more)
+paq 'nvim-lua/popup.nvim'
+paq 'nvim-lua/plenary.nvim'
+paq 'nvim-telescope/telescope.nvim'
+vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
+vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {})
+vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>', {})
 -- paq {'junegunn/fzf', run='fzf#install()'}
 -- paq 'junegunn/fzf.vim'
 -- vim.api.nvim_set_keymap('n', '<leader>ff', ':FZF<cr>', {noremap = true})
