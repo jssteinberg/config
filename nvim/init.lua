@@ -42,6 +42,12 @@ vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
 -- jump to definition: leader l
 vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
 
+-- git
+-- git commit current
+vim.api.nvim_set_keymap('n', '<leader>gcc', ':!git commit "%" -m "', {noremap = true})
+-- git commit all
+vim.api.nvim_set_keymap('n', '<leader>gca', ':!git commit -am "', {noremap = true})
+
 -- Require
 -- require('statusline')
 require('netrw')
