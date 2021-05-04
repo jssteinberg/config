@@ -38,6 +38,11 @@ vim.api.nvim_set_keymap('t', 'qq', '<c-\\><c-n>', {noremap = true}) -- esc to no
 
 -- previous buffer: leader bb
 vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
+-- previous buffer (and esc terminal): leader bb
+vim.api.nvim_set_keymap('t', '<leader>bb', '<c-\\><c-n><c-^>', {noremap = true})
+
+-- open terminal in insert
+vim.api.nvim_set_keymap('n', '<leader>ot', ':terminal<cr>i', {noremap = true})
 
 -- jump to definition: leader l
 vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
