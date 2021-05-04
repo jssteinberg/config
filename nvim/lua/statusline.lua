@@ -1,4 +1,4 @@
-vim.o.statusline = " b:%n %f %=%r%w%y%<[%{&spelllang}] ╱ l:%l/%L c:%c "
+vim.o.statusline = " b:%n %f %=%r%w%y%<[%{&spelllang}] l:%l/%L c:%c "
 
 -- legacy
 --

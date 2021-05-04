@@ -3,20 +3,35 @@ vim.cmd 'packadd paq-nvim'         -- Load package
 local paq = require 'paq-nvim'.paq -- Import module and bind `paq` function
 paq {'savq/paq-nvim', opt=true}    -- Let Paq manage itself
 
--- Colorschemes
+paq 'editorconfig/editorconfig-vim'  -- auto respect editorconfig files
+paq 'blackCauldron7/surround.nvim'   -- surround stuff with stuff (org. tpope/vim-surround)
+paq 'bronson/vim-visual-star-search' -- search visual with *
+paq 'b3nj5m1n/kommentary'            -- gcc, gc in visual mode, to (un)comment. Lua
+
+-- Statusline
+paq 'hoob3rt/lualine.nvim' -- status line
+require('lualine').setup{
+	options = {
+		theme = 'tokyonight',
+		section_separators = {'',''},
+		component_separators = {'',''},
+		icons_enabled = false,
+	},
+	extensions = {'fzf'},
+	sections = {
+		lualine_a = {},
+		lualine_b = {'diff',},
+		lualine_c = {'branch','filename'},
+	},
+}
+
+-- Colorscheme(s)
 paq {'folke/tokyonight.nvim'}
 vim.cmd[[colorscheme tokyonight]]
 vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 
-paq 'editorconfig/editorconfig-vim' -- auto respect editorconfig files
-paq 'blackCauldron7/surround.nvim' -- surround stuff with stuff (org. tpope/vim-surround)
--- paq 'tpope/vim-repeat' -- repeat surround and more
-paq 'bronson/vim-visual-star-search' -- search visual with *
-paq 'b3nj5m1n/kommentary' -- gcc, gc in visual mode, to (un)comment. Lua
--- paq 'kdav5758/TrueZen.nvim' -- activate zen mode; centered or simple
-
+-- Align text
 paq 'junegunn/vim-easy-align'
 vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
