@@ -1,4 +1,4 @@
-vim.o.statusline = " b:%n %<%f %=%r%w[%{&fileencoding}]%y[%{&spelllang}] l:%l/%L c:%c "
+vim.o.statusline = "%m[%n] %t %=%y[%{&fileencoding}]%r%w[(%l/%L):%c]%<"
 
 -- legacy
 --
