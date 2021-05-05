@@ -76,7 +76,7 @@ vim.api.nvim_set_keymap('i', '<s-tab>', '<c-p>', {noremap = true})
 -- status
 vim.api.nvim_set_keymap('n', '<leader>gs', ':exe "!git status " . shellescape(getcwd())<cr>', {noremap = true})
 -- commit current
-vim.api.nvim_set_keymap('n', '<leader>gcc', ':!git commit "%" -m "', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gcc', ':!git add "%" && git commit "%" -m "', {noremap = true})
 -- commit all
 vim.api.nvim_set_keymap('n', '<leader>gca', ':!git commit -am "', {noremap = true})
 
