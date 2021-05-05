@@ -11,6 +11,7 @@ vim.o.gdefault = true -- default substitute to global
 
 -- Window-local options
 vim.wo.relativenumber = true
+vim.wo.signcolumn = 'yes' -- always show signcolumn (used by different plugins)
 vim.wo.list = true
 -- wrap
 vim.wo.breakindent = true -- softwrap folloing indent
@@ -59,8 +60,8 @@ vim.api.nvim_set_keymap('n', '<leader>bl', ':ls<cr>:b', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
 vim.api.nvim_set_keymap('t', '<leader>bb', '<c-\\><c-n><c-^>', {noremap = true})
 -- prev/next buffer
-vim.api.nvim_set_keymap('n', '<tab>', ':bn<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader><tab>', ':bp<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<tab>', ':bnext<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader><tab>', ':bprevious<cr>', {noremap = true})
 
 -- files
 -- wild find
