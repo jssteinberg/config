@@ -1,6 +1,6 @@
 # .config
 
-Install a package manager (homebrew) and zsh if needed, git, alacritty, tmux, ag the silver searcher, fzf...
+Install a package manager (homebrew) and zsh if needed, git, alacritty, tmux, ag the silver searcher...
 
 1. git clone to ~/.config
 2. ln -s ~/.config/zshrc ~/.zshrc
