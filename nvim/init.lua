@@ -2,7 +2,6 @@
 vim.o.mouse = 'a' -- mouse can be used for all modes
 vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'
 vim.o.hidden = true -- allow hiding unsaved files
--- vim.o.sessionoptions = 'blank,curdir,folds,help,tabpages,winsize'
 vim.o.ignorecase = true -- generally ignore case
 vim.o.listchars = vim.o.listchars .. ',tab:│ '
 -- searching
