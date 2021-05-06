@@ -135,4 +135,5 @@ export PATH=$HOME/.fzf/bin:$PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias activate="source \$HOME/.venv/\$(basename \"\$PWD\")/bin/activate"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# lvim
+export PATH="$HOME/.config/nvim/bin:$PATH"
