@@ -3,12 +3,13 @@ vim.cmd 'packadd paq-nvim'         -- Load package
 local paq = require 'paq-nvim'.paq -- Import module and bind `paq` function
 paq {'savq/paq-nvim', opt=true}    -- Let Paq manage itself
 
-paq 'editorconfig/editorconfig-vim' -- auto respect editorconfig files
-paq 'b3nj5m1n/kommentary'           -- gcc, gc in visual mode, to (un)comment. Lua
-paq 'nvim-lua/plenary.nvim'         -- lua functions, used by: telescope, gitsigns...
+paq 'nvim-lua/plenary.nvim' -- lua functions, used by: telescope, gitsigns...
+
+paq'editorconfig/editorconfig-vim'  -- auto respect editorconfig files
+paq{'b3nj5m1n/kommentary',opt=true} -- gcc, gc in visual mode, to (un)comment. Lua
 
 -- Align text
-paq 'junegunn/vim-easy-align'
+paq {'junegunn/vim-easy-align', opt=true}
 vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
@@ -21,8 +22,7 @@ vim.g.tokyonight_style = "night"
 paq 'lewis6991/gitsigns.nvim'
 require('gitsigns').setup{
 	keymaps = {
-		-- ['n <leader>hn'] = '<cmd>lua require"gitsigns".next_hunk()<CR>',
-		['n <leader>hn'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"},
+		['n <leader>hn'] = { expr = true, "&diff ? '<leader>hn' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"},
 		['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
 		['n <leader>hu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
 		['n <leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
@@ -31,21 +31,21 @@ require('gitsigns').setup{
 		['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line()<CR>',
 	}
 }
-vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")} ' .. vim.o.statusline
+vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}:' .. vim.o.statusline
 
 -- Surround
-paq 'blackCauldron7/surround.nvim'  -- surround stuff with stuff (org. tpope/vim-surround)
-require("surround").setup({prefix = 'S'})
+paq {'blackCauldron7/surround.nvim',opt=true}  -- surround stuff with stuff (org. tpope/vim-surround)
+require("surround").setup({})
 
 -- Fuzzy file search (fuzzy search more)
 paq 'nvim-lua/popup.nvim'
-paq 'nvim-telescope/telescope.nvim'
+paq {'nvim-telescope/telescope.nvim'}
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>', {})
 
 -- Treesitter
-paq {'nvim-treesitter/nvim-treesitter'}
+paq {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'}
 local ts = require 'nvim-treesitter.configs'
 ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
 -- uses treesitter
