@@ -18,8 +18,8 @@ vim.wo.linebreak = true -- break word by 'breakat'
 
 -- Buffer-local options
 vim.bo.fileencoding = 'utf-8'
-vim.bo.synmaxcol = 200 -- maximum column in which to search for syntax items
-vim.bo.copyindent = true
+vim.bo.synmaxcol = 200 -- max column to search for syntax items (lower for performance)
+vim.bo.copyindent = true -- copy indent on paste
 vim.bo.undofile = true -- activate undofiles for persistent undo
 vim.bo.swapfile = false -- no swapfiles when persistent undo and no multiuser system
 -- tabs -- noexpandtab is default
