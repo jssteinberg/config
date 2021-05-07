@@ -32,8 +32,20 @@ vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status"
 -- Fuzzy file search (fuzzy search more)
 paq 'nvim-lua/popup.nvim'
 paq {'nvim-telescope/telescope.nvim'}
+local actions = require('telescope.actions')
+require('telescope').setup{
+	defaults = {
+		mappings = {
+			i = {
+				-- To disable a keymap, put [map] = false
+				-- So, to not map "<C-n>", just put
+				["qq"] = actions.close
+			}
+		}
+	}
+}
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
-vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {})
+vim.api.nvim_set_keymap('n', '<leader>ag', '<cmd>Telescope live_grep<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>', {})
 
 -- Treesitter
