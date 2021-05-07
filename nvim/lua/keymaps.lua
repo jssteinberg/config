@@ -50,3 +50,6 @@ vim.api.nvim_set_keymap('n', '<leader>ot', ':terminal<cr>i', {noremap = true})
 vim.api.nvim_set_keymap('x', '*', 'y/<c-r><cr>', {noremap = true})
 -- nohlsearch
 vim.api.nvim_set_keymap('n', '<cr>', ':nohlsearch<cr>', {noremap = true})
+
+-- Window
+vim.api.nvim_set_keymap('n', '<c-w><c-w>', ':vsplit<cr>', {noremap = true})
