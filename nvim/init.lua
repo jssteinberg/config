@@ -13,7 +13,7 @@ vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes' -- always show signcolumn (used by different plugins)
 vim.wo.list = true
 -- wrap
-vim.wo.breakindent = true -- softwrap folloing indent
+vim.wo.breakindent = true -- softwrap inheriting indent
 vim.wo.linebreak = true -- break word by 'breakat'
 
 -- Buffer-local options
