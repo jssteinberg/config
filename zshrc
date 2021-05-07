@@ -137,3 +137,6 @@ alias activate="source \$HOME/.venv/\$(basename \"\$PWD\")/bin/activate"
 
 # lvim
 export PATH="$HOME/.config/nvim/bin:$PATH"
+
+# The next line updates PATH for Netlify's Git Credential Helper.
+test -f '/Users/johan/Library/Preferences/netlify/helper/path.zsh.inc' && source '/Users/johan/Library/Preferences/netlify/helper/path.zsh.inc'
