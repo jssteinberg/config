@@ -134,5 +134,3 @@ export PATH=$HOME/.fzf/bin:$PATH
 # added by fzf mac install:
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias activate="source \$HOME/.venv/\$(basename \"\$PWD\")/bin/activate"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
