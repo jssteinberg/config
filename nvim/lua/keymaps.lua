@@ -37,6 +37,8 @@ vim.api.nvim_set_keymap('n', '<leader>gs', ':exe "!git status " . shellescape(ge
 vim.api.nvim_set_keymap('n', '<leader>gcc', ':!git add "%" && git commit "%" -m "', {noremap = true})
 -- commit all
 vim.api.nvim_set_keymap('n', '<leader>gca', ':!git commit -am "', {noremap = true})
+-- commit only
+vim.api.nvim_set_keymap('n', '<leader>gco', ':!git commit ', {noremap = true})
 
 -- Files
 -- wild find
