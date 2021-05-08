@@ -1,8 +1,8 @@
 -- Plugins via [Paq](https://github.com/savq/paq-nvim)
-vim.cmd 'packadd paq-nvim'         -- Load package
-local paq = require 'paq-nvim'.paq -- Import module and bind `paq` function
+vim.cmd 'packadd paq-nvim'         -- load paq
+local paq = require 'paq-nvim'.paq -- import module and bind `paq` function
 
-paq{'savq/paq-nvim',opt=true}        -- Let Paq manage itself
+paq{'savq/paq-nvim',opt=true}        -- let Paq manage itself
 paq{'nvim-lua/plenary.nvim'}         -- lua functions, used by: telescope, gitsigns...
 paq{'editorconfig/editorconfig-vim'} -- auto respect editorconfig files
 paq{'famiu/nvim-reload'}             -- easy reload config without rebooting
