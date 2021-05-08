@@ -1,10 +1,11 @@
 -- Plugins via Paq (https://github.com/savq/paq-nvim)
 vim.cmd 'packadd paq-nvim'         -- Load package
 local paq = require 'paq-nvim'.paq -- Import module and bind `paq` function
-paq {'savq/paq-nvim',opt=true}    -- Let Paq manage itself
+paq{'savq/paq-nvim',opt=true}    -- Let Paq manage itself
 
 paq 'nvim-lua/plenary.nvim' -- lua functions, used by: telescope, gitsigns...
 paq'editorconfig/editorconfig-vim'  -- auto respect editorconfig files
+paq{'famiu/nvim-reload'} -- easy reload config without rebooting
 
 -- Colorscheme(s)
 paq {'folke/tokyonight.nvim'}
@@ -15,9 +16,9 @@ vim.g.tokyonight_style = "night"
 paq{'terrortylor/nvim-comment'} -- gcc, gc in visual mode, to (un)comment. Lua
 require('nvim_comment').setup({})
 
--- Surround
-paq {'blackCauldron7/surround.nvim'}  -- surround stuff with stuff (org. tpope/vim-surround)
-require('surround').setup({})
+-- Surround & Repeat
+paq{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
+paq{'tpope/vim-repeat'} -- surround stuff with stuff (org. tpope/vim-surround)
 
 -- Align text
 paq {'junegunn/vim-easy-align'}

@@ -1,5 +1,9 @@
+-- config vanilla nvim
 require 'options'
 require 'keymaps'
 require 'statusline'
 require 'netrw'
--- require 'paq' -- plugins via paq
+
+-- load plugins and plugins' config
+require 'paq' -- plugins via paq
+-- require 'packer'

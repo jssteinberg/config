@@ -1,6 +1,6 @@
 # .config
 
-Install a package manager (homebrew) and zsh if needed, git, alacritty, tmux, ag the silver searcher...
+Install a package manager (e.g. homebrew) and zsh if needed, git, alacritty, tmux...
 
 1. git clone to ~/.config
 2. ln -s ~/.config/zshrc ~/.zshrc
@@ -8,7 +8,7 @@ Install a package manager (homebrew) and zsh if needed, git, alacritty, tmux, ag
 
 ## Neovim
 
-Install neovim v. > 0.5 and [paq](https://github.com/savq/paq-nvim)...
+Install neovim v. > 0.5, [paq](https://github.com/savq/paq-nvim), ripgrep...
 
 - Neovim config requires version > 0.5 for Lua.
 - Neovim config uses paq for managing plugins.
