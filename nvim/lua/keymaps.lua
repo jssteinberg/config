@@ -42,7 +42,7 @@ vim.api.nvim_set_keymap('n', '<leader>gco', ':!git commit ', {noremap = true})
 
 -- Files
 -- wild find
-vim.api.nvim_set_keymap('n', '<leader>ff', ':find **/', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>ff', ':edit **/', {noremap = true})
 
 -- Terminal
 -- open terminal in insert
