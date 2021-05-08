@@ -8,7 +8,7 @@ vim.api.nvim_set_keymap('x',' ','',{noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
 
 -- Buffers
--- list buffers, load by number
+-- list buffers, open with buffer number
 vim.api.nvim_set_keymap('n', '<leader>bl', ':ls<cr>:b', {noremap = true})
 -- previous buffer
 vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
