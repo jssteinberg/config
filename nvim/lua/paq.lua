@@ -1,16 +1,16 @@
--- Plugins via Paq (https://github.com/savq/paq-nvim)
+-- Plugins via [Paq](https://github.com/savq/paq-nvim)
 vim.cmd 'packadd paq-nvim'         -- Load package
 local paq = require 'paq-nvim'.paq -- Import module and bind `paq` function
-paq{'savq/paq-nvim',opt=true}    -- Let Paq manage itself
 
-paq 'nvim-lua/plenary.nvim' -- lua functions, used by: telescope, gitsigns...
-paq'editorconfig/editorconfig-vim'  -- auto respect editorconfig files
-paq{'famiu/nvim-reload'} -- easy reload config without rebooting
+paq{'savq/paq-nvim',opt=true}        -- Let Paq manage itself
+paq{'nvim-lua/plenary.nvim'}         -- lua functions, used by: telescope, gitsigns...
+paq{'editorconfig/editorconfig-vim'} -- auto respect editorconfig files
+paq{'famiu/nvim-reload'}             -- easy reload config without rebooting
 
 -- Colorscheme(s)
-paq {'folke/tokyonight.nvim'}
+paq{'folke/tokyonight.nvim'}
 vim.cmd[[colorscheme tokyonight]]
-vim.g.tokyonight_style = "night"
+vim.g.tokyonight_style = 'night'
 
 -- Comments
 paq{'terrortylor/nvim-comment'} -- gcc, gc in visual mode, to (un)comment. Lua
@@ -18,10 +18,10 @@ require('nvim_comment').setup({})
 
 -- Surround & Repeat
 paq{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
-paq{'tpope/vim-repeat'} -- surround stuff with stuff (org. tpope/vim-surround)
+paq{'tpope/vim-repeat'}   -- surround stuff with stuff (org. tpope/vim-surround)
 
 -- Align text
-paq {'junegunn/vim-easy-align'}
+paq{'junegunn/vim-easy-align'}
 vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
@@ -31,16 +31,14 @@ require('gitsigns').setup({})
 vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}:' .. vim.o.statusline
 
 -- Fuzzy file search (fuzzy search more)
-paq 'nvim-lua/popup.nvim'
-paq {'nvim-telescope/telescope.nvim'}
+paq{'nvim-lua/popup.nvim'}
+paq{'nvim-telescope/telescope.nvim'}
 local actions = require('telescope.actions')
 require('telescope').setup{
 	defaults = {
 		mappings = {
 			i = {
-				-- To disable a keymap, put [map] = false
-				-- So, to not map "<C-n>", just put
-				["qq"] = actions.close
+				['qq'] = actions.close
 			}
 		}
 	}
@@ -50,20 +48,20 @@ vim.api.nvim_set_keymap('n', '<leader>ag', '<cmd>Telescope live_grep<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>', {})
 
 -- Treesitter
-paq {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'}
+paq{'nvim-treesitter/nvim-treesitter',run=':TSUpdate'}
 local ts = require 'nvim-treesitter.configs'
-ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
+ts.setup{ensure_installed = 'maintained', highlight = {enable = true}}
 -- uses treesitter
 -- auto pair tags
-paq 'windwp/nvim-ts-autotag'
+paq{'windwp/nvim-ts-autotag'}
 require'nvim-treesitter.configs'.setup {
 	autotag = {
-		enable = true,
+		enable = true
 	}
 }
 -- auto pair pairs
-paq 'windwp/nvim-autopairs'
-local npairs = require("nvim-autopairs")
+paq{'windwp/nvim-autopairs'}
+local npairs = require('nvim-autopairs')
 npairs.setup({
 	check_ts = true,
 	ts_config = {
