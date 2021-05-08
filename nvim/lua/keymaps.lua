@@ -1,7 +1,8 @@
--- leader
+-- Leader
 -- space
-vim.api.nvim_set_keymap('n', '<space>', '', {})
-vim.g.mapleader = ' ' -- 'vim.g' sets global variables
+vim.g.mapleader = ' '
+vim.api.nvim_set_keymap('n',' ','',{noremap = true})
+vim.api.nvim_set_keymap('x',' ','',{noremap = true})
 
 -- jump to definition (default stinks on various keyboard layouts)
 vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
