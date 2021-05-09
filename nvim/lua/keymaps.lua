@@ -33,6 +33,7 @@ vim.api.nvim_set_keymap('t', 'qq', '<c-\\><c-n>', {noremap = true})
 -- Git
 -- status
 vim.api.nvim_set_keymap('n', '<leader>gs', ':exe "!git status " . shellescape(getcwd())<cr>', {noremap = true})
+-- (TODO: should these be commands?:)
 -- commit current buffer
 vim.api.nvim_set_keymap('n', '<leader>gcc', ':!git add "%" && git commit "%" -m "', {noremap = true})
 -- commit all
