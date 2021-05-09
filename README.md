@@ -12,3 +12,11 @@ Install neovim v. > 0.5, [paq](https://github.com/savq/paq-nvim), ripgrep...
 
 - Neovim config requires version > 0.5 for Lua.
 - Neovim config uses paq for managing plugins.
+
+---
+
+Neovim config tries to be as lightweight as possible, but as functional as needed for modern web development (I currently develop mostly using Svelte). Lua is used as far as possible unless certain functionality requires otherwise.
+
+### Plugins 
+
+- Telescope for fuzzy searching. It's optional: load with `:pacadd telescope`.
