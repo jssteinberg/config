@@ -1,7 +1,5 @@
 -- Global options
 
--- vim.o.rulerformat = '%=<%P\ %M%t%<>'
-
 vim.o.statusline = require 'statusline'
 -- enable mouse for all modes
 vim.o.mouse = 'a'
@@ -19,23 +17,39 @@ vim.o.smartcase = true
 -- global substitute as default
 vim.o.gdefault = true
 
+
 -- Window-local options
 
+-- show column with relativenumbers---eases line jumping
 vim.wo.relativenumber = true
-vim.wo.signcolumn = 'yes' -- always show signcolumn (used by different plugins)
+-- show signs for tabs, whitespace, etc.
 vim.wo.list = true
--- wrap
-vim.wo.breakindent = true -- softwrap inheriting indent
-vim.wo.linebreak = true -- break word by 'breakat'
+-- always show signcolumn (used by different plugins)
+vim.wo.signcolumn = 'yes'
+-- Wrap
+-- softwrap inheriting indent
+vim.wo.breakindent = true
+-- break word by 'breakat'
+vim.wo.linebreak = true
+
 
 -- Buffer-local options
 
+-- default to utf-8
 vim.bo.fileencoding = 'utf-8'
-vim.bo.synmaxcol = 200 -- max column to search for syntax items (lower for performance)
-vim.bo.copyindent = true -- copy indent on paste
-vim.bo.undofile = true -- activate undofiles for persistent undo
-vim.bo.swapfile = false -- no swapfiles when persistent undo and no multiuser system
--- formatoptions
+-- max column to search for syntax items (low for performance)
+vim.bo.synmaxcol = 200
+-- copy indent on paste
+vim.bo.copyindent = true
+-- activate undofiles for persistent undo
+vim.bo.undofile = true
+-- no swapfiles when persistent undo and no multiuser system
+vim.bo.swapfile = false
+-- Tabs win
+-- tabs -- noexpandtab is default
+vim.bo.tabstop = 3 -- number of spaces for tab char
+vim.bo.shiftwidth = 3 -- number of spaces for autoindent
+-- Formatoptions
 -- (c) auto hard wrap comments
 -- (q) allow gq formatting
 -- (j) remove comment leader when joining lines
@@ -43,6 +57,3 @@ vim.bo.swapfile = false -- no swapfiles when persistent undo and no multiuser sy
 -- (l) don't break long lines (does c still work?)
 -- (p) don't break lines on single space following period
 vim.bo.formatoptions = 'cqjnlp'
--- tabs -- noexpandtab is default
-vim.bo.tabstop = 3 -- number of spaces for tab char
-vim.bo.shiftwidth = 3 -- number of spaces for autoindent
