@@ -17,7 +17,7 @@ Neovim config requires version > 0.5 for Lua and uses paq for managing plugins.
 
 ---
 
-This neovim config tries to be as lightweight as possible, but as functional as needed for modern web development (I currently develop mostly using Svelte). Lua is used as far as possible unless certain functionality requires otherwise.
+This neovim config tries to be as lightweight as possible, but as functional as needed for modern web development (I currently develop mostly using Svelte). Lua for config and plugins is used as far as possible unless certain functionality requires otherwise.
 
 ### Plugins 
 
