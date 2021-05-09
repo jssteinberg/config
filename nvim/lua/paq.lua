@@ -20,7 +20,7 @@ paq{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
 paq{'tpope/vim-repeat'}   -- surround stuff with stuff (org. tpope/vim-surround)
 
 -- Align text
-paq{'junegunn/vim-easy-align',opt=true}
+paq{'junegunn/vim-easy-align'}
 vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
@@ -31,7 +31,7 @@ vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status"
 
 -- Fuzzy file search (fuzzy search more)
 paq{'nvim-lua/popup.nvim'}
-paq{'nvim-telescope/telescope.nvim',opt=true}
+paq{'nvim-telescope/telescope.nvim'}
 local actions = require('telescope.actions')
 require('telescope').setup{
 	defaults = {
