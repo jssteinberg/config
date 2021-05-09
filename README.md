@@ -19,11 +19,11 @@ Neovim config requires version > 0.5 for Lua and uses paq for managing plugins.
 
 This neovim config tries to be as lightweight as possible, but as functional as needed for modern web development (I currently develop mostly using Svelte). Lua for config and plugins is used as far as possible unless certain functionality requires otherwise.
 
-### Plugins 
+### Plugins
 
-- Treesitter for syntax and ... Install language specifics with `:TSInstall [...]`.
+- Treesitter for syntax, auto pair and ... Install language specifics with `:TSInstall [...]`.
 - Colorscheme of the quarter that supports light and dark, `:set bg=[light/dark]`.
 - The usual surround using `S` and `.` repeat (non is better than tpope's plugins for now---Lua options are too buggy).
 - nvim-comments, written in lua for `gcc`, and `gc` in x-mode, comment toggle motion.
-- (opt) Telescope for fuzzy searching. **It's optional**: load with `:pacadd telescope`.
-- (opt) Easyalign for aligning in visual with `ga`. **It's optional**.
+- Telescope for fuzzy searching: `<leader>ff`, `<leader><tab>`, `<leader>fs`.
+- Easyalign for aligning in visual with `ga`.
