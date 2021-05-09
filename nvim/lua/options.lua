@@ -1,5 +1,8 @@
 -- Global options
 
+-- vim.o.rulerformat = '%=<%P\ %M%t%<>'
+
+vim.o.statusline = require 'statusline'
 -- enable mouse for all modes
 vim.o.mouse = 'a'
 -- use OS clipboard
