@@ -6,4 +6,3 @@ require 'netrw'
 
 -- load plugins and plugins' config
 require 'paq' -- plugins via paq
--- require 'packer'
