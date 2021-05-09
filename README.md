@@ -1,6 +1,6 @@
 # .config
 
-Install a package manager (e.g. homebrew) and zsh if needed, git, alacritty, tmux...
+Use a package manager (e.g. homebrew). Install zsh if needed. Install: git, alacritty, tmux...
 
 1. git clone to ~/.config
 2. ln -s ~/.config/zshrc ~/.zshrc
@@ -15,7 +15,7 @@ Install neovim v. > 0.5, [paq](https://github.com/savq/paq-nvim), ripgrep...
 
 ---
 
-Neovim config tries to be as lightweight as possible, but as functional as needed for modern web development (I currently develop mostly using Svelte). Lua is used as far as possible unless certain functionality requires otherwise.
+This neovim config tries to be as lightweight as possible, but as functional as needed for modern web development (I currently develop mostly using Svelte). Lua is used as far as possible unless certain functionality requires otherwise.
 
 ### Plugins 
 
