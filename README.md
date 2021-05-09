@@ -19,4 +19,8 @@ Neovim config tries to be as lightweight as possible, but as functional as neede
 
 ### Plugins 
 
-- Telescope for fuzzy searching. It's optional: load with `:pacadd telescope`.
+- Colorscheme of the quarter that supports light and dark.
+- The usual surround using `S` and repeat (non is better than tpope's plugins for now---Lua options are too buggy).
+- nvim-comments, written in lua for `gcc`, and `gc` in x-mode, comment toggle motion.
+- Telescope for fuzzy searching. **It's optional**: load with `:pacadd telescope`.
+- Easyalign for aligning in visual with `ga`. **It's optional**.
