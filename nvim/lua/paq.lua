@@ -29,9 +29,24 @@ vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 -- nn <silent> <leader>fu :UndotreeToggle<CR>
 
 -- Git
-paq 'lewis6991/gitsigns.nvim'
-require('gitsigns').setup({})
-vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}: ' .. require('statusline')
+-- paq 'lewis6991/gitsigns.nvim'
+-- require('gitsigns').setup({})
+-- vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}: ' .. require('statusline')
+-- fugitive
+paq 'tpope/vim-fugitive'
+vim.api.nvim_set_keymap('n', '<leader>gs', ':Git<cr>', {noremap = true})
+-- log
+paq 'junegunn/gv.vim'
+vim.api.nvim_set_keymap('n', '<leader>gl', ':GV<cr>', {noremap = true})
+-- diff view
+paq 'sindrets/diffview.nvim'
+local cb = require'diffview.config'.diffview_callback
+require'diffview'.setup {
+	file_panel = {
+		use_icons = false
+	}
+}
+vim.api.nvim_set_keymap('n', '<leader>gd', ':DiffviewOpen<cr>', {noremap = true})
 
 -- Fuzzy file search (fuzzy search more)
 paq{'nvim-lua/popup.nvim'}
