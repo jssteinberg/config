@@ -1,6 +1,8 @@
 -- How I would like to write mappings for clarity:
 -- n, <c-]>, <leader>l
 
+local keymap = vim.api.nvim_set_keymap
+
 -- Leader
 -- space
 vim.g.mapleader = ' '
@@ -12,8 +14,8 @@ vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
 
 -- Buffers, windows and tabs
 -- list buffers, open with buffer number
-vim.api.nvim_set_keymap('n', '<leader>bl', ':buffers<cr>:b', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader><tab>', ':buffers<cr>:b', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>bl', ':buffers<cr>:buffer ', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader><tab>', ':buffers<cr>:buffer **/', {noremap = true}) -- (or use: ':call feedkeys(':b<space>**/*', 't')<cr>')
 -- tab for every buffer
 vim.api.nvim_set_keymap('n', '<leader>bt', ':tab sball<cr>', {noremap = true})
 -- previous buffer
@@ -23,7 +25,8 @@ vim.api.nvim_set_keymap('t', '<leader>bb', '<c-\\><c-n><c-^>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<tab>', ':bnext | file!<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<s-tab>', ':bprevious | file!<cr>', {noremap = true})
 -- vertical split
-vim.api.nvim_set_keymap('n', '<leader>ww', ':vsplit<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<c-w>w', ':vsplit<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<c-w><c-w>', ':vsplit<cr>', {noremap = true})
 
 -- Completion
 -- tab for buffer completion
