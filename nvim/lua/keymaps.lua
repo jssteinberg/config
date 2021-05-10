@@ -1,3 +1,6 @@
+-- How I would like to write mappings for clarity:
+-- n, <c-]>, <leader>l
+
 -- Leader
 -- space
 vim.g.mapleader = ' '
