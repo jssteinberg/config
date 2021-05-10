@@ -37,8 +37,6 @@ vim.api.nvim_set_keymap('n', '<leader>gs', ':exe "!git status " . shellescape(ge
 -- (TODO: should these be commands?:)
 -- add
 vim.api.nvim_set_keymap('n', '<leader>ga', ':!git add ', {noremap = true})
--- push
-vim.api.nvim_set_keymap('n', '<leader>gp', ':!git push', {noremap = true})
 -- commit current buffer
 vim.api.nvim_set_keymap('n', '<leader>gcc', ':!git add "%" && git commit "%" -m "', {noremap = true})
 -- commit all
