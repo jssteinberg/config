@@ -43,7 +43,7 @@ vim.api.nvim_set_keymap('n', '<leader>gcc', ':!git add "%" && git commit "%" -m 
 -- commit all
 vim.api.nvim_set_keymap('n', '<leader>gca', ':!git commit -am "', {noremap = true})
 -- commit only
-vim.api.nvim_set_keymap('n', '<leader>gco', ':!git commit ', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gc<space>', ':!git commit ', {noremap = true})
 
 -- Files
 -- wild find
