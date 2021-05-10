@@ -34,14 +34,16 @@ vim.api.nvim_set_keymap('t', 'qq', '<c-\\><c-n>', {noremap = true})
 -- status
 vim.api.nvim_set_keymap('n', '<leader>gs', ':exe "!git status " . shellescape(getcwd())<cr>', {noremap = true})
 -- (TODO: should these be commands?:)
+-- add
+vim.api.nvim_set_keymap('n', '<leader>ga', ':!git add ', {noremap = true})
+-- push
+vim.api.nvim_set_keymap('n', '<leader>gp', ':!git push', {noremap = true})
 -- commit current buffer
 vim.api.nvim_set_keymap('n', '<leader>gcc', ':!git add "%" && git commit "%" -m "', {noremap = true})
 -- commit all
 vim.api.nvim_set_keymap('n', '<leader>gca', ':!git commit -am "', {noremap = true})
 -- commit only
 vim.api.nvim_set_keymap('n', '<leader>gco', ':!git commit ', {noremap = true})
--- push
-vim.api.nvim_set_keymap('n', '<leader>gp', ':!git push', {noremap = true})
 
 -- Files
 -- wild find
