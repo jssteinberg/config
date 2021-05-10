@@ -5,6 +5,10 @@ local paq = require 'paq-nvim'.paq -- import module and bind `paq` function
 paq{'savq/paq-nvim',opt=true}        -- let Paq manage itself
 paq{'nvim-lua/plenary.nvim'}         -- lua functions, used by: telescope, gitsigns...
 paq{'editorconfig/editorconfig-vim'} -- auto respect editorconfig files
+paq{'mmozuras/vim-cursor'}           -- when open buffer, go to previous cursor position
+-- Surround & Repeat
+paq{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
+paq{'tpope/vim-repeat'}   -- repeat surround and more
 
 -- Colorscheme(s)
 paq{'folke/tokyonight.nvim'}
@@ -15,10 +19,6 @@ vim.g.tokyonight_style = 'night'
 paq{'terrortylor/nvim-comment'} -- gcc, gc in visual mode, to (un)comment. Lua
 require('nvim_comment').setup({})
 
--- Surround & Repeat
-paq{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
-paq{'tpope/vim-repeat'}   -- surround stuff with stuff (org. tpope/vim-surround)
-
 -- Align text
 paq{'junegunn/vim-easy-align'}
 vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
@@ -28,13 +28,13 @@ vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 -- let g:undotree_SetFocusWhenToggle=1
 -- nn <silent> <leader>fu :UndotreeToggle<CR>
 
--- Plug 'junegunn/gv.vim', { 'on': 'GV'}
--- nn <leader>gl :GV<CR>
 
 -- Git
 paq 'lewis6991/gitsigns.nvim'
 require('gitsigns').setup({})
-vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}: ' .. require 'statusline'
+vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}: ' .. require('statusline')
+-- git log
+paq 'TimUntersberger/neogit'
 
 -- Fuzzy file search (fuzzy search more)
 paq{'nvim-lua/popup.nvim'}
