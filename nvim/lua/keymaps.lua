@@ -20,8 +20,8 @@ vim.api.nvim_set_keymap('n', '<leader>bt', ':tab sball<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
 vim.api.nvim_set_keymap('t', '<leader>bb', '<c-\\><c-n><c-^>', {noremap = true})
 -- prev/next buffer
-vim.api.nvim_set_keymap('n', '<tab>', ':bnext<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<s-tab>', ':bprevious<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<tab>', ':bnext | file!<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<s-tab>', ':bprevious | file!<cr>', {noremap = true})
 -- vertical split
 vim.api.nvim_set_keymap('n', '<leader>ww', ':vsplit<cr>', {noremap = true})
 
