@@ -14,6 +14,8 @@ vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
 -- list buffers, open with buffer number
 vim.api.nvim_set_keymap('n', '<leader>bl', ':ls<cr>:b', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader><tab>', ':ls<cr>:b', {noremap = true})
+-- tab for every buffer
+vim.api.nvim_set_keymap('n', '<leader>bt', ':tab sball<cr>', {noremap = true})
 -- previous buffer
 vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
 vim.api.nvim_set_keymap('t', '<leader>bb', '<c-\\><c-n><c-^>', {noremap = true})
