@@ -12,8 +12,8 @@ vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
 
 -- Buffers, windows and tabs
 -- list buffers, open with buffer number
-vim.api.nvim_set_keymap('n', '<leader>bl', ':ls<cr>:b', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader><tab>', ':ls<cr>:b', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>bl', ':buffers<cr>:b', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader><tab>', ':buffers<cr>:b', {noremap = true})
 -- tab for every buffer
 vim.api.nvim_set_keymap('n', '<leader>bt', ':tab sball<cr>', {noremap = true})
 -- previous buffer
