@@ -1,7 +1,8 @@
--- How I would like to write mappings for clarity:
--- n, <c-]>, <leader>l
-
-local keymap = vim.api.nvim_set_keymap
+-- map - Function for mapping that just makes the keymappings more readable
+-- mode, action, mapping, options
+local map = function (mode, action, mapping, opt)
+	vim.api.nvim_set_keymap(mode, mapping, action, opt)
+end
 
 -- Leader
 -- space
@@ -10,7 +11,7 @@ vim.api.nvim_set_keymap('n',' ','',{noremap = true})
 vim.api.nvim_set_keymap('x',' ','',{noremap = true})
 
 -- jump to definition (default stinks on various keyboard layouts)
-vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
+map('n', '<c-]>', '<leader>l', {noremap = true})
 
 -- Buffers, windows and tabs
 -- list buffers, open with buffer number
