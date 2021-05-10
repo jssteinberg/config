@@ -34,7 +34,7 @@ vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 -- Git
 paq 'lewis6991/gitsigns.nvim'
 require('gitsigns').setup({})
-vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}:' .. require 'statusline'
+vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}: ' .. require 'statusline'
 
 -- Fuzzy file search (fuzzy search more)
 paq{'nvim-lua/popup.nvim'}
