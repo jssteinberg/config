@@ -28,7 +28,6 @@ vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 -- let g:undotree_SetFocusWhenToggle=1
 -- nn <silent> <leader>fu :UndotreeToggle<CR>
 
-
 -- Git
 paq 'lewis6991/gitsigns.nvim'
 require('gitsigns').setup({})
@@ -49,7 +48,7 @@ require('telescope').setup{
 }
 vim.api.nvim_set_keymap('n', '<leader>ff',    '<cmd>Telescope find_files<cr>', {}) -- find file
 vim.api.nvim_set_keymap('n', '<leader>fs',    '<cmd>Telescope live_grep<cr>',  {}) -- find string
-vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>',    {}) -- change tab
+-- vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>',    {}) -- change tab
 
 -- Treesitter
 paq{'nvim-treesitter/nvim-treesitter',run=':TSUpdate'}
