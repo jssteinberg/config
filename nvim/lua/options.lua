@@ -26,6 +26,8 @@ vim.wo.relativenumber = true
 vim.wo.list = true
 -- always show signcolumn (used by different plugins)
 vim.wo.signcolumn = 'yes'
+-- cursorline by default
+vim.wo.cursorline = true
 -- Wrap
 -- softwrap inheriting indent
 vim.wo.breakindent = true
