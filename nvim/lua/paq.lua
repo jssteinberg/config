@@ -3,7 +3,7 @@ vim.cmd 'packadd paq-nvim'         -- load paq
 local paq = require 'paq-nvim'.paq -- import module and bind `paq` function
 
 paq{'savq/paq-nvim',opt=true}        -- let Paq manage itself
-paq{'nvim-lua/plenary.nvim'}         -- lua functions, used by: telescope, gitsigns, neogit...
+paq{'nvim-lua/plenary.nvim'}         -- lua functions, used by: telescope, gitsigns...
 paq{'editorconfig/editorconfig-vim'} -- auto respect editorconfig files
 paq{'mmozuras/vim-cursor'}           -- when open buffer, go to previous cursor position
 -- Surround & Repeat
@@ -33,8 +33,6 @@ vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 paq 'lewis6991/gitsigns.nvim'
 require('gitsigns').setup({})
 vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}: ' .. require('statusline')
--- git log
-paq 'TimUntersberger/neogit'
 
 -- Fuzzy file search (fuzzy search more)
 paq{'nvim-lua/popup.nvim'}
