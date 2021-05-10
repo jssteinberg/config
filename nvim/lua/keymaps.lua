@@ -10,7 +10,7 @@ vim.api.nvim_set_keymap('x',' ','',{noremap = true})
 -- jump to definition (default stinks on various keyboard layouts)
 vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
 
--- Buffers
+-- Buffers, windows and tabs
 -- list buffers, open with buffer number
 vim.api.nvim_set_keymap('n', '<leader>bl', ':ls<cr>:b', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader><tab>', ':ls<cr>:b', {noremap = true})
@@ -20,6 +20,8 @@ vim.api.nvim_set_keymap('t', '<leader>bb', '<c-\\><c-n><c-^>', {noremap = true})
 -- prev/next buffer
 vim.api.nvim_set_keymap('n', '<tab>', ':bnext<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<s-tab>', ':bprevious<cr>', {noremap = true})
+-- vertical split
+vim.api.nvim_set_keymap('n', '<leader>ww', ':vsplit<cr>', {noremap = true})
 
 -- Completion
 -- tab for buffer completion
@@ -60,6 +62,3 @@ vim.api.nvim_set_keymap('n', '<leader>ot', ':terminal<cr>i', {noremap = true})
 vim.api.nvim_set_keymap('x', '*', 'y/<c-r><cr>', {noremap = true})
 -- nohlsearch
 vim.api.nvim_set_keymap('n', '<cr>', ':nohlsearch<cr>', {noremap = true})
-
--- Window
-vim.api.nvim_set_keymap('n', '<c-w><c-w>', ':vsplit<cr>', {noremap = true})
