@@ -44,9 +44,6 @@ function setKeymaps()
 	-- prev/next buffer
 	vim.api.nvim_set_keymap('n', '<tab>', ':bnext | file!<cr>', {noremap = true})
 	vim.api.nvim_set_keymap('n', '<s-tab>', ':bprevious | file!<cr>', {noremap = true})
-	-- vertical split
-	vim.api.nvim_set_keymap('n', '<c-w>w', ':vsplit<cr>', {noremap = true})
-	vim.api.nvim_set_keymap('n', '<c-w><c-w>', ':vsplit<cr>', {noremap = true})
 	-- moving between windows
 	vim.api.nvim_set_keymap('n', '<up>', '<c-w>k', {noremap = true})
 	vim.api.nvim_set_keymap('n', '<right>', '<c-w>l', {noremap = true})
