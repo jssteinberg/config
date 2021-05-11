@@ -45,11 +45,21 @@ function setKeymaps()
 	-- vertical split
 	vim.api.nvim_set_keymap('n', '<c-w>w', ':vsplit<cr>', {noremap = true})
 	vim.api.nvim_set_keymap('n', '<c-w><c-w>', ':vsplit<cr>', {noremap = true})
+	-- moving between windows
+	vim.api.nvim_set_keymap('n', '<up>', '<c-w>k', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<right>', '<c-w>l', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<down>', '<c-w>j', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<left>', '<c-w>h', {noremap = true})
 
 	-- Completion
 	-- tab for buffer completion
 	vim.api.nvim_set_keymap('i', '<tab>', '<c-n>', {noremap = true})
 	vim.api.nvim_set_keymap('i', '<s-tab>', '<c-p>', {noremap = true})
+
+	-- Editing
+	-- edit indents in visual without leaving visual
+	vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true})
+	vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true})
 
 	-- Escape
 	-- qq in insert

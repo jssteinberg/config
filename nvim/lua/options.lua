@@ -58,4 +58,4 @@ vim.bo.shiftwidth = 3 -- number of spaces for autoindent
 -- (n) recognize numbered lists
 -- (l) don't break long lines (does c still work?)
 -- (p) don't break lines on single space following period
-vim.bo.formatoptions = 'cqjnlp'
+vim.bo.formatoptions = 'jnpcql'

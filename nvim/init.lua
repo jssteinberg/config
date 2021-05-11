@@ -1,12 +1,19 @@
--- config vanilla nvim
+-- Vanilla nvim config
+
+-- Options
 require 'options'
-require 'keymaps'
-require 'statusline'
+-- Keymaps
+require 'set-keymaps'
+-- Netrw
 require 'netrw-config'
 
--- load plugins and plugins' config
+-- Plugins
+
+-- loading plugins and plugins' config after vanilla nvim config so it can
+-- overwrite vanilla config if necessary, but there's a default vanilla config
+-- in case plugins are changed
 require 'paq' -- plugins via paq
 -- require 'packer'
 
--- unrelease plugins
+-- WIP
 -- require 'buffers-window'

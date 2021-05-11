@@ -4,8 +4,15 @@ local paq = require 'paq-nvim'.paq -- import module and bind `paq` function
 
 paq{'savq/paq-nvim',opt=true}        -- let Paq manage itself
 paq{'nvim-lua/plenary.nvim'}         -- lua functions, used by: telescope, gitsigns...
+-- paq{'nvim-lua/popup.nvim'}           -- popup window functions. Used by telescope...
 paq{'editorconfig/editorconfig-vim'} -- auto respect editorconfig files
 paq{'mmozuras/vim-cursor'}           -- when open buffer, go to previous cursor position
+
+-- Whickkey to map keymappings
+paq{'folke/which-key.nvim'}
+local wk = require("which-key")
+wk.setup {}
+
 -- Surround & Repeat
 paq{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
 paq{'tpope/vim-repeat'}   -- repeat surround and more
@@ -49,21 +56,31 @@ require'diffview'.setup {
 vim.api.nvim_set_keymap('n', '<leader>gd', ':DiffviewOpen<cr>', {noremap = true})
 
 -- Fuzzy file search (fuzzy search more)
-paq{'nvim-lua/popup.nvim'}
-paq{'nvim-telescope/telescope.nvim'}
-local actions = require('telescope.actions')
-require('telescope').setup{
-	defaults = {
-		mappings = {
-			i = {
-				['qq'] = actions.close
-			}
-		}
-	}
-}
-vim.api.nvim_set_keymap('n', '<leader>ff',    '<cmd>Telescope find_files<cr>', {}) -- find file
-vim.api.nvim_set_keymap('n', '<leader>fs',    '<cmd>Telescope live_grep<cr>',  {}) -- find string
-vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>',    {}) -- change tab
+-- paq{'nvim-telescope/telescope.nvim'}
+-- local actions = require('telescope.actions')
+-- require('telescope').setup{
+-- 	defaults = {
+-- 		mappings = {
+-- 			i = {
+-- 				['qq'] = actions.close
+-- 			}
+-- 		}
+-- 	}
+-- }
+-- vim.api.nvim_set_keymap('n', '<leader>ff',    '<cmd>Telescope find_files<cr>', {}) -- find file
+-- vim.api.nvim_set_keymap('n', '<leader>fs',    '<cmd>Telescope live_grep<cr>',  {}) -- find string
+-- -- vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>',    {}) -- change tab
+-- local telescopeMappings = {
+-- 	["<leader>ff"] = {
+-- 		"<cmd>Telescope find_files<cr>",
+-- 		"Find File",
+-- 	},
+-- 	["<leader>fr"] = {
+-- 		"<cmd>Telescope oldfiles<cr>",
+-- 		"Open Recent File"
+-- 	},
+-- }
+-- wk.register(telescopeMappings)
 
 -- Treesitter
 paq{'nvim-treesitter/nvim-treesitter',run=':TSUpdate'}
