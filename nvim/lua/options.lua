@@ -27,7 +27,7 @@ vim.wo.relativenumber = true
 -- show signs for tabs, whitespace, etc.
 vim.wo.list = true
 -- always show signcolumn (used by different plugins)
-vim.wo.signcolumn = 'yes'
+-- vim.wo.signcolumn = 'yes'
 -- cursorline by default
 vim.wo.cursorline = true
 -- Wrap
