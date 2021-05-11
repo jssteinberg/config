@@ -1,1 +1,2 @@
-return "%m[%n]%f %=%y[%{&fileencoding}]%r%w[(%l/%L):%c]%<"
+local sep = ' -- '
+return " `:b%n` %m %f %=%y[%{&fileencoding}]%r%w%= (%l/%L):%c %=%<"
