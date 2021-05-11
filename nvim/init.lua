@@ -17,3 +17,5 @@ require 'paq' -- plugins via paq
 
 -- WIP
 -- require 'buffers-window'
+
+-- vim.cmd "highlight StatusEnd guifg=#000000 guibg=#ffffff"
