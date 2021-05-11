@@ -49,9 +49,8 @@ vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 -- vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}: ' .. require('statusline')
 -- fugitive
 paq 'tpope/vim-fugitive'
-vim.api.nvim_set_keymap('n', '<leader>gs', ':Git<cr>', {noremap = true})
 -- log
-paq 'junegunn/gv.vim'
+paq 'junegunn/gv.vim' -- requires vim-fugitive
 vim.api.nvim_set_keymap('n', '<leader>gl', ':GV<cr>', {noremap = true})
 -- diff view
 paq 'sindrets/diffview.nvim'
