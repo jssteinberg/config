@@ -7,6 +7,7 @@ paq{'nvim-lua/plenary.nvim'}         -- lua functions, used by: telescope, gitsi
 -- paq{'nvim-lua/popup.nvim'}           -- popup window functions. Used by telescope...
 paq{'editorconfig/editorconfig-vim'} -- auto respect editorconfig files
 paq{'mmozuras/vim-cursor'}           -- when open buffer, go to previous cursor position
+paq{'subnut/visualstar.vim'}         -- visual star `*` search, or `#` backwards
 
 -- Whickkey to map keymappings
 paq{'folke/which-key.nvim'}

@@ -91,8 +91,6 @@ function setKeymaps()
 	vim.api.nvim_set_keymap('n', '<leader>ot', ':terminal<cr>i', {noremap = true})
 
 	-- Search
-	-- visual star
-	vim.api.nvim_set_keymap('x', '*', 'y/<c-r><cr>', {noremap = true})
 	-- nohlsearch
 	vim.api.nvim_set_keymap('n', '<cr>', ':nohlsearch<cr>', {noremap = true})
 end
