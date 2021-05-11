@@ -27,6 +27,13 @@ vim.g.tokyonight_style = 'night'
 paq{'terrortylor/nvim-comment'} -- gcc, gc in visual mode, to (un)comment. Lua
 require('nvim_comment').setup({})
 
+-- Open URI /search in browser
+paq{'tyru/open-browser.vim'}
+vim.api.nvim_set_var('netrw_nogx', 1) -- disable netrw's gx mapping.
+vim.api.nvim_set_var('openbrowser_default_search', 'duckduckgo')
+vim.api.nvim_set_keymap('n', 'gx', '<Plug>(openbrowser-smart-search)', {})
+vim.api.nvim_set_keymap('v', 'gx', '<Plug>(openbrowser-smart-search)', {})
+
 -- Align text
 paq{'junegunn/vim-easy-align'}
 vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
