@@ -17,15 +17,19 @@ Neovim config requires version > 0.5 for Lua and uses paq for managing plugins.
 
 ---
 
-This neovim config tries to be as lightweight as possible, but as functional as needed for modern web development (I currently develop mostly using Svelte). Lua for config and plugins is used as far as possible unless certain functionality requires otherwise.
+This neovim config tries to be as lightweight as possible, but as functional as needed for modern web development (I currently develop mostly using Svelte).
+
+- Lua for config and plugins is used as far as possible unless certain functionality requires otherwise.
+- Native vim keymappings are utilized and built upon (not a new Mnemonic keymapping system), and avoid implementing to many mappings. Native commands for rare use cases are not mapped---learn native commands!
+- Plugins that extends and/or improve the vim way somehow---avoid plugins that tries to make vim resemble another, 'worse' editor.
 
 ### Plugins
 
-- Treesitter for syntax, auto pair and ... Install language specifics with `:TSInstall [...]`.
-- Colorscheme of the quarter that supports light and dark, `:set bg=[light/dark]`.
-- The usual surround using `S` and `.` repeat (non is better than tpope's plugins for now---Lua options are too buggy).
-- nvim-comments, written in lua for `gcc`, and `gc` in x-mode, comment toggle motion.
-- Telescope for fuzzy searching: `<leader>ff`, `<leader><tab>`, `<leader>fs`.
+- `:TSInstall [...]`---Treesitter for syntax, auto pair and ... Install language specifics with `:TSInstall [...]`.
+- `:set bg=[light/dark]`---Colorscheme of the quarter that supports light and dark, `:set bg=[light/dark]`.
+- `S` and `.` for the usual surround and improved repeat (tpope's plugins are still the best).
+- `gcc`, and `gc` in x-mode, for comment toggling through nvim-comments, written in lua.
+- Telescope for fuzzy searching: `<leader>ff`, `<leader>fs`.
 - Git plugins: Fugitive (`<leader>gs`), [gv.vim][gv] for log (`<leader>gl`), [Diffview](https://github.com/sindrets/diffview.nvim) (`<leader>gd`)
 - Easyalign for aligning in visual with `ga`.
 
