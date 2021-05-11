@@ -31,8 +31,8 @@ This neovim config tries to be as lightweight as possible, but as functional as 
 - `S` and `.` for the usual surround and improved repeat (tpope's plugins are still the best).
 - `gcc`, and `gc` in x-mode, for comment toggling through nvim-comments, written in lua.
 - `*`/`#` for searching visual text, by visualstar.vim.
-- Telescope for fuzzy searching: `<leader>ff`, `<leader>fs`.
 - Git plugins: Fugitive (`<leader>gs`), [gv.vim][gv] for log (`<leader>gl`), [Diffview](https://github.com/sindrets/diffview.nvim) (`<leader>gd`)
 - Easyalign for aligning in visual with `ga`.
+- (Commented out---I don't need it enough to justify) Telescope for fuzzy searching: `<leader>ff`, `<leader>fs`.
 
 [gv]: https://github.com/junegunn/gv.vim
