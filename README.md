@@ -11,7 +11,7 @@ Install:
 
 ## Neovim
 
-Requires neovim v. > 0.5, [paq](https://github.com/savq/paq-nvim)...
+Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim) (though there is a file for plugins through [paq](https://github.com/savq/paq-nvim) as well)...
 
 ---
 
