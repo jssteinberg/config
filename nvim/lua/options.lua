@@ -22,6 +22,8 @@ vim.o.gdefault = true
 
 -- Window-local options
 
+-- show line numbers
+vim.wo.number = true
 -- show column with relativenumbers---eases line jumping
 vim.wo.relativenumber = true
 -- show signs for tabs, whitespace, etc.
