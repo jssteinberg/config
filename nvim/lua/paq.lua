@@ -20,6 +20,7 @@ paq{'tpope/vim-repeat'}   -- repeat surround and more
 
 -- Colorscheme(s)
 paq{'folke/tokyonight.nvim'}
+-- vim.g.tokyonight_colors = { comment = "green" }
 vim.cmd[[colorscheme tokyonight]]
 vim.g.tokyonight_style = 'night'
 
