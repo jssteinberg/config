@@ -48,7 +48,7 @@ vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 -- paq 'lewis6991/gitsigns.nvim'
 -- require('gitsigns').setup({})
 -- vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}: ' .. require('statusline')
--- fugitive
+-- fugitive.vim
 paq 'tpope/vim-fugitive'
 -- log
 paq 'junegunn/gv.vim' -- requires vim-fugitive
