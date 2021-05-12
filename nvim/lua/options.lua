@@ -51,7 +51,7 @@ vim.bo.copyindent = true
 vim.bo.undofile = true
 -- no swapfiles when persistent undo and no multiuser system
 vim.bo.swapfile = false
--- Tabs win
+-- Indentation
 -- tabs -- noexpandtab is default
 vim.bo.tabstop = 3 -- number of spaces for tab char
 vim.bo.shiftwidth = 3 -- number of spaces for autoindent
