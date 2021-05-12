@@ -124,33 +124,6 @@ vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
--- Fuzzy file search (fuzzy search more)
--- paq{'nvim-telescope/telescope.nvim'}
--- local actions = require('telescope.actions')
--- require('telescope').setup{
--- 	defaults = {
--- 		mappings = {
--- 			i = {
--- 				['qq'] = actions.close
--- 			}
--- 		}
--- 	}
--- }
--- vim.api.nvim_set_keymap('n', '<leader>ff',    '<cmd>Telescope find_files<cr>', {}) -- find file
--- vim.api.nvim_set_keymap('n', '<leader>fs',    '<cmd>Telescope live_grep<cr>',  {}) -- find string
--- -- vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>',    {}) -- change tab
--- local telescopeMappings = {
--- 	["<leader>ff"] = {
--- 		"<cmd>Telescope find_files<cr>",
--- 		"Find File",
--- 	},
--- 	["<leader>fr"] = {
--- 		"<cmd>Telescope oldfiles<cr>",
--- 		"Open Recent File"
--- 	},
--- }
--- wk.register(telescopeMappings)
-
 -- Treesitter
 paq{'nvim-treesitter/nvim-treesitter',run=':TSUpdate'}
 local ts = require 'nvim-treesitter.configs'
@@ -177,3 +150,30 @@ npairs.setup({
 require('nvim-treesitter.configs').setup {
 	autopairs = {enable = true}
 }
+
+-- Fuzzy file search (fuzzy search more)
+-- paq{'nvim-telescope/telescope.nvim'}
+-- local actions = require('telescope.actions')
+-- require('telescope').setup{
+-- 	defaults = {
+-- 		mappings = {
+-- 			i = {
+-- 				['qq'] = actions.close
+-- 			}
+-- 		}
+-- 	}
+-- }
+-- vim.api.nvim_set_keymap('n', '<leader>ff',    '<cmd>Telescope find_files<cr>', {}) -- find file
+-- vim.api.nvim_set_keymap('n', '<leader>fs',    '<cmd>Telescope live_grep<cr>',  {}) -- find string
+-- -- vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>',    {}) -- change tab
+-- local telescopeMappings = {
+-- 	["<leader>ff"] = {
+-- 		"<cmd>Telescope find_files<cr>",
+-- 		"Find File",
+-- 	},
+-- 	["<leader>fr"] = {
+-- 		"<cmd>Telescope oldfiles<cr>",
+-- 		"Open Recent File"
+-- 	},
+-- }
+-- wk.register(telescopeMappings)
