@@ -50,11 +50,6 @@ function setKeymaps()
 	vim.api.nvim_set_keymap('n', '<down>', '<c-w>j', {noremap = true})
 	vim.api.nvim_set_keymap('n', '<left>', '<c-w>h', {noremap = true})
 
-	-- Completion
-	-- tab for buffer completion
-	vim.api.nvim_set_keymap('i', '<tab>', '<c-n>', {noremap = true})
-	vim.api.nvim_set_keymap('i', '<s-tab>', '<c-p>', {noremap = true})
-
 	-- Editing
 	-- edit indents in visual without leaving visual
 	vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true})
