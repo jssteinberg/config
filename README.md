@@ -11,28 +11,32 @@ Install:
 
 ## Neovim
 
-Install: neovim v. > 0.5, [paq](https://github.com/savq/paq-nvim), ripgrep...
-
-Neovim config requires version > 0.5 for Lua and uses paq for managing plugins.
+Requires neovim v. > 0.5, [paq](https://github.com/savq/paq-nvim)...
 
 ---
 
-This neovim config tries to be as lightweight as possible, but as functional as needed for modern web development (I currently develop mostly using Svelte).
+This neovim config tries to be as functional as needed for modern web development (I currently develop mostly using Svelte), but as lightweight and 'vim way' as possible.
 
-- Lua for config and plugins is used as far as possible unless certain functionality requires otherwise.
-- Native vim keymappings are utilized and built upon (not a new Mnemonic keymapping system), and avoid implementing to many mappings. Native commands for rare use cases are not mapped---learn native commands!
-- Plugins that extends and/or improve the vim way somehow---avoid plugins that tries to make vim resemble another, 'worse' editor.
-- Generally avoid bloat. No statusline plugin (what n00bs needs to see the mode their in?)...
+Philosophy:
+
+- **Light**. Utilize the terminal together with vim, unless certain functionality is more practical to add to vim. Generally avoid bloat. Avoid plugins that replaces what vim already does, or that does unnecessary things (there's no statusline plugin).
+- **Lua** for config and plugins is used as far as possible unless certain functionality requires otherwise.
+- **Vim** default keymappings, commands and 'the vim way' are utilized and built upon. Not a new Mnemonic keymapping system for instance---avoid implementing to many mappings. Commands for rarer use cases don't need to be mapped (native commands are good to know). Prioritize plugins that extends, improve and/or ease learning the vim way somehow. Avoid plugins that tries to make vim resemble another 'worse' editor.
 
 ### Plugins
 
 - `:TSInstall [...]`---Treesitter for syntax, auto pair and ... Install language specifics with `:TSInstall [...]`.
-- `:set bg=[light/dark]`---Colorscheme of the quarter that supports light and dark, `:set bg=[light/dark]`.
-- `S` and `.` for the usual surround and improved repeat (tpope's plugins are still the best).
+- `:set bg=[light/dark]`---Colorscheme of the year that supports light and dark mode.
+- `S` and `.` for surround and improved repeat (tpope's plugins are still the best).
 - `gcc`, and `gc` in x-mode, for comment toggling through nvim-comments, written in lua.
 - `*`/`#` for searching visual text, by visualstar.vim.
-- Git plugins: Fugitive (`<leader>gs`), [gv.vim][gv] for log (`<leader>gl`), [Diffview](https://github.com/sindrets/diffview.nvim) (`<leader>gd`)
-- Easyalign for aligning in visual with `ga`.
-- (Commented out---I don't need it enough to justify) Telescope for fuzzy searching: `<leader>ff`, `<leader>fs`.
+- `:G` for git status, `<leader>gl` for git log, `<leader>gd` for git diff, through plugins fugitive.vim, [gv.vim][gl] and [Diffview][gd].
+- `gx` to open URI or searching visual, through open-browser.vim.
+- `ga` for aligning text in normal and visual mode, through Easyalign.
 
-[gv]: https://github.com/junegunn/gv.vim
+Other:
+
+- Telescope isn't needed enough to be added (it's commented out). Keymaps used to be `<leader>ff`, `<leader>fs`. Use netrw and wildcards for opening files; `vimgrep search-string *` or ag in terminal.
+
+[gl]: https://github.com/junegunn/gv.vim
+[gd]: https://github.com/sindrets/diffview.nvim
