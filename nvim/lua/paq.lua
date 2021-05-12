@@ -8,6 +8,7 @@ paq{'savq/paq-nvim',opt=true}        -- let Paq manage itself
 paq{'editorconfig/editorconfig-vim'} -- auto respect editorconfig files
 paq{'mmozuras/vim-cursor'}           -- when open buffer, go to previous cursor position
 paq{'subnut/visualstar.vim'}         -- visual star `*` search, or `#` backwards
+-- paq{'yamatsum/nvim-cursorline'}      -- highlight word under cursor
 
 -- Whickkey to map keymappings
 paq{'folke/which-key.nvim'}
