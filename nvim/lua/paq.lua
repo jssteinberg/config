@@ -41,15 +41,7 @@ paq{'junegunn/vim-easy-align'}
 vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
--- Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
--- let g:undotree_SetFocusWhenToggle=1
--- nn <silent> <leader>fu :UndotreeToggle<CR>
-
 -- Git
--- paq 'lewis6991/gitsigns.nvim'
--- require('gitsigns').setup({})
--- vim.o.statusline = ' ↯%{get(b:,"gitsigns_head","")} %{get(b:,"gitsigns_status","")}: ' .. require('statusline')
--- fugitive.vim
 paq 'tpope/vim-fugitive'
 -- log
 paq 'junegunn/gv.vim' -- requires vim-fugitive
