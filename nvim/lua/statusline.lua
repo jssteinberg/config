@@ -1,2 +1,2 @@
 local sep = '--'
-return ' `:b%n` %m%f %#LineNr# %y[%{&fileencoding}]%r%w ' .. sep .. ' (%l/%L):%c %<%='
+return sep .. ' `:b%n` %f%m %#LineNr# %y[%{&fileencoding}]%r%w ' .. sep .. ' (%l/%L):%c %<%='
