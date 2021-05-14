@@ -15,7 +15,7 @@ local normalModeMaps = {
 		name = "+buffer"
 	},
 	["<leader>bl"] = {
-		"<cmd>buffers<cr><cmd>buffer ",
+		"<cmd>buffers<cr><cmd>b",
 		"List Buffers & Buffer...",
 	},
 
@@ -34,7 +34,7 @@ function setKeymaps()
 
 	-- Buffers, windows and tabs
 	-- list buffers, open with buffer number
-	vim.api.nvim_set_keymap('n', '<leader>bl', ':buffers<cr>:buffer ', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<leader>bl', ':buffers<cr>:b', {noremap = true})
 	vim.api.nvim_set_keymap('n', '<leader><tab>', ':buffers<cr>:buffer **/', {noremap = true}) -- (or use: ':call feedkeys(':b<space>**/*', 't')<cr>')
 	-- tab for every buffer
 	vim.api.nvim_set_keymap('n', '<leader>bt', ':tab sball<cr>', {noremap = true})
