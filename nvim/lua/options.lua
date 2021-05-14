@@ -13,6 +13,8 @@ vim.o.ignorecase = true
 vim.o.listchars = vim.o.listchars .. ',tab:│ '
 -- lazyredraw for performance
 vim.o.lazyredraw = true
+-- Vertical split right
+vim.o.splitright = true
 -- Search & substitute
 -- smartcase when searching
 vim.o.smartcase = true
