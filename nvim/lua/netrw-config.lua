@@ -1,25 +1,40 @@
+local nvim_utils = require('utils')
+
 -- Options
 -- No help banner
 vim.api.nvim_set_var('netrw_banner', 0)
 -- Change the copy command. Mostly to enable recursive copy of directories.
 vim.api.nvim_set_var('netrw_localcopydircmd', 'cp -r')
--- Change the size of the Netrw window when it creates a split. I think 30% is fine.
-vim.api.nvim_set_var('netrw_winsize', 30)
+-- Set the size in % of the Netrw window when it creates a split.
+vim.api.nvim_set_var('netrw_winsize', 25) -- %
+-- Preview in vertical split
+vim.api.nvim_set_var('netrw_preview', 1)
 
 -- Keymaps
+vim.api.nvim_set_keymap('n', '<leader>fe', ':edit .<cr>', {noremap = true})
 -- Open current buffer's folder (make this to command :e% ?)
-vim.api.nvim_set_keymap('n', '<leader>f%', ':e %:p:h<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>f5', ':e %:p:h<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>f%', ':edit %:p:h<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>f5', ':edit %:p:h<cr>', {noremap = true})
 -- Open as file tree
-vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>vsplit .<cr><cmd>wincmd H<cr><cmd>vertical resize 30<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>Lexplore .<cr><cmd>vertical resize 30<cr>', {noremap = true})
 
 -- Kyemaps in netrw
-function keymaps_within_netrw()
+function netrw_buffer_keymaps()
+	-- Move up one directory level
 	vim.api.nvim_buf_set_keymap(0, 'n', 'h', '-^', {})
+	-- Open file or directory
+	vim.api.nvim_buf_set_keymap(0, 'n', 'l', '<cr>', {})
+end
+
+function set_previewwindow()
+	if vim.api.nvim_get_option_info('filetype') ~= 'netrw' then
+		vim.wo.previewwindow = true
+	end
 end
 
 -- Auto commands
-local autocmds = {
-	{'filetype', 'netrw', [[lua keymaps_within_netrw()]]},
-}
-require('utils').create_augroup(autocmds, 'netrw')
+nvim_utils.create_augroup({
+	-- Set keymaps for netrw buffer
+	{'filetype', 'netrw', [[lua netrw_buffer_keymaps()]]},
+	-- {'BufEnter', '*', [[lua set_previewwindow()]]},
+}, 'netrw')
