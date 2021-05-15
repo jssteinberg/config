@@ -33,10 +33,8 @@ Philosophy:
 - `:G` for git status, `<leader>gl` for git log, `<leader>gd` for git diff, through plugins fugitive.vim, [gv.vim][gl] and [Diffview][gd].
 - `gx` to open URI or searching visual, through open-browser.vim.
 - `ga` for aligning text in normal and visual mode, through Easyalign.
+- `<leader>ff`---find files; `<leader>fr`--find recent (files) through Telescope. (Or disable and use netrw and wildcards for opening files; `vimgrep search-string *` or ag in terminal).
 
-Other:
-
-- Telescope isn't needed enough to be added (it's commented out). Keymaps used to be `<leader>ff`, `<leader>fs`. Use netrw and wildcards for opening files; `vimgrep search-string *` or ag in terminal.
 
 [gl]: https://github.com/junegunn/gv.vim
 [gd]: https://github.com/sindrets/diffview.nvim
