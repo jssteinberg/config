@@ -5,8 +5,6 @@ require('packer').startup(function(use)
 	-- No config plugins
 	use{'editorconfig/editorconfig-vim'} -- auto respect editorconfig files
 	use{'subnut/visualstar.vim'}         -- visual star `*` search, or `#` backwards
-
-	-- Load on BufEnter
 	use{'tpope/vim-surround', event = 'BufEnter'}  -- surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat', event = 'BufEnter'}    -- repeat surround and more
 	use{'mmozuras/vim-cursor', event = 'BufEnter'} -- when open buffer, go to previous cursor position
@@ -15,19 +13,6 @@ require('packer').startup(function(use)
 	use{'folke/which-key.nvim'}
 	local wk = require("which-key")
 	wk.setup({})
-
-	-- Treesitter for syntax
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		event = 'BufEnter',
-		run = ':TSUpdate',
-		config = function()
-			require('nvim-treesitter.configs').setup{
-				ensure_installed = 'maintained',
-				highlight = {enable = true},
-			}
-		end
-	}
 
 	-- Colorscheme(s)
 	use{'folke/tokyonight.nvim'}
@@ -67,35 +52,6 @@ require('packer').startup(function(use)
 	}
 	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
-
-	-- Git
-	-- fugitive
-	use{'tpope/vim-fugitive'}
-	-- git log
-	use{
-		'junegunn/gv.vim',
-		cmd = {'GV'},
-		requires = {
-			{'tpope/vim-fugitive'},
-		}
-	}
-	vim.api.nvim_set_keymap('n', '<leader>gl', ':GV<cr>', {noremap = true})
-	-- diff view
-	use{
-		'sindrets/diffview.nvim',
-		cmd = {'DiffviewOpen'},
-		config = function()
-			local cb = require'diffview.config'.diffview_callback
-			require'diffview'.setup {
-				file_panel = {
-					use_icons = false
-				}
-			}
-		end
-	}
-	vim.api.nvim_set_keymap('n', '<leader>gd', ':DiffviewOpen<cr>', {noremap = true})
-	-- git blame
-	use{'f-person/git-blame.nvim', event = 'BufEnter'}
 
  	-- Auto completion
 	use{
@@ -258,6 +214,7 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
 	vim.api.nvim_set_keymap('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>',  {})
 	vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>',    {}) -- change tab
+
 	local telescope_mappings = {
 		["<leader>ff"] = {
 			"<cmd>Telescope find_files<cr>",
@@ -268,6 +225,7 @@ require('packer').startup(function(use)
 			"Open Recent File"
 		}
 	}
+
 	wk.register(telescope_mappings)
 
 end)
