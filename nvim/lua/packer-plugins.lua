@@ -172,7 +172,68 @@ require('packer').startup(function(use)
 		end
 	}
 
+	-- TREESITTER
+
+	-- Treesitter for syntax, indentation and formatting
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		event = 'BufEnter',
+		run = ':TSUpdate',
+		config = function()
+			require('nvim-treesitter.configs').setup{
+				ensure_installed = 'maintained',
+				highlight = {enable = true},
+			}
+		end
+	}
+
+	-- Auto match pairs
+	use{
+		'steelsojka/pears.nvim',
+		event = 'InsertEnter',
+		config = function()
+			require 'pears'.setup()
+			vim.api.nvim_set_keymap('i', '<c-l>', require('pears').expand(), {noremap = true, silent = true})
+		end
+	}
+
+	-- GIT
+
+	-- fugitive
+	use{'tpope/vim-fugitive'}
+
+	-- git log
+	use{
+		'junegunn/gv.vim',
+		cmd = {'GV'},
+		requires = {
+			{'tpope/vim-fugitive'},
+		}
+	}
+	vim.api.nvim_set_keymap('n', '<leader>gl', ':GV<cr>', {noremap = true})
+
+	-- diff view
+	use{
+		'sindrets/diffview.nvim',
+		cmd = {'DiffviewOpen'},
+		config = function()
+			local cb = require'diffview.config'.diffview_callback
+			require'diffview'.setup {
+				file_panel = {
+					use_icons = false
+				}
+			}
+		end
+	}
+	vim.api.nvim_set_keymap('n', '<leader>gd', ':DiffviewOpen<cr>', {noremap = true})
+
+	-- git blame
+	use{'f-person/git-blame.nvim', event = 'BufEnter'}
+
+	-- SEARCHING
+
 	-- Telescope for fuzzy fast finding
+
 	use{
 		'nvim-telescope/telescope.nvim',
 		cmd = 'Telescope',
