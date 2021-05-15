@@ -5,9 +5,9 @@ require('packer').startup(function(use)
 	-- No config plugins
 	use{'editorconfig/editorconfig-vim'} -- auto respect editorconfig files
 	use{'subnut/visualstar.vim'}         -- visual star `*` search, or `#` backwards
-	use{'tpope/vim-surround', event = 'BufEnter'}  -- surround stuff with stuff (org. tpope/vim-surround)
-	use{'tpope/vim-repeat', event = 'BufEnter'}    -- repeat surround and more
-	use{'mmozuras/vim-cursor', event = 'BufEnter'} -- when open buffer, go to previous cursor position
+	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
+	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
+	use{'mmozuras/vim-cursor', event = 'BufRead'} -- when open buffer, go to previous cursor position
 
 	-- Whickkey to map keymappings
 	use{'folke/which-key.nvim'}
@@ -34,7 +34,7 @@ require('packer').startup(function(use)
 		'tyru/open-browser.vim',
 		-- cmd = {'<Plug>(openbrowser-smart-search)'}, -- gives invalid command name on PackerCompile...
 		-- keys = { {'n','gx'}, {'v','gx'} },
-		event = 'BufEnter',
+		event = 'BufRead',
 		config = function()
 			vim.api.nvim_set_var('netrw_nogx', 1) -- disable netrw's gx mapping.
 			vim.api.nvim_set_var('openbrowser_default_search', 'duckduckgo')
@@ -48,7 +48,7 @@ require('packer').startup(function(use)
 		'junegunn/vim-easy-align',
 		-- cmd = {'<Plug>(EasyAlign)'} -- gives invalid command name on PackerCompile...
 		-- keys = {{'n','ga'}, {'x', 'ga'},}
-		event = 'BufEnter',
+		event = 'BufRead',
 	}
 	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
@@ -56,7 +56,7 @@ require('packer').startup(function(use)
  	-- Auto completion
 	use{
 		'hrsh7th/nvim-compe',
-		event = 'InsertEnter',
+		event = 'BufRead',
 		config = function()
 			vim.o.completeopt = "menuone,noselect"
 			require'compe'.setup {
@@ -133,7 +133,7 @@ require('packer').startup(function(use)
 	-- Treesitter for syntax, indentation and formatting
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		event = 'BufEnter',
+		event = 'BufRead',
 		run = ':TSUpdate',
 		config = function()
 			require('nvim-treesitter.configs').setup{
@@ -148,8 +148,27 @@ require('packer').startup(function(use)
 		'steelsojka/pears.nvim',
 		event = 'InsertEnter',
 		config = function()
-			require 'pears'.setup()
-			vim.api.nvim_set_keymap('i', '<c-l>', require('pears').expand(), {noremap = true, silent = true})
+			local pears = require 'pears'
+
+			pears.setup(function(conf)
+				conf.preset 'tag_matching'
+			end)
+
+			-- Keymap to close tag
+			vim.api.nvim_set_keymap('i', '<c-l>', pears.expand(), {
+				noremap = true, silent = true
+			})
+
+			-- Work with compe. on_enter option adds custom behavior on enter
+			pears.setup(function(conf)
+				conf.on_enter(function(pears_handle)
+					if vim.fn.pumvisible() == 1 and vim.fn.complete_info().selected ~= -1 then
+						return vim.fn["compe#confirm"]("<CR>")
+					else
+						pears_handle()
+					end
+				end)
+			end)
 		end
 	}
 
@@ -184,7 +203,7 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('n', '<leader>gd', ':DiffviewOpen<cr>', {noremap = true})
 
 	-- git blame
-	use{'f-person/git-blame.nvim', event = 'BufEnter'}
+	use{'f-person/git-blame.nvim', event = 'BufRead'}
 
 	-- SEARCHING
 
