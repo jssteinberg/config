@@ -2,32 +2,23 @@ require('packer').startup(function(use)
 	-- Let Packer manage itself
 	use 'wbthomason/packer.nvim'
 
-	-- No config plugins
-	use{'editorconfig/editorconfig-vim'} -- auto respect editorconfig files
-	use{'subnut/visualstar.vim'}         -- visual star `*` search, or `#` backwards
-	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
-	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
-	use{'mmozuras/vim-cursor', event = 'BufRead'} -- when open buffer, go to previous cursor position
+	-- GENERAL
 
-	-- Whickkey to map keymappings
+	-- Auto respect editorconfig files
+	use{'editorconfig/editorconfig-vim'}
+
+	-- Go to prev cursor position for buffers
+	use{'mmozuras/vim-cursor', event = 'BufRead'}
+
+	-- Show keymaps on delay
 	use{'folke/which-key.nvim'}
 	local wk = require("which-key")
 	wk.setup({})
 
-	-- Colorscheme(s)
+	-- Colorscheme Tokyonights. Dark/light. Supports Treesitter. (Includes config for Alacritty)
 	use{'folke/tokyonight.nvim'}
 	vim.cmd[[colorscheme tokyonight]]
 	vim.api.nvim_set_var('tokyonight_style', 'night')
-
-	-- Comments
-	-- gcc, gc in visual mode, to (un)comment. Lua
-	use{
-		'terrortylor/nvim-comment',
-		keys = {{'n','gcc'}, {'x','gc'},},
-		config = function()
-			require('nvim_comment').setup({})
-		end
-	}
 
 	-- Open URI /search in browser
 	use{
@@ -42,6 +33,21 @@ require('packer').startup(function(use)
 	}
 	vim.api.nvim_set_keymap('n', 'gx', '<Plug>(openbrowser-smart-search)', {})
 	vim.api.nvim_set_keymap('v', 'gx', '<Plug>(openbrowser-smart-search)', {})
+
+	-- EDITING AND TREESITTER
+
+	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
+	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
+
+	-- Toggle comments
+	-- gcc, gc in visual mode, to (un)comment. Lua
+	use{
+		'terrortylor/nvim-comment',
+		keys = {{'n','gcc'}, {'x','gc'},},
+		config = function()
+			require('nvim_comment').setup({})
+		end
+	}
 
 	-- Align text
 	use{
@@ -128,8 +134,6 @@ require('packer').startup(function(use)
 		end
 	}
 
-	-- TREESITTER
-
 	-- Treesitter for syntax, indentation and formatting
 	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -143,7 +147,7 @@ require('packer').startup(function(use)
 		end
 	}
 
-	-- Auto match pairs
+	-- Auto match pairs (uses Treesitter)
 	use{
 		'steelsojka/pears.nvim',
 		event = 'InsertEnter',
@@ -171,6 +175,27 @@ require('packer').startup(function(use)
 			end)
 		end
 	}
+
+	-- Support for different lang in a single file (single page components)
+	-- Pug 'Shougo/context_filetype.vim'
+	--
+	-- if !exists('g:context_filetype#same_filetypes')
+	--   let g:context_filetype#filetypes = {}
+	-- endif
+	--
+	-- " Svelte lang syntax config
+	-- let g:context_filetype#filetypes.svelte =
+	-- \ [
+	-- \   {'filetype' : 'javascript', 'start' : '<script>', 'end' : '</script>'},
+	-- \   {
+	-- \     'filetype': 'typescript',
+	-- \     'start': '<script\%( [^>]*\)\? \%(ts\|lang="\%(ts\|typescript\)"\)\%( [^>]*\)\?>',
+	-- \     'end': '',
+	-- \   },
+	-- \   {'filetype' : 'css', 'start' : '<style \?.*>', 'end' : '</style>'},
+	-- \ ]
+	--
+	-- let g:ft = ''
 
 	-- GIT
 
@@ -207,7 +232,9 @@ require('packer').startup(function(use)
 
 	-- SEARCHING
 
-	-- Telescope for fuzzy fast finding
+	use{'subnut/visualstar.vim'}         -- visual star `*` search, or `#` backwards
+
+	-- Telescope for fuzzy searching
 
 	use{
 		'nvim-telescope/telescope.nvim',
