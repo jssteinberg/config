@@ -8,10 +8,8 @@ require 'set-keymaps'
 require 'netrw-config'
 
 -- Plugins
+-- loading plugins and plugins' config after vanilla config so it can overwrite if necessary
 
--- loading plugins and plugins' config after vanilla nvim config so it can
--- overwrite vanilla config if necessary, but there's a default vanilla config
--- in case plugins are changed
 -- require 'paq-plugins' -- plugins via paq
 require 'packer-plugins'
 

@@ -83,14 +83,14 @@ setopt share_history    # share command history data
 
 # Term in app mode when zle (only then values from $terminfo are valid):
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-  function zle-line-init() {
-    echoti smkx
-  }
-  function zle-line-finish() {
-    echoti rmkx
-  }
-  zle -N zle-line-init
-  zle -N zle-line-finish
+	function zle-line-init() {
+		echoti smkx
+	}
+	function zle-line-finish() {
+		echoti rmkx
+	}
+	zle -N zle-line-init
+	zle -N zle-line-finish
 fi
 
 # Promt
@@ -99,20 +99,20 @@ PROMPT='
 %{%F{green}%}%9c$(parse_git_branch)
 %{%F{blue}%}%# %{%F{none}%}'
 parse_git_branch() {
-    git_status="$(git status 2> /dev/null)"
-    pattern="On branch ([^[:space:]]*)"
-    if [[ ! ${git_status} =~ "(working (tree|directory) clean)" ]]; then
-        state="*"
-    fi
-    if [[ ${git_status} =~ ${pattern} ]]; then
-      branch=${match[1]}
-      branch_cut=${branch:0:35}
-      if (( ${#branch} > ${#branch_cut} )); then
-          echo " (${branch_cut}…${state})"
-      else
-          echo " (${branch}${state})"
-      fi
-    fi
+	git_status="$(git status 2> /dev/null)"
+	pattern="On branch ([^[:space:]]*)"
+	if [[ ! ${git_status} =~ "(working (tree|directory) clean)" ]]; then
+		state="*"
+	fi
+	if [[ ${git_status} =~ ${pattern} ]]; then
+		branch=${match[1]}
+		branch_cut=${branch:0:35}
+		if (( ${#branch} > ${#branch_cut} )); then
+			echo " (${branch_cut}…${state})"
+		else
+			echo " (${branch}${state})"
+		fi
+	fi
 }
 
 # (Neo)vim

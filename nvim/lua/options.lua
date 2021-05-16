@@ -1,10 +1,12 @@
+local nvim_utils = require('utils')
+
 -- Global options
 
 vim.o.statusline = require 'statusline'
 -- enable mouse for all modes
 vim.o.mouse = 'a'
 -- use OS clipboard
-vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'
+vim.o.clipboard = 'unnamedplus'
 -- allow hiding unsaved buffers
 vim.o.hidden = true
 -- generally ignore case
@@ -13,8 +15,6 @@ vim.o.ignorecase = true
 vim.o.listchars = vim.o.listchars .. ',tab:│ '
 -- lazyredraw for performance
 vim.o.lazyredraw = true
--- Vertical split right
-vim.o.splitright = true
 -- Search & substitute
 -- smartcase when searching
 vim.o.smartcase = true
@@ -65,3 +65,12 @@ vim.bo.shiftwidth = 3 -- number of spaces for autoindent
 -- (l) don't break long lines (does c still work?)
 -- (p) don't break lines on single space following period
 vim.bo.formatoptions = 'jnpcql'
+
+
+-- Auto commands
+
+-- help
+nvim_utils.create_augroup({
+	-- open help files vertically
+	{'FileType', 'help', 'wincmd H'},
+}, 'help')

@@ -45,7 +45,9 @@ require('packer').startup(function(use)
 		'terrortylor/nvim-comment',
 		keys = {{'n','gcc'}, {'x','gc'},},
 		config = function()
-			require('nvim_comment').setup({})
+			require('nvim_comment').setup({
+				comment_empty = false,
+			})
 		end
 	}
 
@@ -175,27 +177,6 @@ require('packer').startup(function(use)
 			end)
 		end
 	}
-
-	-- Support for different lang in a single file (single page components)
-	-- Pug 'Shougo/context_filetype.vim'
-	--
-	-- if !exists('g:context_filetype#same_filetypes')
-	--   let g:context_filetype#filetypes = {}
-	-- endif
-	--
-	-- " Svelte lang syntax config
-	-- let g:context_filetype#filetypes.svelte =
-	-- \ [
-	-- \   {'filetype' : 'javascript', 'start' : '<script>', 'end' : '</script>'},
-	-- \   {
-	-- \     'filetype': 'typescript',
-	-- \     'start': '<script\%( [^>]*\)\? \%(ts\|lang="\%(ts\|typescript\)"\)\%( [^>]*\)\?>',
-	-- \     'end': '',
-	-- \   },
-	-- \   {'filetype' : 'css', 'start' : '<style \?.*>', 'end' : '</style>'},
-	-- \ ]
-	--
-	-- let g:ft = ''
 
 	-- GIT
 

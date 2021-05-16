@@ -26,15 +26,8 @@ function netrw_buffer_keymaps()
 	vim.api.nvim_buf_set_keymap(0, 'n', 'l', '<cr>', {})
 end
 
-function set_previewwindow()
-	if vim.api.nvim_get_option_info('filetype') ~= 'netrw' then
-		vim.wo.previewwindow = true
-	end
-end
-
 -- Auto commands
 nvim_utils.create_augroup({
 	-- Set keymaps for netrw buffer
-	{'filetype', 'netrw', [[lua netrw_buffer_keymaps()]]},
-	-- {'BufEnter', '*', [[lua set_previewwindow()]]},
+	{'FileType', 'netrw', [[lua netrw_buffer_keymaps()]]},
 }, 'netrw')
