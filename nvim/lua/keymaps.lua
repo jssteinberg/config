@@ -62,6 +62,8 @@ function setKeymaps()
 	vim.api.nvim_set_keymap('x', 'qq', '<esc>', {noremap = true})
 	 -- qq in terminal
 	vim.api.nvim_set_keymap('t', 'qq', '<c-\\><c-n>', {noremap = true})
+	-- ZZ for escape and write in insert mode
+	vim.api.nvim_set_keymap('i', 'ZZ', '<esc>:write<cr>', {noremap = true})
 
 	-- Git
 	-- status
