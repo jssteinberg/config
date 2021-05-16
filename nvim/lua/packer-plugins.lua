@@ -63,7 +63,7 @@ require('packer').startup(function(use)
 
 	-- Auto completion
 
-	-- snippet engine
+	-- vim-vsnip
 	use{
 		'hrsh7th/vim-vsnip',
 		requies = {'hrsh7th/vim-vsnip-integ'},
