@@ -61,26 +61,22 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
- 	-- Auto completion
+	-- Auto completion
+
+	-- snippet engine
+	use{
+		'hrsh7th/vim-vsnip',
+		requies = {'hrsh7th/vim-vsnip-integ'},
+	}
+
+	-- nvim-compe
 	use{
 		'hrsh7th/nvim-compe',
 		event = 'BufRead',
 		config = function()
 			vim.o.completeopt = "menuone,noselect"
-			require'compe'.setup {
-				enabled = true;
-				autocomplete = true;
-				debug = false;
-				min_length = 1;
-				preselect = 'enable';
-				throttle_time = 80;
-				source_timeout = 200;
-				incomplete_delay = 400;
-				max_abbr_width = 100;
-				max_kind_width = 100;
-				max_menu_width = 100;
-				documentation = true;
 
+			require'compe'.setup {
 				source = {
 					path = true;
 					buffer = true;
@@ -95,6 +91,7 @@ require('packer').startup(function(use)
 			local t = function(str)
 				return vim.api.nvim_replace_termcodes(str, true, true, true)
 			end
+
 			local check_back_space = function()
 				local col = vim.fn.col('.') - 1
 				if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
@@ -104,9 +101,7 @@ require('packer').startup(function(use)
 				end
 			end
 
-			-- Use (s-)tab to:
-			--- move to prev/next item in completion menuone
-			--- jump to prev/next snippet's placeholder
+			-- functions for using (s-)tab
 			_G.tab_complete = function()
 				if vim.fn.pumvisible() == 1 then
 					return t "<C-n>"
