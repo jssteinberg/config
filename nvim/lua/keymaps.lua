@@ -27,10 +27,14 @@ local normalModeMaps = {
 		"Find File Wild",
 	},
 }
+-- set_keymaps(normalModeMaps)
 
 function setKeymaps()
 	-- jump to definition (default stinks on various keyboard layouts)
 	map('n', '<c-]>', '<leader>l', {noremap = true})
+
+	-- edit config
+	map('n', '<cmd>tabedit ~/.config | tcd ~/.config<cr>', '<leader>fed', {noremap = true})
 
 	-- Buffers, windows and tabs
 	-- list buffers, open with buffer number
