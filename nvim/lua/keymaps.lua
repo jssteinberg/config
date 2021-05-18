@@ -55,13 +55,15 @@ function setKeymaps()
 	vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true})
 	vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true})
 
-	-- Escape
+	-- Escape (qq, ZZ)
 	-- qq in insert
 	vim.api.nvim_set_keymap('i', 'qq', '<esc>', {noremap = true})
 	-- qq in visual (x)
 	vim.api.nvim_set_keymap('x', 'qq', '<esc>', {noremap = true})
 	 -- qq in terminal
 	vim.api.nvim_set_keymap('t', 'qq', '<c-\\><c-n>', {noremap = true})
+	 -- qq in normal for bwipeout
+	vim.api.nvim_set_keymap('n', 'qq', '<cmd>bw<cr>', {noremap = true})
 	-- ZZ for escape and write in insert mode
 	vim.api.nvim_set_keymap('i', 'ZZ', '<esc>:write<cr>', {noremap = true})
 
