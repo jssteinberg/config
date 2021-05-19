@@ -39,6 +39,14 @@ require('packer').startup(function(use)
 	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
 
+	-- Lua
+	use {
+		'folke/zen-mode.nvim',
+		config = function()
+			require('zen-mode').setup{}
+		end
+	}
+
 	-- Toggle comments
 	-- gcc, gc in visual mode, to (un)comment. Lua
 	use{
