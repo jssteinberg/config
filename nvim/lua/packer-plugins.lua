@@ -62,12 +62,37 @@ require('packer').startup(function(use)
 	-- Align text
 	use{
 		'junegunn/vim-easy-align',
+		event = 'BufRead',
+		-- load on cmd or keys haven't worked with this plugin
 		-- cmd = {'<Plug>(EasyAlign)'} -- gives invalid command name on PackerCompile...
 		-- keys = {{'n','ga'}, {'x', 'ga'},}
-		event = 'BufRead',
 	}
 	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
+
+	-- LSP
+
+	use{
+		'neovim/nvim-lspconfig',
+		requires = {'kabouzeid/nvim-lspinstall'},
+		config = function()
+			local function setup_servers()
+				require'lspinstall'.setup()
+				local servers = require'lspinstall'.installed_servers()
+				for _, server in pairs(servers) do
+					require'lspconfig'[server].setup{}
+				end
+			end
+
+			setup_servers()
+
+			-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+			require'lspinstall'.post_install_hook = function ()
+				setup_servers() -- reload installed servers
+				vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+			end
+		end
+	}
 
 	-- Auto completion
 
