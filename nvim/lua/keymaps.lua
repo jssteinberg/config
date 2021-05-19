@@ -4,6 +4,15 @@ local map = function(mode, action, mapping, opt)
 	vim.api.nvim_set_keymap(mode, mapping, action, opt)
 end
 
+function set_keymaps(keymaps)
+	-- for key, val in pairs(u) do  -- Table iteration.
+	-- 	echo(key, val)
+	-- end
+	for i = 1, #keymaps do  -- #v is the size of v for lists.
+		vim.api.nvim_echo(keymaps[i], true, {})
+	end
+end
+
 -- mappings variable - should be readable and usable for the Whichkey plugin
 local normalModeMaps = {
 	["<leader><tab>"] = {
