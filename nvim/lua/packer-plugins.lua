@@ -12,7 +12,8 @@ require('packer').startup(function(use)
 
 	-- Show keymaps on delay
 	use{'folke/which-key.nvim'}
-	local wk = require("which-key")
+	-- which-key's config doesn't like to be in packer's `config` property...
+	local wk = require('which-key')
 	wk.setup({})
 
 	-- Colorscheme Tokyonights. Dark/light. Supports Treesitter. (Includes config for Alacritty)
@@ -23,13 +24,14 @@ require('packer').startup(function(use)
 	-- Open URI /search in browser
 	use{
 		'tyru/open-browser.vim',
-		-- cmd = {'<Plug>(openbrowser-smart-search)'}, -- gives invalid command name on PackerCompile...
-		-- keys = { {'n','gx'}, {'v','gx'} },
 		event = 'BufRead',
 		config = function()
 			vim.api.nvim_set_var('netrw_nogx', 1) -- disable netrw's gx mapping.
 			vim.api.nvim_set_var('openbrowser_default_search', 'duckduckgo')
 		end
+		-- load on cmd or keys haven't worked with this plugin
+		-- cmd = {'<Plug>(openbrowser-smart-search)'}, -- gives invalid command name on PackerCompile...
+		-- keys = { {'n','gx'}, {'v','gx'} },
 	}
 	vim.api.nvim_set_keymap('n', 'gx', '<Plug>(openbrowser-smart-search)', {})
 	vim.api.nvim_set_keymap('v', 'gx', '<Plug>(openbrowser-smart-search)', {})
@@ -135,30 +137,30 @@ require('packer').startup(function(use)
 			-- functions for using (s-)tab
 			_G.tab_complete = function()
 				if vim.fn.pumvisible() == 1 then
-					return t "<C-n>"
-				elseif vim.fn.call("vsnip#available", {1}) == 1 then
-					return t "<Plug>(vsnip-expand-or-jump)"
+					return t '<C-n>'
+				elseif vim.fn.call('vsnip#available', {1}) == 1 then
+					return t '<Plug>(vsnip-expand-or-jump)'
 				elseif check_back_space() then
-					return t "<Tab>"
+					return t '<Tab>'
 				else
 					return vim.fn['compe#complete']()
 				end
 			end
 			_G.s_tab_complete = function()
 				if vim.fn.pumvisible() == 1 then
-					return t "<C-p>"
-				elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-					return t "<Plug>(vsnip-jump-prev)"
+					return t '<C-p>'
+				elseif vim.fn.call('vsnip#jumpable', {-1}) == 1 then
+					return t '<Plug>(vsnip-jump-prev)'
 				else
-					return t "<S-Tab>"
+					return t '<S-Tab>'
 				end
 			end
 
 			-- bind (s-)tab
-			vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-			vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-			vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-			vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+			vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', {expr = true})
+			vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', {expr = true})
+			vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
+			vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
 		end
 	}
 
@@ -195,7 +197,7 @@ require('packer').startup(function(use)
 			pears.setup(function(conf)
 				conf.on_enter(function(pears_handle)
 					if vim.fn.pumvisible() == 1 and vim.fn.complete_info().selected ~= -1 then
-						return vim.fn["compe#confirm"]("<CR>")
+						return vim.fn['compe#confirm']('<CR>')
 					else
 						pears_handle()
 					end
@@ -269,13 +271,13 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>',    {}) -- change tab
 
 	local telescope_mappings = {
-		["<leader>ff"] = {
-			"<cmd>Telescope find_files<cr>",
-			"Find File",
+		['<leader>ff'] = {
+			'<cmd>Telescope find_files<cr>',
+			'Find File',
 		},
-		["<leader>fr"] = {
-			"<cmd>Telescope oldfiles<cr>",
-			"Open Recent File"
+		['<leader>fr'] = {
+			'<cmd>Telescope oldfiles<cr>',
+			'Open Recent File'
 		}
 	}
 
