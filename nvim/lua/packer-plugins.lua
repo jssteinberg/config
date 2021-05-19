@@ -107,19 +107,17 @@ require('packer').startup(function(use)
 		'hrsh7th/nvim-compe',
 		event = 'BufRead',
 		config = function()
-			vim.o.completeopt = "menuone,noselect"
+			vim.o.completeopt = 'menuone,noselect'
 
-			require'compe'.setup {
-				source = {
-					path = true;
-					buffer = true;
-					-- calc = true;
-					-- nvim_lsp = true;
-					-- nvim_lua = true;
-					-- vsnip = true;
-					-- ultisnips = true;
-				};
-			}
+			require'compe'.setup{ source = {
+				path = true;
+				buffer = true;
+				calc = true;
+				nvim_lsp = true;
+				nvim_lua = true;
+				vsnip = true;
+				ultisnips = false;
+			}; }
 
 			local t = function(str)
 				return vim.api.nvim_replace_termcodes(str, true, true, true)
