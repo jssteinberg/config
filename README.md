@@ -26,6 +26,8 @@ Philosophy:
 ### Plugins
 
 - `:TSInstall [...]`---Treesitter for syntax, auto pair and ... Install language specifics with `:TSInstall [...]`.
+- `:LspInstall [...]` for language diagnostics and completion.
+- `<leader>ff`---find files; `<leader>fr`--find recent (files) through Telescope. (Or disable and use netrw and wildcards for opening files; `vimgrep search-string *` or ag in terminal).
 - `:set bg=[light/dark]`---Colorscheme of the year that supports light and dark mode.
 - `S` and `.` for surround and improved repeat (tpope's plugins are still the best).
 - `gcc`, and `gc` in x-mode, for comment toggling through nvim-comments, written in lua.
@@ -33,7 +35,6 @@ Philosophy:
 - `:G` for git status, `<leader>gl` for git log, `<leader>gd` for git diff, through plugins fugitive.vim, [gv.vim][gl] and [Diffview][gd].
 - `gx` to open URI or searching visual, through open-browser.vim.
 - `ga` for aligning text in normal and visual mode, through Easyalign.
-- `<leader>ff`---find files; `<leader>fr`--find recent (files) through Telescope. (Or disable and use netrw and wildcards for opening files; `vimgrep search-string *` or ag in terminal).
 
 
 [gl]: https://github.com/junegunn/gv.vim
