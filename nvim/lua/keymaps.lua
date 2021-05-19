@@ -96,6 +96,12 @@ function setKeymaps()
 	-- Files
 	-- wild find
 	vim.api.nvim_set_keymap('n', '<leader>ff', ':edit **/', {noremap = true})
+	-- Netrw files in pwd
+	vim.api.nvim_set_keymap('n', '<leader>fe', ':edit .<cr>', {noremap = true})
+	-- Netre files in current buffer's folder (make this to command :e% ?)
+	vim.api.nvim_set_keymap('n', '<leader>fb', ':edit %:p:h<cr>', {noremap = true})
+	-- Netrw file tree
+	vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>Lexplore .<cr><cmd>vertical resize 30<cr>', {noremap = true})
 
 	-- Terminal
 	-- open terminal in insert

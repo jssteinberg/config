@@ -8,14 +8,6 @@ vim.api.nvim_set_var('netrw_winsize', 25) -- %
 -- Preview in vertical split
 vim.api.nvim_set_var('netrw_preview', 1)
 
--- Keymaps
-vim.api.nvim_set_keymap('n', '<leader>fe', ':edit .<cr>', {noremap = true})
--- Open current buffer's folder (make this to command :e% ?)
-vim.api.nvim_set_keymap('n', '<leader>f%', ':edit %:p:h<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>f5', ':edit %:p:h<cr>', {noremap = true})
--- Open as file tree
-vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>Lexplore .<cr><cmd>vertical resize 30<cr>', {noremap = true})
-
 -- Kyemaps in netrw
 function netrw_buffer_keymaps()
 	-- Move up one directory level
