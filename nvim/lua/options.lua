@@ -1,5 +1,3 @@
-local nvim_utils = require('utils')
-
 -- Global options
 
 vim.o.statusline = require 'statusline'
@@ -70,7 +68,7 @@ vim.bo.formatoptions = 'jnpcql'
 -- Auto commands
 
 -- help
-nvim_utils.create_augroup({
+require 'utils'.create_augroup({
 	-- open help files vertically
 	{'FileType', 'help', 'wincmd H'},
 }, 'help')

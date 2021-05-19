@@ -1,5 +1,3 @@
-local nvim_utils = require('utils')
-
 -- Options
 -- No help banner
 vim.api.nvim_set_var('netrw_banner', 0)
@@ -27,7 +25,7 @@ function netrw_buffer_keymaps()
 end
 
 -- Auto commands
-nvim_utils.create_augroup({
+require 'utils'.create_augroup({
 	-- Set keymaps for netrw buffer
 	{'FileType', 'netrw', [[lua netrw_buffer_keymaps()]]},
 }, 'netrw')
