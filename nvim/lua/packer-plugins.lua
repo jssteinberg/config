@@ -12,9 +12,18 @@ require('packer').startup(function(use)
 
 	-- Show keymaps on delay
 	use{'folke/which-key.nvim'}
-	-- which-key's config doesn't like to be in packer's `config` property...
-	local wk = require('which-key')
-	wk.setup({})
+	-- which-key's config doesn't like to be in packer's `use.config` value...
+	require'which-key'.setup({
+		plugins = {
+			spelling = {
+				enabled = true,
+			}
+		},
+		triggers_blacklist = {
+			i = { "q" },
+			v = { "q" },
+		},
+	})
 
 	-- Colorscheme Tokyonights. Dark/light. Supports Treesitter. (Includes config for Alacritty)
 	use{'folke/tokyonight.nvim'}
@@ -265,22 +274,5 @@ require('packer').startup(function(use)
 			})
 		end
 	}
-
-	vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
-	vim.api.nvim_set_keymap('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>',  {})
-	vim.api.nvim_set_keymap('n', '<leader><tab>', '<cmd>Telescope buffers<cr>',    {}) -- change tab
-
-	local telescope_mappings = {
-		['<leader>ff'] = {
-			'<cmd>Telescope find_files<cr>',
-			'Find File',
-		},
-		['<leader>fr'] = {
-			'<cmd>Telescope oldfiles<cr>',
-			'Open Recent File'
-		}
-	}
-
-	wk.register(telescope_mappings)
 
 end)

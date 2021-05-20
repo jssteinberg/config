@@ -1,19 +1,20 @@
 -- Vanilla nvim config
 
 -- Options
-require 'options'
+require'options'
 -- Keymaps
-require 'set-keymaps'
+require'set-keymaps'
 -- Netrw
-require 'netrw-config'
+require'netrw-config'
 
 -- Plugins
 -- loading plugins and plugins' config after vanilla config so it can overwrite if necessary
 
--- require 'paq-plugins' -- plugins via paq
-require 'packer-plugins'
+require'packer-plugins'
+
+-- register keymaps through Whick Key plugin
+local wk = require('which-key')
+wk.register(require'key-register'.normal_maps)
 
 -- WIP
 -- require 'buffers-window'
-
--- vim.cmd "highlight StatusEnd guifg=#000000 guibg=#ffffff"
