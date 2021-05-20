@@ -53,7 +53,17 @@ require('packer').startup(function(use)
 	-- Lua
 	use {
 		'folke/zen-mode.nvim',
-		config = function() require('zen-mode').setup{} end
+		config = function()
+			require('zen-mode').setup{
+				window = {
+					backdrop = 0.98,
+					width = 110,
+					options = {
+						cursorline = false,
+					},
+				},
+			}
+		end
 	}
 
 	-- Toggle comments
