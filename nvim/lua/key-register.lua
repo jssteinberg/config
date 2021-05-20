@@ -6,7 +6,7 @@
 local M = {}
 
 M.normal_maps = {
-	-- <leader>
+	-- <leader> maps
 
 	["<leader><tab>"] = { "<cmd>Telescope buffers<cr>",
 	"Browse Buffers" },
