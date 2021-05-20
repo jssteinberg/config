@@ -15,10 +15,21 @@ M.normal_maps = {
 		"file(s)",
 
 		f = { "<cmd>Telescope find_files<cr>",
-		"Fuzzy Find File" },
+		"Find Files" },
 
 		r = { "<cmd>Telescope oldfiles<cr>",
-		"Open Recent File" },
+		"Find Recent Files" },
+	},
+
+	["<leader>g"] = { name =
+		"git",
+
+		f = { name =
+			"git fuzzy find",
+
+			c = { "<cmd>Telescope git_commits<cr>",
+			"Find Commits" },
+		}
 	},
 
 	["<leader>t"] = { name =
