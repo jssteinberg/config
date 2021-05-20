@@ -27,6 +27,9 @@ M.normal_maps = {
 		f = { name =
 			"git fuzzy find",
 
+			b = { "<cmd>Telescope git_branches<cr>",
+			"Find Branches" },
+
 			c = { "<cmd>Telescope git_commits<cr>",
 			"Find Commits" },
 		}
