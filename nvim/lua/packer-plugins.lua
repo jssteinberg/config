@@ -45,6 +45,39 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('n', 'gx', '<Plug>(openbrowser-smart-search)', {})
 	vim.api.nvim_set_keymap('v', 'gx', '<Plug>(openbrowser-smart-search)', {})
 
+	-- GIT
+
+	-- fugitive
+	use{'tpope/vim-fugitive'}
+
+	-- git log
+	use{
+		'junegunn/gv.vim',
+		cmd = {'GV'},
+		requires = {
+			{'tpope/vim-fugitive'},
+		}
+	}
+	vim.api.nvim_set_keymap('n', '<leader>gl', ':GV<cr>', {noremap = true})
+
+	-- diff view
+	use{
+		'sindrets/diffview.nvim',
+		cmd = {'DiffviewOpen'},
+		config = function()
+			local cb = require'diffview.config'.diffview_callback
+			require'diffview'.setup {
+				file_panel = {
+					use_icons = false
+				}
+			}
+		end
+	}
+	vim.api.nvim_set_keymap('n', '<leader>gd', ':DiffviewOpen<cr>', {noremap = true})
+
+	-- git blame
+	use{'f-person/git-blame.nvim', event = 'BufRead'}
+
 	-- EDITING AND TREESITTER
 
 	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
@@ -222,39 +255,6 @@ require('packer').startup(function(use)
 			end)
 		end
 	}
-
-	-- GIT
-
-	-- fugitive
-	use{'tpope/vim-fugitive'}
-
-	-- git log
-	use{
-		'junegunn/gv.vim',
-		cmd = {'GV'},
-		requires = {
-			{'tpope/vim-fugitive'},
-		}
-	}
-	vim.api.nvim_set_keymap('n', '<leader>gl', ':GV<cr>', {noremap = true})
-
-	-- diff view
-	use{
-		'sindrets/diffview.nvim',
-		cmd = {'DiffviewOpen'},
-		config = function()
-			local cb = require'diffview.config'.diffview_callback
-			require'diffview'.setup {
-				file_panel = {
-					use_icons = false
-				}
-			}
-		end
-	}
-	vim.api.nvim_set_keymap('n', '<leader>gd', ':DiffviewOpen<cr>', {noremap = true})
-
-	-- git blame
-	use{'f-person/git-blame.nvim', event = 'BufRead'}
 
 	-- SEARCHING
 
