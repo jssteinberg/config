@@ -1,13 +1,20 @@
 # .config
 
-Use a package manager (e.g. homebrew). Install zsh if needed. Install: git, alacritty, tmux...
+## Get started
 
-Install:
+Install zsh if needed.
+
+Requires: git, alacritty, tmux ... Install with your OS package manager.
 
 1. `cd`
 2. git clone as ~/.config
 3. `ln -s .config/zshrc .zshrc`
 4. `ln -s .config/tmux.conf .tmux.conf`
+
+## Other complementing tools
+
+- [fzf](https://github.com/junegunn/fzf) for fuzzy finding from the shell (in nvim Telescope is used)
+- [exa](https://github.com/ogham/exa), `ls` replacement
 
 ## Neovim
 
