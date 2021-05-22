@@ -30,6 +30,14 @@ require('packer').startup(function(use)
 	vim.cmd[[colorscheme tokyonight]]
 	vim.api.nvim_set_var('tokyonight_style', 'night')
 
+	-- use{
+	-- 	'akinsho/nvim-toggleterm.lua',
+	-- 	cmd = {'ToggleTerm', 'TermExec'},
+	-- 	config = function()
+	-- 		require("toggleterm").setup{}
+	-- 	end
+	-- }
+
 	-- Open URI /search in browser
 	use{
 		'tyru/open-browser.vim',
@@ -157,7 +165,7 @@ require('packer').startup(function(use)
 	-- nvim-compe
 	use{
 		'hrsh7th/nvim-compe',
-		event = 'BufRead',
+		event = 'InsertEnter',
 		config = function()
 			vim.o.completeopt = 'menuone,noselect'
 
@@ -256,9 +264,16 @@ require('packer').startup(function(use)
 		end
 	}
 
-	-- SEARCHING
+	-- FILE EXPLORING & SEARCHING
 
 	use{'subnut/visualstar.vim'}         -- visual star `*` search, or `#` backwards
+
+	-- nnn
+	
+	-- use{
+	-- 	'mcchrish/nnn.vim',
+	-- 	cmd = {'NnnPicker'}
+	-- }
 
 	-- Telescope for fuzzy searching
 

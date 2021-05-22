@@ -4,55 +4,9 @@ local map = function(mode, action, mapping, opt)
 	vim.api.nvim_set_keymap(mode, mapping, action, opt)
 end
 
--- mappings variable - should be readable and usable for the Whichkey plugin
-local normalModeMaps = {
-	["<leader><tab>"] = {
-		"<cmd>buffers<cr><cmd>buffer **/",
-		"List Buffers & Buffer Wild...",
-	},
-
-	["<leader>b"] = {
-		name = "+buffer"
-	},
-	["<leader>bl"] = {
-		"<cmd>buffers<cr><cmd>b",
-		"List Buffers & Buffer...",
-	},
-
-	["<leader>f"] = {
-		name = "+file"
-	},
-	["<leader>ff"] = {
-		"<cmd>edit **/<cr>",
-		"Find File Wild",
-	},
-}
--- set_keymaps(normalModeMaps)
-
 function setKeymaps()
-	-- jump to definition (default stinks on various keyboard layouts)
-	map('n', '<c-]>', '<leader>l', {noremap = true})
-
-	-- edit config
-	map('n', '<cmd>tabedit ~/.config | tcd ~/.config<cr>', '<leader>fec', {noremap = true})
-
-	-- Buffers, windows and tabs
-	-- list buffers, open with buffer number
-	vim.api.nvim_set_keymap('n', '<leader>bl', ':buffers<cr>:b', {noremap = true})
-	vim.api.nvim_set_keymap('n', '<leader><tab>', ':buffers<cr>:buffer **/', {noremap = true}) -- (or use: ':call feedkeys(':b<space>**/*', 't')<cr>')
-	-- tab for every buffer
-	vim.api.nvim_set_keymap('n', '<leader>bt', ':tab sball<cr>', {noremap = true})
-	-- previous buffer
-	vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
+	-- alternate buffer from terminal
 	vim.api.nvim_set_keymap('t', '<leader>bb', '<c-\\><c-n><c-^>', {noremap = true})
-	-- prev/next buffer
-	vim.api.nvim_set_keymap('n', '<tab>', ':bnext | file!<cr>', {noremap = true})
-	vim.api.nvim_set_keymap('n', '<s-tab>', ':bprevious | file!<cr>', {noremap = true})
-	-- moving between windows
-	vim.api.nvim_set_keymap('n', '<up>', '<c-w>k', {noremap = true})
-	vim.api.nvim_set_keymap('n', '<right>', '<c-w>l', {noremap = true})
-	vim.api.nvim_set_keymap('n', '<down>', '<c-w>j', {noremap = true})
-	vim.api.nvim_set_keymap('n', '<left>', '<c-w>h', {noremap = true})
 
 	-- Editing
 	-- edit indents in visual without leaving visual
@@ -66,8 +20,6 @@ function setKeymaps()
 	vim.api.nvim_set_keymap('x', 'qq', '<esc>', {noremap = true})
 	 -- qq in terminal
 	vim.api.nvim_set_keymap('t', 'qq', '<c-\\><c-n>', {noremap = true})
-	 -- qq in normal for bwipeout
-	vim.api.nvim_set_keymap('n', 'qq', '<cmd>bw<cr>', {noremap = true})
 	-- ZZ for escape and write in insert mode
 	vim.api.nvim_set_keymap('i', 'ZZ', '<esc>:write<cr>', {noremap = true})
 
@@ -83,24 +35,6 @@ function setKeymaps()
 	vim.api.nvim_set_keymap('n', '<leader>gca', ':!git commit -am "', {noremap = true})
 	-- commit only
 	vim.api.nvim_set_keymap('n', '<leader>gc<space>', ':!git commit ', {noremap = true})
-
-	-- Files
-	-- wild find
-	vim.api.nvim_set_keymap('n', '<leader>ff', ':edit **/', {noremap = true})
-	-- Netrw files in pwd
-	vim.api.nvim_set_keymap('n', '<leader>fe', ':edit .<cr>', {noremap = true})
-	-- Netre files in current buffer's folder (make this to command :e% ?)
-	vim.api.nvim_set_keymap('n', '<leader>fb', ':edit %:p:h<cr>', {noremap = true})
-	-- Netrw file tree
-	vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>Lexplore .<cr><cmd>vertical resize 30<cr>', {noremap = true})
-
-	-- Terminal
-	-- open terminal in insert
-	vim.api.nvim_set_keymap('n', '<leader>ot', ':terminal<cr>i', {noremap = true})
-
-	-- Search
-	-- nohlsearch
-	vim.api.nvim_set_keymap('n', '<cr>', ':nohlsearch<cr>', {noremap = true})
 end
 
 return setKeymaps
