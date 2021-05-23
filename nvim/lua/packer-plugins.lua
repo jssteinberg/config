@@ -1,3 +1,6 @@
+local wk = require'which-key'
+local maps = require'key-register'
+
 require('packer').startup(function(use)
 	-- Let Packer manage itself
 	use 'wbthomason/packer.nvim'
@@ -19,7 +22,7 @@ require('packer').startup(function(use)
 	-- Show keymaps on delay
 	use{'folke/which-key.nvim'}
 	-- which-key's config doesn't like to be in packer's `use.config` value...
-	require'which-key'.setup({
+	wk.setup({
 		plugins = {
 			spelling = {
 				enabled = true,
@@ -31,6 +34,10 @@ require('packer').startup(function(use)
 			t = { 'q' },
 		},
 	})
+	wk.register(maps.normal)
+	wk.register(maps.insert, {mode = 'i'})
+	wk.register(maps.visual, {mode = 'v'})
+	wk.register(maps.terminal, {mode = 't'})
 
 	-- Colorscheme Tokyonights. Dark/light. Supports Treesitter. (Includes config for Alacritty)
 	use{'folke/tokyonight.nvim'}

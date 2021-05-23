@@ -1,4 +1,3 @@
-local setKeymaps = require 'keymaps'
 -- Function setMapleaderSpace sets mapleader to <space>
 function setMapleaderSpace()
 	vim.g.mapleader = ' '
@@ -7,4 +6,3 @@ function setMapleaderSpace()
 end
 
 setMapleaderSpace()
-setKeymaps()

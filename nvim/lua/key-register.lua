@@ -89,6 +89,19 @@ M.normal = {
 		f = { "<cmd>Telescope find_files<cr>",
 		"Find files" },
 
+		g = { name =
+			"git",
+
+			b = { "<cmd>Telescope git_branches<cr>",
+			"branches" },
+
+			c = { "<cmd>Telescope git_commits<cr>",
+			"commits" },
+
+			f = { "<cmd>Telescope git_files<cr>",
+			"files" },
+		},
+
 		r = { "<cmd>Telescope oldfiles<cr>",
 		"Find recent files" },
 	},
@@ -107,13 +120,16 @@ M.normal = {
 		},
 
 		f = { name =
-			"fuzzy find",
+			"find",
 
 			b = { "<cmd>Telescope git_branches<cr>",
-			"Find branches" },
+			"branches" },
 
 			c = { "<cmd>Telescope git_commits<cr>",
-			"Find commits" },
+			"commits" },
+
+			f = { "<cmd>Telescope git_files<cr>",
+			"files" },
 		},
 
 		s = { ':exe "!git status " . shellescape(getcwd())<cr>',
