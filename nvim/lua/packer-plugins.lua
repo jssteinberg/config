@@ -8,7 +8,13 @@ require('packer').startup(function(use)
 	use{'editorconfig/editorconfig-vim'}
 
 	-- Go to prev cursor position for buffers
-	use{'mmozuras/vim-cursor', event = 'BufRead'}
+	-- use{'mmozuras/vim-cursor', event = 'BufRead'}
+	use{
+		'ethanholz/nvim-lastplace',
+		config = function()
+			require'nvim-lastplace'.setup{}
+		end
+	}
 
 	-- Show keymaps on delay
 	use{'folke/which-key.nvim'}
