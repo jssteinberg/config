@@ -55,6 +55,9 @@ M.normal_leader_maps = {
 	["<leader>f"] = { name =
 		"find",
 
+		d = { "<cmd>Telescope file_browser<cr>",
+		"Find (per) directory" },
+
 		f = { "<cmd>Telescope find_files<cr>",
 		"Find files" },
 
@@ -62,19 +65,38 @@ M.normal_leader_maps = {
 		"Find recent files" },
 	},
 
+	-- commit all
+	vim.api.nvim_set_keymap('n', '<leader>gca', ':!git commit -am "', {noremap = true})
+	-- commit only
 	["<leader>g"] = { name =
 		"git",
 
+		c = { name =
+			'commit',
+
+			a = { '<cmd>Git commit -a<cr>',
+			"Current buffer" },
+
+			c = { '<cmd>Git add % | Git commit %<cr>',
+			"Current buffer" },
+		},
+
 		f = { name =
-			"Git fuzzy find",
+			"fuzzy find",
 
 			b = { "<cmd>Telescope git_branches<cr>",
 			"Find branches" },
 
 			c = { "<cmd>Telescope git_commits<cr>",
 			"Find commits" },
-		}
+		},
+
+		s = { ':exe "!git status " . shellescape(getcwd())<cr>',
+		'Status' },
 	},
+
+	["<leader>G"] = { "<cmd>Git<cr>",
+	":Git (status)" },
 
 	["<leader>t"] = { name =
 		"toggle",
