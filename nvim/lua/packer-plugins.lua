@@ -20,8 +20,9 @@ require('packer').startup(function(use)
 			}
 		},
 		triggers_blacklist = {
-			i = { "q" },
-			v = { "q" },
+			i = { 'q', 'Z' },
+			v = { 'q' },
+			t = { 'q' },
 		},
 	})
 
@@ -290,7 +291,7 @@ require('packer').startup(function(use)
 				defaults = {
 					mappings = {
 						i = {
-							['qq'] = actions.close
+							[require'key-register'.esc_map] = actions.close
 						}
 					}
 				}

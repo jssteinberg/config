@@ -5,23 +5,51 @@
 
 local M = {}
 
-M.normal_maps = {
-	["<tab>"] = { "<cmd>bnext | file!<cr>",
-	"Next buffer" },
+M.esc_map = 'qq'
+M.buffer_alternate_map = '<leader>bb'
 
-	["<s-tab>"] = { "<cmd>bprevious | file!<cr>",
-	"Previous buffer" },
+M.insert = {
+	[M.esc_map] = { "<esc>",
+	"Esc to normal mode" },
 
+	['ZZ'] = { "<esc><cmd>write<cr>",
+	"Esc and write" },
+}
+
+M.terminal = {
+	[M.esc_map] = { "<c-\\><c-n>>",
+	"Esc to normal mode" },
+
+	["<leader>b"] = { name =
+		"buffer(s)",
+	},
+	[M.buffer_alternate_map] = { "<c-\\><c-n><c-^>",
+	"Alternate buffer" },
+}
+
+M.visual = {
+	[M.esc_map] = { "<esc>",
+	"Esc to normal mode" },
+
+	[">"] = { ">gv",
+	"Indent +" },
+
+	["<"] = { "<gv",
+	"Indent -" },
+}
+
+M.normal = {
 	["<cr>"] = { "<cmd>nohlsearch<cr>",
 	"Clear search highlight" },
 
 	["<c-9>"] = { "<c-]>",
 	"Jump to definition" },
-	-- (default jump to definition stinks on many non-american keyboard layouts)
-}
 
-M.normal_leader_maps = {
-	-- <leader> single key maps
+	["<tab>"] = { "<cmd>bnext | file!<cr>",
+	"Next buffer" },
+
+	["<s-tab>"] = { "<cmd>bprevious | file!<cr>",
+	"Previous buffer" },
 
 	["<leader><tab>"] = { "<cmd>Telescope buffers<cr>",
 	"Browse buffers" },
@@ -29,15 +57,15 @@ M.normal_leader_maps = {
 	["<leader>b"] = { name =
 		"buffer(s)",
 
-		b = { "<c-^>",
-		"Alternate buffer" },
-
 		l = { "<cmd>buffers<cr><cmd>b",
 		"List buffers, edit by number" },
 
 		w = { "<cmd>bwipeout<cr>",
 		"Wipeout buffer" },
+
 	},
+	[M.buffer_alternate_map] = { "<c-^>",
+	"Alternate" },
 
 	["<leader>e"] = { name =
 		"edit",
@@ -65,19 +93,16 @@ M.normal_leader_maps = {
 		"Find recent files" },
 	},
 
-	-- commit all
-	vim.api.nvim_set_keymap('n', '<leader>gca', ':!git commit -am "', {noremap = true})
-	-- commit only
 	["<leader>g"] = { name =
 		"git",
 
 		c = { name =
 			'commit',
 
-			a = { '<cmd>Git commit -a<cr>',
+			a = { '<cmd>Git commit -a<cr>i',
 			"Current buffer" },
 
-			c = { '<cmd>Git add % | Git commit %<cr>',
+			c = { '<cmd>Git add % | Git commit %<cr>i',
 			"Current buffer" },
 		},
 

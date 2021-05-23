@@ -11,8 +11,8 @@ vim.o.hidden = true
 vim.o.ignorecase = true
 -- show tabs as vertical lines
 vim.o.listchars = vim.o.listchars .. ',tab:│ '
--- lazyredraw for performance
-vim.o.lazyredraw = true
+-- less timeoutlen for maps
+vim.o.timeoutlen = 500
 -- Search & substitute
 -- smartcase when searching
 vim.o.smartcase = true
