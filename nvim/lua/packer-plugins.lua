@@ -5,53 +5,6 @@ require('packer').startup(function(use)
 	-- Let Packer manage itself
 	use 'wbthomason/packer.nvim'
 
-	-- GENERAL
-
-	-- Auto respect editorconfig files
-	use{'editorconfig/editorconfig-vim'}
-
-	-- Go to prev cursor position for buffers
-	-- use{'mmozuras/vim-cursor', event = 'BufRead'}
-	use{
-		'ethanholz/nvim-lastplace',
-		config = function()
-			require'nvim-lastplace'.setup{}
-		end
-	}
-
-	-- Show keymaps on delay
-	use{'folke/which-key.nvim'}
-	-- which-key's config doesn't like to be in packer's `use.config` value...
-	wk.setup({
-		plugins = {
-			spelling = {
-				enabled = true,
-			}
-		},
-		triggers_blacklist = {
-			i = { 'q', 'Z' },
-			v = { 'q' },
-			t = { 'q' },
-		},
-	})
-	wk.register(maps.normal)
-	wk.register(maps.insert, {mode = 'i'})
-	wk.register(maps.visual, {mode = 'v'})
-	wk.register(maps.terminal, {mode = 't'})
-
-	-- Colorscheme Tokyonights. Dark/light. Supports Treesitter. (Includes config for Alacritty)
-	use{'folke/tokyonight.nvim'}
-	vim.cmd[[colorscheme tokyonight]]
-	vim.api.nvim_set_var('tokyonight_style', 'night')
-
-	-- use{
-	-- 	'akinsho/nvim-toggleterm.lua',
-	-- 	cmd = {'ToggleTerm', 'TermExec'},
-	-- 	config = function()
-	-- 		require("toggleterm").setup{}
-	-- 	end
-	-- }
-
 	-- Open URI /search in browser
 	use{
 		'tyru/open-browser.vim',
@@ -66,6 +19,30 @@ require('packer').startup(function(use)
 	}
 	vim.api.nvim_set_keymap('n', 'gx', '<Plug>(openbrowser-smart-search)', {})
 	vim.api.nvim_set_keymap('v', 'gx', '<Plug>(openbrowser-smart-search)', {})
+
+	-- Terminal wrapper
+	use'pianocomposer321/consolation.nvim'
+
+	-- Sessions
+	use{'rmagatti/auto-session'}
+
+
+	-- BUFFERS
+
+	-- Auto respect editorconfig files
+	use{'editorconfig/editorconfig-vim'}
+
+	-- Go to prev cursor position for buffers
+	use{
+		'ethanholz/nvim-lastplace',
+		config = function()
+			require'nvim-lastplace'.setup{}
+		end
+	}
+
+	-- Change cwd based on file in focus
+	-- use{'ahmedkhalf/lsp-rooter.nvim'}
+
 
 	-- GIT
 
@@ -100,7 +77,8 @@ require('packer').startup(function(use)
 	-- git blame
 	use{'f-person/git-blame.nvim', event = 'BufRead'}
 
-	-- EDITING AND TREESITTER
+
+	-- EDITING & TREESITTER
 
 	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
@@ -144,6 +122,7 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
+
 	-- LSP
 
 	use{
@@ -179,7 +158,7 @@ require('packer').startup(function(use)
 	-- nvim-compe
 	use{
 		'hrsh7th/nvim-compe',
-		event = 'InsertEnter',
+		event = 'BufRead',
 		config = function()
 			vim.o.completeopt = 'menuone,noselect'
 
@@ -278,16 +257,10 @@ require('packer').startup(function(use)
 		end
 	}
 
+
 	-- FILE EXPLORING & SEARCHING
 
 	use{'subnut/visualstar.vim'}         -- visual star `*` search, or `#` backwards
-
-	-- nnn
-	
-	-- use{
-	-- 	'mcchrish/nnn.vim',
-	-- 	cmd = {'NnnPicker'}
-	-- }
 
 	-- Telescope for fuzzy searching
 
@@ -311,5 +284,36 @@ require('packer').startup(function(use)
 			})
 		end
 	}
+
+
+	-- INTERFACE
+
+	-- Colorscheme Tokyonights. Dark/light. Supports Treesitter. (Includes config for Alacritty)
+	use{'folke/tokyonight.nvim'}
+	vim.cmd[[colorscheme tokyonight]]
+	vim.api.nvim_set_var('tokyonight_style', 'night')
+	vim.api.nvim_set_var('tokyonight_sidebars', {'terminal', 'packer', 'netrw', 'fugitive'})
+	-- vim.api.nvim_set_var('tokyonight_transparent', true)
+
+
+	-- Show keymaps on delay
+	use{'folke/which-key.nvim'}
+	-- which-key's config doesn't like to be in packer's `use.config` value...
+	wk.setup({
+		plugins = {
+			spelling = {
+				enabled = true,
+			}
+		},
+		triggers_blacklist = {
+			i = { 'q', 'Z' },
+			v = { 'q' },
+			-- t = { 'q', '<leader>', '<space>' },
+		},
+	})
+	wk.register(maps.normal)
+	wk.register(maps.insert,   {mode = 'i'})
+	wk.register(maps.visual,   {mode = 'v'})
+	-- wk.register(maps.terminal, {mode = 't'})
 
 end)

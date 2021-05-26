@@ -6,3 +6,4 @@ function setMapleaderSpace()
 end
 
 setMapleaderSpace()
+require'keymaps'

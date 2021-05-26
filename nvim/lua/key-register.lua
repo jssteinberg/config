@@ -17,7 +17,7 @@ M.insert = {
 }
 
 M.terminal = {
-	[M.esc_map] = { "<c-\\><c-n>>",
+	[M.esc_map] = { "<c-\\><c-n>",
 	"Esc to normal mode" },
 
 	["<leader>b"] = { name =
@@ -42,8 +42,22 @@ M.normal = {
 	["<cr>"] = { "<cmd>nohlsearch<cr>",
 	"Clear search highlight" },
 
-	["<c-9>"] = { "<c-]>",
+	["<leader>w"] = { "<cmd>write<cr>",
+	"Write buffer to current file" },
+
+	-- Jump list
+
+	["<leader>9"] = { "<c-]>",
 	"Jump to definition" },
+
+	["<leader>o"] = { "<c-o>",
+	"Go back in jump list" },
+
+	["<leader>i"] = { "<c-i>",
+	"Go forward in jump list" },
+
+
+	-- Buffers
 
 	["<tab>"] = { "<cmd>bnext | file!<cr>",
 	"Next buffer" },
@@ -67,27 +81,33 @@ M.normal = {
 	[M.buffer_alternate_map] = { "<c-^>",
 	"Alternate" },
 
+
+	-- Edit
+
 	["<leader>e"] = { name =
 		"edit",
 
-		['.'] = { "<cmd>tabedit .<cr>",
-		"edit working directory" },
+		['.'] = { "<cmd>edit .<cr>",
+		"Working directory" },
 
 		c = { "<cmd>tabedit ~/.config | tcd ~/.config<cr>",
-		"edit config directory" },
+		"Config directory" },
 
-		b = { "<cmd>tabedit %:p:h<cr>",
-		"edit buffer directory" },
+		b = { '<cmd>edit %:p:h<cr>/<c-r>=expand("#:t")<cr><cr>',
+		"Buffer directory" },
 	},
+
+
+	-- Find
 
 	["<leader>f"] = { name =
 		"find",
 
 		d = { "<cmd>Telescope file_browser<cr>",
-		"Find (per) directory" },
+		"Directory content" },
 
 		f = { "<cmd>Telescope find_files<cr>",
-		"Find files" },
+		"Files" },
 
 		g = { name =
 			"git",
@@ -103,8 +123,14 @@ M.normal = {
 		},
 
 		r = { "<cmd>Telescope oldfiles<cr>",
-		"Find recent files" },
+		"Recent files" },
+
+		w = { "<cmd>Telescope grep_string<cr>",
+		"Word" },
 	},
+
+
+	-- Git
 
 	["<leader>g"] = { name =
 		"git",
@@ -123,13 +149,13 @@ M.normal = {
 			"find",
 
 			b = { "<cmd>Telescope git_branches<cr>",
-			"branches" },
+			"Branches" },
 
 			c = { "<cmd>Telescope git_commits<cr>",
-			"commits" },
+			"Commits" },
 
 			f = { "<cmd>Telescope git_files<cr>",
-			"files" },
+			"Files" },
 		},
 
 		s = { ':exe "!git status " . shellescape(getcwd())<cr>',
@@ -139,16 +165,17 @@ M.normal = {
 	["<leader>G"] = { "<cmd>Git<cr>",
 	":Git (status)" },
 
+
+	-- Toggle
+
 	["<leader>t"] = { name =
 		"toggle",
 
 		t = { "<cmd>terminal<cr>i",
-		"Toggle terminal" },
-		-- t = { "<cmd>ToggleTerm<cr>",
-		-- "Toggle terminal" },
+		"Terminal" },
 
 		z = { "<cmd>ZenMode<cr>",
-		"Zen Mode" },
+		"Zen mode" },
 	},
 }
 
