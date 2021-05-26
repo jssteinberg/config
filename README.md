@@ -4,7 +4,7 @@
 
 Install zsh if needed.
 
-Requires: git, alacritty, tmux ... Install with your OS package manager.
+Requires: git, kitty (or alacritty and tmux) ... Install with your OS package manager.
 
 1. `cd`
 2. git clone as ~/.config
