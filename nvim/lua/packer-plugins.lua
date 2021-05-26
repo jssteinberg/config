@@ -5,6 +5,9 @@ require('packer').startup(function(use)
 	-- Let Packer manage itself
 	use 'wbthomason/packer.nvim'
 
+	use{'glepnir/dashboard-nvim'}
+	vim.api.nvim_set_var('dashboard_default_executive', 'telescope')
+
 	-- Open URI /search in browser
 	use{
 		'tyru/open-browser.vim',
@@ -22,9 +25,6 @@ require('packer').startup(function(use)
 
 	-- Terminal wrapper
 	use'pianocomposer321/consolation.nvim'
-
-	-- Sessions
-	use{'rmagatti/auto-session'}
 
 
 	-- BUFFERS
@@ -269,10 +269,11 @@ require('packer').startup(function(use)
 		cmd = 'Telescope',
 		requires = {
 			{'nvim-lua/popup.nvim'},
-			{'nvim-lua/plenary.nvim'}
+			{'nvim-lua/plenary.nvim'},
 		},
 		config = function()
 			local actions = require('telescope.actions')
+
 			require('telescope').setup({
 				defaults = {
 					mappings = {
@@ -293,6 +294,7 @@ require('packer').startup(function(use)
 	vim.cmd[[colorscheme tokyonight]]
 	vim.api.nvim_set_var('tokyonight_style', 'night')
 	vim.api.nvim_set_var('tokyonight_sidebars', {'terminal', 'packer', 'netrw', 'fugitive'})
+	vim.api.nvim_set_var('tokyonight_day_brightness', 1)
 	-- vim.api.nvim_set_var('tokyonight_transparent', true)
 
 

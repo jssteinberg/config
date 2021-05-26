@@ -122,8 +122,8 @@ M.normal = {
 			"files" },
 		},
 
-		r = { "<cmd>Telescope oldfiles<cr>",
-		"Recent files" },
+		o = { "<cmd>Telescope oldfiles<cr>",
+		"Old files" },
 
 		w = { "<cmd>Telescope grep_string<cr>",
 		"Word" },
@@ -164,6 +164,19 @@ M.normal = {
 
 	["<leader>G"] = { "<cmd>Git<cr>",
 	":Git (status)" },
+
+
+	-- Session
+
+	["<leader>s"] = { name =
+		"session",
+
+		l = { "<cmd>SessionLoad<CR>",
+		"Load" },
+
+		s = { "<cmd>SessionSave<CR>",
+		"Save" },
+	},
 
 
 	-- Toggle

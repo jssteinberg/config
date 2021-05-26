@@ -14,11 +14,12 @@ Requires: git, kitty (or alacritty and tmux) ... Install with your OS package ma
 ## Other complementing tools
 
 - [fzf](https://github.com/junegunn/fzf) for fuzzy finding from the shell (in nvim Telescope is used)
+- ag the silver searcher
 - [exa](https://github.com/ogham/exa), `ls` replacement
 
 ## Neovim
 
-Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim) (though there is a file for plugins through [paq](https://github.com/savq/paq-nvim) as well)...
+Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim) (though there is a file for plugins through [paq](https://github.com/savq/paq-nvim) as well), ripgrep is optional...
 
 ### Config philosophy
 
@@ -34,7 +35,8 @@ Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim)
 
 - `:TSInstall [...]`---Treesitter for syntax, auto pair and ... Install language specifics with `:TSInstall [...]`.
 - `:LspInstall [...]` for language diagnostics and completion.
-- `<leader>ff`---find files; `<leader>fr`--find recent (files) through Telescope. (Or disable and use netrw and wildcards for opening files; `vimgrep search-string *` or ag in terminal).
+- Show mappings after 500 ms with Which key plugin.
+- `<leader>f[...]`---find [d]irectory content, [f]iles, [g]it [...], [o]ld files, [w]ord---through Telescope.
 - `:set bg=[light/dark]`---Colorscheme of the year that supports light and dark mode.
 - `S` and `.` for surround and improved repeat (tpope's plugins are still the best).
 - `gcc`, and `gc` in x-mode, for comment toggling through nvim-comments, written in lua.
