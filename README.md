@@ -43,6 +43,11 @@ Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim)
 - `gx` to open URI or searching visual, through open-browser.vim.
 - `ga` for aligning text in normal and visual mode, through Easyalign.
 
+### Structure
+
+- init.lua should give a glance of what's configured
+- files in lua folder should have filenames that explain what they do: options, keymaps, plugins ...
+- avoid deep folder structure
 
 [gl]: https://github.com/junegunn/gv.vim
 [gd]: https://github.com/sindrets/diffview.nvim
