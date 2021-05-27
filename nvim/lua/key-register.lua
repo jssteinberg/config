@@ -125,6 +125,9 @@ M.normal = {
 		o = { "<cmd>Telescope oldfiles<cr>",
 		"Old files" },
 
+		s = { ":so ~/.cache/vim/session/",
+		"Session" },
+
 		w = { "<cmd>Telescope grep_string<cr>",
 		"Word" },
 	},
@@ -179,17 +182,34 @@ M.normal = {
 	},
 
 
-	-- Toggle
+	-- Tab
 
 	["<leader>t"] = { name =
-		"toggle",
+		"tab",
 
-		t = { "<cmd>terminal<cr>i",
-		"Terminal" },
+		['.'] = { "<cmd>tabedit .<cr>",
+		"Edit working directory" },
 
-		z = { "<cmd>ZenMode<cr>",
-		"Zen mode" },
+		b = { "<cmd>tabedit %<cr>",
+		"Edit buffer" },
 	},
+
+
+	-- Terminal
+
+	["<leader>T"] = { name =
+		"terminal",
+
+		['<space>'] = { "<cmd>terminal<cr>i",
+		"Terminal pwd" },
+	},
+
+
+	-- Zen mode
+
+	["<leader>Z"] = {"<cmd>ZenMode<cr>",
+		"Zen mode" },
+
 }
 
 return M
