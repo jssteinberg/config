@@ -47,6 +47,7 @@ Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim)
 
 #### To consider
 
+- https://github.com/sbdchd/neoformat
 - https://github.com/pechorin/any-jump.vim
 
 ### Structure
