@@ -45,6 +45,9 @@ M.normal = {
 	["<leader>w"] = { "<cmd>write<cr>",
 	"Write buffer to current file" },
 
+	["<leader><tab>"] = { "<cmd>Telescope oldfiles<cr>",
+	"Old (recent) files" },
+
 	-- Jump list
 
 	["<leader>9"] = { "<c-]>",
@@ -64,9 +67,6 @@ M.normal = {
 
 	["<s-tab>"] = { "<cmd>bprevious | file!<cr>",
 	"Previous buffer" },
-
-	["<leader><tab>"] = { "<cmd>Telescope buffers<cr>",
-	"Browse buffers" },
 
 	["<leader>b"] = { name =
 		"buffer(s)",
@@ -103,6 +103,9 @@ M.normal = {
 	["<leader>f"] = { name =
 		"find",
 
+		b = { "<cmd>Telescope buffers<cr>",
+		"Buffers" },
+
 		d = { "<cmd>Telescope file_browser<cr>",
 		"Directory content" },
 
@@ -123,7 +126,7 @@ M.normal = {
 		},
 
 		o = { "<cmd>Telescope oldfiles<cr>",
-		"Old files" },
+		"Old (recent) files" },
 
 		s = { ":so ~/.cache/vim/session/",
 		"Session" },
@@ -197,12 +200,14 @@ M.normal = {
 
 	-- Terminal
 
-	["<leader>T"] = { name =
-		"terminal",
-
-		['<space>'] = { "<cmd>terminal<cr>i",
+	["<leader>T"] = {"<cmd>terminal<cr>i",
 		"Terminal pwd" },
-	},
+-- 	["<leader>T"] = { name =
+-- 		"terminal",
+
+-- 		['.'] = { "<cmd>terminal<cr>i",
+-- 		"Terminal pwd" },
+-- 	},
 
 
 	-- Zen mode
