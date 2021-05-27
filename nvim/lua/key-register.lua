@@ -71,9 +71,6 @@ M.normal = {
 	["<leader>b"] = { name =
 		"buffer(s)",
 
-		l = { "<cmd>buffers<cr><cmd>b",
-		"List buffers, edit by number" },
-
 		w = { "<cmd>bwipeout<cr>",
 		"Wipeout buffer" },
 
