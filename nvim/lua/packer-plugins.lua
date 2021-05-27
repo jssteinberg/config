@@ -23,6 +23,15 @@ require('packer').startup(function(use)
 	-- Terminal wrapper
 	use'pianocomposer321/consolation.nvim'
 
+	-- Session
+	use{
+		'rmagatti/auto-session',
+		config = function()
+			require'auto-session'.setup({
+				uto_save_enabled = true,
+			})
+		end
+	}
 
 	-- BUFFERS
 

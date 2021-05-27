@@ -171,15 +171,15 @@ M.normal = {
 
 	-- Session
 
--- 	["<leader>s"] = { name =
--- 		"session",
+	["<leader>s"] = { name =
+		"session",
 
--- 		l = { "<cmd>SessionLoad<CR>",
--- 		"Load" },
+		r = { "<cmd>RestoreSession<CR>",
+		"Restore" },
 
--- 		s = { "<cmd>SessionSave<CR>",
--- 		"Save" },
--- 	},
+		s = { "<cmd>SaveSession<CR>",
+		"Save" },
+	},
 
 
 	-- Tab
