@@ -141,10 +141,10 @@ M.normal = {
 		c = { name =
 			'commit',
 
-			a = { '<cmd>Git commit -a<cr>i',
+			a = { '<cmd>Git commit -a<cr>',
 			"Current buffer" },
 
-			c = { '<cmd>Git add % | Git commit %<cr>i',
+			c = { '<cmd>Git add % | Git commit %<cr>',
 			"Current buffer" },
 		},
 
