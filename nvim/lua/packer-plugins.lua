@@ -294,7 +294,7 @@ require('packer').startup(function(use)
 	vim.cmd[[colorscheme tokyonight]]
 	vim.api.nvim_set_var('tokyonight_style', 'night')
 	vim.api.nvim_set_var('tokyonight_sidebars', {'terminal', 'packer', 'netrw', 'fugitive'})
-	vim.api.nvim_set_var('tokyonight_day_brightness', 1)
+	-- vim.api.nvim_set_var('tokyonight_day_brightness', 1)
 	-- vim.api.nvim_set_var('tokyonight_transparent', true)
 
 
