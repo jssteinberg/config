@@ -166,6 +166,16 @@ M.normal = {
 	":Git (status)" },
 
 
+	-- Session
+
+	["<leader>s"] = { name =
+		"session",
+
+		s = { ':exe "mksession! " . v:this_session<cr>',
+		"Save current session" },
+	},
+
+
 	-- Tab
 
 	["<leader>t"] = { name =
