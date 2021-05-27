@@ -18,7 +18,6 @@ end
 
 -- Auto commands
 require'utils'.create_augroup({
-	-- Set keymaps for netrw buffer
-	{'FileType', 'netrw', [[lua netrw_buffer_keymaps()]]},
+	-- {'FileType', 'netrw', [[lua netrw_buffer_keymaps()]]},
 	{'FileType', 'netrw', 'setlocal bufhidden=delete'},
 }, 'netrw')
