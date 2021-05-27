@@ -14,7 +14,7 @@ vim.o.listchars = vim.o.listchars .. ',tab:│ '
 -- less timeoutlen for maps
 vim.o.timeoutlen = 500
 -- session data
--- vim.o.sessionoptions = 'blank,buffers,curdir,folds,tabpages,terminal'
+vim.o.sessionoptions = 'blank,curdir,folds,help,tabpages'
 -- Search & substitute
 -- smartcase when searching
 vim.o.smartcase = true
