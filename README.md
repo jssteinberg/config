@@ -14,12 +14,12 @@ Requires: git, kitty (or alacritty and tmux) ... Install with your OS package ma
 ## Other complementing tools
 
 - [fzf](https://github.com/junegunn/fzf) for fuzzy finding from the shell (in nvim Telescope is used)
-- ag the silver searcher
 - [exa](https://github.com/ogham/exa), `ls` replacement
+- Grepping: ag the silver searcher, ripgrep ...
 
 ## Neovim
 
-Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim) (though there is a file for plugins through [paq](https://github.com/savq/paq-nvim) as well), ripgrep is optional...
+Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim) (though there is a file for plugins through [paq](https://github.com/savq/paq-nvim) as well), ripgrep is optional ...
 
 ### Config philosophy
 
