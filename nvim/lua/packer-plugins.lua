@@ -20,18 +20,6 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('n', 'gx', '<Plug>(openbrowser-smart-search)', {})
 	vim.api.nvim_set_keymap('v', 'gx', '<Plug>(openbrowser-smart-search)', {})
 
-	-- Terminal wrapper
-	use'pianocomposer321/consolation.nvim'
-
-	-- Session
-	use{
-		'rmagatti/auto-session',
-		config = function()
-			require'auto-session'.setup({
-				uto_save_enabled = true,
-			})
-		end
-	}
 
 	-- BUFFERS
 

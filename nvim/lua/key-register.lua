@@ -125,9 +125,6 @@ M.normal = {
 		o = { "<cmd>Telescope oldfiles<cr>",
 		"Old (recent) files" },
 
-		s = { ":so ~/.cache/vim/session/",
-		"Session" },
-
 		w = { "<cmd>Telescope grep_string<cr>",
 		"Word" },
 	},
@@ -167,19 +164,6 @@ M.normal = {
 
 	["<leader>G"] = { "<cmd>Git<cr>",
 	":Git (status)" },
-
-
-	-- Session
-
-	["<leader>s"] = { name =
-		"session",
-
-		r = { "<cmd>RestoreSession<CR>",
-		"Restore" },
-
-		s = { "<cmd>SaveSession<CR>",
-		"Save" },
-	},
 
 
 	-- Tab

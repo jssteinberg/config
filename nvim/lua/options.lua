@@ -73,4 +73,6 @@ vim.bo.formatoptions = 'jnpcql'
 require 'utils'.create_augroup({
 	-- open help files vertically
 	{'FileType', 'help', 'wincmd H'},
+	-- auto save session if any is sourced
+	-- {'BufEnter,WinEnter,WinClosed', '*', 'if exists(v:this_session) | mksession! v:this_session | endif'}
 }, 'help')
