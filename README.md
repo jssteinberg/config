@@ -45,6 +45,10 @@ Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim)
 - `gx` to open URI or searching visual, through open-browser.vim.
 - `ga` for aligning text in normal and visual mode, through Easyalign.
 
+#### To consider
+
+- https://github.com/pechorin/any-jump.vim
+
 ### Structure
 
 - init.lua should give a glance of what's configured
