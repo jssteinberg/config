@@ -5,6 +5,12 @@
 
 local M = {}
 
+M.setLeader = function()
+	-- space as <leader>
+	vim.g.mapleader = ' '
+	vim.api.nvim_set_keymap('n',' ','',{noremap = true})
+	vim.api.nvim_set_keymap('x',' ','',{noremap = true})
+end
 M.esc_map = 'qq'
 M.buffer_alternate_map = '<leader>bb'
 

@@ -1,5 +1,5 @@
 local wk = require'which-key'
-local maps = require'key-register'
+local maps = require'keymaps-incl-plugins'
 
 require('packer').startup(function(use)
 	-- Let Packer manage itself

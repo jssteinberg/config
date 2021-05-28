@@ -3,14 +3,10 @@
 -- Options
 require'options'
 -- Keymaps
-require'set-keymaps'
+require'keymaps'
 -- Netrw
 require'netrw-config'
 
 -- Plugins config
 
 require'packer-plugins'
-
--- WIP
-
--- require 'buffers-window'
