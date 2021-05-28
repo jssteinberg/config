@@ -1,5 +1,11 @@
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 
+selection:
+  save_to_clipboard: true
+
+mouse:
+  hide_when_typing: true
+
 font:
   size: 14.0
 
@@ -9,21 +15,9 @@ window:
     x: 12
     y: 16 # Keep 10 for y
 
-# If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: .94
-
-selection:
-  # When set to `true`, selected text will be copied to the primary clipboard.
-  save_to_clipboard: true
-
-# Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: false
 
 # TokyoNight Alacritty Colors
 colors:
