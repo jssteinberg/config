@@ -8,16 +8,7 @@ vim.api.nvim_set_var('netrw_winsize', 25) -- %
 -- Preview in vertical split
 vim.api.nvim_set_var('netrw_preview', 1)
 
--- Kyemaps in netrw
-function netrw_buffer_keymaps()
-	-- Move up one directory level
-	vim.api.nvim_buf_set_keymap(0, 'n', 'h', '-^', {})
-	-- Open file or directory
-	vim.api.nvim_buf_set_keymap(0, 'n', 'l', '<cr>', {})
-end
-
 -- Auto commands
 require'utils'.create_augroup({
-	-- {'FileType', 'netrw', [[lua netrw_buffer_keymaps()]]},
 	{'FileType', 'netrw', 'setlocal bufhidden=delete'},
 }, 'netrw')
