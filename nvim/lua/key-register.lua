@@ -171,7 +171,7 @@ M.normal = {
 	["<leader>s"] = { name =
 		"session",
 
-		s = { ':exe "mksession! " . v:this_session<cr>',
+		s = { '<cmd>exe "mksession! " . v:this_session<cr><cmd>echo "Session " . v:this_session<cr>',
 		"Save current session" },
 	},
 
