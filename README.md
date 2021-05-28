@@ -19,7 +19,7 @@ Requires: git, kitty (or alacritty and tmux) ... Install with your OS package ma
 
 ## Neovim
 
-Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim) (though there is a file for plugins through [paq](https://github.com/savq/paq-nvim) as well), ripgrep is optional ...
+Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim), ripgrep is optional ...
 
 ### Config philosophy
 
