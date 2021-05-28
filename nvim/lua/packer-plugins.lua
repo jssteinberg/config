@@ -297,7 +297,7 @@ require('packer').startup(function(use)
 				defaults = {
 					mappings = {
 						i = {
-							[require'key-register'.esc_map] = actions.close
+							[require'keymaps-incl-plugins'.esc_map] = actions.close
 						}
 					}
 				}
