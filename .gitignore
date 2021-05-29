@@ -2,3 +2,4 @@
 configstore/
 nvim/plugin/packer_compiled.vim
 .bombadillo.ini
+fish/
