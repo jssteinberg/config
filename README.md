@@ -1,21 +1,22 @@
 # .config
 
+Includes config for alacritty and tmux (and kitty---which is nice without tmux), neovim
+
 ## Get started
 
-Install zsh if needed.
-
-Requires: git, kitty (or alacritty and tmux) ... Install with your OS package manager.
+Requires: git, ... Install with your OS package manager.
 
 1. `cd`
 2. git clone as ~/.config
-3. `ln -s .config/zshrc .zshrc`
-4. `ln -s .config/tmux.conf .tmux.conf`
+3. `ln -s .config/tmux.conf .tmux.conf`
 
 ## Other complementing tools
 
-- [fzf](https://github.com/junegunn/fzf) for fuzzy finding from the shell (in nvim Telescope is used)
+- fish---shell with modern, usable defaults
+- ripgrep, ag the silver searcher ...
 - [exa](https://github.com/ogham/exa), `ls` replacement
-- Grepping: ag the silver searcher, ripgrep ...
+- bat, cat replacement
+- fd, find replacement
 
 ## Neovim
 
