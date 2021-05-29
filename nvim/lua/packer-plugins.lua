@@ -84,7 +84,7 @@ require('packer').startup(function(use)
 			require('zen-mode').setup{
 				window = {
 					backdrop = 0.98,
-					width = 110,
+					width = 100,
 					options = {
 						cursorline = false,
 					},
