@@ -77,8 +77,11 @@ M.normal = {
 	["<leader>b"] = { name =
 		"buffer(s)",
 
-		w = { "<cmd>bwipeout<cr>",
-		"Wipeout buffer" },
+		d = { "<cmd>Bdelete<cr>",
+		"Delete buffer, keep window" },
+
+		w = { "<cmd>Bwipeout<cr>",
+		"Wipeout buffer, keep window" },
 
 	},
 	[M.buffer_alternate_map] = { "<c-^>",
