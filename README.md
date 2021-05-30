@@ -45,6 +45,7 @@ Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim)
 - `:G` for git status, `<leader>gl` for git log, `<leader>gd` for git diff, through plugins fugitive.vim, [gv.vim][gl] and [Diffview][gd].
 - `gx` to open URI or searching visual, through open-browser.vim.
 - `ga` for aligning text in normal and visual mode, through Easyalign.
+- `:Bdelete` and `:Bwipeout` for preserving window layout through famiu/bufdelete.nvim. And it deletes the buffer if it's open in other windows, and cycle all of them to the next buffer.
 
 #### To consider
 
