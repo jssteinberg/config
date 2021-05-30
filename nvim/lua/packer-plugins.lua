@@ -34,8 +34,8 @@ require('packer').startup(function(use)
 		end
 	}
 
-	-- Change cwd based on file in focus
-	-- use{'ahmedkhalf/lsp-rooter.nvim'}
+	-- :Bdelete and :Bwipeout to preserve windows
+	use{'famiu/bufdelete.nvim'}
 
 
 	-- GIT
