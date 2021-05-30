@@ -1,7 +1,7 @@
 -- Format for Which Key plugin; Format as human readable as possible.
 
 -- Guidelines for maps:
--- - Use qq to escape when appropriate (insert, visual, Telescope-insert)
+-- - Use M.esc_map to escape when possible and consistent (insert, visual, Telescope-insert)
 
 local M = {}
 
