@@ -1,12 +1,14 @@
--- Vanilla nvim config
+-- ## Vanilla nvim config
 
 -- Options
 require'options'
 -- Keymaps
-require'keymaps'
+require'keymaps'.init()
+
+
+-- ## Packages config
+
 -- Netrw
-require'netrw-config'
-
--- Plugins config
-
-require'packer-plugins'
+require'packages.netrw'
+-- External packages
+require'packages'

@@ -1,5 +1,5 @@
 local wk = require'which-key'
-local maps = require'keymaps-incl-plugins'
+local maps = require'keymaps'
 
 require('packer').startup(function(use)
 	-- Let Packer manage itself
@@ -38,7 +38,7 @@ require('packer').startup(function(use)
 	use{'famiu/bufdelete.nvim'}
 
 
-	-- GIT
+	-- ## GIT
 
 	-- fugitive
 	use{'tpope/vim-fugitive'}
@@ -47,11 +47,8 @@ require('packer').startup(function(use)
 	use{
 		'junegunn/gv.vim',
 		cmd = {'GV'},
-		requires = {
-			{'tpope/vim-fugitive'},
-		}
+		requires = { 'tpope/vim-fugitive' }
 	}
-	vim.api.nvim_set_keymap('n', '<leader>gl', ':GV<cr>', {noremap = true})
 
 	-- diff view
 	use{
@@ -66,7 +63,6 @@ require('packer').startup(function(use)
 			}
 		end
 	}
-	vim.api.nvim_set_keymap('n', '<leader>gd', ':DiffviewOpen<cr>', {noremap = true})
 
 	-- git blame
 	use{'f-person/git-blame.nvim', event = 'BufRead'}
@@ -116,125 +112,6 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
-
-	-- ## LSP
-
-	use{
-		'neovim/nvim-lspconfig',
-		requires = {'kabouzeid/nvim-lspinstall'},
-		config = function()
-			local function setup_servers()
-				require'lspinstall'.setup()
-				local servers = require'lspinstall'.installed_servers()
-				for _, server in pairs(servers) do
-					require'lspconfig'[server].setup{}
-				end
-			end
-
-			setup_servers()
-
-			-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-			require'lspinstall'.post_install_hook = function ()
-				setup_servers() -- reload installed servers
-				vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-			end
-		end
-	}
-
-	-- Auto completion
-
-	-- vim-vsnip
-	use{
-		'hrsh7th/vim-vsnip',
-		requies = {'hrsh7th/vim-vsnip-integ'},
-	}
-	-- vsnip recommended config
--- 	" Expand
--- 	imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
--- 	smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-
--- 	" Expand or jump
--- 	imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
--- 	smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-
--- 	" Jump forward or backward
--- 	imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
--- 	smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
--- 	imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
--- 	smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-
--- 	" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
--- 	" See https://github.com/hrsh7th/vim-vsnip/pull/50
--- 	nmap        s   <Plug>(vsnip-select-text)
--- 	xmap        s   <Plug>(vsnip-select-text)
--- 	nmap        S   <Plug>(vsnip-cut-text)
--- 	xmap        S   <Plug>(vsnip-cut-text)
-
--- 	" If you want to use snippet for multiple filetypes, you can `g:vsnip_filetypes` for it.
--- 	let g:vsnip_filetypes = {}
--- 	let g:vsnip_filetypes.javascriptreact = ['javascript']
--- 	let g:vsnip_filetypes.typescriptreact = ['typescript']
-
-	-- nvim-compe
-	use{
-		'hrsh7th/nvim-compe',
-		event = 'BufRead',
-		config = function()
-			vim.o.completeopt = 'menuone,noselect'
-
-			require'compe'.setup{ source = {
-				path = true;
-				buffer = true;
-				calc = true;
-				nvim_lsp = true;
-				nvim_lua = true;
-				vsnip = true;
-				ultisnips = false;
-			}; }
-
-			local t = function(str)
-				return vim.api.nvim_replace_termcodes(str, true, true, true)
-			end
-
-			local check_back_space = function()
-				local col = vim.fn.col('.') - 1
-				if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-					return true
-				else
-					return false
-				end
-			end
-
-			-- functions for using (s-)tab
-			_G.tab_complete = function()
-				if vim.fn.pumvisible() == 1 then
-					return t '<C-n>'
-				elseif vim.fn.call('vsnip#available', {1}) == 1 then
-					return t '<Plug>(vsnip-expand-or-jump)'
-				elseif check_back_space() then
-					return t '<Tab>'
-				else
-					return vim.fn['compe#complete']()
-				end
-			end
-			_G.s_tab_complete = function()
-				if vim.fn.pumvisible() == 1 then
-					return t '<C-p>'
-				elseif vim.fn.call('vsnip#jumpable', {-1}) == 1 then
-					return t '<Plug>(vsnip-jump-prev)'
-				else
-					return t '<S-Tab>'
-				end
-			end
-
-			-- bind (s-)tab
-			vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-			vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-			vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
-			vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
-		end
-	}
-
 	-- Treesitter for syntax, indentation and formatting
 	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -278,9 +155,28 @@ require('packer').startup(function(use)
 	}
 
 
-	-- ## FILETYPES
+	-- ## LSP & CODE INSPECTION
 
-	-- Lua
+	use{
+		'kabouzeid/nvim-lspinstall',
+		event = 'BufRead',
+		requires = { 'neovim/nvim-lspconfig', },
+		config = function() require'packages.lsp'.lspinstall_config() end
+	}
+
+	use{
+		'pechorin/any-jump.vim',
+		cmd = {'AnyJump', 'AnyJumpVisual', 'AnyJumpBack', 'AnyJumpLastResults'},
+		keys = { {'n','<leader>j'}, {'x','<leader>j'}, {'n','<leader>ab'}, {'n','<leader>al'} },
+	}
+
+	-- ## AUTO COMPLETION
+
+	use{
+		'hrsh7th/nvim-compe',
+		event = 'BufRead',
+		config = function() require'packages.compe'.config() end
+	}
 
 
 	-- ## FILE EXPLORING & SEARCHING
@@ -295,19 +191,15 @@ require('packer').startup(function(use)
 		requires = {
 			{'nvim-lua/popup.nvim'},
 			{'nvim-lua/plenary.nvim'},
+			{'TC72/telescope-tele-tabby.nvim'}
 		},
 		config = function()
 			local actions = require('telescope.actions')
-
-			require('telescope').setup({
-				defaults = {
-					mappings = {
-						i = {
-							[require'keymaps-incl-plugins'.esc_map] = actions.close
-						}
-					}
-				}
-			})
+			require('telescope').setup({defaults = {
+				mappings = {i = {
+					[require'keymaps'.esc_map] = actions.close
+				}}
+			}})
 		end
 	}
 
