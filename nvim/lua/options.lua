@@ -4,32 +4,42 @@ vim.o.statusline = require 'statusline'
 -- enable mouse for all modes
 vim.o.mouse = 'a'
 -- use OS clipboard
-vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'
+vim.o.clipboard = 'unnamedplus'
 -- allow hiding unsaved buffers
 vim.o.hidden = true
 -- generally ignore case
 vim.o.ignorecase = true
 -- show tabs as vertical lines
 vim.o.listchars = vim.o.listchars .. ',tab:│ '
+-- less timeoutlen for maps
+vim.o.timeoutlen = 500
+-- session data
+vim.o.sessionoptions = 'blank,curdir,folds,help,tabpages'
 -- Search & substitute
 -- smartcase when searching
 vim.o.smartcase = true
 -- global substitute as default
 vim.o.gdefault = true
 
+
 -- Window-local options
 
--- show column with relativenumbers---eases line jumping
+-- show line numbers
+vim.wo.number = true
+-- show relativenumbers---eases line jumping
 vim.wo.relativenumber = true
 -- show signs for tabs, whitespace, etc.
 vim.wo.list = true
 -- always show signcolumn (used by different plugins)
 vim.wo.signcolumn = 'yes'
+-- cursorline by default
+vim.wo.cursorline = true
 -- Wrap
 -- softwrap inheriting indent
 vim.wo.breakindent = true
 -- break word by 'breakat'
 vim.wo.linebreak = true
+
 
 -- Buffer-local options
 
@@ -43,7 +53,7 @@ vim.bo.copyindent = true
 vim.bo.undofile = true
 -- no swapfiles when persistent undo and no multiuser system
 vim.bo.swapfile = false
--- Tabs win
+-- Indentation
 -- tabs -- noexpandtab is default
 vim.bo.tabstop = 3 -- number of spaces for tab char
 vim.bo.shiftwidth = 3 -- number of spaces for autoindent
@@ -54,4 +64,14 @@ vim.bo.shiftwidth = 3 -- number of spaces for autoindent
 -- (n) recognize numbered lists
 -- (l) don't break long lines (does c still work?)
 -- (p) don't break lines on single space following period
-vim.bo.formatoptions = 'cqjnlp'
+vim.bo.formatoptions = 'jnpcql'
+
+
+-- Auto commands
+
+-- help
+require 'utils'.create_augroup({
+	-- open help files vertically
+	{'FileType', 'help', 'wincmd H'},
+	-- auto save session if any is sourced
+}, 'help')

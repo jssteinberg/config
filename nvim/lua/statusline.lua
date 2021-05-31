@@ -1,1 +1,2 @@
-return "%m[%n]%f %=%y[%{&fileencoding}]%r%w[(%l/%L):%c]%<"
+local sep = '--'
+return sep .. ' `:b%n` %t%m%r%q %#LineNr# %y[%{&fileencoding}]%w ' .. sep .. ' %p%% (%l/%L):%c ' .. sep .. '%<%='

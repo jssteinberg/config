@@ -1,61 +1,41 @@
--- Leader
--- space
-vim.g.mapleader = ' '
-vim.api.nvim_set_keymap('n',' ','',{noremap = true})
-vim.api.nvim_set_keymap('x',' ','',{noremap = true})
+-- Mappings for nvim without plugins (note that they may be repeated in keymaps-incl-plugins.lua)
 
--- jump to definition (default stinks on various keyboard layouts)
-vim.api.nvim_set_keymap('n', '<leader>l', '<c-]>', {noremap = true})
+local keybindings = require'keymaps-incl-plugins'
 
--- Buffers
--- list buffers, open with buffer number
-vim.api.nvim_set_keymap('n', '<leader>bl', ':ls<cr>:b', {noremap = true})
+keybindings.setLeader()
+
+-- Terminal
+-- escape terminal
+vim.api.nvim_set_keymap('t', keybindings.esc_map, '<c-\\><c-n>', {noremap = true})
+-- open terminal in insert
+vim.api.nvim_set_keymap('n', '<leader>T', ':terminal<cr>i', {noremap = true})
+-- alternate buffer from terminal
+-- vim.api.nvim_set_keymap('t', maps.buffer_alternate_map, '<c-\\><c-n><c-^>', {noremap = true})
+
+-- Jump
+-- jump to definition (default stinks for many non-US keyboard layouts)
+vim.api.nvim_set_keymap('n', '<leader>9', '<c-]>', {noremap = true})
+-- add c-i, c-o for consistency
+vim.api.nvim_set_keymap('n', '<leader>o', '<c-o>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>i', '<c-i>', {noremap = true})
+
+-- Buffers, windows and tabs
 -- previous buffer
 vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
-vim.api.nvim_set_keymap('t', '<leader>bb', '<c-\\><c-n><c-^>', {noremap = true})
--- prev/next buffer
-vim.api.nvim_set_keymap('n', '<tab>', ':bnext<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader><tab>', ':bprevious<cr>', {noremap = true})
-
--- Completion
--- tab for buffer completion
-vim.api.nvim_set_keymap('i', '<tab>', '<c-n>', {noremap = true})
-vim.api.nvim_set_keymap('i', '<s-tab>', '<c-p>', {noremap = true})
+-- choose buffer in pwd
+vim.api.nvim_set_keymap('n', '<tab>', '<cmd>buffer <c-r>=expand(getcwd())<cr>/**/', {noremap = true})
+vim.api.nvim_set_keymap('n', '<s-tab>', '<cmd>buffer <c-r>=expand(getcwd())<cr>/**/', {noremap = true})
 
 -- Escape
 -- qq in insert
-vim.api.nvim_set_keymap('i', 'qq', '<esc>', {noremap = true})
+vim.api.nvim_set_keymap('i', keybindings.esc_map, '<esc>', {noremap = true})
 -- qq in visual (x)
-vim.api.nvim_set_keymap('x', 'qq', '<esc>', {noremap = true})
- -- qq in terminal
-vim.api.nvim_set_keymap('t', 'qq', '<c-\\><c-n>', {noremap = true})
-
--- Git
--- status
-vim.api.nvim_set_keymap('n', '<leader>gs', ':exe "!git status " . shellescape(getcwd())<cr>', {noremap = true})
--- (TODO: should these be commands?:)
--- commit current buffer
-vim.api.nvim_set_keymap('n', '<leader>gcc', ':!git add "%" && git commit "%" -m "', {noremap = true})
--- commit all
-vim.api.nvim_set_keymap('n', '<leader>gca', ':!git commit -am "', {noremap = true})
--- commit only
-vim.api.nvim_set_keymap('n', '<leader>gco', ':!git commit ', {noremap = true})
--- push
-vim.api.nvim_set_keymap('n', '<leader>gp', ':!git push', {noremap = true})
+vim.api.nvim_set_keymap('x', keybindings.esc_map, '<esc>', {noremap = true})
 
 -- Files
 -- wild find
 vim.api.nvim_set_keymap('n', '<leader>ff', ':edit **/', {noremap = true})
 
--- Terminal
--- open terminal in insert
-vim.api.nvim_set_keymap('n', '<leader>ot', ':terminal<cr>i', {noremap = true})
-
 -- Search
--- visual star
-vim.api.nvim_set_keymap('x', '*', 'y/<c-r><cr>', {noremap = true})
 -- nohlsearch
 vim.api.nvim_set_keymap('n', '<cr>', ':nohlsearch<cr>', {noremap = true})
-
--- Window
-vim.api.nvim_set_keymap('n', '<c-w><c-w>', ':vsplit<cr>', {noremap = true})
