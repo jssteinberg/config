@@ -10,5 +10,5 @@ vim.api.nvim_set_var('netrw_preview', 1)
 
 -- Auto commands
 require'utils'.create_augroup({
-	{'FileType', 'netrw', 'setlocal bufhidden=delete'},
+	{'FileType', 'netrw', 'setlocal bufhidden=wipe'},
 }, 'netrw')
