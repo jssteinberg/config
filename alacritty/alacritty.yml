@@ -3,7 +3,7 @@
 selection:
   save_to_clipboard: true
 
-# Send ESC (\x1b) before characters when alt is pressed.
+# Send ESC (\x1b) before characters when alt is pressed---needed for several non-us keyboards usually
 alt_send_esc: false
 
 mouse:
