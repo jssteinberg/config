@@ -1,6 +1,6 @@
 # .config
 
-Includes config for alacritty and tmux (and kitty---which is nice without tmux), neovim
+Includes config for alacritty and tmux (and kitty---which is nice without tmux), and neovim. *Used on Macos, but should work on Linux. But does tmux TC/256 color config?*
 
 ## Get started
 
@@ -20,7 +20,7 @@ Requires: git, ... Install with your OS package manager.
 
 ## Neovim
 
-Requires neovim v. > 0.5 and [packer](https://github.com/wbthomason/packer.nvim), ripgrep is optional ...
+Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim) and ripgrep ...
 
 ### Config philosophy
 
