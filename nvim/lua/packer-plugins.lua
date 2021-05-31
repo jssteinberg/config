@@ -21,7 +21,7 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('v', 'gx', '<Plug>(openbrowser-smart-search)', {})
 
 
-	-- BUFFERS
+	-- ## BUFFERS
 
 	-- Auto respect editorconfig files
 	use{'editorconfig/editorconfig-vim'}
@@ -72,7 +72,7 @@ require('packer').startup(function(use)
 	use{'f-person/git-blame.nvim', event = 'BufRead'}
 
 
-	-- EDITING & TREESITTER
+	-- ## EDITING & TREESITTER
 
 	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
@@ -117,7 +117,7 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
 
-	-- LSP
+	-- ## LSP
 
 	use{
 		'neovim/nvim-lspconfig',
@@ -148,6 +148,7 @@ require('packer').startup(function(use)
 		'hrsh7th/vim-vsnip',
 		requies = {'hrsh7th/vim-vsnip-integ'},
 	}
+	-- vsnip recommended config
 -- 	" Expand
 -- 	imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 -- 	smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
@@ -277,7 +278,12 @@ require('packer').startup(function(use)
 	}
 
 
-	-- FILE EXPLORING & SEARCHING
+	-- ## FILETYPES
+
+	-- Lua
+
+
+	-- ## FILE EXPLORING & SEARCHING
 
 	use{'subnut/visualstar.vim'}         -- visual star `*` search, or `#` backwards
 
@@ -306,7 +312,7 @@ require('packer').startup(function(use)
 	}
 
 
-	-- INTERFACE
+	-- ## INTERFACE
 
 	-- Colorscheme Tokyonights. Dark/light. Supports Treesitter. (Includes config for Alacritty)
 	use{'folke/tokyonight.nvim'}
