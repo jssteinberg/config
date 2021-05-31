@@ -3,6 +3,18 @@
 -- Guidelines for maps:
 -- - Use M.esc_map to escape when possible and consistent (insert, visual, Telescope-insert)
 
+SAVE_SOURCED_SESSION = function()
+	local getSession = function()
+		return vim.api.nvim_get_vvar('this_session')
+	end
+	if getSession() ~= '' then
+		vim.cmd('mksession! ' .. getSession())
+		print('mksession! ' .. getSession())
+	else
+		print('No sourced session (:so <session-file>)')
+	end
+end
+
 local M = {}
 
 M.setLeader = function()
@@ -180,8 +192,8 @@ M.normal = {
 	["<leader>s"] = { name =
 		"session",
 
-		s = { '<cmd>exe "mksession! " . v:this_session<cr><cmd>echo "Session " . v:this_session<cr>',
-		"Save current session" },
+		s = { '<cmd>lua SAVE_SOURCED_SESSION()<cr>',
+		"Save the sourced session" },
 	},
 
 
