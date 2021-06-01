@@ -137,7 +137,7 @@ M.normal = {
 	["<leader>b"] = { name =
 		"buffer(s)",
 
-		e = { "<cmd>Luafile %<cr>",
+		e = { "<cmd>luafile %<cr>",
 		"Execute buffer script" },
 
 		d = { "<cmd>Bdelete<cr>",
