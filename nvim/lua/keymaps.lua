@@ -102,9 +102,6 @@ M.visual = {
 }
 
 M.normal = {
-	-- ["<cr>"] = { "<cmd>nohlsearch<cr>",
-	-- "Clear search highlight" },
-
 	["<c-t>"] = { "<cmd>tabnext<cr>",
 	"Tab, next" },
 
@@ -247,12 +244,21 @@ M.normal = {
 	":Git (status)" },
 
 
+	-- Highlight
+
+	["<leader>h"] = { name =
+		"highlight",
+
+		s = { '<cmd>LspStop<cr><cmd>LspStart<cr><cmd>echo "Restart LSP"<cr>',
+		'Search clear' },
+	},
+
 	-- LSP
 
 	["<leader>l"] = { name =
 		"lsp",
 
-		r = { '<cmd>LspStop<cr><cmd>LspStart<cr>',
+		r = { '<cmd>LspStop<cr><cmd>LspStart<cr><cmd>echo "Restart LSP"<cr>',
 		'Restart' },
 	},
 
