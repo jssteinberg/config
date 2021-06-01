@@ -137,6 +137,9 @@ M.normal = {
 	["<leader>b"] = { name =
 		"buffer(s)",
 
+		e = { "<cmd>Luafile %<cr>",
+		"Execute buffer script" },
+
 		d = { "<cmd>Bdelete<cr>",
 		"Delete buffer, keep window" },
 
@@ -197,8 +200,8 @@ M.normal = {
 		s = { "<cmd>Telescope live_grep<cr>",
 		"String (live grep)" },
 
-		w = { "<cmd>Telescope grep_string<cr>",
-		"Word" },
+		t = { "<cmd>Telescope tele_tabby list<cr>",
+		"tabs" },
 	},
 
 
@@ -244,6 +247,16 @@ M.normal = {
 	":Git (status)" },
 
 
+	-- LSP
+
+	["<leader>l"] = { name =
+		"lsp",
+
+		r = { '<cmd>LspStop<cr><cmd>LspStart<cr>',
+		'Restart' },
+	},
+
+
 	-- Session
 
 	["<leader>s"] = { name =
@@ -268,8 +281,8 @@ M.normal = {
 		c = { "<cmd>tabclose<cr>",
 		"Close" },
 
-		l = { "<cmd>Telescope tele_tabby list<cr>",
-		"List tabs" },
+		f = { '<cmd>Telescope tele_tabby list<cr>',
+		"Find" },
 	},
 
 
@@ -277,12 +290,6 @@ M.normal = {
 
 	["<leader>T"] = {"<cmd>terminal<cr>i",
 		"Terminal pwd" },
--- 	["<leader>T"] = { name =
--- 		"terminal",
-
--- 		['.'] = { "<cmd>terminal<cr>i",
--- 		"Terminal pwd" },
--- 	},
 
 
 	-- Zen mode
