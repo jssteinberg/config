@@ -54,7 +54,6 @@ Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim) an
 - harpoon
 - https://github.com/mattn/emmet-vim
 - https://github.com/sbdchd/neoformat
-- https://github.com/pechorin/any-jump.vim
 
 ### Structure
 
