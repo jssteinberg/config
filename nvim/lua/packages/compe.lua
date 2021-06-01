@@ -10,7 +10,6 @@ M.config = function()
 		nvim_lsp = true;
 		nvim_lua = true;
 		-- vsnip = true;
-		-- ultisnips = false;
 	}; }
 
 	local t = function(str)
