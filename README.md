@@ -49,6 +49,8 @@ Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim) an
 
 #### To consider
 
+- https://github.com/lambdalisue/suda.vim
+- https://github.com/kkoomen/vim-doge
 - harpoon
 - https://github.com/mattn/emmet-vim
 - https://github.com/sbdchd/neoformat
