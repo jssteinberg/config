@@ -15,6 +15,13 @@ SAVE_SOURCED_SESSION = function()
 	end
 end
 
+-- @param {string} b_cmd - 'next', 'prev', 'alt'
+CWD_BUFFERS = function(b_cmd)
+	-- Get list of active buffers
+	local bufs = vim.api.nvim_get_context({types = {'bufs'}})
+	print(bufs)
+end
+
 local M = {}
 
 M.esc_map = 'qq'
@@ -186,6 +193,9 @@ M.normal = {
 
 		o = { "<cmd>Telescope oldfiles<cr>",
 		"Old (recent) files" },
+
+		s = { "<cmd>Telescope live_grep<cr>",
+		"String (live grep)" },
 
 		w = { "<cmd>Telescope grep_string<cr>",
 		"Word" },
