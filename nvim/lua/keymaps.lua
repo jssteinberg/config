@@ -108,9 +108,6 @@ M.normal = {
 	["<c-t>"] = { ":tabnext<cr>",
 	"Tab, next" },
 
-	["<leader>S"] = { "/",
-	"Search" },
-
 	["<leader>R"] = { ":%s/",
 	"Replace" },
 
@@ -120,7 +117,7 @@ M.normal = {
 	["<leader><tab>"] = { ":Telescope oldfiles<cr>",
 	"Recent files" },
 
-	-- Jump list
+	-- Jumps/motions
 
 	["<leader>9"] = { "<c-]>",
 	"Jump to definition" },
@@ -128,9 +125,17 @@ M.normal = {
 	["<leader>o"] = { "<c-o>",
 	"Go back in jump list" },
 
-	["<leader>i"] = { "<c-i>",
-	"Go forward in jump list" },
+	['<leader>i'] = { '<c-i>',
+	'Go forward in jump list' },
 
+	['<leader><space>'] = { ':HopWord<cr>',
+	'Hop to word' },
+
+	['<leader>J'] = { ':HopLine<cr>',
+	'Hop to line' },
+
+	['<leader>K'] = { ':HopLine<cr>',
+	'Hop to line' },
 
 	-- Buffers
 
