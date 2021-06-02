@@ -144,6 +144,11 @@ require('packer').startup(function(use)
 
 	-- ### UTILITY
 
+	-- Motion
+	use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine', 'HopChar1', 'HopChar2', 'HopPattern'}, config = function()
+		require'hop'.setup { keys = 'etoqdygflhksura' }
+	end}
+
 	-- Zen mode
 	use {
 		'folke/zen-mode.nvim',
