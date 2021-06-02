@@ -9,7 +9,8 @@ M.config = function()
 		plugins = {
 			spelling = {
 				enabled = true,
-			}
+			},
+			registers = false
 		},
 		triggers_blacklist = {
 			i = { 'q', 'Z' },

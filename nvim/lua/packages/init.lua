@@ -23,8 +23,9 @@ require('packer').startup(function(use)
 	use{'junegunn/vim-easy-align', event = 'BufRead'}
 	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
-	-- Cycle yank history
+	-- Cycle yank history on paste
 	use{'svermeulen/vim-yoink'}
+	vim.api.nvim_set_var('yoinkSavePersistently', 1)
 	vim.api.nvim_set_keymap('n', '<c-p>', '<Plug>(YoinkPostPasteSwapBack)', {})
 	vim.api.nvim_set_keymap('n', '<c-n>', '<Plug>(YoinkPostPasteSwapForward)', {})
 	vim.api.nvim_set_keymap('n', 'p', '<Plug>(YoinkPaste_p)', {})
