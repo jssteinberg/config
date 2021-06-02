@@ -68,7 +68,7 @@ M.insert = {
 	[M.esc_map] = { "<esc>",
 	"Esc to normal mode" },
 
-	['ZZ'] = { "<esc><cmd>write<cr>",
+	['ZZ'] = { "<esc><cmd>wq<cr>",
 	"Esc and write" },
 }
 
@@ -95,9 +95,6 @@ M.visual = {
 }
 
 M.normal = {
-	-- ["<cr>"] = { "<cmd>nohlsearch<cr>",
-	-- "Clear search highlight" },
-
 	["<c-t>"] = { "<cmd>tabnext<cr>",
 	"Tab, next" },
 
@@ -105,7 +102,7 @@ M.normal = {
 	"Write buffer to current file" },
 
 	["<leader><tab>"] = { "<cmd>Telescope oldfiles<cr>",
-	"Old (recent) files" },
+	"Recent files" },
 
 	-- Jump list
 
@@ -190,8 +187,8 @@ M.normal = {
 		s = { "<cmd>Telescope live_grep<cr>",
 		"String (live grep)" },
 
-		w = { "<cmd>Telescope grep_string<cr>",
-		"Word" },
+		t = { "<cmd>Telescope tele_tabby list<cr>",
+		"tabs" },
 	},
 
 
@@ -199,6 +196,9 @@ M.normal = {
 
 	["<leader>g"] = { name =
 		"git",
+
+		b = { '<cmd>GitBlameToggle<cr>',
+		'Blame' },
 
 		c = { name =
 			'commit',
@@ -237,6 +237,25 @@ M.normal = {
 	":Git (status)" },
 
 
+	-- Highlight
+
+	["<leader>h"] = { name =
+		"highlight",
+
+		s = { '<cmd>nohlsearch<cr>',
+		'Search clear' },
+	},
+
+	-- LSP
+
+	["<leader>l"] = { name =
+		"lsp",
+
+		r = { '<cmd>LspStop<cr><cmd>LspStart<cr><cmd>echo "Restart LSP"<cr>',
+		'Restart' },
+	},
+
+
 	-- Session
 
 	["<leader>s"] = { name =
@@ -261,21 +280,18 @@ M.normal = {
 		c = { "<cmd>tabclose<cr>",
 		"Close" },
 
-		l = { "<cmd>Telescope tele_tabby list<cr>",
-		"List tabs" },
+		f = { '<cmd>Telescope tele_tabby list<cr>',
+		"Find" },
 	},
+
+	['<leader>C'] = { "<cmd>tabclose<cr>",
+	"Close" },
 
 
 	-- Terminal
 
 	["<leader>T"] = {"<cmd>terminal<cr>i",
 		"Terminal pwd" },
--- 	["<leader>T"] = { name =
--- 		"terminal",
-
--- 		['.'] = { "<cmd>terminal<cr>i",
--- 		"Terminal pwd" },
--- 	},
 
 
 	-- Zen mode
