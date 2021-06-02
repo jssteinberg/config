@@ -109,7 +109,7 @@ M.normal = {
 	"Write buffer to current file" },
 
 	["<leader><tab>"] = { "<cmd>Telescope oldfiles<cr>",
-	"Old (recent) files" },
+	"Recent files" },
 
 	-- Jump list
 
@@ -290,6 +290,9 @@ M.normal = {
 		f = { '<cmd>Telescope tele_tabby list<cr>',
 		"Find" },
 	},
+
+	['<leader>C'] = { "<cmd>tabclose<cr>",
+	"Close" },
 
 
 	-- Terminal
