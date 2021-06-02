@@ -75,7 +75,7 @@ M.insert = {
 	[M.esc_map] = { "<esc>",
 	"Esc to normal mode" },
 
-	['ZZ'] = { "<esc><cmd>write<cr>",
+	['ZZ'] = { "<esc><cmd>wq<cr>",
 	"Esc and write" },
 }
 
@@ -206,6 +206,9 @@ M.normal = {
 
 	["<leader>g"] = { name =
 		"git",
+
+		b = { '<cmd>GitBlameToggle<cr>',
+		'Blame' },
 
 		c = { name =
 			'commit',

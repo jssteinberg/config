@@ -35,7 +35,7 @@ require('packer').startup(function(use)
 		} }
 	end }
 	-- git blame
-	use{'f-person/git-blame.nvim', event = 'BufRead'}
+	use{'f-person/git-blame.nvim', cmd = 'GitBlameToggle'}
 
 
 	-- ## EDITING & TREESITTER
