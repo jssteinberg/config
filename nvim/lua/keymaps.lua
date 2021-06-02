@@ -64,7 +64,7 @@ M.init = function()
 	vim.api.nvim_set_keymap('n', '<leader>ff', ':edit **/', {noremap = true})
 
 	-- Command line
-	-- c-p is up
+	-- c-p is up for incremental backwards command history
 	vim.api.nvim_set_keymap('c', '<c-p>', '<up>', {noremap = true})
 end
 
@@ -96,17 +96,23 @@ M.visual = {
 
 	["<"] = { "<gv",
 	"Indent -" },
+
+	["<leader>S"] = { "/",
+	"Search" },
+
+	["<leader>R"] = { ":s/",
+	"Replace" },
 }
 
 M.normal = {
 	["<c-t>"] = { ":tabnext<cr>",
 	"Tab, next" },
 
-	["S"] = { "/",
+	["<leader>S"] = { "/",
 	"Search" },
 
-	["<leader>S"] = { ":%s/",
-	"Search/replace" },
+	["<leader>R"] = { ":%s/",
+	"Replace" },
 
 	["<leader>w"] = { ":write<cr>",
 	"Write buffer to current file" },

@@ -38,7 +38,7 @@ require('packer').startup(function(use)
 	use{
 		'kabouzeid/nvim-lspinstall',
 		event = 'BufRead',
-		requires = {'neovim/nvim-lspconfig'},
+		requires = {'neovim/nvim-lspconfig', 'ray-x/lsp_signature.nvim'},
 		config = function() require'packages.lsp'.lspinstall_config() end
 	}
 
@@ -135,7 +135,7 @@ require('packer').startup(function(use)
 	}
 
 	-- ### UTILITY
-	
+
 	-- Zen mode
 	use {
 		'folke/zen-mode.nvim',

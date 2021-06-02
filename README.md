@@ -24,8 +24,8 @@ Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim) an
 
 ### Config philosophy
 
-- **Functionality** as needed for programming 'the vim way'.
-- **Light**. Utilize the shell together with vim, unless certain functionality is more practical to add to vim. Generally avoid bloat. Avoid plugins that replaces what vim already does, or that does unnecessary things (there's no statusline plugin).
+- **Functionality** (actually) needed for todays programming---with a focus on web front-end.
+- **Light**. Utilize the shell together with vim, unless certain functionality is more practical to add to vim. Generally avoid bloat. Avoid plugins that replaces what vim already does (certain motion plugins), or that does unnecessary things (no statusline plugin).
 - **Lua** for config and plugins is used as far as possible unless certain functionality requires otherwise.
 - **Vim** default keymappings, commands and 'the vim way' are utilized and built upon. Not a new Mnemonic keymapping system for instance---avoid implementing to many mappings. Commands for rarer use cases don't need to be mapped (native commands are good to know). Prioritize plugins that extends, improve and/or ease learning the vim way somehow. Avoid plugins that tries to make vim resemble another 'worse' editor.
 - **Readable** and as uncomplicated config as possible, for dummies (author included).
