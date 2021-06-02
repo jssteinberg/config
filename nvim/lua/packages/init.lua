@@ -136,10 +136,6 @@ require('packer').startup(function(use)
 
 	-- ### UTILITY
 	
-	-- Motion
-	use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine', 'HopChar1', 'HopChar2', 'HopPattern'}}
-	vim.api.nvim_set_keymap('n', '<leader><space>', '<cmd>HopChar1<cr>', {})
-
 	-- Zen mode
 	use {
 		'folke/zen-mode.nvim',

@@ -31,6 +31,12 @@ end
 M.init = function()
 	M.setLeader()
 
+	-- Escape
+	-- qq in insert
+	vim.api.nvim_set_keymap('i', M.esc_map, '<esc>', {noremap = true})
+	-- qq in visual (x)
+	vim.api.nvim_set_keymap('x', M.esc_map, '<esc>', {noremap = true})
+
 	-- Terminal
 	-- escape terminal
 	vim.api.nvim_set_keymap('t', M.esc_map, '<c-\\><c-n>', {noremap = true})
@@ -53,22 +59,24 @@ M.init = function()
 	-- alternative file
 	vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
 
-	-- Escape
-	-- qq in insert
-	vim.api.nvim_set_keymap('i', M.esc_map, '<esc>', {noremap = true})
-	-- qq in visual (x)
-	vim.api.nvim_set_keymap('x', M.esc_map, '<esc>', {noremap = true})
-
 	-- Files
 	-- wild find
 	vim.api.nvim_set_keymap('n', '<leader>ff', ':edit **/', {noremap = true})
+
+	-- Command line
+	-- c-p is up
+	vim.api.nvim_set_keymap('c', '<c-p>', '<up>', {noremap = true})
+
+	-- Search
+	-- search and replace
+	vim.api.nvim_set_keymap('n', 'S', ':%s/', {noremap = true})
 end
 
 M.insert = {
 	[M.esc_map] = { '<esc>',
 	'Esc to normal mode' },
 
-	['ZZ'] = { '<esc><cmd>wq<cr>',
+	['ZZ'] = { '<esc>:wq<cr>',
 	'Esc and write' },
 }
 
@@ -95,13 +103,16 @@ M.visual = {
 }
 
 M.normal = {
-	["<c-t>"] = { "<cmd>tabnext<cr>",
+	["<c-t>"] = { ":tabnext<cr>",
 	"Tab, next" },
 
-	["<leader>w"] = { "<cmd>write<cr>",
+	["<leader><space>"] = { "/",
+	"Search" },
+
+	["<leader>w"] = { ":write<cr>",
 	"Write buffer to current file" },
 
-	["<leader><tab>"] = { "<cmd>Telescope oldfiles<cr>",
+	["<leader><tab>"] = { ":Telescope oldfiles<cr>",
 	"Recent files" },
 
 	-- Jump list
@@ -118,19 +129,19 @@ M.normal = {
 
 	-- Buffers
 
-	["<tab>"] = { "<cmd>bnext | file!<cr>",
+	["<tab>"] = { ":bnext | file!<cr>",
 	"Next buffer" },
 
-	["<s-tab>"] = { "<cmd>bprevious | file!<cr>",
+	["<s-tab>"] = { ":bprevious | file!<cr>",
 	"Previous buffer" },
 
 	["<leader>b"] = { name =
 		"buffer(s)",
 
-		d = { "<cmd>Bdelete<cr>",
+		d = { ":Bdelete<cr>",
 		"Delete buffer, keep window" },
 
-		w = { "<cmd>Bwipeout<cr>",
+		w = { ":Bwipeout<cr>",
 		"Wipeout buffer, keep window" },
 
 	},
@@ -143,13 +154,13 @@ M.normal = {
 	["<leader>e"] = { name =
 		"edit",
 
-		['.'] = { "<cmd>edit .<cr>",
+		['.'] = { ":edit .<cr>",
 		"Working directory" },
 
-		c = { "<cmd>tabedit ~/.config/README.md | tcd ~/.config<cr>",
+		c = { ":tabedit ~/.config/README.md | tcd ~/.config<cr>",
 		"Config directory" },
 
-		b = { '<cmd>edit %:p:h<cr>/<c-r>=expand("#:t")<cr><cr>',
+		b = { ':edit %:p:h<cr>/<c-r>=expand("#:t")<cr><cr>',
 		"Buffer directory" },
 	},
 
@@ -159,35 +170,35 @@ M.normal = {
 	["<leader>f"] = { name =
 		"find",
 
-		b = { "<cmd>Telescope buffers<cr>",
+		b = { ":Telescope buffers<cr>",
 		"Buffers" },
 
-		d = { "<cmd>Telescope file_browser<cr>",
+		d = { ":Telescope file_browser<cr>",
 		"Directory content" },
 
-		f = { "<cmd>Telescope find_files<cr>",
+		f = { ":Telescope find_files<cr>",
 		"Files" },
 
 		g = { name =
 			"git",
 
-			b = { "<cmd>Telescope git_branches<cr>",
+			b = { ":Telescope git_branches<cr>",
 			"branches" },
 
-			c = { "<cmd>Telescope git_commits<cr>",
+			c = { ":Telescope git_commits<cr>",
 			"commits" },
 
-			f = { "<cmd>Telescope git_files<cr>",
+			f = { ":Telescope git_files<cr>",
 			"files" },
 		},
 
-		o = { "<cmd>Telescope oldfiles<cr>",
+		o = { ":Telescope oldfiles<cr>",
 		"Old (recent) files" },
 
-		s = { "<cmd>Telescope live_grep<cr>",
+		s = { ":Telescope live_grep<cr>",
 		"String (live grep)" },
 
-		t = { "<cmd>Telescope tele_tabby list<cr>",
+		t = { ":Telescope tele_tabby list<cr>",
 		"tabs" },
 	},
 
@@ -197,43 +208,43 @@ M.normal = {
 	["<leader>g"] = { name =
 		"git",
 
-		b = { '<cmd>GitBlameToggle<cr>',
+		b = { ':GitBlameToggle<cr>',
 		'Blame' },
 
 		c = { name =
 			'commit',
 
-			a = { '<cmd>Git commit -a<cr>',
+			a = { ':Git commit -a<cr>',
 			"Current buffer" },
 
-			c = { '<cmd>Git add % | Git commit %<cr>',
+			c = { ':Git add % | Git commit %<cr>',
 			"Current buffer" },
 		},
 
-		d = { '<cmd>DiffviewOpen<cr>',
+		d = { ':DiffviewOpen<cr>',
 		'Diff view' },
 
 		f = { name =
 			"find",
 
-			b = { "<cmd>Telescope git_branches<cr>",
+			b = { ":Telescope git_branches<cr>",
 			"Branches" },
 
-			c = { "<cmd>Telescope git_commits<cr>",
+			c = { ":Telescope git_commits<cr>",
 			"Commits" },
 
-			f = { "<cmd>Telescope git_files<cr>",
+			f = { ":Telescope git_files<cr>",
 			"Files" },
 		},
 
-		l = { '<cmd>GV<cr>',
+		l = { ':GV<cr>',
 		'Log' },
 
 		s = { ':exe "!git status " . shellescape(getcwd())<cr>',
 		'Status' },
 	},
 
-	["<leader>G"] = { "<cmd>Git<cr>",
+	["<leader>G"] = { ":Git<cr>",
 	":Git (status)" },
 
 
@@ -242,7 +253,7 @@ M.normal = {
 	["<leader>h"] = { name =
 		"highlight",
 
-		s = { '<cmd>nohlsearch<cr>',
+		s = { ':nohlsearch<cr>',
 		'Search clear' },
 	},
 
@@ -251,7 +262,7 @@ M.normal = {
 	["<leader>l"] = { name =
 		"lsp",
 
-		r = { '<cmd>LspStop<cr><cmd>LspStart<cr><cmd>echo "Restart LSP"<cr>',
+		r = { ':LspStop<cr>:LspStart<cr>:echo "Restart LSP"<cr>',
 		'Restart' },
 	},
 
@@ -261,7 +272,7 @@ M.normal = {
 	["<leader>s"] = { name =
 		"session",
 
-		s = { '<cmd>lua SAVE_SOURCED_SESSION()<cr>',
+		s = { ':lua SAVE_SOURCED_SESSION()<cr>',
 		"Save the sourced session" },
 	},
 
@@ -271,32 +282,32 @@ M.normal = {
 	["<leader>t"] = { name =
 		"tab",
 
-		['.'] = { "<cmd>tabedit .<cr>",
+		['.'] = { ":tabedit .<cr>",
 		"Edit working directory" },
 
-		b = { "<cmd>tabedit %<cr>",
+		b = { ":tabedit %<cr>",
 		"Edit buffer" },
 
-		c = { "<cmd>tabclose<cr>",
+		c = { ":tabclose<cr>",
 		"Close" },
 
-		f = { '<cmd>Telescope tele_tabby list<cr>',
+		f = { ':Telescope tele_tabby list<cr>',
 		"Find" },
 	},
 
-	['<leader>C'] = { "<cmd>tabclose<cr>",
+	['<leader>C'] = { ":tabclose<cr>",
 	"Close" },
 
 
 	-- Terminal
 
-	["<leader>T"] = {"<cmd>terminal<cr>i",
+	["<leader>T"] = {":terminal<cr>i",
 		"Terminal pwd" },
 
 
 	-- Zen mode
 
-	["<leader>Z"] = {"<cmd>ZenMode<cr>",
+	["<leader>Z"] = {":ZenMode<cr>",
 		"Zen mode" },
 
 }
