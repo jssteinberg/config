@@ -9,6 +9,6 @@ vim.api.nvim_set_var('netrw_winsize', 25) -- %
 vim.api.nvim_set_var('netrw_preview', 1)
 
 -- Auto commands
-require'utils'.create_augroup({
-	{'FileType', 'netrw', 'setlocal bufhidden=wipe'},
-}, 'netrw')
+-- require'utils'.create_augroup({
+-- 	{'FileType', 'netrw', 'setlocal bufhidden=delete'},
+-- }, 'netrw')
