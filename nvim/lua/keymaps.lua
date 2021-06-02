@@ -65,11 +65,11 @@ M.init = function()
 end
 
 M.insert = {
-	[M.esc_map] = { "<esc>",
-	"Esc to normal mode" },
+	[M.esc_map] = { '<esc>',
+	'Esc to normal mode' },
 
-	['ZZ'] = { "<esc><cmd>wq<cr>",
-	"Esc and write" },
+	['ZZ'] = { '<esc><cmd>wq<cr>',
+	'Esc and write' },
 }
 
 M.terminal = {
@@ -146,7 +146,7 @@ M.normal = {
 		['.'] = { "<cmd>edit .<cr>",
 		"Working directory" },
 
-		c = { "<cmd>tabedit ~/.config | tcd ~/.config<cr>",
+		c = { "<cmd>tabedit ~/.config/README.md | tcd ~/.config<cr>",
 		"Config directory" },
 
 		b = { '<cmd>edit %:p:h<cr>/<c-r>=expand("#:t")<cr><cr>',
