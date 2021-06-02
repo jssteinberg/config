@@ -11,9 +11,9 @@ require('packer').startup(function(use)
 	use{'subnut/visualstar.vim', event = 'BufRead'}
 
 	-- ### BUFFERS
-	-- Auto respect editorconfig files
+	-- editorconfig, set relevant options
 	use{'editorconfig/editorconfig-vim'}
-	-- Go to prev cursor position for buffers
+	-- Load last cursor position on bufread
 	use{'ethanholz/nvim-lastplace'} require'nvim-lastplace'.setup{}
 
 	-- ### EDITING & TREESITTER
