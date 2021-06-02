@@ -23,6 +23,14 @@ require('packer').startup(function(use)
 	use{'junegunn/vim-easy-align', event = 'BufRead'}
 	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
 	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
+	-- Cycle yank history
+	use{'svermeulen/vim-yoink'}
+	vim.api.nvim_set_keymap('n', '<c-p>', '<Plug>(YoinkPostPasteSwapBack)', {})
+	vim.api.nvim_set_keymap('n', '<c-n>', '<Plug>(YoinkPostPasteSwapForward)', {})
+	vim.api.nvim_set_keymap('n', 'p', '<Plug>(YoinkPaste_p)', {})
+	vim.api.nvim_set_keymap('n', 'P', '<Plug>(YoinkPaste_P)', {})
+	vim.api.nvim_set_keymap('n', 'gp', '<Plug>(YoinkPaste_gp)', {})
+	vim.api.nvim_set_keymap('n', 'gP', '<Plug>(YoinkPaste_gP)', {})
 	-- Treesitter
 	use {
 		'nvim-treesitter/nvim-treesitter',
