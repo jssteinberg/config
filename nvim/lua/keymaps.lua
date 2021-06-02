@@ -252,7 +252,7 @@ M.normal = {
 	["<leader>h"] = { name =
 		"highlight",
 
-		s = { '<cmd>LspStop<cr><cmd>LspStart<cr><cmd>echo "Restart LSP"<cr>',
+		s = { '<cmd>nohlsearch<cr>',
 		'Search clear' },
 	},
 
