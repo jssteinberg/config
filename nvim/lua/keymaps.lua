@@ -66,10 +66,6 @@ M.init = function()
 	-- Command line
 	-- c-p is up
 	vim.api.nvim_set_keymap('c', '<c-p>', '<up>', {noremap = true})
-
-	-- Search
-	-- search and replace
-	vim.api.nvim_set_keymap('n', 'S', ':%s/', {noremap = true})
 end
 
 M.insert = {
@@ -106,8 +102,11 @@ M.normal = {
 	["<c-t>"] = { ":tabnext<cr>",
 	"Tab, next" },
 
-	["<leader><space>"] = { "/",
+	["S"] = { "/",
 	"Search" },
+
+	["<leader>S"] = { ":%s/",
+	"Search/replace" },
 
 	["<leader>w"] = { ":write<cr>",
 	"Write buffer to current file" },
