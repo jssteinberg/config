@@ -1,6 +1,6 @@
 # .config
 
-Includes config for alacritty and tmux (and kitty---which is nice without tmux), and neovim. *Used on Macos, but should work on Linux. But does tmux TC/256 color config?*
+Includes config for alacritty and tmux (and kitty---which is nice without tmux), and neovim. *Used on Macos, but should work on Linux. But does [the tmux TC/256 color config (for Macos)](//github.com/jssteinberg/config/blob/main/tmux.conf#L3-L4)?*
 
 ## Get started
 
@@ -22,6 +22,21 @@ Requires: git, ... Install with your OS package manager.
 
 Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim) and ripgrep ...
 
+Keymaps are available by pressing `<leader>` and the plugin Which Key will show available maps.
+
+Additionally:
+
+- `:TSInstall [...]`---Treesitter for syntax, auto pair and ... Install language specifics with `:TSInstall [...]`.
+- `:LspInstall [...]` for language diagnostics and completion.
+- `:set bg=[light/dark]`---Colorscheme of the year that supports light and dark mode.
+- `S` and `.` for surround and improved repeat (tpope's plugins are still the best).
+- `gcc`, and `gc` in x-mode, for comment toggling through nvim-comments, written in lua.
+- `*`/`#` for searching visual text, by visualstar.vim.
+- `:G[ ...]` for git via fugitive.vim (still the best git vim integration).
+- `gx` to open URI or search visual selection in browser, via open-browser.vim.
+- `ga` for aligning text in normal and visual mode, through Easyalign.
+- `:Bdelete` and `:Bwipeout` for preserving window layout through famiu/bufdelete.nvim. And it deletes the buffer if it's open in other windows, and cycle all of them to the next buffer.
+
 ### Config philosophy
 
 - **Functionality** (actually) needed for todays programming---with a focus on web front-end.
@@ -32,22 +47,7 @@ Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim) an
 
 *This neovim config tries to be as functional as needed for modern web development (I currently develop mostly using Svelte), but as lightweight and 'vim way' as possible.*
 
-### Plugins
-
-- `:TSInstall [...]`---Treesitter for syntax, auto pair and ... Install language specifics with `:TSInstall [...]`.
-- `:LspInstall [...]` for language diagnostics and completion.
-- Show mappings after 500 ms with Which key plugin.
-- `<leader>f[...]`---find [d]irectory content, [f]iles, [g]it [...], [o]ld files, [w]ord---through Telescope.
-- `:set bg=[light/dark]`---Colorscheme of the year that supports light and dark mode.
-- `S` and `.` for surround and improved repeat (tpope's plugins are still the best).
-- `gcc`, and `gc` in x-mode, for comment toggling through nvim-comments, written in lua.
-- `*`/`#` for searching visual text, by visualstar.vim.
-- `:G` for git status, `<leader>gl` for git log, `<leader>gd` for git diff, through plugins fugitive.vim, [gv.vim][gl] and [Diffview][gd].
-- `gx` to open URI or searching visual, through open-browser.vim.
-- `ga` for aligning text in normal and visual mode, through Easyalign.
-- `:Bdelete` and `:Bwipeout` for preserving window layout through famiu/bufdelete.nvim. And it deletes the buffer if it's open in other windows, and cycle all of them to the next buffer.
-
-#### To consider
+## Plugins to consider
 
 - https://github.com/lambdalisue/suda.vim
 - https://github.com/kkoomen/vim-doge
