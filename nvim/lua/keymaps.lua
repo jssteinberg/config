@@ -177,7 +177,7 @@ M.normal = {
 		c = { ":tabedit ~/.config/README.md | tcd ~/.config<cr>",
 		"Config directory" },
 
-		b = { ':edit %:p:h<cr>/<c-r>=expand("#:t")<cr><cr>',
+		b = { ':edit %:p:h<cr>/<c-r>=escape(expand("#:t"), "/[]")<cr><cr>',
 		"Buffer directory" },
 	},
 
