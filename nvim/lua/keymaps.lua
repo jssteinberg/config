@@ -166,6 +166,19 @@ M.normal = {
 	"Alternate" },
 
 
+	-- Colors
+
+	["<leader>c"] = { name =
+		"colors",
+
+		d = { ':lua require"packages.colors".setColo("dark")<cr>',
+		'Dark' },
+
+		l = { ':lua require"packages.colors".setColo("light")<cr>',
+		'Light' },
+	},
+
+
 	-- Edit
 
 	["<leader>e"] = { name =
