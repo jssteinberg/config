@@ -29,9 +29,9 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('n', 'gp', '<Plug>(YoinkPaste_gp)', {})
 	vim.api.nvim_set_keymap('n', 'gP', '<Plug>(YoinkPaste_gP)', {})
 	-- Treesitter
-	use {
+	use{
 		'nvim-treesitter/nvim-treesitter',
-		event = 'BufRead',
+		-- event = 'BufRead',
 		run = ':TSUpdate',
 		config = function() require('nvim-treesitter.configs').setup{
 			ensure_installed = 'maintained',
