@@ -20,7 +20,7 @@ Requires: git, ... Install with your OS package manager.
 
 ## Neovim
 
-Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd ...
+Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ...
 
 Keymaps are available by pressing `<leader>` and the plugin Which Key will show available maps.
 
