@@ -7,8 +7,6 @@ require('packer').startup(function(use)
 	use{'wbthomason/packer.nvim'}
 	-- Colors: dark & light, Treesitter support ...
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config()
-	-- Visual star `*` search, or `#` backwards
-	use{'subnut/visualstar.vim', event = 'BufRead'}
 
 	-- ### BUFFERS
 	-- editorconfig, set relevant options
@@ -128,6 +126,9 @@ require('packer').startup(function(use)
 	}
 
 	-- ### FILE EXPLORING & SEARCHING
+
+	-- Visual star `*` search, or `#` backwards
+	use{'subnut/visualstar.vim', keys = {{'x','*'}, {'x','#'},}}
 
 	-- Telescope for fuzzy searching
 	use{
