@@ -12,7 +12,7 @@ require('packer').startup(function(use)
 	-- editorconfig, set relevant options
 	use{'editorconfig/editorconfig-vim'}
 	-- Load last cursor position on bufread
-	use{'ethanholz/nvim-lastplace'} require'nvim-lastplace'.setup{}
+	-- use{'ethanholz/nvim-lastplace'} require'nvim-lastplace'.setup{}
 
 	-- ### EDITING & TREESITTER
 	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
@@ -57,6 +57,15 @@ require('packer').startup(function(use)
 	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
 		require'packages.openbrowser'.config()
 	end}
+	-- 'Easy' motions
+	use{
+		'phaazon/hop.nvim',
+		as = 'hop',
+		event = 'BufRead',
+		config = function()
+			require'hop'.setup { keys = 'etoqdygflhksura' }
+		end
+	}
 	-- Show keymaps on delay
 	use{'folke/which-key.nvim'}
 	require'packages.whichkey'.config()
@@ -152,11 +161,6 @@ require('packer').startup(function(use)
 		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
 		{'v', 'f'}, {'v', 'F'}, {'v', 't'}, {'v', 'T'}
 	}}
-
-	-- 'Easy' motions
-	use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine', 'HopChar1', 'HopChar2', 'HopPattern'}, config = function()
-		require'hop'.setup { keys = 'etoqdygflhksura' }
-	end}
 
 	-- ### UTILITY
 

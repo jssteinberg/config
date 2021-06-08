@@ -109,6 +109,15 @@ M.visual = {
 
 	["<leader>R"] = { ":s/",
 	"Replace" },
+
+	['<leader><space>'] = { '<cmd>lua require"hop".hint_words()<cr>',
+	'Hop to word' },
+
+	['<leader>J'] = { '<cmd>lua require"hop".hint_lines()<cr>',
+	'Hop to line' },
+
+	['<leader>K'] = { '<cmd>lua require"hop".hint_lines()<cr>',
+	'Hop to line' },
 }
 
 M.normal = {
@@ -135,13 +144,13 @@ M.normal = {
 	['<leader>i'] = { '<c-i>',
 	'Go forward in jump list' },
 
-	['<leader><space>'] = { ':HopWord<cr>',
+	['<leader><space>'] = { '<cmd>lua require"hop".hint_words()<cr>',
 	'Hop to word' },
 
-	['<leader>J'] = { ':HopLine<cr>',
+	['<leader>J'] = { '<cmd>lua require"hop".hint_lines()<cr>',
 	'Hop to line' },
 
-	['<leader>K'] = { ':HopLine<cr>',
+	['<leader>K'] = { '<cmd>lua require"hop".hint_lines()<cr>',
 	'Hop to line' },
 
 	-- Buffers
@@ -221,6 +230,9 @@ M.normal = {
 			f = { ":Telescope git_files<cr>",
 			"files" },
 		},
+
+		-- i = { 'lua require"telescope.builtin".file_browser( { ["cwd"] = vim.cmd[[escape(expand("%:p:h"))]] } )<cr>',
+		-- "In buffer directory" },
 
 		o = { ":Telescope oldfiles<cr>",
 		"Old (recent) files" },
@@ -309,6 +321,9 @@ M.normal = {
 
 	-- Tab
 
+	['<leader>C'] = { ":tabclose<cr>",
+	"Close" },
+
 	["<leader>t"] = { name =
 		"tab",
 
@@ -324,9 +339,6 @@ M.normal = {
 		f = { ':Telescope tele_tabby list<cr>',
 		"Find" },
 	},
-
-	['<leader>C'] = { ":tabclose<cr>",
-	"Close" },
 
 
 	-- Terminal
