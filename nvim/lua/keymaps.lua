@@ -15,6 +15,13 @@ SAVE_SOURCED_SESSION = function()
 	end
 end
 
+-- @param {string} b_cmd - 'next', 'prev', 'alt'
+CWD_BUFFERS = function(b_cmd)
+	-- Get list of active buffers
+	local bufs = vim.api.nvim_get_context({types = {'bufs'}})
+	print(bufs)
+end
+
 local M = {}
 
 M.esc_map = 'qq'
@@ -159,6 +166,19 @@ M.normal = {
 	"Alternate" },
 
 
+	-- Colors
+
+	["<leader>c"] = { name =
+		"colors",
+
+		d = { ':lua require"packages.colors".setColo("dark")<cr>',
+		'Dark' },
+
+		l = { ':lua require"packages.colors".setColo("light")<cr>',
+		'Light' },
+	},
+
+
 	-- Edit
 
 	["<leader>e"] = { name =
@@ -170,7 +190,7 @@ M.normal = {
 		c = { ":tabedit ~/.config/README.md | tcd ~/.config<cr>",
 		"Config directory" },
 
-		b = { ':edit %:p:h<cr>/<c-r>=expand("#:t")<cr><cr>',
+		b = { ':edit %:p:h<cr>/<c-r>=escape(expand("#:t"), "/[]")<cr><cr>',
 		"Buffer directory" },
 	},
 

@@ -7,8 +7,6 @@ require('packer').startup(function(use)
 	use{'wbthomason/packer.nvim'}
 	-- Colors: dark & light, Treesitter support ...
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config()
-	-- Visual star `*` search, or `#` backwards
-	use{'subnut/visualstar.vim', event = 'BufRead'}
 
 	-- ### BUFFERS
 	-- editorconfig, set relevant options
@@ -19,10 +17,6 @@ require('packer').startup(function(use)
 	-- ### EDITING & TREESITTER
 	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
-	-- Align text
-	use{'junegunn/vim-easy-align', event = 'BufRead'}
-	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
-	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 	-- Cycle yank history on paste
 	use{'svermeulen/vim-yoink'}
 	vim.api.nvim_set_var('yoinkSavePersistently', 1)
@@ -33,9 +27,9 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('n', 'gp', '<Plug>(YoinkPaste_gp)', {})
 	vim.api.nvim_set_keymap('n', 'gP', '<Plug>(YoinkPaste_gP)', {})
 	-- Treesitter
-	use {
+	use{
 		'nvim-treesitter/nvim-treesitter',
-		event = 'BufRead',
+		-- event = 'BufRead',
 		run = ':TSUpdate',
 		config = function() require('nvim-treesitter.configs').setup{
 			ensure_installed = 'maintained',
@@ -117,6 +111,11 @@ require('packer').startup(function(use)
 		}) end
 	}
 
+	-- Align text
+	use{ 'junegunn/vim-easy-align', opt = true }
+	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
+	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
+
 	-- ### LSP & CODE INSPECTION
 
 	-- Convenient UI for grepping word
@@ -127,6 +126,9 @@ require('packer').startup(function(use)
 	}
 
 	-- ### FILE EXPLORING & SEARCHING
+
+	-- Visual star `*` search, or `#` backwards
+	use{'subnut/visualstar.vim', keys = {{'x','*'}, {'x','#'},}}
 
 	-- Telescope for fuzzy searching
 	use{
@@ -143,12 +145,20 @@ require('packer').startup(function(use)
 		end
 	}
 
-	-- ### UTILITY
+	-- ### MOTIONS
 
-	-- Motion
+	-- Better f, F, t, T motion, repeatable with f/F
+	use{'rhysd/clever-f.vim', keys ={
+		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
+		{'v', 'f'}, {'v', 'F'}, {'v', 't'}, {'v', 'T'}
+	}}
+
+	-- 'Easy' motions
 	use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine', 'HopChar1', 'HopChar2', 'HopPattern'}, config = function()
 		require'hop'.setup { keys = 'etoqdygflhksura' }
 	end}
+
+	-- ### UTILITY
 
 	-- Zen mode
 	use {
