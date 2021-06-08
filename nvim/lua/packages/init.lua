@@ -19,10 +19,6 @@ require('packer').startup(function(use)
 	-- ### EDITING & TREESITTER
 	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
-	-- Align text
-	use{'junegunn/vim-easy-align', event = 'BufRead'}
-	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
-	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 	-- Cycle yank history on paste
 	use{'svermeulen/vim-yoink'}
 	vim.api.nvim_set_var('yoinkSavePersistently', 1)
@@ -116,6 +112,11 @@ require('packer').startup(function(use)
 			comment_empty = false,
 		}) end
 	}
+
+	-- Align text
+	use{ 'junegunn/vim-easy-align', opt = true }
+	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
+	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
 	-- ### LSP & CODE INSPECTION
 
