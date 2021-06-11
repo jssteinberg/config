@@ -7,10 +7,18 @@ require('packer').startup(function(use)
 	use{'wbthomason/packer.nvim'}
 	-- Colors: dark & light, Treesitter support ...
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config()
-
-	-- ### BUFFERS
-	-- editorconfig, set relevant options
+	-- Editorconfig, set relevant options
 	use{'editorconfig/editorconfig-vim'}
+	-- LSP & code inspection
+	use{
+		'neovim/nvim-lspconfig',
+		requires = {'kabouzeid/nvim-lspinstall', 'ray-x/lsp_signature.nvim'},
+		config = function() require'packages.lsp'.lspinstall_config() end
+	}
+	-- Auto completion
+	use{'hrsh7th/nvim-compe', event = 'BufRead', config = function()
+		require'packages.compe'.config()
+	end}
 
 	-- ### EDITING & TREESITTER
 	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
@@ -25,55 +33,31 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('n', 'gp', '<Plug>(YoinkPaste_gp)', {})
 	vim.api.nvim_set_keymap('n', 'gP', '<Plug>(YoinkPaste_gP)', {})
 	-- Treesitter
-	use{
-		'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate',
-		config = function() require('nvim-treesitter.configs').setup{
+	use{'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()
+		require('nvim-treesitter.configs').setup{
 			ensure_installed = 'maintained',
 			highlight = {enable = true},
-		} end
-	}
-
-	-- ### LSP & CODE INSPECTION
-	use{
-		'neovim/nvim-lspconfig',
-		requires = {'kabouzeid/nvim-lspinstall', 'ray-x/lsp_signature.nvim'},
-		config = function() require'packages.lsp'.lspinstall_config() end
-	}
-
-	-- ### AUTO COMPLETION
-	use{
-		'hrsh7th/nvim-compe',
-		event = 'BufRead',
-		config = function() require'packages.compe'.config() end
-	}
+		}
+	end}
 
 	-- ### UTILITY
 	-- Terminal toggling
-	use{
-		'akinsho/nvim-toggleterm.lua',
-		event = 'BufRead',
-		config = function() require'toggleterm'.setup{
+	use{'akinsho/nvim-toggleterm.lua', event = 'BufRead', config = function()
+		require'toggleterm'.setup{
 			start_in_insert = false,
 			persist_size = false,
-		} end
-	}
+		}
+	end}
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
 		require'packages.openbrowser'.config()
 	end}
 	-- 'Easy' motions
-	use{
-		'phaazon/hop.nvim',
-		as = 'hop',
-		event = 'BufRead',
-		config = function()
-			require'hop'.setup { keys = 'etoqdygflhksura' }
-		end
-	}
+	use{'phaazon/hop.nvim', as = 'hop', event = 'BufRead', config = function()
+		require'hop'.setup { keys = 'etoqdygflhksura' }
+	end}
 	-- Show keymaps on delay
-	use{'folke/which-key.nvim'}
-	require'packages.whichkey'.config()
+	use{'folke/which-key.nvim'} require'packages.whichkey'.config()
 
 
 	-- LOAD LAZY
