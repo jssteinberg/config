@@ -325,7 +325,9 @@ M.normal = {
 	"Close" },
 
 	["<leader>t"] = { name =
-		"tab",
+		"tab/terminal",
+
+		-- Tab
 
 		['.'] = { ":tabedit .<cr>",
 		"Edit working directory" },
@@ -338,6 +340,14 @@ M.normal = {
 
 		f = { ':Telescope tele_tabby list<cr>',
 		"Find" },
+
+		-- Terminal
+
+		['1'] = { ":1ToggleTerm<cr>i",
+		"1. terminal" },
+
+		['2'] = { ":2ToggleTerm<cr>i",
+		"2. terminal" },
 	},
 
 
@@ -346,6 +356,13 @@ M.normal = {
 	["<leader>T"] = {":terminal<cr>i",
 		"Terminal pwd" },
 
+	-- Quickfix
+
+	["<leader>q"] = {":cnext<cr>",
+		"Quickfix next" },
+
+	["<leader>Q"] = {":cprevious<cr>",
+		"Quickfix previous" },
 
 	-- Zen mode
 

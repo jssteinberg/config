@@ -29,7 +29,6 @@ require('packer').startup(function(use)
 	-- Treesitter
 	use{
 		'nvim-treesitter/nvim-treesitter',
-		-- event = 'BufRead',
 		run = ':TSUpdate',
 		config = function() require('nvim-treesitter.configs').setup{
 			ensure_installed = 'maintained',
@@ -39,9 +38,8 @@ require('packer').startup(function(use)
 
 	-- ### LSP & CODE INSPECTION
 	use{
-		'kabouzeid/nvim-lspinstall',
-		event = 'BufRead',
-		requires = {'neovim/nvim-lspconfig', 'ray-x/lsp_signature.nvim'},
+		'neovim/nvim-lspconfig',
+		requires = {'kabouzeid/nvim-lspinstall', 'ray-x/lsp_signature.nvim'},
 		config = function() require'packages.lsp'.lspinstall_config() end
 	}
 
@@ -53,6 +51,13 @@ require('packer').startup(function(use)
 	}
 
 	-- ### UTILITY
+	use{
+		'akinsho/nvim-toggleterm.lua',
+		event = 'BufRead',
+		config = function() require'toggleterm'.setup{
+			start_in_insert = false,
+		} end
+	}
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
 		require'packages.openbrowser'.config()
@@ -84,7 +89,7 @@ require('packer').startup(function(use)
 	-- fugitive
 	use{'tpope/vim-fugitive', cmd = {'G', 'Git'}}
 	-- git log
-	use{ 'junegunn/gv.vim', cmd = {'GV'}, requires = {'tpope/vim-fugitive'}}
+	use{ 'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = true}}}
 	-- diff view
 	use{ 'sindrets/diffview.nvim', cmd = {'DiffviewOpen'}, config = function()
 		require'diffview'.setup { file_panel = {

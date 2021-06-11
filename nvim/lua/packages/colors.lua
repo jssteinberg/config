@@ -3,7 +3,7 @@ local M = {}
 -- @param {string} bg - e.g. 'day'
 M.tokyonight_config = function(bg)
 	vim.cmd[[colorscheme tokyonight]]
-	vim.api.nvim_set_var('tokyonight_sidebars', {'terminal', 'fugitive'})
+	-- vim.api.nvim_set_var('tokyonight_sidebars', {'terminal', 'fugitive'})
 
 	if not bg or bg == 'dark' then
 		vim.g.tokyonight_style = 'night'
