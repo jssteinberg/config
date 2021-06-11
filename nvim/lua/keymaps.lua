@@ -60,11 +60,9 @@ M.init = function()
 	vim.api.nvim_set_keymap('n', '<leader>i', '<c-i>', {noremap = true})
 
 	-- Buffer/file, windows and tabs
-	-- next/prev
-	vim.api.nvim_set_keymap('n', '<tab>', ':bnext | file!<cr>', {noremap = true})
-	vim.api.nvim_set_keymap('n', '<s-tab>', ':bprevious | file!<cr>', {noremap = true})
 	-- alternative file
-	vim.api.nvim_set_keymap('n', '<leader>bb', '<c-^>', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<tab>', ':b#<cr>', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<leader>bb', ':b#<cr>', {noremap = true})
 
 	-- Files
 	-- wild find
@@ -104,11 +102,11 @@ M.visual = {
 	["<"] = { "<gv",
 	"Indent -" },
 
-	["<leader>S"] = { "/",
-	"Search" },
-
 	["<leader>R"] = { ":s/",
 	"Replace" },
+
+	["<leader>G"] = { 'y:Rg <c-r>"<cr>',
+	"Grep selection" },
 
 	['<leader><space>'] = { '<cmd>lua require"hop".hint_words()<cr>',
 	'Hop to word' },
@@ -121,17 +119,18 @@ M.visual = {
 }
 
 M.normal = {
-	["<c-t>"] = { ":tabnext<cr>",
-	"Tab, next" },
-
 	["<leader>R"] = { ":%s/",
 	"Replace" },
+
+	["<leader>G"] = { ':Rg',
+	"Grep selection" },
 
 	["<leader>w"] = { ":write<cr>",
 	"Write buffer to current file" },
 
-	["<leader><tab>"] = { ":Telescope oldfiles<cr>",
-	"Recent files" },
+	["<leader><tab>"] = { ":ls<cr>:buffer<space>",
+	"Buffer ...", silent=true },
+
 
 	-- Jumps/motions
 
@@ -153,13 +152,8 @@ M.normal = {
 	['<leader>K'] = { '<cmd>lua require"hop".hint_lines()<cr>',
 	'Hop to line' },
 
+
 	-- Buffers
-
-	["<tab>"] = { ":bnext | file!<cr>",
-	"Next buffer" },
-
-	["<s-tab>"] = { ":bprevious | file!<cr>",
-	"Previous buffer" },
 
 	["<leader>b"] = { name =
 		"buffer(s)",
@@ -171,7 +165,7 @@ M.normal = {
 		"Wipeout buffer, keep window" },
 
 	},
-	[M.buffer_alternate_map] = { "<c-^>",
+	[M.buffer_alternate_map] = { "<cmd>buffer#<cr>",
 	"Alternate" },
 
 
@@ -201,6 +195,9 @@ M.normal = {
 
 		b = { ':edit %:p:h<cr>/<c-r>=escape(expand("#:t"), "/[]")<cr><cr>',
 		"Buffer directory" },
+
+		w = { ':edit **/',
+		"Wild" },
 	},
 
 
@@ -222,13 +219,13 @@ M.normal = {
 			"git",
 
 			b = { ":Telescope git_branches<cr>",
-			"branches" },
+			"Branches" },
 
 			c = { ":Telescope git_commits<cr>",
-			"commits" },
+			"Commits" },
 
 			f = { ":Telescope git_files<cr>",
-			"files" },
+			"Files" },
 		},
 
 		-- i = { 'lua require"telescope.builtin".file_browser( { ["cwd"] = vim.cmd[[escape(expand("%:p:h"))]] } )<cr>',
@@ -241,7 +238,7 @@ M.normal = {
 		"String (live grep)" },
 
 		t = { ":Telescope tele_tabby list<cr>",
-		"tabs" },
+		"Tabs" },
 	},
 
 
@@ -279,15 +276,15 @@ M.normal = {
 			"Files" },
 		},
 
+		g = { ':Git<cr>',
+		'Git' },
+
 		l = { ':GV<cr>',
 		'Log' },
 
 		s = { ':exe "!git status " . shellescape(getcwd())<cr>',
 		'Status' },
 	},
-
-	["<leader>G"] = { ":Git<cr>",
-	":Git (status)" },
 
 
 	-- Highlight
@@ -298,6 +295,7 @@ M.normal = {
 		s = { ':nohlsearch<cr>',
 		'Search clear' },
 	},
+
 
 	-- LSP
 
@@ -327,8 +325,6 @@ M.normal = {
 	["<leader>t"] = { name =
 		"tab",
 
-		-- Tab
-
 		['.'] = { ":tabedit .<cr>",
 		"Edit working directory" },
 
@@ -348,18 +344,22 @@ M.normal = {
 	["<leader>T"] = {":terminal<cr>i",
 		"Terminal pwd" },
 
-	['1'] = { ":1ToggleTerm<cr>",
+	['<leader>1'] = { ":1ToggleTerm<cr>",
 	"1. terminal" },
 
-	['2'] = { ":2ToggleTerm<cr>",
+	['<leader>2'] = { ":2ToggleTerm<cr>",
 	"2. terminal" },
+
 
 	-- Quickfix
 
-	["<leader>q"] = {":cnext<cr>",
+	["Q"] = {":cwindow<cr>",
+		"Quickfix window" },
+
+	["<leader>q"] = {":cwindow | cnext<cr>",
 		"Quickfix next" },
 
-	["<leader>Q"] = {":cprevious<cr>",
+	["<leader>Q"] = {":cwindow | cprevious<cr>",
 		"Quickfix previous" },
 
 	-- Zen mode

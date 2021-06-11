@@ -143,6 +143,9 @@ require('packer').startup(function(use)
 
 	-- ### FILE EXPLORING & SEARCHING
 
+	-- Ripgrep
+	use{'jremmen/vim-ripgrep', cmd = {'Rg'}}
+
 	-- Visual star `*` search, or `#` backwards
 	use{'subnut/visualstar.vim', keys = {{'x','*'}, {'x','#'},}}
 
