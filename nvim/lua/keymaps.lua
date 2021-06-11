@@ -325,7 +325,7 @@ M.normal = {
 	"Close" },
 
 	["<leader>t"] = { name =
-		"tab/terminal",
+		"tab",
 
 		-- Tab
 
@@ -340,14 +340,6 @@ M.normal = {
 
 		f = { ':Telescope tele_tabby list<cr>',
 		"Find" },
-
-		-- Terminal
-
-		['1'] = { ":1ToggleTerm<cr>i",
-		"1. terminal" },
-
-		['2'] = { ":2ToggleTerm<cr>i",
-		"2. terminal" },
 	},
 
 
@@ -355,6 +347,12 @@ M.normal = {
 
 	["<leader>T"] = {":terminal<cr>i",
 		"Terminal pwd" },
+
+	['1'] = { ":1ToggleTerm<cr>",
+	"1. terminal" },
+
+	['2'] = { ":2ToggleTerm<cr>",
+	"2. terminal" },
 
 	-- Quickfix
 
