@@ -11,8 +11,6 @@ require('packer').startup(function(use)
 	-- ### BUFFERS
 	-- editorconfig, set relevant options
 	use{'editorconfig/editorconfig-vim'}
-	-- Load last cursor position on bufread
-	-- use{'ethanholz/nvim-lastplace'} require'nvim-lastplace'.setup{}
 
 	-- ### EDITING & TREESITTER
 	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
@@ -175,7 +173,7 @@ require('packer').startup(function(use)
 	-- ### UTILITY
 
 	-- Zen mode
-	use {
+	use{
 		'folke/zen-mode.nvim',
 		cmd = {'ZenMode'},
 		config = function() require('zen-mode').setup{ window = {
