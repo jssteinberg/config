@@ -3,13 +3,24 @@ require('packer').startup(function(use)
 	-- LOAD AT STARTUP/BUFREAD
 	--------------------------
 
-	-- Let Packer manage itself
-	use{'wbthomason/packer.nvim'}
-	-- Colorscheme
-	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config()
-	-- Simple (n)vim improvements
+	use{'wbthomason/packer.nvim'} -- Package manager
+	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config() -- Colorscheme
+	use{'folke/which-key.nvim'} require'packages.whichkey'.config()
 	use{'editorconfig/editorconfig-vim'}
 	use{'andymass/vim-matchup'}
+	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
+	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
+	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
+
+	-- `gx` opens URI or search visual selection in browser
+	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
+		require'packages.openbrowser'.config()
+	end}
+
+	-- 'Easy' motions
+	use{'phaazon/hop.nvim', as = 'hop', event = 'BufRead', config = function()
+		require'hop'.setup { keys = 'etoqdygflhksura' }
+	end}
 
 	-- LSP & code inspection
 	use{
@@ -17,42 +28,22 @@ require('packer').startup(function(use)
 		requires = {'kabouzeid/nvim-lspinstall', 'ray-x/lsp_signature.nvim'},
 		config = function() require'packages.lsp'.lspinstall_config() end
 	}
+
 	-- Auto completion
 	use{'hrsh7th/nvim-compe', event = 'BufRead', config = function()
 		require'packages.compe'.config()
 	end}
 
-	-- ### EDITING & TREESITTER
-	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
-	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
-	-- Cycle yank history on paste
-	use{'svermeulen/vim-yoink'}
-	vim.api.nvim_set_var('yoinkSavePersistently', 1)
-	vim.api.nvim_set_keymap('n', '<c-p>', '<Plug>(YoinkPostPasteSwapBack)', {})
-	vim.api.nvim_set_keymap('n', '<c-n>', '<Plug>(YoinkPostPasteSwapForward)', {})
-	vim.api.nvim_set_keymap('n', 'p', '<Plug>(YoinkPaste_p)', {})
-	vim.api.nvim_set_keymap('n', 'P', '<Plug>(YoinkPaste_P)', {})
-	vim.api.nvim_set_keymap('n', 'gp', '<Plug>(YoinkPaste_gp)', {})
-	vim.api.nvim_set_keymap('n', 'gP', '<Plug>(YoinkPaste_gP)', {})
 	-- Treesitter
 	use{'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()
 		require('nvim-treesitter.configs').setup{
 			ensure_installed = 'maintained',
-			highlight = {enable = true},
+			highlight = {
+				enable = true,
+				disable = {'lua'},
+			},
 		}
 	end}
-
-	-- ### UTILITY
-	-- `gx` opens URI or search visual selection in browser
-	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
-		require'packages.openbrowser'.config()
-	end}
-	-- 'Easy' motions
-	use{'phaazon/hop.nvim', as = 'hop', event = 'BufRead', config = function()
-		require'hop'.setup { keys = 'etoqdygflhksura' }
-	end}
-	-- Show keymaps on delay
-	use{'folke/which-key.nvim'} require'packages.whichkey'.config()
 
 
 	-- LOAD LAZY
