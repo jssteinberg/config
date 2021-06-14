@@ -144,7 +144,7 @@ M.normal = {
 		"Delete buffer, keep window" },
 
 		['<tab>'] = { ":buffer ",
-		":buffer " },
+		":buffer ", silent=false },
 
 		w = { ":Bwipeout<cr>",
 		"Wipeout buffer, keep window" },
