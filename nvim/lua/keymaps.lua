@@ -56,10 +56,6 @@ M.init = function()
 	vim.api.nvim_set_keymap('n', '<s-tab>', ':bprevious | file!<cr>', {noremap = true})
 	vim.api.nvim_set_keymap('n', '<leader>bb', ':b#<cr>', {noremap = true})
 
-	-- Files
-	-- wild find
-	vim.api.nvim_set_keymap('n', '<leader>ff', ':edit **/', {noremap = true})
-
 	-- Command line
 	-- c-p is up for incremental backwards command history
 	vim.api.nvim_set_keymap('c', '<c-p>', '<up>', {noremap = true})
@@ -186,7 +182,7 @@ M.normal = {
 		"Buffer directory" },
 
 		w = { ':edit **/',
-		"Wild" },
+		"Wild", silent=false },
 	},
 
 
