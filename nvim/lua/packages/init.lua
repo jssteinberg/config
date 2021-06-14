@@ -5,10 +5,12 @@ require('packer').startup(function(use)
 
 	-- Let Packer manage itself
 	use{'wbthomason/packer.nvim'}
-	-- Colors: dark & light, Treesitter support ...
+	-- Colorscheme
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config()
-	-- Editorconfig, set relevant options
+	-- Simple (n)vim improvements
 	use{'editorconfig/editorconfig-vim'}
+	use{'andymass/vim-matchup'}
+
 	-- LSP & code inspection
 	use{
 		'neovim/nvim-lspconfig',
