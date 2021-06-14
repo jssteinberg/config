@@ -114,7 +114,7 @@ M.normal = {
 	["<leader>w"] = { ":write<cr>",
 	"Write buffer to current file" },
 
-	["<leader><tab>"] = { ":buffer#<cr>",
+	["<leader><tab>"] = { ":buffer#<cr>:file!<cr>",
 	"Edit alternate file" },
 
 
@@ -147,11 +147,14 @@ M.normal = {
 		d = { ":Bdelete<cr>",
 		"Delete buffer, keep window" },
 
+		['<tab>'] = { ":buffer ",
+		":buffer " },
+
 		w = { ":Bwipeout<cr>",
 		"Wipeout buffer, keep window" },
 
 	},
-	[M.buffer_alternate_map] = { "<cmd>buffer#<cr>",
+	[M.buffer_alternate_map] = { "<cmd>buffer#<cr>:file!<cr>",
 	"Alternate" },
 
 
