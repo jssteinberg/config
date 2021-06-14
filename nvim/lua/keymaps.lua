@@ -76,12 +76,6 @@ M.insert = {
 M.terminal = {
 	[M.esc_map] = { "<c-\\><c-n>",
 	"Esc to normal mode" },
-
-	["<leader>b"] = { name =
-		"buffer(s)",
-	},
-	[M.buffer_alternate_map] = { "<c-\\><c-n><c-^>",
-	"Alternate buffer" },
 }
 
 M.visual = {
@@ -115,7 +109,7 @@ M.normal = {
 	"Replace" },
 
 	["<leader>G"] = { ':Rg',
-	"Grep selection" },
+	"Grep selection", silent=false },
 
 	["<leader>w"] = { ":write<cr>",
 	"Write buffer to current file" },

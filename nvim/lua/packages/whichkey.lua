@@ -15,13 +15,11 @@ M.config = function()
 		triggers_blacklist = {
 			i = { 'q', 'Z' },
 			v = { 'q' },
-			-- t = { 'q', '<leader>', '<space>' },
 		},
 	})
 	wk.register(maps.normal)
 	wk.register(maps.insert,   {mode = 'i'})
 	wk.register(maps.visual,   {mode = 'v'})
-	-- wk.register(maps.terminal, {mode = 't'})
 end
 
 return M
