@@ -3,63 +3,47 @@ require('packer').startup(function(use)
 	-- LOAD AT STARTUP/BUFREAD
 	--------------------------
 
-	-- Let Packer manage itself
-	use{'wbthomason/packer.nvim'}
-	-- Colors: dark & light, Treesitter support ...
-	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config()
-
-	-- ### BUFFERS
-	-- editorconfig, set relevant options
+	use{'wbthomason/packer.nvim'} -- Package manager
+	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config() -- Colorscheme
+	use{'folke/which-key.nvim'} require'packages.whichkey'.config()
 	use{'editorconfig/editorconfig-vim'}
-	-- Load last cursor position on bufread
-	use{'ethanholz/nvim-lastplace'} require'nvim-lastplace'.setup{}
-
-	-- ### EDITING & TREESITTER
+	use{'andymass/vim-matchup'}
+	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
 	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
-	-- Cycle yank history on paste
-	use{'svermeulen/vim-yoink'}
-	vim.api.nvim_set_var('yoinkSavePersistently', 1)
-	vim.api.nvim_set_keymap('n', '<c-p>', '<Plug>(YoinkPostPasteSwapBack)', {})
-	vim.api.nvim_set_keymap('n', '<c-n>', '<Plug>(YoinkPostPasteSwapForward)', {})
-	vim.api.nvim_set_keymap('n', 'p', '<Plug>(YoinkPaste_p)', {})
-	vim.api.nvim_set_keymap('n', 'P', '<Plug>(YoinkPaste_P)', {})
-	vim.api.nvim_set_keymap('n', 'gp', '<Plug>(YoinkPaste_gp)', {})
-	vim.api.nvim_set_keymap('n', 'gP', '<Plug>(YoinkPaste_gP)', {})
-	-- Treesitter
-	use{
-		'nvim-treesitter/nvim-treesitter',
-		-- event = 'BufRead',
-		run = ':TSUpdate',
-		config = function() require('nvim-treesitter.configs').setup{
-			ensure_installed = 'maintained',
-			highlight = {enable = true},
-		} end
-	}
 
-	-- ### LSP & CODE INSPECTION
-	use{
-		'kabouzeid/nvim-lspinstall',
-		event = 'BufRead',
-		requires = {'neovim/nvim-lspconfig', 'ray-x/lsp_signature.nvim'},
-		config = function() require'packages.lsp'.lspinstall_config() end
-	}
-
-	-- ### AUTO COMPLETION
-	use{
-		'hrsh7th/nvim-compe',
-		event = 'BufRead',
-		config = function() require'packages.compe'.config() end
-	}
-
-	-- ### UTILITY
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
 		require'packages.openbrowser'.config()
 	end}
-	-- Show keymaps on delay
-	use{'folke/which-key.nvim'}
-	require'packages.whichkey'.config()
+
+	-- 'Easy' motions
+	use{'phaazon/hop.nvim', as = 'hop', event = 'BufRead', config = function()
+		require'hop'.setup { keys = 'etoqdygflhksura' }
+	end}
+
+	-- LSP & code inspection
+	use{
+		'neovim/nvim-lspconfig',
+		requires = {'kabouzeid/nvim-lspinstall', 'ray-x/lsp_signature.nvim'},
+		config = function() require'packages.lsp'.lspinstall_config() end
+	}
+
+	-- Auto completion
+	use{'hrsh7th/nvim-compe', event = 'BufRead', config = function()
+		require'packages.compe'.config()
+	end}
+
+	-- Treesitter
+	use{'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()
+		require('nvim-treesitter.configs').setup{
+			ensure_installed = 'maintained',
+			highlight = {
+				enable = true,
+				disable = {'lua'},
+			},
+		}
+	end}
 
 
 	-- LOAD LAZY
@@ -75,7 +59,7 @@ require('packer').startup(function(use)
 	-- fugitive
 	use{'tpope/vim-fugitive', cmd = {'G', 'Git'}}
 	-- git log
-	use{ 'junegunn/gv.vim', cmd = {'GV'}, requires = {'tpope/vim-fugitive'}}
+	use{ 'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = true}}}
 	-- diff view
 	use{ 'sindrets/diffview.nvim', cmd = {'DiffviewOpen'}, config = function()
 		require'diffview'.setup { file_panel = {
@@ -127,6 +111,9 @@ require('packer').startup(function(use)
 
 	-- ### FILE EXPLORING & SEARCHING
 
+	-- Ripgrep
+	use{'jremmen/vim-ripgrep', cmd = {'Rg'}}
+
 	-- Visual star `*` search, or `#` backwards
 	use{'subnut/visualstar.vim', keys = {{'x','*'}, {'x','#'},}}
 
@@ -153,15 +140,10 @@ require('packer').startup(function(use)
 		{'v', 'f'}, {'v', 'F'}, {'v', 't'}, {'v', 'T'}
 	}}
 
-	-- 'Easy' motions
-	use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine', 'HopChar1', 'HopChar2', 'HopPattern'}, config = function()
-		require'hop'.setup { keys = 'etoqdygflhksura' }
-	end}
-
 	-- ### UTILITY
 
 	-- Zen mode
-	use {
+	use{
 		'folke/zen-mode.nvim',
 		cmd = {'ZenMode'},
 		config = function() require('zen-mode').setup{ window = {
@@ -173,4 +155,10 @@ require('packer').startup(function(use)
 		}} end
 	}
 
+	-- Terminal toggling
+	use{
+		'akinsho/nvim-toggleterm.lua',
+		cmd = { 'ToggleTermCloseAll', 'ToggleTermOpenAll', 'ToggleTerm' },
+		config = function() require'packages.toggleterm'.config() end
+	}
 end)

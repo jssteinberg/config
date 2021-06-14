@@ -15,6 +15,8 @@ vim.o.listchars = vim.o.listchars .. ',tab:│ '
 vim.o.timeoutlen = 500
 -- session data
 vim.o.sessionoptions = 'blank,curdir,folds,help,tabpages'
+-- wildmode lastused
+vim.o.wildmode = 'lastused:' .. vim.o.wildmode
 -- Search & substitute
 -- smartcase when searching
 vim.o.smartcase = true
@@ -65,13 +67,3 @@ vim.bo.shiftwidth = 3 -- number of spaces for autoindent
 -- (l) don't break long lines (does c still work?)
 -- (p) don't break lines on single space following period
 vim.bo.formatoptions = 'jnpcql'
-
-
--- Auto commands
-
--- help
-require 'utils'.create_augroup({
-	-- open help files vertically
-	{'FileType', 'help', 'wincmd H'},
-	-- auto save session if any is sourced
-}, 'help')

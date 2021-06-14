@@ -1,5 +1,6 @@
 setlocal synmaxcol=1000
-set noexpandtab
-set tabstop=3
-set shiftwidth=3
-set fileencoding=utf-8
+setlocal noexpandtab
+setlocal tabstop=3
+setlocal shiftwidth=3
+setlocal fileencoding=utf-8
+setlocal noswapfile
