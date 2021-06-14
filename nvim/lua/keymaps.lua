@@ -42,8 +42,6 @@ M.init = function()
 	vim.api.nvim_set_keymap('t', M.esc_map, '<c-\\><c-n>', {noremap = true})
 	-- open terminal in insert
 	vim.api.nvim_set_keymap('n', '<leader>T', ':terminal<cr>i', {noremap = true})
-	-- alternate buffer from terminal
-	-- vim.api.nvim_set_keymap('t', maps.buffer_alternate_map, '<c-\\><c-n><c-^>', {noremap = true})
 
 	-- Jump
 	-- jump to definition (default stinks for many non-US keyboard layouts)
@@ -54,7 +52,8 @@ M.init = function()
 
 	-- Buffer/file, windows and tabs
 	-- alternative file
-	vim.api.nvim_set_keymap('n', '<tab>', ':b#<cr>', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<tab>', ':bnext | file!<cr>', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<s-tab>', ':bprevious | file!<cr>', {noremap = true})
 	vim.api.nvim_set_keymap('n', '<leader>bb', ':b#<cr>', {noremap = true})
 
 	-- Files
@@ -121,8 +120,8 @@ M.normal = {
 	["<leader>w"] = { ":write<cr>",
 	"Write buffer to current file" },
 
-	["<leader><tab>"] = { ":ls<cr>:buffer<space>",
-	"Buffer ...", silent=true },
+	["<leader><tab>"] = { ":buffer#<cr>",
+	"Edit alternate file" },
 
 
 	-- Jumps/motions
