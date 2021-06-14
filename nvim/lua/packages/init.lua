@@ -41,13 +41,6 @@ require('packer').startup(function(use)
 	end}
 
 	-- ### UTILITY
-	-- Terminal toggling
-	use{'akinsho/nvim-toggleterm.lua', event = 'BufRead', config = function()
-		require'toggleterm'.setup{
-			start_in_insert = false,
-			persist_size = false,
-		}
-	end}
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
 		require'packages.openbrowser'.config()
@@ -169,4 +162,10 @@ require('packer').startup(function(use)
 		}} end
 	}
 
+	-- Terminal toggling
+	use{
+		'akinsho/nvim-toggleterm.lua',
+		cmd = { 'ToggleTermCloseAll', 'ToggleTermOpenAll', 'ToggleTerm' },
+		config = function() require'packages.toggleterm'.config() end
+	}
 end)
