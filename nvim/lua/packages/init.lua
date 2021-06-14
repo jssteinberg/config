@@ -45,6 +45,19 @@ require('packer').startup(function(use)
 		}
 	end}
 
+	use{
+		'ThePrimeagen/harpoon',
+		requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
+	}
+	vim.api.nvim_set_keymap('n', '<leader><cr>', ':lua require("harpoon.term").gotoTerminal(1)<cr>', {})
+	-- vim.api.nvim_set_keymap('n', '<leader>gp', ':lua require("harpoon.term").sendCommand(1, "git status")<cr>', {})
+	-- mark files
+	vim.api.nvim_set_keymap('n', '<leader>hf', ':lua require("harpoon.mark").add_file()<cr>', {})
+	vim.api.nvim_set_keymap('n', '<leader>he', ':lua require("harpoon.ui").toggle_quick_menu()<cr>', {})
+	vim.api.nvim_set_keymap('n', '<leader>h1', ':lua require("harpoon.ui").nav_file(1)<cr>', {})
+	vim.api.nvim_set_keymap('n', '<leader>h2', ':lua require("harpoon.ui").nav_file(2)<cr>', {})
+	vim.api.nvim_set_keymap('n', '<leader>h3', ':lua require("harpoon.ui").nav_file(3)<cr>', {})
+	vim.api.nvim_set_keymap('n', '<leader>h4', ':lua require("harpoon.ui").nav_file(4)<cr>', {})
 
 	-- LOAD LAZY
 	------------

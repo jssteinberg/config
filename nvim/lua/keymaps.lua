@@ -272,16 +272,6 @@ M.normal = {
 	},
 
 
-	-- Highlight
-
-	["<leader>h"] = { name =
-		"highlight",
-
-		s = { ':nohlsearch<cr>',
-		'Search clear' },
-	},
-
-
 	-- LSP
 
 	["<leader>l"] = { name =
@@ -289,6 +279,20 @@ M.normal = {
 
 		r = { ':LspStop<cr>:LspStart<cr>:echo "Restart LSP"<cr>',
 		'Restart' },
+	},
+
+
+	-- No
+
+	["<leader>n"] = { name =
+		"no",
+
+		["<leader>h"] = { name =
+			"highlight",
+
+			s = { ':nohlsearch<cr>',
+			'Search' },
+		},
 	},
 
 
@@ -326,8 +330,8 @@ M.normal = {
 
 	-- Terminal
 
-	["<leader>T"] = {":terminal<cr>i",
-		"Terminal pwd" },
+	-- ["<leader>T"] = {":terminal<cr>i",
+	-- 	"Terminal in CWD" },
 
 	['<leader>1'] = { ":1ToggleTerm<cr>",
 	"1. terminal" },
