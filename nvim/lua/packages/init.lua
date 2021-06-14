@@ -142,12 +142,15 @@ require('packer').startup(function(use)
 
 	-- ### UTILITY
 
+	use{'junegunn/limelight.vim', cmd = {'Limelight'}}
+	vim.api.nvim_set_var('limelight_conceal_ctermfg', 'gray')
+
 	-- Zen mode
 	use{
 		'folke/zen-mode.nvim',
 		cmd = {'ZenMode'},
 		config = function() require('zen-mode').setup{ window = {
-			backdrop = 0.98,
+			backdrop = 1,
 			width = 100,
 			options = {
 				cursorline = false,
