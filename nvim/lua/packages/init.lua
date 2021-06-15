@@ -45,7 +45,7 @@ require('packer').startup(function(use)
 		'skywind3000/asyncrun.vim',
 		event = 'BufRead',
 	}
-	vim.api.nvim_set_keymap('n', '<leader>gp', ':AsyncRun git push<cr>', {noremap=true})
+	vim.api.nvim_set_keymap('n', '<leader>gp', ':AsyncRun git push<cr>:cwindow<cr>', {noremap=true})
 
 	-- 'Harpoon' files and terminals
 	use{
