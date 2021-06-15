@@ -1,4 +1,4 @@
--- Global options
+-- GLOBAL OPTIONS
 
 vim.o.statusline = require 'statusline'
 -- enable mouse for all modes
@@ -27,7 +27,7 @@ vim.o.smartcase = true
 vim.o.gdefault = true
 
 
--- Window-local options
+-- WINDOW-LOCAL OPTIONS
 
 -- show line numbers
 vim.wo.number = true
@@ -39,6 +39,7 @@ vim.wo.list = true
 vim.wo.signcolumn = 'yes'
 -- cursorline by default
 vim.wo.cursorline = true
+
 -- Wrap
 -- softwrap inheriting indent
 vim.wo.breakindent = true
@@ -46,7 +47,7 @@ vim.wo.breakindent = true
 vim.wo.linebreak = true
 
 
--- Buffer-local options
+-- BUFFER-LOCAL OPTIONS
 
 -- default to utf-8
 vim.bo.fileencoding = 'utf-8'
@@ -58,6 +59,7 @@ vim.bo.copyindent = true
 vim.bo.undofile = true
 -- no swapfiles when persistent undo and no multiuser system
 vim.bo.swapfile = false
+
 -- Indentation
 -- tabs -- noexpandtab is default
 vim.bo.tabstop = 3 -- number of spaces for tab char
