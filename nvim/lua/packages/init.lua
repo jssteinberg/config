@@ -148,7 +148,7 @@ require('packer').startup(function(use)
 	use{
 		'nvim-telescope/telescope.nvim',
 		cmd = 'Telescope',
-		requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'TC72/telescope-tele-tabby.nvim'},
+		requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
 		config = function()
 			local actions = require('telescope.actions')
 			require('telescope').setup({defaults = {
