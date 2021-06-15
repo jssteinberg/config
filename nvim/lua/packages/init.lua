@@ -9,8 +9,8 @@ require('packer').startup(function(use)
 	use{'editorconfig/editorconfig-vim'}
 	use{'andymass/vim-matchup'}
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
-	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
+	use{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
+	use{'tpope/vim-repeat'} -- repeat surround and more
 
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
