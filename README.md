@@ -26,7 +26,7 @@ Keymaps are available by pressing `<leader>` and the plugin Which Key will show 
 
 Additionally:
 
-- `:TSInstall [...]`---Treesitter for syntax, auto pair and ... Install language specifics with `:TSInstall [...]`.
+- `:TSInstall [...]` treesitter language for syntax, indentation ... through [nvim-treesitter][nts].
 - `:LspInstall [...]` for language diagnostics and completion.
 - `:set bg=[light/dark]`---Colorscheme of the year that supports light and dark mode.
 - `[...]S[...]` and `.` for surround and improved repeat (tpope's plugins are still the best).
@@ -43,15 +43,14 @@ Additionally:
 - **Functionality** (actually) needed for todays programming---with a focus on web front-end.
 - **Light**. Lazy load everything possible. Utilize the command line tools with vim, unless certain functionality is practical to have available inside vim. Avoid plugins that does unnecessary things (no statusline plugin). Generally avoid bloat.
 - **Lua** for config and plugins is used as far as possible unless certain functionality requires otherwise.
-- **Vim** default keymappings, commands and 'the vim way' are utilized and built upon. Not a new Mnemonic keymapping system for instance---avoid implementing to many mappings. Commands for rarer use cases don't need to be mapped (native commands are good to know). Prioritize plugins that extends, improve and/or ease learning the vim way somehow. Avoid plugins that tries to make vim resemble another 'worse' editor.
-- **Readable** and as uncomplicated config as possible, for dummies (author included).
+- **Vim** default keymaps, commands and 'the vim way' is utilized and extended. Avoid plugins that tries to make vim resemble another 'worse' editor.
+- **Readable** and uncomplicated config. For dummies (author included).
 
 *This neovim config tries to be as functional as needed for modern web development (I currently develop mostly using Svelte), but as lightweight and 'vim way' as possible.*
 
 ## Plugins to consider
 
 - https://github.com/lambdalisue/suda.vim
-- harpoon
 - https://github.com/mattn/emmet-vim
 - https://github.com/sbdchd/neoformat
 
@@ -63,3 +62,4 @@ Additionally:
 
 [gl]: https://github.com/junegunn/gv.vim
 [gd]: https://github.com/sindrets/diffview.nvim
+[nts]: https://github.com/nvim-treesitter/nvim-treesitter
