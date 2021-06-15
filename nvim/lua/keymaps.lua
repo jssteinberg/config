@@ -267,6 +267,9 @@ M.normal = {
 		l = { ':GV<cr>',
 		'Log' },
 
+		p = { ':split term://git push<cr>:wincmd p<cr>',
+		'Push' },
+
 		s = { ':exe "!git status " . shellescape(getcwd())<cr>',
 		'Status' },
 	},
