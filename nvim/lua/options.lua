@@ -14,7 +14,7 @@ vim.o.listchars = vim.o.listchars .. ',tab:│ '
 -- less timeoutlen for maps
 vim.o.timeoutlen = 500
 -- session data
-vim.o.sessionoptions = 'blank,curdir,folds,help,tabpages'
+vim.o.sessionoptions = 'curdir,folds,help,tabpages'
 -- wildmode lastused
 vim.o.wildmode = 'lastused:' .. vim.o.wildmode
 -- avoid cursor on Y axis edges

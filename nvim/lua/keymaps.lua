@@ -90,13 +90,13 @@ M.visual = {
 	["<leader>G"] = { 'y:Rg <c-r>"<cr>',
 	"Grep selection" },
 
-	['<leader><space>'] = { '<cmd>lua require"hop".hint_words()<cr>',
+	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
 
-	['<leader>J'] = { '<cmd>lua require"hop".hint_lines()<cr>',
+	['<leader>J'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
 
-	['<leader>K'] = { '<cmd>lua require"hop".hint_lines()<cr>',
+	['<leader>K'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
 }
 
@@ -125,13 +125,13 @@ M.normal = {
 	['<leader>i'] = { '<c-i>',
 	'Go forward in jump list' },
 
-	['<leader><space>'] = { '<cmd>lua require"hop".hint_words()<cr>',
+	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
 
-	['<leader>J'] = { '<cmd>lua require"hop".hint_lines()<cr>',
+	['<leader>J'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
 
-	['<leader>K'] = { '<cmd>lua require"hop".hint_lines()<cr>',
+	['<leader>K'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
 
 
@@ -287,12 +287,8 @@ M.normal = {
 	["<leader>n"] = { name =
 		"no",
 
-		["<leader>h"] = { name =
-			"highlight",
-
-			s = { ':nohlsearch<cr>',
-			'Search' },
-		},
+		s = { ':nohlsearch<cr>',
+		'Search' },
 	},
 
 
@@ -330,14 +326,14 @@ M.normal = {
 
 	-- Terminal
 
-	-- ["<leader>T"] = {":terminal<cr>i",
-	-- 	"Terminal in CWD" },
+	["<leader>T"] = {":terminal<cr>i",
+		"Terminal in CWD" },
 
-	['<leader>1'] = { ":1ToggleTerm<cr>",
-	"1. terminal" },
+-- 	['<leader>1'] = { ":1ToggleTerm<cr>",
+-- 	"1. terminal" },
 
-	['<leader>2'] = { ":2ToggleTerm<cr>",
-	"2. terminal" },
+-- 	['<leader>2'] = { ":2ToggleTerm<cr>",
+-- 	"2. terminal" },
 
 
 	-- Quickfix
