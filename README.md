@@ -24,15 +24,14 @@ Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), r
 
 Keymaps are available by pressing `<leader>` and the plugin Which Key will show available maps. Or browse the [keymaps file](https://github.com/jssteinberg/config/blob/main/nvim/lua/keymaps.lua).
 
-Additionally:
+Extra commands and plugins to know about:
 
-- `:TSInstall [...]` treesitter language for syntax, indentation ... through [nvim-treesitter][nts].
+- `:TSInstall [...]` treesitter language for syntax, indentation ... via [nvim-treesitter][nts].
 - `:LspInstall [...]` for language diagnostics and completion.
-- `:set bg=[light/dark]`---Colorscheme of the year that supports light and dark mode.
 - `[...]S[...]` and `.` for surround and improved repeat (tpope's plugins are still the best).
-- `gcc`, and `gc` in x-mode, for comment toggling through nvim-comments, written in lua.
-- `*`/`#` for searching visual text, by visualstar.vim.
-- `:G[ ...]` for git via fugitive.vim (still the best git vim integration).
+- `gcc`/`gc` (n/x) for comment toggling through nvim-comments, written in lua.
+- `*`/`#` (x) for searching selected text, via visualstar.vim.
+- `:G[ ...]` for git via fugitive.vim (still the best git integration for vim).
 - `gx` to open URI or search visual selection in browser, via open-browser.vim.
 - `:Bdelete` and `:Bwipeout` for preserving window layout through famiu/bufdelete.nvim. And it deletes the buffer if it's open in other windows, and cycle all of them to the next buffer.
 - `f`, `F`, `t`, `T` to repeat `f`, `F`, `t`, `T`, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
