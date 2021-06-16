@@ -43,9 +43,9 @@ require('packer').startup(function(use)
 	-- Aynsc running
 	use{
 		'skywind3000/asyncrun.vim',
-		event = 'BufRead',
+		cmd = {'AsyncRun'},
 	}
-	vim.api.nvim_set_keymap('n', '<leader>gp', ':AsyncRun git push<cr>:cwindow<cr>', {noremap=true})
+	vim.api.nvim_set_keymap('n', '<leader>gp', ':copen | wincmd p<cr>:AsyncRun git push<cr>', {noremap=true})
 
 	-- 'Harpoon' files and terminals
 	use{
