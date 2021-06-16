@@ -338,8 +338,8 @@ M.normal = {
 
 	-- Quickfix
 
-	["Q"] = {":cwindow<cr>",
-		"Quickfix window" },
+	["Q"] = {":copen<cr>",
+		"Quickfix window open" },
 
 	["<leader>q"] = {":cwindow | cnext<cr>",
 		"Quickfix next" },
