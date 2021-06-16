@@ -321,9 +321,6 @@ M.normal = {
 
 		c = { ":tabclose<cr>",
 		"Close" },
-
-		f = { ':Telescope tele_tabby list<cr>',
-		"Find" },
 	},
 
 
