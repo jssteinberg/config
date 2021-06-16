@@ -347,6 +347,9 @@ M.normal = {
 	["<leader>Q"] = {":cwindow | cprevious<cr>",
 		"Quickfix previous" },
 
+	["<ctrl-q>"] = {":cwindow | cnext<cr>",
+		"Quickfix next" },
+
 	-- Zen mode
 
 	["<leader>Z"] = {":ZenMode<cr>",
