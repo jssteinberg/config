@@ -35,7 +35,7 @@ require('packer').startup(function(use)
 			ensure_installed = 'maintained',
 			highlight = {
 				enable = true,
-				disable = {'lua'},
+				disable = {'lua', 'markdown'}, -- enable lua to test when Treesitter is more stable
 			},
 		}
 	end}
@@ -96,7 +96,7 @@ require('packer').startup(function(use)
 	-- git blame
 	use{'f-person/git-blame.nvim', cmd = 'GitBlameToggle'}
 
-	-- ### EDITING & TREESITTER
+	-- ### EDITING
 
 	-- Matchies and pairing
 	use{'steelsojka/pears.nvim', event = 'InsertEnter', config = function()
