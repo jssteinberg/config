@@ -40,25 +40,20 @@ require('packer').startup(function(use)
 		}
 	end}
 
-	-- Aynsc running
-	use{
-		'skywind3000/asyncrun.vim',
-		cmd = {'AsyncRun'},
-	}
+	-- Aynsc executions
+	use{ 'skywind3000/asyncrun.vim', cmd = {'AsyncRun'}, }
 	vim.api.nvim_set_keymap('n', '<leader>gp', ':copen | wincmd p<cr>:AsyncRun git push<cr>', {noremap=true})
 
 	-- 'Harpoon' files and terminals
 	use{
 		'ThePrimeagen/harpoon',
 		requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
-		config = function()
-			require("harpoon").setup({
-				global_settings = {
-					save_on_toggle = true,
-					save_on_change = true,
-				},
-			})
-		end
+		config = function() require("harpoon").setup({
+			global_settings = {
+				save_on_toggle = true,
+				save_on_change = true,
+			},
+		}) end
 	}
 	vim.api.nvim_set_keymap('n', '<leader><cr>', ':lua require("harpoon.term").gotoTerminal(100)<cr>i', {})
 	vim.api.nvim_set_keymap('n', '<leader>1', ':lua require("harpoon.term").gotoTerminal(1)<cr>i', {})
