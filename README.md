@@ -10,13 +10,14 @@ Requires: git, ... Install with your OS package manager.
 2. git clone as ~/.config
 3. `ln -s .config/tmux.conf .tmux.conf`
 
-## Other complementing tools
+## Other tools
 
 - fish---shell with modern, usable defaults (and keep an eye on nu shell)
 - ripgrep, ag the silver searcher ...
 - [exa](https://github.com/ogham/exa), `ls` replacement
 - bat, cat replacement
 - fd, find replacement
+- [np](https://github.com/sindresorhus/np) for easy NPM package publication
 
 ## Neovim
 
