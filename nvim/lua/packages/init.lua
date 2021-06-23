@@ -11,6 +11,7 @@ require('packer').startup(function(use)
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
 	use{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat'} -- repeat surround and more
+	use{'mattn/emmet-vim'}
 
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
@@ -194,8 +195,10 @@ require('packer').startup(function(use)
 		config = function() require('zen-mode').setup{ window = {
 			backdrop = 1,
 			width = 100,
+			heigth = 0.9,
 			options = {
 				cursorline = false,
+				cursorcolumn = false, -- disable cursor column
 			},
 		}} end
 	}

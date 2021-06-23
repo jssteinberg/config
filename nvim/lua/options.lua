@@ -1,5 +1,13 @@
 -- GLOBAL OPTIONS
 
+-- Set filetypes for strange files
+require'utils'.create_augroup({
+	{'BufNewFile,BufRead', '*.astro', 'set ft=html'},
+	{'BufNewFile,BufRead', '*.styl', 'set ft=scss'},
+	{'BufNewFile,BufRead', '*.postcss', 'set ft=scss'},
+	{'BufNewFile,BufRead', '*.gmi', 'set ft=markdown'},
+}, 'filetypes')
+
 vim.o.statusline = require 'statusline'
 -- enable mouse for all modes
 vim.o.mouse = 'a'
@@ -18,7 +26,7 @@ vim.o.sessionoptions = 'curdir,folds,tabpages'
 -- wildmode lastused
 vim.o.wildmode = 'lastused:' .. vim.o.wildmode
 -- avoid cursor on Y axis edges
-vim.o.scrolloff = 20
+vim.o.scrolloff = 10
 
 -- Search & substitute
 -- smartcase when searching
@@ -37,8 +45,9 @@ vim.wo.relativenumber = true
 vim.wo.list = true
 -- always show signcolumn (used by different plugins)
 vim.wo.signcolumn = 'yes'
--- cursorline by default
+-- cursorline and column by default
 vim.wo.cursorline = true
+vim.wo.cursorcolumn = true
 
 -- Wrap
 -- softwrap inheriting indent

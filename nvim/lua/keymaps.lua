@@ -85,7 +85,7 @@ M.visual = {
 	"Indent -" },
 
 	["<leader>R"] = { ":s/",
-	"Replace" },
+	"Replace", silent=false },
 
 	["<leader>G"] = { 'y:Rg <c-r>"<cr>',
 	"Grep selection" },
@@ -102,7 +102,7 @@ M.visual = {
 
 M.normal = {
 	["<leader>R"] = { ":%s/",
-	"Replace" },
+	"Replace", silent=false },
 
 	["<leader>G"] = { ':Rg',
 	"Grep selection", silent=false },

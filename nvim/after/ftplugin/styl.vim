@@ -1,1 +1,1 @@
-set filetype=sass
+" set filetype=sass

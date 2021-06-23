@@ -1,1 +1,1 @@
-set ft=html
+" set ft=html
