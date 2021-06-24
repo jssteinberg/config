@@ -13,6 +13,7 @@ Requires: git, ... Install with your OS package manager.
 ## Other tools
 
 - fish---shell with modern, usable defaults (and keep an eye on nu shell)
+	- [Hydro promt](https://github.com/jorgebucaran/hydro)
 - ripgrep, ag the silver searcher ...
 - [exa](https://github.com/ogham/exa), `ls` replacement
 - bat, cat replacement
