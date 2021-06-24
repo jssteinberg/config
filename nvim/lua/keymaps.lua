@@ -137,6 +137,11 @@ M.normal = {
 
 	-- Buffers
 
+	["<leader>a"] = { name =
+		"add"},
+
+	-- Buffers
+
 	["<leader>b"] = { name =
 		"buffer(s)",
 
