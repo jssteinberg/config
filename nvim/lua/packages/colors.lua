@@ -10,7 +10,7 @@ M.tokyonight_config = function(bg)
 
 	if not bg or bg == 'dark' then
 		vim.g.tokyonight_style = 'night'
-		-- vim.g.tokyonight_transparent = true
+		vim.g.tokyonight_transparent = true
 	elseif bg == 'light' then
 		vim.g.tokyonight_style = 'day'
 		vim.g.tokyonight_transparent = false
