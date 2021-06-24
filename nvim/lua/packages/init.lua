@@ -94,7 +94,7 @@ require('packer').startup(function(use)
 
 	-- ### EDITING
 
-	-- Matchies and pairing
+	-- Matching and pairing
 	use{'steelsojka/pears.nvim', event = 'InsertEnter', config = function()
 		require'pears'.setup(function(conf)
 			conf.preset 'tag_matching'
