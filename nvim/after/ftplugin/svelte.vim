@@ -1,3 +1,4 @@
+set fileencoding=utf-8
 set noexpandtab
 set tabstop=3
 set shiftwidth=3
