@@ -11,7 +11,7 @@ require('packer').startup(function(use)
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
 	use{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat'} -- repeat surround and more
-	use{'mattn/emmet-vim'}
+	use{'mattn/emmet-vim'} -- vim.api.nvim_set_keymap('i', '<c-e>', '<c-y>,', {})
 
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
