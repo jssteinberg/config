@@ -69,6 +69,9 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('n', '<leader>h3', ':lua require("harpoon.ui").nav_file(3)<cr>', {})
 	vim.api.nvim_set_keymap('n', '<leader>h4', ':lua require("harpoon.ui").nav_file(4)<cr>', {})
 
+	-- File types
+	-- use{'evanleck/vim-svelte', ft = {'svelte'}, event = 'InsertEnter'}
+
 	-- LOAD LAZY
 	------------
 
