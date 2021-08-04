@@ -16,3 +16,11 @@ pulse/
 update-notifier/
 gnome-initial-setup-done
 user-dirs.*
+
+Slack/
+composer/
+Code/
+enchant/
+gedit/
+mimeapps.list
+umake
