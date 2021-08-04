@@ -15,7 +15,7 @@ Requires: git, ... Install with your OS package manager.
 - fish---shell with modern, usable defaults (and keep an eye on nu shell)
 - ripgrep, ag the silver searcher ...
 - [exa](https://github.com/ogham/exa), `ls` replacement
-- bat, cat replacement
+- [bat](https://github.com/sharkdp/bat), cat replacement
 - [fd](https://github.com/sharkdp/fd), find replacement
 
 ## Neovim
