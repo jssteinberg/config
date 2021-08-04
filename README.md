@@ -16,7 +16,7 @@ Requires: git, ... Install with your OS package manager.
 - ripgrep, ag the silver searcher ...
 - [exa](https://github.com/ogham/exa), `ls` replacement
 - bat, cat replacement
-- fd, find replacement
+- [fd](https://github.com/sharkdp/fd), find replacement
 
 ## Neovim
 
