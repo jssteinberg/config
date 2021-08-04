@@ -39,6 +39,14 @@ Extra commands and plugins to know about:
 - `f`, `F`, `t`, `T` to repeat `f`, `F`, `t`, `T`, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
 - `ga` for aligning text in normal and visual mode, through Easyalign. Load with `:packadd vim-easy-align`.
 
+### Troubleshooting
+
+Packer errors on launch:
+
+1. `nvim ~/.config/nvim/lua/packages/init.lua`
+2. `:luafile %`
+3. `:PackerSync`
+
 ### Config philosophy
 
 - **Functionality** (actually) needed for todays programming---with a focus on web front-end.
