@@ -111,7 +111,10 @@ M.normal = {
 	"Grep selection", silent=false },
 
 	["<leader>w"] = { ":write<cr>",
-	"Write buffer to current file" },
+	"Write buffer" },
+
+	-- ["<leader>W"] = { ":write !sudo tee %<cr>",
+	-- "Write restricted buffer" },
 
 	["<leader><tab>"] = { ":buffer#<cr>:file!<cr>",
 	"Edit alternate file" },
