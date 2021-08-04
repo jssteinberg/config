@@ -1,6 +1,7 @@
 **/.DS_Store
 configstore/
 nvim/plugin/packer_compiled.vim
+nvim/plugin/packer_compiled.lua
 .bombadillo.ini
 fish/
 broot/
