@@ -13,10 +13,10 @@ Requires: git, ... Install with your OS package manager.
 ## Other tools
 
 - ripgrep, ag the silver searcher ...
-- fd, find replacement
-- bat, cat replacement
+- [fd](https://github.com/sharkdp/fd), find replacement
+- [bat](https://github.com/sharkdp/bat), cat replacement
 - fish---shell with modern, usable defaults (and keep an eye on nu shell)
-	- fisher fish plugin manager
+	- [fisher](https://github.com/jorgebucaran/fisher), fish plugin manager
 - fzf
 - [np](https://github.com/sindresorhus/np) for easy NPM package publication
 
