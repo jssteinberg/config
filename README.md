@@ -17,7 +17,9 @@ Requires: git, ... Install with your OS package manager.
 - [bat](https://github.com/sharkdp/bat), cat replacement
 - fish---shell with modern, usable defaults (and keep an eye on nu shell)
 	- [fisher](https://github.com/jorgebucaran/fisher), fish plugin manager
-- fzf
+	- [hydro](https://github.com/jorgebucaran/hydro) plugin
+- [nvm](https://github.com/nvm-sh/nvm), and for fish [fish-nvm](https://github.com/FabioAntunes/fish-nvm)
+- [fzf](https://github.com/junegunn/fzf)
 - [np](https://github.com/sindresorhus/np) for easy NPM package publication
 
 ## Neovim
