@@ -41,14 +41,6 @@ Extra commands and plugins to know about:
 - `f`, `F`, `t`, `T` to repeat `f`, `F`, `t`, `T`, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
 - `ga` for aligning text in normal and visual mode, through Easyalign. Load with `:packadd vim-easy-align`.
 
-### Troubleshooting
-
-Packer errors on launch:
-
-1. `nvim ~/.config/nvim/lua/packages/init.lua`
-2. `:luafile %`
-3. `:PackerSync`
-
 ### Config philosophy
 
 - **Functionality** (actually) needed for todays programming---with a focus on web front-end.
@@ -59,10 +51,9 @@ Packer errors on launch:
 
 *This neovim config tries to be as functional as needed for modern web development (I currently develop mostly using Svelte), but as lightweight and 'vim way' as possible.*
 
-## Plugins to consider
+### Plugins to consider
 
 - https://github.com/lambdalisue/suda.vim
-- https://github.com/mattn/emmet-vim
 - https://github.com/sbdchd/neoformat
 
 ### Structure
@@ -70,6 +61,18 @@ Packer errors on launch:
 - init.lua should give a glance of what's configured
 - files in lua folder should have filenames that explain what they do: options, keymaps, packages ...
 - avoid deep folder structure
+
+## Troubleshooting
+
+Neovim packer errors on launch:
+
+1. `nvim ~/.config/nvim/lua/packages/init.lua`
+2. `:luafile %`
+3. `:PackerSync`
+
+Neovim, no LSP for Javascript/Typescript:
+
+- install nodejs with both nvm and system package manager
 
 [gl]: https://github.com/junegunn/gv.vim
 [gd]: https://github.com/sindrets/diffview.nvim
