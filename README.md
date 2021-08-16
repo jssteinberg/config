@@ -1,6 +1,6 @@
 # .config
 
-Includes config for alacritty and tmux (and kitty---which is nice without tmux), and neovim. *Used on Macos, but should work on Linux. But does [the tmux TC/256 color config (for Macos)](//github.com/jssteinberg/config/blob/main/tmux.conf#L3-L4)?*
+Includes config for alacritty (used for Macos), kitty (used for Ubuntu), tmux and neovim.
 
 ## Get started
 
