@@ -113,8 +113,8 @@ M.normal = {
 	["<leader>w"] = { ":write<cr>",
 	"Write buffer" },
 
-	-- ["<leader>W"] = { ":write !sudo tee %<cr>",
-	-- "Write restricted buffer" },
+	["<leader>W"] = { ":SudaWrite<cr>",
+	"Write restricted buffer" },
 
 	["<leader><tab>"] = { ":buffer#<cr>:file!<cr>",
 	"Edit alternate file" },
