@@ -304,21 +304,21 @@ time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[nnoremap <silent> f <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "f", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[vnoremap <silent> T <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "T", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[xnoremap <silent> <leader>j <cmd>lua require("packer.load")({'any-jump.vim'}, { keys = "<lt>leader>j", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[vnoremap <silent> t <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "t", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> F <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "F", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> <leader>ab <cmd>lua require("packer.load")({'any-jump.vim'}, { keys = "<lt>leader>ab", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> t <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "t", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> <leader>al <cmd>lua require("packer.load")({'any-jump.vim'}, { keys = "<lt>leader>al", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[vnoremap <silent> F <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "F", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[xnoremap <silent> * <cmd>lua require("packer.load")({'visualstar.vim'}, { keys = "*", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[nnoremap <silent> T <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "T", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[vnoremap <silent> f <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "f", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> <leader>al <cmd>lua require("packer.load")({'any-jump.vim'}, { keys = "<lt>leader>al", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[xnoremap <silent> # <cmd>lua require("packer.load")({'visualstar.vim'}, { keys = "#", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[vnoremap <silent> F <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "F", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[nnoremap <silent> <leader>j <cmd>lua require("packer.load")({'any-jump.vim'}, { keys = "<lt>leader>j", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[xnoremap <silent> <leader>j <cmd>lua require("packer.load")({'any-jump.vim'}, { keys = "<lt>leader>j", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[vnoremap <silent> t <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "t", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> <leader>ab <cmd>lua require("packer.load")({'any-jump.vim'}, { keys = "<lt>leader>ab", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> f <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "f", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[xnoremap <silent> gc <cmd>lua require("packer.load")({'nvim-comment'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[xnoremap <silent> * <cmd>lua require("packer.load")({'visualstar.vim'}, { keys = "*", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> F <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "F", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> t <cmd>lua require("packer.load")({'clever-f.vim'}, { keys = "t", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[nnoremap <silent> gcc <cmd>lua require("packer.load")({'nvim-comment'}, { keys = "gcc", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
