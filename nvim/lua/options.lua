@@ -71,8 +71,8 @@ vim.bo.swapfile = false
 
 -- Indentation
 -- tabs -- noexpandtab is default
-vim.bo.tabstop = 3 -- number of spaces for tab char
-vim.bo.shiftwidth = 3 -- number of spaces for autoindent
+vim.bo.tabstop = 2 -- number of spaces for tab char
+vim.bo.shiftwidth = 2 -- number of spaces for autoindent
 -- Formatoptions
 -- (c) auto hard wrap comments
 -- (q) allow gq formatting
