@@ -1,7 +1,7 @@
 set fileencoding=utf-8
 set noexpandtab
-set tabstop=3
-set shiftwidth=3
+set tabstop=2
+set shiftwidth=2
 set noswapfile
 " Source:
 " https://vimways.org/2018/death-by-a-thousand-files/
