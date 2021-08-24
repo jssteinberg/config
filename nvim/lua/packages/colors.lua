@@ -3,6 +3,12 @@ local M = {}
 -- @param {string} bg - e.g. 'day'
 M.tokyonight_config = function(bg)
 	vim.g.tokyonight_italic_comments = false
+	vim.g.tokyonight_italic_keywords = false
+	vim.g.tokyonight_italic_functions = false
+	vim.g.tokyonight_italic_variables = false
+	vim.g.tokyonight_colors = {
+		comment = '#1abc9c'
+	}
 
 	if not bg or bg == 'dark' then
 		vim.g.tokyonight_style = 'night'
