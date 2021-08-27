@@ -7,7 +7,7 @@ M.tokyonight_config = function(bg)
 	vim.g.tokyonight_italic_functions = false
 	vim.g.tokyonight_italic_variables = false
 	vim.g.tokyonight_colors = {
-		comment = '#1abc9c'
+		comment = '#a9b1d6'
 	}
 
 	if not bg or bg == 'dark' then
