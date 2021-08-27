@@ -101,6 +101,17 @@ M.visual = {
 
 	['<leader>K'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
+
+
+	-- Find
+
+	["<leader>f"] = { name =
+		"find",
+
+		j = { ":AnyJumpVisual<cr>",
+		"Jump to files with string" },
+
+	},
 }
 
 M.normal = {
@@ -180,6 +191,12 @@ M.normal = {
 
 	-- Edit
 
+	-- Increase/decrease number
+	['<leader>k'] = { '<c-a>',
+	'Increase number' },
+	['<leader>j'] = { '<c-x>',
+	'Decrease number' },
+
 	["<leader>e"] = { name =
 		"edit",
 
@@ -210,6 +227,9 @@ M.normal = {
 
 		f = { ":Telescope find_files<cr>",
 		"Files" },
+
+		j = { ":AnyJump<cr>",
+		"Jump to files with string" },
 
 		g = { name =
 			"git",
@@ -340,11 +360,11 @@ M.normal = {
 	["<leader>T"] = {":terminal<cr>i",
 		"Terminal in CWD" },
 
--- 	['<leader>1'] = { ":1ToggleTerm<cr>",
--- 	"1. terminal" },
 
--- 	['<leader>2'] = { ":2ToggleTerm<cr>",
--- 	"2. terminal" },
+	-- Windows
+
+	['<c-x>'] = { '<c-w><c-x>',
+	'Exchange window with next' },
 
 
 	-- Quickfix
@@ -360,6 +380,7 @@ M.normal = {
 
 	["<ctrl-q>"] = {":cwindow | cnext<cr>",
 		"Quickfix next" },
+
 
 	-- Zen mode
 

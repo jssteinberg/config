@@ -134,7 +134,10 @@ require('packer').startup(function(use)
 	use{
 		'pechorin/any-jump.vim',
 		cmd = {'AnyJump', 'AnyJumpVisual', 'AnyJumpBack', 'AnyJumpLastResults'},
-		keys = { {'n','<leader>j'}, {'x','<leader>j'}, {'n','<leader>ab'}, {'n','<leader>al'} },
+		-- keys = { {'n','<leader>j'}, {'x','<leader>j'}, {'n','<leader>ab'}, {'n','<leader>al'} },
+		config = function ()
+			vim.g.any_jump_disable_default_keybindings = false
+		end
 	}
 
 	-- ### FILE EXPLORING & SEARCHING
