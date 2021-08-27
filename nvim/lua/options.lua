@@ -48,6 +48,9 @@ vim.wo.signcolumn = 'yes'
 -- cursorline and column by default
 vim.wo.cursorline = true
 vim.wo.cursorcolumn = true
+-- fold on indent
+vim.wo.foldmethod = 'indent'
+vim.wo.foldenable = false
 
 -- Wrap
 -- softwrap inheriting indent
