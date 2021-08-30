@@ -25,6 +25,8 @@ vim.o.timeoutlen = 500
 vim.o.sessionoptions = 'curdir,folds,tabpages'
 -- wildmode lastused
 vim.o.wildmode = 'lastused:' .. vim.o.wildmode
+-- wildmode ignorecase
+vim.o.wildignorecase = true
 -- avoid cursor on Y axis edges
 vim.o.scrolloff = 10
 
