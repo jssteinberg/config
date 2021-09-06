@@ -43,7 +43,7 @@ Extra commands and plugins to know about:
 
 ### Config philosophy
 
-- **Functionality** (actually) needed for todays programming---with a focus on web front-end.
+- **Functional** for todays programming---with a focus on web front-end.
 - **Light**. Lazy load everything possible. Utilize the command line tools with vim, unless certain functionality is practical to have available inside vim. Avoid plugins that does unnecessary things (no statusline plugin). Generally avoid bloat.
 - **Lua** for config and plugins is used as far as possible unless certain functionality requires otherwise.
 - **Vim** default keymaps, commands and 'the vim way' is utilized and extended. Avoid plugins that tries to make vim resemble another 'worse' editor.
