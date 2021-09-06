@@ -67,6 +67,9 @@ M.insert = {
 
 	['ZZ'] = { '<esc>:wq<cr>',
 	'Esc and write' },
+
+	['<c-e>'] = { '<c-y>,',
+	'Emmet close', noremap=false },
 }
 
 M.terminal = {
@@ -85,30 +88,44 @@ M.visual = {
 	"Indent -" },
 
 	["<leader>R"] = { ":s/",
-	"Replace" },
+	"Replace", silent=false },
 
 	["<leader>G"] = { 'y:Rg <c-r>"<cr>',
 	"Grep selection" },
 
-	['<leader><space>'] = { '<cmd>lua require"hop".hint_words()<cr>',
+	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
 
-	['<leader>J'] = { '<cmd>lua require"hop".hint_lines()<cr>',
+	['<leader>J'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
 
-	['<leader>K'] = { '<cmd>lua require"hop".hint_lines()<cr>',
+	['<leader>K'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
+
+
+	-- Find
+
+	["<leader>f"] = { name =
+		"find",
+
+		j = { ":AnyJumpVisual<cr>",
+		"Jump to files with string" },
+
+	},
 }
 
 M.normal = {
 	["<leader>R"] = { ":%s/",
-	"Replace" },
+	"Replace", silent=false },
 
-	["<leader>G"] = { ':Rg',
+	["<leader>G"] = { ':Rg ',
 	"Grep selection", silent=false },
 
 	["<leader>w"] = { ":write<cr>",
-	"Write buffer to current file" },
+	"Write buffer" },
+
+	["<leader>W"] = { ":SudaWrite<cr>",
+	"Write restricted buffer" },
 
 	["<leader><tab>"] = { ":buffer#<cr>:file!<cr>",
 	"Edit alternate file" },
@@ -125,15 +142,20 @@ M.normal = {
 	['<leader>i'] = { '<c-i>',
 	'Go forward in jump list' },
 
-	['<leader><space>'] = { '<cmd>lua require"hop".hint_words()<cr>',
+	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
 
-	['<leader>J'] = { '<cmd>lua require"hop".hint_lines()<cr>',
+	['<leader>J'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
 
-	['<leader>K'] = { '<cmd>lua require"hop".hint_lines()<cr>',
+	['<leader>K'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
 
+
+	-- Buffers
+
+	["<leader>a"] = { name =
+		"add"},
 
 	-- Buffers
 
@@ -169,6 +191,12 @@ M.normal = {
 
 	-- Edit
 
+	-- Increase/decrease number
+	['<leader>k'] = { '<c-a>',
+	'Increase number' },
+	['<leader>j'] = { '<c-x>',
+	'Decrease number' },
+
 	["<leader>e"] = { name =
 		"edit",
 
@@ -199,6 +227,9 @@ M.normal = {
 
 		f = { ":Telescope find_files<cr>",
 		"Files" },
+
+		j = { ":AnyJump<cr>",
+		"Jump to files with string" },
 
 		g = { name =
 			"git",
@@ -267,18 +298,11 @@ M.normal = {
 		l = { ':GV<cr>',
 		'Log' },
 
+		-- p = { ':split term://git push<cr>:wincmd J<cr>:wincmd p<cr>',
+		-- 'Push' },
+
 		s = { ':exe "!git status " . shellescape(getcwd())<cr>',
 		'Status' },
-	},
-
-
-	-- Highlight
-
-	["<leader>h"] = { name =
-		"highlight",
-
-		s = { ':nohlsearch<cr>',
-		'Search clear' },
 	},
 
 
@@ -289,6 +313,16 @@ M.normal = {
 
 		r = { ':LspStop<cr>:LspStart<cr>:echo "Restart LSP"<cr>',
 		'Restart' },
+	},
+
+
+	-- No
+
+	["<leader>n"] = { name =
+		"no",
+
+		s = { ':nohlsearch<cr>',
+		'Search' },
 	},
 
 
@@ -318,34 +352,35 @@ M.normal = {
 
 		c = { ":tabclose<cr>",
 		"Close" },
-
-		f = { ':Telescope tele_tabby list<cr>',
-		"Find" },
 	},
 
 
 	-- Terminal
 
 	["<leader>T"] = {":terminal<cr>i",
-		"Terminal pwd" },
+		"Terminal in CWD" },
 
-	['<leader>1'] = { ":1ToggleTerm<cr>",
-	"1. terminal" },
 
-	['<leader>2'] = { ":2ToggleTerm<cr>",
-	"2. terminal" },
+	-- Windows
+
+	['<c-x>'] = { '<c-w><c-x>',
+	'Exchange window with next' },
 
 
 	-- Quickfix
 
-	["Q"] = {":cwindow<cr>",
-		"Quickfix window" },
+	["Q"] = {":copen<cr>",
+		"Quickfix window open" },
 
 	["<leader>q"] = {":cwindow | cnext<cr>",
 		"Quickfix next" },
 
 	["<leader>Q"] = {":cwindow | cprevious<cr>",
 		"Quickfix previous" },
+
+	["<ctrl-q>"] = {":cwindow | cnext<cr>",
+		"Quickfix next" },
+
 
 	-- Zen mode
 

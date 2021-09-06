@@ -9,17 +9,13 @@ require('packer').startup(function(use)
 	use{'editorconfig/editorconfig-vim'}
 	use{'andymass/vim-matchup'}
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-	use{'tpope/vim-surround', event = 'BufRead'}  -- surround stuff with stuff (org. tpope/vim-surround)
-	use{'tpope/vim-repeat', event = 'BufRead'}    -- repeat surround and more
+	use{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
+	use{'tpope/vim-repeat'} -- repeat surround and more
+	use{'mattn/emmet-vim'} -- vim.api.nvim_set_keymap('i', '<c-e>', '<c-y>,', {})
 
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
 		require'packages.openbrowser'.config()
-	end}
-
-	-- 'Easy' motions
-	use{'phaazon/hop.nvim', as = 'hop', event = 'BufRead', config = function()
-		require'hop'.setup { keys = 'etoqdygflhksura' }
 	end}
 
 	-- LSP & code inspection
@@ -40,11 +36,41 @@ require('packer').startup(function(use)
 			ensure_installed = 'maintained',
 			highlight = {
 				enable = true,
-				disable = {'lua'},
+				disable = {'lua', 'markdown'}, -- enable lua to test when Treesitter is more stable
 			},
 		}
 	end}
 
+	-- Aynsc executions
+	use{ 'skywind3000/asyncrun.vim', cmd = {'AsyncRun'}, }
+	vim.api.nvim_set_keymap('n', '<leader>gp', ':AsyncRun git push<cr>:copen | wincmd p<cr>', {noremap=true})
+
+	-- 'Harpoon' files and terminals
+	use{
+		'ThePrimeagen/harpoon',
+		requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
+		config = function() require("harpoon").setup({
+			global_settings = {
+				save_on_toggle = true,
+				save_on_change = true,
+			},
+		}) end
+	}
+	vim.api.nvim_set_keymap('n', '<leader><cr>', ':lua require("harpoon.term").gotoTerminal(100)<cr>i', {})
+	vim.api.nvim_set_keymap('n', '<leader>1', ':lua require("harpoon.term").gotoTerminal(1)<cr>i', {})
+	vim.api.nvim_set_keymap('n', '<leader>2', ':lua require("harpoon.term").gotoTerminal(2)<cr>i', {})
+	vim.api.nvim_set_keymap('n', '<leader>3', ':lua require("harpoon.term").gotoTerminal(3)<cr>i', {})
+	-- vim.api.nvim_set_keymap('n', '<leader>gp', ':lua require("harpoon.term").sendCommand(1, "git status")<cr>', {})
+	-- mark files
+	vim.api.nvim_set_keymap('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<cr>', {})
+	vim.api.nvim_set_keymap('n', '<leader>he', ':lua require("harpoon.ui").toggle_quick_menu()<cr>', {})
+	vim.api.nvim_set_keymap('n', '<leader>h1', ':lua require("harpoon.ui").nav_file(1)<cr>', {})
+	vim.api.nvim_set_keymap('n', '<leader>h2', ':lua require("harpoon.ui").nav_file(2)<cr>', {})
+	vim.api.nvim_set_keymap('n', '<leader>h3', ':lua require("harpoon.ui").nav_file(3)<cr>', {})
+	vim.api.nvim_set_keymap('n', '<leader>h4', ':lua require("harpoon.ui").nav_file(4)<cr>', {})
+
+	-- File types
+	-- use{'evanleck/vim-svelte', ft = {'svelte'}, event = 'InsertEnter'}
 
 	-- LOAD LAZY
 	------------
@@ -53,6 +79,8 @@ require('packer').startup(function(use)
 
 	-- :Bdelete and :Bwipeout to preserve windows
 	use{'famiu/bufdelete.nvim', cmd = {'Bdelete', 'Bwipeout'}}
+	-- sudo save
+	use{'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}}
 
 	-- ### GIT
 
@@ -69,9 +97,9 @@ require('packer').startup(function(use)
 	-- git blame
 	use{'f-person/git-blame.nvim', cmd = 'GitBlameToggle'}
 
-	-- ### EDITING & TREESITTER
+	-- ### EDITING
 
-	-- Matchies and pairing
+	-- Matching and pairing
 	use{'steelsojka/pears.nvim', event = 'InsertEnter', config = function()
 		require'pears'.setup(function(conf)
 			conf.preset 'tag_matching'
@@ -106,7 +134,10 @@ require('packer').startup(function(use)
 	use{
 		'pechorin/any-jump.vim',
 		cmd = {'AnyJump', 'AnyJumpVisual', 'AnyJumpBack', 'AnyJumpLastResults'},
-		keys = { {'n','<leader>j'}, {'x','<leader>j'}, {'n','<leader>ab'}, {'n','<leader>al'} },
+		-- keys = { {'n','<leader>j'}, {'x','<leader>j'}, {'n','<leader>ab'}, {'n','<leader>al'} },
+		config = function ()
+			vim.g.any_jump_disable_default_keybindings = false
+		end
 	}
 
 	-- ### FILE EXPLORING & SEARCHING
@@ -121,7 +152,7 @@ require('packer').startup(function(use)
 	use{
 		'nvim-telescope/telescope.nvim',
 		cmd = 'Telescope',
-		requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'TC72/telescope-tele-tabby.nvim'},
+		requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
 		config = function()
 			local actions = require('telescope.actions')
 			require('telescope').setup({defaults = {
@@ -140,25 +171,43 @@ require('packer').startup(function(use)
 		{'v', 'f'}, {'v', 'F'}, {'v', 't'}, {'v', 'T'}
 	}}
 
+	-- 'Easy' motions
+	use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine'}, config = function()
+		require'hop'.setup { keys = 'etoqdygflhksura' }
+	end}
+
+	-- 2 char search with s/S
+	-- use{
+	-- 	'ggandor/lightspeed.nvim',
+	-- 	keys = {
+	-- 		{'n', 's'}, {'n', 'S'},
+	-- 		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
+	-- 		{'v', 'f'}, {'v', 'F'}, {'v', 't'}, {'v', 'T'}
+	-- 	},
+	-- 	config = function() require'lightspeed'.setup {
+	-- 		jump_to_first_match = true,
+	-- 		full_inclusive_prefix_key = '<tab>',
+	-- 		highlight_unique_chars = true
+	-- 	} end
+	-- }
+
 	-- ### UTILITY
+
+	use{'junegunn/limelight.vim', cmd = {'Limelight'}}
+	vim.api.nvim_set_var('limelight_conceal_ctermfg', 'gray')
 
 	-- Zen mode
 	use{
 		'folke/zen-mode.nvim',
 		cmd = {'ZenMode'},
 		config = function() require('zen-mode').setup{ window = {
-			backdrop = 0.98,
+			backdrop = 1,
 			width = 100,
+			heigth = 0.9,
 			options = {
 				cursorline = false,
+				cursorcolumn = false, -- disable cursor column
 			},
 		}} end
-	}
-
-	-- Terminal toggling
-	use{
-		'akinsho/nvim-toggleterm.lua',
-		cmd = { 'ToggleTermCloseAll', 'ToggleTermOpenAll', 'ToggleTerm' },
-		config = function() require'packages.toggleterm'.config() end
 	}
 end)

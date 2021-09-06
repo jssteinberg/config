@@ -1,4 +1,12 @@
--- Global options
+-- GLOBAL OPTIONS
+
+-- Set filetypes for strange files
+require'utils'.create_augroup({
+	{'BufNewFile,BufRead', '*.astro', 'set ft=html'},
+	{'BufNewFile,BufRead', '*.styl', 'set ft=scss'},
+	{'BufNewFile,BufRead', '*.postcss', 'set ft=scss'},
+	{'BufNewFile,BufRead', '*.gmi', 'set ft=markdown'},
+}, 'filetypes')
 
 vim.o.statusline = require 'statusline'
 -- enable mouse for all modes
@@ -14,11 +22,14 @@ vim.o.listchars = vim.o.listchars .. ',tab:│ '
 -- less timeoutlen for maps
 vim.o.timeoutlen = 500
 -- session data
-vim.o.sessionoptions = 'blank,curdir,folds,help,tabpages'
+vim.o.sessionoptions = 'curdir,folds,tabpages'
 -- wildmode lastused
 vim.o.wildmode = 'lastused:' .. vim.o.wildmode
+-- wildmode ignorecase
+vim.o.wildignorecase = true
 -- avoid cursor on Y axis edges
-vim.o.scrolloff = 20
+vim.o.scrolloff = 10
+
 -- Search & substitute
 -- smartcase when searching
 vim.o.smartcase = true
@@ -26,7 +37,7 @@ vim.o.smartcase = true
 vim.o.gdefault = true
 
 
--- Window-local options
+-- WINDOW-LOCAL OPTIONS
 
 -- show line numbers
 vim.wo.number = true
@@ -36,8 +47,13 @@ vim.wo.relativenumber = true
 vim.wo.list = true
 -- always show signcolumn (used by different plugins)
 vim.wo.signcolumn = 'yes'
--- cursorline by default
+-- cursorline and column by default
 vim.wo.cursorline = true
+vim.wo.cursorcolumn = true
+-- fold on indent
+vim.wo.foldmethod = 'indent'
+vim.wo.foldenable = false
+
 -- Wrap
 -- softwrap inheriting indent
 vim.wo.breakindent = true
@@ -45,7 +61,7 @@ vim.wo.breakindent = true
 vim.wo.linebreak = true
 
 
--- Buffer-local options
+-- BUFFER-LOCAL OPTIONS
 
 -- default to utf-8
 vim.bo.fileencoding = 'utf-8'
@@ -57,10 +73,11 @@ vim.bo.copyindent = true
 vim.bo.undofile = true
 -- no swapfiles when persistent undo and no multiuser system
 vim.bo.swapfile = false
+
 -- Indentation
 -- tabs -- noexpandtab is default
-vim.bo.tabstop = 3 -- number of spaces for tab char
-vim.bo.shiftwidth = 3 -- number of spaces for autoindent
+vim.bo.tabstop = 2 -- number of spaces for tab char
+vim.bo.shiftwidth = 2 -- number of spaces for autoindent
 -- Formatoptions
 -- (c) auto hard wrap comments
 -- (q) allow gq formatting

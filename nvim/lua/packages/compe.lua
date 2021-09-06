@@ -9,6 +9,7 @@ M.config = function()
 		calc = true;
 		nvim_lsp = true;
 		nvim_lua = true;
+		-- emmet = true;
 		-- vsnip = true;
 	}; }
 
@@ -48,10 +49,13 @@ M.config = function()
 	end
 
 	-- bind (s-)tab
-	vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-	vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-	vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
-	vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
+	vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', {expr=true})
+	vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', {expr=true})
+	vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr=true})
+	vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr=true})
+
+	-- https://github.com/hrsh7th/nvim-compe/issues/99
+	vim.api.nvim_set_keymap('i', '<C-space>', 'compe#confirm("<cr>")', {expr=true, silent=true, noremap=true})
 end
 
 return M
