@@ -56,10 +56,6 @@ require('packer').startup(function(use)
 			},
 		}) end
 	}
-	vim.api.nvim_set_keymap('n', '<leader><cr>', ':lua require("harpoon.term").gotoTerminal(100)<cr>i', {})
-	vim.api.nvim_set_keymap('n', '<leader>1', ':lua require("harpoon.term").gotoTerminal(1)<cr>i', {})
-	vim.api.nvim_set_keymap('n', '<leader>2', ':lua require("harpoon.term").gotoTerminal(2)<cr>i', {})
-	vim.api.nvim_set_keymap('n', '<leader>3', ':lua require("harpoon.term").gotoTerminal(3)<cr>i', {})
 	-- vim.api.nvim_set_keymap('n', '<leader>gp', ':lua require("harpoon.term").sendCommand(1, "git status")<cr>', {})
 	-- mark files
 	vim.api.nvim_set_keymap('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<cr>', {})
@@ -68,9 +64,6 @@ require('packer').startup(function(use)
 	vim.api.nvim_set_keymap('n', '<leader>h2', ':lua require("harpoon.ui").nav_file(2)<cr>', {})
 	vim.api.nvim_set_keymap('n', '<leader>h3', ':lua require("harpoon.ui").nav_file(3)<cr>', {})
 	vim.api.nvim_set_keymap('n', '<leader>h4', ':lua require("harpoon.ui").nav_file(4)<cr>', {})
-
-	-- File types
-	-- use{'evanleck/vim-svelte', ft = {'svelte'}, event = 'InsertEnter'}
 
 	-- LOAD LAZY
 	------------
