@@ -360,6 +360,18 @@ M.normal = {
 	["<leader>T"] = {":terminal<cr>i",
 		"Terminal in CWD" },
 
+	["<leader><cr>"] = {':lua require("harpoon.term").gotoTerminal(100)<cr>i',
+		"Terminal 0", noremap=false },
+
+	["<leader>1"] = {':lua require("harpoon.term").gotoTerminal(1)<cr>i',
+		"Terminal 1", noremap=false },
+
+	["<leader>2"] = {':lua require("harpoon.term").gotoTerminal(2)<cr>i',
+		"Terminal 2", noremap=false },
+
+	["<leader>3"] = {':lua require("harpoon.term").gotoTerminal(3)<cr>i',
+		"Terminal 3", noremap=false },
+
 
 	-- Windows
 
