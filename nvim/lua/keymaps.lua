@@ -206,7 +206,7 @@ M.normal = {
 		c = { ":tabedit ~/.config/README.md | tcd ~/.config<cr>",
 		"Config directory" },
 
-		b = { ':edit %:p:h<cr>/<c-r>=escape(expand("#:t"), "/[]")<cr><cr>',
+		b = { ':Explore<cr>',
 		"Buffer directory" },
 
 		w = { ':edit **/',
@@ -243,9 +243,6 @@ M.normal = {
 			f = { ":Telescope git_files<cr>",
 			"Files" },
 		},
-
-		-- i = { 'lua require"telescope.builtin".file_browser( { ["cwd"] = vim.cmd[[escape(expand("%:p:h"))]] } )<cr>',
-		-- "In buffer directory" },
 
 		o = { ":Telescope oldfiles<cr>",
 		"Old (recent) files" },
