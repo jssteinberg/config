@@ -7,8 +7,3 @@ vim.api.nvim_set_var('netrw_localcopydircmd', 'cp -r')
 vim.api.nvim_set_var('netrw_winsize', 25) -- %
 -- Preview in vertical split
 vim.api.nvim_set_var('netrw_preview', 1)
-
--- Auto commands
--- require'utils'.create_augroup({
--- 	{'FileType', 'netrw', 'setlocal bufhidden=delete'},
--- }, 'netrw')
