@@ -206,7 +206,7 @@ M.normal = {
 		c = { ":tabedit ~/.config/README.md | tcd ~/.config<cr>",
 		"Config directory" },
 
-		b = { ':edit %:p:h<cr>/<c-r>=escape(expand("#:t"), "/[]")<cr><cr>',
+		b = { ':Explore<cr>',
 		"Buffer directory" },
 
 		w = { ':edit **/',
@@ -243,9 +243,6 @@ M.normal = {
 			f = { ":Telescope git_files<cr>",
 			"Files" },
 		},
-
-		-- i = { 'lua require"telescope.builtin".file_browser( { ["cwd"] = vim.cmd[[escape(expand("%:p:h"))]] } )<cr>',
-		-- "In buffer directory" },
 
 		o = { ":Telescope oldfiles<cr>",
 		"Old (recent) files" },
@@ -359,6 +356,18 @@ M.normal = {
 
 	["<leader>T"] = {":terminal<cr>i",
 		"Terminal in CWD" },
+
+	["<leader><cr>"] = {':lua require("harpoon.term").gotoTerminal(100)<cr>i',
+		"Terminal 0", noremap=false },
+
+	["<leader>1"] = {':lua require("harpoon.term").gotoTerminal(1)<cr>i',
+		"Terminal 1", noremap=false },
+
+	["<leader>2"] = {':lua require("harpoon.term").gotoTerminal(2)<cr>i',
+		"Terminal 2", noremap=false },
+
+	["<leader>3"] = {':lua require("harpoon.term").gotoTerminal(3)<cr>i',
+		"Terminal 3", noremap=false },
 
 
 	-- Windows
