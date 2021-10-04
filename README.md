@@ -53,7 +53,6 @@ Extra commands and plugins to know about:
 
 ### Plugins to consider
 
-- https://github.com/lambdalisue/suda.vim
 - https://github.com/sbdchd/neoformat
 
 ### Structure
