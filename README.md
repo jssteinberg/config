@@ -54,6 +54,7 @@ Extra commands and plugins to know about:
 ### Plugins to consider
 
 - https://github.com/sbdchd/neoformat
+- [Additional theme (Github theme)](https://github.com/projekt0n/github-nvim-theme)
 
 ### Structure
 
