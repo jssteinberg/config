@@ -56,14 +56,6 @@ require('packer').startup(function(use)
 			},
 		}) end
 	}
-	-- vim.api.nvim_set_keymap('n', '<leader>gp', ':lua require("harpoon.term").sendCommand(1, "git status")<cr>', {})
-	-- mark files
-	vim.api.nvim_set_keymap('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<cr>', {})
-	vim.api.nvim_set_keymap('n', '<leader>he', ':lua require("harpoon.ui").toggle_quick_menu()<cr>', {})
-	vim.api.nvim_set_keymap('n', '<leader>h1', ':lua require("harpoon.ui").nav_file(1)<cr>', {})
-	vim.api.nvim_set_keymap('n', '<leader>h2', ':lua require("harpoon.ui").nav_file(2)<cr>', {})
-	vim.api.nvim_set_keymap('n', '<leader>h3', ':lua require("harpoon.ui").nav_file(3)<cr>', {})
-	vim.api.nvim_set_keymap('n', '<leader>h4', ':lua require("harpoon.ui").nav_file(4)<cr>', {})
 
 	-- LOAD LAZY
 	------------
