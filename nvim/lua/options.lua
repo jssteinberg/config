@@ -5,6 +5,7 @@ require'utils'.create_augroup({
 	{'BufNewFile,BufRead', '*.astro', 'set ft=html'},
 	{'BufNewFile,BufRead', '*.styl', 'set ft=scss'},
 	{'BufNewFile,BufRead', '*.postcss', 'set ft=scss'},
+	{'BufNewFile,BufRead', '*.mdx', 'set ft=markdown'},
 	{'BufNewFile,BufRead', '*.gmi', 'set ft=markdown'},
 }, 'filetypes')
 
