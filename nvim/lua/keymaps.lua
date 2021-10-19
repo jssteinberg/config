@@ -360,9 +360,6 @@ M.normal = {
 
 	-- Tab
 
-	['<leader>C'] = { ":tabclose<cr>",
-	"Close" },
-
 	["<leader>t"] = { name =
 		"tab",
 
