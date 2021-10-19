@@ -36,7 +36,7 @@ require('packer').startup(function(use)
 			ensure_installed = 'maintained',
 			highlight = {
 				enable = true,
-				disable = {'lua', 'markdown'}, -- enable lua to test when Treesitter is more stable
+				disable = {'lua', 'markdown', 'fish'}, -- enable lua to test when Treesitter is more stable
 			},
 		}
 	end}
