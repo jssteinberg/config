@@ -83,7 +83,7 @@ M.lspinstall_config = function()
 		for _, server in pairs(servers) do
 			local config = make_config()
 
-		 -- language specific config
+			-- language specific config
 			if server == "lua" then
 				config.settings = lua_settings
 			end

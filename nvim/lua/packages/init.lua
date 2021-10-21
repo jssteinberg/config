@@ -36,7 +36,7 @@ require('packer').startup(function(use)
 			ensure_installed = 'maintained',
 			highlight = {
 				enable = true,
-				disable = {'lua', 'markdown'}, -- enable lua to test when Treesitter is more stable
+				disable = {'lua', 'markdown', 'fish'}, -- enable lua to test when Treesitter is more stable
 			},
 		}
 	end}
@@ -49,7 +49,7 @@ require('packer').startup(function(use)
 	use{
 		'ThePrimeagen/harpoon',
 		requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
-		-- keys = {{'n','<leader><cr>'}},
+		-- keys = {{'n','<leader><cr>'}, {'n','<leader>1'}, {'n','<leader>2'}, {'n','<leader>3'}},
 		config = function() require("harpoon").setup({
 			global_settings = {
 				save_on_toggle = true,
