@@ -22,6 +22,13 @@ Requires: git, ... Install with your OS package manager.
 - [fzf](https://github.com/junegunn/fzf)
 - [np](https://github.com/sindresorhus/np) for easy NPM package publication
 
+Adding global alias in fish from the command line:
+
+```sh
+alias gs "git status"
+funcsave gs
+```
+
 ## Neovim
 
 Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ...
