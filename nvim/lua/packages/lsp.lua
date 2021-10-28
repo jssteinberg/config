@@ -112,44 +112,26 @@ M.lspinstall_config = function()
 		}
 	}
 
-	-- config that activates keymaps and enables snippet support
 	local function make_config()
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.completion.completionItem.snippetSupport = false
 		return {
-			-- enable snippet support
-			capabilities = capabilities,
 			-- map buffer local keybindings when the language server attaches
 			on_attach = on_attach,
 		}
 	end
 
-	-- lsp-install
-	local function setup_servers()
-		require'lspinstall'.setup()
+	local lsp_installer = require("nvim-lsp-installer")
 
-		-- get all installed servers
-		local servers = require'lspinstall'.installed_servers()
+	lsp_installer.on_server_ready(function(server)
+		local config = make_config()
 
-		for _, server in pairs(servers) do
-			local config = make_config()
+		if server.name == "lua" then
+			config.settings = lua_settings
+		end
 
-			-- language specific config
-			if server == "lua" then
-				config.settings = lua_settings
-			end
-
-		 require'lspconfig'[server].setup(config)
-	  end
-	end
-
-	setup_servers()
-
-	-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-	require'lspinstall'.post_install_hook = function ()
-		setup_servers() -- reload installed servers
-		vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-	end
+		-- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
+		server:setup(config)
+		vim.cmd [[ do User LspAttachBuffers ]]
+	end)
 end
 
 return M

@@ -22,7 +22,7 @@ require('packer').startup(function(use)
 	use{
 		'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
 		requires = {
-			'kabouzeid/nvim-lspinstall', -- `:LspInstall <language>` command
+			'williamboman/nvim-lsp-installer', -- `:LspInstall <language>` command
 			'ray-x/lsp_signature.nvim', -- Show function signature when you type
 			'hrsh7th/nvim-cmp', -- Autocompletion plugin
 			'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
