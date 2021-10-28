@@ -20,15 +20,17 @@ require('packer').startup(function(use)
 
 	-- LSP & code inspection
 	use{
-		'neovim/nvim-lspconfig',
-		requires = {'kabouzeid/nvim-lspinstall', 'ray-x/lsp_signature.nvim'},
+		'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
+		requires = {
+			'kabouzeid/nvim-lspinstall',
+			'ray-x/lsp_signature.nvim',
+			'hrsh7th/nvim-cmp', -- Autocompletion plugin
+			'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
+			'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+			'L3MON4D3/LuaSnip' -- Snippets plugin
+		},
 		config = function() require'packages.lsp'.lspinstall_config() end
 	}
-
-	-- Auto completion
-	use{'hrsh7th/nvim-compe', event = 'BufRead', config = function()
-		require'packages.compe'.config()
-	end}
 
 	-- Treesitter
 	use{'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()
