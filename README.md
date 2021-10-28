@@ -22,9 +22,11 @@ Requires: git, ... Install with your OS package manager.
 - [fzf](https://github.com/junegunn/fzf)
 - [np](https://github.com/sindresorhus/np) for easy NPM package publication
 
-Adding global alias in fish from the command line:
+Adding global fish config from the shell:
 
 ```sh
+set -Ux EDITOR "nvim --noplugins"
+
 alias gs "git status"
 funcsave gs
 ```
