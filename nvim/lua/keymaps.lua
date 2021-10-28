@@ -206,7 +206,7 @@ M.normal = {
 		c = { ":tabedit ~/.config/README.md | tcd ~/.config<cr>",
 		"Config directory" },
 
-		b = { ':edit %:p:h<cr>/<c-r>=escape(expand("#:t"), "/[]")<cr><cr>',
+		b = { ':Explore<cr>',
 		"Buffer directory" },
 
 		w = { ':edit **/',
@@ -243,9 +243,6 @@ M.normal = {
 			f = { ":Telescope git_files<cr>",
 			"Files" },
 		},
-
-		-- i = { 'lua require"telescope.builtin".file_browser( { ["cwd"] = vim.cmd[[escape(expand("%:p:h"))]] } )<cr>',
-		-- "In buffer directory" },
 
 		o = { ":Telescope oldfiles<cr>",
 		"Old (recent) files" },
@@ -306,6 +303,31 @@ M.normal = {
 	},
 
 
+	-- Harpoon files
+
+	["<leader>h"] = { name =
+		"harpoon",
+
+		a = { ':lua require("harpoon.mark").add_file()<cr>',
+		'Add' },
+
+		e = { ':lua require("harpoon.ui").toggle_quick_menu()<cr>',
+		'edit' },
+
+		['1'] = { ':lua require("harpoon.ui").nav_file(1)<cr>',
+		'1. file' },
+
+		['2'] = { ':lua require("harpoon.ui").nav_file(2)<cr>',
+		'2. file' },
+
+		['3'] = { ':lua require("harpoon.ui").nav_file(3)<cr>',
+		'3. file' },
+
+		['4'] = { ':lua require("harpoon.ui").nav_file(4)<cr>',
+		'4. file' },
+	},
+
+
 	-- LSP
 
 	["<leader>l"] = { name =
@@ -337,9 +359,6 @@ M.normal = {
 
 
 	-- Tab
-
-	['<leader>C'] = { ":tabclose<cr>",
-	"Close" },
 
 	["<leader>t"] = { name =
 		"tab",

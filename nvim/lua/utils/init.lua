@@ -1,6 +1,11 @@
 local M = {}
 local cmd = vim.cmd
 
+-- Auto commands
+-- Use:
+-- require'utils'.create_augroup({
+-- 	{'FileType,BufRead,WinEnter', 'netrw', 'setlocal number relativenumber'},
+-- }, 'group_name')
 function M.create_augroup(autocmds, name)
 	cmd('augroup ' .. name)
 	cmd('autocmd!')

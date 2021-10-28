@@ -20,15 +20,17 @@ require('packer').startup(function(use)
 
 	-- LSP & code inspection
 	use{
-		'neovim/nvim-lspconfig',
-		requires = {'kabouzeid/nvim-lspinstall', 'ray-x/lsp_signature.nvim'},
+		'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
+		requires = {
+			'kabouzeid/nvim-lspinstall',
+			'ray-x/lsp_signature.nvim',
+			'hrsh7th/nvim-cmp', -- Autocompletion plugin
+			'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
+			'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+			'L3MON4D3/LuaSnip' -- Snippets plugin
+		},
 		config = function() require'packages.lsp'.lspinstall_config() end
 	}
-
-	-- Auto completion
-	use{'hrsh7th/nvim-compe', event = 'BufRead', config = function()
-		require'packages.compe'.config()
-	end}
 
 	-- Treesitter
 	use{'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()
@@ -36,19 +38,27 @@ require('packer').startup(function(use)
 			ensure_installed = 'maintained',
 			highlight = {
 				enable = true,
-				disable = {'lua', 'markdown'}, -- enable lua to test when Treesitter is more stable
+				disable = {'lua', 'markdown', 'fish'}, -- enable lua to test when Treesitter is more stable
 			},
 		}
 	end}
-
-	-- Aynsc executions
-	use{ 'skywind3000/asyncrun.vim', cmd = {'AsyncRun'}, }
-	vim.api.nvim_set_keymap('n', '<leader>gp', ':AsyncRun git push<cr>:copen | wincmd p<cr>', {noremap=true})
 
 	-- 'Harpoon' files and terminals
 	use{
 		'ThePrimeagen/harpoon',
 		requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
+		-- keys = {
+		-- 	{'n','<leader><cr>'},
+		-- 	{'n','<leader>1'},
+		-- 	{'n','<leader>2'},
+		-- 	{'n','<leader>3'},
+		-- 	{'n','<leader>ha'},
+		-- 	{'n','<leader>he'},
+		-- 	{'n','<leader>h1'},
+		-- 	{'n','<leader>h2'},
+		-- 	{'n','<leader>h3'},
+		-- 	{'n','<leader>h4'}
+		-- },
 		config = function() require("harpoon").setup({
 			global_settings = {
 				save_on_toggle = true,
@@ -56,17 +66,13 @@ require('packer').startup(function(use)
 			},
 		}) end
 	}
-	-- vim.api.nvim_set_keymap('n', '<leader>gp', ':lua require("harpoon.term").sendCommand(1, "git status")<cr>', {})
-	-- mark files
-	vim.api.nvim_set_keymap('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<cr>', {})
-	vim.api.nvim_set_keymap('n', '<leader>he', ':lua require("harpoon.ui").toggle_quick_menu()<cr>', {})
-	vim.api.nvim_set_keymap('n', '<leader>h1', ':lua require("harpoon.ui").nav_file(1)<cr>', {})
-	vim.api.nvim_set_keymap('n', '<leader>h2', ':lua require("harpoon.ui").nav_file(2)<cr>', {})
-	vim.api.nvim_set_keymap('n', '<leader>h3', ':lua require("harpoon.ui").nav_file(3)<cr>', {})
-	vim.api.nvim_set_keymap('n', '<leader>h4', ':lua require("harpoon.ui").nav_file(4)<cr>', {})
 
 	-- LOAD LAZY
 	------------
+
+	-- Aynsc executions
+	use{ 'skywind3000/asyncrun.vim', cmd = {'AsyncRun'}, }
+	vim.api.nvim_set_keymap('n', '<leader>gp', ':AsyncRun git push<cr>:copen | wincmd p<cr>', {noremap=true})
 
 	-- ### BUFFERS
 
@@ -97,11 +103,11 @@ require('packer').startup(function(use)
 		require'pears'.setup(function(conf)
 			conf.preset 'tag_matching'
 			conf.on_enter(function(pears_handle)
-				if vim.fn.pumvisible() == 1 and vim.fn.complete_info().selected ~= -1 then
-					return vim.fn['compe#confirm']('<CR>')
-				else
+				-- if vim.fn.pumvisible() == 1 and vim.fn.complete_info().selected ~= -1 then
+				-- 	return vim.fn['compe#confirm']('<CR>')
+				-- else
 					pears_handle()
-				end
+				-- end
 			end)
 		end)
 	end}
