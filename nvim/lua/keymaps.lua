@@ -162,14 +162,8 @@ M.normal = {
 	["<leader>b"] = { name =
 		"buffer(s)",
 
-		d = { ":Bdelete<cr>",
-		"Delete buffer, keep window" },
-
 		['<tab>'] = { ":buffer ",
 		":buffer ", silent=false },
-
-		w = { ":Bwipeout<cr>",
-		"Wipeout buffer, keep window" },
 
 	},
 	[M.buffer_alternate_map] = { "<cmd>buffer#<cr>:file!<cr>",

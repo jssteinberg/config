@@ -76,8 +76,6 @@ require('packer').startup(function(use)
 
 	-- ### BUFFERS
 
-	-- :Bdelete and :Bwipeout to preserve windows
-	use{'famiu/bufdelete.nvim', cmd = {'Bdelete', 'Bwipeout'}}
 	-- sudo save
 	use{'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}}
 
