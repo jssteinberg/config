@@ -5,13 +5,13 @@ require('packer').startup(function(use)
 
 	use{'wbthomason/packer.nvim'} -- Package manager
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config() -- Colorscheme
-	use{'folke/which-key.nvim'} require'packages.whichkey'.config()
-	use{'editorconfig/editorconfig-vim'}
-	use{'andymass/vim-matchup'}
+	use{'folke/which-key.nvim'} require'packages.whichkey'.config() -- Keymappings popup
+	use{'editorconfig/editorconfig-vim'} -- Respect .editorconfig
+	use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-	use{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
-	use{'tpope/vim-repeat'} -- repeat surround and more
-	use{'mattn/emmet-vim'} -- <C-e> `html>head` to HTML
+	use{'tpope/vim-surround'} -- Surround stuff with stuff (org. tpope/vim-surround)
+	use{'tpope/vim-repeat'} -- Extend `.` repeat
+	use{'mattn/emmet-vim'} -- Expand `html>head` to HTML
 
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
@@ -47,18 +47,7 @@ require('packer').startup(function(use)
 	use{
 		'ThePrimeagen/harpoon',
 		requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
-		-- keys = {
-		-- 	{'n','<leader><cr>'},
-		-- 	{'n','<leader>1'},
-		-- 	{'n','<leader>2'},
-		-- 	{'n','<leader>3'},
-		-- 	{'n','<leader>ha'},
-		-- 	{'n','<leader>he'},
-		-- 	{'n','<leader>h1'},
-		-- 	{'n','<leader>h2'},
-		-- 	{'n','<leader>h3'},
-		-- 	{'n','<leader>h4'}
-		-- },
+		-- keys = { {'n','<leader><cr>'}, {'n','<leader>1'}, {'n','<leader>2'}, {'n','<leader>3'}, {'n','<leader>ha'}, {'n','<leader>he'}, {'n','<leader>h1'}, {'n','<leader>h2'}, {'n','<leader>h3'}, {'n','<leader>h4'} },
 		config = function() require("harpoon").setup({
 			global_settings = {
 				save_on_toggle = true,
