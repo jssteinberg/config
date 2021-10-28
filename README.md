@@ -37,7 +37,7 @@ Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), r
 
 Keymaps are available by pressing `space` and the plugin Which Key will show available maps. Or browse the [keymaps file](https://github.com/jssteinberg/config/blob/main/nvim/lua/keymaps.lua).
 
-### Extra commands and plugins to know about:
+### Highlighted features
 
 - `:TSInstall [...]` treesitter language for syntax, indentation ... via [nvim-treesitter][nts].
 - `:LspInstall [...]` for language diagnostics and completion.
@@ -46,7 +46,6 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 - `*`/`#` (x) for searching selected text, via visualstar.vim.
 - `:G[ ...]` for git via fugitive.vim (still the best git integration for vim).
 - `gx` to open URI or search visual selection in browser, via open-browser.vim.
-- `:Bdelete` and `:Bwipeout` for preserving window layout through famiu/bufdelete.nvim. And it deletes the buffer if it's open in other windows, and cycle all of them to the next buffer.
 - `f`, `F`, `t`, `T` to repeat `f`, `F`, `t`, `T`, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
 - `<leader><enter>`, `<leader>1`, `<leader>2`, `<leader>3` to open consistent terminals via [harpoon](https://github.com/ThePrimeagen/harpoon).
 
