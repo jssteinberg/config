@@ -11,7 +11,7 @@ require('packer').startup(function(use)
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
 	use{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat'} -- repeat surround and more
-	use{'mattn/emmet-vim'} -- vim.api.nvim_set_keymap('i', '<c-e>', '<c-y>,', {})
+	use{'mattn/emmet-vim'} -- <C-e> `html>head` to HTML
 
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
@@ -22,8 +22,8 @@ require('packer').startup(function(use)
 	use{
 		'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
 		requires = {
-			'kabouzeid/nvim-lspinstall',
-			'ray-x/lsp_signature.nvim',
+			'kabouzeid/nvim-lspinstall', -- `:LspInstall <language>` command
+			'ray-x/lsp_signature.nvim', -- Show function signature when you type
 			'hrsh7th/nvim-cmp', -- Autocompletion plugin
 			'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
 			'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp

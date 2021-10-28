@@ -69,7 +69,7 @@ M.insert = {
 	'Esc and write' },
 
 	['<c-e>'] = { '<c-y>,',
-	'Emmet close', noremap=false },
+	'Emmet expand', noremap=false },
 }
 
 M.terminal = {
