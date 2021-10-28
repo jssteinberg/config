@@ -47,7 +47,18 @@ require('packer').startup(function(use)
 	use{
 		'ThePrimeagen/harpoon',
 		requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
-		-- keys = {{'n','<leader><cr>'}, {'n','<leader>1'}, {'n','<leader>2'}, {'n','<leader>3'}},
+		-- keys = {
+		-- 	{'n','<leader><cr>'},
+		-- 	{'n','<leader>1'},
+		-- 	{'n','<leader>2'},
+		-- 	{'n','<leader>3'},
+		-- 	{'n','<leader>ha'},
+		-- 	{'n','<leader>he'},
+		-- 	{'n','<leader>h1'},
+		-- 	{'n','<leader>h2'},
+		-- 	{'n','<leader>h3'},
+		-- 	{'n','<leader>h4'}
+		-- },
 		config = function() require("harpoon").setup({
 			global_settings = {
 				save_on_toggle = true,
