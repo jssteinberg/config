@@ -397,13 +397,13 @@ M.normal = {
 	["Q"] = {":copen<cr>",
 		"Quickfix window open" },
 
-	["<leader>q"] = {":cwindow | cnext<cr>",
+	["<leader>q"] = {":cnext<cr>",
 		"Quickfix next" },
 
-	["<leader>Q"] = {":cwindow | cprevious<cr>",
+	["<leader>Q"] = {":cprevious<cr>",
 		"Quickfix previous" },
 
-	["<ctrl-q>"] = {":cwindow | cnext<cr>",
+	["<ctrl-q>"] = {":cnext<cr>",
 		"Quickfix next" },
 
 
