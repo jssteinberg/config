@@ -1,6 +1,6 @@
 # .config
 
-Includes config for alacritty (used for Macos), kitty (used for Ubuntu), tmux and neovim.
+Includes **config** for alacritty (used **for Macos**), kitty (used **for Ubuntu**), tmux and neovim. *Not tested for Windows.*
 
 ## Get started
 
