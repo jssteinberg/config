@@ -24,7 +24,15 @@ require('packer').startup(function(use)
 		requires = {
 			'williamboman/nvim-lsp-installer', -- `:LspInstall <language>` command
 			'ray-x/lsp_signature.nvim', -- Show function signature when you type
-			'hrsh7th/nvim-cmp', -- Autocompletion plugin
+		},
+		config = function() require'packages.lsp'.lspinstall_config() end
+	}
+
+	-- Autocompletion
+	use{
+		'hrsh7th/nvim-cmp',
+		-- event = 'InsertEnter',
+		requires = {
 			'hrsh7th/cmp-buffer', -- LSP source for nvim-cmp
 			'hrsh7th/cmp-path', -- LSP source for nvim-cmp
 			'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
@@ -32,7 +40,7 @@ require('packer').startup(function(use)
 			'L3MON4D3/LuaSnip', -- Snippets plugin
 			'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
 		},
-		config = function() require'packages.lsp'.lspinstall_config() end
+		config = function() require'packages.cmp'.config() end
 	}
 
 	-- Treesitter
