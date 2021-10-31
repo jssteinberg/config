@@ -25,9 +25,12 @@ require('packer').startup(function(use)
 			'williamboman/nvim-lsp-installer', -- `:LspInstall <language>` command
 			'ray-x/lsp_signature.nvim', -- Show function signature when you type
 			'hrsh7th/nvim-cmp', -- Autocompletion plugin
+			'hrsh7th/cmp-buffer', -- LSP source for nvim-cmp
+			'hrsh7th/cmp-path', -- LSP source for nvim-cmp
 			'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
+			'hrsh7th/cmp-nvim-lua', -- LSP source for nvim-cmp
+			'L3MON4D3/LuaSnip', -- Snippets plugin
 			'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
-			'L3MON4D3/LuaSnip' -- Snippets plugin
 		},
 		config = function() require'packages.lsp'.lspinstall_config() end
 	}
@@ -60,7 +63,7 @@ require('packer').startup(function(use)
 	------------
 
 	-- Aynsc executions
-	use{ 'skywind3000/asyncrun.vim', cmd = {'AsyncRun'}, }
+	use{'skywind3000/asyncrun.vim', cmd = {'AsyncRun'},}
 	vim.api.nvim_set_keymap('n', '<leader>gp', ':AsyncRun git push<cr>:copen | wincmd p<cr>', {noremap=true})
 
 	-- ### BUFFERS
@@ -73,13 +76,13 @@ require('packer').startup(function(use)
 	-- fugitive
 	use{'tpope/vim-fugitive', cmd = {'G', 'Git'}}
 	-- git log
-	use{ 'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = true}}}
+	use{'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = true}}}
 	-- diff view
-	use{ 'sindrets/diffview.nvim', cmd = {'DiffviewOpen'}, config = function()
+	use{'sindrets/diffview.nvim', cmd = {'DiffviewOpen'}, config = function()
 		require'diffview'.setup { file_panel = {
 			use_icons = false
-		} }
-	end }
+		}}
+	end}
 	-- git blame
 	use{'f-person/git-blame.nvim', cmd = 'GitBlameToggle'}
 
