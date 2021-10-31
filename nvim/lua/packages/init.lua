@@ -4,8 +4,8 @@ require('packer').startup(function(use)
 	--------------------------
 
 	use{'wbthomason/packer.nvim'} -- Package manager
+	use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config() -- Colorscheme
-	use{'folke/which-key.nvim'} require'packages.whichkey'.config() -- Keymappings popup
 	use{'editorconfig/editorconfig-vim'} -- Respect .editorconfig
 	use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
@@ -112,7 +112,10 @@ require('packer').startup(function(use)
 	-- Align text
 	use{ 'junegunn/vim-easy-align', opt = true }
 	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
-	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
+	require'which-key'.register({
+		['ga'] = { '<Plug>(EasyAlign)',
+		'Align (requires :packadd vim-easy-align)' },
+	})
 
 	-- ### LSP & CODE INSPECTION
 

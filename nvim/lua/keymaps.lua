@@ -322,16 +322,6 @@ M.normal = {
 	},
 
 
-	-- LSP
-
-	["<leader>l"] = { name =
-		"lsp",
-
-		r = { ':LspStop<cr>:LspStart<cr>:echo "Restart LSP"<cr>',
-		'Restart' },
-	},
-
-
 	-- No
 
 	["<leader>n"] = { name =
@@ -398,13 +388,13 @@ M.normal = {
 		"Quickfix window open" },
 
 	["<leader>q"] = {":cnext<cr>",
-		"Quickfix next" },
+		"Quickfix next", silent=false },
 
 	["<leader>Q"] = {":cprevious<cr>",
-		"Quickfix previous" },
+		"Quickfix previous", silent=false },
 
 	["<ctrl-q>"] = {":cnext<cr>",
-		"Quickfix next" },
+		"Quickfix next", silent=false },
 
 
 	-- Zen mode
