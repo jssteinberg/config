@@ -3,6 +3,7 @@ require('packer').startup(function(use)
 	--------------------------
 
 	use{'wbthomason/packer.nvim'} -- Package manager
+	use{'antoinemadec/FixCursorHold.nvim'} -- Neovim bug fix (until core is fixed)
 	use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config() -- Colorscheme
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
