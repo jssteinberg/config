@@ -104,7 +104,9 @@ require('packer').startup(function(use)
 
 	-- ### EDITING
 
+	-- Web coding
 	use{'mattn/emmet-vim', event='InsertEnter *'} -- Expand `html>head` to HTML
+	use{'rstacruz/vim-hyperstyle', event='InsertEnter *', ft={'css', 'scss'}}
 
 	-- File tree
 	use{'lambdalisue/fern.vim', cmd = {'Fern'}}
