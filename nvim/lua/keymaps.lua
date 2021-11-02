@@ -292,8 +292,8 @@ M.normal = {
 		l = { ':Git | GV<cr>',
 		'Log' },
 
-		-- p = { ':split term://git push<cr>:wincmd J<cr>:wincmd p<cr>',
-		-- 'Push' },
+		p = { ':AsyncRun git push<cr>:copen | wincmd p<cr>',
+		'Push' },
 
 		s = { ':exe "!git status " . shellescape(getcwd())<cr>',
 		'Status' },
