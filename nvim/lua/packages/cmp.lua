@@ -1,6 +1,13 @@
 local M = {}
 
 M.config = function()
+	-- vim.cmd[[packadd cmp-buffer]]
+	-- vim.cmd[[packadd cmp-path]]
+	-- vim.cmd[[packadd cmp-nvim-lsp]]
+	-- vim.cmd[[packadd cmp-nvim-lua]]
+	-- vim.cmd[[packadd LuaSnip]]
+	-- vim.cmd[[packadd cmp_luasnip]]
+
 	local luasnip = require'luasnip'
 	local cmp = require'cmp'
 	local capabilities = vim.lsp.protocol.make_client_capabilities()

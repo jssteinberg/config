@@ -73,25 +73,25 @@ M.insert = {
 }
 
 M.terminal = {
-	[M.esc_map] = { "<c-\\><c-n>",
-	"Esc to normal mode" },
+	[M.esc_map] = { '<c-\\><c-n>',
+	'Esc to normal mode' },
 }
 
 M.visual = {
-	[M.esc_map] = { "<esc>",
-	"Esc to normal mode" },
+	[M.esc_map] = { '<esc>',
+	'Esc to normal mode' },
 
-	[">"] = { ">gv",
-	"Indent +" },
+	['>'] = { '>gv',
+	'Indent +' },
 
-	["<"] = { "<gv",
-	"Indent -" },
+	['<'] = { '<gv',
+	'Indent -' },
 
-	["<leader>R"] = { ":s/",
-	"Replace", silent=false },
+	['<leader>R'] = { ':s/',
+	'Replace', silent=false },
 
-	["<leader>G"] = { 'y:Rg <c-r>"<cr>',
-	"Grep selection" },
+	['<leader>G'] = { 'y:Rg <c-r>"<cr>',
+	'Grep selection' },
 
 	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
@@ -105,39 +105,38 @@ M.visual = {
 
 	-- Find
 
-	["<leader>f"] = { name =
-		"find",
+	['<leader>f'] = { name =
+		'find',
 
-		j = { ":AnyJumpVisual<cr>",
-		"Jump to files with string" },
-
+		j = { ':AnyJumpVisual<cr>',
+		'Jump to files with string' },
 	},
 }
 
 M.normal = {
-	["<leader>R"] = { ":%s/",
-	"Replace", silent=false },
+	['<leader>R'] = { ':%s/',
+	'Replace', silent=false },
 
-	["<leader>G"] = { ':Rg ',
-	"Grep selection", silent=false },
+	['<leader>G'] = { ':Rg ',
+	'Grep selection', silent=false },
 
-	["<leader>w"] = { ":write<cr>",
-	"Write buffer" },
+	['<leader>w'] = { ':write<cr>',
+	'Write buffer' },
 
-	["<leader>W"] = { ":SudaWrite<cr>",
-	"Write restricted buffer" },
+	['<leader>W'] = { ':SudaWrite<cr>',
+	'Write restricted buffer' },
 
-	["<leader><tab>"] = { ":buffer#<cr>:file!<cr>",
-	"Edit alternate file" },
+	['<leader><tab>'] = { ':buffer#<cr>:file!<cr>',
+	'Edit alternate file' },
 
 
 	-- Jumps/motions
 
-	["<leader>9"] = { "<c-]>",
-	"Jump to definition" },
+	['<leader>9'] = { '<c-]>',
+	'Jump to definition' },
 
-	["<leader>o"] = { "<c-o>",
-	"Go back in jump list" },
+	['<leader>o'] = { '<c-o>',
+	'Go back in jump list' },
 
 	['<leader>i'] = { '<c-i>',
 	'Go forward in jump list' },
@@ -154,26 +153,27 @@ M.normal = {
 
 	-- Buffers
 
-	["<leader>a"] = { name =
-		"add"},
+	['<leader>a'] = { name =
+		'add'},
 
 	-- Buffers
 
-	["<leader>b"] = { name =
-		"buffer(s)",
+	['<leader>b'] = { name =
+		'buffer(s)',
 
-		['<tab>'] = { ":buffer ",
-		":buffer ", silent=false },
-
+		['<tab>'] = { ':buffer ',
+		':buffer ', silent=false },
 	},
-	[M.buffer_alternate_map] = { "<cmd>buffer#<cr>:file!<cr>",
-	"Alternate" },
+
+	-- Open buffer
+	[M.buffer_alternate_map] = { '<cmd>buffer#<cr>:file!<cr>',
+	'Alternate' },
 
 
 	-- Colors
 
-	["<leader>c"] = { name =
-		"colors",
+	['<leader>c'] = { name =
+		'colors',
 
 		d = { ':lua require"packages.colors".setColo("dark")<cr>',
 		'Dark' },
@@ -185,74 +185,77 @@ M.normal = {
 
 	-- Edit
 
-	-- Increase/decrease number
 	['<leader>k'] = { '<c-a>',
 	'Increase number' },
+
 	['<leader>j'] = { '<c-x>',
 	'Decrease number' },
 
-	["<leader>e"] = { name =
-		"edit",
+	['<leader>e'] = { name =
+		'edit/explore',
 
-		['.'] = { ":edit .<cr>",
-		"Working directory" },
+		['.'] = { ':edit .<cr>',
+		'Working directory' },
 
-		c = { ":tabedit ~/.config/README.md | tcd ~/.config<cr>",
-		"Config directory" },
+		c = { ':tabedit ~/.config/README.md | tcd ~/.config<cr>',
+		'Config directory' },
 
 		b = { ':Explore<cr>',
-		"Buffer directory" },
+		'Buffer directory' },
+
+		t = { ':Fern . -drawer<cr>',
+		'Tree' },
 
 		w = { ':edit **/',
-		"Wild", silent=false },
+		'Wild', silent=false },
 	},
 
 
 	-- Find
 
-	["<leader>f"] = { name =
-		"find",
+	['<leader>f'] = { name =
+		'find',
 
-		b = { ":Telescope buffers<cr>",
-		"Buffers" },
+		b = { ':Telescope buffers<cr>',
+		'Buffers' },
 
-		d = { ":Telescope file_browser<cr>",
-		"Directory content" },
+		d = { ':Telescope file_browser<cr>',
+		'Directory content' },
 
-		f = { ":Telescope find_files<cr>",
-		"Files" },
+		f = { ':Telescope find_files<cr>',
+		'Files' },
 
-		j = { ":AnyJump<cr>",
-		"Jump to files with string" },
+		j = { ':AnyJump<cr>',
+		'Jump to files with string' },
 
 		g = { name =
-			"git",
+			'git',
 
-			b = { ":Telescope git_branches<cr>",
-			"Branches" },
+			b = { ':Telescope git_branches<cr>',
+			'Branches' },
 
-			c = { ":Telescope git_commits<cr>",
-			"Commits" },
+			c = { ':Telescope git_commits<cr>',
+			'Commits' },
 
-			f = { ":Telescope git_files<cr>",
-			"Files" },
+			f = { ':Telescope git_files<cr>',
+			'Files' },
 		},
 
-		o = { ":Telescope oldfiles<cr>",
-		"Old (recent) files" },
+		o = { ':Telescope oldfiles<cr>',
+		'Old (recent) files' },
 
-		s = { ":Telescope live_grep<cr>",
-		"String (live grep)" },
+		s = { ':Telescope live_grep<cr>',
+		'String (live grep)' },
 
-		t = { ":Telescope tele_tabby list<cr>",
-		"Tabs" },
+		t = { ':Telescope tele_tabby list<cr>',
+		'Tabs' },
 	},
 
 
 	-- Git
 
-	["<leader>g"] = { name =
-		"git",
+	['<leader>g'] = { name =
+		'git',
 
 		b = { ':GitBlameToggle<cr>',
 		'Blame' },
@@ -261,26 +264,26 @@ M.normal = {
 			'commit',
 
 			a = { ':Git commit -a<cr>',
-			"Current buffer" },
+			'Current buffer' },
 
 			c = { ':Git add % | Git commit %<cr>',
-			"Current buffer" },
+			'Current buffer' },
 		},
 
 		d = { ':DiffviewOpen<cr>',
 		'Diff view' },
 
 		f = { name =
-			"find",
+			'find',
 
-			b = { ":Telescope git_branches<cr>",
-			"Branches" },
+			b = { ':Telescope git_branches<cr>',
+			'Branches' },
 
-			c = { ":Telescope git_commits<cr>",
-			"Commits" },
+			c = { ':Telescope git_commits<cr>',
+			'Commits' },
 
-			f = { ":Telescope git_files<cr>",
-			"Files" },
+			f = { ':Telescope git_files<cr>',
+			'Files' },
 		},
 
 		g = { ':Git<cr>',
@@ -299,8 +302,8 @@ M.normal = {
 
 	-- Harpoon files
 
-	["<leader>h"] = { name =
-		"harpoon",
+	['<leader>h'] = { name =
+		'harpoon',
 
 		a = { ':lua require("harpoon.mark").add_file()<cr>',
 		'Add' },
@@ -322,10 +325,10 @@ M.normal = {
 	},
 
 
-	-- No
+	-- No/now (toggle, (de)activate)
 
-	["<leader>n"] = { name =
-		"no",
+	['<leader>n'] = { name =
+		'no',
 
 		s = { ':nohlsearch<cr>',
 		'Search' },
@@ -334,46 +337,46 @@ M.normal = {
 
 	-- Session
 
-	["<leader>s"] = { name =
-		"session",
+	['<leader>s'] = { name =
+		'session',
 
 		s = { ':lua SAVE_SOURCED_SESSION()<cr>',
-		"Save the sourced session" },
+		'Save the sourced session' },
 	},
 
 
 	-- Tab
 
-	["<leader>t"] = { name =
-		"tab",
+	['<leader>t'] = { name =
+		'tab',
 
-		['.'] = { ":tabedit .<cr>",
-		"Edit working directory" },
+		['.'] = { ':tabedit .<cr>',
+		'Edit working directory' },
 
-		b = { ":tabedit %<cr>",
-		"Edit buffer" },
+		b = { ':tabedit %<cr>',
+		'Edit buffer' },
 
-		c = { ":tabclose<cr>",
-		"Close" },
+		c = { ':tabclose<cr>',
+		'Close' },
 	},
 
 
 	-- Terminal
 
-	["<leader>T"] = {":terminal<cr>i",
-		"Terminal in CWD" },
+	['<leader>T'] = {':terminal<cr>i',
+		'Terminal in CWD' },
 
-	["<leader><cr>"] = {':lua require("harpoon.term").gotoTerminal(100)<cr>i',
-		"Terminal 0", noremap=false },
+	['<leader><cr>'] = {':lua require("harpoon.term").gotoTerminal(100)<cr>i',
+		'Terminal 0', noremap=false },
 
-	["<leader>1"] = {':lua require("harpoon.term").gotoTerminal(1)<cr>i',
-		"Terminal 1", noremap=false },
+	['<leader>1'] = {':lua require("harpoon.term").gotoTerminal(1)<cr>i',
+		'Terminal 1', noremap=false },
 
-	["<leader>2"] = {':lua require("harpoon.term").gotoTerminal(2)<cr>i',
-		"Terminal 2", noremap=false },
+	['<leader>2'] = {':lua require("harpoon.term").gotoTerminal(2)<cr>i',
+		'Terminal 2', noremap=false },
 
-	["<leader>3"] = {':lua require("harpoon.term").gotoTerminal(3)<cr>i',
-		"Terminal 3", noremap=false },
+	['<leader>3'] = {':lua require("harpoon.term").gotoTerminal(3)<cr>i',
+		'Terminal 3', noremap=false },
 
 
 	-- Windows
@@ -384,23 +387,29 @@ M.normal = {
 
 	-- Quickfix
 
-	["Q"] = {":copen<cr>",
-		"Quickfix window open" },
+	['Q'] = {':copen<cr>',
+		'Quickfix window open' },
 
-	["<leader>q"] = {":cnext<cr>",
-		"Quickfix next", silent=false },
+	['<leader>q'] = {':cnext<cr>',
+		'Quickfix next', silent=false },
 
-	["<leader>Q"] = {":cprevious<cr>",
-		"Quickfix previous", silent=false },
+	['<leader>Q'] = {':cprevious<cr>',
+		'Quickfix previous', silent=false },
 
-	["<ctrl-q>"] = {":cnext<cr>",
-		"Quickfix next", silent=false },
+	['<ctrl-q>'] = {':cnext<cr>',
+		'Quickfix next', silent=false },
 
+-- 	['<leader>q'] = { name =
+-- 		'quickfix',
+
+-- 		o = { ':colder<cr>',
+-- 		'Older list' },
+-- 	},
 
 	-- Zen mode
 
-	["<leader>Z"] = {":ZenMode<cr>",
-		"Zen mode" },
+	['<leader>Z'] = {':ZenMode<cr>',
+		'Zen mode' },
 
 }
 
