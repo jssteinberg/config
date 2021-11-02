@@ -289,7 +289,7 @@ M.normal = {
 		g = { ':Git<cr>',
 		'Git' },
 
-		l = { ':GV<cr>',
+		l = { ':Git | GV<cr>',
 		'Log' },
 
 		-- p = { ':split term://git push<cr>:wincmd J<cr>:wincmd p<cr>',
