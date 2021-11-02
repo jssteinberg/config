@@ -110,19 +110,10 @@ require('packer').startup(function(use)
 	use{'lambdalisue/fern.vim', cmd = {'Fern'}}
 
 	-- Matching and pairing
-	use{'steelsojka/pears.nvim', event = 'InsertEnter *', config = function()
-		require'pears'.setup(function(conf)
-			conf.preset 'tag_matching'
-			-- conf.on_enter(function(pears_handle)
-			-- 	-- https://github.com/steelsojka/pears.nvim#completion-intergration
-			-- 	-- if vim.fn.pumvisible() == 1 and vim.fn.complete_info().selected ~= -1 then
-			-- 	-- 	return vim.fn['compe#confirm']('<CR>')
-			-- 	-- else
-			-- 	-- 	pears_handle()
-			-- 	-- end
-			-- end)
-		end)
-	end}
+	use{'9mm/vim-closer', event='InsertEnter *'}
+	-- use{'steelsojka/pears.nvim', event = 'InsertEnter *', config = function()
+	-- 	require'pears'.setup(function(conf) conf.preset 'tag_matching' end)
+	-- end}
 
 	-- Toggle comments
 	-- gcc, gc in visual mode, to (un)comment. Lua
