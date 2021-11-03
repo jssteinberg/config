@@ -35,6 +35,9 @@ M.lspinstall_config = function()
 			['<leader>l'] = { name =
 				'lsp',
 
+				a = { '<cmd>lua vim.lsp.buf.code_action()<cr>',
+				'Action', buffer = bufnr },
+
 				D = { '<cmd>lua vim.lsp.buf.declaration()<cr>',
 				'Declaration', buffer = bufnr },
 
