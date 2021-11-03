@@ -306,7 +306,7 @@ M.normal = {
 		'harpoon',
 
 		h = { ':lua require("harpoon.mark").add_file()<cr>',
-		'Harpoon-add file' },
+		'Harpoon-add file', silent=false },
 
 		e = { ':lua require("harpoon.ui").toggle_quick_menu()<cr>',
 		'Edit \'harpooned\' files' },
