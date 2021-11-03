@@ -33,9 +33,9 @@ funcsave gs
 
 ## Neovim
 
-Neovim config with a focus on web front-end coding, but should be very usable for everything.
+Functional, lightweight and vim-way Neovim config with a focus on web front-end coding, but should be quite usable for everything.
 
-***CSS!** Autocompleting CSS with LSP (`:LspInstall cssls`) does not work. Uninstall cssls (`:LspUninstall cssls`) and autocompletion will work via omni completion.*
+*__CSS!__ Autocompleting CSS with LSP (`:LspInstall cssls`) does not work. Uninstall cssls (`:LspUninstall cssls`) and autocompletion will work via omni completion.*
 
 ---
 
@@ -66,8 +66,6 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 - **Lua** for config and plugins is used as far as possible unless certain functionality requires otherwise.
 - **Vim** default keymaps, commands and 'the vim way' is utilized and extended. Avoid plugins that tries to make vim resemble another 'worse' editor.
 - **Friendly** and uncomplicated config for dummies hacking (author included).
-
-*This neovim config tries to be as functional as needed for modern web development (I currently develop mostly using Svelte), but as lightweight and 'vim way' as possible.*
 
 ### Plugins to consider
 
