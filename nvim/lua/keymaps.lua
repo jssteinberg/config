@@ -203,7 +203,7 @@ M.normal = {
 		b = { ':Explore<cr>',
 		'Buffer directory' },
 
-		t = { ':Fern . -drawer<cr>',
+		t = { ':Fern . -drawer -reveal=% -width=40<cr>',
 		'Tree' },
 
 		w = { ':edit **/',
