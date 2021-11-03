@@ -25,13 +25,19 @@ Requires: git, ... Install with your OS package manager.
 Adding global fish config from the shell:
 
 ```sh
-set -Ux EDITOR "nvim --noplugins"
+set -Ux EDITOR "nvim"
 
 alias gs "git status"
 funcsave gs
 ```
 
 ## Neovim
+
+Neovim config with a focus on web front-end coding, but should be very usable for everything.
+
+***CSS!** Autocompleting CSS with LSP (`:LspInstall cssls`) does not work. Uninstall cssls (`:LspUninstall cssls`) and autocompletion will work via omni completion.*
+
+---
 
 Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ...
 
