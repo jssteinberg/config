@@ -33,7 +33,7 @@ funcsave gs
 
 ## Neovim
 
-Functional, lightweight and vim-way Neovim config with a focus on web front-end coding, but should be quite usable for everything.
+Functional, lightweight and vim-way neovim config with a focus on web front-end coding, but should be quite usable for everything.
 
 *__CSS!__ Autocompleting CSS with LSP (`:LspInstall cssls`) does not work. Uninstall cssls (`:LspUninstall cssls`) and autocompletion will work via omni completion.*
 
