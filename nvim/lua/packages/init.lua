@@ -23,11 +23,14 @@ require('packer').startup(function(use)
 	-- Autocompletion
 	use{
 		'hrsh7th/nvim-cmp',
+		after = 'nvim-lspconfig',
 		requires = {
+			'neovim/nvim-lspconfig',
 			'hrsh7th/cmp-buffer',       -- LSP source for nvim-cmp
 			'hrsh7th/cmp-path',         -- LSP source for nvim-cmp
 			'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
 			'hrsh7th/cmp-nvim-lua',     -- LSP source for nvim-cmp
+			'hrsh7th/cmp-omni',         -- LSP source for nvim-cmp
 			'L3MON4D3/LuaSnip',         -- Snippets plugin
 			'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
 		},
@@ -105,16 +108,15 @@ require('packer').startup(function(use)
 
 	-- Web coding
 	use{'mattn/emmet-vim', event='InsertEnter *'} -- Expand `html>head` to HTML
-	use{'rstacruz/vim-hyperstyle', event='InsertEnter *', ft={'css', 'scss'}}
 
 	-- File tree
 	use{'lambdalisue/fern.vim', cmd = {'Fern'}}
 
 	-- Matching and pairing
-	use{'9mm/vim-closer', event='InsertEnter *'}
-	-- use{'steelsojka/pears.nvim', event = 'InsertEnter *', config = function()
-	-- 	require'pears'.setup(function(conf) conf.preset 'tag_matching' end)
-	-- end}
+	-- use{'9mm/vim-closer', event='InsertEnter *'}
+	use{'steelsojka/pears.nvim', event = 'InsertEnter *', config = function()
+		require'pears'.setup(function(conf) conf.preset 'tag_matching' end)
+	end}
 
 	-- Toggle comments
 	-- gcc, gc in visual mode, to (un)comment. Lua

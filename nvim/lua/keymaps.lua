@@ -21,7 +21,7 @@ M.esc_map = 'qq'
 
 M.buffer_alternate_map = '<leader>bb'
 
-M.setLeader = function()
+M.set_leader = function()
 	-- space as <leader>
 	vim.g.mapleader = ' '
 	vim.api.nvim_set_keymap('n',' ','',{noremap = true})
@@ -29,7 +29,7 @@ M.setLeader = function()
 end
 
 M.init = function()
-	M.setLeader()
+	M.set_leader()
 
 	-- Escape
 	-- qq in insert
@@ -175,10 +175,10 @@ M.normal = {
 	['<leader>c'] = { name =
 		'colors',
 
-		d = { ':lua require"packages.colors".setColo("dark")<cr>',
+		d = { ':lua require"packages.colors".set_colo("dark")<cr>',
 		'Dark' },
 
-		l = { ':lua require"packages.colors".setColo("light")<cr>',
+		l = { ':lua require"packages.colors".set_colo("light")<cr>',
 		'Light' },
 	},
 

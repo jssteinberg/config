@@ -25,7 +25,7 @@ M.tokyonight_config = function(bg)
 end
 
 -- @param {string} bg - 'dark', 'light'
-M.setColo = function(bg)
+M.set_colo = function(bg)
 	M.tokyonight_config(bg)
 	vim.cmd('set bg=' .. bg)
 end
