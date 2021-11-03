@@ -60,12 +60,30 @@ M.config = function()
 		sources = {
 			{ name = 'nvim_lua' },
 			{ name = 'nvim_lsp' },
-			{ name = 'path' },
+			{ name = 'omni' },
 			{ name = 'luasnip' },
 			{ name = 'buffer', keyword_length = 3 },
+			{ name = 'path' },
 		},
 	}
 
+	-- Expeptions
+	-- vim.cmd[[ autocmd FileType css lua require'packages.cmp'.css_config() ]]
+end
+
+M.disable = function() require'cmp'.setup.buffer {
+	enabled = false
+} end
+
+M.css_config = function()
+	require'cmp'.setup.buffer {
+		sources = {
+			{ name = 'nvim_lsp' },
+			{ name = 'omni' },
+			{ name = 'path' },
+			{ name = 'luasnip' },
+		},
+	}
 end
 
 return M
