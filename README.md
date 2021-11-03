@@ -1,6 +1,6 @@
 # .config
 
-Includes config for alacritty (used for Macos), kitty (used for Ubuntu), tmux and neovim.
+Includes **config** for alacritty (used **for Macos**), kitty (used **for Ubuntu**), tmux and neovim. *Not tested for Windows.*
 
 ## Get started
 
@@ -37,17 +37,16 @@ Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), r
 
 Keymaps are available by pressing `space` and the plugin Which Key will show available maps. Or browse the [keymaps file](https://github.com/jssteinberg/config/blob/main/nvim/lua/keymaps.lua).
 
-### Extra commands and plugins to know about:
+### Highlighted features
 
+- `qq` to leave insert mode.
+- `s`/`S` related motions, and `.` for surround and improved repeat (tpope's plugins are still the best).
+- `*`/`#` (x) for searching selected text, via visualstar.vim.
+- `gcc`/`gc` (n/x) for comment toggling via nvim-comments.
+- `:G[ ...]` for git via fugitive.vim (still the best git integration for vim).
 - `:TSInstall [...]` treesitter language for syntax, indentation ... via [nvim-treesitter][nts].
 - `:LspInstall [...]` for language diagnostics and completion.
-- `[...]S[...]` and `.` for surround and improved repeat (tpope's plugins are still the best).
-- `gcc`/`gc` (n/x) for comment toggling through nvim-comments, written in lua.
-- `*`/`#` (x) for searching selected text, via visualstar.vim.
-- `:G[ ...]` for git via fugitive.vim (still the best git integration for vim).
-- `gx` to open URI or search visual selection in browser, via open-browser.vim.
-- `:Bdelete` and `:Bwipeout` for preserving window layout through famiu/bufdelete.nvim. And it deletes the buffer if it's open in other windows, and cycle all of them to the next buffer.
-- `f`, `F`, `t`, `T` to repeat `f`, `F`, `t`, `T`, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
+- `f`, `F`, `t`, `T` motion (repeat with `f`) across lines, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
 - `<leader><enter>`, `<leader>1`, `<leader>2`, `<leader>3` to open consistent terminals via [harpoon](https://github.com/ThePrimeagen/harpoon).
 
 #### Load on demand:

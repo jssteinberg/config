@@ -2,11 +2,11 @@
 
 -- Set filetypes for strange files
 require'utils'.create_augroup({
-	{'BufNewFile,BufRead', '*.astro', 'set ft=html'},
-	{'BufNewFile,BufRead', '*.styl', 'set ft=scss'},
-	{'BufNewFile,BufRead', '*.postcss', 'set ft=scss'},
-	{'BufNewFile,BufRead', '*.mdx', 'set ft=markdown'},
-	{'BufNewFile,BufRead', '*.gmi', 'set ft=markdown'},
+	{'BufNewFile,BufRead', '*.astro',   'set filetype=html'},
+	{'BufNewFile,BufRead', '*.styl',    'set filetype=scss'},
+	{'BufNewFile,BufRead', '*.postcss', 'set filetype=scss'},
+	{'BufNewFile,BufRead', '*.mdx',     'set filetype=markdown'},
+	{'BufNewFile,BufRead', '*.gmi',     'set filetype=markdown'},
 }, 'filetypes')
 
 vim.o.statusline = require 'statusline'

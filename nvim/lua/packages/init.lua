@@ -1,64 +1,65 @@
 require('packer').startup(function(use)
-
 	-- LOAD AT STARTUP/BUFREAD
 	--------------------------
 
 	use{'wbthomason/packer.nvim'} -- Package manager
+	use{'antoinemadec/FixCursorHold.nvim'} -- Neovim bug fix (until core is fixed)
+	use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config() -- Colorscheme
-	use{'folke/which-key.nvim'} require'packages.whichkey'.config()
-	use{'editorconfig/editorconfig-vim'}
-	use{'andymass/vim-matchup'}
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-	use{'tpope/vim-surround'} -- surround stuff with stuff (org. tpope/vim-surround)
-	use{'tpope/vim-repeat'} -- repeat surround and more
-	use{'mattn/emmet-vim'} -- vim.api.nvim_set_keymap('i', '<c-e>', '<c-y>,', {})
-
-	-- `gx` opens URI or search visual selection in browser
-	use{'tyru/open-browser.vim', event = 'BufRead', config = function()
-		require'packages.openbrowser'.config()
-	end}
+	use{'editorconfig/editorconfig-vim'} -- Respect .editorconfig
+	use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
 
 	-- LSP & code inspection
 	use{
 		'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
 		requires = {
-			'kabouzeid/nvim-lspinstall',
-			'ray-x/lsp_signature.nvim',
-			'hrsh7th/nvim-cmp', -- Autocompletion plugin
-			'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
-			'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
-			'L3MON4D3/LuaSnip' -- Snippets plugin
+			'williamboman/nvim-lsp-installer', -- `:LspInstall <language>` command
+			'ray-x/lsp_signature.nvim', -- Show function signature when you type
 		},
 		config = function() require'packages.lsp'.lspinstall_config() end
 	}
 
+	-- Autocompletion
+	use{
+		'hrsh7th/nvim-cmp',
+		requires = {
+			'hrsh7th/cmp-buffer',       -- LSP source for nvim-cmp
+			'hrsh7th/cmp-path',         -- LSP source for nvim-cmp
+			'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
+			'hrsh7th/cmp-nvim-lua',     -- LSP source for nvim-cmp
+			'L3MON4D3/LuaSnip',         -- Snippets plugin
+			'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+		},
+		config = function() require'packages.cmp'.config() end
+	}
+
+
+	-- LOAD ON VIMENTER
+	-------------------
+
+	use{'tpope/vim-surround', event='VimEnter *'} -- Surround stuff with stuff (org. tpope/vim-surround)
+	use{'tpope/vim-repeat', event='VimEnter *'} -- Extend `.` repeat
+
 	-- Treesitter
-	use{'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()
-		require('nvim-treesitter.configs').setup{
+	use{
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate',
+		event = 'VimEnter *',
+		config = function() require('nvim-treesitter.configs').setup{
 			ensure_installed = 'maintained',
 			highlight = {
 				enable = true,
 				disable = {'lua', 'markdown', 'fish'}, -- enable lua to test when Treesitter is more stable
 			},
-		}
-	end}
+		} end
+	}
 
 	-- 'Harpoon' files and terminals
 	use{
 		'ThePrimeagen/harpoon',
+		event = 'VimEnter *',
 		requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
-		-- keys = {
-		-- 	{'n','<leader><cr>'},
-		-- 	{'n','<leader>1'},
-		-- 	{'n','<leader>2'},
-		-- 	{'n','<leader>3'},
-		-- 	{'n','<leader>ha'},
-		-- 	{'n','<leader>he'},
-		-- 	{'n','<leader>h1'},
-		-- 	{'n','<leader>h2'},
-		-- 	{'n','<leader>h3'},
-		-- 	{'n','<leader>h4'}
-		-- },
 		config = function() require("harpoon").setup({
 			global_settings = {
 				save_on_toggle = true,
@@ -67,17 +68,21 @@ require('packer').startup(function(use)
 		}) end
 	}
 
-	-- LOAD LAZY
-	------------
+	-- `gx` opens URI or search visual selection in browser
+	use{'tyru/open-browser.vim', event = 'VimEnter *', config = function()
+		require'packages.openbrowser'.config()
+	end}
+
+
+	-- LOAD ON INSERT, CMD, OR KEYMAP
+	---------------------------------
 
 	-- Aynsc executions
-	use{ 'skywind3000/asyncrun.vim', cmd = {'AsyncRun'}, }
-	vim.api.nvim_set_keymap('n', '<leader>gp', ':AsyncRun git push<cr>:copen | wincmd p<cr>', {noremap=true})
+	use{'skywind3000/asyncrun.vim', cmd = {'AsyncRun'},}
+	-- vim.api.nvim_set_keymap('n', '<leader>gp', ':AsyncRun git push<cr>:copen | wincmd p<cr>', {noremap=true})
 
 	-- ### BUFFERS
 
-	-- :Bdelete and :Bwipeout to preserve windows
-	use{'famiu/bufdelete.nvim', cmd = {'Bdelete', 'Bwipeout'}}
 	-- sudo save
 	use{'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}}
 
@@ -86,31 +91,30 @@ require('packer').startup(function(use)
 	-- fugitive
 	use{'tpope/vim-fugitive', cmd = {'G', 'Git'}}
 	-- git log
-	use{ 'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = true}}}
+	use{'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = true}}}
 	-- diff view
-	use{ 'sindrets/diffview.nvim', cmd = {'DiffviewOpen'}, config = function()
+	use{'sindrets/diffview.nvim', cmd = {'DiffviewOpen'}, config = function()
 		require'diffview'.setup { file_panel = {
 			use_icons = false
-		} }
-	end }
+		}}
+	end}
 	-- git blame
 	use{'f-person/git-blame.nvim', cmd = 'GitBlameToggle'}
 
 	-- ### EDITING
 
+	-- Web coding
+	use{'mattn/emmet-vim', event='InsertEnter *'} -- Expand `html>head` to HTML
+	use{'rstacruz/vim-hyperstyle', event='InsertEnter *', ft={'css', 'scss'}}
+
+	-- File tree
+	use{'lambdalisue/fern.vim', cmd = {'Fern'}}
+
 	-- Matching and pairing
-	use{'steelsojka/pears.nvim', event = 'InsertEnter', config = function()
-		require'pears'.setup(function(conf)
-			conf.preset 'tag_matching'
-			conf.on_enter(function(pears_handle)
-				-- if vim.fn.pumvisible() == 1 and vim.fn.complete_info().selected ~= -1 then
-				-- 	return vim.fn['compe#confirm']('<CR>')
-				-- else
-					pears_handle()
-				-- end
-			end)
-		end)
-	end}
+	use{'9mm/vim-closer', event='InsertEnter *'}
+	-- use{'steelsojka/pears.nvim', event = 'InsertEnter *', config = function()
+	-- 	require'pears'.setup(function(conf) conf.preset 'tag_matching' end)
+	-- end}
 
 	-- Toggle comments
 	-- gcc, gc in visual mode, to (un)comment. Lua
@@ -125,7 +129,10 @@ require('packer').startup(function(use)
 	-- Align text
 	use{ 'junegunn/vim-easy-align', opt = true }
 	vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
-	vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
+	require'which-key'.register({
+		['ga'] = { '<Plug>(EasyAlign)',
+		'Align (requires :packadd vim-easy-align)' },
+	})
 
 	-- ### LSP & CODE INSPECTION
 
