@@ -71,12 +71,12 @@ M.lspinstall_config = function()
 		if client.resolved_capabilities.document_formatting then
 			wk.register({
 				['<leader>lf'] = { '<cmd>lua vim.lsp.buf.formatting()<cr>',
-				'Formatting (LSP)', buffer = bufnr },
+				'Formatting', buffer = bufnr },
 			})
 		elseif client.resolved_capabilities.document_range_formatting then
 			wk.register({
 				['<leader>lf'] = { '<cmd>lua vim.lsp.buf.ranger_formatting()<cr>',
-				'Formatting (LSP)', buffer = bufnr },
+				'Formatting', buffer = bufnr },
 			})
 		end
 
