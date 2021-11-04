@@ -17,7 +17,7 @@ require('packer').startup(function(use)
 			'williamboman/nvim-lsp-installer', -- `:LspInstall <language>` command
 			'ray-x/lsp_signature.nvim', -- Show function signature when you type
 		},
-		config = function() require'packages.lsp'.lspinstall_config() end
+		config = function() require'packages.lsp'.config() end
 	}
 
 	-- Autocompletion
@@ -108,9 +108,6 @@ require('packer').startup(function(use)
 
 	-- Web coding
 	use{'mattn/emmet-vim', event='InsertEnter *'} -- Expand `html>head` to HTML
-
-	-- File tree
-	-- use{'lambdalisue/fern.vim', cmd = {'Fern'}}
 
 	-- Matching and pairing
 	-- use{'9mm/vim-closer', event='InsertEnter *'}
