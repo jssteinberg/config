@@ -5,7 +5,13 @@
 -- Guidelines for maps:
 -- - Use M.esc_map to escape when possible and consistent (insert, visual, Telescope-insert)
 
-SAVE_SOURCED_SESSION = function()
+local M = {}
+
+M.esc_map = 'qq'
+M.buffer_alternate_map = '<leader>bb'
+
+-- save current session
+M.save_sourced_session = function()
 	local getSession = function()
 		return vim.api.nvim_get_vvar('this_session')
 	end
@@ -16,12 +22,6 @@ SAVE_SOURCED_SESSION = function()
 		print('No sourced session (:so <session-file>)')
 	end
 end
-
-local M = {}
-
-M.esc_map = 'qq'
-
-M.buffer_alternate_map = '<leader>bb'
 
 M.set_leader = function()
 	-- space as <leader>
@@ -34,9 +34,9 @@ M.init = function()
 	M.set_leader()
 
 	-- Escape
-	-- qq in insert
+	-- insert
 	vim.api.nvim_set_keymap('i', M.esc_map, '<esc>', {noremap = true})
-	-- qq in visual (x)
+	-- visual (x)
 	vim.api.nvim_set_keymap('x', M.esc_map, '<esc>', {noremap = true})
 
 	-- Terminal
@@ -52,13 +52,13 @@ M.init = function()
 	vim.api.nvim_set_keymap('n', '<leader>o', '<c-o>', {noremap = true})
 	vim.api.nvim_set_keymap('n', '<leader>i', '<c-i>', {noremap = true})
 
-	-- Buffer/file, windows and tabs
+	-- Buffers
 	-- alternative file
-	vim.api.nvim_set_keymap('n', '<tab>', ':bnext | file!<cr>', {noremap = true})
-	vim.api.nvim_set_keymap('n', '<s-tab>', ':bprevious | file!<cr>', {noremap = true})
-	vim.api.nvim_set_keymap('n', '<leader>bb', ':b#<cr>', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<leader><tab>', ':buffer#<cr>:file!<cr>', {noremap = true})
+	-- buffer wild
+	vim.api.nvim_set_keymap('n', '<leader>b<tab>', ':buffer ', {noremap = true})
 
-	-- Command line
+	-- Command-mode
 	-- c-p is up for incremental backwards command history
 	vim.api.nvim_set_keymap('c', '<c-p>', '<up>', {noremap = true})
 end
@@ -345,7 +345,7 @@ M.normal = {
 	['<leader>s'] = { name =
 		'session',
 
-		s = { ':lua SAVE_SOURCED_SESSION()<cr>',
+		s = { ':lua require"keymaps".save_sourced_session()<cr>',
 		'Save the sourced session' },
 	},
 
