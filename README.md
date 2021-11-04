@@ -35,7 +35,7 @@ funcsave gs
 
 Functional, lightweight and vim-way neovim config with a focus on web front-end coding, but should be quite usable for everything.
 
-*__CSS!__ Autocompleting CSS depends on native non-LSP omnifunc. `:LspInstall cssls`, but do not install other LSPs that attaches to CSS/SCSS/Less filetypes.*
+*__CSS!__ Autocompleting CSS depends on native non-LSP omnifunc. `:LspInstall cssls`, but do not install other LSPs that attaches to CSS/SCSS/Less filetypes---currently that sets omnifunc to LSP's, which gives no completions.*
 
 ---
 
