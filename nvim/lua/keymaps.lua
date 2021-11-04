@@ -1,3 +1,5 @@
+-- Keymaps (global)
+
 -- Format for Which Key plugin; Format as human readable as possible.
 
 -- Guidelines for maps:
