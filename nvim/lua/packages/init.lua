@@ -110,7 +110,7 @@ require('packer').startup(function(use)
 	use{'mattn/emmet-vim', event='InsertEnter *'} -- Expand `html>head` to HTML
 
 	-- File tree
-	use{'lambdalisue/fern.vim', cmd = {'Fern'}}
+	-- use{'lambdalisue/fern.vim', cmd = {'Fern'}}
 
 	-- Matching and pairing
 	-- use{'9mm/vim-closer', event='InsertEnter *'}

@@ -9,6 +9,6 @@ require'keymaps'.init()
 -- ## Packages config
 
 -- Netrw
-require'packages.netrw'
+require'packages.netrw'.config()
 -- External packages
 require'packages'

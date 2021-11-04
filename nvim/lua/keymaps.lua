@@ -203,8 +203,11 @@ M.normal = {
 		b = { ':Explore<cr>',
 		'Buffer directory' },
 
-		t = { ':Fern . -drawer -reveal=% -width=40<cr>',
-		'Tree' },
+		-- t = { ':Fern . -drawer -toggle -reveal=% -width=40<cr>',
+		-- 'Tree' },
+
+		v = { ':lua require"packages.netrw".open_project_drawer()<cr>',
+		'Vexplore' },
 
 		w = { ':edit **/',
 		'Wild', silent=false },
