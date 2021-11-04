@@ -44,9 +44,6 @@ M.lspinstall_config = function()
 				d = { '<cmd>lua vim.lsp.buf.definition()<cr>',
 				'Definition', buffer = bufnr },
 
-				f = { '<cmd>lua require"lspsaga.provider".lsp_finder()<cr>',
-				'Finder', buffer = bufnr },
-
 				h = { '<cmd>lua vim.lsp.buf.hover()<cr>',
 				'Hover info', buffer = bufnr },
 
