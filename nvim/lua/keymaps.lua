@@ -33,6 +33,9 @@ end
 M.init = function()
 	M.set_leader()
 
+	-- fix Y
+	vim.api.nvim_set_keymap('n', 'Y', 'yg_', {noremap=true})
+
 	-- Escape
 	-- insert
 	vim.api.nvim_set_keymap('i', M.esc_map, '<esc>', {noremap = true})
