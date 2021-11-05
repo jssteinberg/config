@@ -24,10 +24,10 @@ M.config = function()
 
 	-- Register a handler that will be called for all installed servers.
 	lsp_installer.on_server_ready(function(server)
+		-- setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
 		if server.name == 'cssls' then
 			server:setup({ on_attach = on_attach_css })
 		else
-			-- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
 			server:setup({ on_attach = on_attach_general })
 		end
 
