@@ -269,7 +269,7 @@ M.normal = {
 			'commit',
 
 			a = { ':Git commit -a<cr>',
-			'Current buffer' },
+			'All' },
 
 			c = { ':Git add % | Git commit %<cr>',
 			'Current buffer' },
