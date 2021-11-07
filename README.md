@@ -10,17 +10,19 @@ Requires: git, ... Install with your OS package manager.
 2. git clone as ~/.config
 3. `ln -s .config/tmux.conf .tmux.conf`
 
-## Other tools
+## Recommended CLI related tools
 
-- ripgrep, ag the silver searcher ...
-- [fd](https://github.com/sharkdp/fd), find replacement
-- [bat](https://github.com/sharkdp/bat), cat replacement
 - fish---shell with modern, usable defaults (and keep an eye on nu shell)
 	- [fisher](https://github.com/jorgebucaran/fisher), fish plugin manager
 	- [hydro](https://github.com/jorgebucaran/hydro) plugin
+- ripgrep
+- [fd](https://github.com/sharkdp/fd), find replacement
+- [bat](https://github.com/sharkdp/bat), cat replacement
 - [nvm](https://github.com/nvm-sh/nvm), and for fish [fish-nvm](https://github.com/FabioAntunes/fish-nvm)
 - [fzf](https://github.com/junegunn/fzf)
 - [np](https://github.com/sindresorhus/np) for easy NPM package publication
+
+### Usage tips
 
 Adding global fish config from the shell:
 
