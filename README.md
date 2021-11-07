@@ -35,8 +35,6 @@ funcsave gs
 
 Functional, lightweight and vim-way neovim config with a focus on web front-end coding, but should be quite usable for everything.
 
-*__CSS!__ Autocompleting CSS depends on native non-LSP omnifunc. `:LspInstall cssls`, but do not install other LSPs that attaches to CSS/SCSS/Less filetypes---currently that sets omnifunc to LSP's, which gives no completions.*
-
 ---
 
 Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ...
@@ -78,6 +76,13 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 - files in lua folder should have filenames that explain what they do: options, keymaps, packages ...
 - avoid deep folder structure
 
+## Todo
+
+- <leader>ff in visual-mode should
+fuzzy file-search selection
+- telescope: add native fzf 
+https://github.com/nvim-telescope/telescope-fzf-native.nvim
+
 ## Troubleshooting
 
 Neovim packer errors on launch:
@@ -86,9 +91,15 @@ Neovim packer errors on launch:
 2. `:luafile %`
 3. `:PackerSync`
 
-Neovim, no LSP for Javascript/Typescript:
+Neovim, autocompleting CSS depends on native 
+non-LSP omnifunc. `:LspInstall cssls`, but do 
+not install other LSPs that attaches to 
+CSS/SCSS/Less filetypes---currently that would 
+set `omnifunc` to LSP's, which gives no 
+completion.
 
-- install nodejs with both nvm and system package manager
+Neovim, no LSP for Javascript/Typescript:
+install nodejs with both nvm and system package manager
 
 [gl]: https://github.com/junegunn/gv.vim
 [gd]: https://github.com/sindrets/diffview.nvim
