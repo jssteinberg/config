@@ -171,10 +171,11 @@ require('packer').startup(function(use)
 	-- ### MOTIONS
 
 	-- Better f, F, t, T motion, repeatable with f/F
-	use{'rhysd/clever-f.vim', keys ={
+	use{'rhysd/clever-f.vim', keys = {
 		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
 		{'v', 'f'}, {'v', 'F'}, {'v', 't'}, {'v', 'T'}
 	}}
+	require'keymaps'.remap_comma()
 
 	-- 'Easy' motions
 	use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine'}, config = function()

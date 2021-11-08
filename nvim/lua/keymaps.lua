@@ -10,19 +10,6 @@ local M = {}
 M.esc_map = 'qq'
 M.buffer_alternate_map = '<leader>bb'
 
--- save current session
-M.save_sourced_session = function()
-	local getSession = function()
-		return vim.api.nvim_get_vvar('this_session')
-	end
-	if getSession() ~= '' then
-		vim.cmd('mksession! ' .. getSession())
-		print('mksession! ' .. getSession())
-	else
-		print('No sourced session (:so <session-file>)')
-	end
-end
-
 M.set_leader = function()
 	-- space as <leader>
 	vim.g.mapleader = ' '
@@ -420,5 +407,22 @@ M.normal = {
 		'Zen mode' },
 
 }
+
+M.remap_comma = function ()
+	vim.api.nvim_set_keymap('n', ',', ':', {noremap=true})
+end
+
+-- save current session
+M.save_sourced_session = function()
+	local getSession = function()
+		return vim.api.nvim_get_vvar('this_session')
+	end
+	if getSession() ~= '' then
+		vim.cmd('mksession! ' .. getSession())
+		print('mksession! ' .. getSession())
+	else
+		print('No sourced session (:so <session-file>)')
+	end
+end
 
 return M
