@@ -20,9 +20,9 @@ M.open_project_drawer = function ()
 	-- set tree view (will not work if user already changed list style)
 	vim.api.nvim_set_var('netrw_liststyle', 3)
 	-- vertical explore pwd
-	vim.cmd[[ Vexplore . ]]
+	vim.cmd[[ Lexplore ]]
 	-- move to left, entire height
-	vim.cmd[[ wincmd H | vertical resize 40 ]]
+	-- vim.cmd[[ wincmd H | vertical resize 40 ]]
 end
 
 return M

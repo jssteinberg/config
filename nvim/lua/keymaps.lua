@@ -198,8 +198,8 @@ M.normal = {
 		-- t = { ':Fern . -drawer -toggle -reveal=% -width=40<cr>',
 		-- 'Tree' },
 
-		v = { ':lua require"packages.netrw".open_project_drawer()<cr>',
-		'Vexplore' },
+		t = { ':lua require"packages.netrw".open_project_drawer()<cr>',
+		'Tree explorer' },
 
 		w = { ':edit **/',
 		'Wild', silent=false },
