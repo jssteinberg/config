@@ -45,7 +45,7 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 
 ### Highlighted features
 
-- `qq` to leave insert mode (I'm addicted).
+- `qq` to leave insert, terminal and visual mode (I'm addicted).
 - `s`/`S` related motions, and `.` for surround and improved repeat (tpope's plugins are still the best).
 - `*`/`#` (x) for searching selected text, via visualstar.vim.
 - `gcc`/`gc` (n/x) for comment toggling via nvim-comments.
