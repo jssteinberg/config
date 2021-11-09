@@ -153,18 +153,33 @@ require('packer').startup(function(use)
 	-- Visual star `*` search, or `#` backwards
 	use{'subnut/visualstar.vim', keys = {{'x','*'}, {'x','#'},}}
 
-	-- Telescope for fuzzy searching
+	-- Fuzzy searching
+	-- use { 'camspiers/snap', config = function ()
+	-- end}
+	-- local snap = require'snap'
+	-- snap.maps {
+	-- 	{"<Leader><Leader>", snap.config.file {producer = "ripgrep.file"}},
+	-- 	{"<Leader>fb", snap.config.file {producer = "vim.buffer"}},
+	-- 	{"<Leader>fo", snap.config.file {producer = "vim.oldfile"}},
+	-- 	{"<Leader>ff", snap.config.vimgrep {}},
+	-- }
+
 	use{
 		'nvim-telescope/telescope.nvim',
 		cmd = 'Telescope',
-		requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
+		requires = {
+			'nvim-lua/popup.nvim',
+			'nvim-lua/plenary.nvim',
+		},
 		config = function()
 			local actions = require('telescope.actions')
-			require('telescope').setup({defaults = {
-				mappings = {i = {
-					[require'keymaps'.esc_map] = actions.close
-				}}
-			}})
+			require('telescope').setup({
+				defaults = {
+					mappings = {i = {
+						[require'keymaps'.esc_map] = actions.close
+					}}
+				},
+			})
 		end
 	}
 

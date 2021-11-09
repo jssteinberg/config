@@ -241,9 +241,6 @@ M.normal = {
 
 		s = { ':Telescope live_grep<cr>',
 		'String (live grep)' },
-
-		t = { ':Telescope tele_tabby list<cr>',
-		'Tabs' },
 	},
 
 
@@ -271,14 +268,14 @@ M.normal = {
 		f = { name =
 			'find',
 
-			b = { ':Telescope git_branches<cr>',
-			'Branches' },
+-- 			b = { ':Telescope git_branches<cr>',
+-- 			'Branches' },
 
-			c = { ':Telescope git_commits<cr>',
-			'Commits' },
+-- 			c = { ':Telescope git_commits<cr>',
+-- 			'Commits' },
 
-			f = { ':Telescope git_files<cr>',
-			'Files' },
+-- 			f = { ':Telescope git_files<cr>',
+-- 			'Files' },
 		},
 
 		g = { ':Git<cr>',
