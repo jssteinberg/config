@@ -34,7 +34,7 @@ vim.o.wildmode = 'lastused:' .. vim.o.wildmode
 -- wildmode ignorecase
 vim.o.wildignorecase = true
 -- wildignore
-vim.o.wildignore = vim.o.wildignore .. ',*/node_modules/**'
+vim.o.wildignore =  'node_modules/,' .. vim.o.wildignore
 
 -- Search & substitute
 -- smartcase when searching
