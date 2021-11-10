@@ -43,7 +43,7 @@ Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), r
 
 Keymaps are available by pressing `space` and the plugin Which Key will show available maps. Or browse the [keymaps file](https://github.com/jssteinberg/config/blob/main/nvim/lua/keymaps.lua).
 
-### Highlighted features
+### Functions
 
 - `qq` to leave insert, terminal and visual mode (I'm addicted).
 - `s`/`S` related motions, and `.` for surround and improved repeat (tpope's plugins are still the best).

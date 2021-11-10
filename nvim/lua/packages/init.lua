@@ -7,6 +7,7 @@ require('packer').startup(function(use)
 	use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config() -- Colorscheme
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
+	-- use{'tpope/vim-sleuth'} -- Detect file's indent style
 	use{'editorconfig/editorconfig-vim'} -- Respect .editorconfig
 	use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
 
@@ -105,6 +106,8 @@ require('packer').startup(function(use)
 	use{'f-person/git-blame.nvim', cmd = 'GitBlameToggle'}
 
 	-- ### EDITING
+
+	use{'Darazaki/indent-o-matic', cmd = 'IndentOMatic'} -- Detect file's indent style
 
 	-- Web coding
 	use{'mattn/emmet-vim', event='InsertEnter *'} -- Expand `html>head` to HTML

@@ -143,7 +143,7 @@ M.normal = {
 	'Hop to line' },
 
 
-	-- Buffers
+	-- Add (keymaps set elsewhere)
 
 	['<leader>a'] = { name =
 		'add'},
@@ -195,8 +195,8 @@ M.normal = {
 		b = { ':Explore<cr>',
 		'Buffer directory' },
 
-		-- t = { ':Fern . -drawer -toggle -reveal=% -width=40<cr>',
-		-- 'Tree' },
+		i = { ':IndentOMatic<cr>',
+		'Indent style', silent=false },
 
 		t = { ':lua require"packages.netrw".open_project_drawer()<cr>',
 		'Tree explorer' },
