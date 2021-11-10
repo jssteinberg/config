@@ -25,12 +25,16 @@ vim.o.listchars = vim.o.listchars .. ',tab:│ '
 vim.o.timeoutlen = 500
 -- session data
 vim.o.sessionoptions = 'curdir,folds,tabpages'
+-- avoid cursor on Y axis edges
+vim.o.scrolloff = 10
+
+-- Wild
 -- wildmode lastused
 vim.o.wildmode = 'lastused:' .. vim.o.wildmode
 -- wildmode ignorecase
 vim.o.wildignorecase = true
--- avoid cursor on Y axis edges
-vim.o.scrolloff = 10
+-- wildignore
+vim.o.wildignore = vim.o.wildignore .. ',*/node_modules/**'
 
 -- Search & substitute
 -- smartcase when searching

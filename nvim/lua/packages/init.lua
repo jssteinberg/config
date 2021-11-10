@@ -177,7 +177,8 @@ require('packer').startup(function(use)
 				defaults = {
 					mappings = {i = {
 						[require'keymaps'.esc_map] = actions.close
-					}}
+					}},
+					file_ignore_patterns = {'node_modules'}
 				},
 			})
 		end
