@@ -198,21 +198,6 @@ require('packer').startup(function(use)
 		require'hop'.setup { keys = 'etoqdygflhksura' }
 	end}
 
-	-- 2 char search with s/S
-	-- use{
-	-- 	'ggandor/lightspeed.nvim',
-	-- 	keys = {
-	-- 		{'n', 's'}, {'n', 'S'},
-	-- 		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
-	-- 		{'v', 'f'}, {'v', 'F'}, {'v', 't'}, {'v', 'T'}
-	-- 	},
-	-- 	config = function() require'lightspeed'.setup {
-	-- 		jump_to_first_match = true,
-	-- 		full_inclusive_prefix_key = '<tab>',
-	-- 		highlight_unique_chars = true
-	-- 	} end
-	-- }
-
 	-- ### UTILITY
 
 	use{'junegunn/limelight.vim', cmd = {'Limelight'}}
