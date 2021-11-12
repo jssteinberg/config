@@ -48,6 +48,11 @@ require('packer').startup(function(use)
 	use{'tpope/vim-surround', event='VimEnter *'} -- Surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat', event='VimEnter *'} -- Extend `.` repeat
 
+	-- `gx` opens URI or search visual selection in browser
+	use{'tyru/open-browser.vim', event = 'VimEnter *', config = function()
+		require'packages.openbrowser'.config()
+	end}
+
 	-- Treesitter
 	use{
 		'nvim-treesitter/nvim-treesitter',
@@ -75,16 +80,10 @@ require('packer').startup(function(use)
 		}) end
 	}
 
-	-- `gx` opens URI or search visual selection in browser
-	use{'tyru/open-browser.vim', event = 'VimEnter *', config = function()
-		require'packages.openbrowser'.config()
-	end}
-
 
 	-- LOAD ON INSERT, CMD, OR KEYMAP
 	---------------------------------
-	-- (Exceptions:
-	-- * "JoosepAlviste/nvim-ts-context-commentstring" which loads after nvim-treesitter)
+	-- (Some exceptions for "requires" of plugins.)
 
 	-- Aynsc executions
 	use{'skywind3000/asyncrun.vim', cmd = {'AsyncRun'},}
