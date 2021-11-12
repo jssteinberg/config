@@ -1,14 +1,14 @@
 -- GLOBAL OPTIONS
 
 -- Set filetypes for strange files
-require'utils'.create_augroup({
-	{'BufNewFile,BufRead', '*.astro',   'set filetype=html'},
-	{'BufNewFile,BufRead', '*.styl',    'set filetype=scss'},
-	{'BufNewFile,BufRead', '*.postcss', 'set filetype=scss'},
-	{'BufNewFile,BufRead', '*.mdx',     'set filetype=markdown'},
-	{'BufNewFile,BufRead', '*.gmi',     'set filetype=markdown'},
-	{'BufNewFile,BufRead', '*.fish',    'set filetype=sh'},
-}, 'filetypes')
+-- require'utils'.create_augroup({
+-- 	{'BufNewFile,BufRead', '*.astro',   'set filetype=html'},
+-- 	{'BufNewFile,BufRead', '*.styl',    'set filetype=scss'},
+-- 	{'BufNewFile,BufRead', '*.postcss', 'set filetype=scss'},
+-- 	{'BufNewFile,BufRead', '*.mdx',     'set filetype=markdown'},
+-- 	{'BufNewFile,BufRead', '*.gmi',     'set filetype=markdown'},
+-- 	{'BufNewFile,BufRead', '*.fish',    'set filetype=sh'},
+-- }, 'filetypes')
 
 vim.o.statusline = require 'statusline'
 -- enable mouse for all modes
