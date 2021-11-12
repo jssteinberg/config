@@ -113,10 +113,20 @@ Neovim has no LSP for Javascript/Typescript:
 
 - If you use nvm, also install a system nodejs with your system package manager.
 
-## How I use neovim
+## Tips: How I use neovim
+
+Motions:
 
 - `w`/`W`, `b`/`B`, `e`/`E`, `ge`/`gE` for motion to word, back in word, end of word, back end-of-word.
-- `cl` and `cc` instead of `s` and `S` so they are open for speed increasing plugins.
+- `f`/`F`, `t`/`T` for forward/backward on line.
+
+Change motions:
+
+- `cl` and `cc` instead of `s` and `S`. So `s` and `S` are open for speed increasing plugins.
+
+Sessions:
+
+- `:mksession! ~/vim-session-name.vim`, `:so ~/vim-session-name.vim`/`nvim -S ~/vim-session-name.vim` (`<leader>ss saves session`).
 
 [gl]: https://github.com/junegunn/gv.vim
 [gd]: https://github.com/sindrets/diffview.nvim
