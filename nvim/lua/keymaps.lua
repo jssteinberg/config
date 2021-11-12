@@ -53,6 +53,10 @@ M.init = function()
 	vim.api.nvim_set_keymap('c', '<c-p>', '<up>', {noremap = true})
 end
 
+
+-- Plugin related keymaps and/or keymaps needing description
+-- ---------------------------------------------------------
+
 M.insert = {
 	[M.esc_map] = { '<esc>',
 	'Esc to normal mode' },
@@ -62,11 +66,6 @@ M.insert = {
 
 	['<c-e>'] = { '<c-y>,',
 	'Emmet expand', noremap=false },
-}
-
-M.terminal = {
-	[M.esc_map] = { '<c-\\><c-n>',
-	'Esc to normal mode' },
 }
 
 M.visual = {

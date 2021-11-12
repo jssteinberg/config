@@ -3,8 +3,8 @@ local maps = require'keymaps'
 
 local M = {}
 
+-- which-key's config doesn't like to be in packer's `use.config` value...
 M.config = function()
-	-- which-key's config doesn't like to be in packer's `use.config` value...
 	wk.setup({
 		plugins = {
 			spelling = {

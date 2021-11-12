@@ -45,17 +45,20 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 
 ### Functions
 
-- `qq` to leave insert, terminal and visual mode (I'm addicted).
-- `s`/`S` related motions, and `.` for surround and improved repeat (tpope's plugins are still the best).
+- Indent settings:
+	- Loads .editorconfig via editorconfig.vim.
+	- `<leader>ei` to set based on buffer.
+	- Falls back to hard tabs with 2 space width. `:set expandtab` for 2 actual spaces.
 - `*`/`#` (x) for searching selected text, via visualstar.vim.
-- `gcc`/`gc` (n/x) for comment toggling via nvim-comments.
+- `gcc`/`gc` (n/x), toggles comments via nvim-comments. Context aware for vue and svelte.
 - `:G[ ...]` for git via fugitive.vim (still the best git integration for vim).
 - `:TSInstall [...]` treesitter language for syntax, indentation ... via [nvim-treesitter][nts].
 - `:LspInstall [...]` for language diagnostics and completion.
-- `f`, `F`, `t`, `T` motion (repeat with `f`) across lines, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
-- `,` for entering command mode (`:`), since comma is free from above.
 - `<leader><enter>`, `<leader>1`, `<leader>2`, `<leader>3` to open consistent terminals via [harpoon](https://github.com/ThePrimeagen/harpoon).
 - `<leader>h` for more harpoon options.
+- `f`, `F`, `t`, `T` motion (repeat with `f`) across lines, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
+- `s`/`S` related motions, repeatable (`.`), for surround and improved repeat (tpope's plugins are still the best).
+- `qq` to leave insert, terminal and visual mode.
 
 #### Load on demand:
 
@@ -82,6 +85,7 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 
 ## Todo
 
+- Failing `gf` should have Telescope guess which file.
 - <leader>ff in visual-mode should
 fuzzy file-search selection
 - telescope: add native fzf 
@@ -95,15 +99,20 @@ Neovim packer errors on launch:
 2. `:luafile %`
 3. `:PackerInstall`, `:PackerSync`. Restart neovim, repeat.
 
-Neovim, autocompleting CSS depends on native 
+Neovim CSS autocompletion depends on native 
 non-LSP omnifunc. `:LspInstall cssls`, but do 
 not install other LSPs that attaches to 
 CSS/SCSS/Less filetypes---currently that would 
 set `omnifunc` to LSP's, which gives no 
 completion.
 
-Neovim, no LSP for Javascript/Typescript:
-install nodejs with both nvm and system package manager
+Neovim has no LSP for Javascript/Typescript:
+
+- If you use nvm, also install a system nodejs with your system package manager.
+
+## How I use neovim
+
+- `cl` and `cc` instead of `s` and `S` so they are open for speed increasing plugins.
 
 [gl]: https://github.com/junegunn/gv.vim
 [gd]: https://github.com/sindrets/diffview.nvim

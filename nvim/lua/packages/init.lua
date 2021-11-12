@@ -140,7 +140,8 @@ require('packer').startup(function(use)
 			require('nvim_comment').setup({
 				comment_empty = false,
 				hook = function()
-					if vim.api.nvim_buf_get_option(0, "filetype") == "svelte" then
+					if vim.api.nvim_buf_get_option(0, "filetype") == "svelte" and
+						vim.api.nvim_buf_get_option(0, "filetype") == "vue" then
 						require("ts_context_commentstring.internal").update_commentstring()
 					end
 				end
@@ -176,17 +177,6 @@ require('packer').startup(function(use)
 	-- Visual star `*` search, or `#` backwards
 	use{'subnut/visualstar.vim', keys = {{'x','*'}, {'x','#'},}}
 
-	-- Fuzzy searching
-	-- use { 'camspiers/snap', config = function ()
-	-- end}
-	-- local snap = require'snap'
-	-- snap.maps {
-	-- 	{"<Leader><Leader>", snap.config.file {producer = "ripgrep.file"}},
-	-- 	{"<Leader>fb", snap.config.file {producer = "vim.buffer"}},
-	-- 	{"<Leader>fo", snap.config.file {producer = "vim.oldfile"}},
-	-- 	{"<Leader>ff", snap.config.vimgrep {}},
-	-- }
-
 	use{
 		'nvim-telescope/telescope.nvim',
 		cmd = 'Telescope',
@@ -214,7 +204,6 @@ require('packer').startup(function(use)
 		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
 		{'v', 'f'}, {'v', 'F'}, {'v', 't'}, {'v', 'T'}
 	}}
-	require'keymaps'.remap_comma()
 
 	-- 'Easy' motions
 	use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine'}, config = function()
