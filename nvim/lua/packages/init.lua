@@ -2,12 +2,15 @@ require('packer').startup(function(use)
 	-- LOAD AT STARTUP/BUFREAD
 	--------------------------
 
-	use{'wbthomason/packer.nvim'} -- Package manager
-	use{'antoinemadec/FixCursorHold.nvim'} -- Neovim bug fix (until core is fixed)
+	-- Package manager
+	use{'wbthomason/packer.nvim'}
+	-- Neovim bug fix (until core is fixed)
+	use{'antoinemadec/FixCursorHold.nvim'}
+
+	-- General
 	use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config() -- Colorscheme
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-	-- use{'tpope/vim-sleuth'} -- Detect file's indent style
 	use{'editorconfig/editorconfig-vim'} -- Respect .editorconfig
 	use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
 
