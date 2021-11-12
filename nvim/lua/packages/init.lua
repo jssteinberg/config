@@ -1,11 +1,15 @@
 require('packer').startup(function(use)
-	-- LOAD AT STARTUP/BUFREAD
+	-- LOAD AT STARTUP
 	--------------------------
 
 	-- Package manager
 	use{'wbthomason/packer.nvim'}
 
+	-- Neovim bug fix (until core is fixed)
+	use{'antoinemadec/FixCursorHold.nvim'}
+
 	-- Increase startup time
+	use{'lewis6991/impatient.nvim'} -- Speed up loading Lua modules
 	use{"nathom/filetype.nvim", config = function () -- Replace native filetype.vim
 		-- If using a Neovim version earlier than 0.6.0, do not source the default filetype.vim
 		vim.g.did_load_filetypes = 1
@@ -19,9 +23,6 @@ require('packer').startup(function(use)
 			},
 		}})
 	end}
-
-	-- Neovim bug fix (until core is fixed)
-	use{'antoinemadec/FixCursorHold.nvim'}
 
 	-- General
 	use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
