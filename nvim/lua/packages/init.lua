@@ -80,6 +80,8 @@ require('packer').startup(function(use)
 
 	-- LOAD ON INSERT, CMD, OR KEYMAP
 	---------------------------------
+	-- (Exceptions:
+	-- * "JoosepAlviste/nvim-ts-context-commentstring" which loads after nvim-treesitter)
 
 	-- Aynsc executions
 	use{'skywind3000/asyncrun.vim', cmd = {'AsyncRun'},}
@@ -119,13 +121,28 @@ require('packer').startup(function(use)
 	end}
 
 	-- Toggle comments
+	-- context aware comment toggling
+	use{
+		'JoosepAlviste/nvim-ts-context-commentstring',
+		after = 'nvim-treesitter',
+		config = function() require'nvim-treesitter.configs'.setup {
+			context_commentstring = { enable = true }
+		} end
+	}
 	-- gcc, gc in visual mode, to (un)comment. Lua
 	use{
 		'terrortylor/nvim-comment',
 		keys = {{'n','gcc'}, {'x','gc'},},
-		config = function() require('nvim_comment').setup({
-			comment_empty = false,
-		}) end
+		config = function()
+			require('nvim_comment').setup({
+				comment_empty = false,
+				hook = function()
+					if vim.api.nvim_buf_get_option(0, "filetype") == "svelte" then
+						require("ts_context_commentstring.internal").update_commentstring()
+					end
+				end
+			})
+		end
 	}
 
 	-- Align text
