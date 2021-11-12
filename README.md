@@ -4,7 +4,7 @@ Includes **config** for alacritty (used **for Macos**), kitty (used **for Ubuntu
 
 ## Get started
 
-Requires: git, ... Install with your OS package manager.
+Requires: git ... Install with your OS package manager.
 
 1. `cd`
 2. git clone as ~/.config
@@ -39,7 +39,7 @@ Functional, lightweight and vim-way neovim config with a focus on web front-end 
 
 ---
 
-Requires neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ...
+Install neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Run `:PackerInstall`.
 
 Keymaps are available by pressing `space` and the plugin Which Key will show available maps. Or browse the [keymaps file](https://github.com/jssteinberg/config/blob/main/nvim/lua/keymaps.lua).
 
@@ -93,7 +93,7 @@ Neovim packer errors on launch:
 
 1. `nvim ~/.config/nvim/lua/packages/init.lua`
 2. `:luafile %`
-3. `:PackerSync`
+3. `:PackerInstall`, `:PackerSync`. Restart neovim, repeat.
 
 Neovim, autocompleting CSS depends on native 
 non-LSP omnifunc. `:LspInstall cssls`, but do 
