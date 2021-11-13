@@ -90,10 +90,7 @@ require('packer').startup(function(use)
 		event = 'VimEnter *',
 		requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
 		config = function() require("harpoon").setup({
-			global_settings = {
-				save_on_toggle = true,
-				save_on_change = true,
-			},
+			global_settings = { save_on_toggle = true },
 		}) end
 	}
 
@@ -104,7 +101,6 @@ require('packer').startup(function(use)
 
 	-- Aynsc executions
 	use{'skywind3000/asyncrun.vim', cmd = {'AsyncRun'},}
-	-- vim.api.nvim_set_keymap('n', '<leader>gp', ':AsyncRun git push<cr>:copen | wincmd p<cr>', {noremap=true})
 
 	-- ### BUFFERS
 
@@ -179,7 +175,6 @@ require('packer').startup(function(use)
 	use{
 		'pechorin/any-jump.vim',
 		cmd = {'AnyJump', 'AnyJumpVisual', 'AnyJumpBack', 'AnyJumpLastResults'},
-		-- keys = { {'n','<leader>j'}, {'x','<leader>j'}, {'n','<leader>ab'}, {'n','<leader>al'} },
 		config = function ()
 			vim.g.any_jump_disable_default_keybindings = false
 		end
