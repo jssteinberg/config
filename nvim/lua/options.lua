@@ -1,5 +1,6 @@
 -- GLOBAL OPTIONS
 
+-- satusline options
 vim.o.statusline = require 'statusline'
 -- enable mouse for all modes
 vim.o.mouse = 'a'

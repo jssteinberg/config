@@ -105,8 +105,14 @@ M.visual = {
 	['<leader>f'] = { name =
 		'find',
 
+		f = { 'y:Telescope find_files<cr>',
+		'Files', silent = false },
+
 		j = { ':AnyJumpVisual<cr>',
 		'Jump to files with string' },
+
+		w = { 'y:find **/<c-r>"',
+		'Wild search', silent = false },
 	},
 }
 
@@ -222,8 +228,8 @@ M.normal = {
 		b = { ':Telescope buffers<cr>',
 		'Buffers' },
 
-		d = { ':Telescope file_browser<cr>',
-		'Directory content' },
+		d = { ':Telescope lsp_workspace_diagnostics<cr>',
+		'Diagnostic' },
 
 		f = { ':Telescope find_files<cr>',
 		'Files' },
@@ -249,6 +255,9 @@ M.normal = {
 
 		s = { ':Telescope live_grep<cr>',
 		'String (live grep)' },
+
+		w = { ':find **/',
+		'Wild', silent=false },
 	},
 
 
@@ -276,14 +285,14 @@ M.normal = {
 		f = { name =
 			'find',
 
--- 			b = { ':Telescope git_branches<cr>',
--- 			'Branches' },
+			b = { ':Telescope git_branches<cr>',
+			'Branches' },
 
--- 			c = { ':Telescope git_commits<cr>',
--- 			'Commits' },
+			c = { ':Telescope git_commits<cr>',
+			'Commits' },
 
--- 			f = { ':Telescope git_files<cr>',
--- 			'Files' },
+			f = { ':Telescope git_files<cr>',
+			'Files' },
 		},
 
 		g = { ':Git<cr>',
@@ -412,6 +421,64 @@ M.normal = {
 		'Zen mode' },
 
 }
+
+M.normal_lsp_buffer_keymaps = function (bufnr)
+	return {
+		['<cr>'] = { '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>',
+		'Show flag diagnostics', buffer = bufnr },
+
+		K = { '<cmd>lua vim.lsp.buf.hover()<cr>',
+		'Hover info', buffer = bufnr },
+
+		['gD'] = { '<cmd>lua vim.lsp.buf.declaration()<cr>',
+		'Declaration (LSP)', buffer = bufnr },
+
+		['gd'] = { '<cmd>lua vim.lsp.buf.definition()<cr>',
+		'Definition (LSP)', buffer = bufnr },
+
+		['gi'] = { '<cmd>lua vim.lsp.buf.implementation()<cr>',
+		'Implementation (LSP)', buffer = bufnr },
+
+		['gr'] = { '<cmd>lua vim.lsp.buf.references()<cr>',
+		'References of under cursor (LSP)', buffer = bufnr },
+
+		['<leader>l'] = { name =
+			'lsp',
+
+			-- a = { '<cmd>lua vim.lsp.buf.code_action()<cr>',
+			-- 'Action', buffer = bufnr },
+			a = { ':Telescope lsp_code_actions theme=get_cursor<cr>',
+			'Action', buffer = bufnr },
+
+			D = { '<cmd>lua vim.lsp.buf.declaration()<cr>',
+			'Declaration', buffer = bufnr },
+
+			d = { '<cmd>lua vim.lsp.buf.definition()<cr>',
+			'Definition', buffer = bufnr },
+
+			h = { '<cmd>lua vim.lsp.buf.hover()<cr>',
+			'Hover info', buffer = bufnr },
+
+			i = { '<cmd>lua vim.lsp.buf.implementation()<cr>',
+			'Implementation', buffer = bufnr },
+
+			l = { '<cmd>lua vim.lsp.buf.show_line_diagnostics()<cr>',
+			'Line diagnostics info (for flag)', buffer = bufnr },
+
+			n = { '<cmd>lua vim.lsp.diagnostics.goto_next()<cr>',
+			'Next flag', buffer = bufnr },
+
+			p = { '<cmd>lua vim.lsp.diagnostics.goto_prev()<cr>',
+			'Previous flag', buffer = bufnr },
+
+			r = { '<cmd>lua vim.lsp.buf.references()<cr>',
+			'References of under cursor', buffer = bufnr },
+
+			s = { '<cmd>lua vim.lsp.signature_help()<cr>',
+			'Signature help', buffer = bufnr },
+		},
+	}
+end
 
 M.remap_comma = function ()
 	vim.api.nvim_set_keymap('n', ',', ':', {noremap=true})

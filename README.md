@@ -87,7 +87,7 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 
 ## Todo
 
-- Failing `gf` should have Telescope guess which file.
+- When `gf` fails, should have Telescope guess which file.
 - `<leader>ff` in visual-mode should
 fuzzy file-search selection
 - telescope: add native fzf 
