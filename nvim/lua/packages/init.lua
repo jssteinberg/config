@@ -79,7 +79,7 @@ require('packer').startup(function(use)
 			ensure_installed = 'maintained',
 			highlight = {
 				enable = true,
-				disable = {'lua', 'markdown'}, -- enable lua to test when Treesitter is more stable
+				disable = {'markdown'}, -- enable lua to test when Treesitter is more stable
 			},
 		} end
 	}
@@ -210,15 +210,25 @@ require('packer').startup(function(use)
 
 	-- ### MOTIONS
 
-	-- Better f, F, t, T motion, repeatable with f/F
-	use{'rhysd/clever-f.vim', keys = {
+	-- Better f, F, t, T, repeatable with f/F, and s motion
+	use{'ggandor/lightspeed.nvim', keys = {
+		{'n', 's'},
 		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
 		{'v', 'f'}, {'v', 'F'}, {'v', 't'}, {'v', 'T'}
 	}}
 
+	-- Better f, F, t, T motion, repeatable with f/F
+	-- use{
+	-- 	'rhysd/clever-f.vim',
+	-- 	keys = {
+	-- 		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
+	-- 		{'v', 'f'}, {'v', 'F'}, {'v', 't'}, {'v', 'T'}
+	-- 	},
+	-- }
+
 	-- 'Easy' motions
 	use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine'}, config = function()
-		require'hop'.setup { keys = 'etoqdygflhksura' }
+		require'hop'.setup { keys = 'eoqdgflhksura' }
 	end}
 
 	-- ### UTILITY

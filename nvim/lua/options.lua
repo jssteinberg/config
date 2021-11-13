@@ -1,15 +1,5 @@
 -- GLOBAL OPTIONS
 
--- Set filetypes for strange files
--- require'utils'.create_augroup({
--- 	{'BufNewFile,BufRead', '*.astro',   'set filetype=html'},
--- 	{'BufNewFile,BufRead', '*.styl',    'set filetype=scss'},
--- 	{'BufNewFile,BufRead', '*.postcss', 'set filetype=scss'},
--- 	{'BufNewFile,BufRead', '*.mdx',     'set filetype=markdown'},
--- 	{'BufNewFile,BufRead', '*.gmi',     'set filetype=markdown'},
--- 	{'BufNewFile,BufRead', '*.fish',    'set filetype=sh'},
--- }, 'filetypes')
-
 vim.o.statusline = require 'statusline'
 -- enable mouse for all modes
 vim.o.mouse = 'a'
@@ -92,3 +82,16 @@ vim.bo.shiftwidth = 2 -- number of spaces for autoindent
 -- (l) don't break long lines (does c still work?)
 -- (p) don't break lines on single space following period
 vim.bo.formatoptions = 'jnpcql'
+
+
+-- AUTOCOMMANDS
+
+-- Set filetypes for strange files
+-- require'utils'.create_augroup({
+-- 	{'BufNewFile,BufRead', '*.astro',   'set filetype=html'},
+-- 	{'BufNewFile,BufRead', '*.styl',    'set filetype=scss'},
+-- 	{'BufNewFile,BufRead', '*.postcss', 'set filetype=scss'},
+-- 	{'BufNewFile,BufRead', '*.mdx',     'set filetype=markdown'},
+-- 	{'BufNewFile,BufRead', '*.gmi',     'set filetype=markdown'},
+-- 	{'BufNewFile,BufRead', '*.fish',    'set filetype=sh'},
+-- }, 'filetypes')

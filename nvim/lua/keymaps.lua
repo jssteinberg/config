@@ -87,8 +87,8 @@ M.visual = {
 
 	-- Hop
 
-	['s'] = { '<cmd>HopWord<cr>',
-	'Hop to word' },
+	-- ['s'] = { '<cmd>HopWord<cr>',
+	-- 'Hop to word' },
 
 	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
@@ -138,8 +138,8 @@ M.normal = {
 	['<leader>i'] = { '<c-i>',
 	'Go forward in jump list' },
 
-	['s'] = { '<cmd>HopWord<cr>',
-	'Hop to word' },
+	-- ['s'] = { '<cmd>HopWord<cr>',
+	-- 'Hop to word' },
 
 	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
