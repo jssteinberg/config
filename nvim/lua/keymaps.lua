@@ -41,6 +41,11 @@ M.init = function()
 	-- add c-i, c-o for consistency
 	vim.api.nvim_set_keymap('n', '<leader>o', '<c-o>', {noremap = true})
 	vim.api.nvim_set_keymap('n', '<leader>i', '<c-i>', {noremap = true})
+	-- next search result and center on screen
+	vim.api.nvim_set_keymap('n', 'n', 'nzz', {noremap = true})
+	vim.api.nvim_set_keymap('n', 'N', 'Nzz', {noremap = true})
+	vim.api.nvim_set_keymap('x', 'n', 'nzz', {noremap = true})
+	vim.api.nvim_set_keymap('x', 'N', 'Nzz', {noremap = true})
 
 	-- Buffers
 	-- alternative file
