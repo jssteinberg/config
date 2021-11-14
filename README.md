@@ -35,11 +35,9 @@ funcsave gs
 
 ## Neovim
 
-Functional, lightweight and vim-way neovim config with a focus on web front-end coding, but should be quite usable for everything.
+Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing.
 
----
-
-Install neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Run `:PackerInstall`.
+Install neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... In nvim, run `:PackerInstall`.
 
 Keymaps are available by pressing `space` and the plugin Which Key will show available maps. Or browse the [keymaps file](https://github.com/jssteinberg/config/blob/main/nvim/lua/keymaps.lua).
 
