@@ -28,7 +28,6 @@ require('packer').startup(function(use)
 	use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config() -- Colorscheme
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-	use{'editorconfig/editorconfig-vim'} -- Respect .editorconfig
 	use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
 
 	-- LSP & code inspection
@@ -64,6 +63,8 @@ require('packer').startup(function(use)
 
 	use{'tpope/vim-surround', event='VimEnter *'} -- Surround stuff with stuff (org. tpope/vim-surround)
 	use{'tpope/vim-repeat', event='VimEnter *'} -- Extend `.` repeat
+	use{'Darazaki/indent-o-matic', event = 'VimEnter *'} -- Detect file's indent style
+	use{'editorconfig/editorconfig-vim', event='VimEnter *', after = 'indent-o-matic'} -- Respect .editorconfig
 
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'VimEnter *', config = function()
@@ -123,8 +124,6 @@ require('packer').startup(function(use)
 	use{'f-person/git-blame.nvim', cmd = 'GitBlameToggle'}
 
 	-- ### EDITING
-
-	use{'Darazaki/indent-o-matic', cmd = 'IndentOMatic'} -- Detect file's indent style
 
 	-- Web coding
 	use{'mattn/emmet-vim', event='InsertEnter *'} -- Expand `html>head` to HTML
