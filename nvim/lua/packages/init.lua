@@ -127,6 +127,10 @@ require('packer').startup(function(use)
 
 	-- Web coding
 	use{'mattn/emmet-vim', event='InsertEnter *'} -- Expand `html>head` to HTML
+	-- Find colorizer to use on command
+	-- use{'norcalli/nvim-colorizer.lua', config = function ()
+	-- 	require 'colorizer'.setup()
+	-- end}
 
 	-- Matching and pairing
 	-- use{'9mm/vim-closer', event='InsertEnter *'}
