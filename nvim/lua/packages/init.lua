@@ -134,10 +134,11 @@ require('packer').startup(function(use)
 	end}
 
 	-- Matching and pairing
+	use{'cohama/lexima.vim', event = 'InsertEnter *'}
 	-- use{'9mm/vim-closer', event='InsertEnter *'}
-	use{'steelsojka/pears.nvim', event = 'InsertEnter *', config = function()
-		require'pears'.setup(function(conf) conf.preset 'tag_matching' end)
-	end}
+	-- use{'steelsojka/pears.nvim', event = 'InsertEnter *', config = function()
+	-- 	require'pears'.setup(function(conf) conf.preset 'tag_matching' end)
+	-- end}
 
 	-- Toggle comments
 	-- context aware comment toggling
