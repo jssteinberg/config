@@ -22,20 +22,19 @@ M.config = function()
 		on_attach(client, bufnr)
 	end
 
-	-- Register a handler that will be called for all installed servers.
+	-- Handler that's called for all installed servers
 	lsp_installer.on_server_ready(function(server)
-		-- setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
-		if server.name == 'cssls' then
-			server:setup({ on_attach = on_attach_css })
-		else
+		-- if server.name == 'cssls' then
+		-- 	server:setup({ on_attach = on_attach_css })
+		-- else
 			server:setup({ on_attach = on_attach_general })
-		end
+		-- end
 
 		vim.cmd [[ do User LspAttachBuffers ]]
 	end)
 end
 
--- register keymaps per buffer
+-- Register keymaps per buffer
 M.register_keymaps = function (client, bufnr)
 	local wk = require'which-key'
 
