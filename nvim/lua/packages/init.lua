@@ -125,14 +125,6 @@ require('packer').startup(function(use)
 
 	-- ### EDITING
 
-	-- #### Web coding
-	-- Expand `html>head` to HTML
-	use{'mattn/emmet-vim', event='InsertEnter *'}
-	-- Color colors
-	use{'norcalli/nvim-colorizer.lua', cmd = {'ColorizerToggle'}, config = function ()
-		require 'colorizer'.setup()
-	end}
-
 	-- Matching and pairing
 	use{'cohama/lexima.vim', event = 'InsertEnter *'}
 
@@ -169,6 +161,14 @@ require('packer').startup(function(use)
 		['ga'] = { '<Plug>(EasyAlign)',
 		'Align (requires :packadd vim-easy-align)' },
 	})
+
+	-- #### Web coding
+	-- Expand `html>head` to HTML
+	use{'mattn/emmet-vim', event='InsertEnter *'}
+	-- Color colors
+	use{'norcalli/nvim-colorizer.lua', cmd = {'ColorizerToggle'}, config = function ()
+		require 'colorizer'.setup()
+	end}
 
 	-- ### LSP & CODE INSPECTION
 
