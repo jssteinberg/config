@@ -209,9 +209,13 @@ require('packer').startup(function(use)
 	-- ### MOTIONS
 
 	-- Better f, F, t, T, repeatable with f/F, and s motion
-	use{'ggandor/lightspeed.nvim', keys = {
-		{'n', 's'}, {'n', 'S'},
-		-- {'x', 's'}, {'x', 'S'},
+	-- use{'ggandor/lightspeed.nvim', keys = {
+	-- 	{'n', 's'}, {'n', 'S'},
+	-- 	{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
+	-- 	{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
+	-- }}
+	-- Better f, F, t, T motion, repeatable with f/F
+	use{'rhysd/clever-f.vim', keys ={
 		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
 		{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
 	}}
