@@ -21,7 +21,9 @@ M.config = function()
 		mapping = {
 			['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 			['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-			['<C-y>'] = function () luasnip.expand_or_jump() end,
+			['<C-y>'] = cmp.mapping(function ()
+				luasnip.expand_or_jump()
+			end, {'i'}),
 			['<C-c>'] = cmp.mapping({
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),
@@ -33,16 +35,16 @@ M.config = function()
 					fallback()
 				end
 			end,
-			['<Tab>'] = function(fallback)
+			['<Tab>'] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
-				-- elseif luasnip.expand_or_jumpable() then
-				-- 	luasnip.expand_or_jump()
+				elseif luasnip.expand_or_jumpable() then
+					luasnip.expand_or_jump()
 				else
 					fallback()
 				end
-			end,
-			['<S-Tab>'] = function(fallback)
+			end, {'i'}),
+			['<S-Tab>'] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item()
 				elseif luasnip.jumpable(-1) then
@@ -50,7 +52,7 @@ M.config = function()
 				else
 					fallback()
 				end
-			end,
+			end, {'i'}),
 		},
 		sources = {
 			{ name = 'nvim_lua' },
