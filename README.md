@@ -74,6 +74,7 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 
 ### Plugins to consider
 
+- https://github.com/tommcdo/vim-lion
 - https://github.com/sbdchd/neoformat
 - [Additional theme (Github theme)](https://github.com/projekt0n/github-nvim-theme)
 
@@ -100,14 +101,9 @@ Neovim packer errors on launch:
 2. `:luafile %`
 3. `:PackerInstall`, `:PackerSync`. Restart neovim, repeat.
 
-Neovim CSS autocompletion depends on native 
-non-LSP omnifunc. `:LspInstall cssls`, but do 
-not install other LSPs that attaches to 
-CSS/SCSS/Less filetypes---currently that would 
-set `omnifunc` to LSP's, which gives no 
-completion.
+Neovim css autocompletion with css-lsp may depend on native non-LSP omnifunc.
 
-Neovim has no LSP for Javascript/Typescript:
+Neovim has no lsp for javascript/typescript:
 
 - If you use nvm, also install a system nodejs with your system package manager.
 
