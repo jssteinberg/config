@@ -21,9 +21,7 @@ M.config = function()
 		mapping = {
 			['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 			['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-			['<C-y>'] = cmp.mapping(function ()
-				luasnip.expand_or_jump()
-			end, {'i'}),
+			['<C-y>'] = cmp.mapping(function () luasnip.expand_or_jump() end, {'i'}),
 			['<C-c>'] = cmp.mapping({
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),
