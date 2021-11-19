@@ -80,10 +80,17 @@ require('packer').startup(function(use)
 			ensure_installed = 'maintained',
 			highlight = {
 				enable = true,
-				disable = {'markdown'}, -- enable lua to test when Treesitter is more stable
+				disable = {'markdown'},
 			},
+			autotag = {
+				enable = true,
+			}
 		} end
 	}
+	-- auto close tags
+	use{'windwp/nvim-ts-autotag', after = 'nvim-treesitter', config = function ()
+		require('nvim-ts-autotag').setup()
+	end}
 
 	-- 'Harpoon' files and terminals
 	use{
@@ -125,8 +132,8 @@ require('packer').startup(function(use)
 
 	-- ### EDITING
 
-	-- Matching and pairing
-	use{'cohama/lexima.vim', event = 'InsertEnter *'}
+	use{'cohama/lexima.vim', event = 'InsertEnter *'} -- close parentheses and quotes
+	-- use{'alvan/vim-closetag', event = 'InsertEnter *'} -- close
 
 	-- Toggle comments
 	-- context aware comment toggling
