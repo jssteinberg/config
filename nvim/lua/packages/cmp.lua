@@ -13,25 +13,27 @@ M.config = function()
 
 	-- nvim-cmp setup
 	cmp.setup {
-		experimental = {
-			ghost_text = true,
-		},
 		snippet = {
 			expand = function(args)
 				luasnip.lsp_expand(args.body)
 			end,
 		},
 		mapping = {
-			['<C-d>'] = cmp.mapping.scroll_docs(-4),
-			['<C-f>'] = cmp.mapping.scroll_docs(4),
-			['<C-Space>'] = cmp.mapping.complete(),
-			['<C-e>'] = cmp.mapping.close(),
-			['<CR>'] = cmp.mapping.confirm {
-				behavior = cmp.ConfirmBehavior.Replace,
-				-- behavior = cmp.ConfirmBehavior.Insert,
-				select = true,
-			},
-			['<Tab>'] = function(fallback)
+			['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+			['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+			['<C-y>'] = cmp.mapping(function () luasnip.expand_or_jump() end, {'i'}),
+			['<C-c>'] = cmp.mapping({
+				i = cmp.mapping.abort(),
+				c = cmp.mapping.close(),
+			}),
+			['<CR>'] = function (fallback)
+				if cmp.get_selected_entry() then
+					cmp.confirm({ select = true })
+				else
+					fallback()
+				end
+			end,
+			['<Tab>'] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
 				elseif luasnip.expand_or_jumpable() then
@@ -39,8 +41,8 @@ M.config = function()
 				else
 					fallback()
 				end
-			end,
-			['<S-Tab>'] = function(fallback)
+			end, {'i'}),
+			['<S-Tab>'] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item()
 				elseif luasnip.jumpable(-1) then
@@ -48,7 +50,7 @@ M.config = function()
 				else
 					fallback()
 				end
-			end,
+			end, {'i'}),
 		},
 		sources = {
 			{ name = 'nvim_lua' },

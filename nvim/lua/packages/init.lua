@@ -1,6 +1,6 @@
 require('packer').startup(function(use)
 	-- LOAD AT STARTUP
-	--------------------------
+	------------------
 
 	-- Package manager
 	use{'wbthomason/packer.nvim'}
@@ -80,10 +80,17 @@ require('packer').startup(function(use)
 			ensure_installed = 'maintained',
 			highlight = {
 				enable = true,
-				disable = {'markdown'}, -- enable lua to test when Treesitter is more stable
+				disable = {'markdown'},
 			},
+			autotag = {
+				enable = true,
+			}
 		} end
 	}
+	-- auto close tags
+	use{'windwp/nvim-ts-autotag', after = 'nvim-treesitter', config = function ()
+		require('nvim-ts-autotag').setup()
+	end}
 
 	-- 'Harpoon' files and terminals
 	use{
@@ -125,14 +132,8 @@ require('packer').startup(function(use)
 
 	-- ### EDITING
 
-	-- Web coding
-	use{'mattn/emmet-vim', event='InsertEnter *'} -- Expand `html>head` to HTML
-
-	-- Matching and pairing
-	-- use{'9mm/vim-closer', event='InsertEnter *'}
-	use{'steelsojka/pears.nvim', event = 'InsertEnter *', config = function()
-		require'pears'.setup(function(conf) conf.preset 'tag_matching' end)
-	end}
+	use{'cohama/lexima.vim', event = 'InsertEnter *'} -- close parentheses and quotes
+	-- use{'alvan/vim-closetag', event = 'InsertEnter *'} -- close
 
 	-- Toggle comments
 	-- context aware comment toggling
@@ -167,6 +168,14 @@ require('packer').startup(function(use)
 		['ga'] = { '<Plug>(EasyAlign)',
 		'Align (requires :packadd vim-easy-align)' },
 	})
+
+	-- #### Web coding
+	-- Expand `html>head` to HTML
+	use{'mattn/emmet-vim', event='InsertEnter *'}
+	-- Color colors
+	use{'norcalli/nvim-colorizer.lua', cmd = {'ColorizerToggle'}, config = function ()
+		require 'colorizer'.setup()
+	end}
 
 	-- ### LSP & CODE INSPECTION
 
@@ -206,9 +215,8 @@ require('packer').startup(function(use)
 
 	-- ### MOTIONS
 
-	-- Better f, F, t, T, repeatable with f/F, and s motion
-	use{'ggandor/lightspeed.nvim', keys = {
-		{'n', 's'}, {'n', 'S'},
+	-- Better f, F, t, T motion, repeatable with f/F
+	use{'rhysd/clever-f.vim', keys ={
 		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
 		{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
 	}}

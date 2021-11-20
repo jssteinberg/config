@@ -41,6 +41,9 @@ M.init = function()
 	-- add c-i, c-o for consistency
 	vim.api.nvim_set_keymap('n', '<leader>o', '<c-o>', {noremap = true})
 	vim.api.nvim_set_keymap('n', '<leader>i', '<c-i>', {noremap = true})
+	-- search
+	vim.api.nvim_set_keymap('n', 's', '/', {noremap = true})
+	vim.api.nvim_set_keymap('n', 'S', '?', {noremap = true})
 	-- next search result and center on screen
 	vim.api.nvim_set_keymap('n', 'n', 'nzz', {noremap = true})
 	vim.api.nvim_set_keymap('n', 'N', 'Nzz', {noremap = true})
@@ -71,6 +74,9 @@ M.insert = {
 
 	['<c-e>'] = { '<c-y>,',
 	'Emmet expand', noremap=false },
+
+	['<leader><cr>'] = { '<cr><esc>O,',
+	'Enter, expand lines', noremap=false },
 }
 
 M.visual = {
@@ -91,9 +97,6 @@ M.visual = {
 
 
 	-- Hop
-
-	-- ['s'] = { '<cmd>HopWord<cr>',
-	-- 'Hop to word' },
 
 	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
@@ -148,9 +151,6 @@ M.normal = {
 
 	['<leader>i'] = { '<c-i>',
 	'Go forward in jump list' },
-
-	-- ['s'] = { '<cmd>HopWord<cr>',
-	-- 'Hop to word' },
 
 	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
@@ -342,7 +342,10 @@ M.normal = {
 	-- No/now (toggle, (de)activate)
 
 	['<leader>n'] = { name =
-		'no',
+		'no/now',
+
+		c = { ':ColorizerToggle<cr>',
+		'Colorize' },
 
 		s = { ':nohlsearch<cr>',
 		'Search' },

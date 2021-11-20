@@ -48,9 +48,9 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 	- `<leader>ei` to set based on buffer.
 	- Falls back to hard tabs with 2 space width. `:set expandtab` for 2 actual spaces.
 - `gx` (n/x mode) for opening URLs/search in default browser via [open-browser.vim](https://github.com/tyru/open-browser.vim).
-- `f`, `F`, `t`, `T` motion (repeat with `f`) across lines, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
-- `s`/`<leader><leader>`, `<leader>J`/`<leader>K` (n/x) for to jump to any word/line via [hop.vim](https://github.com/phaazon/hop.nvim).
 - `s`/`S` motions for surround, repeatable (`.`), for surround and improved repeat via tpope's plugins.
+- `f`, `F`, `t`, `T` motion (repeat with `f`) across lines, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
+- `<leader><leader>`, `<leader>J`/`<leader>K` (n/x) for to jump to any word/line via [hop.vim](https://github.com/phaazon/hop.nvim).
 - `*`/`#` (x) for searching selected text, via visualstar.vim.
 - `gcc`/`gc` (n/x), toggles comments via nvim-comments. Context aware for vue and svelte.
 - `:G[ ...]` for git via fugitive.vim (still the best git integration for vim).
@@ -74,6 +74,7 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 
 ### Plugins to consider
 
+- https://github.com/tommcdo/vim-lion
 - https://github.com/sbdchd/neoformat
 - [Additional theme (Github theme)](https://github.com/projekt0n/github-nvim-theme)
 
@@ -100,14 +101,9 @@ Neovim packer errors on launch:
 2. `:luafile %`
 3. `:PackerInstall`, `:PackerSync`. Restart neovim, repeat.
 
-Neovim CSS autocompletion depends on native 
-non-LSP omnifunc. `:LspInstall cssls`, but do 
-not install other LSPs that attaches to 
-CSS/SCSS/Less filetypes---currently that would 
-set `omnifunc` to LSP's, which gives no 
-completion.
+Neovim css autocompletion with css-lsp may depend on native non-LSP omnifunc.
 
-Neovim has no LSP for Javascript/Typescript:
+Neovim has no lsp for javascript/typescript:
 
 - If you use nvm, also install a system nodejs with your system package manager.
 
