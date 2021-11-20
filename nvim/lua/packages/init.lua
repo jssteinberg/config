@@ -209,7 +209,6 @@ require('packer').startup(function(use)
 	-- Better f, F, t, T, repeatable with f/F, and s motion
 	use{'ggandor/lightspeed.nvim', keys = {
 		{'n', 's'}, {'n', 'S'},
-		-- {'x', 's'}, {'x', 'S'},
 		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
 		{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
 	}}
