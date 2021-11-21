@@ -74,9 +74,6 @@ M.insert = {
 
 	['<c-e>'] = { '<c-y>,',
 	'Emmet expand', noremap=false },
-
-	['<leader><cr>'] = { '<cr><esc>O,',
-	'Enter, expand lines', noremap=false },
 }
 
 M.visual = {

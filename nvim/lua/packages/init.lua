@@ -54,6 +54,7 @@ require('packer').startup(function(use)
 			'L3MON4D3/LuaSnip',         -- Snippets plugin
 			'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
 		},
+		---@diagnostic disable-next-line: different-requires
 		config = function() require'packages.cmp'.config() end
 	}
 
@@ -87,6 +88,14 @@ require('packer').startup(function(use)
 			}
 		} end
 	}
+	-- context aware comment toggling (needs a toggler plugin)
+	use{
+		'JoosepAlviste/nvim-ts-context-commentstring',
+		after = 'nvim-treesitter',
+		config = function() require'nvim-treesitter.configs'.setup {
+			context_commentstring = { enable = true }
+		} end
+	}
 	-- auto close tags
 	use{'windwp/nvim-ts-autotag', after = 'nvim-treesitter', config = function ()
 		require('nvim-ts-autotag').setup()
@@ -97,7 +106,7 @@ require('packer').startup(function(use)
 		'ThePrimeagen/harpoon',
 		event = 'VimEnter *',
 		requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
-		config = function() require("harpoon").setup({
+		config = function() require('harpoon').setup({
 			global_settings = { save_on_toggle = true },
 		}) end
 	}
@@ -135,15 +144,6 @@ require('packer').startup(function(use)
 	use{'cohama/lexima.vim', event = 'InsertEnter *'} -- close parentheses and quotes
 	-- use{'alvan/vim-closetag', event = 'InsertEnter *'} -- close
 
-	-- Toggle comments
-	-- context aware comment toggling
-	use{
-		'JoosepAlviste/nvim-ts-context-commentstring',
-		after = 'nvim-treesitter',
-		config = function() require'nvim-treesitter.configs'.setup {
-			context_commentstring = { enable = true }
-		} end
-	}
 	-- gcc, gc in visual mode, to (un)comment. Lua
 	use{
 		'terrortylor/nvim-comment',
