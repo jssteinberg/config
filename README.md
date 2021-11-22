@@ -8,7 +8,12 @@ Requires: git ... Install with your OS package manager.
 
 1. `cd`
 2. git clone as ~/.config
-3. `ln -s .config/tmux.conf .tmux.conf`
+3. tmux and (not n)vim
+
+	```sh
+	ln -s .config/tmux.conf .tmux.conf
+	ln -s .config/vimrc .vimrc
+	```
 
 ## Recommended CLI related tools
 
