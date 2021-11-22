@@ -86,12 +86,13 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 
 ## Todo
 
+- only comment on why something is
+  set like that, not what it does
 - When `gf` fails, should have Telescope guess which file.
 - `<leader>ff` in visual-mode should
 fuzzy file-search selection
 - telescope: add native fzf 
 https://github.com/nvim-telescope/telescope-fzf-native.nvim (or wait for it to be plugin core)
-- Lazy load harpoon on keymaps.
 
 ## Troubleshooting
 
