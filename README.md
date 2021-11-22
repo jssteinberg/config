@@ -33,6 +33,14 @@ alias gs "git status"
 funcsave gs
 ```
 
+## Vim 8: simple vimrc
+
+Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate`.
+
+- Package management requires https://github.com/kristijanhusak/vim-packager
+- Requries FZF on your system for fuzzy searching. Ripgrep on your system is optional. (See https://github.com/junegunn/fzf.vim)
+	Uses MUcomplete for autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
+
 ## Neovim
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing.
