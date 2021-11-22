@@ -166,12 +166,8 @@ M.normal = {
 
 	-- Buffers
 
-	['<leader>b'] = { name =
-		'buffer(s)',
-
-		['<tab>'] = { ':buffer ',
-		':buffer ', silent=false },
-	},
+	['<tab>'] = { ':buffer ',
+	':buffer ', silent=false },
 
 	-- Open buffer
 	[M.buffer_alternate_map] = { '<cmd>buffer#<cr>:file!<cr>',
