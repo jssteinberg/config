@@ -10,7 +10,7 @@ require('packer').startup(function(use)
 
 	-- Increase startup time
 	use{'lewis6991/impatient.nvim'} -- Speed up loading Lua modules
-	use{"nathom/filetype.nvim", config = function () -- Replace native filetype.vim
+	use{'nathom/filetype.nvim', config = function () -- Replace native filetype.vim
 		-- If using a Neovim version earlier than 0.6.0, do not source the default filetype.vim
 		vim.g.did_load_filetypes = 1
 		require('filetype').setup({ overrides = { extensions = {
@@ -54,6 +54,7 @@ require('packer').startup(function(use)
 			'L3MON4D3/LuaSnip',         -- Snippets plugin
 			'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
 		},
+		---@diagnostic disable-next-line: different-requires
 		config = function() require'packages.cmp'.config() end
 	}
 
@@ -80,17 +81,32 @@ require('packer').startup(function(use)
 			ensure_installed = 'maintained',
 			highlight = {
 				enable = true,
-				disable = {'markdown'}, -- enable lua to test when Treesitter is more stable
+				disable = {'markdown'},
 			},
+			autotag = {
+				enable = true,
+			}
 		} end
 	}
+	-- context aware comment toggling (needs a toggler plugin)
+	use{
+		'JoosepAlviste/nvim-ts-context-commentstring',
+		after = 'nvim-treesitter',
+		config = function() require'nvim-treesitter.configs'.setup {
+			context_commentstring = { enable = true }
+		} end
+	}
+	-- auto close tags
+	use{'windwp/nvim-ts-autotag', after = 'nvim-treesitter', config = function ()
+		require('nvim-ts-autotag').setup()
+	end}
 
 	-- 'Harpoon' files and terminals
 	use{
 		'ThePrimeagen/harpoon',
 		event = 'VimEnter *',
 		requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
-		config = function() require("harpoon").setup({
+		config = function() require('harpoon').setup({
 			global_settings = { save_on_toggle = true },
 		}) end
 	}
@@ -125,18 +141,9 @@ require('packer').startup(function(use)
 
 	-- ### EDITING
 
-	-- Matching and pairing
-	use{'cohama/lexima.vim', event = 'InsertEnter *'}
+	use{'cohama/lexima.vim', event = 'InsertEnter *'} -- close parentheses and quotes
+	-- use{'alvan/vim-closetag', event = 'InsertEnter *'} -- close
 
-	-- Toggle comments
-	-- context aware comment toggling
-	use{
-		'JoosepAlviste/nvim-ts-context-commentstring',
-		after = 'nvim-treesitter',
-		config = function() require'nvim-treesitter.configs'.setup {
-			context_commentstring = { enable = true }
-		} end
-	}
 	-- gcc, gc in visual mode, to (un)comment. Lua
 	use{
 		'terrortylor/nvim-comment',
@@ -208,12 +215,6 @@ require('packer').startup(function(use)
 
 	-- ### MOTIONS
 
-	-- Better f, F, t, T, repeatable with f/F, and s motion
-	-- use{'ggandor/lightspeed.nvim', keys = {
-	-- 	{'n', 's'}, {'n', 'S'},
-	-- 	{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
-	-- 	{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
-	-- }}
 	-- Better f, F, t, T motion, repeatable with f/F
 	use{'rhysd/clever-f.vim', keys ={
 		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},

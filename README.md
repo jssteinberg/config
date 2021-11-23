@@ -8,7 +8,12 @@ Requires: git ... Install with your OS package manager.
 
 1. `cd`
 2. git clone as ~/.config
-3. `ln -s .config/tmux.conf .tmux.conf`
+3. tmux and (not n)vim
+
+	```sh
+	ln -s .config/tmux.conf .tmux.conf
+	ln -s .config/vimrc .vimrc
+	```
 
 ## Recommended CLI related tools
 
@@ -32,6 +37,14 @@ set -Ux EDITOR "nvim"
 alias gs "git status"
 funcsave gs
 ```
+
+## Vim 8: simple vimrc
+
+Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate`.
+
+- Package management requires https://github.com/kristijanhusak/vim-packager
+- Requries FZF on your system for fuzzy searching. Ripgrep on your system is optional. (See https://github.com/junegunn/fzf.vim)
+	Uses MUcomplete for autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
 
 ## Neovim
 
@@ -74,6 +87,7 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 
 ### Plugins to consider
 
+- https://github.com/tommcdo/vim-lion
 - https://github.com/sbdchd/neoformat
 - [Additional theme (Github theme)](https://github.com/projekt0n/github-nvim-theme)
 
@@ -85,12 +99,13 @@ Keymaps are available by pressing `space` and the plugin Which Key will show ava
 
 ## Todo
 
+- only comment on why something is
+  set like that, not what it does
 - When `gf` fails, should have Telescope guess which file.
 - `<leader>ff` in visual-mode should
 fuzzy file-search selection
 - telescope: add native fzf 
 https://github.com/nvim-telescope/telescope-fzf-native.nvim (or wait for it to be plugin core)
-- Lazy load harpoon on keymaps.
 
 ## Troubleshooting
 
@@ -100,14 +115,9 @@ Neovim packer errors on launch:
 2. `:luafile %`
 3. `:PackerInstall`, `:PackerSync`. Restart neovim, repeat.
 
-Neovim CSS autocompletion depends on native 
-non-LSP omnifunc. `:LspInstall cssls`, but do 
-not install other LSPs that attaches to 
-CSS/SCSS/Less filetypes---currently that would 
-set `omnifunc` to LSP's, which gives no 
-completion.
+Neovim css autocompletion with css-lsp may depend on native non-LSP omnifunc.
 
-Neovim has no LSP for Javascript/Typescript:
+Neovim has no lsp for javascript/typescript:
 
 - If you use nvm, also install a system nodejs with your system package manager.
 

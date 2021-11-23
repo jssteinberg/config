@@ -13,9 +13,6 @@ M.config = function()
 
 	-- nvim-cmp setup
 	cmp.setup {
-		experimental = {
-			ghost_text = true,
-		},
 		snippet = {
 			expand = function(args)
 				luasnip.lsp_expand(args.body)
@@ -24,24 +21,28 @@ M.config = function()
 		mapping = {
 			['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 			['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-			['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-			-- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-			['<C-y>'] = function () luasnip.expand_or_jump() end,
+			['<C-y>'] = cmp.mapping(function () luasnip.expand_or_jump() end, {'i'}),
 			['<C-c>'] = cmp.mapping({
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),
 			}),
-			['<CR>'] = cmp.mapping.confirm({ select = true }),
-			['<Tab>'] = function(fallback)
-				if cmp.visible() then
-					cmp.select_next_item()
-				-- elseif luasnip.expand_or_jumpable() then
-				-- 	luasnip.expand_or_jump()
+			['<CR>'] = function (fallback)
+				if cmp.get_selected_entry() then
+					cmp.confirm({ select = true })
 				else
 					fallback()
 				end
 			end,
-			['<S-Tab>'] = function(fallback)
+			['<Tab>'] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.select_next_item()
+				elseif luasnip.expand_or_jumpable() then
+					luasnip.expand_or_jump()
+				else
+					fallback()
+				end
+			end, {'i'}),
+			['<S-Tab>'] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item()
 				elseif luasnip.jumpable(-1) then
@@ -49,7 +50,7 @@ M.config = function()
 				else
 					fallback()
 				end
-			end,
+			end, {'i'}),
 		},
 		sources = {
 			{ name = 'nvim_lua' },
