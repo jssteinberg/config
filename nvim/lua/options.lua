@@ -77,12 +77,12 @@ vim.bo.tabstop = 2 -- number of spaces for tab char
 vim.bo.shiftwidth = 2 -- number of spaces for autoindent
 -- Formatoptions
 -- (c) auto hard wrap comments
--- (q) allow gq formatting
 -- (j) remove comment leader when joining lines
--- (n) recognize numbered lists
 -- (l) don't break long lines (does c still work?)
+-- (n) recognize numbered lists
 -- (p) don't break lines on single space following period
-vim.bo.formatoptions = 'jnpcql'
+-- (q) allow gq formatting
+vim.bo.formatoptions = 'cjlnpq'
 
 
 -- AUTOCOMMANDS

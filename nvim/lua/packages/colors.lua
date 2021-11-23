@@ -1,7 +1,7 @@
 local M = {}
 
 -- @param {string} bg - e.g. 'day'
-M.tokyonight_config = function(bg)
+M.config = function(bg)
 	if not bg or bg == 'dark' then
 		vim.g.tokyonight_style = 'night'
 		vim.g.tokyonight_transparent = true
@@ -26,7 +26,7 @@ end
 
 -- @param {string} bg - 'dark', 'light'
 M.set_colo = function(bg)
-	M.tokyonight_config(bg)
+	M.config(bg)
 	vim.cmd('set bg=' .. bg)
 end
 
