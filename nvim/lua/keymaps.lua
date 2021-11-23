@@ -299,7 +299,7 @@ M.normal = {
 		l = { ':Git | GV<cr>',
 		'Log' },
 
-		p = { ':AsyncRun git push<cr>:copen | wincmd p<cr>',
+		p = { ':Git push<cr>',
 		'Push' },
 
 		s = { ':exe "!git status " . shellescape(getcwd())<cr>',

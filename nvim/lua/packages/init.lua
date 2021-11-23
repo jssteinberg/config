@@ -116,9 +116,6 @@ require('packer').startup(function(use)
 	---------------------------------
 	-- (Some exceptions for "requires" of plugins.)
 
-	-- Aynsc executions
-	use{'skywind3000/asyncrun.vim', cmd = {'AsyncRun'},}
-
 	-- ### BUFFERS
 
 	-- sudo save
