@@ -345,6 +345,14 @@ M.normal = {
 	},
 
 
+	-- Packages
+
+	['<leader>p'] = { name =
+		'packages',
+
+	},
+
+
 	-- Session
 
 	['<leader>s'] = { name =
