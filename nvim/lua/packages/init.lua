@@ -157,6 +157,10 @@ require('packer').startup(function(use)
 	end}
 	-- git blame
 	use{'f-person/git-blame.nvim', cmd = 'GitBlameToggle'}
+	-- neogit
+	use{'TimUntersberger/neogit', cmd = 'Neogit', requires = {'nvim-lua/plenary.nvim'}, config = function ()
+		require('neogit').setup{}
+	end}
 
 	-- ### EDITING
 
