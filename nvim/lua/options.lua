@@ -1,80 +1,80 @@
 -- GLOBAL OPTIONS
 
 -- satusline options
-vim.o.statusline = require 'statusline'
+vim.opt.statusline = require 'statusline'
 -- enable mouse for all modes
-vim.o.mouse = 'a'
+vim.opt.mouse = 'a'
 -- use OS clipboard
-vim.o.clipboard = 'unnamedplus'
+vim.opt.clipboard = 'unnamedplus'
 -- allow hiding unsaved buffers
-vim.o.hidden = true
+vim.opt.hidden = true
 -- generally ignore case
-vim.o.ignorecase = true
+vim.opt.ignorecase = true
 -- show tabs as vertical lines
-vim.o.listchars = vim.o.listchars .. ',tab:│ '
+vim.opt.listchars = vim.o.listchars .. ',tab:│ '
 -- less timeoutlen for maps
-vim.o.timeoutlen = 500
+vim.opt.timeoutlen = 500
 -- session data
-vim.o.sessionoptions = 'curdir,folds,tabpages'
+vim.opt.sessionoptions = 'curdir,folds,tabpages'
 -- avoid cursor on Y axis edges
-vim.o.scrolloff = 10
+vim.opt.scrolloff = 10
 
 -- Wild
 -- wildmode lastused
-vim.o.wildmode = 'lastused:' .. vim.o.wildmode
+vim.opt.wildmode = 'lastused:' .. vim.o.wildmode
 -- wildmode ignorecase
-vim.o.wildignorecase = true
+vim.opt.wildignorecase = true
 -- wildignore
-vim.o.wildignore =  'node_modules/,' .. vim.o.wildignore
+vim.opt.wildignore =  'node_modules/,' .. vim.o.wildignore
 
 -- Search & substitute
 -- smartcase when searching
-vim.o.smartcase = true
+vim.opt.smartcase = true
 -- global substitute as default
-vim.o.gdefault = true
+vim.opt.gdefault = true
 
 
 -- WINDOW-LOCAL OPTIONS
 
 -- show line numbers
-vim.wo.number = true
+vim.opt.number = true
 -- show relativenumbers---eases line jumping
-vim.wo.relativenumber = true
+vim.opt.relativenumber = true
 -- show signs for tabs, whitespace, etc.
-vim.wo.list = true
+vim.opt.list = true
 -- always show signcolumn (used by different plugins)
-vim.wo.signcolumn = 'yes'
+vim.opt.signcolumn = 'yes'
 -- cursorline and column by default
-vim.wo.cursorline = true
-vim.wo.cursorcolumn = true
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 -- fold on indent
-vim.wo.foldmethod = 'indent'
-vim.wo.foldenable = false
+vim.opt.foldmethod = 'indent'
+vim.opt.foldenable = false
 
 -- Wrap
 -- softwrap inheriting indent
-vim.wo.breakindent = true
+vim.opt.breakindent = true
 -- break word by 'breakat'
-vim.wo.linebreak = true
+vim.opt.linebreak = true
 
 
 -- BUFFER-LOCAL OPTIONS
 
 -- default to utf-8
-vim.bo.fileencoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
 -- max column to search for syntax items (low for performance)
-vim.bo.synmaxcol = 200
+vim.opt.synmaxcol = 200
 -- copy indent on paste
-vim.bo.copyindent = true
+vim.opt.copyindent = true
 -- activate undofiles for persistent undo
-vim.bo.undofile = true
+vim.opt.undofile = true
 -- no swapfiles when persistent undo and no multiuser system
-vim.bo.swapfile = false
+vim.opt.swapfile = false
 
 -- Indentation
 -- tabs -- noexpandtab is default
-vim.bo.tabstop = 2 -- number of spaces for tab char
-vim.bo.shiftwidth = 2 -- number of spaces for autoindent
+vim.opt.tabstop = 2 -- number of spaces for tab char
+vim.opt.shiftwidth = 2 -- number of spaces for autoindent
 -- Formatoptions
 -- (c) auto hard wrap comments
 -- (j) remove comment leader when joining lines
@@ -82,7 +82,7 @@ vim.bo.shiftwidth = 2 -- number of spaces for autoindent
 -- (n) recognize numbered lists
 -- (p) don't break lines on single space following period
 -- (q) allow gq formatting
-vim.bo.formatoptions = 'cjlnpq'
+vim.opt.formatoptions = 'cjlnpq'
 
 
 -- AUTOCOMMANDS

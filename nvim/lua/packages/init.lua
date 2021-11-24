@@ -85,6 +85,10 @@ require('packer').startup(function(use)
 	use{'tpope/vim-sleuth', event = 'VimEnter *'} -- Detect file's indent style
 	use{'editorconfig/editorconfig-vim', event='VimEnter *', after = 'vim-sleuth'} -- Respect .editorconfig
 
+	use{'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, event = 'VimEnter *', config = function ()
+		require('gitsigns').setup()
+	end}
+
 	-- `gx` opens URI or search visual selection in browser
 	use{'tyru/open-browser.vim', event = 'VimEnter *', config = function()
 		require'packages.openbrowser'.config()
