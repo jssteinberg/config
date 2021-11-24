@@ -49,37 +49,29 @@ Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdat
 ## Neovim
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing.
+Uncomplicated config for dummies hacking (author included).
 
-Install neovim v. > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... In nvim, run `:PackerInstall`.
+Install neovim  > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim.
 
-Keymaps are available by pressing `space` and the plugin Which Key will show available maps. Or browse the [keymaps file](https://github.com/jssteinberg/config/blob/main/nvim/lua/keymaps.lua).
+### Features
 
-### Functions
-
+- An amount of fitting pluggins, lazy loaded if they can be.
+- Keymaps are available by pressing `space` and the plugin Which Key will show available maps. Or browse the [keymaps file](https://github.com/jssteinberg/config/blob/main/nvim/lua/keymaps.lua).
 - Respects editorconfig, if non, auto detects indent. Falls back to hard tabs with 2 space width. `:set expandtab` for 2 actual spaces.
-- `gx` (n/x mode) for opening URLs/selection in browser via [open-browser.vim](https://github.com/tyru/open-browser.vim).
-- `f`, `F`, `t`, `T` motion (repeat with `f`) across lines, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
-- `<leader><leader>`, `<leader>J`/`<leader>K` (n/x) for to jump to any word/line via [hop.vim](https://github.com/phaazon/hop.nvim).
-- `*`/`#` (x) for searching selected text, via visualstar.vim.
-- `gcc`/`gc` (n/x), toggles comments via nvim-comments. Context aware for vue and svelte.
-- `:G[ ...]` for git via fugitive.vim (still the best git integration for vim).
 - `:TSInstall [...]` treesitter language for syntax, indentation ... via [nvim-treesitter][nts].
 - `:LspInstall [...]` for language diagnostics and completion.
+- `jk` to leave insert, terminal and visual mode.
+- `*`/`#` (x) for searching selected text, via visualstar.vim.
+- `f`, `F`, `t`, `T` motion (repeat with `f`) across lines, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
+- `gx` (n/x mode) for opening URLs/selection in browser via [open-browser.vim](https://github.com/tyru/open-browser.vim).
+- `<leader><leader>`, `<leader>J`/`<leader>K` (n/x) for to jump to any word/line via [hop.vim](https://github.com/phaazon/hop.nvim).
+- `gcc`/`gc` (n/x), toggles comments via nvim-comments. Context aware for some filetypes.
 - `<leader><enter>`, `<leader>1`, `<leader>2`, `<leader>3` to open consistent terminals via [harpoon](https://github.com/ThePrimeagen/harpoon).
 - `<leader>h` for more harpoon options.
-- `qq` to leave insert, terminal and visual mode.
 
-#### Load on demand:
+#### Load on demand
 
 - `ga` for aligning text in normal and visual mode via Easyalign. Load with `:packadd vim-easy-align`.
-
-### Config philosophy
-
-- **Functional** for todays programming---with a focus on web front-end.
-- **Light**. Lazy load everything possible. Avoid plugins that does unnecessary things (no statusline plugin). Generally avoid bloat.
-- **Lua** for config and plugins is used as far as possible unless certain functionality requires otherwise.
-- **Vim** default keymaps, commands and 'the vim way' is utilized and extended. Avoid plugins that tries to make vim resemble another 'worse' editor.
-- **Friendly** and uncomplicated config for dummies hacking (author included).
 
 ### Plugins to consider
 
