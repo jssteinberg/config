@@ -332,6 +332,16 @@ M.normal = {
 	},
 
 
+	-- LSP
+
+	['<leader>l'] = { name =
+		'lsp',
+
+		i = { '<cmd>LspInfo<cr>',
+		'Info' },
+	},
+
+
 	-- No/now (toggle, (de)activate)
 
 	['<leader>n'] = { name =
@@ -468,8 +478,8 @@ M.normal_lsp_buffer_keymaps = function (bufnr)
 			h = { '<cmd>lua vim.lsp.buf.hover()<cr>',
 			'Hover info', buffer = bufnr },
 
-			i = { '<cmd>lua vim.lsp.buf.implementation()<cr>',
-			'Implementation', buffer = bufnr },
+			-- i = { '<cmd>lua vim.lsp.buf.implementation()<cr>',
+			-- 'Implementation', buffer = bufnr },
 
 			l = { '<cmd>lua vim.lsp.buf.show_line_diagnostics()<cr>',
 			'Line diagnostics info (for flag)', buffer = bufnr },
