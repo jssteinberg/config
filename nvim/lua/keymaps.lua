@@ -26,8 +26,6 @@ M.init = function()
 	-- Escape
 	-- insert
 	vim.api.nvim_set_keymap('i', M.esc_map, '<esc>', {noremap = true})
-	-- visual (x)
-	vim.api.nvim_set_keymap('x', M.esc_map, '<esc>', {noremap = true})
 
 	-- Terminal
 	-- escape terminal
@@ -77,9 +75,6 @@ M.insert = {
 }
 
 M.visual = {
-	[M.esc_map] = { '<esc>',
-	'Esc to normal mode' },
-
 	['>'] = { '>gv',
 	'Indent +' },
 
