@@ -18,6 +18,9 @@ M.config = function()
 				luasnip.lsp_expand(args.body)
 			end,
 		},
+		experimental = {
+			ghost_text = true,
+		},
 		mapping = {
 			['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 			['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -26,6 +29,9 @@ M.config = function()
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),
 			}),
+			['<c-f>'] = function ()
+				cmp.confirm({ select = true })
+			end,
 			['<CR>'] = function (fallback)
 				if cmp.get_selected_entry() then
 					cmp.confirm({ select = true })

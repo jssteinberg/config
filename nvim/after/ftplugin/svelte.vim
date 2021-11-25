@@ -1,8 +1,4 @@
-set fileencoding=utf-8
-set noexpandtab
-set tabstop=2
-set shiftwidth=2
-set noswapfile
+" set fileencoding=utf-8
 " Source:
 " https://vimways.org/2018/death-by-a-thousand-files/
 setlocal suffixesadd+=.js

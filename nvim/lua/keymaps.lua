@@ -7,8 +7,8 @@
 
 local M = {}
 
-M.esc_map = 'qq'
-M.buffer_alternate_map = '<leader>bb'
+M.esc_map = 'jk'
+M.buffer_alternate_map = '<leader><tab>'
 
 M.set_leader = function()
 	-- space as <leader>
@@ -26,8 +26,6 @@ M.init = function()
 	-- Escape
 	-- insert
 	vim.api.nvim_set_keymap('i', M.esc_map, '<esc>', {noremap = true})
-	-- visual (x)
-	vim.api.nvim_set_keymap('x', M.esc_map, '<esc>', {noremap = true})
 
 	-- Terminal
 	-- escape terminal
@@ -52,9 +50,9 @@ M.init = function()
 
 	-- Buffers
 	-- alternative file
-	vim.api.nvim_set_keymap('n', '<leader><tab>', ':buffer#<cr>:file!<cr>', {noremap = true})
+	vim.api.nvim_set_keymap('n', M.buffer_alternate_map, ':buffer#<cr>:file!<cr>', {noremap = true})
 	-- buffer wild
-	vim.api.nvim_set_keymap('n', '<leader>b<tab>', ':buffer ', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<tab>', ':buffer ', {noremap = true})
 
 	-- Command-mode
 	-- c-p is up for incremental backwards command history
@@ -77,14 +75,17 @@ M.insert = {
 }
 
 M.visual = {
-	[M.esc_map] = { '<esc>',
-	'Esc to normal mode' },
-
 	['>'] = { '>gv',
 	'Indent +' },
 
 	['<'] = { '<gv',
 	'Indent -' },
+
+	['<leader>k'] = { '<c-a>',
+	'Increase number' },
+
+	['<leader>j'] = { '<c-x>',
+	'Decrease number' },
 
 	['<leader>R'] = { ':s/',
 	'Replace', silent=false },
@@ -165,9 +166,6 @@ M.normal = {
 		'add'},
 
 	-- Buffers
-
-	['<tab>'] = { ':buffer ',
-	':buffer ', silent=false },
 
 	-- Open buffer
 	[M.buffer_alternate_map] = { '<cmd>buffer#<cr>:file!<cr>',
@@ -293,7 +291,7 @@ M.normal = {
 			'Files' },
 		},
 
-		g = { ':Git<cr>',
+		g = { ':Neogit<cr>',
 		'Git' },
 
 		l = { ':Git | GV<cr>',
@@ -329,6 +327,16 @@ M.normal = {
 
 		f = { ':lua require("harpoon.ui").nav_file(4)<cr>',
 		'f (4) file' },
+	},
+
+
+	-- LSP
+
+	['<leader>l'] = { name =
+		'lsp',
+
+		i = { '<cmd>LspInfo<cr>',
+		'Info' },
 	},
 
 
@@ -468,8 +476,8 @@ M.normal_lsp_buffer_keymaps = function (bufnr)
 			h = { '<cmd>lua vim.lsp.buf.hover()<cr>',
 			'Hover info', buffer = bufnr },
 
-			i = { '<cmd>lua vim.lsp.buf.implementation()<cr>',
-			'Implementation', buffer = bufnr },
+			-- i = { '<cmd>lua vim.lsp.buf.implementation()<cr>',
+			-- 'Implementation', buffer = bufnr },
 
 			l = { '<cmd>lua vim.lsp.buf.show_line_diagnostics()<cr>',
 			'Line diagnostics info (for flag)', buffer = bufnr },
