@@ -77,7 +77,15 @@ require('packer').startup(function(use)
 	use{'editorconfig/editorconfig-vim', event='VimEnter *', after = 'vim-sleuth'} -- Respect .editorconfig
 
 	use{'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, event = 'VimEnter *', config = function ()
-		require('gitsigns').setup()
+		require('gitsigns').setup{
+			keymaps = {
+				noremap = false,
+				['n <leader>gi'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
+			}
+		}
+		require'which-key'.register({
+			['<leader>gi'] = {'Info'}
+		})
 	end}
 
 	-- `gx` opens URI or search visual selection in browser
