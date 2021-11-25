@@ -163,6 +163,7 @@ require('packer').startup(function(use)
 
 	-- ### EDITING
 
+	use{'lambdalisue/fern.vim', cmd = 'Fern'}
 	use{'cohama/lexima.vim', event = 'InsertEnter *'} -- close parentheses and quotes
 	-- use{'alvan/vim-closetag', event = 'InsertEnter *'} -- close
 
