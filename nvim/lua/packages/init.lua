@@ -19,37 +19,7 @@ require('packer').startup(function(use)
 	use{'folke/tokyonight.nvim'} require'packages.colors'.config() -- Colorscheme
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
 	-- use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
-	use{'nvim-lualine/lualine.nvim', config = function ()
-	end}
-	require('lualine').setup{
-		options = {
-			icons_enabled = false,
-			theme = 'tokyonight',
-			component_separators = { left = '—', right = '—'},
-			section_separators = { left = '—', right = '—'},
-			disabled_filetypes = {},
-			always_divide_middle = true,
-		},
-		sections = {
-			lualine_a = {'mode'},
-			lualine_b = {'branch', 'diff',
-										{'diagnostics', sources={'nvim_lsp'}}},
-			lualine_c = {'filename'},
-			lualine_x = {'encoding', 'fileformat', 'filetype'},
-			lualine_y = {'progress'},
-			lualine_z = {'location'}
-		},
-		inactive_sections = {
-			lualine_a = {},
-			lualine_b = {},
-			lualine_c = {'filename'},
-			lualine_x = {'location'},
-			lualine_y = {},
-			lualine_z = {}
-		},
-		tabline = {},
-		extensions = {}
-	}
+	use{'nvim-lualine/lualine.nvim'} require('packages.lualine').config()
 
 	-- LSP & code inspection
 	use{
