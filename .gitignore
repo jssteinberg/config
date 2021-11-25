@@ -3,10 +3,12 @@
 !tmux.conf
 !vimrc
 !kitty/
-!alacritty/
-!nvim/
 !kitty/*
+!alacritty/
 !alacritty/*
+!nvim/
 !nvim/*
-nvim/plugin/packer_compiled.vim
-nvim/plugin/packer_compiled.lua
+!nvim/after/ftplugin/*
+!nvim/lua/*
+!nvim/lua/packages/*
+!nvim/lua/utils/*

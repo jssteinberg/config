@@ -20,6 +20,7 @@ require('packer').startup(function(use)
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
 	-- use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
 	use{'nvim-lualine/lualine.nvim'} require('packages.lualine').config()
+	-- use { 'glepnir/galaxyline.nvim', branch = 'main', config = function() require'packages.galaxyline'.config() end}
 
 	-- LSP & code inspection
 	use{

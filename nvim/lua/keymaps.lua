@@ -81,6 +81,12 @@ M.visual = {
 	['<'] = { '<gv',
 	'Indent -' },
 
+	['<leader>k'] = { '<c-a>',
+	'Increase number' },
+
+	['<leader>j'] = { '<c-x>',
+	'Decrease number' },
+
 	['<leader>R'] = { ':s/',
 	'Replace', silent=false },
 
