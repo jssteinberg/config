@@ -8,6 +8,7 @@ M.config = function(bg)
 	elseif bg == 'light' then
 		vim.g.tokyonight_style = 'day'
 		vim.g.tokyonight_transparent = false
+		vim.g.tokyonight_day_brightness = 0.1
 	else
 		vim.g.tokyonight_style = bg
 		vim.g.tokyonight_transparent = false
