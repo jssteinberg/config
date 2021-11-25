@@ -8,7 +8,7 @@
 local M = {}
 
 M.esc_map = 'jk'
-M.buffer_alternate_map = '<leader><tab>'
+M.buffer_alternate_map = '<bs>'
 
 M.set_leader = function()
 	-- space as <leader>
@@ -51,8 +51,6 @@ M.init = function()
 	-- Buffers
 	-- alternative file
 	vim.api.nvim_set_keymap('n', M.buffer_alternate_map, ':buffer#<cr>:file!<cr>', {noremap = true})
-	-- buffer wild
-	vim.api.nvim_set_keymap('n', '<tab>', ':buffer ', {noremap = true})
 
 	-- Command-mode
 	-- c-p is up for incremental backwards command history
@@ -171,6 +169,8 @@ M.normal = {
 	[M.buffer_alternate_map] = { '<cmd>buffer#<cr>:file!<cr>',
 	'Alternate' },
 
+	['<leader><tab>'] = { ':buffer ',
+	':buffer'},
 
 	-- Colors
 
@@ -299,9 +299,6 @@ M.normal = {
 
 		p = { ':Git push<cr>',
 		'Push' },
-
-		s = { ':exe "!git status " . shellescape(getcwd())<cr>',
-		'Status' },
 	},
 
 
