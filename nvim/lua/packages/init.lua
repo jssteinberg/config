@@ -18,7 +18,38 @@ require('packer').startup(function(use)
 	use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 	use{'folke/tokyonight.nvim'} require'packages.colors'.config() -- Colorscheme
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-	use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
+	-- use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
+	use{'nvim-lualine/lualine.nvim', config = function ()
+	end}
+	require('lualine').setup{
+		options = {
+			icons_enabled = false,
+			theme = 'tokyonight',
+			component_separators = { left = '—', right = '—'},
+			section_separators = { left = '—', right = '—'},
+			disabled_filetypes = {},
+			always_divide_middle = true,
+		},
+		sections = {
+			lualine_a = {'mode'},
+			lualine_b = {'branch', 'diff',
+										{'diagnostics', sources={'nvim_lsp'}}},
+			lualine_c = {'filename'},
+			lualine_x = {'encoding', 'fileformat', 'filetype'},
+			lualine_y = {'progress'},
+			lualine_z = {'location'}
+		},
+		inactive_sections = {
+			lualine_a = {},
+			lualine_b = {},
+			lualine_c = {'filename'},
+			lualine_x = {'location'},
+			lualine_y = {},
+			lualine_z = {}
+		},
+		tabline = {},
+		extensions = {}
+	}
 
 	-- LSP & code inspection
 	use{
@@ -147,6 +178,10 @@ require('packer').startup(function(use)
 	end}
 	-- git blame
 	use{'f-person/git-blame.nvim', cmd = 'GitBlameToggle'}
+	-- neogit
+	use{'TimUntersberger/neogit', cmd = 'Neogit', requires = {'nvim-lua/plenary.nvim'}, config = function ()
+		require('neogit').setup{}
+	end}
 
 	-- ### EDITING
 
@@ -162,6 +197,7 @@ require('packer').startup(function(use)
 				comment_empty = false,
 				hook = function()
 					if vim.api.nvim_buf_get_option(0, "filetype") == "svelte" and
+						vim.api.nvim_buf_get_option(0, "filetype") == "html" and
 						vim.api.nvim_buf_get_option(0, "filetype") == "vue" then
 						require("ts_context_commentstring.internal").update_commentstring()
 					end
