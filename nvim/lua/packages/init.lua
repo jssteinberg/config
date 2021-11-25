@@ -11,17 +11,7 @@ require('packer').startup(function(use)
 	-- Increase startup time
 	use{'lewis6991/impatient.nvim'} -- Speed up loading Lua modules
 	use{'nathom/filetype.nvim', config = function () -- Replace native filetype.vim
-		-- If using a Neovim version earlier than 0.6.0, do not source the default filetype.vim
-		vim.g.did_load_filetypes = 1
-		require('filetype').setup({ overrides = { extensions = {
-				astro = 'html',
-				style = 'scss',
-				postcss = 'scss',
-				mdx = 'markdown',
-				gmi = 'markdown',
-				fish = 'sh',
-			},
-		}})
+		require'packages.filetype'.config()
 	end}
 
 	-- General
