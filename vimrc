@@ -22,6 +22,8 @@ set wildmode=lastused:full " lastused :buffer
 " Set space as leader key
 nnoremap <space> <nop>
 let mapleader=' '
+" Esc
+inoremap jk <esc>
 " Y works like C or D
 nnoremap Y yg_
 " Follow definition in help (easier for some non US keyboards)
@@ -31,12 +33,15 @@ nnoremap s /
 nnoremap S ?
 " Incrementally go back in command history
 cnoremap <c-p> <up>
-" Buffer switcher
-nnoremap <tab> :buffer 
 " Alternate buffer
-nnoremap <leader><tab> :buffer#<cr>:file!<cr>
+nnoremap <bs> :buffer#<cr>:file!<cr>
+" Buffer switcher
+nnoremap <leader><tab> :buffer 
 " Write/save file
 nnoremap <leader>w :w<cr>
+" Edit/explore
+nnoremap <leader>e. :edit .<cr>
+nnoremap <leader>eb :Explore<cr>
 
 
 " Packages config
