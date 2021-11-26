@@ -40,9 +40,10 @@ funcsave gs
 
 ## Vim 8: simple vimrc
 
-Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate`.
+Can be used without packages (gives no errors unless keymappings/commands requiring packages are used).
 
-- Package management requires https://github.com/kristijanhusak/vim-packager
+Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate` (package management requires https://github.com/kristijanhusak/vim-packager).
+
 - Requries FZF on your system for fuzzy searching. Ripgrep on your system is optional. (See https://github.com/junegunn/fzf.vim)
 	Uses MUcomplete for autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
 
