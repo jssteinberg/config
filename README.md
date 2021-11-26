@@ -8,7 +8,7 @@ Requires: git ... Install with your OS package manager.
 
 1. `cd`
 2. git clone as ~/.config
-3. tmux and (not n)vim
+3. tmux and (not neo)vim
 
 	```sh
 	ln -s .config/tmux.conf .tmux.conf
@@ -38,16 +38,16 @@ alias gs "git status"
 funcsave gs
 ```
 
-## Vim 8: simple vimrc
+## Vim > 8
 
-Can be used without packages (gives no errors unless keymappings/commands requiring packages are used).
+A simple vimrc that can be used as a boilerplate and/or can be used without packages. It gives no errors on missing packages unless keymaps/commands requiring packages are used.
 
 Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate` (package management requires https://github.com/kristijanhusak/vim-packager).
 
 - Requries FZF on your system for fuzzy searching. Ripgrep on your system is optional. (See https://github.com/junegunn/fzf.vim)
-	Uses MUcomplete for autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
+- Uses MUcomplete for simple autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
 
-## Neovim
+## Neovim > 0.5
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing.
 Uncomplicated config for dummies hacking (author included).
