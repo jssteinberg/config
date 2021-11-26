@@ -16,7 +16,9 @@ require('packer').startup(function(use)
 
 	-- General
 	use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
-	use{'folke/tokyonight.nvim'} require'packages.colors'.config() -- Colorscheme
+	use{'projekt0n/github-nvim-theme'}
+	use{'folke/tokyonight.nvim'}
+	require'packages.colors'.github_theme_config()
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
 	-- use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
 	use{'nvim-lualine/lualine.nvim'} require('packages.lualine').config()

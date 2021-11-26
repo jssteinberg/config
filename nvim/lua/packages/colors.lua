@@ -1,7 +1,11 @@
 local M = {}
 
+M.github_theme_config = function ()
+	require('github-theme').setup()
+end
+
 -- @param {string} bg - e.g. 'day'
-M.config = function(bg)
+M.tokyonight_config = function(bg)
 	if not bg or bg == 'dark' then
 		vim.g.tokyonight_style = 'night'
 		vim.g.tokyonight_transparent = true
@@ -27,7 +31,7 @@ end
 
 -- @param {string} bg - 'dark', 'light'
 M.set_colo = function(bg)
-	M.config(bg)
+	M.tokyonight_config(bg)
 	vim.cmd('set bg=' .. bg)
 end
 
