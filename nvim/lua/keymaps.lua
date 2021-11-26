@@ -170,7 +170,7 @@ M.normal = {
 	'Alternate' },
 
 	['<leader><tab>'] = { ':buffer ',
-	':buffer'},
+	':buffer ', silent = false},
 
 	-- Colors
 
