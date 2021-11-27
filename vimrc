@@ -84,9 +84,11 @@ autocmd VimEnter * call SetColorscheme()
 function! SetColorscheme ()
 	" use try/catch to set option if colorscheme exists
 	try
-		colorscheme nightfox
+		set termguicolors
+		colorscheme tokyonight
 		set hlsearch " Higlight search hurts your eyes with default colors
 	catch /^Vim\%((\a\+)\)\=:E185/
+		set notermguicolors
 		colorscheme default
 	endtry
 endfunction
@@ -110,4 +112,5 @@ function! PackagerInit() abort
 	call packager#add('dense-analysis/ale')
 	" Colorscheme
 	call packager#add('EdenEast/nightfox.nvim')
+	call packager#add('ghifarit53/tokyonight-vim')
 endfunction

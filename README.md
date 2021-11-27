@@ -46,7 +46,6 @@ Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdat
 
 - Requries FZF on your system for fuzzy searching. Ripgrep on your system is optional. (See https://github.com/junegunn/fzf.vim)
 - Uses MUcomplete for simple autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
-- Nightfox colorschemes. Browse all fox themes with `:colo *fox<tab>`. https://github.com/EdenEast/nightfox.nvim
 
 ## Neovim > 0.5
 
