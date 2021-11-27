@@ -7,6 +7,7 @@ source $VIMRUNTIME/defaults.vim
 
 " Options
 set clipboard=unnamed " Sync with system clioboard
+set cursorline " Cursorline for jumping around
 set hidden " Unsaved files can be 'hidden'
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set list listchars=tab:\-\  " Show tabs if used
@@ -52,6 +53,9 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>e. :edit .<cr>
 nnoremap <leader>eb :Explore<cr>
 nnoremap <leader>tb :tabedit %<cr>
+" Quickfix
+nnoremap <leader>q :cnext<cr>
+nnoremap <leader>Q :cprev<cr>
 
 
 " Packages config
