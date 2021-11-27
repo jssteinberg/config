@@ -10,9 +10,11 @@ set clipboard=unnamed " Sync with system clioboard
 set hidden " Unsaved files can be 'hidden'
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set list listchars=tab:\-\  " Show tabs if used
+set number relativenumber " Relativenumber with number on cursorline
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set rulerformat=%y%m\ %l/%L " [filetype][modified] line/lines
 set wildmode=lastused:full " lastused :buffer
+set wrap breakindent linebreak " Wrap inherit indent, `breakat` based linebreak
 
 " Persisten undo, mkdirs
 if !isdirectory($HOME."/.vim")
@@ -53,6 +55,7 @@ nnoremap <leader>w :w<cr>
 " Edit/explore
 nnoremap <leader>e. :edit .<cr>
 nnoremap <leader>eb :Explore<cr>
+nnoremap <leader>tb :tabedit %<cr>
 
 
 " Packages config
@@ -93,6 +96,10 @@ function! SetColorscheme ()
 	endtry
 endfunction
 
+" Statusline
+set laststatus=2
+let g:skyline_fugitive = 1
+
 " Packages
 function! PackagerInit() abort
 	packadd vim-packager
@@ -111,6 +118,7 @@ function! PackagerInit() abort
 	" Linting
 	call packager#add('dense-analysis/ale')
 	" Colorscheme
-	call packager#add('EdenEast/nightfox.nvim')
 	call packager#add('ghifarit53/tokyonight-vim')
+	" Statusline
+	call packager#add('jssteinberg/skyline.vim')
 endfunction
