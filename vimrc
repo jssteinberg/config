@@ -96,7 +96,6 @@ function! SetColorscheme ()
 endfunction
 
 " Statusline
-set laststatus=2
 let g:skyline_fugitive = 1
 
 " Packages
@@ -106,7 +105,7 @@ function! PackagerInit() abort
 	call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
 	call packager#add('ghifarit53/tokyonight-vim')
 	call packager#add('editorconfig/editorconfig-vim')
-	call packager#add('jremmen/vim-ripgrep')
+	"call packager#add('jremmen/vim-ripgrep')
 	call packager#add('cohama/lexima.vim')
 	call packager#add('sheerun/vim-polyglot')
 	call packager#add('tpope/vim-fugitive')
