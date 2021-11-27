@@ -81,11 +81,12 @@ let g:mucomplete#enable_auto_at_startup = 1
 " Linting
 nnoremap gd :ALEGoToDefinition<cr>
 nnoremap <cr> :ALEHover<cr>
+set signcolumn=yes " Always show signcolumn for not shifts
 
 " Colorscheme
 autocmd VimEnter * call SetColorscheme()
 " use function (nightfox in vim prefers VimEnter)
-function! SetColorscheme ()
+function! SetColorscheme()
 	" use try/catch to set option if colorscheme exists
 	try
 		set termguicolors
