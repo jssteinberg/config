@@ -24,7 +24,6 @@ set undofile undodir=$HOME/.vimundo
 
 " Netrw, built in explorer
 let g:netrw_preview=1 " Vertical preview
-let g:netrw_localcopydircmd='cp -r'
 let g:netrw_winsize=25
 
 " Keymaps vanilla
