@@ -15,7 +15,7 @@ Requires: git ... Install with your OS package manager.
 	ln -s .config/vimrc .vimrc
 	```
 
-## Recommended CLI related tools
+## Recommended terminal tools
 
 - fish---shell with modern, usable defaults (and keep an eye on nu shell)
 	- [fisher](https://github.com/jorgebucaran/fisher), fish plugin manager
@@ -52,7 +52,7 @@ Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdat
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing.
 Uncomplicated config for dummies hacking (author included).
 
-Install neovim  > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim.
+Install neovim  > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim, repeat.
 
 ### Features
 
