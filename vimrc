@@ -16,13 +16,10 @@ set wildmode=lastused:full " lastused :buffer
 set wrap breakindent linebreak " Wrap inherit indent, `breakat` based linebreak
 
 " Persisten undo, mkdirs
-if !isdirectory($HOME."/.vim")
-	call mkdir($HOME."/.vim", "", 0770)
+if !isdirectory($HOME."/.vimundo")
+	call mkdir($HOME."/.vimundo", "", 0770)
 endif
-if !isdirectory($HOME."/.vim/undo")
-	call mkdir($HOME."/.vim/undo", "", 0700)
-endif
-set undofile undodir=$HOME/.vim/undo
+set undofile undodir=$HOME/.vimundo
 
 " Netrw, built in explorer
 let g:netrw_preview=1 " Vertical preview
