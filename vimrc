@@ -104,20 +104,18 @@ function! PackagerInit() abort
 	packadd vim-packager
 	call packager#init()
 	call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
-	call packager#add('tpope/vim-surround')
-	call packager#add('tpope/vim-fugitive')
-	call packager#add('sheerun/vim-polyglot')
+	call packager#add('ghifarit53/tokyonight-vim')
 	call packager#add('editorconfig/editorconfig-vim')
+	call packager#add('jremmen/vim-ripgrep')
 	call packager#add('cohama/lexima.vim')
+	call packager#add('sheerun/vim-polyglot')
+	call packager#add('tpope/vim-fugitive')
+	call packager#add('jssteinberg/skyline.vim')
+	call packager#add('lifepillar/vim-mucomplete')
+	call packager#add('dense-analysis/ale')
+	" Editing
+	call packager#add('tpope/vim-surround')
 	" Fuzzy finder
 	call packager#add('junegunn/fzf', { 'do': './install --all && ln -s $(pwd) ~/.fzf'})
 	call packager#add('junegunn/fzf.vim')
-	" Autocompletion
-	call packager#add('lifepillar/vim-mucomplete')
-	" Linting
-	call packager#add('dense-analysis/ale')
-	" Colorscheme
-	call packager#add('ghifarit53/tokyonight-vim')
-	" Statusline
-	call packager#add('jssteinberg/skyline.vim')
 endfunction
