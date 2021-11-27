@@ -15,7 +15,7 @@ Requires: git ... Install with your OS package manager.
 	ln -s .config/vimrc .vimrc
 	```
 
-## Recommended CLI related tools
+## Recommended terminal tools
 
 - fish---shell with modern, usable defaults (and keep an eye on nu shell)
 	- [fisher](https://github.com/jorgebucaran/fisher), fish plugin manager
