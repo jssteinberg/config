@@ -55,7 +55,9 @@ nnoremap <leader>tb :tabedit %<cr>
 " Quickfix
 nnoremap <leader>q :cnext<cr>
 nnoremap <leader>Q :cprev<cr>
-
+" Replace
+nnoremap <leader>R :%s/
+vnoremap <leader>R :%s/
 
 " Packages config
 " ---------------
