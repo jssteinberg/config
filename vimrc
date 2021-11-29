@@ -96,7 +96,7 @@ function! SetColorscheme()
 endfunction
 
 " Statusline
-let g:skyline_fugitive = 1
+let g:hackline_fugitive = 1
 
 function! PackagerInit() abort
 	packadd vim-packager
