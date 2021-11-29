@@ -81,7 +81,6 @@ let g:mucomplete#enable_auto_at_startup = 1
 " Linting
 nnoremap gd :ALEGoToDefinition<cr>
 nnoremap <cr> :ALEHover<cr>
-set signcolumn=yes " Always show signcolumn for not shifts
 
 " Colorscheme
 autocmd VimEnter * call SetColorscheme()
@@ -106,7 +105,6 @@ function! PackagerInit() abort
 	packadd vim-packager
 	call packager#init()
 	call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
-	call packager#add('ghifarit53/tokyonight-vim')
 	call packager#add('editorconfig/editorconfig-vim')
 	call packager#add('tpope/vim-surround')
 	call packager#add('subnut/visualstar.vim')
@@ -114,10 +112,12 @@ function! PackagerInit() abort
 	call packager#add('cohama/lexima.vim')
 	call packager#add('sheerun/vim-polyglot')
 	call packager#add('tpope/vim-fugitive')
-	call packager#add('jssteinberg/skyline.vim')
+	call packager#add('jssteinberg/hackline.vim')
 	call packager#add('lifepillar/vim-mucomplete')
 	call packager#add('dense-analysis/ale')
 	" Fuzzy finder
 	call packager#add('junegunn/fzf', { 'do': './install --all && ln -s $(pwd) ~/.fzf'})
 	call packager#add('junegunn/fzf.vim')
+	" Colorschemes (at least 1 modern)
+	call packager#add('ghifarit53/tokyonight-vim')
 endfunction
