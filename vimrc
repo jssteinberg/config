@@ -1,11 +1,12 @@
 " Vim 8 vimrc boilerplate
 " =======================
 
-" Load default vimrc
+" Load Vim 8 defaults
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
 " Options
+" -------
 set clipboard=unnamed " Sync with system clioboard
 set cursorline " Cursorline for jumping around
 set hidden " Unsaved files can be 'hidden'
@@ -15,33 +16,32 @@ set number relativenumber " Relativenumber with number on cursorline
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set wildmode=lastused:full " lastused :buffer
 set wrap breakindent linebreak " Wrap inherit indent, `breakat` based linebreak
-
 " Persisten undo, mkdirs
 if !isdirectory($HOME."/.vimundo")
 	call mkdir($HOME."/.vimundo", "", 0770)
 endif
 set undofile undodir=$HOME/.vimundo
-
 " Netrw, built in explorer
 let g:netrw_preview=1 " Vertical preview
 let g:netrw_winsize=25
 
-" Keymaps vanilla
-" ---------------
+" Keymaps
+" -------
+" Better defaults
+vnoremap < <gv
+vnoremap > >gv
+nnoremap Y y$
+cnoremap <c-p> <up>
 " Set space as leader key
 nnoremap <space> <nop>
 let mapleader=' '
 " Esc
 inoremap jk <esc>
-" Y works like C or D
-nnoremap Y yg_
 " Follow definition in help (easier for some non US keyboards)
 nnoremap <leader>9 <c-]>
 " Search mappings (for their defaults, use cl and cc)
 nnoremap s /
 nnoremap S ?
-" Incrementally go back in command history
-cnoremap <c-p> <up>
 " Alternate buffer
 nnoremap <bs> :buffer#<cr>:file!<cr>
 " Buffer switcher
@@ -84,13 +84,11 @@ nnoremap <cr> :ALEHover<cr>
 
 " Colorscheme
 autocmd VimEnter * call SetColorscheme()
-" use function (nightfox in vim prefers VimEnter)
 function! SetColorscheme()
-	" use try/catch to set option if colorscheme exists
 	try
 		set termguicolors
 		colorscheme tokyonight
-		set hlsearch " Higlight search hurts your eyes with default colors
+		set hlsearch " Only use with a newer colorscheme
 	catch /^Vim\%((\a\+)\)\=:E185/
 		set notermguicolors
 		colorscheme default
@@ -100,7 +98,6 @@ endfunction
 " Statusline
 let g:skyline_fugitive = 1
 
-" Packages
 function! PackagerInit() abort
 	packadd vim-packager
 	call packager#init()
@@ -118,6 +115,6 @@ function! PackagerInit() abort
 	" Fuzzy finder
 	call packager#add('junegunn/fzf', { 'do': './install --all && ln -s $(pwd) ~/.fzf'})
 	call packager#add('junegunn/fzf.vim')
-	" Colorschemes (at least 1 modern)
+	" Colorschemes
 	call packager#add('ghifarit53/tokyonight-vim')
 endfunction
