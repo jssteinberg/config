@@ -65,9 +65,6 @@ M.insert = {
 	[M.esc_map] = { '<esc>',
 	'Esc to normal mode' },
 
-	['ZZ'] = { '<esc>:wq<cr>',
-	'Esc and write' },
-
 	['<c-e>'] = { '<c-y>,',
 	'Emmet expand', noremap=false },
 }
