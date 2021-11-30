@@ -58,9 +58,6 @@ nnoremap <leader>Q :cprev<cr>
 " Replace
 nnoremap <leader>R :%s/
 vnoremap <leader>R :%s/
-" Location-list/linting
-nnoremap <leader>ln lnext<cr>
-nnoremap <leader>lp lprev<cr>
 
 " Packages config
 " ---------------
@@ -79,17 +76,23 @@ xnoremap <leader>ff :Files<cr>
 nnoremap <leader>G :GrepperRg 
 vnoremap <leader>G y:GrepperRg -e "<c-r>""<cr>
 
+" Linting
+nnoremap gd :ALEGoToDefinition<cr>
+nnoremap <leader>lh :ALEHover<cr>
+nnoremap <leader>lr :ALEFindReferences<cr>
+nnoremap <leader>la :ALECodeAction<cr>
+let g:ale_fixers = {
+			\   '*': ['remove_trailing_lines'],
+			\}
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+"set omnifunc=ale#completion#OmniFunc
+
 " Autocompletion MUcomplete
 set completeopt+=menuone,noselect
 set shortmess+=c " Shut off completion messages
 set belloff+=ctrlg " Add only if Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
-
-" Linting
-nnoremap gd :ALEGoToDefinition<cr>
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines'],
-\}
 
 " Colorscheme
 autocmd VimEnter * call SetColorscheme()
