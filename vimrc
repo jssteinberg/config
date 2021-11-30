@@ -75,6 +75,10 @@ command! -bar PackagerStatus call PackagerInit() | call packager#status()
 nnoremap <leader>ff :Files<cr>
 xnoremap <leader>ff :Files<cr>
 
+" Grepper
+nnoremap <leader>G :GrepperRg 
+vnoremap <leader>G y:GrepperRg -e "<c-r>""<cr>
+
 " Autocompletion MUcomplete
 set completeopt+=menuone,noselect
 set shortmess+=c " Shut off completion messages
@@ -83,11 +87,9 @@ let g:mucomplete#enable_auto_at_startup = 1
 
 " Linting
 nnoremap gd :ALEGoToDefinition<cr>
-"augroup ale_config
-"	autocmd!
-"	autocmd FileType
-"augroup END
-"nnoremap <cr> :ALEHover<cr>
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines'],
+\}
 
 " Colorscheme
 autocmd VimEnter * call SetColorscheme()
@@ -102,10 +104,6 @@ function! SetColorscheme()
 	endtry
 endfunction
 
-" Grepper
-nnoremap <leader>G :GrepperRg 
-vnoremap <leader>G y:GrepperRg -e "<c-r>""<cr>
-
 " Statusline
 let g:hackline_fugitive = 1
 
@@ -117,10 +115,10 @@ function! PackagerInit() abort
 	call packager#add('editorconfig/editorconfig-vim') " Respect editorconfig
 	call packager#add('tpope/vim-surround') " Surround with brackets or quotes
 	call packager#add('subnut/visualstar.vim') " Search selection with * or #
-	call packager#add('cohama/lexima.vim')
-	call packager#add('tpope/vim-fugitive')
-	call packager#add('lifepillar/vim-mucomplete')
-	call packager#add('dense-analysis/ale')
+	call packager#add('cohama/lexima.vim') " Autocomplete brackets and quotes
+	call packager#add('tpope/vim-fugitive') " `G` command for git
+	call packager#add('lifepillar/vim-mucomplete') " Autocomplete menu
+	call packager#add('dense-analysis/ale') " Linting and LSP
 	call packager#add('mhinz/vim-grepper') " Async modern grepping
 	call packager#add('jssteinberg/hackline.vim') " Pre-configured statusline
 	" Fuzzy finder
