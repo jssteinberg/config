@@ -107,9 +107,6 @@ function! SetColorscheme()
 	endtry
 endfunction
 
-" Statusline
-let g:hackline_fugitive = 1
-
 function! PackagerInit() abort
 	packadd vim-packager
 	call packager#init()
