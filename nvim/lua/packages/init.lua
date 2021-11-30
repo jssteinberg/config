@@ -23,6 +23,7 @@ require('packer').startup(function(use)
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
 	use{'nvim-lualine/lualine.nvim'} require('packages.lualine').config()
 	-- use { 'glepnir/galaxyline.nvim', branch = 'main', config = function() require'packages.galaxyline'.config() end}
+	use{'mhinz/vim-grepper'} -- Async modern vim grepping
 
 	-- LSP & code inspection
 	use{
@@ -218,7 +219,7 @@ require('packer').startup(function(use)
 	-- ### FILE EXPLORING & SEARCHING
 
 	-- Ripgrep
-	use{'jremmen/vim-ripgrep', cmd = {'Rg'}}
+	--use{'jremmen/vim-ripgrep', cmd = {'Rg'}}
 
 	-- Visual star `*` search, or `#` backwards
 	use{'subnut/visualstar.vim', keys = {{'x','*'}, {'x','#'},}}

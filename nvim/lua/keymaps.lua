@@ -85,7 +85,7 @@ M.visual = {
 	['<leader>R'] = { ':s/',
 	'Replace', silent=false },
 
-	['<leader>G'] = { 'y:Rg <c-r>"<cr>',
+	['<leader>G'] = { 'y:GrepperRg <c-r>"<cr>',
 	'Grep selection' },
 
 
@@ -121,7 +121,7 @@ M.normal = {
 	['<leader>R'] = { ':%s/',
 	'Replace', silent=false },
 
-	['<leader>G'] = { ':Rg ',
+	['<leader>G'] = { ':GrepperRg ',
 	'Grep selection', silent=false },
 
 	['<leader>w'] = { ':write<cr>',

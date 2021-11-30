@@ -51,13 +51,16 @@ nnoremap <leader>w :w<cr>
 " Edit/explore
 nnoremap <leader>e. :edit .<cr>
 nnoremap <leader>eb :Explore<cr>
-nnoremap <leader>tb :tabedit %<cr>
+nnoremap <leader>tb :tabedit %<cr>'"
 " Quickfix
 nnoremap <leader>q :cnext<cr>
 nnoremap <leader>Q :cprev<cr>
 " Replace
 nnoremap <leader>R :%s/
 vnoremap <leader>R :%s/
+" Location-list/linting
+nnoremap <leader>ln lnext<cr>
+nnoremap <leader>lp lprev<cr>
 
 " Packages config
 " ---------------
@@ -80,7 +83,11 @@ let g:mucomplete#enable_auto_at_startup = 1
 
 " Linting
 nnoremap gd :ALEGoToDefinition<cr>
-nnoremap <cr> :ALEHover<cr>
+"augroup ale_config
+"	autocmd!
+"	autocmd FileType
+"augroup END
+"nnoremap <cr> :ALEHover<cr>
 
 " Colorscheme
 autocmd VimEnter * call SetColorscheme()
@@ -102,16 +109,16 @@ function! PackagerInit() abort
 	packadd vim-packager
 	call packager#init()
 	call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
-	call packager#add('editorconfig/editorconfig-vim')
-	call packager#add('tpope/vim-surround')
-	call packager#add('subnut/visualstar.vim')
-	"call packager#add('jremmen/vim-ripgrep')
+	call packager#add('sheerun/vim-polyglot') " More filetypes, detect indent
+	call packager#add('editorconfig/editorconfig-vim') " Respect editorconfig
+	call packager#add('tpope/vim-surround') " Surround with brackets or quotes
+	call packager#add('subnut/visualstar.vim') " Search selection with * or #
 	call packager#add('cohama/lexima.vim')
-	call packager#add('sheerun/vim-polyglot')
 	call packager#add('tpope/vim-fugitive')
 	call packager#add('jssteinberg/hackline.vim')
 	call packager#add('lifepillar/vim-mucomplete')
 	call packager#add('dense-analysis/ale')
+	call packager#add('mhinz/vim-grepper') " Async modern grepping
 	" Fuzzy finder
 	call packager#add('junegunn/fzf', { 'do': './install --all && ln -s $(pwd) ~/.fzf'})
 	call packager#add('junegunn/fzf.vim')
