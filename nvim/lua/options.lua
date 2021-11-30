@@ -1,7 +1,7 @@
 -- GLOBAL OPTIONS
 
 -- satusline options
--- vim.opt.statusline = require 'statusline'
+vim.opt.statusline = require 'statusline'
 -- enable mouse for all modes
 vim.opt.mouse = 'a'
 -- use OS clipboard
