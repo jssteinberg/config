@@ -85,7 +85,7 @@ M.visual = {
 	['<leader>R'] = { ':s/',
 	'Replace', silent=false },
 
-	['<leader>G'] = { 'y:GrepperRg <c-r>"<cr>',
+	['<leader>G'] = { 'y:GrepperRg -e "<c-r>""<cr>',
 	'Grep selection' },
 
 

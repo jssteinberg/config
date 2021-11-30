@@ -102,6 +102,10 @@ function! SetColorscheme()
 	endtry
 endfunction
 
+" Grepper
+nnoremap <leader>G :GrepperRg 
+vnoremap <leader>G y:GrepperRg -e "<c-r>""<cr>
+
 " Statusline
 let g:hackline_fugitive = 1
 
@@ -115,10 +119,10 @@ function! PackagerInit() abort
 	call packager#add('subnut/visualstar.vim') " Search selection with * or #
 	call packager#add('cohama/lexima.vim')
 	call packager#add('tpope/vim-fugitive')
-	call packager#add('jssteinberg/hackline.vim')
 	call packager#add('lifepillar/vim-mucomplete')
 	call packager#add('dense-analysis/ale')
 	call packager#add('mhinz/vim-grepper') " Async modern grepping
+	call packager#add('jssteinberg/hackline.vim') " Pre-configured statusline
 	" Fuzzy finder
 	call packager#add('junegunn/fzf', { 'do': './install --all && ln -s $(pwd) ~/.fzf'})
 	call packager#add('junegunn/fzf.vim')
