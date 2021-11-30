@@ -8,14 +8,14 @@ Requires: git ... Install with your OS package manager.
 
 1. `cd`
 2. git clone as ~/.config
-3. tmux and (not n)vim
+3. tmux and (not neo)vim
 
 	```sh
 	ln -s .config/tmux.conf .tmux.conf
 	ln -s .config/vimrc .vimrc
 	```
 
-## Recommended CLI related tools
+## Recommended terminal tools
 
 - fish---shell with modern, usable defaults (and keep an eye on nu shell)
 	- [fisher](https://github.com/jorgebucaran/fisher), fish plugin manager
@@ -27,7 +27,7 @@ Requires: git ... Install with your OS package manager.
 - [fzf](https://github.com/junegunn/fzf)
 - [np](https://github.com/sindresorhus/np) for easy NPM package publication
 
-### Usage tips
+### Tips
 
 Adding global fish config from the shell:
 
@@ -38,20 +38,21 @@ alias gs "git status"
 funcsave gs
 ```
 
-## Vim 8: simple vimrc
+## Vim > 8
 
-Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate`.
+A simple vimrc that can be used as a boilerplate and/or can be used without packages. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim > version 8 with Lua.*
 
-- Package management requires https://github.com/kristijanhusak/vim-packager
+Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate` (package management requires https://github.com/kristijanhusak/vim-packager).
+
 - Requries FZF on your system for fuzzy searching. Ripgrep on your system is optional. (See https://github.com/junegunn/fzf.vim)
-	Uses MUcomplete for autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
+- Uses MUcomplete for simple autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
 
-## Neovim
+## Neovim > 0.5
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing.
 Uncomplicated config for dummies hacking (author included).
 
-Install neovim  > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim.
+Install neovim  > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim, repeat.
 
 ### Features
 
@@ -63,15 +64,16 @@ Install neovim  > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripg
 - `jk` to leave insert, terminal and visual mode.
 - `*`/`#` (x) for searching selected text, via visualstar.vim.
 - `f`, `F`, `t`, `T` motion (repeat with `f`) across lines, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
-- `gx` (n/x mode) for opening URLs/selection in browser via [open-browser.vim](https://github.com/tyru/open-browser.vim).
-- `<leader><leader>`, `<leader>J`/`<leader>K` (n/x) for to jump to any word/line via [hop.vim](https://github.com/phaazon/hop.nvim).
-- `gcc`/`gc` (n/x), toggles comments via nvim-comments. Context aware for some filetypes.
-- `<leader><enter>`, `<leader>1`, `<leader>2`, `<leader>3` to open consistent terminals via [harpoon](https://github.com/ThePrimeagen/harpoon).
-- `<leader>h` for more harpoon options.
 
 #### Load on demand
 
 - `ga` for aligning text in normal and visual mode via Easyalign. Load with `:packadd vim-easy-align`.
+
+#### Tips
+
+Sessions:
+
+- `:mksession! ~/vim-session-name.vim`, `:so ~/vim-session-name.vim`/`nvim -S ~/vim-session-name.vim` (`<leader>ss saves session`).
 
 ### Plugins to consider
 
@@ -105,21 +107,6 @@ Neovim css autocompletion with css-lsp may depend on native non-LSP omnifunc.
 Neovim has no lsp for javascript/typescript:
 
 - If you use nvm, also install a system nodejs with your system package manager.
-
-## Tips: How I use neovim
-
-Motions:
-
-- `w`/`W`, `b`/`B`, `e`/`E`, `ge`/`gE` for motion to word, back in word, end of word, back end-of-word.
-- `f`/`F`, `t`/`T` for forward/backward on line.
-
-Change motions:
-
-- `cl` and `cc` instead of `s` and `S`. So `s` and `S` are open for speed increasing plugins.
-
-Sessions:
-
-- `:mksession! ~/vim-session-name.vim`, `:so ~/vim-session-name.vim`/`nvim -S ~/vim-session-name.vim` (`<leader>ss saves session`).
 
 [gl]: https://github.com/junegunn/gv.vim
 [gd]: https://github.com/sindrets/diffview.nvim

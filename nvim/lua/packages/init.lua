@@ -16,11 +16,14 @@ require('packer').startup(function(use)
 
 	-- General
 	use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
-	use{'folke/tokyonight.nvim'} require'packages.colors'.config() -- Colorscheme
+	use{'projekt0n/github-nvim-theme'}
+	use{'folke/tokyonight.nvim'}
+	require'packages.colors'.tokyonight_config()
+	-- require'packages.colors'.github_theme_config()
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-	-- use{'andymass/vim-matchup'} -- Highlights, navigates, operates on code matching sets
 	use{'nvim-lualine/lualine.nvim'} require('packages.lualine').config()
 	-- use { 'glepnir/galaxyline.nvim', branch = 'main', config = function() require'packages.galaxyline'.config() end}
+	use{'mhinz/vim-grepper'} -- Async modern vim grepping
 
 	-- LSP & code inspection
 	use{
@@ -78,7 +81,15 @@ require('packer').startup(function(use)
 	use{'editorconfig/editorconfig-vim', event='VimEnter *', after = 'vim-sleuth'} -- Respect .editorconfig
 
 	use{'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, event = 'VimEnter *', config = function ()
-		require('gitsigns').setup()
+		require('gitsigns').setup{
+			keymaps = {
+				noremap = false,
+				['n <leader>gi'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
+			}
+		}
+		require'which-key'.register({
+			['<leader>gi'] = {'Info'}
+		})
 	end}
 
 	-- `gx` opens URI or search visual selection in browser
@@ -156,6 +167,7 @@ require('packer').startup(function(use)
 
 	-- ### EDITING
 
+	use{'lambdalisue/fern.vim', cmd = 'Fern'}
 	use{'cohama/lexima.vim', event = 'InsertEnter *'} -- close parentheses and quotes
 	-- use{'alvan/vim-closetag', event = 'InsertEnter *'} -- close
 
@@ -207,7 +219,7 @@ require('packer').startup(function(use)
 	-- ### FILE EXPLORING & SEARCHING
 
 	-- Ripgrep
-	use{'jremmen/vim-ripgrep', cmd = {'Rg'}}
+	--use{'jremmen/vim-ripgrep', cmd = {'Rg'}}
 
 	-- Visual star `*` search, or `#` backwards
 	use{'subnut/visualstar.vim', keys = {{'x','*'}, {'x','#'},}}
@@ -230,12 +242,6 @@ require('packer').startup(function(use)
 	}
 
 	-- ### MOTIONS
-
-	-- Better f, F, t, T motion, repeatable with f/F
-	use{'rhysd/clever-f.vim', keys ={
-		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
-		{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
-	}}
 
 	-- 'Easy' motions
 	use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine'}, config = function()
