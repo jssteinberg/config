@@ -21,8 +21,6 @@ require('packer').startup(function(use)
 	require'packages.colors'.tokyonight_config()
 	-- require'packages.colors'.github_theme_config()
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-	-- use{'nvim-lualine/lualine.nvim'} require('packages.lualine').config()
-	-- use { 'glepnir/galaxyline.nvim', branch = 'main', config = function() require'packages.galaxyline'.config() end}
 	use{'mhinz/vim-grepper'} -- Async modern vim grepping
 	use{'jssteinberg/hackline.vim'}
 
