@@ -32,6 +32,7 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap Y y$
 cnoremap <c-p> <up>
+nnoremap <c-l> <c-l>:nohlsearch<cr>
 " Set space as leader key
 nnoremap <space> <nop>
 let mapleader=' '
