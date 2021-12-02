@@ -129,4 +129,10 @@ function! PackagerInit() abort
 	call packager#add('junegunn/fzf.vim')
 	" Colorschemes
 	call packager#add('ghifarit53/tokyonight-vim')
+	"call packager#add('sonph/onehalf', {'rtp': 'vim/'})
+	"call packager#add('itchyny/landscape.vim')
+	"call packager#add('ackyshake/Spacegray.vim')
+	"call packager#add('rakr/vim-one')
+	"call packager#add('mhartington/oceanic-next')
+	"call packager#add('cocopon/iceberg.vim')
 endfunction
