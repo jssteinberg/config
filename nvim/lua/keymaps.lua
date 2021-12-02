@@ -432,7 +432,7 @@ M.normal = {
 
 M.normal_lsp_buffer_keymaps = function (bufnr)
 	return {
-		['<cr>'] = { '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>',
+		['<cr>'] = { '<cmd>lua vim.diagnostic.open_float()<cr>',
 		'Show flag diagnostics', buffer = bufnr },
 
 		K = { '<cmd>lua vim.lsp.buf.hover()<cr>',
@@ -470,13 +470,13 @@ M.normal_lsp_buffer_keymaps = function (bufnr)
 			-- i = { '<cmd>lua vim.lsp.buf.implementation()<cr>',
 			-- 'Implementation', buffer = bufnr },
 
-			l = { '<cmd>lua vim.lsp.buf.show_line_diagnostics()<cr>',
+			l = { '<cmd>lua vim.diagnostics.open_float()<cr>',
 			'Line diagnostics info (for flag)', buffer = bufnr },
 
-			n = { '<cmd>lua vim.lsp.diagnostics.goto_next()<cr>',
+			n = { '<cmd>lua vim.diagnostics.goto_next()<cr>',
 			'Next flag', buffer = bufnr },
 
-			p = { '<cmd>lua vim.lsp.diagnostics.goto_prev()<cr>',
+			p = { '<cmd>lua vim.diagnostics.goto_prev()<cr>',
 			'Previous flag', buffer = bufnr },
 
 			r = { '<cmd>lua vim.lsp.buf.references()<cr>',
