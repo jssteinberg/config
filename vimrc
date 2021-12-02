@@ -87,7 +87,7 @@ let g:ale_fixers = {
 			\}
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-"set omnifunc=ale#completion#OmniFunc
+set signcolumn=yes " Show signcolumn for no layout shifts
 
 " Autocompletion MUcomplete
 set completeopt+=menuone,noselect
