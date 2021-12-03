@@ -100,11 +100,10 @@ let g:mucomplete#enable_auto_at_startup = 1
 autocmd VimEnter * call SetColorscheme()
 function! SetColorscheme()
 	try
-		set termguicolors
+		set termguicolors hlsearch " Only with newer colorscheme
 		colorscheme tokyonight
-		set hlsearch " Only use with a newer colorscheme
 	catch /^Vim\%((\a\+)\)\=:E185/
-		set notermguicolors
+		set notermguicolors nohlsearch
 		colorscheme default
 	endtry
 endfunction
