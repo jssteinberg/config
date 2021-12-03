@@ -338,9 +338,6 @@ M.normal = {
 
 		c = { ':ColorizerToggle<cr>',
 		'Colorize' },
-
-		s = { ':nohlsearch<cr>',
-		'Search' },
 	},
 
 
