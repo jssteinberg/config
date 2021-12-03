@@ -52,6 +52,7 @@ nnoremap <leader>w :w<cr>
 " Edit/explore
 nnoremap <leader>e. :edit .<cr>
 nnoremap <leader>eb :Explore<cr>
+nnoremap <leader>et :let g:netrw_liststyle=3<cr>:Lexplore<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
 " Quickfix
 nnoremap <leader>q :cnext<cr>
