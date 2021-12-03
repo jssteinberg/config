@@ -38,6 +38,7 @@ nnoremap <space> <nop>
 let mapleader=' '
 " Esc
 inoremap jk <esc>
+tnoremap jk <c-w>N
 " Follow definition in help (easier for some non US keyboards)
 nnoremap <leader>9 <c-]>
 " Search mappings (for their defaults, use cl and cc)
