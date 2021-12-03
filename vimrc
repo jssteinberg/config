@@ -31,17 +31,17 @@ let g:netrw_winsize=25
 vnoremap < <gv
 vnoremap > >gv
 nnoremap Y y$
-cnoremap <c-p> <up>
 nnoremap <c-l> <c-l>:nohlsearch<cr>
+cnoremap <c-p> <up>
 " Set space as leader key
 nnoremap <space> <nop>
 let mapleader=' '
-" Esc
+" Esc [normal, terminal]
 inoremap jk <esc>
 tnoremap jk <c-w>N
 " Follow definition in help (easier for some non US keyboards)
 nnoremap <leader>9 <c-]>
-" Search mappings (for their defaults, use cl and cc)
+" Search mappings (for their defaults, use cl and cc) [search, backwards]
 nnoremap s /
 nnoremap S ?
 " Alternate buffer
@@ -50,15 +50,15 @@ nnoremap <bs> :buffer#<cr>:file!<cr>
 nnoremap <leader><tab> :buffer 
 " Write/save file
 nnoremap <leader>w :w<cr>
-" Edit/explore
-nnoremap <leader>e. :edit .<cr>
-nnoremap <leader>eb :Explore<cr>
-nnoremap <leader>et :let g:netrw_liststyle=3<cr>:Lexplore<cr>
+" Edit/explore [explore cwd, explore buffer dir, project drawer, buffer in new tab]
+nnoremap <leader>e. :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit .<cr>
+nnoremap <leader>eb :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:Explore<cr>
+nnoremap <leader>et :let g:netrw_banner=0<cr>:let g:netrw_liststyle=3<cr>:Lexplore<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
-" Quickfix
+" Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
 nnoremap <leader>Q :cprev<cr>
-" Replace
+" Replace [normal, visual]
 nnoremap <leader>R :%s/
 vnoremap <leader>R :%s/
 
