@@ -40,11 +40,10 @@ funcsave gs
 
 ## Vim > 8
 
-A simple vimrc that can be used as a boilerplate and/or can be used without packages. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim > version 8 with Lua.*
+A simple vimrc that can be used as a boilerplate and/or can be used without packages. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim > version 8 +lua.*
 
 Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate` (package management requires https://github.com/kristijanhusak/vim-packager).
 
-- Requries FZF on your system for fuzzy searching. Ripgrep on your system is optional. (See https://github.com/junegunn/fzf.vim)
 - Uses MUcomplete for simple autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
 
 ## Neovim > 0.5
