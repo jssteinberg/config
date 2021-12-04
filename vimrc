@@ -39,8 +39,6 @@ let mapleader=' '
 " Esc [normal, terminal]
 inoremap jk <esc>
 tnoremap jk <c-w>N
-" Follow definition in help (easier for some non US keyboards)
-nnoremap <leader>L <c-]>
 " Search mappings (for their defaults, use cl and cc) [search, backwards]
 nnoremap s /
 nnoremap S ?

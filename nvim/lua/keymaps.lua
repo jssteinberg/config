@@ -30,10 +30,7 @@ M.init = function()
 	-- open terminal in insert
 	vim.api.nvim_set_keymap('n', '<leader>T', ':terminal<cr>i', {noremap = true})
 
-	-- Jump
-	-- jump to definition (default stinks for many non-US keyboard layouts)
-	vim.api.nvim_set_keymap('n', '<leader>L', '<c-]>', {noremap = true})
-	-- search
+	-- Search
 	vim.api.nvim_set_keymap('n', 's', '/', {noremap = true})
 	vim.api.nvim_set_keymap('n', 'S', '?', {noremap = true})
 	-- next search result and center on screen
@@ -129,9 +126,6 @@ M.normal = {
 
 
 	-- Jumps/motions
-
-	['<leader>L'] = { '<c-]>',
-	'Jump to definition' },
 
 	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
