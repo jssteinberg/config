@@ -458,6 +458,9 @@ M.normal_lsp_buffer_keymaps = function (bufnr)
 			a = { ':Telescope lsp_code_actions theme=get_cursor<cr>',
 			'Action', buffer = bufnr },
 
+			c = { '<cmd>lua vim.diagnostics.open_float()<cr>',
+			'Check line diagnostics', buffer = bufnr },
+
 			D = { '<cmd>lua vim.lsp.buf.declaration()<cr>',
 			'Declaration', buffer = bufnr },
 
@@ -470,8 +473,8 @@ M.normal_lsp_buffer_keymaps = function (bufnr)
 			-- i = { '<cmd>lua vim.lsp.buf.implementation()<cr>',
 			-- 'Implementation', buffer = bufnr },
 
-			l = { '<cmd>lua vim.diagnostics.open_float()<cr>',
-			'Line diagnostics info (for flag)', buffer = bufnr },
+			l = { '<cmd>lua vim.diagnostics.set_loclist()<cr>',
+			'Location list diagnostics', buffer = bufnr },
 
 			n = { '<cmd>lua vim.diagnostics.goto_next()<cr>',
 			'Next flag', buffer = bufnr },
