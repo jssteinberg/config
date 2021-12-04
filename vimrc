@@ -85,9 +85,7 @@ nnoremap <leader>la :ALECodeAction<cr>
 let g:ale_fixers = {
 			\   '*': ['remove_trailing_lines'],
 			\}
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-set signcolumn=yes " Show signcolumn for no layout shifts
+let g:ale_set_loclist = 0 | let g:ale_set_quickfix = 1
 
 " Autocompletion MUcomplete
 set completeopt+=menuone,noselect
