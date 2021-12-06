@@ -20,7 +20,6 @@ require('packer').startup(function(use)
 	use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config()
 	-- require'packages.colors'.github_theme_config()
 	use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-	use{'mhinz/vim-grepper'} -- Async modern vim grepping
 	use{'jssteinberg/hackline.vim'}
 
 	-- LSP & code inspection
@@ -217,7 +216,7 @@ require('packer').startup(function(use)
 	-- ### FILE EXPLORING & SEARCHING
 
 	-- Ripgrep
-	--use{'jremmen/vim-ripgrep', cmd = {'Rg'}}
+	use{'jremmen/vim-ripgrep', cmd = {'Rg', 'RgRoot'}}
 
 	-- Visual star `*` search, or `#` backwards
 	use{'subnut/visualstar.vim', keys = {{'x','*'}, {'x','#'},}}
