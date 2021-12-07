@@ -32,10 +32,7 @@ M.init = function()
 
 	-- Jump
 	-- jump to definition (default stinks for many non-US keyboard layouts)
-	vim.api.nvim_set_keymap('n', '<leader>9', '<c-]>', {noremap = true})
-	-- add c-i, c-o for consistency
-	vim.api.nvim_set_keymap('n', '<leader>o', '<c-o>', {noremap = true})
-	vim.api.nvim_set_keymap('n', '<leader>i', '<c-i>', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<leader>L', '<c-]>', {noremap = true})
 	-- search
 	vim.api.nvim_set_keymap('n', 's', '/', {noremap = true})
 	vim.api.nvim_set_keymap('n', 'S', '?', {noremap = true})
@@ -133,14 +130,8 @@ M.normal = {
 
 	-- Jumps/motions
 
-	['<leader>9'] = { '<c-]>',
-	'Jump to definition' },
-
-	['<leader>o'] = { '<c-o>',
-	'Go back in jump list' },
-
-	['<leader>i'] = { '<c-i>',
-	'Go forward in jump list' },
+	['<leader>L'] = { '<c-]>',
+	'Go to help definition' },
 
 	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
