@@ -70,8 +70,9 @@ command! -bar PackagerClean call PackagerInit() | call packager#clean()
 command! -bar PackagerStatus call PackagerInit() | call packager#status()
 
 " FZF Fuzzy finder
+command! -bang -nargs=? -complete=dir Files
+			\ call fzf#run(fzf#wrap('files', fzf#vim#with_preview({'dir': <q-args>, 'sink': 'e', 'source': 'rg --files --hidden'}), <bang>0))<cr>
 nnoremap <leader>ff :Files<cr>
-xnoremap <leader>ff :Files<cr>
 
 " Grepper
 nnoremap <leader>G :GrepperRg -e 
