@@ -30,10 +30,6 @@ M.init = function()
 	-- open terminal in insert
 	vim.api.nvim_set_keymap('n', '<leader>T', ':terminal<cr>i', {noremap = true})
 
-	-- Jump
-	-- jump to definition (default stinks for many non-US keyboard layouts)
-	vim.api.nvim_set_keymap('n', '<leader>L', '<c-]>', {noremap = true})
-	-- search
 	vim.api.nvim_set_keymap('n', 's', '/', {noremap = true})
 	vim.api.nvim_set_keymap('n', 'S', '?', {noremap = true})
 	-- next search result and center on screen
@@ -79,7 +75,7 @@ M.visual = {
 	['<leader>R'] = { ':s/',
 	'Replace', silent=false },
 
-	['<leader>G'] = { 'y:GrepperRg -e "<c-r>""<cr>',
+	['<leader>G'] = { 'y:Rg -e "<c-r>""<cr>',
 	'Grep selection' },
 
 
@@ -115,7 +111,7 @@ M.normal = {
 	['<leader>R'] = { ':%s/',
 	'Replace', silent=false },
 
-	['<leader>G'] = { ':GrepperRg ',
+	['<leader>G'] = { ':Rg -e ',
 	'Grep selection', silent=false },
 
 	['<leader>w'] = { ':write<cr>',
@@ -130,9 +126,12 @@ M.normal = {
 
 	-- Jumps/motions
 
+<<<<<<< HEAD
 	['<leader>L'] = { '<c-]>',
 	'Go to help definition' },
 
+=======
+>>>>>>> 61803c1119646dd3a98ad4090246b7affee870f6
 	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
 
@@ -446,6 +445,9 @@ M.normal_lsp_buffer_keymaps = function (bufnr)
 			a = { ':Telescope lsp_code_actions theme=get_cursor<cr>',
 			'Action', buffer = bufnr },
 
+			c = { '<cmd>lua vim.diagnostics.open_float()<cr>',
+			'Check line diagnostics', buffer = bufnr },
+
 			D = { '<cmd>lua vim.lsp.buf.declaration()<cr>',
 			'Declaration', buffer = bufnr },
 
@@ -458,8 +460,8 @@ M.normal_lsp_buffer_keymaps = function (bufnr)
 			-- i = { '<cmd>lua vim.lsp.buf.implementation()<cr>',
 			-- 'Implementation', buffer = bufnr },
 
-			l = { '<cmd>lua vim.diagnostics.open_float()<cr>',
-			'Line diagnostics info (for flag)', buffer = bufnr },
+			l = { '<cmd>lua vim.diagnostics.set_loclist()<cr>',
+			'Location list diagnostics', buffer = bufnr },
 
 			n = { '<cmd>lua vim.diagnostics.goto_next()<cr>',
 			'Next flag', buffer = bufnr },

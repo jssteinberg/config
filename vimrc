@@ -39,8 +39,6 @@ let mapleader=' '
 " Esc [normal, terminal]
 inoremap jk <esc>
 tnoremap jk <c-w>N
-" Follow definition in help (easier for some non US keyboards)
-nnoremap <leader>L <c-]>
 " Search mappings (for their defaults, use cl and cc) [search, backwards]
 nnoremap s /
 nnoremap S ?
@@ -87,9 +85,7 @@ nnoremap <leader>la :ALECodeAction<cr>
 let g:ale_fixers = {
 			\   '*': ['remove_trailing_lines'],
 			\}
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-set signcolumn=yes " Show signcolumn for no layout shifts
+let g:ale_set_loclist = 0 | let g:ale_set_quickfix = 1
 
 " Autocompletion MUcomplete
 set completeopt+=menuone,noselect
@@ -101,7 +97,8 @@ let g:mucomplete#enable_auto_at_startup = 1
 autocmd VimEnter * call SetColorscheme()
 function! SetColorscheme()
 	try
-		set termguicolors hlsearch " Only with newer colorscheme
+		" Some settings only with newer colorscheme
+		set termguicolors hlsearch
 		colorscheme tokyonight
 	catch /^Vim\%((\a\+)\)\=:E185/
 		set notermguicolors nohlsearch
@@ -128,10 +125,10 @@ function! PackagerInit() abort
 	call packager#add('junegunn/fzf.vim')
 	" Colorschemes
 	call packager#add('ghifarit53/tokyonight-vim')
-	"call packager#add('sonph/onehalf', {'rtp': 'vim/'})
+	call packager#add('sonph/onehalf', {'rtp': 'vim/'})
 	"call packager#add('itchyny/landscape.vim')
 	"call packager#add('ackyshake/Spacegray.vim')
 	"call packager#add('rakr/vim-one')
 	"call packager#add('mhartington/oceanic-next')
-	"call packager#add('cocopon/iceberg.vim')
+	call packager#add('cocopon/iceberg.vim')
 endfunction

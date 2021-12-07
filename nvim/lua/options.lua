@@ -46,7 +46,6 @@ vim.opt.list = true
 vim.opt.signcolumn = 'yes'
 -- cursorline and column by default
 vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
 -- fold on indent
 vim.opt.foldmethod = 'indent'
 vim.opt.foldenable = false
