@@ -40,7 +40,7 @@ funcsave gs
 
 ## Vim > 8
 
-A simple vimrc that can be used as a boilerplate and/or can be used without packages. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim > version 8 +lua.*
+A simple vimrc that can be used as a boilerplate and works without packages (plugins). It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim > version 8 +lua.*
 
 Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate` (package management requires https://github.com/kristijanhusak/vim-packager).
 
