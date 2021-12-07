@@ -95,6 +95,12 @@ Sessions:
 
 ## Troubleshooting
 
+UTF-8 fish, tmux, neovim LANG, LC_ALL error. Try adding this to your `~/.config/fish/config.fish`:
+
+```sh
+set -gx  LC_ALL en_US.UTF-8
+```
+
 Neovim packer errors on launch:
 
 1. `nvim ~/.config/nvim/lua/packages/init.lua`
