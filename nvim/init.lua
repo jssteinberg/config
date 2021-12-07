@@ -9,3 +9,6 @@ require'keymaps'.init()
 require'packages.netrw'.config()
 -- External packages
 require'packages'
+--require('packer').startup(function(use)
+--	use{'wbthomason/packer.nvim'}
+--end)

@@ -24,6 +24,11 @@ set undofile undodir=$HOME/.vimundo
 " Netrw, built in explorer
 let g:netrw_preview=1 " Vertical preview
 let g:netrw_winsize=25
+" Ripgrep
+if executable("rg")
+	set grepprg=rg\ --vimgrep\ --no-heading
+	set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
 
 " Keymaps
 " -------
@@ -43,9 +48,9 @@ tnoremap jk <c-w>N
 nnoremap s /
 nnoremap S ?
 " Alternate buffer
-nnoremap <leader><tab> :buffer#<cr>:file!<cr>
+nnoremap <bs> :buffer#<cr>:file!<cr>
 " Buffer switcher
-nnoremap <tab> :buffer 
+nnoremap <leader><tab> :buffer 
 " Write/save file
 nnoremap <leader>w :w<cr>
 " Edit/explore [explore cwd, explore buffer dir, project drawer, buffer in new tab]
@@ -59,6 +64,9 @@ nnoremap <leader>Q :cprev<cr>
 " Replace [normal, visual]
 nnoremap <leader>R :%s/
 vnoremap <leader>R :%s/
+" Grep
+nnoremap <leader>G :silent grep 
+"vnoremap <leader>G y:GrepperRg -e "<c-r>""<cr>
 
 " Packages config
 " ---------------
@@ -70,13 +78,8 @@ command! -bar PackagerClean call PackagerInit() | call packager#clean()
 command! -bar PackagerStatus call PackagerInit() | call packager#status()
 
 " FZF Fuzzy finder
-command! -bang -nargs=? -complete=dir Files
-			\ call fzf#run(fzf#wrap('files', fzf#vim#with_preview({'dir': <q-args>, 'sink': 'e', 'source': 'rg --files --hidden'}), <bang>0))<cr>
 nnoremap <leader>ff :Files<cr>
-
-" Grepper
-nnoremap <leader>G :GrepperRg -e 
-vnoremap <leader>G y:GrepperRg -e "<c-r>""<cr>
+nnoremap <leader>gf :GitFiles<cr>
 
 " Linting
 nnoremap gd :ALEGoToDefinition<cr>
@@ -99,11 +102,9 @@ autocmd VimEnter * call SetColorscheme()
 function! SetColorscheme()
 	try
 		" Some settings only with newer colorscheme
-		set termguicolors hlsearch
-		colorscheme tokyonight
+		set termguicolors hlsearch | colorscheme tokyonight
 	catch /^Vim\%((\a\+)\)\=:E185/
-		set notermguicolors nohlsearch
-		colorscheme default
+		set notermguicolors nohlsearch | colorscheme default
 	endtry
 endfunction
 
@@ -119,7 +120,7 @@ function! PackagerInit() abort
 	call packager#add('tpope/vim-fugitive') " `G` command for git
 	call packager#add('lifepillar/vim-mucomplete') " Autocomplete menu
 	call packager#add('dense-analysis/ale') " Linting and LSP
-	call packager#add('mhinz/vim-grepper') " Async modern grepping
+	"call packager#add('mhinz/vim-grepper') " Async modern grepping
 	call packager#add('jssteinberg/hackline.vim') " Pre-configured statusline
 	" Fuzzy finder
 	call packager#add('junegunn/fzf', { 'do': './install --all && ln -s $(pwd) ~/.fzf'})

@@ -8,7 +8,7 @@
 local M = {}
 
 M.esc_map = 'jk'
-M.buffer_alternate_map = '<leader><tab>'
+M.buffer_alternate_map = '<bs>'
 
 M.set_leader = function()
 	-- space as <leader>
@@ -147,7 +147,7 @@ M.normal = {
 	[M.buffer_alternate_map] = { '<cmd>buffer#<cr>:file!<cr>',
 	'Alternate' },
 
-	['<tab>'] = { ':buffer ',
+	['<leader><tab>'] = { ':buffer ',
 	':buffer ', silent = false},
 
 	-- Colors
