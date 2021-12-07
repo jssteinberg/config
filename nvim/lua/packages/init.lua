@@ -116,12 +116,12 @@ use{'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, event = 'Vi
 	require('gitsigns').setup{
 		keymaps = {
 			noremap = false,
-			['n <leader>gi'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
+			['n <leader>gb'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
 		}
 	}
-	require'which-key'.register({
-		['<leader>gi'] = {'Info'}
-	})
+	-- require'which-key'.register({
+	-- 	['<leader>gi'] = {'Info'}
+	-- })
 end}
 
 -- `gx` opens URI or search visual selection in browser
@@ -190,8 +190,6 @@ use{'sindrets/diffview.nvim', cmd = {'DiffviewOpen'}, config = function()
 		use_icons = false
 	}}
 end}
--- git blame
-use{'f-person/git-blame.nvim', cmd = 'GitBlameToggle'}
 -- neogit
 use{'TimUntersberger/neogit', cmd = 'Neogit', requires = {'nvim-lua/plenary.nvim'}, config = function ()
 	require('neogit').setup{}

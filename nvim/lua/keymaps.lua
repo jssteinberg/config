@@ -174,19 +174,19 @@ M.normal = {
 	['<leader>e'] = { name =
 		'edit/explore',
 
-		['.'] = { ':edit .<cr>',
+		['.'] = { ':let g:netrw_liststyle=0<cr>:edit .<cr>',
 		'Working directory' },
 
 		c = { ':tabedit ~/.config/README.md | tcd ~/.config<cr>',
 		'Config directory' },
 
-		b = { ':Explore<cr>',
+		b = { ':let g:netrw_liststyle=0<cr>:Explore<cr>',
 		'Buffer directory' },
 
 		i = { ':IndentOMatic<cr>',
 		'Indent style', silent=false },
 
-		t = { ':lua require"packages.netrw".open_project_drawer()<cr>',
+		t = { ':let g:netrw_liststyle=3<cr>:Lexplore<cr>',
 		'Tree explorer' },
 
 		w = { ':edit **/',
@@ -240,7 +240,7 @@ M.normal = {
 	['<leader>g'] = { name =
 		'git',
 
-		b = { ':GitBlameToggle<cr>',
+		b = {
 		'Blame' },
 
 		c = { name =
