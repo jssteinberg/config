@@ -43,9 +43,9 @@ tnoremap jk <c-w>N
 nnoremap s /
 nnoremap S ?
 " Alternate buffer
-nnoremap <bs> :buffer#<cr>:file!<cr>
+nnoremap <leader><tab> :buffer#<cr>:file!<cr>
 " Buffer switcher
-nnoremap <leader><tab> :buffer 
+nnoremap <tab> :buffer 
 " Write/save file
 nnoremap <leader>w :w<cr>
 " Edit/explore [explore cwd, explore buffer dir, project drawer, buffer in new tab]
@@ -74,7 +74,7 @@ nnoremap <leader>ff :Files<cr>
 xnoremap <leader>ff :Files<cr>
 
 " Grepper
-nnoremap <leader>G :GrepperRg 
+nnoremap <leader>G :GrepperRg -e 
 vnoremap <leader>G y:GrepperRg -e "<c-r>""<cr>
 
 " Linting
@@ -126,9 +126,6 @@ function! PackagerInit() abort
 	" Colorschemes
 	call packager#add('ghifarit53/tokyonight-vim')
 	call packager#add('sonph/onehalf', {'rtp': 'vim/'})
-	"call packager#add('itchyny/landscape.vim')
-	"call packager#add('ackyshake/Spacegray.vim')
-	"call packager#add('rakr/vim-one')
-	"call packager#add('mhartington/oceanic-next')
+	call packager#add('ackyshake/Spacegray.vim')
 	call packager#add('cocopon/iceberg.vim')
 endfunction

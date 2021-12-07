@@ -8,7 +8,7 @@
 local M = {}
 
 M.esc_map = 'jk'
-M.buffer_alternate_map = '<bs>'
+M.buffer_alternate_map = '<leader><tab>'
 
 M.set_leader = function()
 	-- space as <leader>
@@ -126,12 +126,6 @@ M.normal = {
 
 	-- Jumps/motions
 
-<<<<<<< HEAD
-	['<leader>L'] = { '<c-]>',
-	'Go to help definition' },
-
-=======
->>>>>>> 61803c1119646dd3a98ad4090246b7affee870f6
 	['<leader><space>'] = { '<cmd>HopWord<cr>',
 	'Hop to word' },
 
@@ -153,7 +147,7 @@ M.normal = {
 	[M.buffer_alternate_map] = { '<cmd>buffer#<cr>:file!<cr>',
 	'Alternate' },
 
-	['<leader><tab>'] = { ':buffer ',
+	['<tab>'] = { ':buffer ',
 	':buffer ', silent = false},
 
 	-- Colors
