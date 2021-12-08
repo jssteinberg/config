@@ -86,7 +86,7 @@ nnoremap <leader>fs :Clap grep<cr>
 nnoremap <leader>gf :Clap gfiles<cr>
 
 " Ripgrep
-nnoremap <leader>G :Rg -e 
+nnoremap <leader>G :Rg 
 vnoremap <leader>G y:Rg -e "<c-r>""<cr>
 
 " Linting

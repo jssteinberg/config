@@ -111,7 +111,7 @@ M.normal = {
 	['<leader>R'] = { ':%s/',
 	'Replace', silent=false },
 
-	['<leader>G'] = { ':Rg -e ',
+	['<leader>G'] = { ':Rg ',
 	'Grep selection', silent=false },
 
 	['<leader>w'] = { ':write<cr>',
