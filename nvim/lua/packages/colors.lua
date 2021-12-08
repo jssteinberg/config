@@ -1,9 +1,5 @@
 local M = {}
 
-M.github_theme_config = function ()
-	require('github-theme').setup()
-end
-
 -- @param {string} bg - e.g. 'day'
 M.tokyonight_config = function(bg)
 	if not bg or bg == 'dark' then
