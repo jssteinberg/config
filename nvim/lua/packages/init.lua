@@ -197,6 +197,12 @@ end}
 -- ### EDITING
 
 use{'lambdalisue/fern.vim', cmd = 'Fern'}
+vim.cmd([[
+augroup fern-custom
+	autocmd! *
+	autocmd FileType fern setlocal nonumber norelativenumber signcolumn=no
+augroup END
+]])
 use{'cohama/lexima.vim', event = 'InsertEnter *'} -- close parentheses and quotes
 -- use{'alvan/vim-closetag', event = 'InsertEnter *'} -- close
 
