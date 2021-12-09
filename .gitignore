@@ -8,6 +8,7 @@
 !alacritty/*
 !nvim/
 !nvim/*
+!nvim/after/*
 !nvim/after/ftplugin/*
 !nvim/lua/*
 !nvim/lua/packages/*
