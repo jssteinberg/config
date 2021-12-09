@@ -24,11 +24,11 @@ M.config = function()
 
 	-- Handler that's called for all installed servers
 	lsp_installer.on_server_ready(function(server)
-		-- if server.name == 'cssls' then
-		-- 	server:setup({ on_attach = on_attach_css })
-		-- else
+		if server.name == 'cssls' then
+			server:setup({ on_attach = on_attach_css })
+		else
 			server:setup({ on_attach = on_attach_general })
-		-- end
+		end
 
 		vim.cmd [[ do User LspAttachBuffers ]]
 	end)
