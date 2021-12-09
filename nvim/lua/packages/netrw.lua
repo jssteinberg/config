@@ -11,7 +11,7 @@ M.config = function ()
 	-- Preview in vertical split
 	vim.api.nvim_set_var('netrw_preview', 1)
 	-- Vertical explore to right
-	vim.api.nvim_set_var('netrw_altv', 1)
+	-- vim.api.nvim_set_var('netrw_altv', 1)
 	-- Hide some files
 	vim.api.nvim_set_var('netrw_list_hide', '.*.DS_Store$')
 end
