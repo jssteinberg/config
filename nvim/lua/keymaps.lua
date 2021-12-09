@@ -174,19 +174,19 @@ M.normal = {
 	['<leader>e'] = { name =
 		'edit/explore',
 
-		['.'] = { ':let g:netrw_liststyle=0<cr>:edit .<cr>',
+		['.'] = { '<cmd>edit .<cr>',
 		'Working directory' },
 
 		c = { ':tabedit ~/.config/README.md | tcd ~/.config<cr>',
 		'Config directory' },
 
-		b = { ':let g:netrw_liststyle=0<cr>:Explore<cr>',
+		b = { '<cmd>Explore<cr>',
 		'Buffer directory' },
 
 		i = { ':IndentOMatic<cr>',
 		'Indent style', silent=false },
 
-		t = { ':let g:netrw_liststyle=3<cr>:Lexplore<cr>',
+		t = { '<cmd>Fern . -drawer -reveal=% -toggle<cr>',
 		'Tree explorer' },
 
 		w = { ':edit **/',
