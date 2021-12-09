@@ -45,6 +45,7 @@ A simple vimrc that can be used as a boilerplate and works without packages (plu
 Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate` (package management requires https://github.com/kristijanhusak/vim-packager).
 
 - Uses MUcomplete for simple autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
+- Uses ALE for linting. Alternatives: https://github.com/mattn/vim-lsp-settings
 
 ## Neovim > 0.5
 
