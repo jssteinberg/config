@@ -54,7 +54,7 @@ use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings 
 use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config()
 -- require'packages.colors'.github_theme_config()
 use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-use{'jssteinberg/hackline.vim'}
+use{'jssteinberg/hackline.vim', requires = {'itchyny/vim-gitbranch'}}
 
 -- LSP & code inspection
 use{
