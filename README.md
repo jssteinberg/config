@@ -47,12 +47,12 @@ Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdat
 - Uses MUcomplete for simple autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
 - Uses ALE for linting. Alternatives: https://github.com/mattn/vim-lsp-settings
 
-## Neovim > 0.5
+## Neovim > 0.6
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing.
 Uncomplicated config for dummies hacking (author included).
 
-Install neovim  > 0.5, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim, repeat.
+Install neovim  > 0.6, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim, repeat.
 
 ### Features
 

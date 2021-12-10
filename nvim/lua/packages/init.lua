@@ -23,10 +23,10 @@ use{'jssteinberg/hackline.vim', requires = {'itchyny/vim-gitbranch'}}
 
 -- LSP & code inspection
 use{
-	'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
+	'neovim/nvim-lspconfig',
 	requires = {
-		'williamboman/nvim-lsp-installer', -- `:LspInstall <language>` command
-		'ray-x/lsp_signature.nvim', -- Show function signature when you type
+		'williamboman/nvim-lsp-installer', -- `:LspInstall` commands
+		'ray-x/lsp_signature.nvim', -- Function helper while typing
 	},
 	config = function() require'packages.lsp'.config() end
 }
@@ -63,7 +63,6 @@ use{
 		'L3MON4D3/LuaSnip',         -- Snippets plugin
 		'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
 	},
-	---@diagnostic disable-next-line: different-requires
 	config = function() require'packages.cmp'.config() end
 }
 
@@ -87,7 +86,7 @@ use{'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, event = 'Vi
 	}
 end}
 
--- `gx` opens URI or search visual selection in browser
+-- `gx` open url or duckduckgo selection
 use{'tyru/open-browser.vim', event = 'VimEnter *', config = function()
 	require'packages.openbrowser'.config()
 end}
