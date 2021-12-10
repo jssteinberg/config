@@ -253,9 +253,6 @@ M.normal = {
 			'Current buffer' },
 		},
 
-		d = { ':DiffviewOpen<cr>',
-		'Diff view' },
-
 		f = { name =
 			'find',
 
@@ -275,8 +272,12 @@ M.normal = {
 		l = { ':Git | GV<cr>',
 		'Log' },
 
-		p = { ':Git push<cr>',
-		'Push' },
+		n = {
+		'Next hunk' },
+
+		p = {
+		'Previous hunk' },
+
 	},
 
 
@@ -425,8 +426,8 @@ M.normal_lsp_buffer_keymaps = function (bufnr)
 		['gd'] = { '<cmd>lua vim.lsp.buf.definition()<cr>',
 		'Definition (LSP)', buffer = bufnr },
 
-		['gi'] = { '<cmd>lua vim.lsp.buf.implementation()<cr>',
-		'Implementation (LSP)', buffer = bufnr },
+		-- ['gi'] = { '<cmd>lua vim.lsp.buf.implementation()<cr>',
+		-- 'Implementation (LSP)', buffer = bufnr },
 
 		['gr'] = { '<cmd>lua vim.lsp.buf.references()<cr>',
 		'References of under cursor (LSP)', buffer = bufnr },

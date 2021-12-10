@@ -52,7 +52,6 @@ end}
 -- General
 use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config()
--- require'packages.colors'.github_theme_config()
 use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
 use{'jssteinberg/hackline.vim', requires = {'itchyny/vim-gitbranch'}}
 
@@ -116,11 +115,10 @@ use{'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, event = 'Vi
 		keymaps = {
 			noremap = false,
 			['n <leader>gb'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
+			['n <leader>gn'] = { expr = true, "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'"},
+			['n <leader>gp'] = { expr = true, "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'"},
 		}
 	}
-	-- require'which-key'.register({
-	-- 	['<leader>gi'] = {'Info'}
-	-- })
 end}
 
 -- `gx` opens URI or search visual selection in browser
@@ -183,12 +181,6 @@ use{'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}}
 use{'tpope/vim-fugitive', cmd = {'G', 'Git'}}
 -- git log
 use{'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = true}}}
--- diff view
-use{'sindrets/diffview.nvim', cmd = {'DiffviewOpen'}, config = function()
-	require'diffview'.setup { file_panel = {
-		use_icons = false
-	}}
-end}
 -- neogit
 use{'TimUntersberger/neogit', cmd = 'Neogit', requires = {'nvim-lua/plenary.nvim'}, config = function ()
 	require('neogit').setup{}
