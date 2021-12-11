@@ -18,9 +18,9 @@ M.tokyonight_config = function(bg)
 	vim.g.tokyonight_italic_keywords = false
 	vim.g.tokyonight_italic_functions = false
 	vim.g.tokyonight_italic_variables = false
-	vim.g.tokyonight_colors = {
-		comment = '#a9b1d6'
-	}
+	--vim.g.tokyonight_colors = {
+	--	comment = '#a9b1d6'
+	--}
 
 	vim.cmd[[colorscheme tokyonight]]
 end

@@ -132,4 +132,5 @@ function! PackagerInit() abort
 	call packager#add('sonph/onehalf', {'rtp': 'vim/'})
 	call packager#add('ackyshake/Spacegray.vim')
 	call packager#add('cocopon/iceberg.vim')
+	call packager#add('bluz71/vim-moonfly-colors')
 endfunction

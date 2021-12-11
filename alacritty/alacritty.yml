@@ -24,101 +24,76 @@ draw_bold_text_with_bright_colors: true
 background_opacity: 1
 
 # TokyoNight Alacritty Colors Night
-
-colors:
-  # Default colors
-  primary:
-    background: '0x1a1b26'
-    foreground: '0xc0caf5'
-
-  # Normal colors
-  normal:
-    black:   '0x15161E'
-    red:     '0xf7768e'
-    green:   '0x9ece6a'
-    yellow:  '0xe0af68'
-    blue:    '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan:    '0x7dcfff'
-    white:   '0xa9b1d6'
-
-  # Bright colors
-  bright:
-    black:   '0x414868'
-    red:     '0xf7768e'
-    green:   '0x9ece6a'
-    yellow:  '0xe0af68'
-    blue:    '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan:    '0x7dcfff'
-    white:   '0xc0caf5'
-
-  indexed_colors:
-    - { index: 16, color: '0xff9e64' }
-    - { index: 17, color: '0xdb4b4b' }
-
-# TokyoNight Alacritty Colors Day
-
 # colors:
 #   # Default colors
 #   primary:
-#     background: '0xe1e2e7'
-#     foreground: '0x3760bf'
+#     background: '0x1a1b26'
+#     foreground: '0xc0caf5'
 
 #   # Normal colors
 #   normal:
-#     black:   '0xe9e9ed'
-#     red:     '0xf52a65'
-#     green:   '0x587539'
-#     yellow:  '0x8c6c3e'
-#     blue:    '0x2e7de9'
-#     magenta: '0x9854f1'
-#     cyan:    '0x007197'
-#     white:   '0x6172b0'
+#     black:   '0x15161E'
+#     red:     '0xf7768e'
+#     green:   '0x9ece6a'
+#     yellow:  '0xe0af68'
+#     blue:    '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan:    '0x7dcfff'
+#     white:   '0xa9b1d6'
 
 #   # Bright colors
 #   bright:
-#     black:   '0xa1a6c5'
-#     red:     '0xf52a65'
-#     green:   '0x587539'
-#     yellow:  '0x8c6c3e'
-#     blue:    '0x2e7de9'
-#     magenta: '0x9854f1'
-#     cyan:    '0x007197'
-#     white:   '0x3760bf'
+#     black:   '0x414868'
+#     red:     '0xf7768e'
+#     green:   '0x9ece6a'
+#     yellow:  '0xe0af68'
+#     blue:    '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan:    '0x7dcfff'
+#     white:   '0xc0caf5'
 
 #   indexed_colors:
-#     - { index: 16, color: '0xb15c00' }
-#     - { index: 17, color: '0xc64343' }
+#     - { index: 16, color: '0xff9e64' }
+#     - { index: 17, color: '0xdb4b4b' }
 
-# Nightfox Alacritty Colors
-# Style: nightfox
-# Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nightfox/nightfox_alacritty.yml
-#colors:
-#  # Default colors
-#  primary:
-#    background: '0x192330'
-#    foreground: '0xcdcecf'
-#  # Normal colors
-#  normal:
-#    black:   '0x393b44'
-#    red:     '0xc94f6d'
-#    green:   '0x81b29a'
-#    yellow:  '0xdbc074'
-#    blue:    '0x719cd6'
-#    magenta: '0x9d79d6'
-#    cyan:    '0x63cdcf'
-#    white:   '0xdfdfe0'
-#  # Bright colors
-#  bright:
-#    black:   '0x475072'
-#    red:     '0xd6616b'
-#    green:   '0x58cd8b'
-#    yellow:  '0xffe37e'
-#    blue:    '0x84cee4'
-#    magenta: '0xb8a1e3'
-#    cyan:    '0x59f0ff'
-#    white:   '0xf2f2f2'
-#  indexed_colors:
-#    - { index: 16, color: '0xf4a261' }
-#    - { index: 17, color: '0xd67ad2' }
+draw_bold_text_with_bright_colors: true
+
+# Colors
+colors:
+  # Default colors
+  primary:
+    background:        '#080808'
+    foreground:        '#b2b2b2'
+    bright_foreground: '#eeeeee'
+
+  # Cursor colors
+  cursor:
+    text:   '#080808'
+    cursor: '#9e9e9e'
+
+  # Selection colors
+  selection:
+    text:       '#080808'
+    background: '#b2ceee'
+
+  # Normal colors
+  normal:
+    black:   '#323437'
+    red:     '#ff5454'
+    green:   '#8cc85f'
+    yellow:  '#e3c78a'
+    blue:    '#80a0ff'
+    magenta: '#d183e8'
+    cyan:    '#79dac8'
+    white:   '#c6c6c6'
+
+  # Bright colors
+  bright:
+    black:   '#949494'
+    red:     '#ff5189'
+    green:   '#36c692'
+    yellow:  '#bfbf97'
+    blue:    '#74b2ff'
+    magenta: '#ae81ff'
+    cyan:    '#85dc85'
+    white:   '#e4e4e4'

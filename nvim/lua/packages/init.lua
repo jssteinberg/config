@@ -17,9 +17,12 @@ end}
 
 -- General
 use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
-use{'folke/tokyonight.nvim'} require'packages.colors'.tokyonight_config()
 use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-use{'jssteinberg/hackline.vim', requires = {'itchyny/vim-gitbranch'}}
+use{'jssteinberg/hackline.vim'} -- My statusline plugin
+
+-- Colorschemes
+use{'folke/tokyonight.nvim'} --require'packages.colors'.tokyonight_config()
+use{'bluz71/vim-moonfly-colors'}
 
 -- LSP & code inspection
 use{
@@ -100,7 +103,7 @@ use{
 		ensure_installed = 'maintained',
 		highlight = {
 			enable = true,
-			disable = {'markdown'},
+			disable = {'markdown', 'vim'},
 		},
 		autotag = {
 			enable = true,

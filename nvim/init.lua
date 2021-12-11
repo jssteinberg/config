@@ -9,3 +9,7 @@ require'keymaps'.init()
 require'packages.netrw'.config()
 -- External packages
 require'packages'
+
+pcall(function ()
+	vim.cmd[[colorscheme moonfly]]
+end)
