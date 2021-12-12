@@ -107,7 +107,7 @@ autocmd VimEnter * call SetColorscheme()
 function! SetColorscheme()
 	try
 		" Some settings only with newer colorscheme
-		set termguicolors hlsearch | colorscheme tokyonight
+		set termguicolors hlsearch | colorscheme moonfly
 	catch /^Vim\%((\a\+)\)\=:E185/
 		set notermguicolors nohlsearch | colorscheme default
 	endtry
