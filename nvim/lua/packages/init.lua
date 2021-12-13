@@ -21,7 +21,7 @@ use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
 use{'jssteinberg/hackline.vim'} -- My statusline plugin
 
 -- Colorschemes
-use{'folke/tokyonight.nvim'} --require'packages.colors'.tokyonight_config()
+use{'folke/tokyonight.nvim'}
 use{'bluz71/vim-moonfly-colors'}
 
 -- LSP & code inspection
@@ -34,23 +34,23 @@ use{
 	config = function() require'packages.lsp'.config() end
 }
 
-use{'vuki656/package-info.nvim', requires = {"MunifTanjim/nui.nvim"}, ft = {'json'}, config = function ()
-	require('package-info').setup()
-	-- Show package versions
-	vim.api.nvim_set_keymap("n", "<leader>ps", ":lua require('package-info').show()<CR>", { silent = true, noremap = true })
-	-- Hide package versions
-	vim.api.nvim_set_keymap("n", "<leader>pc", ":lua require('package-info').hide()<CR>", { silent = true, noremap = true })
-	-- Update package on line
-	vim.api.nvim_set_keymap("n", "<leader>pu", ":lua require('package-info').update()<CR>", { silent = true, noremap = true })
-	-- Delete package on line
-	vim.api.nvim_set_keymap("n", "<leader>pd", ":lua require('package-info').delete()<CR>", { silent = true, noremap = true })
-	-- Install a new package
-	vim.api.nvim_set_keymap("n", "<leader>pi", ":lua require('package-info').install()<CR>", { silent = true, noremap = true })
-	-- Reinstall dependencies
-	vim.api.nvim_set_keymap("n", "<leader>pr", ":lua require('package-info').reinstall()<CR>", { silent = true, noremap = true })
-	-- Install a different package version
-	vim.api.nvim_set_keymap("n", "<leader>pp", ":lua require('package-info').change_version()<CR>", { silent = true, noremap = true })
-end}
+--use{'vuki656/package-info.nvim', requires = {"MunifTanjim/nui.nvim"}, ft = {'json'}, config = function ()
+--	require('package-info').setup()
+--	-- Show package versions
+--	vim.api.nvim_set_keymap("n", "<leader>ps", ":lua require('package-info').show()<CR>", { silent = true, noremap = true })
+--	-- Hide package versions
+--	vim.api.nvim_set_keymap("n", "<leader>pc", ":lua require('package-info').hide()<CR>", { silent = true, noremap = true })
+--	-- Update package on line
+--	vim.api.nvim_set_keymap("n", "<leader>pu", ":lua require('package-info').update()<CR>", { silent = true, noremap = true })
+--	-- Delete package on line
+--	vim.api.nvim_set_keymap("n", "<leader>pd", ":lua require('package-info').delete()<CR>", { silent = true, noremap = true })
+--	-- Install a new package
+--	vim.api.nvim_set_keymap("n", "<leader>pi", ":lua require('package-info').install()<CR>", { silent = true, noremap = true })
+--	-- Reinstall dependencies
+--	vim.api.nvim_set_keymap("n", "<leader>pr", ":lua require('package-info').reinstall()<CR>", { silent = true, noremap = true })
+--	-- Install a different package version
+--	vim.api.nvim_set_keymap("n", "<leader>pp", ":lua require('package-info').change_version()<CR>", { silent = true, noremap = true })
+--end}
 
 -- Autocompletion
 use{

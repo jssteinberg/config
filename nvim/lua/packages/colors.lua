@@ -18,15 +18,15 @@ M.tokyonight_config = function(bg)
 	vim.g.tokyonight_italic_keywords = false
 	vim.g.tokyonight_italic_functions = false
 	vim.g.tokyonight_italic_variables = false
-	--vim.g.tokyonight_colors = {
-	--	comment = '#a9b1d6'
-	--}
 
-	vim.cmd[[colorscheme tokyonight]]
+	pcall(function ()
+		vim.cmd[[colorscheme tokyonight]]
+	end)
 end
 
 -- @param {string} bg - 'dark', 'light'
 M.set_colo = function(bg)
+	bg = bg or 'dark'
 	M.tokyonight_config(bg)
 	vim.cmd('set bg=' .. bg)
 end

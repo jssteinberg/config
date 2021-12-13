@@ -150,18 +150,6 @@ M.normal = {
 	['<leader><tab>'] = { ':buffer ',
 	':buffer ', silent = false},
 
-	-- Colors
-
-	['<leader>c'] = { name =
-		'colors',
-
-		d = { ':lua require"packages.colors".set_colo("dark")<cr>',
-		'Dark' },
-
-		l = { ':lua require"packages.colors".set_colo("light")<cr>',
-		'Light' },
-	},
-
 
 	-- Edit
 

@@ -11,7 +11,7 @@ set clipboard=unnamed " Sync with system clioboard
 set cursorline " Cursorline for jumping around
 set hidden " Unsaved files can be 'hidden'
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
-set list listchars=tab:\-\  " Show tabs if used
+set list listchars=tab:\│\  " Show tabs if used. Chars alt: │›
 set number relativenumber " Relativenumber with number on cursorline
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set wildmode=lastused:full " lastused :buffer
@@ -107,7 +107,7 @@ autocmd VimEnter * call SetColorscheme()
 function! SetColorscheme()
 	try
 		" Some settings only with newer colorscheme
-		set termguicolors hlsearch | colorscheme moonfly
+		set termguicolors hlsearch | colorscheme tokyonight
 	catch /^Vim\%((\a\+)\)\=:E185/
 		set notermguicolors nohlsearch | colorscheme default
 	endtry
@@ -126,10 +126,9 @@ function! PackagerInit() abort
 	call packager#add('lifepillar/vim-mucomplete') " Autocomplete menu
 	call packager#add('tpope/vim-fugitive') " `G` command for git
 	call packager#add('dense-analysis/ale') " Linting and LSP
-	call packager#add('jssteinberg/hackline.vim') " Pre-configured statusline
+	call packager#local('~/dev/hackline.vim') " Pre-configured statusline
 	" Colorschemes
 	call packager#add('ghifarit53/tokyonight-vim')
-	call packager#add('sonph/onehalf', {'rtp': 'vim/'})
 	call packager#add('ackyshake/Spacegray.vim')
 	call packager#add('cocopon/iceberg.vim')
 	call packager#add('bluz71/vim-moonfly-colors')
