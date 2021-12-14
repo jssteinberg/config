@@ -1,12 +1,7 @@
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 
 font:
-  size: 16.0
-  normal:
-    family: Courier Prime
-    family: Monaco
-    family: Ubuntu Mono
-    family: Andale Mono
+  size: 14.0
 
 # Use decimal, e.g. .95
 background_opacity: 1
