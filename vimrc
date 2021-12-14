@@ -144,7 +144,7 @@ function! PackagerInit() abort
 	call packager#add('lifepillar/vim-mucomplete') " Autocomplete menu
 	call packager#add('tpope/vim-fugitive') " `G` command for git
 	call packager#add('dense-analysis/ale') " Linting and LSP
-	call packager#local('~/dev/hackline.vim') " Pre-configured statusline
+	call packager#add('jssteinberg/hackline.vim') " Pre-configured statusline
 	" Colorschemes
 	call packager#add('ghifarit53/tokyonight-vim')
 	call packager#add('ackyshake/Spacegray.vim')
