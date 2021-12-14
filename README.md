@@ -25,6 +25,7 @@ Requires: git ... Install with your OS package manager.
 - [bat](https://github.com/sharkdp/bat), cat replacement
 - [nvm](https://github.com/nvm-sh/nvm), and for fish [fish-nvm](https://github.com/FabioAntunes/fish-nvm)
 - [fzf](https://github.com/junegunn/fzf)
+	- and for fish: https://github.com/PatrickF1/fzf.fish or https://github.com/jethrokuan/fzf
 - [np](https://github.com/sindresorhus/np) for easy NPM package publication
 
 ### Tips
