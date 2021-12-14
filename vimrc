@@ -98,20 +98,34 @@ let g:ale_fixers = {
 			\   '*': ['remove_trailing_lines'],
 			\}
 
-" Autocompletion MUcomplete
-set completeopt+=menuone,noselect shortmess+=c belloff+=ctrlg
-let g:mucomplete#enable_auto_at_startup = 1
-
 " Colorscheme
-autocmd VimEnter * call SetColorscheme()
-function! SetColorscheme()
-	try
-		" Some settings only with newer colorscheme
-		set termguicolors hlsearch | colorscheme tokyonight
+nnoremap <leader>cc :call ColorschemeCycle()<cr>
+let g:colo_favs=[#{name:'tokyonight'}, #{name:'iceberg'}, #{name:'spacegray'}]
+autocmd VimEnter * call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
+
+function! SetColorscheme(item)
+	try " Some options with colorscheme
+		exe 'set termguicolors hlsearch | colorscheme '.a:item.name
 	catch /^Vim\%((\a\+)\)\=:E185/
 		set notermguicolors nohlsearch | colorscheme default
 	endtry
 endfunction
+
+function! ColorschemeCycle()
+	let i = 0 | while i < len(g:colo_favs)
+		if exists("g:colo_favs[i].current")
+			unlet g:colo_favs[i].current
+			let next_i = i + 1 | if !exists("g:colo_favs[next_i]") | let next_i = 0 | endif
+			let g:colo_favs[next_i].current = 1
+			call SetColorscheme(g:colo_favs[next_i])
+			break
+		endif | let i+=1
+	endwhile
+endfunction
+
+" Autocompletion MUcomplete
+set completeopt+=menuone,noselect shortmess+=c belloff+=ctrlg
+let g:mucomplete#enable_auto_at_startup = 1
 
 function! PackagerInit() abort
 	packadd vim-packager
