@@ -99,27 +99,27 @@ let g:ale_fixers = {
 			\}
 
 " Colorscheme
-nnoremap <leader>cc :call ColorschemeCycle()<cr>
-let g:colo_favs=[#{name:'tokyonight'}, #{name:'iceberg'}, #{name:'spacegray'}]
+nnoremap <silent> <leader>cc :call ColorschemeCycleFavs()<cr>
+let g:colo_favs=[#{name:'tokyonight'}, #{name:'spacegray'}, #{name:'iceberg'}, #{name:'iceberg',bg:'light'}]
 autocmd VimEnter * call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
 
-function! SetColorscheme(item)
-	try " Some options with colorscheme
-		exe 'set termguicolors hlsearch | colorscheme '.a:item.name
-	catch /^Vim\%((\a\+)\)\=:E185/
-		set notermguicolors nohlsearch | colorscheme default
-	endtry
+function! SetColorscheme(colo)
+	silent! exe 'set termguicolors hlsearch | colorscheme '.a:colo.name
+	silent! exe 'set background=' . (exists('a:colo.bg') ? a:colo.bg : 'dark')
+	if v:errmsg != ""
+		colorscheme default | set notermguicolors t_Co=16 nohlsearch | colorscheme default
+		return 0
+	else | return 1 | endif
 endfunction
 
-function! ColorschemeCycle()
+function! ColorschemeCycleFavs()
 	let i = 0 | while i < len(g:colo_favs)
-		if exists("g:colo_favs[i].current")
+		if exists("g:colo_favs[i].current") && g:colo_favs[i].current
 			unlet g:colo_favs[i].current
-			let next_i = i + 1 | if !exists("g:colo_favs[next_i]") | let next_i = 0 | endif
-			let g:colo_favs[next_i].current = 1
-			call SetColorscheme(g:colo_favs[next_i])
-			break
-		endif | let i+=1
+			let next_i = (i + 1) < len(g:colo_favs) ? i + 1 : 0
+			let g:colo_favs[next_i].current = SetColorscheme(g:colo_favs[next_i])
+			return 1
+		else | let i+=1 | endif
 	endwhile
 endfunction
 
