@@ -11,7 +11,7 @@ vim.opt.hidden = true
 -- generally ignore case
 vim.opt.ignorecase = true
 -- show tabs as vertical lines
-vim.opt.listchars = vim.o.listchars .. ',tab:│ '
+vim.opt.listchars = vim.o.listchars .. ',tab:· '
 -- less timeoutlen for maps
 vim.opt.timeoutlen = 500
 -- session data

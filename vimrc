@@ -11,7 +11,7 @@ set clipboard=unnamed " Sync with system clioboard
 set cursorline " Cursorline for jumping around
 set hidden " Unsaved files can be 'hidden'
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
-set list listchars=tab:\│\  " Show tabs if used. Chars alt: │›
+set list listchars=tab:\·\  fillchars=vert:\· " Tabs and split char. Chars alt: │›·∙⋮┊
 set number relativenumber " Relativenumber with number on cursorline
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set wildmode=lastused:full " lastused :buffer
