@@ -102,9 +102,6 @@ nnoremap gd :ALEGoToDefinition<cr>
 nnoremap <leader>lh :ALEHover<cr>
 nnoremap <leader>lr :ALEFindReferences<cr>
 nnoremap <leader>la :ALECodeAction<cr>
-let g:ale_fixers = {
-			\   '*': ['remove_trailing_lines'],
-			\}
 
 " Colorscheme
 nnoremap <silent> <leader>cc :call ColorschemeCycleFavs()<cr>
@@ -148,10 +145,9 @@ function! PackagerInit() abort
 	call packager#add('lifepillar/vim-mucomplete') " Autocomplete menu
 	call packager#add('tpope/vim-fugitive') " `G` command for git
 	call packager#add('dense-analysis/ale') " Linting and LSP
-	call packager#local('~/dev/hackline.vim') " Pre-configured statusline
+	call packager#add('jssteinberg/hackline.vim') " Pre-configured statusline
 	" Colorschemes
 	call packager#add('ghifarit53/tokyonight-vim')
 	call packager#add('ackyshake/Spacegray.vim')
 	call packager#add('cocopon/iceberg.vim')
-	call packager#add('bluz71/vim-moonfly-colors')
 endfunction
