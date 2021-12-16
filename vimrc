@@ -89,6 +89,10 @@ nnoremap <leader>ff :Clap files<cr>
 nnoremap <leader>fs :Clap grep<cr>
 nnoremap <leader>gf :Clap gfiles<cr>
 
+" Git via fugitive
+nnoremap <leader>gp :Git pull<cr>
+nnoremap <leader>gP :Git push<cr>
+
 " Ripgrep
 nnoremap <leader>G :Rg 
 vnoremap <leader>G y:Rg -e "<c-r>""<cr>
