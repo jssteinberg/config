@@ -26,10 +26,22 @@ set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 " (q) allow gq formatting
 set formatoptions=cjlnpq
 
+" Set space as leader key
+nnoremap <space> <nop>
+let mapleader=' '
+
+" Colorscheme
+source $HOME/.config/colocyclone.vim
+nnoremap <silent> <leader>cc :call ColorschemeCycleFavs()<cr>
+let g:colo_favs=[
+	\ #{name:'tokyonight',transparent:1},
+	\ #{name:'tokyonight',bg:'light'}
+	\]
+
 augroup vimStartup
 	au!
-	" When editing a file, always jump to the last known cursor position.
-	" Don't do it when the position is invalid, when inside an event handler
+	autocmd VimEnter * call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
+	" Go to last known cursor position, unless it's invalid
 	autocmd BufReadPost *
 				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
 				\ |   exe "normal! g`\""
@@ -51,6 +63,6 @@ require'packages.netrw'.config()
 -- External packages
 require'packages'
 -- Set colorscheme
-require'packages.colors'.set_colo()
+-- require'packages.colors'.set_colo()
 
 EOF
