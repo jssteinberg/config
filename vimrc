@@ -64,7 +64,7 @@ nnoremap <leader>w :w<cr>
 " Edit/explore [explore cwd, explore buffer dir, project drawer, buffer in new tab]
 nnoremap <leader>e. :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit .<cr>
 nnoremap <leader>eb :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:Explore<cr>
-nnoremap <leader>ec :edit $MYVIMRC<cr>
+nnoremap <leader>ec :tabedit $MYVIMRC<cr>
 nnoremap <leader>et :let g:netrw_banner=0<cr>:let g:netrw_liststyle=3<cr>:Lexplore<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
 
@@ -106,12 +106,13 @@ nnoremap <leader>la :ALECodeAction<cr>
 
 " Colorscheme
 nnoremap <silent> <leader>cc :call ColorschemeCycleFavs()<cr>
-let g:colo_favs=[#{name:'tokyonight'}, #{name:'spacegray'}, #{name:'iceberg'}, #{name:'iceberg',bg:'light'}]
+let g:colo_favs=[#{name:'tokyonight',transparent:1}, #{name:'spacegray'}, #{name:'iceberg',transparent:1}, #{name:'iceberg',bg:'light'}]
 autocmd VimEnter * call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
 
 function! SetColorscheme(colo)
-	silent! exe 'set termguicolors hlsearch | colorscheme '.a:colo.name
-	silent! exe 'set background=' . (exists('a:colo.bg') ? a:colo.bg : 'dark')
+	exe 'set termguicolors hlsearch | colorscheme '.a:colo.name
+	exe 'set background=' . (exists('a:colo.bg') ? a:colo.bg : 'dark')
+	if exists('a:colo.transparent') | highlight Normal guibg=NONE | endif
 	if v:errmsg != ""
 		colorscheme default | set notermguicolors t_Co=16 nohlsearch | colorscheme default
 		return 0
@@ -146,6 +147,7 @@ function! PackagerInit() abort
 	call packager#add('lifepillar/vim-mucomplete') " Autocomplete menu
 	call packager#add('tpope/vim-fugitive') " `G` command for git
 	call packager#add('dense-analysis/ale') " Linting and LSP
+	call packager#add('mhinz/vim-startify') " For session handling
 	call packager#add('jssteinberg/hackline.vim') " Pre-configured statusline
 	" Colorschemes
 	call packager#add('ghifarit53/tokyonight-vim')
