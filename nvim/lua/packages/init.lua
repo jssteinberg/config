@@ -51,8 +51,12 @@ use{
 
 use{'tpope/vim-surround', event='VimEnter *'} -- Surround stuff with stuff (org. tpope/vim-surround)
 use{'tpope/vim-repeat', event='VimEnter *'} -- Extend `.` repeat
-use{'tpope/vim-sleuth', event = 'VimEnter *'} -- Detect file's indent style
-use{'editorconfig/editorconfig-vim', event='VimEnter *', after = 'vim-sleuth'} -- Respect .editorconfig
+-- use{'tpope/vim-sleuth', event = 'VimEnter *'} -- Detect file's indent style
+use{
+	'editorconfig/editorconfig-vim',
+	event='VimEnter *',
+	-- after = 'vim-sleuth'
+} -- Respect .editorconfig
 
 use{'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, event = 'VimEnter *', config = function ()
 	require('gitsigns').setup{
