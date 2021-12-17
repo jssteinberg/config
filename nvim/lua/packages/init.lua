@@ -78,7 +78,7 @@ use{
 		ensure_installed = 'maintained',
 		highlight = {
 			enable = true,
-			disable = {'markdown', 'vim'},
+			disable = {'vim'},
 		},
 		autotag = {
 			enable = true,
