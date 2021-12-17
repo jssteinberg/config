@@ -24,33 +24,26 @@ use{'jssteinberg/hackline.vim'} -- My statusline plugin
 use{'folke/tokyonight.nvim'}
 use{'bluz71/vim-moonfly-colors'}
 
--- LSP & code inspection
+-- LSP and autocompletion
 use{
 	'neovim/nvim-lspconfig',
 	requires = {
 		'williamboman/nvim-lsp-installer', -- `:LspInstall` commands
 		'ray-x/lsp_signature.nvim', -- Function helper while typing
-	},
-	config = function() require'packages.lsp'.config() end
-}
-
--- Autocompletion
-use{
-	'hrsh7th/nvim-cmp',
-	after = 'nvim-lspconfig',
-	requires = {
-		'neovim/nvim-lspconfig',
-		'hrsh7th/cmp-buffer',       -- LSP source for nvim-cmp
-		'hrsh7th/cmp-path',         -- LSP source for nvim-cmp
-		'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
-		'hrsh7th/cmp-nvim-lua',     -- LSP source for nvim-cmp
-		'hrsh7th/cmp-omni',         -- LSP source for nvim-cmp
+		'hrsh7th/nvim-cmp',         -- Autocompletion menu
+		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-path',
+		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-nvim-lua',
+		-- 'hrsh7th/cmp-omni',
 		'L3MON4D3/LuaSnip',         -- Snippets plugin
 		'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
 	},
-	config = function() require'packages.cmp'.config() end
+	config = function()
+		require'packages.lsp'.config()
+		require'packages.cmp'.config()
+	end
 }
-
 
 -- LOAD ON VIMENTER
 -------------------
