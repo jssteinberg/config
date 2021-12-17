@@ -7,17 +7,19 @@ source $VIMRUNTIME/defaults.vim
 
 " Options
 " -------
-set clipboard=unnamed " Sync with system clioboard
-set cursorline " Cursorline for jumping around
+set clipboard=unnamed " Sync system clioboard
+set cursorline " Highlight cursorline
 set hidden " Unsaved files can be 'hidden'
+set foldmethod=indent nofoldenable
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
-set list listchars=tab:\·\  fillchars=vert:\· " Tabs and split char. Chars alt: │›·∙⋮┊
-set number relativenumber " Relativenumber with number on cursorline
+set list listchars=tab:\·\  fillchars=vert:\· " Show tabs, reuse char
+set number relativenumber " Relative numbers, number on cursor line
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
-set wildmode=lastused:full " lastused :buffer
-set wrap breakindent linebreak " Wrap inherit indent, `breakat` based linebreak
+set sessionoptions=curdir,folds,tabpages,help
+set wildmode=lastused:full " :b <tab> for last used buffer(s)
+set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
 
-" Persisten undo, mkdirs
+" Persisten undo, mkdir
 if !isdirectory($HOME."/.vimundo")
 	call mkdir($HOME."/.vimundo", "", 0770)
 endif
@@ -106,7 +108,7 @@ nnoremap <leader>la :ALECodeAction<cr>
 
 " Colorscheme
 nnoremap <silent> <leader>cc :call ColorschemeCycleFavs()<cr>
-let g:colo_favs=[#{name:'tokyonight',transparent:1}, #{name:'spacegray'}, #{name:'iceberg',transparent:1}, #{name:'iceberg',bg:'light'}]
+let g:colo_favs=[#{name:'tokyobones',transparent:1}, #{name:'spacegray'}, #{name:'iceberg',transparent:1}, #{name:'iceberg',bg:'light'}]
 autocmd VimEnter * call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
 
 function! SetColorscheme(colo)
@@ -148,9 +150,11 @@ function! PackagerInit() abort
 	call packager#add('tpope/vim-fugitive') " `G` command for git
 	call packager#add('dense-analysis/ale') " Linting and LSP
 	call packager#add('mhinz/vim-startify') " For session handling
+	call packager#add('tommcdo/vim-lion')
 	call packager#add('jssteinberg/hackline.vim') " Pre-configured statusline
 	" Colorschemes
 	call packager#add('ghifarit53/tokyonight-vim')
 	call packager#add('ackyshake/Spacegray.vim')
 	call packager#add('cocopon/iceberg.vim')
+	call packager#add('mcchrish/zenbones.nvim')
 endfunction

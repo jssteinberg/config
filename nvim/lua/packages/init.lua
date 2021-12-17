@@ -23,6 +23,7 @@ use{'jssteinberg/hackline.vim'} -- My statusline plugin
 -- Colorschemes
 use{'folke/tokyonight.nvim'}
 use{'bluz71/vim-moonfly-colors'}
+use{'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim'}
 
 -- LSP and autocompletion
 use{
