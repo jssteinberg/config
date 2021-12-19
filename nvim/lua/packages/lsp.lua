@@ -6,7 +6,7 @@ M.config = function()
 
 	-- LSP config for buffer
 	local on_attach = function(client, bufnr)
-		require 'lsp_signature'.on_attach()
+		-- require 'lsp_signature'.on_attach()
 		M.register_keymaps(client, bufnr)
 	end
 

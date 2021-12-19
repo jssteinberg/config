@@ -34,8 +34,9 @@ let mapleader=' '
 source $HOME/.config/colocyclone.vim
 nnoremap <silent> <leader>cc :call ColorschemeCycleFavs()<cr>
 let g:colo_favs=[
+	\ #{name:'tokyobones',bg:'dark',transparent:1},
 	\ #{name:'tokyonight',transparent:1},
-	\ #{name:'tokyonight',bg:'light'}
+	\ #{name:'tokyonight',bg:'light'},
 	\]
 
 augroup vimStartup

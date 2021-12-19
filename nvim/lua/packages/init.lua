@@ -19,6 +19,7 @@ end}
 use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
 use{'jssteinberg/hackline.vim'} -- My statusline plugin
+use{'mhinz/vim-startify'} -- For session handling
 
 -- Colorschemes
 use{'folke/tokyonight.nvim'}
@@ -30,7 +31,7 @@ use{
 	'neovim/nvim-lspconfig',
 	requires = {
 		'williamboman/nvim-lsp-installer', -- `:LspInstall` commands
-		'ray-x/lsp_signature.nvim', -- Function helper while typing
+		-- 'ray-x/lsp_signature.nvim', -- Function helper while typing
 		'hrsh7th/nvim-cmp',         -- Autocompletion menu
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-path',
