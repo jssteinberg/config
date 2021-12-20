@@ -4,7 +4,7 @@ font:
   size: 14.0
 
 # Use decimal, e.g. .95
-background_opacity: .90
+background_opacity: .975
 
 # Send ESC (\x1b) before characters when alt is pressed---needed for several non-us keyboards usually
 alt_send_esc: false
@@ -24,61 +24,58 @@ mouse:
 draw_bold_text_with_bright_colors: true
 
 # TokyoNight Alacritty Colors Night
-# colors:
-#   # Default colors
-#   primary:
-#     background: '0x1a1b26'
-#     foreground: '0xc0caf5'
+colors:
+  # Default colors
+  primary:
+    background: '0x1a1b26'
+    foreground: '0xc0caf5'
 
-#   # Normal colors
-#   normal:
-#     black:   '0x15161E'
-#     red:     '0xf7768e'
-#     green:   '0x9ece6a'
-#     yellow:  '0xe0af68'
-#     blue:    '0x7aa2f7'
-#     magenta: '0xbb9af7'
-#     cyan:    '0x7dcfff'
-#     white:   '0xa9b1d6'
+  # Normal colors
+  normal:
+    black:   '0x15161E'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan:    '0x7dcfff'
+    white:   '0xa9b1d6'
 
-#   # Bright colors
-#   bright:
-#     black:   '0x414868'
-#     red:     '0xf7768e'
-#     green:   '0x9ece6a'
-#     yellow:  '0xe0af68'
-#     blue:    '0x7aa2f7'
-#     magenta: '0xbb9af7'
-#     cyan:    '0x7dcfff'
-#     white:   '0xc0caf5'
+  # Bright colors
+  bright:
+    black:   '0x414868'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan:    '0x7dcfff'
+    white:   '0xc0caf5'
 
-#   indexed_colors:
-#     - { index: 16, color: '0xff9e64' }
-#     - { index: 17, color: '0xdb4b4b' }
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
 
-# Zenwritten
+# Spacegray
 colors:
   primary:
-    foreground: '#BBBBBB'
-    background: '#191919'
-  cursor:
-    cursor: '#191919'
-    text: '#C9C9C9'
+    foreground: '#B7BBB7'
+    background: '#111314'
   normal:
-    black:   '#191919'
-    red:     '#DE6E7C'
-    green:   '#819B69'
-    yellow:  '#B77E64'
-    blue:    '#6099C0'
-    magenta: '#B279A7'
-    cyan:    '#66A5AD'
-    white:   '#BBBBBB'
+    black: '#2C2F33'
+    red: '#B04C50'
+    green: '#919652'
+    yellow: '#E2995C'
+    blue: '#66899D'
+    magenta: '#8D6494'
+    cyan: '#527C77'
+    white: '#606360'
   bright:
-    black:   '#3D3839'
-    red:     '#E8838F'
-    green:   '#8BAE68'
-    yellow:  '#D68C67'
-    blue:    '#61ABDA'
-    magenta: '#CF86C1'
-    cyan:    '#65B8C1'
-    white:   '#8E8E8E'
+    black: '#4B5056'
+    red: '#B04C50'
+    green: '#94985B'
+    yellow: '#E2995C'
+    blue: '#66899D'
+    magenta: '#8D6494'
+    cyan: '#527C77'
+    white: '#DDE3DC'
