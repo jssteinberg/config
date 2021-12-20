@@ -35,8 +35,9 @@ let g:netrw_winsize=25
 vnoremap < <gv
 vnoremap > >gv
 nnoremap Y y$
-nnoremap <c-l> <c-l>:nohlsearch<cr>
+nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 cnoremap <c-p> <up>
+nnoremap ZQ :wincmd q<cr>
 
 " Set space as leader key
 nnoremap <space> <nop>
@@ -109,12 +110,15 @@ nnoremap <leader>la :ALECodeAction<cr>
 " Colorscheme
 source $HOME/.config/colocyclone.vim
 nnoremap <silent> <leader>cc :call ColorschemeCycleFavs()<cr>
-let g:colo_favs=[#{name:'tokyobones',transparent:1}, #{name:'spacegray'}, #{name:'iceberg',transparent:1}, #{name:'iceberg',bg:'light'}]
-autocmd VimEnter * call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
+let g:colo_favs=[#{name:'spacegray',transparent:1}, #{name:'iceberg',bg:'light'}]
+silent! call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
 
 " Autocompletion MUcomplete
 set completeopt+=menuone,noselect shortmess+=c belloff+=ctrlg
 let g:mucomplete#enable_auto_at_startup = 1
+
+" Close tags
+let g:closetag_filenames = '*' | let g:closetag_xhtml_filenames = '*'
 
 function! PackagerInit() abort
 	packadd vim-packager
@@ -126,15 +130,14 @@ function! PackagerInit() abort
 	call packager#add('tpope/vim-surround') " Surround with brackets or quotes
 	call packager#add('subnut/visualstar.vim') " Search selection with * or #
 	call packager#add('cohama/lexima.vim') " Autocomplete brackets and quotes
+	call packager#add('alvan/vim-closetag') " Autocomplete tags
 	call packager#add('lifepillar/vim-mucomplete') " Autocomplete menu
 	call packager#add('tpope/vim-fugitive') " `G` command for git
 	call packager#add('dense-analysis/ale') " Linting and LSP
 	call packager#add('mhinz/vim-startify') " For session handling
 	call packager#add('tommcdo/vim-lion')
-	call packager#add('jssteinberg/hackline.vim') " Pre-configured statusline
+	call packager#add('jssteinberg/hackline.vim') " Light statusline
 	" Colorschemes
-	call packager#add('ghifarit53/tokyonight-vim')
 	call packager#add('ackyshake/Spacegray.vim')
 	call packager#add('cocopon/iceberg.vim')
-	call packager#add('mcchrish/zenbones.nvim')
 endfunction
