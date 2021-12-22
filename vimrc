@@ -37,7 +37,6 @@ vnoremap > >gv
 nnoremap Y y$
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 cnoremap <c-p> <up>
-nnoremap ZQ :wincmd q<cr>
 
 " Set space as leader key
 nnoremap <space> <nop>
@@ -111,7 +110,7 @@ nnoremap <leader>la :ALECodeAction<cr>
 source $HOME/.config/colocyclone.vim
 nnoremap <silent> <leader>cc :call ColorschemeCycleFavs()<cr>
 let g:colo_favs=[#{name:'spacegray',transparent:1}, #{name:'iceberg',bg:'light'}]
-silent! call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
+call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
 
 " Autocompletion MUcomplete
 set completeopt+=menuone,noselect shortmess+=c belloff+=ctrlg
