@@ -20,9 +20,7 @@ set wildmode=lastused:full " :b <tab> for last used buffer(s)
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
 
 " Persisten undo, mkdir
-if !isdirectory($HOME."/.vimundo")
-	call mkdir($HOME."/.vimundo", "", 0770)
-endif
+if !isdirectory($HOME."/.vimundo") | call mkdir($HOME."/.vimundo", "", 0770) | endif
 set undofile undodir=$HOME/.vimundo
 
 " Netrw, built in explorer
@@ -37,6 +35,7 @@ vnoremap > >gv
 nnoremap Y y$
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 cnoremap <c-p> <up>
+cnoremap <c-n> <down>
 
 " Set space as leader key
 nnoremap <space> <nop>
@@ -92,10 +91,6 @@ nnoremap <leader>ff :Clap files<cr>
 nnoremap <leader>fs :Clap grep<cr>
 nnoremap <leader>gf :Clap gfiles<cr>
 
-" Git via fugitive
-nnoremap <leader>gp :Git pull<cr>
-nnoremap <leader>gP :Git push<cr>
-
 " Ripgrep
 nnoremap <leader>G :Rg 
 vnoremap <leader>G y:Rg -e "<c-r>""<cr>
@@ -106,37 +101,33 @@ nnoremap <silent> <leader>cc :call ColoNext()<cr>
 let g:colo_favs=[#{name:'spacegray',transparent:1}, #{name:'iceberg',bg:'light'}]
 call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
 
-" Close tags
-let g:closetag_filenames = '*' | let g:closetag_xhtml_filenames = '*'
-
+" LSP keymaps
 function! s:on_lsp_buffer_enabled() abort
-	setlocal omnifunc=lsp#complete
-	setlocal signcolumn=yes
-	if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
 	nmap <buffer> gd <plug>(lsp-definition)
 	nmap <buffer> gs <plug>(lsp-document-symbol-search)
 	nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
 	nmap <buffer> gr <plug>(lsp-references)
 	nmap <buffer> gi <plug>(lsp-implementation)
 	nmap <buffer> gt <plug>(lsp-type-definition)
-	nmap <buffer> <leader>rn <plug>(lsp-rename)
-	nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-	nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+	nmap <buffer> gq :LspDocumentFormatSync<cr>
 	nmap <buffer> K <plug>(lsp-hover)
-	inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+	nmap <buffer> <leader>ld :LspDocumentDiagnostics<cr>
+	nmap <buffer> <leader>ln <plug>(lsp-next-diagnostic)
+	nmap <buffer> <leader>lp <plug>(lsp-previous-diagnostic)
+	nmap <buffer> <leader>lr <plug>(lsp-rename)
 	inoremap <buffer> <expr><c-d> lsp#scroll(-4)
-
-	let g:lsp_format_sync_timeout = 1000
-	autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-
-	" refer to doc to add more commands
+	inoremap <buffer> <expr><c-f> lsp#scroll(+4)
 endfunction
 
+" Set LSP keymaps for buffer
 augroup lsp_install
 	au!
-	" call s:on_lsp_buffer_enabled only for languages that has the server registered.
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
+
+" Close tags
+let g:closetag_filetypes = 'html,javascript,markdown,php,svelte,typescript,twig,vue'
+let g:closetag_xhtml_filenames = g:closetag_filetypes
 
 " Packages
 function! PackagerInit() abort
