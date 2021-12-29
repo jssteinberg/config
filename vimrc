@@ -100,21 +100,11 @@ nnoremap <leader>gP :Git push<cr>
 nnoremap <leader>G :Rg 
 vnoremap <leader>G y:Rg -e "<c-r>""<cr>
 
-" Linting
-nnoremap gd :ALEGoToDefinition<cr>
-nnoremap <leader>lh :ALEHover<cr>
-nnoremap <leader>lr :ALEFindReferences<cr>
-nnoremap <leader>la :ALECodeAction<cr>
-
 " Colorscheme
 source $HOME/.config/colocyclone.vim
-nnoremap <silent> <leader>cc :call ColorschemeCycleFavs()<cr>
+nnoremap <silent> <leader>cc :call ColoNext()<cr>
 let g:colo_favs=[#{name:'spacegray',transparent:1}, #{name:'iceberg',bg:'light'}]
 call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
-
-" Autocompletion MUcomplete
-set completeopt+=menuone,noselect shortmess+=c belloff+=ctrlg
-let g:mucomplete#enable_auto_at_startup = 1
 
 " Close tags
 let g:closetag_filenames = '*' | let g:closetag_xhtml_filenames = '*'
@@ -130,13 +120,16 @@ function! PackagerInit() abort
 	call packager#add('subnut/visualstar.vim') " Search selection with * or #
 	call packager#add('cohama/lexima.vim') " Autocomplete brackets and quotes
 	call packager#add('alvan/vim-closetag') " Autocomplete tags
-	call packager#add('lifepillar/vim-mucomplete') " Autocomplete menu
 	call packager#add('tpope/vim-fugitive') " `G` command for git
-	call packager#add('dense-analysis/ale') " Linting and LSP
 	call packager#add('mhinz/vim-startify') " For session handling
 	call packager#add('tommcdo/vim-lion')
 	call packager#add('jssteinberg/hackline.vim') " Light statusline
 	" Colorschemes
 	call packager#add('ackyshake/Spacegray.vim')
 	call packager#add('cocopon/iceberg.vim')
+	" LSP completion
+	call packager#add('prabirshrestha/vim-lsp')
+	call packager#add('mattn/vim-lsp-settings')
+	call packager#add('prabirshrestha/asyncomplete.vim')
+	call packager#add('prabirshrestha/asyncomplete-lsp.vim')
 endfunction

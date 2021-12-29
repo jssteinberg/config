@@ -32,7 +32,8 @@ let mapleader=' '
 
 " Colorscheme
 source $HOME/.config/colocyclone.vim
-nnoremap <silent> <leader>cc :call ColorschemeCycleFavs()<cr>
+nnoremap <silent> <leader>cc :call ColoNext()<cr>
+let g:colo_list={'tokyonight':#{transparent:1}, 'tokyonight':#{bg:'light'}}
 let g:colo_favs=[
 	\ #{name:'tokyonight',transparent:1},
 	\ #{name:'tokyonight',bg:'light'},

@@ -12,14 +12,14 @@ function! SetColorscheme(colo)
 		highlight Normal guibg=NONE
 		highlight LineNr guibg=NONE
 		highlight SignColumn guibg=NONE
-	else
+	elseif v:errmsg != ""
 		silent colorscheme default
 		silent set notermguicolors t_Co=16 nohlsearch
-		silent let v:errmsg = ''
+		silent let v:errmsg = ""
 	endif
 endfunction
 
-function! ColorschemeCycleFavs()
+function! ColoNext()
 	let l:i = 0
 
 	while l:i < len(g:colo_favs)
