@@ -13,7 +13,7 @@ set hidden " Unsaved files can be 'hidden'
 set foldmethod=indent nofoldenable
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set list listchars=tab:\·\  fillchars=vert:\· " Show tabs, reuse char
-set number relativenumber " Relative numbers, number on cursor line
+set number relativenumber signcolumn=yes " Line number, relative numbers, always show signcolumn
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set sessionoptions=curdir,folds,tabpages,help
 set wildmode=lastused:full " :b <tab> for last used buffer(s)
@@ -109,6 +109,36 @@ call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
 " Close tags
 let g:closetag_filenames = '*' | let g:closetag_xhtml_filenames = '*'
 
+function! s:on_lsp_buffer_enabled() abort
+	setlocal omnifunc=lsp#complete
+	setlocal signcolumn=yes
+	if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+	nmap <buffer> gd <plug>(lsp-definition)
+	nmap <buffer> gs <plug>(lsp-document-symbol-search)
+	nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+	nmap <buffer> gr <plug>(lsp-references)
+	nmap <buffer> gi <plug>(lsp-implementation)
+	nmap <buffer> gt <plug>(lsp-type-definition)
+	nmap <buffer> <leader>rn <plug>(lsp-rename)
+	nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+	nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+	nmap <buffer> K <plug>(lsp-hover)
+	inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+	inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+	let g:lsp_format_sync_timeout = 1000
+	autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+
+	" refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+	au!
+	" call s:on_lsp_buffer_enabled only for languages that has the server registered.
+	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+" Packages
 function! PackagerInit() abort
 	packadd vim-packager
 	call packager#init()
@@ -118,18 +148,19 @@ function! PackagerInit() abort
 	call packager#add('jremmen/vim-ripgrep') " Integrates ripgrep
 	call packager#add('tpope/vim-surround') " Surround with brackets or quotes
 	call packager#add('subnut/visualstar.vim') " Search selection with * or #
-	call packager#add('cohama/lexima.vim') " Autocomplete brackets and quotes
-	call packager#add('alvan/vim-closetag') " Autocomplete tags
 	call packager#add('tpope/vim-fugitive') " `G` command for git
 	call packager#add('mhinz/vim-startify') " For session handling
 	call packager#add('tommcdo/vim-lion')
 	call packager#add('jssteinberg/hackline.vim') " Light statusline
-	" Colorschemes
-	call packager#add('ackyshake/Spacegray.vim')
-	call packager#add('cocopon/iceberg.vim')
-	" LSP completion
+	" Code completion
+	call packager#add('cohama/lexima.vim') " Autocomplete brackets and quotes
+	call packager#add('alvan/vim-closetag') " Autocomplete tags
+	" LSP auto completion
 	call packager#add('prabirshrestha/vim-lsp')
 	call packager#add('mattn/vim-lsp-settings')
 	call packager#add('prabirshrestha/asyncomplete.vim')
 	call packager#add('prabirshrestha/asyncomplete-lsp.vim')
+	" Colorschemes
+	call packager#add('ackyshake/Spacegray.vim')
+	call packager#add('cocopon/iceberg.vim')
 endfunction

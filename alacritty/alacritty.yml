@@ -1,7 +1,10 @@
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 
 font:
-  size: 14.0
+  size: 12.5
+  normal: 
+    family: courier prime
+    family: cousine nerd font mono
 
 # Use decimal, e.g. .95
 background_opacity: .975
