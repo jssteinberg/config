@@ -119,6 +119,10 @@ function! s:on_lsp_buffer_enabled() abort
 	inoremap <buffer> <expr><c-f> lsp#scroll(+4)
 endfunction
 
+" Autocompletion
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Set LSP keymaps for buffer
 augroup lsp_install
 	au!
