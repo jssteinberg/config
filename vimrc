@@ -64,7 +64,7 @@ nnoremap <leader>w :w<cr>
 
 " Edit/explore [explore cwd, explore buffer dir, project drawer, buffer in new tab]
 nnoremap <leader>e. :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit .<cr>
-nnoremap <leader>eb :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:Explore<cr>
+nnoremap <leader>eb :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit %:p:.:h<cr>
 nnoremap <leader>ec :tabedit $MYVIMRC<cr>
 nnoremap <leader>et :let g:netrw_banner=0<cr>:let g:netrw_liststyle=3<cr>:Lexplore<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
