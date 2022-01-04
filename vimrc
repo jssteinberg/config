@@ -98,7 +98,7 @@ vnoremap <leader>G y:Rg -e "<c-r>""<cr>
 " Colorscheme
 source $HOME/.config/colocyclone.vim
 nnoremap <silent> <leader>cc :call ColoNext()<cr>
-let g:colo_favs=[#{name:'spacegray',transparent:1}, #{name:'iceberg',bg:'light'}]
+let g:colo_favs=[ #{name:'spacegray',transparent:1}, #{name:'iceberg',bg:'light'} ]
 call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
 
 " LSP keymaps
@@ -111,6 +111,7 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> gt <plug>(lsp-type-definition)
 	nmap <buffer> gq :LspDocumentFormatSync<cr>
 	nmap <buffer> K <plug>(lsp-hover)
+	nmap <buffer> <leader>la :LspCodeAction<cr>
 	nmap <buffer> <leader>ld :LspDocumentDiagnostics<cr>
 	nmap <buffer> <leader>ln <plug>(lsp-next-diagnostic)
 	nmap <buffer> <leader>lp <plug>(lsp-previous-diagnostic)
