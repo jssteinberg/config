@@ -146,6 +146,7 @@ function! PackagerInit() abort
 	call packager#add('tpope/vim-fugitive') " `G` command for git
 	call packager#add('mhinz/vim-startify') " For session handling
 	call packager#add('tommcdo/vim-lion')
+	call packager#add('tpope/vim-commentary')
 	call packager#add('jssteinberg/hackline.vim') " Light statusline
 	" Code completion
 	call packager#add('cohama/lexima.vim') " Autocomplete brackets and quotes
