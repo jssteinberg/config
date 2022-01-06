@@ -117,12 +117,6 @@ function! s:on_lsp_buffer_enabled() abort
 	inoremap <buffer> <expr><c-f> lsp#scroll(+4)
 endfunction
 
-" Set LSP keymaps for buffer
-augroup lsp_install
-	au!
-	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
 " Colorscheme
 source $HOME/.config/colocyclone.vim
 nnoremap <silent> <leader>cc :call ColoNext()<cr>
@@ -136,6 +130,13 @@ let g:mucomplete#enable_auto_at_startup = 1
 " Close tags
 let g:closetag_filetypes = 'html,javascript,markdown,php,svelte,typescript,twig,vue'
 let g:closetag_xhtml_filenames = g:closetag_filetypes
+
+" Autocommands
+augroup vimrc
+	au!
+	" Set LSP keymaps for buffer
+	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 
 " Packages
 function! PackagerInit() abort

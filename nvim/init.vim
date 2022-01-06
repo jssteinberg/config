@@ -26,22 +26,8 @@ set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 " (q) allow gq formatting
 set formatoptions=cjlnpq
 
-" Set space as leader key
-nnoremap <space> <nop>
-let mapleader=' '
-
-" Colorscheme
-source $HOME/.config/colocyclone.vim
-nnoremap <silent> <leader>cc :call ColoNext()<cr>
-" let g:colo_list={'tokyonight':#{transparent:1}, 'tokyonight':#{bg:'light'}}
-let g:colo_favs=[
-	\ #{name:'tokyonight',transparent:1},
-	\ #{name:'tokyonight',bg:'light'},
-	\]
-
 augroup vimStartup
 	au!
-	autocmd VimEnter * call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
 	" Go to last known cursor position, unless it's invalid
 	autocmd BufReadPost *
 				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
@@ -59,11 +45,14 @@ lua << EOF
 require'keymaps'.init()
 
 -- ## Packages config
+
 -- Netrw
 require'packages.netrw'.config()
+
 -- External packages
 require'packages'
+
 -- Set colorscheme
--- require'packages.colors'.set_colo()
+require'packages.colors'.set_colo()
 
 EOF

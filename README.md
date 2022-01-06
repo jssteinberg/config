@@ -41,17 +41,13 @@ funcsave gs
 
 ## Vim > 8
 
-A simple vimrc that can be used as a boilerplate and works without packages (plugins). It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim > version 8 +lua.*
+A simple vimrc that can be used as a boilerplate and works without packages/plugins. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim > version 8 +lua.*
 
-Packages (plugins) are installed/updated with `:PackagerInstall`/`:PackagerUpdate` (package management requires https://github.com/kristijanhusak/vim-packager).
-
-- Uses MUcomplete for simple autocompletion. Alternatives: https://github.com/prabirshrestha/asyncomplete.vim
-- Uses ALE for linting. Alternatives: https://github.com/mattn/vim-lsp-settings
+Packages are installed/updated with `:PackagerInstall`/`:PackagerUpdate` (requires https://github.com/kristijanhusak/vim-packager).
 
 ## Neovim > 0.6
 
-Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing.
-Uncomplicated config for dummies hacking (author included).
+Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing. Uncomplicated config for dummies hacking (author included).
 
 Install neovim  > 0.6, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim, repeat.
 
@@ -59,12 +55,11 @@ Install neovim  > 0.6, [packer](https://github.com/wbthomason/packer.nvim), ripg
 
 - An amount of fitting pluggins, lazy loaded if they can be.
 - Keymaps are available by pressing `space` and the plugin Which Key will show available maps. Or browse the [keymaps file](https://github.com/jssteinberg/config/blob/main/nvim/lua/keymaps.lua).
-- Respects editorconfig, if non, auto detects indent. Falls back to hard tabs with 2 space width. `:set expandtab` for 2 actual spaces.
+- Respects editorconfig, if none, auto detects indent. Falls back to hard tabs with 2 space width. `:set expandtab` for 2 actual spaces.
 - `:TSInstall [...]` treesitter language for syntax, indentation ... via [nvim-treesitter][nts].
 - `:LspInstall [...]` for language diagnostics and completion.
 - `jk` to leave insert, terminal and visual mode.
 - `*`/`#` (x) for searching selected text, via visualstar.vim.
-- `f`, `F`, `t`, `T` motion (repeat with `f`) across lines, via [clever-f.vim](https://github.com/rhysd/clever-f.vim).
 
 #### Load on demand
 
@@ -103,17 +98,15 @@ UTF-8 fish, tmux, neovim LANG, LC_ALL error. Try adding this to your `~/.config/
 set -gx  LC_ALL en_US.UTF-8
 ```
 
-Neovim packer errors on launch:
+### Neovim
 
-1. `nvim ~/.config/nvim/lua/packages/init.lua`
-2. `:luafile %`
-3. `:PackerInstall`, `:PackerSync`. Restart neovim, repeat.
-
-Neovim css autocompletion with css-lsp may depend on native non-LSP omnifunc.
-
-Neovim has no lsp for javascript/typescript:
-
-- If you use nvm, also install a system nodejs with your system package manager.
+- Neovim packer errors on launch:
+	1. `nvim ~/.config/nvim/lua/packages/init.lua`
+	2. `:luafile %`
+	3. `:PackerInstall`, `:PackerSync`. Restart neovim, repeat.
+- Neovim Treesitter "missing xcrun" for Macos: `xcode-select --install`
+- Neovim css autocompletion with css-lsp may depend on native non-LSP omnifunc.
+- Neovim has no lsp for javascript/typescript: If you use nvm, also install a system nodejs with your system package manager.
 
 [gl]: https://github.com/junegunn/gv.vim
 [gd]: https://github.com/sindrets/diffview.nvim

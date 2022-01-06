@@ -1,9 +1,5 @@
 -- Keymaps (global)
-
--- Format for Which Key plugin; Format as human readable as possible.
-
--- Guidelines for maps:
--- - Use M.esc_map to escape when possible and consistent (insert, visual, Telescope-insert)
+-- Format mappings via Which Key as human readable as possible.
 
 local M = {}
 
@@ -27,24 +23,18 @@ M.init = function()
 	-- Terminal
 	-- escape terminal
 	vim.api.nvim_set_keymap('t', M.esc_map, '<c-\\><c-n>', {noremap = true})
-	-- open terminal in insert
-	vim.api.nvim_set_keymap('n', '<leader>T', ':terminal<cr>i', {noremap = true})
 
 	vim.api.nvim_set_keymap('n', 's', '/', {noremap = true})
 	vim.api.nvim_set_keymap('n', 'S', '?', {noremap = true})
-	-- next search result and center on screen
-	vim.api.nvim_set_keymap('n', 'n', 'nzz', {noremap = true})
-	vim.api.nvim_set_keymap('n', 'N', 'Nzz', {noremap = true})
-	vim.api.nvim_set_keymap('x', 'n', 'nzz', {noremap = true})
-	vim.api.nvim_set_keymap('x', 'N', 'Nzz', {noremap = true})
 
 	-- Buffers
 	-- alternative file
 	vim.api.nvim_set_keymap('n', M.buffer_alternate_map, ':buffer#<cr>:file!<cr>', {noremap = true})
 
 	-- Command-mode
-	-- c-p is up for incremental backwards command history
+	-- c-p/c-n is incremental up/down in command history
 	vim.api.nvim_set_keymap('c', '<c-p>', '<up>', {noremap = true})
+	vim.api.nvim_set_keymap('c', '<c-n>', '<down>', {noremap = true})
 end
 
 
@@ -349,9 +339,6 @@ M.normal = {
 
 
 	-- Terminal
-
-	['<leader>T'] = {':terminal<cr>i',
-		'Terminal in CWD' },
 
 	['<leader><cr>'] = {':lua require("harpoon.term").gotoTerminal(100)<cr>i',
 		'Terminal 0', noremap=false },

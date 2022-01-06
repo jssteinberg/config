@@ -12,10 +12,6 @@ M.config = function()
 			},
 			registers = false
 		},
-		triggers_blacklist = {
-			i = { 'q', 'Z' },
-			v = { 'q' },
-		},
 	})
 	wk.register(maps.normal)
 	wk.register(maps.insert,   {mode = 'i'})
