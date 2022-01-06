@@ -37,17 +37,17 @@ nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 
-" Set space as leader key
-nnoremap <space> <nop>
-let mapleader=' '
+" Shift + J/K moves selected lines down/up in visual mode
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Esc [normal, terminal]
 inoremap jk <esc>
 tnoremap jk <c-w>N
 
-" Shift + J/K moves selected lines down/up in visual mode
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+" Set space as leader key
+nnoremap <space> <nop>
+let mapleader=' '
 
 " Search mappings (for their defaults, use cl and cc) [search, backwards]
 nnoremap s /
@@ -64,7 +64,7 @@ nnoremap <leader>w :w<cr>
 
 " Edit/explore [explore cwd, explore buffer dir, project drawer, buffer in new tab]
 nnoremap <leader>e. :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit .<cr>
-nnoremap <leader>eb :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:Explore<cr>
+nnoremap <leader>eb :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit %:p:.:h<cr>
 nnoremap <leader>ec :tabedit $MYVIMRC<cr>
 nnoremap <leader>et :let g:netrw_banner=0<cr>:let g:netrw_liststyle=3<cr>:Lexplore<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
@@ -95,11 +95,8 @@ nnoremap <leader>gf :Clap gfiles<cr>
 nnoremap <leader>G :Rg 
 vnoremap <leader>G y:Rg -e "<c-r>""<cr>
 
-" Colorscheme
-source $HOME/.config/colocyclone.vim
-nnoremap <silent> <leader>cc :call ColoNext()<cr>
-let g:colo_favs=[#{name:'spacegray',transparent:1}, #{name:'iceberg',bg:'light'}]
-call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
+" Git
+nnoremap <leader>gg :Git<cr>
 
 " LSP keymaps
 function! s:on_lsp_buffer_enabled() abort
@@ -111,6 +108,7 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> gt <plug>(lsp-type-definition)
 	nmap <buffer> gq :LspDocumentFormatSync<cr>
 	nmap <buffer> K <plug>(lsp-hover)
+	nmap <buffer> <leader>la :LspCodeAction<cr>
 	nmap <buffer> <leader>ld :LspDocumentDiagnostics<cr>
 	nmap <buffer> <leader>ln <plug>(lsp-next-diagnostic)
 	nmap <buffer> <leader>lp <plug>(lsp-previous-diagnostic)
@@ -119,15 +117,21 @@ function! s:on_lsp_buffer_enabled() abort
 	inoremap <buffer> <expr><c-f> lsp#scroll(+4)
 endfunction
 
-" Autocompletion
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 " Set LSP keymaps for buffer
 augroup lsp_install
 	au!
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
+
+" Colorscheme
+source $HOME/.config/colocyclone.vim
+nnoremap <silent> <leader>cc :call ColoNext()<cr>
+let g:colo_favs=[ #{name:'spacegray',transparent:1}, #{name:'iceberg',bg:'light'} ]
+call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
+
+" Autocompletion
+set completeopt+=menuone completeopt+=noselect shortmess+=c belloff+=ctrlg
+let g:mucomplete#enable_auto_at_startup = 1
 
 " Close tags
 let g:closetag_filetypes = 'html,javascript,markdown,php,svelte,typescript,twig,vue'
@@ -156,6 +160,7 @@ function! PackagerInit() abort
 	call packager#add('mattn/vim-lsp-settings')
 	call packager#add('prabirshrestha/asyncomplete.vim')
 	call packager#add('prabirshrestha/asyncomplete-lsp.vim')
+	call packager#add('lifepillar/vim-mucomplete') " Tab-completing mappings and vanilla completion
 	" Colorschemes
 	call packager#add('ackyshake/Spacegray.vim')
 	call packager#add('cocopon/iceberg.vim')
