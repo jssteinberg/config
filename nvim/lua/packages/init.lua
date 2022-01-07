@@ -95,10 +95,6 @@ use{'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}}
 use{'tpope/vim-fugitive', cmd = {'G', 'Git'}}
 -- git log
 use{'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = true}}}
--- neogit
-use{'TimUntersberger/neogit', cmd = 'Neogit', requires = {'nvim-lua/plenary.nvim'}, config = function ()
-	require('neogit').setup{}
-end}
 
 -- ### EDITING
 
