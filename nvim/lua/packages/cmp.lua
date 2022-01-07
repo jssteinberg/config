@@ -29,8 +29,14 @@ M.config = function()
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),
 			}),
-			['<c-f>'] = function ()
-				cmp.confirm({ select = true })
+			['<c-f>'] = function (fallback)
+				if cmp.visible() then
+					cmp.confirm({ select = true })
+				elseif luasnip.expand_or_jumpable() then
+					luasnip.expand_or_jump()
+				else
+					fallback()
+				end
 			end,
 			['<CR>'] = function (fallback)
 				if cmp.get_selected_entry() then
@@ -61,10 +67,10 @@ M.config = function()
 		sources = {
 			{ name = 'nvim_lua' },
 			{ name = 'nvim_lsp' },
-			{ name = 'omni' },
 			{ name = 'luasnip' },
 			{ name = 'buffer', keyword_length = 3 },
 			{ name = 'path' },
+			-- { name = 'omni' },
 		},
 	}
 
@@ -80,9 +86,10 @@ M.css_config = function()
 	require'cmp'.setup.buffer {
 		sources = {
 			{ name = 'nvim_lsp' },
-			{ name = 'omni' },
-			{ name = 'path' },
 			{ name = 'luasnip' },
+			{ name = 'buffer', keyword_length = 3 },
+			{ name = 'path' },
+			-- { name = 'omni' },
 		},
 	}
 end
