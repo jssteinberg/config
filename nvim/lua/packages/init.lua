@@ -85,13 +85,9 @@ end}
 -----------------------
 
 -- ### BUFFERS
-
 -- sudo save
 use{'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}}
-
 -- ### GIT
-
--- fugitive
 use{'tpope/vim-fugitive', cmd = {'G', 'Git'}}
 -- git log
 use{'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = true}}}
@@ -100,7 +96,7 @@ use{'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = tr
 
 use{'lambdalisue/fern.vim', cmd = 'Fern'}
 vim.cmd([[
-augroup fern-custom
+augroup fern_custom
 	autocmd! *
 	autocmd FileType fern setlocal nonumber norelativenumber signcolumn=no
 augroup END
