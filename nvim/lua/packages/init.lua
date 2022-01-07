@@ -1,28 +1,42 @@
 local use = require('packages.packer').use()
 
--- LOAD AT STARTUP
-------------------
-
 -- Package manager
 use{'wbthomason/packer.nvim'}
-
 -- Neovim bug fix (until core is fixed)
 use{'antoinemadec/FixCursorHold.nvim'}
-
 -- Increase startup time
 use{'lewis6991/impatient.nvim'} -- Speed up loading Lua modules
 use{'nathom/filetype.nvim', config = function () -- Replace native filetype.vim
 	require'packages.filetype'.config()
 end}
-
--- General
-use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
-use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history on paste
-use{'jssteinberg/hackline.vim'} -- My statusline plugin
-use{'mhinz/vim-startify'} -- For session handling
-
 -- Colorschemes
 use{'folke/tokyonight.nvim'}
+-- Extend vim
+use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
+use{'tpope/vim-surround'} -- Surround stuff with stuff (org. tpope/vim-surround)
+use{'tpope/vim-repeat'} -- Extend `.` repeat
+use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
+use{'tommcdo/vim-lion'} -- Align text
+use{'mhinz/vim-startify'} -- For session handling
+use{'tyru/open-browser.vim', config = function() -- `gx` open url or web search
+	require'packages.openbrowser'.config()
+end}
+use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
+
+-- use{'tpope/vim-sleuth'} -- Detect file's indent style
+use{
+	'editorconfig/editorconfig-vim',
+	-- after = 'vim-sleuth'
+} -- Respect .editorconfig
+
+-- 'Harpoon' files and terminals
+use{
+	'ThePrimeagen/harpoon',
+	requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
+	config = function() require('harpoon').setup({
+		global_settings = { save_on_toggle = true },
+	}) end
+}
 
 -- LSP and autocompletion
 use{
@@ -45,38 +59,9 @@ use{
 	end
 }
 
--- LOAD ON VIMENTER
--------------------
-
-use{'tpope/vim-surround', event='VimEnter *'} -- Surround stuff with stuff (org. tpope/vim-surround)
-use{'tpope/vim-repeat', event='VimEnter *'} -- Extend `.` repeat
--- use{'tpope/vim-sleuth', event = 'VimEnter *'} -- Detect file's indent style
-use{
-	'editorconfig/editorconfig-vim',
-	event='VimEnter *',
-	-- after = 'vim-sleuth'
-} -- Respect .editorconfig
-
-use{'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, event = 'VimEnter *', config = function ()
-	require('gitsigns').setup{
-		keymaps = {
-			noremap = false,
-			['n <leader>gb'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
-			['n <leader>gn'] = { expr = true, "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'"},
-			['n <leader>gp'] = { expr = true, "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'"},
-		}
-	}
-end}
-
--- `gx` open url or duckduckgo selection
-use{'tyru/open-browser.vim', event = 'VimEnter *', config = function()
-	require'packages.openbrowser'.config()
-end}
-
 -- Treesitter
 use{
 	'nvim-treesitter/nvim-treesitter',
-	event = 'VimEnter *',
 	config = function() require('nvim-treesitter.configs').setup{
 		highlight = { enable = true, disable = {'vim'} },
 		autotag = { enable = true }
@@ -95,20 +80,9 @@ use{'windwp/nvim-ts-autotag', after = 'nvim-treesitter', config = function ()
 	require('nvim-ts-autotag').setup()
 end}
 
--- 'Harpoon' files and terminals
-use{
-	'ThePrimeagen/harpoon',
-	event = 'VimEnter *',
-	requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'},
-	config = function() require('harpoon').setup({
-		global_settings = { save_on_toggle = true },
-	}) end
-}
 
-
--- LOAD ON INSERT, CMD, OR KEYMAP
----------------------------------
--- (Some exceptions for "requires" of plugins.)
+-- LAZY LOADED PACKAGES
+-----------------------
 
 -- ### BUFFERS
 
@@ -155,14 +129,6 @@ use{
 		})
 	end
 }
-
--- Align text
-use{ 'junegunn/vim-easy-align', opt = true }
-vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
-require'which-key'.register({
-	['ga'] = { '<Plug>(EasyAlign)',
-	'Align (requires :packadd vim-easy-align)' },
-})
 
 -- #### Web coding
 -- Expand `html>head` to HTML
