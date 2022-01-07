@@ -6,67 +6,17 @@ local M = {}
 M.esc_map = 'jk'
 M.buffer_alternate_map = '<bs>'
 
-M.set_leader = function()
-	-- space as <leader>
-	vim.g.mapleader = ' '
-	vim.api.nvim_set_keymap('n',' ','',{noremap = true})
-	vim.api.nvim_set_keymap('x',' ','',{noremap = true})
-end
-
-M.init = function()
-	M.set_leader()
-
-	-- Escape
-	-- insert
-	vim.api.nvim_set_keymap('i', M.esc_map, '<esc>', {noremap = true})
-
-	-- Terminal
-	-- escape terminal
-	vim.api.nvim_set_keymap('t', M.esc_map, '<c-\\><c-n>', {noremap = true})
-
-	vim.api.nvim_set_keymap('n', 's', '/', {noremap = true})
-	vim.api.nvim_set_keymap('n', 'S', '?', {noremap = true})
-
-	-- Buffers
-	-- alternative file
-	vim.api.nvim_set_keymap('n', M.buffer_alternate_map, ':buffer#<cr>:file!<cr>', {noremap = true})
-
-	-- Command-mode
-	-- c-p/c-n is incremental up/down in command history
-	vim.api.nvim_set_keymap('c', '<c-p>', '<up>', {noremap = true})
-	vim.api.nvim_set_keymap('c', '<c-n>', '<down>', {noremap = true})
-end
-
-
--- Plugin related keymaps and/or keymaps needing description
--- ---------------------------------------------------------
-
 M.insert = {
-	[M.esc_map] = { '<esc>',
-	'Esc to normal mode' },
-
 	['<c-e>'] = { '<c-y>,',
 	'Emmet expand', noremap=false },
 }
 
 M.visual = {
-	['>'] = { '>gv',
-	'Indent +' },
-
-	['<'] = { '<gv',
-	'Indent -' },
-
 	['<leader>k'] = { '<c-a>',
 	'Increase number' },
 
 	['<leader>j'] = { '<c-x>',
 	'Decrease number' },
-
-	['<leader>R'] = { ':s/',
-	'Replace', silent=false },
-
-	['<leader>G'] = { 'y:Rg -e "<c-r>""<cr>',
-	'Grep selection' },
 
 
 	-- Hop
@@ -86,9 +36,6 @@ M.visual = {
 	['<leader>f'] = { name =
 		'find',
 
-		f = { 'y:Telescope find_files<cr>',
-		'Files', silent = false },
-
 		j = { ':AnyJumpVisual<cr>',
 		'Jump to files with string' },
 
@@ -98,20 +45,9 @@ M.visual = {
 }
 
 M.normal = {
-	['<leader>R'] = { ':%s/',
-	'Replace', silent=false },
-
-	['<leader>G'] = { ':Rg ',
-	'Grep selection', silent=false },
-
-	['<leader>w'] = { ':write<cr>',
-	'Write buffer' },
 
 	['<leader>W'] = { ':SudaWrite<cr>',
 	'Write restricted buffer' },
-
-	['<leader><tab>'] = { ':buffer#<cr>:file!<cr>',
-	'Edit alternate file' },
 
 
 	-- Jumps/motions
@@ -177,9 +113,6 @@ M.normal = {
 	['<leader>f'] = { name =
 		'find',
 
-		b = { ':Telescope buffers<cr>',
-		'Buffers' },
-
 		d = { ':Telescope lsp_workspace_diagnostics<cr>',
 		'Diagnostic' },
 
@@ -197,16 +130,10 @@ M.normal = {
 
 			c = { ':Telescope git_commits<cr>',
 			'Commits' },
-
-			f = { ':Telescope git_files<cr>',
-			'Files' },
 		},
 
 		o = { ':Telescope oldfiles<cr>',
 		'Old (recent) files' },
-
-		s = { ':Telescope live_grep<cr>',
-		'String (live grep)' },
 
 		w = { ':find **/',
 		'Wild', silent=false },
@@ -243,9 +170,6 @@ M.normal = {
 			f = { ':Telescope git_files<cr>',
 			'Files' },
 		},
-
-		g = { ':Neogit<cr>',
-		'Git' },
 
 		l = { ':Git | GV<cr>',
 		'Log' },
@@ -309,16 +233,6 @@ M.normal = {
 	['<leader>p'] = { name =
 		'packages',
 
-	},
-
-
-	-- Session
-
-	['<leader>s'] = { name =
-		'session',
-
-		s = { ':lua require"keymaps".save_sourced_session()<cr>',
-		'Save the sourced session' },
 	},
 
 
@@ -446,23 +360,6 @@ M.normal_lsp_buffer_keymaps = function (bufnr)
 			'Signature help', buffer = bufnr },
 		},
 	}
-end
-
-M.remap_comma = function ()
-	vim.api.nvim_set_keymap('n', ',', ':', {noremap=true})
-end
-
--- save current session
-M.save_sourced_session = function()
-	local getSession = function()
-		return vim.api.nvim_get_vvar('this_session')
-	end
-	if getSession() ~= '' then
-		vim.cmd('mksession! ' .. getSession())
-		print('mksession! ' .. getSession())
-	else
-		print('No sourced session (:so <session-file>)')
-	end
 end
 
 return M

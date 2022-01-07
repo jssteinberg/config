@@ -37,21 +37,22 @@ nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 
-" Shift + J/K moves selected lines down/up in visual mode
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
 " Esc [normal, terminal]
 inoremap jk <esc>
 tnoremap jk <c-w>N
 
+" Search (for their defaults, use cl and cc) [search, backwards, visual mode]
+nnoremap s /
+nnoremap S ?
+vnoremap s /
+
+" Shift + J/K moves selected lines down/up in visual mode
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " Set space as leader key
 nnoremap <space> <nop>
 let mapleader=' '
-
-" Search mappings (for their defaults, use cl and cc) [search, backwards]
-nnoremap s /
-nnoremap S ?
 
 " Alternate buffer
 nnoremap <bs> :buffer#<cr>

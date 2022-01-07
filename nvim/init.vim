@@ -33,23 +33,16 @@ augroup vimStartup
 				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
 				\ |   exe "normal! g`\""
 				\ | endif
-
 augroup END
 
+source $HOME/.config/nvim/keymaps.vim
+
 lua << EOF
-
--- ## Vanilla nvim config
--- Options
--- require'options'
--- Keymaps
-require'keymaps'.init()
-
--- ## Packages config
 
 -- Netrw
 require'packages.netrw'.config()
 
--- External packages
+-- Extra packages/plugins
 require'packages'
 
 -- Set colorscheme
