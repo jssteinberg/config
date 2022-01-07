@@ -76,17 +76,10 @@ end}
 -- Treesitter
 use{
 	'nvim-treesitter/nvim-treesitter',
-	run = ':TSUpdate',
 	event = 'VimEnter *',
 	config = function() require('nvim-treesitter.configs').setup{
-		ensure_installed = 'maintained',
-		highlight = {
-			enable = true,
-			disable = {'vim'},
-		},
-		autotag = {
-			enable = true,
-		}
+		highlight = { enable = true, disable = {'vim'} },
+		autotag = { enable = true }
 	} end
 }
 -- context aware comment toggling (needs a toggler plugin)
