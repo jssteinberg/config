@@ -35,8 +35,7 @@ nnoremap <leader><tab> :buffer
 " Write/save file
 nnoremap <leader>w :w<cr>
 
-" Edit/explore [explore cwd, explore buffer dir, project drawer, buffer in new tab]
-" nnoremap <leader>e. :let g:netrw_liststyle=0<cr>:edit .<cr>
+" Edit/explore [buffer dir, buffer in new tab, close tab]
 nnoremap <leader>eb :let g:netrw_liststyle=0<cr>:edit %:p:.:h<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>tc :tabclose<cr>
