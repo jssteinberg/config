@@ -51,41 +51,16 @@ Functional, lightweight and 'native extending' neovim config with a focus on web
 
 Install neovim  > 0.6, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim, repeat.
 
-### Features
-
-- An amount of fitting pluggins, lazy loaded if they can be.
-- Keymaps are available by pressing `space` and the plugin Which Key will show available maps. Or browse the [keymaps file](https://github.com/jssteinberg/config/blob/main/nvim/lua/keymaps.lua).
-- Respects editorconfig, if none, auto detects indent. Falls back to hard tabs with 2 space width. `:set expandtab` for 2 actual spaces.
 - `:TSInstall [...]` treesitter language for syntax, indentation ... via [nvim-treesitter][nts].
 - `:LspInstall [...]` for language diagnostics and completion.
-- `jk` to leave insert, terminal and visual mode.
-- `*`/`#` (x) for searching selected text, via visualstar.vim.
-
-#### Load on demand
-
-- `ga` for aligning text in normal and visual mode via Easyalign. Load with `:packadd vim-easy-align`.
-
-#### Tips
-
-Sessions:
-
-- `:mksession! ~/vim-session-name.vim`, `:so ~/vim-session-name.vim`/`nvim -S ~/vim-session-name.vim` (`<leader>ss saves session`).
+- `jk` to ESC insert and terminal mode.
 
 ### Plugins to consider
 
-- https://github.com/tommcdo/vim-lion
 - https://github.com/sbdchd/neoformat
-- [Additional theme (Github theme)](https://github.com/projekt0n/github-nvim-theme)
-
-### Structure
-
-- init.lua should give a glance of what's configured
-- files in lua folder should have filenames that explain what they do: options, keymaps, packages ...
-- avoid deep folder structure
 
 ## Todo
 
-- only comment on why something is set like that, not what it does
 - When `gf` fails, should have Telescope guess which file.
 - `<leader>ff` in visual-mode should fuzzy file-search selection
 - telescope: add native fzf https://github.com/nvim-telescope/telescope-fzf-native.nvim (or wait for it to be plugin core)

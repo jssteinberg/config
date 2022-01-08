@@ -37,6 +37,7 @@ nnoremap <leader>w :w<cr>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
 nnoremap <leader>eb :let g:netrw_liststyle=0<cr>:edit %:p:.:h<cr>
+nnoremap <leader>ew :edit **/*
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>tc :tabclose<cr>
 
@@ -71,4 +72,5 @@ nnoremap <leader>gf :Telescope git_files<cr>
 nnoremap <leader>gg :Git<cr>
 
 " Fern
-nnoremap <leader>e. :Fern .<cr>
+nnoremap <leader>e. :Fern . -reveal=%<cr>
+nnoremap <leader>et :Fern . -drawer -reveal=% -toggle<cr>

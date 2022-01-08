@@ -90,12 +90,6 @@ M.normal = {
 
 		c = { ':tabedit ~/.config/README.md | tcd ~/.config<cr>',
 		'Config directory' },
-
-		t = { '<cmd>Fern . -drawer -reveal=% -toggle<cr>',
-		'Tree explorer' },
-
-		w = { ':edit **/',
-		'Wild', silent=false },
 	},
 
 
