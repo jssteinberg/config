@@ -78,6 +78,11 @@ nnoremap <leader>Q :cprev<cr>
 nnoremap <leader>R :%s/
 vnoremap <leader>R :%s/
 
+" Netrw remaps
+function! NetrwRemaps ()
+	nn <buffer> s /
+endfunction
+
 " Packages config
 " ---------------
 " Requires https://github.com/kristijanhusak/vim-packager
@@ -135,6 +140,7 @@ let g:closetag_xhtml_filenames = g:closetag_filetypes
 " Autocommands
 augroup vimrc
 	au!
+	autocmd FileType netrw call NetrwRemaps()
 	" Set LSP keymaps for buffer
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END

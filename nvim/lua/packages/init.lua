@@ -96,14 +96,7 @@ use{'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = tr
 -- ### EDITING
 
 use{'lambdalisue/fern.vim', cmd = 'Fern'}
-vim.cmd([[
-augroup fern_custom
-	autocmd! *
-	autocmd FileType fern setlocal nonumber norelativenumber signcolumn=no
-augroup END
-]])
 use{'cohama/lexima.vim', event = 'InsertEnter *'} -- close parentheses and quotes
--- use{'alvan/vim-closetag', event = 'InsertEnter *'} -- close
 
 -- gcc, gc in visual mode, to (un)comment. Lua
 use{

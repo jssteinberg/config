@@ -1,3 +1,8 @@
+augroup keymaps
+	au!
+	autocmd FileType netrw call NetrwRemaps()
+augroup END
+
 " Better defaults
 vnoremap < <gv
 vnoremap > >gv
@@ -31,11 +36,10 @@ nnoremap <leader><tab> :buffer
 nnoremap <leader>w :w<cr>
 
 " Edit/explore [explore cwd, explore buffer dir, project drawer, buffer in new tab]
-nnoremap <leader>e. :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit .<cr>
-nnoremap <leader>eb :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit %:p:.:h<cr>
-nnoremap <leader>ec :tabedit $MYVIMRC<cr>
-nnoremap <leader>et :let g:netrw_banner=0<cr>:let g:netrw_liststyle=3<cr>:Lexplore<cr>
+" nnoremap <leader>e. :let g:netrw_liststyle=0<cr>:edit .<cr>
+nnoremap <leader>eb :let g:netrw_liststyle=0<cr>:edit %:p:.:h<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
+nnoremap <leader>tc :tabclose<cr>
 
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
@@ -49,6 +53,11 @@ vnoremap <leader>R :%s/
 " Package/plugin mappings
 " -----------------------
 
+" Netrw remaps
+function! NetrwRemaps ()
+	nn <buffer> s /
+endfunction
+
 " Ripgrep
 nnoremap <leader>G :Rg 
 vnoremap <leader>G y:Rg -e "<c-r>""<cr>
@@ -61,3 +70,6 @@ nnoremap <leader>gf :Telescope git_files<cr>
 
 " Git
 nnoremap <leader>gg :Git<cr>
+
+" Fern
+nnoremap <leader>e. :Fern .<cr>

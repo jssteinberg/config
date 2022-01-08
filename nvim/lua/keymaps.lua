@@ -88,17 +88,8 @@ M.normal = {
 	['<leader>e'] = { name =
 		'edit/explore',
 
-		['.'] = { '<cmd>edit .<cr>',
-		'Working directory' },
-
 		c = { ':tabedit ~/.config/README.md | tcd ~/.config<cr>',
 		'Config directory' },
-
-		b = { '<cmd>Explore<cr>',
-		'Buffer directory' },
-
-		i = { ':IndentOMatic<cr>',
-		'Indent style', silent=false },
 
 		t = { '<cmd>Fern . -drawer -reveal=% -toggle<cr>',
 		'Tree explorer' },
@@ -228,30 +219,6 @@ M.normal = {
 	},
 
 
-	-- Packages
-
-	['<leader>p'] = { name =
-		'packages',
-
-	},
-
-
-	-- Tab
-
-	['<leader>t'] = { name =
-		'tab',
-
-		['.'] = { ':tabedit .<cr>',
-		'Edit working directory' },
-
-		b = { ':tabedit %<cr>',
-		'Edit buffer' },
-
-		c = { ':tabclose<cr>',
-		'Close' },
-	},
-
-
 	-- Terminal
 
 	['<leader><cr>'] = {':lua require("harpoon.term").gotoTerminal(100)<cr>i',
@@ -287,12 +254,6 @@ M.normal = {
 	['<ctrl-q>'] = {':cnext<cr>',
 		'Quickfix next', silent=false },
 
--- 	['<leader>q'] = { name =
--- 		'quickfix',
-
--- 		o = { ':colder<cr>',
--- 		'Older list' },
--- 	},
 
 	-- Zen mode
 

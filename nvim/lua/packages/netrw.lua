@@ -4,7 +4,8 @@ M.config = function ()
 	-- Options
 	-- No help banner
 	vim.api.nvim_set_var('netrw_banner', 0)
-	-- Change the copy command. Mostly to enable recursive copy of directories.
+	-- Recursive rm and cp
+	vim.api.nvim_set_var('netrw_localrmdir', 'rm -r')
 	vim.api.nvim_set_var('netrw_localcopydircmd', 'cp -r')
 	-- Set the size in % of the Netrw window when it creates a split.
 	vim.api.nvim_set_var('netrw_winsize', 25) -- %

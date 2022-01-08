@@ -43,7 +43,7 @@ funcsave gs
 
 A simple vimrc that can be used as a boilerplate and works without packages/plugins. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim > version 8 +lua.*
 
-Packages are installed/updated with `:PackagerInstall`/`:PackagerUpdate` (requires https://github.com/kristijanhusak/vim-packager).
+Packages are installed/updated with `:PackagerInstall`/`:PackagerUpdate` (requires https://github.com/kristijanhusak/vim-packager, consider https://github.com/k-takata/minpac).
 
 ## Neovim > 0.6
 
