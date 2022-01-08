@@ -67,21 +67,23 @@ Install neovim  > 0.6, [packer](https://github.com/wbthomason/packer.nvim), ripg
 
 ## Troubleshooting
 
-UTF-8 fish, tmux, neovim LANG, LC_ALL error. Try adding this to your `~/.config/fish/config.fish`:
+- UTF-8 fish, tmux, neovim LANG, LC_ALL error. Try adding this to your `~/.config/fish/config.fish`:
 
-```sh
-set -gx  LC_ALL en_US.UTF-8
-```
-
-### Neovim
+	```sh
+	set -gx  LC_ALL en_US.UTF-8
+	```
 
 - Neovim packer errors on launch:
 	1. `nvim ~/.config/nvim/lua/packages/init.lua`
 	2. `:luafile %`
 	3. `:PackerInstall`, `:PackerSync`. Restart neovim, repeat.
+
 - Neovim Treesitter "missing xcrun" for Macos: `xcode-select --install`
+
 - Neovim css autocompletion with css-lsp may depend on native non-LSP omnifunc.
+
 - Neovim has no lsp for javascript/typescript: If you use nvm, also install a system nodejs with your system package manager.
+
 
 [gl]: https://github.com/junegunn/gv.vim
 [gd]: https://github.com/sindrets/diffview.nvim
