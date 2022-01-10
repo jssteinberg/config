@@ -47,8 +47,8 @@ nnoremap S ?
 vnoremap s /
 
 " Shift + J/K moves selected lines down/up in visual mode
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
 
 " Set space as leader key
 nnoremap <space> <nop>
@@ -76,7 +76,7 @@ nnoremap <leader>Q :cprev<cr>
 
 " Replace [normal, visual]
 nnoremap <leader>R :%s/
-vnoremap <leader>R :%s/
+vnoremap <leader>R :s/
 
 " Netrw remaps
 function! NetrwRemaps ()

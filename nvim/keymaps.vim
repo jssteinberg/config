@@ -47,7 +47,7 @@ nnoremap <leader>Q :cprev<cr>
 
 " Replace [normal, selection]
 nnoremap <leader>R :%s/
-vnoremap <leader>R :%s/
+vnoremap <leader>R :s/
 
 
 " Package/plugin mappings
