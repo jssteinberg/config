@@ -9,6 +9,7 @@
 !alacritty/*
 !nvim/
 !nvim/*
+nvim/.DS_Store
 !nvim/after/*
 !nvim/after/ftplugin/*
 !nvim/lua/*
