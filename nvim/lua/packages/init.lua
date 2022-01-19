@@ -76,9 +76,19 @@ use{
 		context_commentstring = { enable = true }
 	} end
 }
--- auto close tags
+-- auto close tags (using treesittter)
 use{'windwp/nvim-ts-autotag', after = 'nvim-treesitter', config = function ()
 	require('nvim-ts-autotag').setup()
+	vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+		vim.lsp.diagnostic.on_publish_diagnostics, {
+			underline = true,
+			virtual_text = {
+				spacing = 5,
+				severity_limit = 'Warning',
+			},
+			update_in_insert = true,
+		}
+	)
 end}
 
 
@@ -96,7 +106,10 @@ use{'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = tr
 -- ### EDITING
 
 use{'lambdalisue/fern.vim', cmd = 'Fern'}
-use{'cohama/lexima.vim', event = 'InsertEnter *'} -- close parentheses and quotes
+-- use{'cohama/lexima.vim', event = 'InsertEnter *'} -- close parentheses and quotes
+use{'windwp/nvim-autopairs', event = 'InsertEnter *', config = function ()
+	require('nvim-autopairs').setup{}
+end}
 
 -- gcc, gc in visual mode, to (un)comment. Lua
 use{
