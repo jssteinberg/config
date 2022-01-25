@@ -72,5 +72,5 @@ nnoremap <leader>gf :Telescope git_files<cr>
 nnoremap <leader>gg :Git<cr>
 
 " Fern
-nnoremap <leader>e. :Fern . -reveal=%<cr>
-nnoremap <leader>et :Fern . -drawer -reveal=% -toggle<cr>
+nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
+nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>

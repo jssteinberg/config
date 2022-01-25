@@ -1,7 +1,7 @@
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 
 font:
-  size: 12.5
+  size: 13
   normal: 
     family: courier prime
     family: cousine nerd font mono
@@ -60,25 +60,25 @@ colors:
     - { index: 17, color: '0xdb4b4b' }
 
 # Spacegray
-colors:
-  primary:
-    foreground: '#B7BBB7'
-    background: '#111314'
-  normal:
-    black: '#2C2F33'
-    red: '#B04C50'
-    green: '#919652'
-    yellow: '#E2995C'
-    blue: '#66899D'
-    magenta: '#8D6494'
-    cyan: '#527C77'
-    white: '#606360'
-  bright:
-    black: '#4B5056'
-    red: '#B04C50'
-    green: '#94985B'
-    yellow: '#E2995C'
-    blue: '#66899D'
-    magenta: '#8D6494'
-    cyan: '#527C77'
-    white: '#DDE3DC'
+# colors:
+#   primary:
+#     foreground: '#B7BBB7'
+#     background: '#111314'
+#   normal:
+#     black: '#2C2F33'
+#     red: '#B04C50'
+#     green: '#919652'
+#     yellow: '#E2995C'
+#     blue: '#66899D'
+#     magenta: '#8D6494'
+#     cyan: '#527C77'
+#     white: '#606360'
+#   bright:
+#     black: '#4B5056'
+#     red: '#B04C50'
+#     green: '#94985B'
+#     yellow: '#E2995C'
+#     blue: '#66899D'
+#     magenta: '#8D6494'
+#     cyan: '#527C77'
+#     white: '#DDE3DC'
