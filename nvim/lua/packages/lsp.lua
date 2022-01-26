@@ -53,10 +53,14 @@ M.register_keymaps = function (client, bufnr)
 		wk.register({
 			['<leader>lf'] = { '<cmd>lua vim.lsp.buf.formatting()<cr>',
 			'Formatting', buffer = bufnr },
+			['gq'] = { '<cmd>lua vim.lsp.buf.formatting()<cr>', 'Formatting',
+			buffer = bufnr },
 		})
 	elseif client.resolved_capabilities.document_range_formatting then
 		wk.register({
 			['<leader>lf'] = { '<cmd>lua vim.lsp.buf.ranger_formatting()<cr>',
+			'Formatting', buffer = bufnr },
+			['gq'] = { '<cmd>lua vim.lsp.buf.ranger_formatting()<cr>',
 			'Formatting', buffer = bufnr },
 		})
 	end
