@@ -104,21 +104,11 @@ M.normal = {
 		f = { ':Telescope find_files<cr>',
 		'Files' },
 
+		g = { ':Telescope git_files<cr>',
+		'Git files' },
+
 		j = { ':AnyJump<cr>',
 		'Jump to files with string' },
-
-		g = { name =
-			'git',
-
-			b = { ':Telescope git_branches<cr>',
-			'Branches' },
-
-			c = { ':Telescope git_commits<cr>',
-			'Commits' },
-		},
-
-		o = { ':Telescope oldfiles<cr>',
-		'Old (recent) files' },
 
 		w = { ':find **/',
 		'Wild', silent=false },
@@ -130,41 +120,13 @@ M.normal = {
 	['<leader>g'] = { name =
 		'git',
 
-		b = {
-		'Blame' },
-
-		c = { name =
-			'commit',
-
-			a = { ':Git commit -a<cr>',
-			'All' },
-
-			c = { ':Git add % | Git commit %<cr>',
-			'Current buffer' },
-		},
-
-		f = { name =
-			'find',
-
-			b = { ':Telescope git_branches<cr>',
-			'Branches' },
-
-			c = { ':Telescope git_commits<cr>',
-			'Commits' },
-
-			f = { ':Telescope git_files<cr>',
-			'Files' },
-		},
+		f = { ':Telescope git_files<cr>',
+		'Find files' },
 
 		l = { ':Git | GV<cr>',
 		'Log' },
 
-		n = {
-		'Next hunk' },
-
-		p = {
-		'Previous hunk' },
-
+		m = { 'Message' },
 	},
 
 
