@@ -103,6 +103,8 @@ use{'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}}
 use{'tpope/vim-fugitive', cmd = {'G', 'Git'}}
 -- git log
 use{'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = true}}}
+-- git blame
+use{'APZelos/blamer.nvim', cmd ={'BlamerToggle'}}
 -- git message under cursor
 use{'rhysd/git-messenger.vim', cmd ={'GitMessenger'}}
 

@@ -70,6 +70,7 @@ nnoremap <leader>gf :Telescope git_files<cr>
 
 " Git
 nnoremap <leader>gg :Git<cr>
+nnoremap <leader>gb :BlamerToggle<cr>
 nnoremap <leader>gm :GitMessenger<cr>
 
 " Fern
