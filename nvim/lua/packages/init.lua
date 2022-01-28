@@ -24,10 +24,8 @@ end}
 use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
 
 -- use{'tpope/vim-sleuth'} -- Detect file's indent style
-use{
-	'editorconfig/editorconfig-vim',
-	-- after = 'vim-sleuth'
-} -- Respect .editorconfig
+use{'Darazaki/indent-o-matic'}
+use{'editorconfig/editorconfig-vim', after = 'indent-o-matic'} -- Respect .editorconfig
 
 -- 'Harpoon' files and terminals
 use{
