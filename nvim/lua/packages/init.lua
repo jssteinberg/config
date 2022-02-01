@@ -142,6 +142,8 @@ end}
 
 -- ### LSP & CODE INSPECTION
 
+use{'sbdchd/neoformat', cmd = {'NeoFormat'}}
+
 -- Convenient UI for grepping word
 use{
 	'pechorin/any-jump.vim',

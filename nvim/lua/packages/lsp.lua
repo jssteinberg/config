@@ -48,23 +48,6 @@ M.register_keymaps = function (client, bufnr)
 	-- Register LSP keymaps for buffer number
 	wk.register(require'keymaps'.normal_lsp_buffer_keymaps(bufnr))
 
-	-- Set some keybinds conditional on server capabilities
-	if client.resolved_capabilities.document_formatting then
-		wk.register({
-			['<leader>lf'] = { '<cmd>lua vim.lsp.buf.formatting()<cr>',
-			'Formatting', buffer = bufnr },
-			['gq'] = { '<cmd>lua vim.lsp.buf.formatting()<cr>', 'Formatting',
-			buffer = bufnr },
-		})
-	elseif client.resolved_capabilities.document_range_formatting then
-		wk.register({
-			['<leader>lf'] = { '<cmd>lua vim.lsp.buf.ranger_formatting()<cr>',
-			'Formatting', buffer = bufnr },
-			['gq'] = { '<cmd>lua vim.lsp.buf.ranger_formatting()<cr>',
-			'Formatting', buffer = bufnr },
-		})
-	end
-
 	-- Unmapped
 	-- buf_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 	-- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
