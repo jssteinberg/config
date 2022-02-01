@@ -76,9 +76,3 @@ nnoremap <leader>gm :GitMessenger<cr>
 " Fern
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
 nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
-
-" LSP
-nnoremap <leader>lf :NeoFormat<cr>
-vnoremap <leader>lf :NeoFormat<cr>
-nnoremap gq :NeoFormat<cr>
-vnoremap gq :NeoFormat<cr>

@@ -159,9 +159,6 @@ M.normal = {
 
 	['<leader>l'] = { name =
 		'lsp',
-
-		i = { '<cmd>LspInfo<cr>',
-		'Info' },
 	},
 
 
