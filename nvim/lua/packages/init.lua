@@ -105,6 +105,15 @@ use{'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = tr
 use{'APZelos/blamer.nvim', cmd ={'BlamerToggle'}}
 -- git message under cursor
 use{'rhysd/git-messenger.vim', cmd ={'GitMessenger'}}
+-- git linker
+use {
+	'ruifm/gitlinker.nvim',
+	requires = 'nvim-lua/plenary.nvim',
+	keys = {{'n','<leader>gy'},{'v','<leader>gy'}},
+	config = function ()
+		require('gitlinker').setup({})
+	end
+}
 
 -- ### EDITING
 
