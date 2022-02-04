@@ -103,6 +103,7 @@ vnoremap <leader>G y:Rg -e "<c-r>""<cr>
 
 " Git
 nnoremap <leader>gg :Git<cr>
+nnoremap <leader>gq :Git mergetool<cr>
 
 " LSP keymaps
 function! s:on_lsp_buffer_enabled() abort
