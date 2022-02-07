@@ -15,6 +15,7 @@ use{'folke/tokyonight.nvim'}
 use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 use{'tpope/vim-surround'} -- Surround stuff with stuff (org. tpope/vim-surround)
 use{'tpope/vim-repeat'} -- Extend `.` repeat
+use{'lambdalisue/fern.vim'}
 use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
 use{'tommcdo/vim-lion'} -- Align text
 use{'mhinz/vim-startify'} -- For session handling
@@ -22,8 +23,6 @@ use{'tyru/open-browser.vim', config = function() -- `gx` open url or web search
 	require'packages.openbrowser'.config()
 end}
 use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
-
--- use{'tpope/vim-sleuth'} -- Detect file's indent style
 use{'Darazaki/indent-o-matic'}
 use{'editorconfig/editorconfig-vim', after = 'indent-o-matic'} -- Respect .editorconfig
 
@@ -117,8 +116,6 @@ use {
 
 -- ### EDITING
 
-use{'lambdalisue/fern.vim', cmd = 'Fern'}
--- use{'cohama/lexima.vim', event = 'InsertEnter *'} -- close parentheses and quotes
 use{'windwp/nvim-autopairs', event = 'InsertEnter *', config = function ()
 	require('nvim-autopairs').setup{}
 end}
