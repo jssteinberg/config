@@ -117,16 +117,12 @@ M.normal = {
 
 	-- Git
 
-	['<leader>g'] = { name =
-		'git',
-
-		f = { ':Telescope git_files<cr>',
-		'Find files' },
-
-		l = { ':Git | GV<cr>',
-		'Log' },
-
+	['<leader>g'] = {
+		name = 'git',
+		m = { 'Blame' },
+		l = { ':Git | GV<cr>', 'Log' },
 		m = { 'Message' },
+		y = { 'Yank line URL' },
 	},
 
 
