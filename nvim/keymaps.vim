@@ -1,8 +1,3 @@
-augroup keymaps
-	au!
-	autocmd FileType netrw call NetrwRemaps()
-augroup END
-
 " Better defaults
 vnoremap < <gv
 vnoremap > >gv
@@ -30,8 +25,7 @@ let mapleader=' '
 nnoremap <bs> :buffer#<cr>
 
 " Buffer switcher
-nnoremap <leader><tab> :buffer 
-
+nnoremap <leader><tab> :buffer <c-z><s-tab>
 " Write/save file
 nnoremap <leader>w :w<cr>
 
@@ -40,6 +34,9 @@ nnoremap <leader>eb :let g:netrw_liststyle=0<cr>:edit %:p:.:h<cr>
 nnoremap <leader>ew :edit **/*
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>tc :tabclose<cr>
+
+" Find files
+vnoremap <leader>fw y:find **/*<c-r>"<c-z><s-tab>
 
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
@@ -77,3 +74,11 @@ nnoremap <leader>gm :GitMessenger<cr>
 " Fern
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
 nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
+
+" Vaffle
+nnoremap <silent> <leader>eb :Vaffle %<cr>
+
+augroup keymaps
+	au!
+	autocmd FileType netrw call NetrwRemaps()
+augroup END

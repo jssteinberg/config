@@ -16,6 +16,10 @@ use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings 
 use{'tpope/vim-surround'} -- Surround stuff with stuff (org. tpope/vim-surround)
 use{'tpope/vim-repeat'} -- Extend `.` repeat
 use{'lambdalisue/fern.vim'}
+use{'cocopon/vaffle.vim', config = function ()
+	vim.g.vaffle_force_delete = true
+	vim.g.vaffle_show_hidden_files = true
+end}
 use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
 use{'tommcdo/vim-lion'} -- Align text
 use{'mhinz/vim-startify'} -- For session handling
