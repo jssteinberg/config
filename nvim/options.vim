@@ -14,7 +14,7 @@ set synmaxcol=200 " reduce column to search for syntax items
 set tabstop=2 shiftwidth=2 " indent size
 set timeoutlen=500 " Wait less for typing of keymaps
 set undofile noswapfile
-set wildignorecase wildmode=lastused:full wildignore+=node_modules/
+set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**
 set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 
 " Formatoptions
