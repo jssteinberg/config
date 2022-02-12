@@ -152,7 +152,9 @@ end}
 
 -- ### LSP & CODE INSPECTION
 
-use{'sbdchd/neoformat', cmd = {'NeoFormat'}}
+use{'sbdchd/neoformat', cmd = {'NeoFormat'}, config = function ()
+	vim.g.neoformat_try_node_exe = true
+end}
 
 -- Convenient UI for grepping word
 use{
@@ -194,6 +196,12 @@ use{
 use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine'}, config = function()
 	require'hop'.setup { keys = 'eoqdgflhksura' }
 end}
+
+-- Better f, F, t, T motion, repeatable with f/F
+use{'rhysd/clever-f.vim', keys ={
+	{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
+	{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
+}}
 
 -- ### UTILITY
 
