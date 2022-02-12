@@ -193,6 +193,12 @@ use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine'}, config = funct
 	require'hop'.setup { keys = 'eoqdgflhksura' }
 end}
 
+-- Better f, F, t, T motion, repeatable with f/F
+use{'rhysd/clever-f.vim', keys ={
+	{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
+	{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
+}}
+
 -- ### UTILITY
 
 -- Zen mode
