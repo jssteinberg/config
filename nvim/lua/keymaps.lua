@@ -38,9 +38,6 @@ M.visual = {
 
 		j = { ':AnyJumpVisual<cr>',
 		'Jump to files with string' },
-
-		w = { 'y:find **/<c-r>"',
-		'Wild search', silent = false },
 	},
 }
 
@@ -60,21 +57,6 @@ M.normal = {
 
 	['<leader>K'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
-
-
-	-- Add (keymaps set elsewhere)
-
-	['<leader>a'] = { name =
-		'add'},
-
-	-- Buffers
-
-	-- Open buffer
-	[M.buffer_alternate_map] = { '<cmd>buffer#<cr>:file!<cr>',
-	'Alternate' },
-
-	['<leader><tab>'] = { ':buffer ',
-	':buffer ', silent = false},
 
 
 	-- Edit
