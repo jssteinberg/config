@@ -7,5 +7,6 @@ nmap <buffer> % <Plug>(fern-action-new-file)
 nmap <buffer> v <Plug>(fern-action-open:side)
 nmap <buffer> d <Plug>(fern-action-new-dir)
 nmap <buffer> cd <Plug>(fern-action-cd)
+nmap <buffer> R <Plug>(fern-action-move)
 " Change <bs> to my config's globa alt buffer
 nmap <buffer> <bs> :buffer#<cr>
