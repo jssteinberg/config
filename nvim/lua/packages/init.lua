@@ -148,7 +148,9 @@ end}
 
 -- ### LSP & CODE INSPECTION
 
-use{'sbdchd/neoformat', cmd = {'NeoFormat'}}
+use{'sbdchd/neoformat', cmd = {'NeoFormat'}, config = function ()
+	vim.g.neoformat_try_node_exe = true
+end}
 
 -- Convenient UI for grepping word
 use{
