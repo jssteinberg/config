@@ -80,15 +80,6 @@ M.normal = {
 	['<leader>f'] = { name =
 		'find',
 
-		d = { ':Telescope lsp_workspace_diagnostics<cr>',
-		'Diagnostic' },
-
-		f = { ':Telescope find_files<cr>',
-		'Files' },
-
-		g = { ':Telescope git_files<cr>',
-		'Git files' },
-
 		j = { ':AnyJump<cr>',
 		'Jump to files with string' },
 
@@ -101,10 +92,7 @@ M.normal = {
 
 	['<leader>g'] = {
 		name = 'git',
-		m = { 'Blame' },
 		l = { ':Git | GV<cr>', 'Log' },
-		m = { 'Message' },
-		y = { 'Yank line URL' },
 	},
 
 

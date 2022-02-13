@@ -16,3 +16,4 @@ nmap <buffer> - <Plug>(fern-action-leave)
 nmap <buffer> gh <Plug>(fern-action-hidden)
 " Change <bs> to my config's globa alt buffer
 nmap <buffer> <bs> :buffer#<cr>
+nnoremap <buffer> N N

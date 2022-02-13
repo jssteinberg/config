@@ -15,7 +15,6 @@ use{'folke/tokyonight.nvim'}
 use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 use{'tpope/vim-surround'} -- Surround stuff with stuff (org. tpope/vim-surround)
 use{'tpope/vim-repeat'} -- Extend `.` repeat
-use{'lambdalisue/fern.vim'}
 use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
 use{'tommcdo/vim-lion'} -- Align text
 use{'mhinz/vim-startify'} -- For session handling
@@ -25,105 +24,8 @@ end}
 use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
 use{'Darazaki/indent-o-matic'}
 use{'editorconfig/editorconfig-vim', after = 'indent-o-matic'} -- Respect .editorconfig
-
-use {
-	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v1.x",
-	requires = { 
-		"nvim-lua/plenary.nvim",
-		--"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-		"MunifTanjim/nui.nvim",
-	},
-	config = function ()
-		-- See ":help neo-tree-highlights" for a list of available highlight groups
-		vim.cmd([[
-			hi link NeoTreeDirectoryName Directory
-			hi link NeoTreeDirectoryIcon NeoTreeDirectoryName
-		]])
-
-		require("neo-tree").setup({
-			default_component_configs = {
-				indent = { padding = 0 },
-			},
-			filesystem = {
-				filters = { --These filters are applied to both browsing and searching
-					show_hidden = true,
-					respect_gitignore = false,
-				},
-				follow_current_file = true, -- This will find and focus the file in the active buffer every
-				-- time the current file is changed while the tree is open.
-				hijack_netrw_behavior = "disabled",
-				window = {
-					width = 35,
-					mappings = {
-						["<cr>"] = "open",
-						["v"] = "open_vsplit",
-						["-"] = "navigate_up",
-						["."] = "set_root",
-						["gh"] = "toggle_hidden",
-						["I"] = "toggle_gitignore",
-						["<c-l>"] = "refresh",
-						["s"] = "fuzzy_finder",
-						["a"] = "add",
-						["D"] = "delete",
-						["R"] = "rename",
-						["c"] = "copy_to_clipboard",
-						["m"] = "cut_to_clipboard",
-						["p"] = "paste_from_clipboard",
-					}
-				}
-			},
-			buffers = {
-				show_unloaded = true,
-				window = {
-					position = "left",
-					mappings = {
-						["<2-LeftMouse>"] = "open",
-						["<cr>"] = "open",
-						["S"] = "open_split",
-						["s"] = "open_vsplit",
-						["<bs>"] = "navigate_up",
-						["."] = "set_root",
-						["R"] = "refresh",
-						["a"] = "add",
-						["d"] = "delete",
-						["r"] = "rename",
-						["c"] = "copy_to_clipboard",
-						["x"] = "cut_to_clipboard",
-						["p"] = "paste_from_clipboard",
-						["bd"] = "buffer_delete",
-					}
-				},
-			},
-			git_status = {
-				window = {
-					position = "float",
-					mappings = {
-						["<2-LeftMouse>"] = "open",
-						["<cr>"] = "open",
-						["S"] = "open_split",
-						["s"] = "open_vsplit",
-						["C"] = "close_node",
-						["R"] = "refresh",
-						["d"] = "delete",
-						["r"] = "rename",
-						["c"] = "copy_to_clipboard",
-						["x"] = "cut_to_clipboard",
-						["p"] = "paste_from_clipboard",
-						["A"]  = "git_add_all",
-						["gu"] = "git_unstage_file",
-						["ga"] = "git_add_file",
-						["gr"] = "git_revert_file",
-						["gc"] = "git_commit",
-						["gp"] = "git_push",
-						["gg"] = "git_commit_and_push",
-					}
-				}
-			}
-		})
-		vim.cmd([[nnoremap \ :NeoTreeReveal<cr>]])
-	end
-}
+use{'lambdalisue/fern.vim'}
+use{'lambdalisue/fern-hijack.vim'}
 
 -- 'Harpoon' files and terminals
 use{
@@ -234,6 +136,20 @@ use{
 				end
 			end
 		})
+	end
+}
+
+-- project drawer
+use {
+	"nvim-neo-tree/neo-tree.nvim",
+	branch = "v1.x",
+	cmd = {'NeoTreeRevealToggle', 'NeoTreeFloatToggle'},
+	requires = {
+		"nvim-lua/plenary.nvim",
+		"MunifTanjim/nui.nvim",
+	},
+	config = function ()
+		require'packages.neo-tree'.config()
 	end
 }
 
