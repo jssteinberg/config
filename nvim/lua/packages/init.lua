@@ -25,7 +25,7 @@ use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
 use{'Darazaki/indent-o-matic'}
 use{'editorconfig/editorconfig-vim', after = 'indent-o-matic'} -- Respect .editorconfig
 use{'lambdalisue/fern.vim'}
-use{'lambdalisue/fern-hijack.vim'}
+-- use{'lambdalisue/fern-hijack.vim'}
 
 -- 'Harpoon' files and terminals
 use{
@@ -47,6 +47,7 @@ use{
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-nvim-lua',
+		'hrsh7th/cmp-nvim-lsp-signature-help',
 		-- 'hrsh7th/cmp-omni',
 		'L3MON4D3/LuaSnip',         -- Snippets plugin
 		'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
@@ -154,10 +155,13 @@ use {
 }
 
 -- netrw replacement
-use{'cocopon/vaffle.vim', cmd = 'Vaffle', config = function ()
-	vim.g.vaffle_force_delete = true
-	vim.g.vaffle_show_hidden_files = true
-end}
+use {
+	"tamago324/lir.nvim",
+	requires = { "nvim-lua/plenary.nvim", },
+	config = function ()
+		require'packages.lir'.config()
+	end
+}
 
 -- #### Web coding
 use{'mattn/emmet-vim', event='InsertEnter *'}

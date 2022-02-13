@@ -67,13 +67,6 @@ M.normal = {
 	['<leader>j'] = { '<c-x>',
 	'Decrease number' },
 
-	['<leader>e'] = { name =
-		'edit/explore',
-
-		c = { ':tabedit ~/.config/README.md | tcd ~/.config<cr>',
-		'Config directory' },
-	},
-
 
 	-- Find
 
@@ -82,9 +75,6 @@ M.normal = {
 
 		j = { ':AnyJump<cr>',
 		'Jump to files with string' },
-
-		w = { ':find **/',
-		'Wild', silent=false },
 	},
 
 
