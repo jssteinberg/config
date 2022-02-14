@@ -6,14 +6,13 @@ font:
     family: courier prime
     family: cousine nerd font mono
 
-# Use decimal, e.g. .95
-background_opacity: .975
-
 # Send ESC (\x1b) before characters when alt is pressed---needed for several non-us keyboards usually
 alt_send_esc: false
 
 window:
   decorations: buttonless
+  # Use decimal, e.g. .95
+  opacity: .975
   padding:
     x: 12
     y: 16 # Keep 10 for y
