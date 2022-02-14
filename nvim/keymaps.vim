@@ -30,13 +30,15 @@ nnoremap <leader><tab> :buffer <c-z><s-tab>
 nnoremap <leader>w :w<cr>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
-nnoremap <leader>eb :let g:netrw_liststyle=0<cr>:edit %:p:.:h<cr>
+nnoremap <leader>e. :edit .<cr>
+nnoremap <leader>eb :edit %:p:.:h<cr>
 nnoremap <leader>ew :edit **/*
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>tc :tabclose<cr>
 
 " Find files
 vnoremap <leader>fw y:find **/*<c-r>"<c-z><s-tab>
+nnoremap <leader>fw :find **/*
 
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
@@ -73,10 +75,11 @@ nnoremap <leader>gm :GitMessenger<cr>
 
 " Fern
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
-nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
+nnoremap <silent> <leader>ed :Fern . -drawer -reveal=% -toggle<cr>
 
-" Vaffle
-nnoremap <silent> <leader>eb :Vaffle %<cr>
+" Neo-tree
+nnoremap <silent> <leader>et :NeoTreeRevealToggle<cr>
+nnoremap <silent> <leader>fd :NeoTreeFloatToggle<cr>
 
 augroup keymaps
 	au!

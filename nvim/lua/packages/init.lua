@@ -15,11 +15,6 @@ use{'folke/tokyonight.nvim'}
 use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 use{'tpope/vim-surround'} -- Surround stuff with stuff (org. tpope/vim-surround)
 use{'tpope/vim-repeat'} -- Extend `.` repeat
-use{'lambdalisue/fern.vim'}
-use{'cocopon/vaffle.vim', config = function ()
-	vim.g.vaffle_force_delete = true
-	vim.g.vaffle_show_hidden_files = true
-end}
 use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
 use{'tommcdo/vim-lion'} -- Align text
 use{'mhinz/vim-startify'} -- For session handling
@@ -29,6 +24,8 @@ end}
 use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
 use{'Darazaki/indent-o-matic'}
 use{'editorconfig/editorconfig-vim', after = 'indent-o-matic'} -- Respect .editorconfig
+use{'lambdalisue/fern.vim'}
+-- use{'lambdalisue/fern-hijack.vim'}
 
 -- 'Harpoon' files and terminals
 use{
@@ -50,6 +47,7 @@ use{
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-nvim-lua',
+		'hrsh7th/cmp-nvim-lsp-signature-help',
 		-- 'hrsh7th/cmp-omni',
 		'L3MON4D3/LuaSnip',         -- Snippets plugin
 		'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
@@ -142,8 +140,30 @@ use{
 	end
 }
 
+-- project drawer
+use {
+	"nvim-neo-tree/neo-tree.nvim",
+	branch = "v1.x",
+	cmd = {'NeoTreeRevealToggle', 'NeoTreeFloatToggle'},
+	requires = {
+		"nvim-lua/plenary.nvim",
+		"MunifTanjim/nui.nvim",
+	},
+	config = function ()
+		require'packages.neo-tree'.config()
+	end
+}
+
+-- netrw replacement
+use {
+	"tamago324/lir.nvim",
+	requires = { "nvim-lua/plenary.nvim", },
+	config = function ()
+		require'packages.lir'.config()
+	end
+}
+
 -- #### Web coding
--- Expand `html>head` to HTML
 use{'mattn/emmet-vim', event='InsertEnter *'}
 -- Color colors
 use{'norcalli/nvim-colorizer.lua', cmd = {'ColorizerToggle'}, config = function ()

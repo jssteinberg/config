@@ -67,33 +67,14 @@ M.normal = {
 	['<leader>j'] = { '<c-x>',
 	'Decrease number' },
 
-	['<leader>e'] = { name =
-		'edit/explore',
-
-		c = { ':tabedit ~/.config/README.md | tcd ~/.config<cr>',
-		'Config directory' },
-	},
-
 
 	-- Find
 
 	['<leader>f'] = { name =
 		'find',
 
-		d = { ':Telescope lsp_workspace_diagnostics<cr>',
-		'Diagnostic' },
-
-		f = { ':Telescope find_files<cr>',
-		'Files' },
-
-		g = { ':Telescope git_files<cr>',
-		'Git files' },
-
 		j = { ':AnyJump<cr>',
 		'Jump to files with string' },
-
-		w = { ':find **/',
-		'Wild', silent=false },
 	},
 
 
@@ -101,10 +82,7 @@ M.normal = {
 
 	['<leader>g'] = {
 		name = 'git',
-		m = { 'Blame' },
 		l = { ':Git | GV<cr>', 'Log' },
-		m = { 'Message' },
-		y = { 'Yank line URL' },
 	},
 
 
