@@ -79,7 +79,10 @@ nnoremap <silent> <leader>ed :Fern . -drawer -reveal=% -toggle<cr>
 
 " Neo-tree
 nnoremap <silent> <leader>et :NeoTreeRevealToggle<cr>
-nnoremap <silent> <leader>fd :NeoTreeFloatToggle<cr>
+" nnoremap <silent> <leader>fd :NeoTreeFloatToggle<cr>
+
+" Lir
+nnoremap <silent> <leader>fd :lua require'lir.float'.toggle('.')<cr>
 
 augroup keymaps
 	au!

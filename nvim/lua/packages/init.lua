@@ -24,8 +24,19 @@ end}
 use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
 use{'Darazaki/indent-o-matic'}
 use{'editorconfig/editorconfig-vim', after = 'indent-o-matic'} -- Respect .editorconfig
+
+-- project drawer
 use{'lambdalisue/fern.vim'}
 -- use{'lambdalisue/fern-hijack.vim'}
+
+-- netrw replacement
+use {
+	"tamago324/lir.nvim",
+	requires = { "nvim-lua/plenary.nvim", },
+	config = function ()
+		require'packages.lir'.config()
+	end
+}
 
 -- 'Harpoon' files and terminals
 use{
@@ -41,7 +52,6 @@ use{
 	'neovim/nvim-lspconfig',
 	requires = {
 		'williamboman/nvim-lsp-installer', -- `:LspInstall` commands
-		-- 'ray-x/lsp_signature.nvim', -- Function helper while typing
 		'hrsh7th/nvim-cmp',         -- Autocompletion menu
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-path',
@@ -151,15 +161,6 @@ use {
 	},
 	config = function ()
 		require'packages.neo-tree'.config()
-	end
-}
-
--- netrw replacement
-use {
-	"tamago324/lir.nvim",
-	requires = { "nvim-lua/plenary.nvim", },
-	config = function ()
-		require'packages.lir'.config()
 	end
 }
 

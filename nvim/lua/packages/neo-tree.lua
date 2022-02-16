@@ -69,7 +69,6 @@ M.config = function()
 			}
 		}
 	})
-	vim.cmd([[nnoremap \ :NeoTreeReveal<cr>]])
 end
 
 return M
