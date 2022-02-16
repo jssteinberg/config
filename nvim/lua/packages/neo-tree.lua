@@ -36,6 +36,7 @@ M.config = function()
 					["mc"] = "copy_to_clipboard",
 					["mm"] = "cut_to_clipboard",
 					["mt"] = "paste_from_clipboard",
+					["h"] = "close_node",
 				}
 			}
 		},
