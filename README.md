@@ -63,7 +63,6 @@ Install neovim  > 0.6, [packer](https://github.com/wbthomason/packer.nvim), ripg
 
 - When `gf` fails, should have Telescope guess which file.
 - `<leader>ff` in visual-mode should fuzzy file-search selection
-- telescope: add native fzf https://github.com/nvim-telescope/telescope-fzf-native.nvim (or wait for it to be plugin core)
 
 ## Troubleshooting
 

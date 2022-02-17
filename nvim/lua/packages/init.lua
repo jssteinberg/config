@@ -72,33 +72,13 @@ use{
 -- Treesitter
 use{
 	'nvim-treesitter/nvim-treesitter',
-	config = function() require('nvim-treesitter.configs').setup{
-		highlight = { enable = true, disable = {'vim'} },
-		autotag = { enable = true }
-	} end
+	requires = {
+		'JoosepAlviste/nvim-ts-context-commentstring',
+		'windwp/nvim-ts-autotag',
+		'RRethy/nvim-treesitter-textsubjects',
+	},
+	config = function() require'packages.treesitter'.config() end
 }
--- context aware comment toggling (needs a toggler plugin)
-use{
-	'JoosepAlviste/nvim-ts-context-commentstring',
-	after = 'nvim-treesitter',
-	config = function() require'nvim-treesitter.configs'.setup {
-		context_commentstring = { enable = true }
-	} end
-}
--- auto close tags (using treesittter)
-use{'windwp/nvim-ts-autotag', after = 'nvim-treesitter', config = function ()
-	require('nvim-ts-autotag').setup()
-	vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-		vim.lsp.diagnostic.on_publish_diagnostics, {
-			underline = true,
-			virtual_text = {
-				spacing = 5,
-				severity_limit = 'Warning',
-			},
-			update_in_insert = true,
-		}
-	)
-end}
 
 
 -- LAZY LOADED PACKAGES
