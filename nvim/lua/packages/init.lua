@@ -112,6 +112,9 @@ use{'windwp/nvim-autopairs', event = 'InsertEnter *', config = function ()
 	require('nvim-autopairs').setup{}
 end}
 
+-- quickfix
+use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+
 -- gcc, gc in visual mode, to (un)comment. Lua
 use{
 	'terrortylor/nvim-comment',
