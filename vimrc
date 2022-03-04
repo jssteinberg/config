@@ -56,6 +56,7 @@ let mapleader=' '
 
 " Alternate buffer
 nnoremap <bs> :buffer#<cr>
+nnoremap <leader>b :buffer#<cr>
 
 " Buffer switcher
 nnoremap <leader><tab> :buffer 
