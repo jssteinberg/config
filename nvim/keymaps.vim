@@ -33,6 +33,8 @@ nnoremap <leader>w :w<cr>
 " Edit/explore [buffer dir, buffer in new tab, close tab]
 nnoremap <leader>e. :edit .<cr>
 nnoremap <leader>eb :edit %:p:.:h<cr>
+nnoremap <leader>ep :edit package.json<cr>
+nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>ew :edit **/*
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>tc :tabclose<cr>
