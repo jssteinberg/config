@@ -22,7 +22,8 @@ use{'tyru/open-browser.vim', config = function() -- `gx` open url or web search
 	require'packages.openbrowser'.config()
 end}
 use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
-use{'gpanders/editorconfig.nvim'} -- Respect .editorconfig
+-- use{'gpanders/editorconfig.nvim'} -- Respect .editorconfig
+use{'tpope/vim-sleuth'}
 
 -- project drawer
 use{'lambdalisue/fern.vim'}
@@ -108,7 +109,7 @@ use {
 -- ### EDITING
 
 -- detect indent
-use{'Darazaki/indent-o-matic', cmd = 'IndentOMatic'}
+-- use{'Darazaki/indent-o-matic', cmd = 'IndentOMatic'}
 
 -- pair
 use{'windwp/nvim-autopairs', event = 'InsertEnter *', config = function ()
