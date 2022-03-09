@@ -22,11 +22,11 @@ use{'tyru/open-browser.vim', config = function() -- `gx` open url or web search
 	require'packages.openbrowser'.config()
 end}
 use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
-use{'gpanders/editorconfig.nvim'} -- Respect .editorconfig
+-- use{'gpanders/editorconfig.nvim'} -- Respect .editorconfig
+use{'tpope/vim-sleuth'} -- detects indent, also uses .editorconfig
 
 -- project drawer
 use{'lambdalisue/fern.vim'}
--- use{'lambdalisue/fern-hijack.vim'}
 
 -- netrw replacement
 use {
@@ -108,7 +108,7 @@ use {
 -- ### EDITING
 
 -- detect indent
-use{'Darazaki/indent-o-matic', cmd = 'IndentOMatic'}
+-- use{'Darazaki/indent-o-matic', cmd = 'IndentOMatic'}
 
 -- pair
 use{'windwp/nvim-autopairs', event = 'InsertEnter *', config = function ()
@@ -117,6 +117,9 @@ end}
 
 -- quickfix
 use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+
+-- Outline code from LSP
+use{'simrat39/symbols-outline.nvim', cmd = {"SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose"}}
 
 -- gcc, gc in visual mode, to (un)comment. Lua
 use{
