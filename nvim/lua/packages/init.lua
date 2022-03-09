@@ -140,7 +140,7 @@ use{
 use {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v1.x",
-	cmd = {'NeoTreeRevealToggle', 'NeoTreeFloatToggle'},
+	cmd = {'NeoTreeRevealToggle', 'NeoTreeFloatToggle', 'NeoTreeShow'},
 	requires = {
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
