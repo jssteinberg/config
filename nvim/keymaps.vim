@@ -75,6 +75,8 @@ nnoremap <leader>gg :Git<cr>
 nnoremap <leader>gq :Git mergetool<cr>
 nnoremap <leader>gb :BlamerToggle<cr>
 nnoremap <leader>gm :GitMessenger<cr>
+nnoremap <leader>gp :Git pull<cr>
+nnoremap <leader>gP :Git push<cr>
 
 " Fern
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
