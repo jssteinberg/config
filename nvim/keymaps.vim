@@ -23,6 +23,7 @@ let mapleader=' '
 
 " Alternate buffer
 nnoremap <bs> :buffer#<cr>
+nnoremap <leader>b :buffer#<cr>
 
 " Buffer switcher
 nnoremap <leader><tab> :buffer <c-z><s-tab>
@@ -32,6 +33,8 @@ nnoremap <leader>w :w<cr>
 " Edit/explore [buffer dir, buffer in new tab, close tab]
 nnoremap <leader>e. :edit .<cr>
 nnoremap <leader>eb :edit %:p:.:h<cr>
+nnoremap <leader>ep :edit package.json<cr>
+nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>ew :edit **/*
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>tc :tabclose<cr>
@@ -72,6 +75,8 @@ nnoremap <leader>gg :Git<cr>
 nnoremap <leader>gq :Git mergetool<cr>
 nnoremap <leader>gb :BlamerToggle<cr>
 nnoremap <leader>gm :GitMessenger<cr>
+nnoremap <leader>gp :Git pull<cr>
+nnoremap <leader>gP :Git push<cr>
 
 " Fern
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
