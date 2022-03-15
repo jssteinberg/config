@@ -80,14 +80,15 @@ nnoremap <leader>gP :Git push<cr>
 
 " Fern
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
-nnoremap <silent> <leader>ed :Fern . -drawer -reveal=% -toggle<cr>
+nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
 
 " Neo-tree
-nnoremap <silent> <leader>et :NeoTreeRevealToggle<cr>
+nnoremap <silent> <leader>ed :NeoTreeRevealToggle<cr>
+nnoremap <silent> <leader>fd :NeoTreeFloatToggle<cr>
 
 " Lir
-nnoremap <silent> <leader>fd :lua require'lir.float'.toggle('.')<cr>
-nnoremap <silent> <leader>fc :lua require'lir.float'.toggle('%')<cr>
+" nnoremap <silent> <leader>fd :lua require'lir.float'.toggle('.')<cr>
+" nnoremap <silent> <leader>fc :lua require'lir.float'.toggle('%')<cr>
 
 augroup keymaps
 	au!

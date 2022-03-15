@@ -2,8 +2,6 @@ local use = require('packages.packer').use()
 
 -- Package manager
 use{'wbthomason/packer.nvim'}
--- Neovim bug fix (until core is fixed)
-use{'antoinemadec/FixCursorHold.nvim'}
 -- Increase startup time
 use{'lewis6991/impatient.nvim'} -- Speed up loading Lua modules
 use{'nathom/filetype.nvim', config = function () -- Replace native filetype.vim
@@ -18,24 +16,21 @@ use{'tpope/vim-repeat'} -- Extend `.` repeat
 use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
 use{'tommcdo/vim-lion'} -- Align text
 use{'mhinz/vim-startify'} -- For session handling
+use{'jssteinberg/hackline.vim', requires = {'itchyny/vim-gitbranch'}} -- Light pre-configured statusline
+use{'tpope/vim-sleuth'} -- detects indent, also uses .editorconfig
+use{'lambdalisue/fern.vim', requires = {'antoinemadec/FixCursorHold.nvim', 'lambdalisue/fern-hijack.vim'}} -- project drawer
 use{'tyru/open-browser.vim', config = function() -- `gx` open url or web search
 	require'packages.openbrowser'.config()
 end}
-use{'jssteinberg/hackline.vim', requires = {'itchyny/vim-gitbranch'}} -- Light pre-configured statusline
--- use{'gpanders/editorconfig.nvim'} -- Respect .editorconfig
-use{'tpope/vim-sleuth'} -- detects indent, also uses .editorconfig
-
--- project drawer
-use{'lambdalisue/fern.vim'}
 
 -- netrw replacement
-use {
-	"tamago324/lir.nvim",
-	requires = { "nvim-lua/plenary.nvim", },
-	config = function ()
-		require'packages.lir'.config()
-	end
-}
+-- use {
+-- 	"tamago324/lir.nvim",
+-- 	requires = { "nvim-lua/plenary.nvim", },
+-- 	config = function ()
+-- 		require'packages.lir'.config()
+-- 	end
+-- }
 
 -- 'Harpoon' files and terminals
 use{
@@ -72,7 +67,7 @@ use{
 use{
 	'nvim-treesitter/nvim-treesitter',
 	requires = {
-		'JoosepAlviste/nvim-ts-context-commentstring',
+		-- 'JoosepAlviste/nvim-ts-context-commentstring',
 		'windwp/nvim-ts-autotag',
 		'RRethy/nvim-treesitter-textsubjects',
 	},
@@ -107,9 +102,6 @@ use {
 
 -- ### EDITING
 
--- detect indent
--- use{'Darazaki/indent-o-matic', cmd = 'IndentOMatic'}
-
 -- pair
 use{'windwp/nvim-autopairs', event = 'InsertEnter *', config = function ()
 	require('nvim-autopairs').setup{}
@@ -128,13 +120,13 @@ use{
 	config = function()
 		require('nvim_comment').setup({
 			comment_empty = false,
-			hook = function()
-				if vim.api.nvim_buf_get_option(0, "filetype") == "svelte" and
-					vim.api.nvim_buf_get_option(0, "filetype") == "html" and
-					vim.api.nvim_buf_get_option(0, "filetype") == "vue" then
-					require("ts_context_commentstring.internal").update_commentstring()
-				end
-			end
+			-- hook = function()
+			-- 	if vim.api.nvim_buf_get_option(0, "filetype") == "svelte" and
+			-- 		vim.api.nvim_buf_get_option(0, "filetype") == "html" and
+			-- 		vim.api.nvim_buf_get_option(0, "filetype") == "vue" then
+			-- 		require("ts_context_commentstring.internal").update_commentstring()
+			-- 	end
+			-- end
 		})
 	end
 }

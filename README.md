@@ -39,6 +39,12 @@ alias gs "git status"
 funcsave gs
 ```
 
+For NVM, to update npm at the same time add the --latest-npm flag, like this:
+
+```sh
+nvm install 'lts/*' --reinstall-packages-from=default --latest-npm
+```
+
 ## Vim > 8
 
 A simple Vim config in a single vimrc. It can be used as a boilerplate and works without packages/plugins. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim > version 8 +lua.*
