@@ -24,7 +24,7 @@ M.config = function()
 			['%'] = actions.newfile,
 			['R'] = actions.rename,
 			['cd'] = actions.cd,
-			['yy'] = actions.yank_path,
+			['Y'] = actions.yank_path,
 			['gh'] = actions.toggle_show_hidden,
 			['D'] = actions.delete,
 
@@ -37,8 +37,9 @@ M.config = function()
 				vim.cmd('normal! j')
 			end,
 
-			['mc'] = clipboard_actions.copy,
-			['mm'] = clipboard_actions.cut,
+			['y'] = clipboard_actions.copy,
+			['x'] = clipboard_actions.cut,
+			['p'] = clipboard_actions.paste,
 			['mt'] = clipboard_actions.paste,
 		},
 		float = {
