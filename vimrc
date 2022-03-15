@@ -1,4 +1,4 @@
-" Vim 8 vimrc boilerplate
+" Vis 8 vimrc boilerplate
 " =======================
 
 " Load Vim 8 defaults
@@ -70,6 +70,8 @@ nnoremap <leader>eb :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit %
 nnoremap <leader>ec :tabedit $MYVIMRC<cr>
 nnoremap <leader>et :let g:netrw_banner=0<cr>:let g:netrw_liststyle=3<cr>:Lexplore<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
+nnoremap <leader>ep :edit package.json<cr>
+nnoremap <leader>er :edit README.md<cr>
 
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
