@@ -21,7 +21,7 @@ use{'mhinz/vim-startify'} -- For session handling
 use{'tyru/open-browser.vim', config = function() -- `gx` open url or web search
 	require'packages.openbrowser'.config()
 end}
-use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
+use{'jssteinberg/hackline.vim', requires = {'itchyny/vim-gitbranch'}} -- Light pre-configured statusline
 -- use{'gpanders/editorconfig.nvim'} -- Respect .editorconfig
 use{'tpope/vim-sleuth'} -- detects indent, also uses .editorconfig
 
