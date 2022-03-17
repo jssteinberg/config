@@ -49,7 +49,10 @@ nvm install 'lts/*' --reinstall-packages-from=default --latest-npm
 
 A simple Vim config in a single vimrc. It can be used as a boilerplate and works without packages/plugins. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim > version 8 +lua.*
 
-Packages are installed/updated with `:PackagerInstall`/`:PackagerUpdate` (requires [vim-packager](https://github.com/kristijanhusak/vim-packager), consider replacing with [minpac](//github.com/k-takata/minpac)).
+Packages are installed/updated with `:PackagerInstall`/`:PackagerUpdate`. Requires:
+
+- [vim-packager](//github.com/kristijanhusak/vim-packager), consider replacing with [minpac](//github.com/k-takata/minpac)
+- fd for file search
 
 ## Neovim > 0.6
 

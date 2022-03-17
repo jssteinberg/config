@@ -101,9 +101,9 @@ command! -nargs=* -bar PackerUpdate so $MYVIMRC | call PackagerInit() | call pac
 command! -bar PackerClean so $MYVIMRC | call PackagerInit() | call packager#clean()
 command! -bar PackerStatus so $MYVIMRC | call PackagerInit() | call packager#status()
 
-" FZF Fuzzy finder
-nnoremap <leader>ff :Clap files<cr>
-nnoremap <leader>gf :Clap gfiles<cr>
+" File Finder
+let g:find_files_findprg = 'fd --hidden $* $d'
+nnoremap <leader>ff :Find 
 
 " Ripgrep
 nnoremap <leader>G :Rg 
@@ -161,7 +161,7 @@ function! PackagerInit() abort
 	packadd vim-packager
 	call packager#init()
 	call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
-	call packager#add('liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }) " Fuzzy
+	call packager#add('samoshkin/vim-find-files')
 	call packager#add('sheerun/vim-polyglot') " More filetypes, detect indent
 	call packager#add('jremmen/vim-ripgrep') " Integrates ripgrep
 	call packager#add('tpope/vim-surround') " Surround with brackets or quotes

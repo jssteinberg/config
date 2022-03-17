@@ -22,6 +22,7 @@ function! CycleColo()
 	if g:color_theme == 'dark'
 		let g:color_theme = 'light'
 		lua require('packages.colors').set_colo('light')
+		set cursorcolumn
 	else
 		let g:color_theme = 'dark'
 		lua require('packages.colors').set_colo('dark')

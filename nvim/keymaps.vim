@@ -26,7 +26,7 @@ nnoremap <bs> :buffer#<cr>
 nnoremap <leader>b :buffer#<cr>
 
 " Buffer switcher
-nnoremap <leader><tab> :buffer <c-z><s-tab>
+nnoremap <leader><tab> :buffer 
 " Write/save file
 nnoremap <leader>w :w<cr>
 
