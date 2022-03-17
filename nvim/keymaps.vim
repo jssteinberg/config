@@ -31,13 +31,21 @@ nnoremap <leader><tab> :buffer <c-z><s-tab>
 nnoremap <leader>w :w<cr>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
-nnoremap <leader>e. :edit .<cr>
 nnoremap <leader>eb :edit %:p:.:h<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>ew :edit **/*
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>tc :tabclose<cr>
+" Fern
+nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
+nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
+" Neo-tree
+nnoremap <silent> <leader>ed :NeoTreeRevealToggle<cr>
+nnoremap <silent> <leader>fd :NeoTreeFloatToggle<cr>
+" Lir
+" nnoremap <silent> <leader>fd :lua require'lir.float'.toggle('.')<cr>
+" nnoremap <silent> <leader>fc :lua require'lir.float'.toggle('%')<cr>
 
 " Find files
 vnoremap <leader>fw y:find **/*<c-r>"<c-z><s-tab>
@@ -77,18 +85,6 @@ nnoremap <leader>gb :BlamerToggle<cr>
 nnoremap <leader>gm :GitMessenger<cr>
 nnoremap <leader>gp :Git pull<cr>
 nnoremap <leader>gP :Git push<cr>
-
-" Fern
-nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
-nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
-
-" Neo-tree
-nnoremap <silent> <leader>ed :NeoTreeRevealToggle<cr>
-nnoremap <silent> <leader>fd :NeoTreeFloatToggle<cr>
-
-" Lir
-" nnoremap <silent> <leader>fd :lua require'lir.float'.toggle('.')<cr>
-" nnoremap <silent> <leader>fc :lua require'lir.float'.toggle('%')<cr>
 
 augroup keymaps
 	au!

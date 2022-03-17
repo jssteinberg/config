@@ -76,6 +76,7 @@ nnoremap <leader>er :edit README.md<cr>
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
 nnoremap <leader>Q :cprev<cr>
+nnoremap Q :copen<cr>
 
 " Replace [normal, visual]
 nnoremap <leader>R :%s/
@@ -86,18 +87,22 @@ function! NetrwRemaps ()
 	nn <buffer> s /
 endfunction
 
+" Marks
+nnoremap <leader>ha 'A
+nnoremap <leader>hs 'S
+nnoremap <leader>hd 'D
+nnoremap <leader>hf 'F
+
 " Packages config
 " ---------------
 " Requires https://github.com/kristijanhusak/vim-packager
-" Commands for packages
-command! -nargs=* -bar PackagerInstall call PackagerInit() | call packager#install(<args>)
-command! -nargs=* -bar PackagerUpdate call PackagerInit() | call packager#update(<args>)
-command! -bar PackagerClean call PackagerInit() | call packager#clean()
-command! -bar PackagerStatus call PackagerInit() | call packager#status()
+command! -nargs=* -bar PackerInstall so $MYVIMRC | call PackagerInit() | call packager#install(<args>)
+command! -nargs=* -bar PackerUpdate so $MYVIMRC | call PackagerInit() | call packager#update(<args>)
+command! -bar PackerClean so $MYVIMRC | call PackagerInit() | call packager#clean()
+command! -bar PackerStatus so $MYVIMRC | call PackagerInit() | call packager#status()
 
 " FZF Fuzzy finder
 nnoremap <leader>ff :Clap files<cr>
-nnoremap <leader>fs :Clap grep<cr>
 nnoremap <leader>gf :Clap gfiles<cr>
 
 " Ripgrep
