@@ -54,6 +54,7 @@ nnoremap <leader>fh :edit %:h<c-z>*
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
 nnoremap <leader>Q :cprev<cr>
+nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Replace [normal, selection]
 nnoremap <leader>R :%s/

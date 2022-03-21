@@ -76,7 +76,7 @@ nnoremap <leader>er :edit README.md<cr>
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
 nnoremap <leader>Q :cprev<cr>
-nnoremap Q :copen<cr>
+nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Replace [normal, visual]
 nnoremap <leader>R :%s/

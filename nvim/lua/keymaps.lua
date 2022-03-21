@@ -43,6 +43,12 @@ M.visual = {
 
 M.normal = {
 
+	-- NAMES
+
+	["<leader>c"] = { name = "command"},
+
+	-- MAPPINGS
+
 	['<leader>W'] = { ':SudaWrite<cr>',
 	'Write restricted buffer' },
 
@@ -147,21 +153,6 @@ M.normal = {
 
 	['<c-x>'] = { '<c-w><c-x>',
 	'Exchange window with next' },
-
-
-	-- Quickfix
-
-	['Q'] = {':copen<cr>',
-		'Quickfix window open' },
-
-	['<leader>q'] = {':cnext<cr>',
-		'Quickfix next', silent=false },
-
-	['<leader>Q'] = {':cprevious<cr>',
-		'Quickfix previous', silent=false },
-
-	['<ctrl-q>'] = {':cnext<cr>',
-		'Quickfix next', silent=false },
 
 
 	-- Zen mode
