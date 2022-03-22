@@ -66,7 +66,7 @@ nnoremap <leader>w :w<cr>
 
 " Edit/explore [explore cwd, explore buffer dir, project drawer, buffer in new tab]
 nnoremap <leader>e. :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit .<cr>
-nnoremap <leader>eb :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit %:p:.:h<cr>
+nnoremap <leader>eh :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit %:p:.:h<cr>
 nnoremap <leader>ec :tabedit $MYVIMRC<cr>
 nnoremap <leader>et :let g:netrw_banner=0<cr>:let g:netrw_liststyle=3<cr>:Lexplore<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
@@ -76,6 +76,7 @@ nnoremap <leader>er :edit README.md<cr>
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
 nnoremap <leader>Q :cprev<cr>
+nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Replace [normal, visual]
 nnoremap <leader>R :%s/
@@ -86,16 +87,21 @@ function! NetrwRemaps ()
 	nn <buffer> s /
 endfunction
 
+" Marks
+nnoremap <leader>ha 'A
+nnoremap <leader>hs 'S
+nnoremap <leader>hd 'D
+nnoremap <leader>hf 'F
+
 " Packages config
 " ---------------
 " Requires https://github.com/kristijanhusak/vim-packager
-" Commands for packages
-command! -nargs=* -bar PackagerInstall call PackagerInit() | call packager#install(<args>)
-command! -nargs=* -bar PackagerUpdate call PackagerInit() | call packager#update(<args>)
-command! -bar PackagerClean call PackagerInit() | call packager#clean()
-command! -bar PackagerStatus call PackagerInit() | call packager#status()
+command! -nargs=* -bar PackerInstall so $MYVIMRC | call PackagerInit() | call packager#install(<args>)
+command! -nargs=* -bar PackerUpdate so $MYVIMRC | call PackagerInit() | call packager#update(<args>)
+command! -bar PackerClean so $MYVIMRC | call PackagerInit() | call packager#clean()
+command! -bar PackerStatus so $MYVIMRC | call PackagerInit() | call packager#status()
 
-" Fuzzy finder
+" File Finder
 let g:find_files_findprg = 'fd --hidden $* $d'
 nnoremap <leader>ff :Find 
 
