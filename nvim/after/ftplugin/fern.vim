@@ -11,6 +11,7 @@ nmap <buffer> R <Plug>(fern-action-move)
 nmap <buffer> c <Plug>(fern-action-terminal)
 nmap <buffer> - <Plug>(fern-action-leave)
 nmap <buffer> gh <Plug>(fern-action-hidden)
+nmap <buffer> <c-l> <Plug>(fern-action-reload)
 
 nmap <buffer> mf <Plug>(fern-action-mark)
 nmap <buffer> mF <Plug>(fern-action-mark:toggle)

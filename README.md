@@ -19,7 +19,6 @@ Requires: git ... Install with your OS package manager.
 
 - fish---shell with modern, usable defaults (and keep an eye on nu shell)
 	- [fisher](https://github.com/jorgebucaran/fisher), fish plugin manager
-	- [hydro](https://github.com/jorgebucaran/hydro) plugin
 - ripgrep
 - [fd](https://github.com/sharkdp/fd), find replacement
 - [bat](https://github.com/sharkdp/bat), cat replacement

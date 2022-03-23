@@ -31,29 +31,30 @@ nnoremap <leader><tab> :buffer
 nnoremap <leader>w :w<cr>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
-nnoremap <leader>eb :edit %:p:.:h<cr>
+nnoremap <leader>eh :edit %:p:.:h<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>ew :edit **/*
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>tc :tabclose<cr>
-" Fern
+" fern
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
 nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
-" Neo-tree
+" neo-tree
 nnoremap <silent> <leader>ed :NeoTreeRevealToggle<cr>
-nnoremap <silent> <leader>fd :NeoTreeFloatToggle<cr>
-" Lir
+" lir
 " nnoremap <silent> <leader>fd :lua require'lir.float'.toggle('.')<cr>
 " nnoremap <silent> <leader>fc :lua require'lir.float'.toggle('%')<cr>
 
-" Find files
-vnoremap <leader>fw y:find **/*<c-r>"<c-z><s-tab>
-nnoremap <leader>fw :find **/*
+" Find
+" neo-tree
+nnoremap <silent> <leader>fd :NeoTreeFloatToggle<cr>
+nnoremap <leader>fh :edit %:h<c-z>*
 
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
 nnoremap <leader>Q :cprev<cr>
+nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Replace [normal, selection]
 nnoremap <leader>R :%s/

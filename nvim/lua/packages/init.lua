@@ -13,10 +13,11 @@ use{'folke/tokyonight.nvim'}
 use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 use{'tpope/vim-surround'} -- Surround stuff with stuff (org. tpope/vim-surround)
 use{'tpope/vim-repeat'} -- Extend `.` repeat
-use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
+use{'tpope/vim-fugitive'} -- Git wrapper
+-- use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
 use{'tommcdo/vim-lion'} -- Align text
 use{'mhinz/vim-startify'} -- For session handling
-use{'jssteinberg/hackline.vim', requires = {'itchyny/vim-gitbranch'}} -- Light pre-configured statusline
+use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
 use{'tpope/vim-sleuth'} -- detects indent, also uses .editorconfig
 use{'lambdalisue/fern.vim', requires = {'antoinemadec/FixCursorHold.nvim', 'lambdalisue/fern-hijack.vim'}} -- project drawer
 use{'tyru/open-browser.vim', config = function() -- `gx` open url or web search
@@ -84,7 +85,6 @@ use{
 use{'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}}
 
 -- ### GIT
-use{'tpope/vim-fugitive', cmd = {'G', 'Git'}}
 -- git log
 use{'junegunn/gv.vim', cmd = {'GV'}, requires = {{'tpope/vim-fugitive', opt = true}}}
 -- git blame
