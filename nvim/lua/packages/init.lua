@@ -60,6 +60,7 @@ use{
 	config = function()
 		require'packages.lsp'.config()
 		require'packages.cmp'.config()
+		require("luasnip.loaders.from_vscode").lazy_load()
 	end
 }
 

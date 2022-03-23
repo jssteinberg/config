@@ -26,6 +26,7 @@ function! CycleColo()
 	else
 		let g:color_theme = 'dark'
 		lua require('packages.colors').set_colo('dark')
+		set nocursorcolumn
 	endif
 endfunction
 
