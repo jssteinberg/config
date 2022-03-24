@@ -106,8 +106,8 @@ let g:find_files_findprg = 'fd --hidden $* $d'
 nnoremap <leader>ff :Find 
 
 " Ripgrep
-nnoremap <leader>G :Rg 
-vnoremap <leader>G y:Rg -e "<c-r>""<cr>
+nnoremap <leader>G :Rg -g "!package-lock.json" -g "!yarn.lock" 
+vnoremap <leader>G y:Rg -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " Git
 nnoremap <leader>gg :Git<cr>

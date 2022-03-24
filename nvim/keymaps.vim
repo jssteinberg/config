@@ -70,8 +70,8 @@ function! NetrwRemaps ()
 endfunction
 
 " Ripgrep
-nnoremap <leader>G :Rg 
-vnoremap <leader>G y:Rg -e "<c-r>""<cr>
+nnoremap <leader>G :Rg -g "!package-lock.json" -g "!yarn.lock" 
+vnoremap <leader>G y:Rg -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " FZF Fuzzy finder
 nnoremap <leader>fb :Telescope buffers<cr>
