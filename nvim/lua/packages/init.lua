@@ -135,8 +135,8 @@ use{
 -- project drawer
 use {
 	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v1.x",
-	cmd = {'NeoTreeRevealToggle', 'NeoTreeFloatToggle', 'NeoTreeShow'},
+	branch = "v2.x",
+	cmd = {'Neotree'},
 	requires = {
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",

@@ -1,75 +1,97 @@
 local M = {}
 
 M.config = function()
-	-- See ":help neo-tree-highlights" for a list of available highlight groups
-	vim.cmd([[
-		hi link NeoTreeDirectoryName Directory
-		hi link NeoTreeDirectoryIcon NeoTreeDirectoryName
-	]])
+	-- Unless you are still migrating, remove the deprecated commands from v1.x
+	vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 	require("neo-tree").setup({
 		default_component_configs = {
-			indent = { padding = 0 },
+			indent = {
+				-- indent guides
+				with_markers = true,
+				indent_marker = "·",
+				last_indent_marker = "·",
+				expander_collapsed = "",
+				expander_expanded = "",
+			},
+			icon = {
+				folder_closed = "+",
+				folder_open = "-",
+				folder_empty = "-",
+				default = "",
+			},
+			git_status = {
+				symbols = {
+					-- Change type
+					added     = "A",
+					deleted   = "D",
+					modified  = "M",
+					renamed   = "R",
+					-- Status type
+					untracked = "-",
+					ignored   = "I",
+					unstaged  = "U",
+					staged    = "S",
+					conflict  = "C",
+				}
+			},
+		},
+		window = {
+			mappings = {
+				["s"] = "none",
+				["<bs>"] = "none",
+				["m"] = "none",
+
+				["<2-LeftMouse>"] = "open",
+				["<cr>"] = "open",
+				["l"] = "open",
+				["o"] = "open_split",
+				["v"] = "open_vsplit",
+				["h"] = "close_node",
+				["-"] = "navigate_up",
+				["cd"] = "set_root",
+				["gh"] = "toggle_hidden",
+				["<c-l>"] = "refresh",
+				["f"] = "fuzzy_finder",
+				-- ["f"] = "filter_on_submit",
+				["<c-x>"] = "clear_filter",
+				["%"] = "add",
+				["d"] = "add",
+				["D"] = "delete",
+				["R"] = "rename",
+				["mc"] = "copy_to_clipboard",
+				["mm"] = "cut_to_clipboard",
+				["mt"] = "paste_from_clipboard",
+				["Y"] = "copy", -- takes text input for destination
+				["p"] = "move", -- takes text input for destination
+				["q"] = "close_window",
+			}
 		},
 		filesystem = {
-			filters = { --These filters are applied to both browsing and searching
-				show_hidden = true,
-				respect_gitignore = false,
+			filtered_items = {
+				hide_dotfiles = false,
+				hide_gitignored = false,
 			},
-			follow_current_file = true, -- This will find and focus the file in the active buffer every
-			-- time the current file is changed while the tree is open.
 			hijack_netrw_behavior = "disabled",
-			window = {
-				width = 35,
-				mappings = {
-					["<cr>"] = "open",
-					["l"] = "open",
-					["v"] = "open_vsplit",
-					["-"] = "navigate_up",
-					["."] = "set_root",
-					["gh"] = "toggle_hidden",
-					["gi"] = "toggle_gitignore",
-					["<c-l>"] = "refresh",
-					["s"] = "fuzzy_finder",
-					["%"] = "add",
-					["d"] = "none",
-					["D"] = "delete",
-					["R"] = "rename",
-					["mc"] = "copy_to_clipboard",
-					["mm"] = "cut_to_clipboard",
-					["mt"] = "paste_from_clipboard",
-					["h"] = "close_node",
-				}
-			}
 		},
 		buffers = {
 			window = {
 				mappings = {
-					["%"] = "add",
-					["<cr>"] = "open",
-					["l"] = "open",
-					["v"] = "open_vsplit",
-					["-"] = "navigate_up",
-					["<c-l>"] = "refresh",
-					["D"] = "delete",
-					["R"] = "rename",
-					["mc"] = "copy_to_clipboard",
-					["mm"] = "cut_to_clipboard",
-					["mt"] = "paste_from_clipboard",
+					["bd"] = "buffer_delete",
 				}
 			},
 		},
 		git_status = {
 			window = {
+				position = "float",
 				mappings = {
-					["<cr>"] = "open",
-					["v"] = "open_vsplit",
-					["<c-l>"] = "refresh",
-					["D"] = "delete",
-					["R"] = "rename",
-					["mc"] = "copy_to_clipboard",
-					["mm"] = "cut_to_clipboard",
-					["mt"] = "paste_from_clipboard",
+					["A"]  = "git_add_all",
+					["gu"] = "git_unstage_file",
+					["ga"] = "git_add_file",
+					["gr"] = "git_revert_file",
+					["gc"] = "git_commit",
+					["gp"] = "git_push",
+					["gg"] = "git_commit_and_push",
 				}
 			}
 		}

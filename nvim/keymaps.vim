@@ -41,7 +41,7 @@ nnoremap <leader>tc :tabclose<cr>
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
 nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
 " neo-tree
-nnoremap <silent> <leader>ed :NeoTreeRevealToggle<cr>
+nnoremap <silent> <leader>ed :Neotree reveal toggle<cr>
 " lir
 " nnoremap <silent> <leader>fd :lua require'lir.float'.toggle('.')<cr>
 " nnoremap <silent> <leader>fc :lua require'lir.float'.toggle('%')<cr>
