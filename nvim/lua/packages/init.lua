@@ -147,7 +147,11 @@ use {
 }
 
 -- #### Web coding
+
+-- Emmet
 use{'mattn/emmet-vim', event='InsertEnter *'}
+vim.g.user_emmet_leader_key = "<c-e>"
+
 -- Color colors
 use{'norcalli/nvim-colorizer.lua', cmd = {'ColorizerToggle'}, config = function ()
 	require 'colorizer'.setup()
