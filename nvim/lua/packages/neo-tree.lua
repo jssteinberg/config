@@ -39,8 +39,10 @@ M.config = function()
 		window = {
 			mappings = {
 				["s"] = "none",
+				["S"] = "none",
 				["<bs>"] = "none",
 				["m"] = "none",
+				["<space>"] = "none",
 
 				["<2-LeftMouse>"] = "open",
 				["<cr>"] = "open",

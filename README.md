@@ -81,6 +81,7 @@ Install neovim  > 0.6, [packer](https://github.com/wbthomason/packer.nvim), ripg
 	```
 
 - Neovim packer errors on launch:
+
 	1. `nvim ~/.config/nvim/lua/packages/init.lua`
 	2. `:luafile %`
 	3. `:PackerInstall`, `:PackerSync`. Restart neovim, repeat.
