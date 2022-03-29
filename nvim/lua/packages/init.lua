@@ -16,13 +16,14 @@ use{'tpope/vim-repeat'} -- Extend `.` repeat
 use{'tpope/vim-fugitive'} -- Git wrapper
 -- use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
 use{'tommcdo/vim-lion'} -- Align text
-use{'mhinz/vim-startify'} -- For session handling
 use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
 use{'tpope/vim-sleuth'} -- detects indent, also uses .editorconfig
 use{'lambdalisue/fern.vim', requires = {'antoinemadec/FixCursorHold.nvim', 'lambdalisue/fern-hijack.vim'}} -- project drawer
 use{'tyru/open-browser.vim', config = function() -- `gx` open url or web search
 	require'packages.openbrowser'.config()
 end}
+
+use{'mhinz/vim-startify', cmd = {"SSave", "Startify", "SLoad", "SDelete", "SClose"}} -- For session handling
 
 -- netrw replacement
 -- use {
