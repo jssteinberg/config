@@ -11,8 +11,8 @@ M.config = function()
 				with_markers = true,
 				indent_marker = "·",
 				last_indent_marker = "·",
-				expander_collapsed = "",
-				expander_expanded = "",
+				expander_collapsed = "+",
+				expander_expanded = "-",
 			},
 			icon = {
 				folder_closed = "+",
@@ -70,6 +70,7 @@ M.config = function()
 			}
 		},
 		filesystem = {
+			follow_current_file = true,
 			filtered_items = {
 				hide_dotfiles = false,
 				hide_gitignored = false,
