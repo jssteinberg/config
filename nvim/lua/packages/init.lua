@@ -27,11 +27,8 @@ use{'mhinz/vim-startify', cmd = {"SSave", "Startify", "SLoad", "SDelete", "SClos
 
 -- netrw replacement
 -- use {
--- 	"tamago324/lir.nvim",
--- 	requires = { "nvim-lua/plenary.nvim", },
--- 	config = function ()
--- 		require'packages.lir'.config()
--- 	end
+-- 	"tamago324/lir.nvim", requires = { "nvim-lua/plenary.nvim", },
+-- 	config = function () require'packages.lir'.config() end
 -- }
 
 -- 'Harpoon' files and terminals
