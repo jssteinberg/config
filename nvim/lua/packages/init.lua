@@ -67,7 +67,7 @@ use{
 use{
 	'nvim-treesitter/nvim-treesitter',
 	requires = {
-		-- 'JoosepAlviste/nvim-ts-context-commentstring',
+		'JoosepAlviste/nvim-ts-context-commentstring',
 		'windwp/nvim-ts-autotag',
 		'RRethy/nvim-treesitter-textsubjects',
 	},
@@ -115,22 +115,7 @@ use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 use{'simrat39/symbols-outline.nvim', cmd = {"SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose"}}
 
 -- gcc, gc in visual mode, to (un)comment. Lua
-use{
-	'terrortylor/nvim-comment',
-	keys = {{'n','gcc'}, {'x','gc'},},
-	config = function()
-		require('nvim_comment').setup({
-			comment_empty = false,
-			-- hook = function()
-			-- 	if vim.api.nvim_buf_get_option(0, "filetype") == "svelte" and
-			-- 		vim.api.nvim_buf_get_option(0, "filetype") == "html" and
-			-- 		vim.api.nvim_buf_get_option(0, "filetype") == "vue" then
-			-- 		require("ts_context_commentstring.internal").update_commentstring()
-			-- 	end
-			-- end
-		})
-	end
-}
+use{ 'tpope/vim-commentary', keys = {{'n','gcc'}, {'x','gc'}} }
 
 -- project drawer
 use {

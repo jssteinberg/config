@@ -52,9 +52,6 @@ M.normal = {
 
 	-- Jumps/motions
 
-	['<leader><space>'] = { '<cmd>HopWord<cr>',
-	'Hop to word' },
-
 	['<leader>J'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
 
