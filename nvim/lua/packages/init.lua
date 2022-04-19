@@ -67,7 +67,6 @@ use{
 use{
 	'nvim-treesitter/nvim-treesitter',
 	requires = {
-		'JoosepAlviste/nvim-ts-context-commentstring',
 		'windwp/nvim-ts-autotag',
 		'RRethy/nvim-treesitter-textsubjects',
 	},
@@ -115,7 +114,10 @@ use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 use{'simrat39/symbols-outline.nvim', cmd = {"SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose"}}
 
 -- gcc, gc in visual mode, to (un)comment. Lua
-use{ 'tpope/vim-commentary', keys = {{'n','gcc'}, {'x','gc'}} }
+use{
+	'terrortylor/nvim-comment', keys = {{'n','gcc'}, {'x','gc'},},
+	config = function() require('nvim_comment').setup({}) end
+}
 
 -- project drawer
 use {
