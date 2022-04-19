@@ -5,11 +5,9 @@ M.config = function ()
 		-- Treesitter
 		highlight = {
 			enable = true,
-			disable = {'vim'}
+			disable = {'lua'}
 		},
 		autotag = { enable = true },
-		-- Context aware comment toggling (needs a toggler plugin)
-		context_commentstring = { enable = true },
 		-- Location and syntax aware text objects:
 		textsubjects = {
 			enable = true,
