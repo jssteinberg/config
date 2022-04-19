@@ -169,9 +169,6 @@ use{
 		local actions = require('telescope.actions')
 		require('telescope').setup({
 			defaults = {
-				mappings = {i = {
-					[require'keymaps'.esc_map] = actions.close
-				}},
 				file_ignore_patterns = {'node_modules'}
 			},
 		})
