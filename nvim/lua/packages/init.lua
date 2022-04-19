@@ -22,6 +22,7 @@ use{'lambdalisue/fern.vim', requires = {'antoinemadec/FixCursorHold.nvim', 'lamb
 use{'tyru/open-browser.vim', config = function() -- `gx` open url or web search
 	require'packages.openbrowser'.config()
 end}
+-- use{'unblevable/quick-scope'} vim.g.qs_lazy_highlight = true -- f/F/t/T hints
 
 use{'mhinz/vim-startify', cmd = {"SSave", "Startify", "SLoad", "SDelete", "SClose"}} -- For session handling
 
@@ -185,10 +186,10 @@ use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine'}, config = funct
 end}
 
 -- Better f, F, t, T motion, repeatable with f/F
-use{'rhysd/clever-f.vim', keys ={
-	{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
-	{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
-}}
+-- use{'rhysd/clever-f.vim', keys ={
+-- 	{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
+-- 	{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
+-- }}
 
 -- ### UTILITY
 
