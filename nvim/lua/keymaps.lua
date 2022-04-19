@@ -21,9 +21,6 @@ M.visual = {
 
 	-- Hop
 
-	['<leader><space>'] = { '<cmd>HopWord<cr>',
-	'Hop to word' },
-
 	['<leader>J'] = { '<cmd>HopLine<cr>',
 	'Hop to line' },
 

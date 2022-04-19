@@ -74,6 +74,7 @@ nnoremap <leader>G :Rg -g "!package-lock.json" -g "!yarn.lock"
 vnoremap <leader>G y:Rg -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " FZF Fuzzy finder
+nnoremap <leader><leader> :Telescope find_files<cr>
 nnoremap <leader>fb :Telescope buffers<cr>
 nnoremap <leader>ff :Telescope find_files<cr>
 nnoremap <leader>fs :Telescope live_grep<cr>
@@ -86,6 +87,7 @@ nnoremap <leader>gb :BlamerToggle<cr>
 nnoremap <leader>gm :GitMessenger<cr>
 nnoremap <leader>gp :Git pull<cr>
 nnoremap <leader>gP :Git push<cr>
+nnoremap <leader>gs :SignifyToggle<cr>
 
 " Emmet
 imap <c-e><c-e> <plug>(emmet-expand-abbr)

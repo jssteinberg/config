@@ -14,6 +14,7 @@ use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings 
 use{'tpope/vim-surround'} -- Surround stuff with stuff (org. tpope/vim-surround)
 use{'tpope/vim-repeat'} -- Extend `.` repeat
 use{'tpope/vim-fugitive'} -- Git wrapper
+use{'mhinz/vim-signify'}
 -- use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
 use{'tommcdo/vim-lion'} -- Align text
 use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
@@ -45,15 +46,15 @@ use{
 	'neovim/nvim-lspconfig',
 	requires = {
 		'williamboman/nvim-lsp-installer', -- `:LspInstall` commands
-		'hrsh7th/nvim-cmp',         -- Autocompletion menu
+		'hrsh7th/nvim-cmp',                -- Autocompletion menu
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-nvim-lua',
 		'hrsh7th/cmp-nvim-lsp-signature-help',
 		'hrsh7th/cmp-omni',
-		'L3MON4D3/LuaSnip',         -- Snippets plugin
-		'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+		'L3MON4D3/LuaSnip',                -- Snippets plugin
+		'saadparwaiz1/cmp_luasnip',        -- Snippets source for nvim-cmp
 		'rafamadriz/friendly-snippets',
 	},
 	config = function()
