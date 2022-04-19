@@ -2,7 +2,6 @@ local M = {}
 
 M.config = function()
 	local lsp_installer = require('nvim-lsp-installer')
-	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
 	-- LSP config for buffer
 	local on_attach = function(client, bufnr)
@@ -15,7 +14,7 @@ M.config = function()
 		on_attach(client, bufnr)
 		M.register_keymaps(client, bufnr)
 		-- Set omnifunc completion to use LSP
-		buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+		vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 	end
 
 	-- CSS LSP config for buffer
