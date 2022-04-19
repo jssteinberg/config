@@ -14,7 +14,6 @@ use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings 
 use{'tpope/vim-surround'} -- Surround stuff with stuff (org. tpope/vim-surround)
 use{'tpope/vim-repeat'} -- Extend `.` repeat
 use{'tpope/vim-fugitive'} -- Git wrapper
-use{'mhinz/vim-signify'}
 -- use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
 use{'tommcdo/vim-lion'} -- Align text
 use{'jssteinberg/hackline.vim'} -- Light pre-configured statusline
@@ -99,6 +98,8 @@ use {
 		require('gitlinker').setup({})
 	end
 }
+-- git gutter signs
+use{'mhinz/vim-signify', cmd = {'SignifyToggle'}}
 
 -- ### EDITING
 
