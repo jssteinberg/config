@@ -9,8 +9,12 @@ inoremap jk <esc>
 tnoremap jk <c-\><c-n>
 
 " Search maps
-cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
-cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
+nnoremap <c-s> /
+nnoremap <cs-s> ?
+xnoremap <c-s> /
+xnoremap <cs-s> ?
+cnoremap <expr> <tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
+cnoremap <expr> <s-tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
 
 " Shift + J/K moves selected lines down/up in visual mode
 vnoremap J :m '>+1<CR>gv=gv
@@ -73,11 +77,11 @@ nnoremap <leader>G :Rg -g "!package-lock.json" -g "!yarn.lock"
 vnoremap <leader>G y:Rg -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " FZF Fuzzy finder
-nnoremap <leader><leader> :Telescope find_files<cr>
 nnoremap <leader>fb :Telescope buffers<cr>
 nnoremap <leader>ff :Telescope find_files<cr>
 nnoremap <leader>fs :Telescope live_grep<cr>
 nnoremap <leader>gf :Telescope git_files<cr>
+nnoremap <leader>s :Telescope find_files<cr>
 
 " Git
 nnoremap <leader>gg :Git<cr>

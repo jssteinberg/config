@@ -44,7 +44,8 @@ tnoremap jk <c-w>N
 " Search (for their defaults, use cl and cc) [search, backwards, visual mode]
 nnoremap s /
 nnoremap S ?
-vnoremap s /
+xnoremap ss /
+xnoremap sS ?
 
 " Shift + J/K moves selected lines down/up in visual mode
 vnoremap J :m '>+1<cr>gv=gv
@@ -85,6 +86,7 @@ vnoremap <leader>R :s/
 " Netrw remaps
 function! NetrwRemaps ()
 	nn <buffer> s /
+	nn <buffer> S ?
 endfunction
 
 " Marks
@@ -95,19 +97,15 @@ nnoremap <leader>hf 'F
 
 " Packages config
 " ---------------
-" Requires https://github.com/kristijanhusak/vim-packager
-command! -nargs=* -bar PackerInstall so $MYVIMRC | call PackagerInit() | call packager#install(<args>)
-command! -nargs=* -bar PackerUpdate so $MYVIMRC | call PackagerInit() | call packager#update(<args>)
-command! -bar PackerClean so $MYVIMRC | call PackagerInit() | call packager#clean()
-command! -bar PackerStatus so $MYVIMRC | call PackagerInit() | call packager#status()
 
 " File Finder
-let g:find_files_findprg = 'fd --hidden $* $d'
-nnoremap <leader>ff :Find 
+nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fs :Rg<cr>
+nnoremap <leader>s :Files<cr>
 
 " Ripgrep
-nnoremap <leader>G :Rg -g "!package-lock.json" -g "!yarn.lock" 
-vnoremap <leader>G y:Rg -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+nnoremap <leader>G :Rg 
+vnoremap <leader>G y:Rg <c-r>"<cr>
 
 " Git
 nnoremap <leader>gg :Git<cr>
@@ -134,12 +132,6 @@ function! s:on_lsp_buffer_enabled() abort
 	inoremap <buffer> <expr><c-f> lsp#scroll(+4)
 endfunction
 
-" Colorscheme
-source $HOME/.config/colocyclone.vim
-nnoremap <silent> <leader>cc :call ColoNext()<cr>
-let g:colo_favs=[ #{name:'spacegray',transparent:1}, #{name:'iceberg',bg:'light'} ]
-call SetColorscheme(g:colo_favs[0]) | let g:colo_favs[0].current=1
-
 " Autocompletion
 set completeopt+=menuone completeopt+=noselect shortmess+=c belloff+=ctrlg
 let g:mucomplete#enable_auto_at_startup = 1
@@ -156,31 +148,45 @@ augroup vimrc
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-" Packages
-function! PackagerInit() abort
-	packadd vim-packager
-	call packager#init()
-	call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
-	call packager#add('samoshkin/vim-find-files')
-	call packager#add('sheerun/vim-polyglot') " More filetypes, detect indent
-	call packager#add('jremmen/vim-ripgrep') " Integrates ripgrep
-	call packager#add('tpope/vim-surround') " Surround with brackets or quotes
-	call packager#add('subnut/visualstar.vim') " Search selection with * or #
-	call packager#add('tpope/vim-fugitive') " `G` command for git
-	call packager#add('mhinz/vim-startify') " For session handling
-	call packager#add('tommcdo/vim-lion') " Align text with gl gL
-	call packager#add('tpope/vim-commentary') " Toggle comments with gcc
-	call packager#add('jssteinberg/hackline.vim') " Light statusline
-	" Code completion
-	call packager#add('cohama/lexima.vim') " Autocomplete brackets and quotes
-	call packager#add('alvan/vim-closetag') " Autocomplete tags
-	" LSP auto completion
-	call packager#add('prabirshrestha/vim-lsp')
-	call packager#add('mattn/vim-lsp-settings')
-	call packager#add('prabirshrestha/asyncomplete.vim')
-	call packager#add('prabirshrestha/asyncomplete-lsp.vim')
-	call packager#add('lifepillar/vim-mucomplete') " Tab-completing mappings and vanilla completion
-	" Colorschemes
-	call packager#add('ackyshake/Spacegray.vim')
-	call packager#add('cocopon/iceberg.vim')
-endfunction
+try
+	call jetpack#begin()
+
+	call jetpack#add('tpope/vim-fugitive') " `G` command for git
+	call jetpack#add('junegunn/fzf.vim')
+	call jetpack#add('junegunn/fzf', { 'do': {-> fzf#install()} })
+
+	call jetpack#add('tpope/vim-commentary') " Toggle comments with gcc
+	call jetpack#add('tpope/vim-surround') " Surround with brackets or quotes
+	call jetpack#add('cohama/lexima.vim') " Autocomplete brackets and quotes
+	call jetpack#add('subnut/visualstar.vim') " Search selection with * or #
+	call jetpack#add('tommcdo/vim-lion') " Align text with gl gL
+
+	call jetpack#add('sheerun/vim-polyglot') " More filetypes, detect indent
+	call jetpack#add('lifepillar/vim-mucomplete') " Tab-completing mappings and vanilla completion
+
+	" Colorscheming
+	call jetpack#add('ackyshake/Spacegray.vim')
+	call jetpack#add('cocopon/iceberg.vim')
+
+	call jetpack#end()
+
+	colo spacegray | set hlsearch termguicolors
+
+	highlight Normal guibg=NONE
+	highlight LineNr guibg=NONE
+	highlight SignColumn guibg=NONE
+
+	" call jetpack#add('jremmen/vim-ripgrep') " Integrates ripgrep
+	" call jetpack#add('mhinz/vim-startify') " For session handling
+	" call jetpack#add('jssteinberg/hackline.vim') " Light statusline
+	" " Code completion
+	" call jetpack#add('alvan/vim-closetag') " Autocomplete tags
+	" " LSP auto completion
+	" call jetpack#add('prabirshrestha/vim-lsp')
+	" call jetpack#add('mattn/vim-lsp-settings')
+	" call jetpack#add('prabirshrestha/asyncomplete.vim')
+	" call jetpack#add('prabirshrestha/asyncomplete-lsp.vim')
+catch
+	colorscheme default
+	set notermguicolors t_Co=16 nohlsearch
+endtry
