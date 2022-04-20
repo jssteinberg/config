@@ -8,10 +8,7 @@ cnoremap <c-n> <down>
 inoremap jk <esc>
 tnoremap jk <c-\><c-n>
 
-" Search (for their defaults, use cl and cc) [search, backwards, visual mode]
-nnoremap s /
-nnoremap S ?
-vnoremap s /
+" Search maps
 cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
 cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
 

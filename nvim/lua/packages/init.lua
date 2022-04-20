@@ -22,7 +22,6 @@ use{'lambdalisue/fern.vim', requires = {'antoinemadec/FixCursorHold.nvim', 'lamb
 use{'tyru/open-browser.vim', config = function() -- `gx` open url or web search
 	require'packages.openbrowser'.config()
 end}
--- use{'unblevable/quick-scope'} vim.g.qs_lazy_highlight = true -- f/F/t/T hints
 
 use{'mhinz/vim-startify', cmd = {"SSave", "Startify", "SLoad", "SDelete", "SClose"}} -- For session handling
 
@@ -185,11 +184,23 @@ use{'phaazon/hop.nvim', as = 'hop', cmd = {'HopWord', 'HopLine'}, config = funct
 	require'hop'.setup { keys = 'eoqdgflhksura' }
 end}
 
--- Better f, F, t, T motion, repeatable with f/F
--- use{'rhysd/clever-f.vim', keys ={
--- 	{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
--- 	{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
--- }}
+-- Better f, F, t, T, repeatable with f/F, and s motion
+use{
+	'ggandor/lightspeed.nvim',
+	keys = {
+		{'n', 's'}, {'n', 'S'},
+		{'x', 'z'}, {'x', 'Z'},
+		{'n', 'f'}, {'n', 'F'}, {'n', 't'}, {'n', 'T'},
+		{'x', 'f'}, {'x', 'F'}, {'x', 't'}, {'x', 'T'}
+	},
+	config = function ()
+		require'lightspeed'.setup { 
+			-- jump_to_unique_chars = false,
+			repeat_ft_with_target_char = true,
+			limit_ft_matches = 10
+		}
+	end
+}
 
 -- ### UTILITY
 
