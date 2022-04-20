@@ -163,6 +163,7 @@ try
 
 	call jetpack#add('sheerun/vim-polyglot') " More filetypes, detect indent
 	call jetpack#add('lifepillar/vim-mucomplete') " Tab-completing mappings and vanilla completion
+	call jetpack#add('jssteinberg/hackline.vim') " Light statusline
 
 	" Colorscheming
 	call jetpack#add('ackyshake/Spacegray.vim')
@@ -178,7 +179,6 @@ try
 
 	" call jetpack#add('jremmen/vim-ripgrep') " Integrates ripgrep
 	" call jetpack#add('mhinz/vim-startify') " For session handling
-	" call jetpack#add('jssteinberg/hackline.vim') " Light statusline
 	" " Code completion
 	" call jetpack#add('alvan/vim-closetag') " Autocomplete tags
 	" " LSP auto completion
