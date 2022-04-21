@@ -43,9 +43,9 @@ tnoremap jk <c-w>N
 
 " Search (for their defaults, use cl and cc) [search, backwards, visual mode]
 nnoremap s /
-nnoremap S ?
-xnoremap ss /
-xnoremap sS ?
+nnoremap <c-s> /
+xnoremap z /
+xnoremap <c-s> /
 
 " Shift + J/K moves selected lines down/up in visual mode
 vnoremap J :m '>+1<cr>gv=gv
