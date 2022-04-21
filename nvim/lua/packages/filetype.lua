@@ -9,6 +9,7 @@ M.config = function ()
 		gmi = "markdown",
 		fish = "sh",
 		MD = "markdown",
+		twig = "php",
 	}}})
 end
 
