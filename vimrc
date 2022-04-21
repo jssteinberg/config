@@ -41,7 +41,6 @@ inoremap jk <esc>
 tnoremap jk <c-w>N
 
 " Search (for their defaults, use cl and cc) [search, backwards, visual mode]
-nnoremap s /
 nnoremap <c-s> /
 xnoremap z /
 xnoremap <c-s> /
@@ -157,12 +156,13 @@ try
 	call jetpack#add('tpope/vim-commentary') " Toggle comments with gcc
 	call jetpack#add('tpope/vim-surround') " Surround with brackets or quotes
 	call jetpack#add('cohama/lexima.vim') " Autocomplete brackets and quotes
-	call jetpack#add('subnut/visualstar.vim') " Search selection with * or #
+	" call jetpack#add('subnut/visualstar.vim') " Search selection with * or #
 	call jetpack#add('tommcdo/vim-lion') " Align text with gl gL
 
 	call jetpack#add('sheerun/vim-polyglot') " More filetypes, detect indent
 	call jetpack#add('lifepillar/vim-mucomplete') " Tab-completing mappings and vanilla completion
-	call jetpack#add('jssteinberg/hackline.vim') " Light statusline
+	" call jetpack#add('jssteinberg/hackline.vim') " Light statusline
+	call jetpack#add('justinmk/vim-sneak') " Sneak motion, hijack s/S
 
 	" Colorscheming
 	call jetpack#add('ackyshake/Spacegray.vim')
