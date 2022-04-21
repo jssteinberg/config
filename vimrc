@@ -8,12 +8,11 @@ source $VIMRUNTIME/defaults.vim
 " Options
 " -------
 set clipboard=unnamed " Sync system clioboard
-set cursorline " Highlight cursorline
 set hidden " Unsaved files can be 'hidden'
 set foldmethod=indent nofoldenable
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
-set list listchars=tab:\·\  fillchars=vert:\· " Show tabs, reuse char
-set number relativenumber signcolumn=yes " Line number, relative numbers, always show signcolumn
+set list listchars=tab:\·\  fillchars=vert:\· " Show tabs, consistent char
+set number relativenumber " Line number, relative numbers, always show signcolumn
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set sessionoptions=curdir,folds,tabpages,help
 set wildmode=lastused:full " :b <tab> for last used buffer(s)
