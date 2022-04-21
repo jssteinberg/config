@@ -155,12 +155,13 @@ try
 
 	call jetpack#add('tpope/vim-commentary') " Toggle comments with gcc
 	call jetpack#add('tpope/vim-surround') " Surround with brackets or quotes
-	call jetpack#add('cohama/lexima.vim') " Autocomplete brackets and quotes
+	call jetpack#add('tpope/vim-repeat') " Repeat more with '.'
+	call jetpack#add('cohama/lexima.vim', { 'on': ["InsertEnter"] }) " Autocomplete brackets/quotes
 	" call jetpack#add('subnut/visualstar.vim') " Search selection with * or #
 	call jetpack#add('tommcdo/vim-lion') " Align text with gl gL
 
 	call jetpack#add('sheerun/vim-polyglot') " More filetypes, detect indent
-	call jetpack#add('lifepillar/vim-mucomplete') " Tab-completing mappings and vanilla completion
+	call jetpack#add('lifepillar/vim-mucomplete', { 'on': ["InsertEnter"] }) " Tab-completing mappings and vanilla completion
 	" call jetpack#add('jssteinberg/hackline.vim') " Light statusline
 	call jetpack#add('justinmk/vim-sneak') " Sneak motion, hijack s/S
 
@@ -179,12 +180,12 @@ try
 	" call jetpack#add('jremmen/vim-ripgrep') " Integrates ripgrep
 	" call jetpack#add('mhinz/vim-startify') " For session handling
 	" " Code completion
-	" call jetpack#add('alvan/vim-closetag') " Autocomplete tags
+	" call jetpack#add('alvan/vim-closetag', { 'on': ["InsertEnter"] }) " Autocomplete tags
 	" " LSP auto completion
 	" call jetpack#add('prabirshrestha/vim-lsp')
 	" call jetpack#add('mattn/vim-lsp-settings')
-	" call jetpack#add('prabirshrestha/asyncomplete.vim')
-	" call jetpack#add('prabirshrestha/asyncomplete-lsp.vim')
+	" call jetpack#add('prabirshrestha/asyncomplete.vim', { 'on': ["InsertEnter"] })
+	" call jetpack#add('prabirshrestha/asyncomplete-lsp.vim', { 'on': ["InsertEnter"] })
 catch
 	colorscheme default
 	set notermguicolors t_Co=16 nohlsearch
