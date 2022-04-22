@@ -157,12 +157,12 @@ try
 	call jetpack#add('tpope/vim-surround') " Surround with brackets or quotes
 	call jetpack#add('tpope/vim-repeat') " Repeat more with '.'
 	call jetpack#add('cohama/lexima.vim', { 'on': ["InsertEnter"] }) " Autocomplete brackets/quotes
-	" call jetpack#add('subnut/visualstar.vim') " Search selection with * or #
+	call jetpack#add('subnut/visualstar.vim') " Search selection with * or #
 	call jetpack#add('tommcdo/vim-lion') " Align text with gl gL
 
 	call jetpack#add('sheerun/vim-polyglot') " More filetypes, detect indent
 	call jetpack#add('lifepillar/vim-mucomplete', { 'on': ["InsertEnter"] }) " Tab-completing mappings and vanilla completion
-	" call jetpack#add('jssteinberg/hackline.vim') " Light statusline
+	call jetpack#add('jssteinberg/hackline.vim') " Light statusline
 	call jetpack#add('justinmk/vim-sneak') " Sneak motion, hijack s/S
 
 	" Colorscheming
@@ -171,7 +171,7 @@ try
 
 	call jetpack#end()
 
-	colo spacegray | set hlsearch termguicolors
+	colo spacegray | set bg=dark hlsearch termguicolors
 
 	highlight Normal guibg=NONE
 	highlight LineNr guibg=NONE
