@@ -9,25 +9,9 @@ source $HOME/.config/nvim/keymaps.vim
 
 lua << EOF
 	-- Netrw
-	require'packages.netrw'.config()
+	-- require'packages.netrw'.config()
 	-- Extra packages/plugins
 	require'packages'
 	-- Set colorscheme
 	require'packages.colors'.set_colo()
 EOF
-
-let g:color_theme = 'dark'
-
-function! CycleColo()
-	if g:color_theme == 'dark'
-		let g:color_theme = 'light'
-		lua require('packages.colors').set_colo('light')
-		set cursorcolumn
-	else
-		let g:color_theme = 'dark'
-		lua require('packages.colors').set_colo('dark')
-		set nocursorcolumn
-	endif
-endfunction
-
-nnoremap <leader>cc :call CycleColo()<cr>

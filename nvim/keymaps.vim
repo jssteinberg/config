@@ -1,3 +1,5 @@
+let g:color_theme = 'dark'
+
 " Better defaults
 vnoremap < <gv
 vnoremap > >gv
@@ -61,6 +63,8 @@ nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' :
 nnoremap <leader>R :%s/
 vnoremap <leader>R :s/
 
+" Cycle colorschemes
+nnoremap <leader>cc :call CycleColo()<cr>
 
 " Package/plugin mappings
 " -----------------------
@@ -98,3 +102,13 @@ augroup keymaps
 	au!
 	autocmd FileType netrw call NetrwRemaps()
 augroup END
+
+function! CycleColo()
+	if g:color_theme == 'dark'
+		let g:color_theme = 'light'
+		lua require('packages.colors').set_colo('light')
+	else
+		let g:color_theme = 'dark'
+		lua require('packages.colors').set_colo('dark')
+	endif
+endfunction
