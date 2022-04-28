@@ -26,11 +26,13 @@ set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 " (q) allow gq formatting
 set formatoptions=cjlnpq
 
-augroup options_autocmds
+augroup option_like_autocmds
 	au!
 	" Go to last known cursor position, unless it's invalid
 	autocmd BufReadPost *
 				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
 				\ |   exe "normal! g`\""
 				\ | endif
+	" Check if file has been updated
+	autocmd FocusGained,BufEnter * :checktime
 augroup END
