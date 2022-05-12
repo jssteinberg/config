@@ -1,7 +1,7 @@
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 
 font:
-  size: 13
+  size: 14
   normal: 
     family: courier prime
     family: cousine nerd font mono
