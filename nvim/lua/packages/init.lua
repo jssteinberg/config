@@ -6,7 +6,7 @@ local use = require('packages.packer').use()
 use{'wbthomason/packer.nvim'}
 
 -- Increase startup time
-use{'lewis6991/impatient.nvim'} -- Speed up loading Lua modules
+-- use{'lewis6991/impatient.nvim'} -- Speed up loading Lua modules
 use{'nathom/filetype.nvim', config = function () -- Replace native filetype.vim
 	require'packages.filetype'.config()
 end}
@@ -17,7 +17,6 @@ use{'folke/tokyonight.nvim'}
 -- Extend vim
 use{'folke/which-key.nvim'} require'packages.which-key'.config() -- Keymappings popup
 use{'tpope/vim-surround'} -- Surround stuff with stuff (org. tpope/vim-surround)
-use{'tpope/vim-repeat'} -- Extend `.` repeat
 use{'tpope/vim-fugitive'} -- Git wrapper
 use{'tommcdo/vim-lion'} -- Align text
 use{'tpope/vim-sleuth'} -- detects indent, also uses .editorconfig
@@ -99,6 +98,7 @@ use {
 
 -- ### EDITING
 
+use{'tpope/vim-repeat', keys = {{'n', '.'}}} -- Extend `.` repeat
 use {'kevinhwang91/nvim-bqf', ft = 'qf'} -- quickfix
 use{'simrat39/symbols-outline.nvim', cmd = {"SymbolsOutline", "SymbolsOutlineOpen"}} -- outline code from lsp
 use{'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}} -- sudo save
