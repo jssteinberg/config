@@ -40,7 +40,8 @@ M.config = function()
 				end
 			end,
 			['<CR>'] = function (fallback)
-				if cmp.get_selected_entry() then
+				-- if cmp.get_selected_entry() then
+				if cmp.get_active_entry() then
 					cmp.confirm({ select = true })
 				else
 					fallback()
