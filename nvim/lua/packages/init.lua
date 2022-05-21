@@ -42,6 +42,8 @@ use{
 	}) end
 }
 
+use{"github/copilot.vim"}
+
 -- LSP and autocompletion
 use{
 	'neovim/nvim-lspconfig',
