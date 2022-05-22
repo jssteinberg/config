@@ -49,21 +49,21 @@ use{
 	'neovim/nvim-lspconfig',
 	requires = {
 		'williamboman/nvim-lsp-installer', -- `:LspInstall` commands
-		'hrsh7th/nvim-cmp',                -- Autocompletion menu
-		'hrsh7th/cmp-buffer',
-		'hrsh7th/cmp-path',
-		'hrsh7th/cmp-nvim-lsp',
-		'hrsh7th/cmp-nvim-lua',
-		'hrsh7th/cmp-nvim-lsp-signature-help',
-		'hrsh7th/cmp-omni',
-		'L3MON4D3/LuaSnip',                -- Snippets plugin
-		'saadparwaiz1/cmp_luasnip',        -- Snippets source for nvim-cmp
-		'rafamadriz/friendly-snippets',
+		-- 'hrsh7th/nvim-cmp',                -- Autocompletion menu
+		-- 'hrsh7th/cmp-buffer',
+		-- 'hrsh7th/cmp-path',
+		-- 'hrsh7th/cmp-nvim-lsp',
+		-- 'hrsh7th/cmp-nvim-lua',
+		-- 'hrsh7th/cmp-nvim-lsp-signature-help',
+		-- 'hrsh7th/cmp-omni',
+		-- 'L3MON4D3/LuaSnip',                -- Snippets plugin
+		-- 'saadparwaiz1/cmp_luasnip',        -- Snippets source for nvim-cmp
+		-- 'rafamadriz/friendly-snippets',
 	},
 	config = function()
 		require'packages.lsp'.config()
-		require'packages.cmp'.config()
-		require("luasnip.loaders.from_vscode").lazy_load()
+		-- require'packages.cmp'.config()
+		-- require("luasnip.loaders.from_vscode").lazy_load()
 	end
 }
 
