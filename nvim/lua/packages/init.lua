@@ -198,7 +198,6 @@ use{
 
 -- ### UTILITY
 
-use{'mhinz/vim-startify', cmd = {"SSave", "Startify", "SLoad", "SDelete", "SClose"}} -- For session handling
 use{'tweekmonster/startuptime.vim', cmd = {'StartupTime'}} -- Measure startuptime
 
 -- Zen mode
