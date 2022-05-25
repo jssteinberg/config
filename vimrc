@@ -35,6 +35,8 @@ nnoremap Y y$
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
+noremap <expr> j v:count ? 'j' : 'gj'
+noremap <expr> k v:count ? 'k' : 'gk'
 
 " Esc [normal, terminal]
 inoremap jk <esc>
