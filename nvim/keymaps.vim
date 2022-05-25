@@ -5,6 +5,8 @@ vnoremap < <gv
 vnoremap > >gv
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
+noremap <expr> j v:count ? 'j' : 'gj'
+noremap <expr> k v:count ? 'k' : 'gk'
 
 " Esc [normal, terminal]
 inoremap jk <esc>
