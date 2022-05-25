@@ -98,6 +98,9 @@ nnoremap <leader>gs :SignifyToggle<cr>
 imap <c-e><c-e> <plug>(emmet-expand-abbr)
 vmap <c-e><c-e> <plug>(emmet-expand-abbr)
 
+" Copilot
+imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
+
 augroup keymaps
 	au!
 	autocmd FileType netrw call NetrwRemaps()
