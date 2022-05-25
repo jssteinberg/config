@@ -4,3 +4,5 @@ setlocal noexpandtab
 setlocal noswapfile
 
 nn <buffer> <leader>ac o```<esc>o```<esc>kA
+no j gj
+no k gk
