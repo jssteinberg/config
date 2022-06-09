@@ -36,13 +36,13 @@ nnoremap <leader><tab> :buffer
 nnoremap <leader>w :w<cr>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
-nnoremap <leader>eh :edit %:p:.:h<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>ew :edit **/*
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>tc :tabclose<cr>
 " fern
+nnoremap <silent> <leader>eh :Fern %:p:.:h -reveal=%<cr>
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
 nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
 " neo-tree
