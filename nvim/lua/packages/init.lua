@@ -30,17 +30,12 @@ use { 'tyru/open-browser.vim', config = function() -- `gx` open url or web searc
 	require 'packages.openbrowser'.config()
 end }
 
--- netrw replacement
--- use {
--- 	"tamago324/lir.nvim", requires = { "nvim-lua/plenary.nvim", },
--- 	config = function () require'packages.lir'.config() end
--- }
-
 -- 'Harpoon' files and terminals
 use {
 	'ThePrimeagen/harpoon',
 	requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' },
-	config = function() require('harpoon').setup({
+	config = function()
+		require('harpoon').setup({
 			global_settings = { save_on_toggle = true },
 		})
 	end
@@ -63,12 +58,10 @@ use {
 		-- 'hrsh7th/cmp-omni',
 		-- 'L3MON4D3/LuaSnip',                -- Snippets plugin
 		-- 'saadparwaiz1/cmp_luasnip',        -- Snippets source for nvim-cmp
-		-- 'rafamadriz/friendly-snippets',
 	},
 	config = function()
 		require'packages.lsp'.config()
 		-- require 'packages.cmp'.config()
-		-- require("luasnip.loaders.from_vscode").lazy_load()
 	end
 }
 
@@ -77,7 +70,6 @@ use {
 	'nvim-treesitter/nvim-treesitter',
 	requires = {
 		'windwp/nvim-ts-autotag',
-		'RRethy/nvim-treesitter-textsubjects',
 	},
 	config = function() require 'packages.treesitter'.config() end
 }
@@ -91,7 +83,6 @@ use {
 use { 'junegunn/gv.vim', cmd = { 'GV' }, requires = { { 'tpope/vim-fugitive', opt = true } } } -- git log
 use { 'APZelos/blamer.nvim', cmd = { 'BlamerToggle' } } -- git blame
 use { 'rhysd/git-messenger.vim', cmd = { 'GitMessenger' } } -- git message under cursor
-use { 'mhinz/vim-signify', cmd = { 'SignifyToggle' } } -- git gutter signs
 
 -- git linker
 use {
@@ -107,7 +98,7 @@ use {
 
 use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
 use { 'kevinhwang91/nvim-bqf', ft = 'qf' } -- quickfix
-use { 'simrat39/symbols-outline.nvim', cmd = { "SymbolsOutline", "SymbolsOutlineOpen" } } -- outline code from lsp
+use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
 use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
 
 -- auto pair completion
@@ -123,12 +114,12 @@ use {
 
 -- project drawer
 use {
-	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v2.x",
+	'nvim-neo-tree/neo-tree.nvim',
+	branch = 'v2.x',
 	cmd = { 'Neotree' },
 	requires = {
-		"nvim-lua/plenary.nvim",
-		"MunifTanjim/nui.nvim",
+		'nvim-lua/plenary.nvim',
+		'MunifTanjim/nui.nvim',
 	},
 	config = function()
 		require 'packages.neo-tree'.config()
@@ -139,7 +130,7 @@ use {
 
 -- Emmet
 use { 'mattn/emmet-vim', event = 'InsertEnter *' }
-vim.g.user_emmet_leader_key = "<c-e>"
+vim.g.user_emmet_leader_key = '<c-e>'
 
 -- Color colors
 use { 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, config = function()

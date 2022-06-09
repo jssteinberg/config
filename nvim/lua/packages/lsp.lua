@@ -31,14 +31,14 @@ M.config = function()
 		-- 	server:setup({ on_attach = on_attach_css })
 		-- else
 		if server.name == 'stylelint_lsp' then
-			server:setup({ 
+			server:setup({
 				on_attach = on_attach_general,
 				-- capabilities = capabilities,
 			})
 		else
-			server:setup({ 
+			server:setup({
 				on_attach = on_attach_general,
-				capabilities = capabilities,
+				-- capabilities = capabilities,
 			})
 		end
 
@@ -48,31 +48,23 @@ end
 
 -- Register keymaps per buffer
 M.register_keymaps = function (client, bufnr)
-	local wk = require'which-key'
+	local bufopts = { noremap=true, silent=true, buffer=bufnr }
+	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+	vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+	vim.keymap.set('n', '<c-k>', vim.lsp.buf.signature_help, bufopts)
+	vim.keymap.set('n', '<leader>lwa', vim.lsp.buf.add_workspace_folder, bufopts)
+	vim.keymap.set('n', '<leader>lwr', vim.lsp.buf.remove_workspace_folder, bufopts)
+	vim.keymap.set('n', '<leader>lwl', function()
+		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	end, bufopts)
+	vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
+	vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, bufopts)
 
-	-- Register LSP keymaps for buffer number
-	wk.register(require'keymaps'.normal_lsp_buffer_keymaps(bufnr))
-
-	-- Set some keybinds conditional on server capabilities
-	-- if client.resolved_capabilities.document_formatting then
-	-- 	wk.register({
-	-- 		['<leader>lf'] = { '<cmd>lua vim.lsp.buf.formatting()<cr>',
-	-- 		'Formatting', buffer = bufnr },
-	-- 		['gq'] = { '<cmd>lua vim.lsp.buf.formatting()<cr>', 'Formatting',
-	-- 		buffer = bufnr },
-	-- 	})
-	-- elseif client.resolved_capabilities.document_range_formatting then
-	-- 	wk.register({
-	-- 		['<leader>lf'] = { '<cmd>lua vim.lsp.buf.ranger_formatting()<cr>',
-	-- 		'Formatting', buffer = bufnr },
-	-- 		['gq'] = { '<cmd>lua vim.lsp.buf.ranger_formatting()<cr>',
-	-- 		'Formatting', buffer = bufnr },
-	-- 	})
-	-- end
-
-	-- Unmapped
-	-- buf_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-	-- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+	vim.keymap.set('n', '<leader>lq', vim.diagnostic.setqflist, bufopts)
 end
 
 return M
