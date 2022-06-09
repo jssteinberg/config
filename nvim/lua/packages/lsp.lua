@@ -30,11 +30,17 @@ M.config = function()
 		-- if server.name == 'cssls' then
 		-- 	server:setup({ on_attach = on_attach_css })
 		-- else
+		if server.name == 'stylelint_lsp' then
 			server:setup({ 
 				on_attach = on_attach_general,
 				-- capabilities = capabilities,
 			})
-		-- end
+		else
+			server:setup({ 
+				on_attach = on_attach_general,
+				capabilities = capabilities,
+			})
+		end
 
 		vim.cmd [[ do User LspAttachBuffers ]]
 	end)
