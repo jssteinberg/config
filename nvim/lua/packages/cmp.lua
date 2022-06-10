@@ -18,9 +18,9 @@ M.config = function()
 				luasnip.lsp_expand(args.body)
 			end,
 		},
-		experimental = {
-			ghost_text = true,
-		},
+		-- experimental = {
+		-- 	ghost_text = true,
+		-- },
 		mapping = {
 			['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 			['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -30,15 +30,15 @@ M.config = function()
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),
 			}),
-			['<c-f>'] = function (fallback)
-				if cmp.visible() then
-					cmp.confirm({ select = true })
-				elseif luasnip.expand_or_jumpable() then
-					luasnip.expand_or_jump()
-				else
-					fallback()
-				end
-			end,
+			-- ['<c-f>'] = function (fallback)
+			-- 	if cmp.visible() then
+			-- 		cmp.confirm({ select = true })
+			-- 	elseif luasnip.expand_or_jumpable() then
+			-- 		luasnip.expand_or_jump()
+			-- 	else
+			-- 		fallback()
+			-- 	end
+			-- end,
 			['<CR>'] = function (fallback)
 				-- if cmp.get_selected_entry() then
 				if cmp.get_active_entry() then
@@ -67,34 +67,19 @@ M.config = function()
 			end, {'i'}),
 		},
 		sources = {
-			{ name = 'luasnip' },
-			{ name = 'nvim_lua' },
-			{ name = 'nvim_lsp' },
+			-- { name = 'nvim_lua' },
 			{ name = "nvim_lsp_signature_help" },
+			{ name = 'nvim_lsp' },
 			{ name = 'buffer', keyword_length = 3 },
-			{ name = 'path' },
+			{ name = 'luasnip' },
+			-- { name = 'path' },
 			-- { name = 'omni' },
 		},
 	}
-
-	-- Expeptions
-	-- vim.cmd[[ autocmd FileType css lua require'packages.cmp'.css_config() ]]
 end
 
 M.disable = function() require'cmp'.setup.buffer {
 	enabled = false
 } end
-
-M.css_config = function()
-	require'cmp'.setup.buffer {
-		sources = {
-			{ name = 'nvim_lsp' },
-			{ name = 'luasnip' },
-			{ name = 'buffer', keyword_length = 3 },
-			{ name = 'path' },
-			-- { name = 'omni' },
-		},
-	}
-end
 
 return M

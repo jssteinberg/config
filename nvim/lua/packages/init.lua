@@ -15,8 +15,7 @@ end }
 use { 'folke/tokyonight.nvim' }
 
 -- Extend vim
-use { 'folke/which-key.nvim' }
-require 'packages.which-key'.config() -- Keymappings popup
+use { 'folke/which-key.nvim' } require 'packages.which-key'.config() -- Keymappings popup
 use { 'tpope/vim-surround' } -- Surround stuff with stuff (org. tpope/vim-surround)
 use { 'tpope/vim-fugitive' } -- Git wrapper
 use { 'tommcdo/vim-lion' } -- Align text
@@ -48,19 +47,19 @@ use {
 	'neovim/nvim-lspconfig',
 	requires = {
 		'williamboman/nvim-lsp-installer', -- `:LspInstall` commands
-		-- 'hrsh7th/nvim-cmp',                -- Autocompletion menu
-		-- 'hrsh7th/cmp-buffer',
-		-- 'hrsh7th/cmp-path',
-		-- 'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/nvim-cmp',                -- Autocompletion menu
+		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-nvim-lsp-signature-help',
 		-- 'hrsh7th/cmp-nvim-lua',
-		-- 'hrsh7th/cmp-nvim-lsp-signature-help',
 		-- 'hrsh7th/cmp-omni',
-		-- 'L3MON4D3/LuaSnip',                -- Snippets plugin
-		-- 'saadparwaiz1/cmp_luasnip',        -- Snippets source for nvim-cmp
+		-- 'hrsh7th/cmp-path',
+		'L3MON4D3/LuaSnip',                -- Snippets plugin
+		'saadparwaiz1/cmp_luasnip',        -- Snippets source for nvim-cmp
 	},
 	config = function()
 		require'packages.lsp'.config()
-		-- require 'packages.cmp'.config()
+		require 'packages.cmp'.config()
 	end
 }
 
