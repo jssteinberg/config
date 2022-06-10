@@ -25,7 +25,6 @@ use { 'jssteinberg/hackline.vim' } -- Light pre-configured statusline
 use { 'lambdalisue/fern.vim', requires = { -- project drawer
 	'antoinemadec/FixCursorHold.nvim', 'lambdalisue/fern-hijack.vim'
 } }
--- use{'svermeulen/vim-yoink'} require'packages.yoink'.init() -- Cycle yank history
 use { 'tyru/open-browser.vim', config = function() -- `gx` open url or web search
 	require 'packages.openbrowser'.config()
 end }
