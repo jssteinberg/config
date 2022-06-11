@@ -66,9 +66,6 @@ use {
 -- Treesitter
 use {
 	'nvim-treesitter/nvim-treesitter',
-	-- requires = {
-	-- 	'windwp/nvim-ts-autotag',
-	-- },
 	config = function() require 'packages.treesitter'.config() end
 }
 
@@ -100,12 +97,9 @@ use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutline
 use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
 
 -- auto pair completion
-use { 'windwp/nvim-autopairs', event = 'InsertEnter *', config = function()
+use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function()
 	require('nvim-autopairs').setup {}
 end }
-use { 'alvan/vim-closetag' } -- Autocomplete tags
-vim.g.closetag_filetypes = 'html,javascript,markdown,php,svelte,typescript,twig,vue'
-vim.g.closetag_xhtml_filenames = vim.g.closetag_filetypes
 
 use { 'andymass/vim-matchup', event = 'CursorMoved' }
 
@@ -132,7 +126,7 @@ use {
 -- #### Web coding
 
 -- Emmet
-use { 'mattn/emmet-vim', event = 'InsertEnter *' }
+use { 'mattn/emmet-vim', event = 'InsertEnter' }
 vim.g.user_emmet_leader_key = '<c-e>'
 
 -- ### LSP & CODE INSPECTION

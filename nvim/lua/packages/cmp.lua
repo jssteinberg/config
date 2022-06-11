@@ -30,15 +30,6 @@ M.config = function()
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),
 			}),
-			-- ['<c-f>'] = function (fallback)
-			-- 	if cmp.visible() then
-			-- 		cmp.confirm({ select = true })
-			-- 	elseif luasnip.expand_or_jumpable() then
-			-- 		luasnip.expand_or_jump()
-			-- 	else
-			-- 		fallback()
-			-- 	end
-			-- end,
 			['<CR>'] = cmp.mapping(function (fallback)
 				-- if cmp.get_selected_entry() then
 				if cmp.get_active_entry() then
@@ -65,6 +56,15 @@ M.config = function()
 					fallback()
 				end
 			end, {'i'}),
+			-- ['<c-f>'] = function (fallback)
+			-- 	if cmp.visible() then
+			-- 		cmp.confirm({ select = true })
+			-- 	elseif luasnip.expand_or_jumpable() then
+			-- 		luasnip.expand_or_jump()
+			-- 	else
+			-- 		fallback()
+			-- 	end
+			-- end,
 		},
 		sources = {
 			-- { name = 'nvim_lua' },

@@ -1,7 +1,7 @@
 local M = {}
 
 -- Register keymaps per buffer
-M.register_keymaps = function(client, bufnr)
+M.register_keymaps = function(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set('n', '<cr>', vim.diagnostic.open_float, bufopts)
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -27,7 +27,7 @@ M.config = function()
 
 	-- General LSP config for buffer
 	local on_attach_general = function(client, bufnr)
-		M.register_keymaps(client, bufnr)
+		M.register_keymaps(bufnr)
 		-- Set omnifunc completion to use LSP
 		vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 	end
@@ -37,17 +37,17 @@ M.config = function()
 		-- local capabilities = require('cmp_nvim_lsp').update_capabilities( vim.lsp.protocol.make_client_capabilities() )
 		-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-		if server.name == 'stylelint_lsp' then
+		-- if server.name == 'stylelint_lsp' then
+		-- 	server:setup({
+		-- 		on_attach = on_attach_general,
+		-- 		capabilities = capabilities,
+		-- 	})
+		-- else
 			server:setup({
 				on_attach = on_attach_general,
 				-- capabilities = capabilities,
 			})
-		else
-			server:setup({
-				on_attach = on_attach_general,
-				-- capabilities = capabilities,
-			})
-		end
+		-- end
 
 		vim.cmd [[ do User LspAttachBuffers ]]
 	end)

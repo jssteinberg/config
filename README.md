@@ -44,18 +44,18 @@ For NVM, to update npm at the same time add the `--latest-npm` flag, like this:
 nvm install 'lts/*' --reinstall-packages-from=default --latest-npm
 ```
 
-## Vim > 8
+## Vim >= 8
 
-A simple Vim config in a single vimrc. It can be used as a boilerplate and works without packages/plugins. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim > version 8 +lua.*
+A simple Vim config in a single vimrc. It can be used as a boilerplate and works without packages/plugins. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim >= version 8 +lua.*
 
 Packages are installed/updated with `:JetpackSync`. Requires:
 [vim-jetpack](https://github.com/tani/vim-jetpack).
 
-## Neovim > 0.6
+## Neovim >= 0.7
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing. Uncomplicated config for dummies hacking (author included).
 
-Install neovim  > 0.6, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim, repeat.
+Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim, repeat.
 
 - `:TSInstall [...]` treesitter language for syntax, indentation ... via [nvim-treesitter][nts].
 - `:LspInstall [...]` for language diagnostics and completion.
