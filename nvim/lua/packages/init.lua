@@ -55,13 +55,21 @@ use {
 	config = function() require 'packages.treesitter'.config() end
 }
 
+-- 'Harpoon' files and terminals
+use {
+	'ThePrimeagen/harpoon',
+	requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' },
+	config = function()
+		require('harpoon').setup({
+			global_settings = { save_on_toggle = true },
+		})
+	end
+}
 
--- LAZY LOADED PACKAGES
------------------------
+-- ## LAZY LOADED
 
 -- ### GIT
 
-use { 'junegunn/gv.vim', cmd = { 'GV' }, requires = { { 'tpope/vim-fugitive', opt = true } } } -- git log
 use { 'APZelos/blamer.nvim', cmd = { 'BlamerToggle' } } -- git blame
 use { 'rhysd/git-messenger.vim', cmd = { 'GitMessenger' } } -- git message under cursor
 
@@ -107,24 +115,6 @@ use {
 	config = function()
 		require 'packages.neo-tree'.config()
 	end
-}
-
--- terminals
-use {
-	's1n7ax/nvim-terminal',
-	keys = {
-		{ 'n', '<leader><cr>' },
-		{ 'n', '<leader>1' },
-		{ 'n', '<leader>2' },
-		{ 'n', '<leader>3' },
-		{ 'n', '<leader>4' },
-		{ 'n', '<leader>5' },
-	},
-	config = function()
-		require('nvim-terminal').setup({
-			toggle_keymap = '<leader><cr>',
-		})
-	end,
 }
 
 -- ### LSP & CODE INSPECTION
@@ -179,8 +169,7 @@ use {
 
 -- ### UTILITY
 
-use { 'tweekmonster/startuptime.vim', cmd = { 'StartupTime' } } -- Measure startuptime
--- use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } } -- Measure startuptime
+use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } } -- Measure startuptime
 
 -- Zen mode
 use {

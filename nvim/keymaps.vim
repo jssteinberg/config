@@ -94,9 +94,20 @@ nnoremap <leader>gb :BlamerToggle<cr>
 nnoremap <leader>gm :GitMessenger<cr>
 nnoremap <leader>gp :Git pull<cr>
 nnoremap <leader>gP :Git push<cr>
+nnoremap <leader>gl :Git log<cr>
 
 " Copilot
 imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
+
+" Harpoon
+nnoremap <leader>hh :lua require("harpoon.mark").add_file()<cr>
+nnoremap <leader>he :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <leader>ha :lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <leader>hs :lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <leader>hd :lua require("harpoon.ui").nav_file(3)<cr>
+nnoremap <leader>hf :lua require("harpoon.ui").nav_file(4)<cr>
+nnoremap <leader><cr> :lua require("harpoon.term").gotoTerminal(1)<cr>i
+nnoremap <leader>1 :lua require("harpoon.term").gotoTerminal(2)<cr>i
 
 augroup keymaps
 	au!
