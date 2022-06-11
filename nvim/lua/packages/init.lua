@@ -123,12 +123,6 @@ use {
 	end
 }
 
--- #### Web coding
-
--- Emmet
-use { 'mattn/emmet-vim', event = 'InsertEnter' }
-vim.g.user_emmet_leader_key = '<c-e>'
-
 -- ### LSP & CODE INSPECTION
 
 -- Language aware word grepping and UI

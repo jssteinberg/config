@@ -95,10 +95,6 @@ nnoremap <leader>gm :GitMessenger<cr>
 nnoremap <leader>gp :Git pull<cr>
 nnoremap <leader>gP :Git push<cr>
 
-" Emmet
-imap <c-e><c-e> <plug>(emmet-expand-abbr)
-vmap <c-e><c-e> <plug>(emmet-expand-abbr)
-
 " Copilot
 imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
 

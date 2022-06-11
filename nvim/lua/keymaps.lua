@@ -6,11 +6,6 @@ local M = {}
 M.esc_map = 'jk'
 M.buffer_alternate_map = '<bs>'
 
-M.insert = {
-	['<c-e>'] = { '<c-y>,',
-	'Emmet expand', noremap=false },
-}
-
 M.visual = {
 	['<leader>k'] = { '<c-a>',
 	'Increase number' },
