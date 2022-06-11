@@ -24,10 +24,16 @@ M.tokyonight_config = function(bg)
 	end)
 end
 
+M.iceberg_config = function(bg)
+	pcall(function ()
+		vim.cmd[[colorscheme iceberg]]
+	end)
+end
+
 -- @param {string} bg - 'dark', 'light'
 M.set_colo = function(bg)
 	bg = bg or 'dark'
-	M.tokyonight_config(bg)
+	M.iceberg_config(bg)
 	vim.cmd('set bg=' .. bg)
 end
 

@@ -1,7 +1,5 @@
 local use = require('packages.packer').use()
 
--- # ALL PACKAGES
-
 -- Package manager
 use { 'wbthomason/packer.nvim' }
 
@@ -12,7 +10,8 @@ use { 'nathom/filetype.nvim', config = function() -- Replace native filetype.vim
 end }
 
 -- Colorschemes
-use { 'folke/tokyonight.nvim' }
+-- use { 'folke/tokyonight.nvim' }
+use { 'cocopon/iceberg.vim' }
 
 -- Extend vim
 -- use { 'folke/which-key.nvim' } require 'packages.which-key'.config() -- Keymappings popup
@@ -29,9 +28,7 @@ use { 'tyru/open-browser.vim', config = function() -- `gx` open url or web searc
 end }
 
 -- LSP and autocompletion
-
 use { 'github/copilot.vim' }
-
 use {
 	'neovim/nvim-lspconfig',
 	requires = {
