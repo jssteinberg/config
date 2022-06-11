@@ -18,9 +18,6 @@ M.config = function()
 				luasnip.lsp_expand(args.body)
 			end,
 		},
-		-- experimental = {
-		-- 	ghost_text = true,
-		-- },
 		mapping = {
 			['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 			['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -39,32 +36,19 @@ M.config = function()
 				end
 			end, {'i'}),
 			['<Tab>'] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_next_item()
-				elseif luasnip.jumpable() then
+				if luasnip.jumpable() then
 					luasnip.jump(1)
 				else
 					fallback()
 				end
 			end, {'i'}),
 			['<S-Tab>'] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_prev_item()
-				elseif luasnip.jumpable(-1) then
+				if luasnip.jumpable(-1) then
 					luasnip.jump(-1)
 				else
 					fallback()
 				end
 			end, {'i'}),
-			-- ['<c-f>'] = function (fallback)
-			-- 	if cmp.visible() then
-			-- 		cmp.confirm({ select = true })
-			-- 	elseif luasnip.expand_or_jumpable() then
-			-- 		luasnip.expand_or_jump()
-			-- 	else
-			-- 		fallback()
-			-- 	end
-			-- end,
 		},
 		sources = {
 			-- { name = 'nvim_lua' },
@@ -72,8 +56,6 @@ M.config = function()
 			{ name = 'nvim_lsp' },
 			{ name = 'buffer', keyword_length = 3 },
 			-- { name = 'luasnip' },
-			-- { name = 'path' },
-			-- { name = 'omni' },
 		},
 	}
 end
