@@ -6,10 +6,10 @@ local use = require('packages.packer').use()
 use { 'wbthomason/packer.nvim' }
 
 -- Increase startup time
--- use{'lewis6991/impatient.nvim'} -- Speed up loading Lua modules
--- use { 'nathom/filetype.nvim', config = function() -- Replace native filetype.vim
--- 	require 'packages.filetype'.config()
--- end }
+use{ 'lewis6991/impatient.nvim' } -- Speed up loading Lua modules
+use { 'nathom/filetype.nvim', config = function() -- Replace native filetype.vim
+	require 'packages.filetype'.config()
+end }
 
 -- Colorschemes
 use { 'folke/tokyonight.nvim' }
@@ -182,7 +182,8 @@ use {
 
 -- ### UTILITY
 
-use { 'tweekmonster/startuptime.vim', cmd = { 'StartupTime' } } -- Measure startuptime
+-- use { 'tweekmonster/startuptime.vim', cmd = { 'StartupTime' } } -- Measure startuptime
+use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } } -- Measure startuptime
 
 -- Zen mode
 use {

@@ -1,9 +1,5 @@
 local M = {}
 
-M.config = function ()
-	
-end
-
 M.use = function ()
 	-- Some startup magic from https://github.com/ecosse3/nvim/blob/master/lua/plugins.lua
 	local execute = vim.api.nvim_command
