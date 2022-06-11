@@ -158,7 +158,6 @@ use {
 	cmd = 'Telescope',
 	requires = { 'nvim-lua/plenary.nvim' },
 	config = function()
-		local actions = require('telescope.actions')
 		require('telescope').setup({
 			defaults = {
 				file_ignore_patterns = { 'node_modules' }
@@ -185,7 +184,6 @@ use {
 	},
 	config = function()
 		require 'lightspeed'.setup {
-			-- jump_to_unique_chars = false,
 			repeat_ft_with_target_char = true,
 			limit_ft_matches = 10
 		}

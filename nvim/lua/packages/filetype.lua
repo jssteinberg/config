@@ -2,9 +2,7 @@ local M = {}
 
 M.config = function ()
 	require("filetype").setup({ overrides = { extensions = {
-		astro = "html",
-		style = "scss",
-		postcss = "scss",
+		postcss = "css",
 		mdx = "markdown",
 		gmi = "markdown",
 		fish = "sh",
