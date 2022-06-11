@@ -1,9 +1,9 @@
 lua << EOF
-	-- Avoid loading some
+	-- Avoid loading some native vim packages
 	require'options'
 EOF
 
-" Source/require config
+" Source config
 
 source $HOME/.config/nvim/options.vim
 source $HOME/.config/nvim/keymaps.vim

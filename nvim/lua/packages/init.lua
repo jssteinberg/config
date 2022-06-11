@@ -28,17 +28,6 @@ use { 'tyru/open-browser.vim', config = function() -- `gx` open url or web searc
 	require 'packages.openbrowser'.config()
 end }
 
--- 'Harpoon' files and terminals
-use {
-	'ThePrimeagen/harpoon',
-	requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' },
-	config = function()
-		require('harpoon').setup({
-			global_settings = { save_on_toggle = true },
-		})
-	end
-}
-
 -- LSP and autocompletion
 
 use { 'github/copilot.vim' }
@@ -121,6 +110,24 @@ use {
 	config = function()
 		require 'packages.neo-tree'.config()
 	end
+}
+
+-- terminals
+use {
+	's1n7ax/nvim-terminal',
+	keys = {
+		{ 'n', '<leader><cr>' },
+		{ 'n', '<leader>1' },
+		{ 'n', '<leader>2' },
+		{ 'n', '<leader>3' },
+		{ 'n', '<leader>4' },
+		{ 'n', '<leader>5' },
+	},
+	config = function()
+		require('nvim-terminal').setup({
+			toggle_keymap = '<leader><cr>',
+		})
+	end,
 }
 
 -- ### LSP & CODE INSPECTION

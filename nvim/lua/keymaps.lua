@@ -35,81 +35,12 @@ M.normal = {
 		l = { ':Git | GV<cr>', 'Log' },
 	},
 
-
-	-- Harpoon files
-
-	['<leader>h'] = {
-		name = 'harpoon',
-
-		h = {
-			':lua require("harpoon.mark").add_file()<cr>',
-			'Harpoon-add file',
-			silent = false
-		},
-
-		e = {
-			':lua require("harpoon.ui").toggle_quick_menu()<cr>',
-			'Edit \'harpooned\' files'
-		},
-
-		a = {
-			':lua require("harpoon.ui").nav_file(1)<cr>',
-			'a (1) file'
-		},
-
-		s = {
-			':lua require("harpoon.ui").nav_file(2)<cr>',
-			's (2) file'
-		},
-
-		d = {
-			':lua require("harpoon.ui").nav_file(3)<cr>',
-			'd (3) file'
-		},
-
-		f = {
-			':lua require("harpoon.ui").nav_file(4)<cr>',
-			'f (4) file'
-		},
-	},
-
-
 	-- LSP
 	['<leader>l'] = { name = 'lsp' },
-
 	-- No/now (toggle, (de)activate)
 	['<leader>n'] = { name = 'no/now' },
-
-	-- Terminal
-
-	['<leader><cr>'] = {
-		':lua require("harpoon.term").gotoTerminal(100)<cr>i',
-		'Terminal 0',
-		noremap = false
-	},
-
-	['<leader>1'] = {
-		':lua require("harpoon.term").gotoTerminal(1)<cr>i',
-		'Terminal 1',
-		noremap = false
-	},
-
-	['<leader>2'] = {
-		':lua require("harpoon.term").gotoTerminal(2)<cr>i',
-		'Terminal 2',
-		noremap = false
-	},
-
-	['<leader>3'] = {
-		':lua require("harpoon.term").gotoTerminal(3)<cr>i',
-		'Terminal 3',
-		noremap = false
-	},
-
-
 	-- Zen mode
 	['<leader>Z'] = { ':ZenMode<cr>', 'Zen mode' },
-
 }
 
 return M
