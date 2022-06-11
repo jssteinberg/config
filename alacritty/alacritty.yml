@@ -25,59 +25,31 @@ mouse:
 
 draw_bold_text_with_bright_colors: true
 
-# TokyoNight Alacritty Colors Night
+# Colors (Iceberg Dark)
 colors:
   # Default colors
   primary:
-    background: '0x1a1b26'
-    foreground: '0xc0caf5'
+    background: '#161821'
+    foreground: '#d2d4de'
 
   # Normal colors
   normal:
-    black:   '0x15161E'
-    red:     '0xf7768e'
-    green:   '0x9ece6a'
-    yellow:  '0xe0af68'
-    blue:    '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan:    '0x7dcfff'
-    white:   '0xa9b1d6'
+    black:   '#161821'
+    red:     '#e27878'
+    green:   '#b4be82'
+    yellow:  '#e2a478'
+    blue:    '#84a0c6'
+    magenta: '#a093c7'
+    cyan:    '#89b8c2'
+    white:   '#c6c8d1'
 
   # Bright colors
   bright:
-    black:   '0x414868'
-    red:     '0xf7768e'
-    green:   '0x9ece6a'
-    yellow:  '0xe0af68'
-    blue:    '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan:    '0x7dcfff'
-    white:   '0xc0caf5'
-
-  indexed_colors:
-    - { index: 16, color: '0xff9e64' }
-    - { index: 17, color: '0xdb4b4b' }
-
-# Spacegray
-# colors:
-#   primary:
-#     foreground: '#B7BBB7'
-#     background: '#111314'
-#   normal:
-#     black: '#2C2F33'
-#     red: '#B04C50'
-#     green: '#919652'
-#     yellow: '#E2995C'
-#     blue: '#66899D'
-#     magenta: '#8D6494'
-#     cyan: '#527C77'
-#     white: '#606360'
-#   bright:
-#     black: '#4B5056'
-#     red: '#B04C50'
-#     green: '#94985B'
-#     yellow: '#E2995C'
-#     blue: '#66899D'
-#     magenta: '#8D6494'
-#     cyan: '#527C77'
-#     white: '#DDE3DC'
+    black:   '#6b7089'
+    red:     '#e98989'
+    green:   '#c0ca8e'
+    yellow:  '#e9b189'
+    blue:    '#91acd1'
+    magenta: '#ada0d3'
+    cyan:    '#95c4ce'
+    white:   '#d2d4de'
