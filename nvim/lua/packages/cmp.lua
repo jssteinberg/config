@@ -1,8 +1,8 @@
 local M = {}
 
 M.config = function()
-	local luasnip = require'luasnip'
 	local cmp = require'cmp'
+	local luasnip = require'luasnip'
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 	-- Add additional capabilities supported by nvim-cmp
@@ -39,14 +39,14 @@ M.config = function()
 			-- 		fallback()
 			-- 	end
 			-- end,
-			['<CR>'] = function (fallback)
+			['<CR>'] = cmp.mapping(function (fallback)
 				-- if cmp.get_selected_entry() then
 				if cmp.get_active_entry() then
 					cmp.confirm({ select = true })
 				else
 					fallback()
 				end
-			end,
+			end, {'i'}),
 			['<Tab>'] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
@@ -68,7 +68,7 @@ M.config = function()
 		},
 		sources = {
 			-- { name = 'nvim_lua' },
-			{ name = "nvim_lsp_signature_help" },
+			{ name = 'nvim_lsp_signature_help' },
 			{ name = 'nvim_lsp' },
 			{ name = 'buffer', keyword_length = 3 },
 			{ name = 'luasnip' },
@@ -78,8 +78,8 @@ M.config = function()
 	}
 end
 
-M.disable = function() require'cmp'.setup.buffer {
-	enabled = false
-} end
+-- M.disable = function() require'cmp'.setup.buffer {
+-- 	enabled = false
+-- } end
 
 return M

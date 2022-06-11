@@ -7,9 +7,9 @@ use { 'wbthomason/packer.nvim' }
 
 -- Increase startup time
 -- use{'lewis6991/impatient.nvim'} -- Speed up loading Lua modules
-use { 'nathom/filetype.nvim', config = function() -- Replace native filetype.vim
-	require 'packages.filetype'.config()
-end }
+-- use { 'nathom/filetype.nvim', config = function() -- Replace native filetype.vim
+-- 	require 'packages.filetype'.config()
+-- end }
 
 -- Colorschemes
 use { 'folke/tokyonight.nvim' }
@@ -130,14 +130,9 @@ use {
 use { 'mattn/emmet-vim', event = 'InsertEnter *' }
 vim.g.user_emmet_leader_key = '<c-e>'
 
--- Color colors
-use { 'norcalli/nvim-colorizer.lua', cmd = { 'ColorizerToggle' }, config = function()
-	require 'colorizer'.setup()
-end }
-
 -- ### LSP & CODE INSPECTION
 
--- Convenient UI for grepping word
+-- Language aware word grepping and UI
 use {
 	'pechorin/any-jump.vim',
 	cmd = { 'AnyJump', 'AnyJumpVisual', 'AnyJumpBack', 'AnyJumpLastResults' },

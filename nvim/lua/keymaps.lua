@@ -123,8 +123,6 @@ M.normal = {
 	['<leader>n'] = { name =
 		'no/now',
 
-		c = { ':ColorizerToggle<cr>',
-		'Colorize' },
 	},
 
 

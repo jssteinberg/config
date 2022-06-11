@@ -1,14 +1,14 @@
 local M = {}
 
 M.config = function ()
-	require('nvim-treesitter.configs').setup{
-		ignore_install = { 'vim' },
+	require('nvim-treesitter.configs').setup({
+		ignore_install = { 'vim', 'lua' },
 		highlight = {
 			enable = true,
-			disable = {'vim'}
+			disable = { 'vim', 'lua' },
 		},
 		autotag = { enable = true },
-	}
+	})
 
 	-- Auto close tags plugin (using treesittter)
 
