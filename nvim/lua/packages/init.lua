@@ -163,11 +163,6 @@ use {
 
 -- ### MOTIONS
 
--- 'Easy' motions
-use { 'phaazon/hop.nvim', as = 'hop', cmd = { 'HopLine' }, config = function()
-	require 'hop'.setup { keys = 'eoqdgflhksura' }
-end }
-
 -- Better f, F, t, T, repeatable with f/F, and s motion
 use {
 	'ggandor/lightspeed.nvim',

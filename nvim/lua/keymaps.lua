@@ -18,16 +18,6 @@ M.visual = {
 	['<leader>j'] = { '<c-x>',
 	'Decrease number' },
 
-
-	-- Hop
-
-	['<leader>J'] = { '<cmd>HopLine<cr>',
-	'Hop to line' },
-
-	['<leader>K'] = { '<cmd>HopLine<cr>',
-	'Hop to line' },
-
-
 	-- Find
 
 	['<leader>f'] = { name =
@@ -49,16 +39,6 @@ M.normal = {
 	['<leader>W'] = { ':SudaWrite<cr>',
 	'Write restricted buffer' },
 
-
-	-- Jumps/motions
-
-	['<leader>J'] = { '<cmd>HopLine<cr>',
-	'Hop to line' },
-
-	['<leader>K'] = { '<cmd>HopLine<cr>',
-	'Hop to line' },
-
-
 	-- Edit
 
 	['<leader>k'] = { '<c-a>',
@@ -66,7 +46,6 @@ M.normal = {
 
 	['<leader>j'] = { '<c-x>',
 	'Decrease number' },
-
 
 	-- Find
 
