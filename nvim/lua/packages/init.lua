@@ -66,9 +66,9 @@ use {
 -- Treesitter
 use {
 	'nvim-treesitter/nvim-treesitter',
-	requires = {
-		'windwp/nvim-ts-autotag',
-	},
+	-- requires = {
+	-- 	'windwp/nvim-ts-autotag',
+	-- },
 	config = function() require 'packages.treesitter'.config() end
 }
 
@@ -103,6 +103,11 @@ use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
 use { 'windwp/nvim-autopairs', event = 'InsertEnter *', config = function()
 	require('nvim-autopairs').setup {}
 end }
+use { 'alvan/vim-closetag' } -- Autocomplete tags
+vim.g.closetag_filetypes = 'html,javascript,markdown,php,svelte,typescript,twig,vue'
+vim.g.closetag_xhtml_filenames = vim.g.closetag_filetypes
+
+use { 'andymass/vim-matchup', event = 'CursorMoved' }
 
 -- gcc, gc in visual mode, to (un)comment. Lua
 use {
@@ -182,8 +187,8 @@ use {
 
 -- ### UTILITY
 
--- use { 'tweekmonster/startuptime.vim', cmd = { 'StartupTime' } } -- Measure startuptime
-use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } } -- Measure startuptime
+use { 'tweekmonster/startuptime.vim', cmd = { 'StartupTime' } } -- Measure startuptime
+-- use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } } -- Measure startuptime
 
 -- Zen mode
 use {
