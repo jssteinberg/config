@@ -15,7 +15,7 @@ end }
 use { 'folke/tokyonight.nvim' }
 
 -- Extend vim
-use { 'folke/which-key.nvim' } require 'packages.which-key'.config() -- Keymappings popup
+-- use { 'folke/which-key.nvim' } require 'packages.which-key'.config() -- Keymappings popup
 use { 'tpope/vim-surround' } -- Surround stuff with stuff (org. tpope/vim-surround)
 use { 'tpope/vim-fugitive' } -- Git wrapper
 use { 'tommcdo/vim-lion' } -- Align text

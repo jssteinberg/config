@@ -13,8 +13,8 @@ M.config = function()
 		},
 	})
 	wk.register(maps.normal)
-	wk.register(maps.insert,   {mode = 'i'})
-	wk.register(maps.visual,   {mode = 'v'})
+	wk.register(maps.insert, {mode = 'i'})
+	wk.register(maps.visual, {mode = 'v'})
 end
 
 return M
