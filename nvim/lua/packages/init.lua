@@ -95,7 +95,7 @@ use {
 -- ### EDITING
 
 use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
-use { 'kevinhwang91/nvim-bqf', ft = 'qf' } -- quickfix
+-- use { 'kevinhwang91/nvim-bqf', ft = 'qf' } -- quickfix
 use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
 use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
 

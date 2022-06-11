@@ -38,7 +38,7 @@ alias gs "git status"
 funcsave gs
 ```
 
-For NVM, to update npm at the same time add the --latest-npm flag, like this:
+For NVM, to update npm at the same time add the `--latest-npm` flag, like this:
 
 ```sh
 nvm install 'lts/*' --reinstall-packages-from=default --latest-npm

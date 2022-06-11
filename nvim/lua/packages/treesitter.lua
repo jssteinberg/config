@@ -2,26 +2,18 @@ local M = {}
 
 M.config = function ()
 	require('nvim-treesitter.configs').setup{
-		-- Treesitter
+		ignore_install = { 'vim' },
 		highlight = {
 			enable = true,
-			disable = {'lua'}
+			disable = {'vim'}
 		},
 		autotag = { enable = true },
-		-- Location and syntax aware text objects:
-		textsubjects = {
-			enable = true,
-			prev_selection = '<bs>', -- (Optional) keymap to select the previous selection
-			keymaps = {
-				['<cr>'] = 'textsubjects-smart',
-				[','] = 'textsubjects-container-outer',
-				['.'] = 'textsubjects-container-inner',
-			},
-		},
 	}
 
-	-- auto close tags (using treesittter)
+	-- Auto close tags plugin (using treesittter)
+
 	require('nvim-ts-autotag').setup()
+
 	vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 		vim.lsp.diagnostic.on_publish_diagnostics, {
 			underline = true,
