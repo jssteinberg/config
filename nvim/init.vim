@@ -1,6 +1,6 @@
 lua << EOF
 	-- Avoid loading some native vim packages
-	require'options'
+	require'options'.to_not_load()
 EOF
 
 " Source config
