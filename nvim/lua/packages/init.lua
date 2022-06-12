@@ -92,7 +92,7 @@ use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function()
 	require('nvim-autopairs').setup {}
 end }
 
-use { 'andymass/vim-matchup', event = 'CursorMoved' }
+use { 'andymass/vim-matchup', event = 'CursorHold' }
 
 -- gcc, gc in visual mode, to (un)comment. Lua
 use {
@@ -136,13 +136,7 @@ use {
 	'nvim-telescope/telescope.nvim',
 	cmd = 'Telescope',
 	requires = { 'nvim-lua/plenary.nvim' },
-	config = function()
-		require('telescope').setup({
-			defaults = {
-				file_ignore_patterns = { 'node_modules' }
-			},
-		})
-	end
+	config = function() require 'packages.telescope'.config() end
 }
 
 -- ### MOTIONS
