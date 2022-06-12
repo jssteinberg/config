@@ -35,6 +35,20 @@ M.config = function()
 					fallback()
 				end
 			end, {'i'}),
+			['<c-n>'] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.select_next_item()
+				else
+					fallback()
+				end
+			end, {'i'}),
+			['<c-p>'] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.select_prev_item()
+				else
+					fallback()
+				end
+			end, {'i'}),
 			['<Tab>'] = cmp.mapping(function(fallback)
 				if luasnip.jumpable() then
 					luasnip.jump(1)
@@ -51,11 +65,11 @@ M.config = function()
 			end, {'i'}),
 		},
 		sources = {
-			-- { name = 'nvim_lua' },
 			{ name = 'nvim_lsp_signature_help' },
 			{ name = 'nvim_lsp' },
 			{ name = 'buffer', keyword_length = 3 },
-			-- { name = 'luasnip' },
+			{ name = 'luasnip' },
+			-- { name = 'nvim_lua' },
 		},
 	}
 end
