@@ -14,10 +14,9 @@ use { 'cocopon/iceberg.vim' }
 
 -- Extend vim
 use { 'tpope/vim-surround' } -- Surround stuff with stuff (org. tpope/vim-surround)
-use { 'tpope/vim-fugitive' } -- Git wrapper
 use { 'tommcdo/vim-lion' } -- Align text
 use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
-use { 'jssteinberg/hackline.vim' } -- Light pre-configured statusline
+use { 'jssteinberg/hackline.vim', requires = { 'itchyny/vim-gitbranch' } } -- Light pre-configured statusline
 use { 'lambdalisue/fern.vim', requires = { -- project drawer
 	'antoinemadec/FixCursorHold.nvim', 'lambdalisue/fern-hijack.vim'
 } }
@@ -51,14 +50,28 @@ use { 'github/copilot.vim' }
 
 use {
 	'neovim/nvim-lspconfig',
-	requires = { 'williamboman/nvim-lsp-installer', },
-	config = function() require 'packages.lsp'.config() end
+	requires = {
+		'williamboman/nvim-lsp-installer', -- `:LspInstall` commands
+		'hrsh7th/nvim-cmp', -- Autocompletion menu
+		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-nvim-lsp-signature-help',
+		'L3MON4D3/LuaSnip', -- Snippets plugin
+		'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+	},
+	config = function()
+		require 'packages.lsp'.config()
+		require 'packages.cmp'.config()
+	end
 }
 
--- ## LAZY LOADED
+
+-- LAZY LOADED
+-- -----------
 
 -- ### GIT
 
+use { 'tpope/vim-fugitive', cmd = { 'G', 'Git' } } -- Git wrapper
 use { 'APZelos/blamer.nvim', cmd = { 'BlamerToggle' } } -- git blame
 use { 'rhysd/git-messenger.vim', cmd = { 'GitMessenger' } } -- git message under cursor
 
@@ -105,21 +118,6 @@ use {
 		require 'packages.neo-tree'.config()
 	end
 }
-
--- ### LSP & CODE INSPECTION
-
-use {
-	'hrsh7th/nvim-cmp',
-	event = 'InsertEnter',
-	requires = {
-		'hrsh7th/cmp-nvim-lsp',
-		'L3MON4D3/LuaSnip',
-	},
-	config = function() require 'packages.cmp'.config() end
-}
-use { 'hrsh7th/cmp-buffer', after = 'hrsh7th/nvim-cmp' }
-use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'hrsh7th/nvim-cmp' }
-use { 'saadparwaiz1/cmp_luasnip', after = 'hrsh7th/nvim-cmp' }
 
 -- ### FILE EXPLORING & SEARCHING
 

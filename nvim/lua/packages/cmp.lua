@@ -21,14 +21,7 @@ M.config = function()
 		mapping = {
 			['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 			['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-			['<C-y>'] = cmp.mapping(function () luasnip.jump(1) end, {'i'}),
-			['<C-s>'] = cmp.mapping(function () luasnip.jump(1) end, {'i'}),
-			['<C-c>'] = cmp.mapping({
-				i = cmp.mapping.abort(),
-				c = cmp.mapping.close(),
-			}),
 			['<CR>'] = cmp.mapping(function (fallback)
-				-- if cmp.get_selected_entry() then
 				if cmp.get_active_entry() then
 					cmp.confirm({ select = true })
 				else
@@ -49,14 +42,12 @@ M.config = function()
 					fallback()
 				end
 			end, {'i'}),
-			['<Tab>'] = cmp.mapping(function(fallback)
+			['<c-s>'] = cmp.mapping(function()
 				if luasnip.jumpable() then
 					luasnip.jump(1)
-				else
-					fallback()
 				end
 			end, {'i'}),
-			['<S-Tab>'] = cmp.mapping(function(fallback)
+			['<c-b>'] = cmp.mapping(function(fallback)
 				if luasnip.jumpable(-1) then
 					luasnip.jump(-1)
 				else
