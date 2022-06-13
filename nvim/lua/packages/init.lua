@@ -4,7 +4,6 @@ local use = require('packages.packer').use()
 use { 'wbthomason/packer.nvim' }
 
 -- Increase startup time
-use { 'lewis6991/impatient.nvim' } -- Speed up loading Lua modules
 use { 'nathom/filetype.nvim', config = function() -- Replace native filetype.vim
 	require 'packages.filetype'.config()
 end }
