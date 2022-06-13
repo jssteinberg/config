@@ -26,7 +26,8 @@ end
 
 M.iceberg_config = function(bg)
 	pcall(function ()
-		vim.cmd[[colorscheme iceberg]]
+		vim.cmd("colorscheme iceberg")
+		vim.cmd("set background=" .. bg)
 	end)
 end
 

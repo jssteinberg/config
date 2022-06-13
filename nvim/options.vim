@@ -12,6 +12,7 @@ set sessionoptions=curdir,folds,tabpages,help
 set scrolloff=5
 set synmaxcol=200 " reduce column to search for syntax items
 set tabstop=2 shiftwidth=2 " indent size
+set termguicolors
 set timeoutlen=500 " Wait less for typing of keymaps
 set undofile noswapfile
 set updatetime=100
