@@ -5,10 +5,7 @@ M.visual = {
 	['<leader>j'] = { '<c-x>', 'Decrease number' },
 
 	-- Find
-	['<leader>f'] = {
-		name = 'find',
-		j = { ':AnyJumpVisual<cr>', 'Jump to files with string' },
-	},
+	['<leader>f'] = { name = 'find' },
 }
 
 M.normal = {
@@ -24,10 +21,7 @@ M.normal = {
 	['<leader>j'] = { '<c-x>', 'Decrease number' },
 
 	-- Find
-	['<leader>f'] = {
-		name = 'find',
-		j = { ':AnyJump<cr>', 'Jump to files with string' },
-	},
+	['<leader>f'] = { name = 'find' },
 
 	-- Git
 	['<leader>g'] = {

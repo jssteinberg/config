@@ -81,33 +81,32 @@ nnoremap <leader>G :Rg -g "!package-lock.json" -g "!yarn.lock"
 vnoremap <leader>G y:Rg -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " FZF Fuzzy finder
-nnoremap <leader>fb :Telescope buffers<cr>
-nnoremap <leader>ff :Telescope find_files<cr>
-nnoremap <leader>fs :Telescope live_grep<cr>
-nnoremap <leader>gf :Telescope git_files<cr>
-nnoremap <leader>s :Telescope find_files<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fs <cmd>Telescope live_grep<cr>
+nnoremap <leader>gf <cmd>Telescope git_files<cr>
+nnoremap <leader>s <cmd>Telescope find_files<cr>
 
 " Git
-nnoremap <leader>gg :Git<cr>
-nnoremap <leader>gq :Git mergetool<cr>
-nnoremap <leader>gb :BlamerToggle<cr>
-nnoremap <leader>gm :GitMessenger<cr>
-nnoremap <leader>gp :Git pull<cr>
-nnoremap <leader>gP :Git push<cr>
-nnoremap <leader>gl :Git log<cr>
+nnoremap <leader>gg <cmd>Git<cr>
+nnoremap <leader>gq <cmd>Git mergetool<cr>
+nnoremap <leader>gb <cmd>BlamerToggle<cr>
+nnoremap <leader>gp <cmd>Git pull<cr>
+nnoremap <leader>gP <cmd>Git push<cr>
+nnoremap <leader>gl <cmd>Git log<cr>
 
 " Copilot
 imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
 
 " Harpoon
-nnoremap <leader>hh :lua require("harpoon.mark").add_file()<cr>
-nnoremap <leader>he :lua require("harpoon.ui").toggle_quick_menu()<cr>
-nnoremap <leader>ha :lua require("harpoon.ui").nav_file(1)<cr>
-nnoremap <leader>hs :lua require("harpoon.ui").nav_file(2)<cr>
-nnoremap <leader>hd :lua require("harpoon.ui").nav_file(3)<cr>
-nnoremap <leader>hf :lua require("harpoon.ui").nav_file(4)<cr>
-nnoremap <leader><cr> :lua require("harpoon.term").gotoTerminal(1)<cr>i
-nnoremap <leader>1 :lua require("harpoon.term").gotoTerminal(2)<cr>i
+nnoremap <silent> <leader>hh :lua require("harpoon.mark").add_file()<cr>
+nnoremap <silent> <leader>he :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <silent> <leader>ha :lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <silent> <leader>hs :lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <silent> <leader>hd :lua require("harpoon.ui").nav_file(3)<cr>
+nnoremap <silent> <leader>hf :lua require("harpoon.ui").nav_file(4)<cr>
+nnoremap <silent> <leader><cr> :lua require("harpoon.term").gotoTerminal(1)<cr>i
+nnoremap <silent> <leader>1 :lua require("harpoon.term").gotoTerminal(2)<cr>i
 
 augroup keymaps
 	au!

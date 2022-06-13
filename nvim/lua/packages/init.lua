@@ -4,7 +4,7 @@ local use = require('packages.packer').use()
 use { 'wbthomason/packer.nvim' }
 
 -- Increase startup time
-use{ 'lewis6991/impatient.nvim' } -- Speed up loading Lua modules
+use { 'lewis6991/impatient.nvim' } -- Speed up loading Lua modules
 use { 'nathom/filetype.nvim', config = function() -- Replace native filetype.vim
 	require 'packages.filetype'.config()
 end }
@@ -14,7 +14,6 @@ end }
 use { 'cocopon/iceberg.vim' }
 
 -- Extend vim
--- use { 'folke/which-key.nvim' } require 'packages.which-key'.config() -- Keymappings popup
 use { 'tpope/vim-surround' } -- Surround stuff with stuff (org. tpope/vim-surround)
 use { 'tpope/vim-fugitive' } -- Git wrapper
 use { 'tommcdo/vim-lion' } -- Align text
@@ -26,25 +25,9 @@ use { 'lambdalisue/fern.vim', requires = { -- project drawer
 use { 'tyru/open-browser.vim', config = function() -- `gx` open url or web search
 	require 'packages.openbrowser'.config()
 end }
-
--- LSP and autocompletion
-use { 'github/copilot.vim' }
-use {
-	'neovim/nvim-lspconfig',
-	requires = {
-		'williamboman/nvim-lsp-installer', -- `:LspInstall` commands
-		'hrsh7th/nvim-cmp',                -- Autocompletion menu
-		'hrsh7th/cmp-nvim-lsp',
-		'hrsh7th/cmp-buffer',
-		'hrsh7th/cmp-nvim-lsp-signature-help',
-		'L3MON4D3/LuaSnip',                -- Snippets plugin
-		'saadparwaiz1/cmp_luasnip',        -- Snippets source for nvim-cmp
-	},
-	config = function()
-		require'packages.lsp'.config()
-		require 'packages.cmp'.config()
-	end
-}
+use { 'folke/which-key.nvim', config = function()
+	require('packages.which-key').config()
+end }
 
 -- Treesitter
 use {
@@ -61,6 +44,16 @@ use {
 			global_settings = { save_on_toggle = true },
 		})
 	end
+}
+
+-- LSP and autocompletion
+
+use { 'github/copilot.vim' }
+
+use {
+	'neovim/nvim-lspconfig',
+	requires = { 'williamboman/nvim-lsp-installer', },
+	config = function() require 'packages.lsp'.config() end
 }
 
 -- ## LAZY LOADED
@@ -88,7 +81,7 @@ use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutline
 use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
 
 -- auto pair completion
-use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function()
+use { 'windwp/nvim-autopairs', event = 'InsertCharPre', config = function()
 	require('nvim-autopairs').setup {}
 end }
 
@@ -116,14 +109,18 @@ use {
 
 -- ### LSP & CODE INSPECTION
 
--- Language aware word grepping and UI
 use {
-	'pechorin/any-jump.vim',
-	cmd = { 'AnyJump', 'AnyJumpVisual', 'AnyJumpBack', 'AnyJumpLastResults' },
-	config = function()
-		vim.g.any_jump_disable_default_keybindings = false
-	end
+	'hrsh7th/nvim-cmp',
+	event = 'InsertEnter',
+	requires = {
+		'hrsh7th/cmp-nvim-lsp',
+		'L3MON4D3/LuaSnip',
+	},
+	config = function() require 'packages.cmp'.config() end
 }
+use { 'hrsh7th/cmp-buffer', after = 'hrsh7th/nvim-cmp' }
+use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'hrsh7th/nvim-cmp' }
+use { 'saadparwaiz1/cmp_luasnip', after = 'hrsh7th/nvim-cmp' }
 
 -- ### FILE EXPLORING & SEARCHING
 
