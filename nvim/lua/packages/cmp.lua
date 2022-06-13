@@ -65,8 +65,4 @@ M.config = function()
 	}
 end
 
--- M.disable = function() require'cmp'.setup.buffer {
--- 	enabled = false
--- } end
-
 return M

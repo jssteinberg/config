@@ -81,11 +81,11 @@ nnoremap <leader>G :Rg -g "!package-lock.json" -g "!yarn.lock"
 vnoremap <leader>G y:Rg -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " FZF Fuzzy finder
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fs <cmd>Telescope live_grep<cr>
-nnoremap <leader>gf <cmd>Telescope git_files<cr>
-nnoremap <leader>s <cmd>Telescope find_files<cr>
+nnoremap <leader>fb :Telescope buffers<cr>
+nnoremap <leader>ff :Telescope find_files<cr>
+nnoremap <leader>fs :Telescope live_grep<cr>
+nnoremap <leader>gf :Telescope git_files<cr>
+nnoremap <leader>s :Telescope find_files<cr>
 
 " Git
 nnoremap <leader>gg <cmd>Git<cr>
@@ -94,6 +94,7 @@ nnoremap <leader>gb <cmd>BlamerToggle<cr>
 nnoremap <leader>gp <cmd>Git pull<cr>
 nnoremap <leader>gP <cmd>Git push<cr>
 nnoremap <leader>gl <cmd>Git log<cr>
+nnoremap <leader>go <cmd>OpenGithubFile<cr>
 
 " Copilot
 imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")

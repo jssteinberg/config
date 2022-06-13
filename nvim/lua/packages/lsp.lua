@@ -20,6 +20,7 @@ M.register_keymaps = function(bufnr)
 	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, bufopts)
 
 	vim.keymap.set('n', '<leader>lq', vim.diagnostic.setqflist, bufopts)
+	vim.keymap.set('n', '<leader>ll', vim.diagnostic.setloclist, bufopts)
 end
 
 M.config = function()
