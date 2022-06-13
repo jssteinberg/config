@@ -1,6 +1,6 @@
 set clipboard=unnamedplus
 set copyindent
-set cursorline
+set cursorline cursorcolumn
 set hidden
 set fileencoding=utf-8
 set foldmethod=indent nofoldenable
