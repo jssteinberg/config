@@ -28,7 +28,7 @@ use { 'lambdalisue/fern.vim', requires = {
 } }
 
 -- Statusline
-use { 'jssteinberg/hackline.vim', requires = {
+use { 'jssteinberg/hackline.vim', event = 'CursorHold', requires = {
 	'itchyny/vim-gitbranch'
 } }
 

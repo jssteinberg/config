@@ -1,6 +1,6 @@
 local M = {}
 
-M.config = function ()
+M.config = function()
 	require("filetype").setup({ overrides = { extensions = {
 		postcss = "css",
 		mdx = "markdown",
@@ -8,7 +8,7 @@ M.config = function ()
 		fish = "sh",
 		MD = "markdown",
 		twig = "php",
-	}}})
+	} } })
 end
 
 return M
