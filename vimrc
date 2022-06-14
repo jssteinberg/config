@@ -12,7 +12,7 @@ set hidden " Unsaved files can be 'hidden'
 set foldmethod=indent nofoldenable
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set list listchars=tab:\·\  fillchars=vert:\· " Show tabs, consistent char
-set number relativenumber " Line number, relative numbers, always show signcolumn
+set number relativenumber signcolumn=yes " Line number, relative numbers, always show signcolumn
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set sessionoptions=curdir,folds,tabpages,help
 set wildmode=lastused:full " :b <tab> for last used buffer(s)
@@ -159,13 +159,20 @@ try
 	call jetpack#add('tpope/vim-surround') " Surround with brackets or quotes
 	call jetpack#add('tpope/vim-repeat') " Repeat more with '.'
 	call jetpack#add('cohama/lexima.vim', { 'on': ['InsertEnter'] }) " Autocomplete brackets/quotes
-	call jetpack#add('subnut/visualstar.vim') " Search selection with * or #
+	call jetpack#add('subnut/visualstar.vim', { 'on': ['ModeChanged'] }) " Search selection with * or #
 	call jetpack#add('tommcdo/vim-lion') " Align text with gl gL
 
 	call jetpack#add('sheerun/vim-polyglot') " More filetypes, detect indent
-	call jetpack#add('lifepillar/vim-mucomplete', { 'on': ['InsertEnter'] }) " Tab-completing mappings and vanilla completion
+	" call jetpack#add('lifepillar/vim-mucomplete', { 'on': ['InsertEnter'] }) " Tab-completing mappings and vanilla completion
 	call jetpack#add('jssteinberg/hackline.vim') " Light statusline
 	call jetpack#add('justinmk/vim-sneak') " Sneak motion, hijack s/S
+
+	call jetpack#add('prabirshrestha/vim-lsp')
+	call jetpack#add('mattn/vim-lsp-settings')
+	call jetpack#add('prabirshrestha/asyncomplete.vim')
+	call jetpack#add('prabirshrestha/asyncomplete-lsp.vim')
+	call jetpack#add('prabirshrestha/asyncomplete-buffer.vim')
+	" call jetpack#add('yami-beta/asyncomplete-omni.vim')
 
 	" Colorscheming
 	call jetpack#add('ackyshake/Spacegray.vim')
@@ -173,7 +180,7 @@ try
 
 	call jetpack#end()
 
-	colo spacegray | set bg=dark hlsearch termguicolors
+	colo iceberg | set bg=dark hlsearch termguicolors
 
 	highlight Normal guibg=NONE
 	highlight LineNr guibg=NONE
@@ -183,11 +190,6 @@ try
 	" call jetpack#add('mhinz/vim-startify') " For session handling
 	" " Code completion
 	" call jetpack#add('alvan/vim-closetag', { 'on': ["InsertEnter"] }) " Autocomplete tags
-	" " LSP auto completion
-	" call jetpack#add('prabirshrestha/vim-lsp')
-	" call jetpack#add('mattn/vim-lsp-settings')
-	" call jetpack#add('prabirshrestha/asyncomplete.vim', { 'on': ["InsertEnter"] })
-	" call jetpack#add('prabirshrestha/asyncomplete-lsp.vim', { 'on': ["InsertEnter"] })
 catch
 	colorscheme default
 	set notermguicolors t_Co=16 nohlsearch
