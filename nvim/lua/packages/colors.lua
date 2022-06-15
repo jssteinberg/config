@@ -1,7 +1,7 @@
 local M = {}
 
 -- @param {string} bg - e.g. 'day'
-M.tokyonight_config = function(bg)
+M.tokyonight = function(bg)
 	if not bg or bg == 'dark' then
 		vim.g.tokyonight_style = 'night'
 		vim.g.tokyonight_transparent = true
@@ -24,18 +24,25 @@ M.tokyonight_config = function(bg)
 	end)
 end
 
-M.iceberg_config = function(bg)
+M.iceberg = function(bg)
 	pcall(function ()
 		vim.cmd("colorscheme iceberg")
-		vim.cmd("set background=" .. bg)
+		vim.cmd("set termguicolors")
+	end)
+end
+
+M.vim_dim = function(bg)
+	pcall(function ()
+		vim.cmd("set notermguicolors")
+		vim.cmd("colorscheme dim")
 	end)
 end
 
 -- @param {string} bg - 'dark', 'light'
 M.set_colo = function(bg)
 	bg = bg or 'dark'
-	M.iceberg_config(bg)
-	vim.cmd('set bg=' .. bg)
+	M.iceberg(bg)
+	vim.cmd("set background=" .. bg)
 end
 
 return M

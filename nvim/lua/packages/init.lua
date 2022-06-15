@@ -68,7 +68,7 @@ use {
 -- ### UI
 
 -- Statusline
-use { 'jssteinberg/hackline.vim', event = 'CursorHold', requires = {
+use { '~/Documents/hackline.vim', event = 'CursorHold', requires = {
 	'itchyny/vim-gitbranch'
 } }
 
