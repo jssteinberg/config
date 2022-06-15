@@ -27,11 +27,6 @@ use { 'lambdalisue/fern.vim', requires = {
 	'antoinemadec/FixCursorHold.nvim', 'lambdalisue/fern-hijack.vim'
 } }
 
--- Statusline
-use { 'jssteinberg/hackline.vim', event = 'CursorHold', requires = {
-	'itchyny/vim-gitbranch'
-} }
-
 -- Treesitter
 use { 'nvim-treesitter/nvim-treesitter', config = function()
 	require 'packages.treesitter'.config()
@@ -70,7 +65,14 @@ use {
 -- LAZY LOADED
 -- -----------
 
--- ### EDITING
+-- ### UI
+
+-- Statusline
+use { 'jssteinberg/hackline.vim', event = 'CursorHold', requires = {
+	'itchyny/vim-gitbranch'
+} }
+
+-- ### EDIT/MOVE
 
 use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
 use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
@@ -89,7 +91,39 @@ use {
 	config = function() require('nvim_comment').setup({}) end
 }
 
--- project drawer
+-- Better f, F, t, T, repeatable with f/F, and s motion
+use {
+	'ggandor/lightspeed.nvim',
+	keys = {
+		{ 'n', 's' }, { 'n', 'S' },
+		{ 'x', 'z' }, { 'x', 'Z' },
+		{ 'n', 'f' }, { 'n', 'F' }, { 'n', 't' }, { 'n', 'T' },
+		{ 'x', 'f' }, { 'x', 'F' }, { 'x', 't' }, { 'x', 'T' }
+	},
+	config = function()
+		require 'lightspeed'.setup {
+			repeat_ft_with_target_char = true,
+			limit_ft_matches = 10
+		}
+	end
+}
+
+-- ### SEARCH/EXPLORE
+
+-- Visual star `*` search, or `#` backwards
+use { 'subnut/visualstar.vim', keys = { { 'x', '*' }, { 'x', '#' }, } }
+
+use { 'jremmen/vim-ripgrep', cmd = { 'Rg', 'RgRoot' } } -- ripgrep integration
+
+-- Fuzzy searcher
+use {
+	'nvim-telescope/telescope.nvim',
+	cmd = 'Telescope',
+	requires = { 'nvim-lua/plenary.nvim' },
+	config = function() require 'packages.telescope'.config() end
+}
+
+-- Project drawer
 use {
 	'nvim-neo-tree/neo-tree.nvim',
 	branch = 'v2.x',
@@ -101,20 +135,6 @@ use {
 	config = function()
 		require 'packages.neo-tree'.config()
 	end
-}
-
--- ### FILE EXPLORING & SEARCHING
-
-use { 'jremmen/vim-ripgrep', cmd = { 'Rg', 'RgRoot' } } -- ripgrep integration
-
--- Visual star `*` search, or `#` backwards
-use { 'subnut/visualstar.vim', keys = { { 'x', '*' }, { 'x', '#' }, } }
-
-use {
-	'nvim-telescope/telescope.nvim',
-	cmd = 'Telescope',
-	requires = { 'nvim-lua/plenary.nvim' },
-	config = function() require 'packages.telescope'.config() end
 }
 
 -- ### GIT
@@ -140,28 +160,10 @@ use {
 	end
 }
 
--- ### MOTIONS
+-- ### UTIL
 
--- Better f, F, t, T, repeatable with f/F, and s motion
-use {
-	'ggandor/lightspeed.nvim',
-	keys = {
-		{ 'n', 's' }, { 'n', 'S' },
-		{ 'x', 'z' }, { 'x', 'Z' },
-		{ 'n', 'f' }, { 'n', 'F' }, { 'n', 't' }, { 'n', 'T' },
-		{ 'x', 'f' }, { 'x', 'F' }, { 'x', 't' }, { 'x', 'T' }
-	},
-	config = function()
-		require 'lightspeed'.setup {
-			repeat_ft_with_target_char = true,
-			limit_ft_matches = 10
-		}
-	end
-}
-
--- ### UTILITY
-
-use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } } -- Measure startuptime
+-- Measure startuptime
+use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
 
 -- Zen mode
 use {
