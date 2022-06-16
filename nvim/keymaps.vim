@@ -98,6 +98,7 @@ nnoremap <leader>go <cmd>OpenGithubFile<cr>
 
 " Copilot
 imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
+inoremap jl <esc>:Copilot<cr>
 
 " Harpoon
 nnoremap <silent> <leader>hh :lua require("harpoon.mark").add_file()<cr>

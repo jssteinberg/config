@@ -1,4 +1,5 @@
 setlocal nonumber norelativenumber signcolumn=no
+setlocal nocursorcolumn
 
 nmap <buffer> s /
 nmap <buffer> ZQ :q!<cr>

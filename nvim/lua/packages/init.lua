@@ -68,7 +68,7 @@ use {
 -- ### UI
 
 -- Statusline
-use { '~/Documents/hackline.vim', event = 'CursorHold', requires = {
+use { 'jssteinberg/hackline.vim', event = 'CursorHold', requires = {
 	'itchyny/vim-gitbranch'
 } }
 
@@ -79,7 +79,7 @@ use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutline
 use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
 
 -- auto pair completion
-use { 'windwp/nvim-autopairs', event = 'InsertCharPre', config = function()
+use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function()
 	require('nvim-autopairs').setup {}
 end }
 
