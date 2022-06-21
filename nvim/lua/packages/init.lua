@@ -68,7 +68,8 @@ use {
 -- ### UI
 
 -- Statusline
-use { 'jssteinberg/hackline.vim', event = 'CursorHold', requires = {
+vim.o.laststatus = '0'
+use { 'jssteinberg/hackline.vim', event = 'CursorMoved', requires = {
 	'itchyny/vim-gitbranch'
 } }
 
