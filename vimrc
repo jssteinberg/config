@@ -1,5 +1,5 @@
-" Vis 8 vimrc boilerplate
-" =======================
+" Vim 8 simple vimrc
+" ==================
 
 " Load Vim 8 defaults
 unlet! skip_defaults_vim
