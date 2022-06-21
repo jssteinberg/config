@@ -12,7 +12,7 @@ use { 'cocopon/iceberg.vim' } -- use { 'folke/tokyonight.nvim' } -- colo
 use { 'tpope/vim-surround' } -- Surround stuff with stuff
 use { 'tommcdo/vim-lion' } -- Align text
 use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
-use { 'github/copilot.vim' }
+-- use { 'github/copilot.vim' }
 use { 'folke/which-key.nvim', config = function()
 	require('packages.which-key').config()
 end }
