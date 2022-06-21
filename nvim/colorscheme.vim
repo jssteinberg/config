@@ -4,6 +4,7 @@ function! SetColoOpts()
 		hi Normal guibg=none
 		hi LineNr guibg=none
 		hi SignColumn guibg=none
+		hi! link Visual PmenuSel
 	catch
 		colo default | set notermguicolors t_Co=16 nohlsearch nocursorcolumn
 	endtry
