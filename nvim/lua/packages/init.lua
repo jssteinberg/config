@@ -125,14 +125,12 @@ use {
 }
 
 -- Project drawer
+use { 'MunifTanjim/nui.nvim', cmd = { 'Neotree' } }
 use {
 	'nvim-neo-tree/neo-tree.nvim',
 	branch = 'v2.x',
-	cmd = { 'Neotree' },
-	requires = {
-		'nvim-lua/plenary.nvim',
-		'MunifTanjim/nui.nvim',
-	},
+	after = 'nui.nvim',
+	requires = { 'nvim-lua/plenary.nvim' },
 	config = function()
 		require 'packages.neo-tree'.config()
 	end
