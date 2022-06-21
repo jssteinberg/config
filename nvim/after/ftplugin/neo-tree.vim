@@ -1,1 +1,1 @@
-setlocal nocursorcolumn
+setlocal signcolumn=auto nocursorcolumn

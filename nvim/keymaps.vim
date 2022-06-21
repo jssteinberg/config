@@ -66,7 +66,7 @@ nnoremap <leader>R :%s/
 vnoremap <leader>R :s/
 
 " Cycle colorschemes
-nnoremap <leader>cc :call CycleColo()<cr>
+nnoremap <silent> <leader>cc :call CycleColo()<cr>
 
 " Package/plugin mappings
 " -----------------------
@@ -101,7 +101,7 @@ imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
 inoremap jl <esc>:Copilot<cr>
 
 " Harpoon
-nnoremap <silent> <leader>hh :lua require("harpoon.mark").add_file()<cr>
+nnoremap <leader>hh :lua require("harpoon.mark").add_file()<cr>
 nnoremap <silent> <leader>he :lua require("harpoon.ui").toggle_quick_menu()<cr>
 nnoremap <silent> <leader>ha :lua require("harpoon.ui").nav_file(1)<cr>
 nnoremap <silent> <leader>hs :lua require("harpoon.ui").nav_file(2)<cr>
