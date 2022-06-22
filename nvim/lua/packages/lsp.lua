@@ -3,6 +3,10 @@ local M = {}
 -- Register keymaps per buffer
 M.register_keymaps = function(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
+	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, bufopts)
+	-- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { async = true, noremap = true, silent = true, buffer = bufnr })
+
 	vim.keymap.set('n', '<cr>', vim.diagnostic.open_float, bufopts)
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -17,7 +21,6 @@ M.register_keymaps = function(bufnr)
 	vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, bufopts)
 
 	vim.keymap.set('n', '<leader>lq', vim.diagnostic.setqflist, bufopts)
 	vim.keymap.set('n', '<leader>ll', vim.diagnostic.setloclist, bufopts)
@@ -44,10 +47,10 @@ M.config = function()
 		-- 		capabilities = capabilities,
 		-- 	})
 		-- else
-			server:setup({
-				on_attach = on_attach_general,
-				-- capabilities = capabilities,
-			})
+		server:setup({
+			on_attach = on_attach_general,
+			-- capabilities = capabilities,
+		})
 		-- end
 
 		vim.cmd [[ do User LspAttachBuffers ]]
