@@ -35,6 +35,13 @@ M.config = function()
 					fallback()
 				end
 			end, { "i" }),
+			['<c-f>'] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.confirm({ select = true })
+				else
+					fallback()
+				end
+			end, { "i" }),
 			['<CR>'] = cmp.mapping(function(fallback)
 				if cmp.get_active_entry() then
 					cmp.confirm({ select = true })
