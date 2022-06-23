@@ -5,7 +5,9 @@ M.config = function ()
 
 	telescope.setup({
 		defaults = {
-			file_ignore_patterns = { 'node_modules' }
+			file_ignore_patterns = { 'node_modules' },
+      layout_strategy = 'vertical',
+      layout_config = { height = 0.95 },
 		},
 	})
 end
