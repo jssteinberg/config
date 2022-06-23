@@ -26,6 +26,8 @@ end }
 use { 'lambdalisue/fern.vim', requires = {
 	'antoinemadec/FixCursorHold.nvim', 'lambdalisue/fern-hijack.vim'
 } }
+-- let g:fern#default_hidden=1
+-- vim.g.fern.default_hidden = true
 
 -- Treesitter
 use { 'nvim-treesitter/nvim-treesitter', config = function()
