@@ -57,10 +57,10 @@ M.config = function()
 		},
 		sources = {
 			{ name = 'nvim_lsp_signature_help' },
+			{ name = 'cmp_tabnine' },
 			{ name = 'nvim_lsp' },
-			{ name = 'buffer', keyword_length = 3 },
+			{ name = 'buffer', keyword_length = 2 },
 			{ name = 'luasnip' },
-			-- { name = 'nvim_lua' },
 		},
 	}
 end
