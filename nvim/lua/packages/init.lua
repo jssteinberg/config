@@ -26,6 +26,8 @@ end }
 use { 'lambdalisue/fern.vim', requires = {
 	'antoinemadec/FixCursorHold.nvim', 'lambdalisue/fern-hijack.vim'
 } }
+-- let g:fern#default_hidden=1
+-- vim.g.fern.default_hidden = true
 
 -- Treesitter
 use { 'nvim-treesitter/nvim-treesitter', config = function()
@@ -60,6 +62,22 @@ use {
 		require 'packages.cmp'.config()
 	end
 }
+
+-- Tabnine completion
+use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp', config = function()
+	require('cmp_tabnine.config'):setup({
+		max_lines = 1000;
+		max_num_results = 20;
+		sort = true;
+		run_on_every_keystroke = true;
+		snippet_placeholder = '..';
+		ignored_file_types = { -- default is not to ignore
+			-- uncomment to ignore in lua:
+			-- lua = true
+		};
+		show_prediction_strength = false;
+	})
+end}
 
 
 -- LAZY LOADED
