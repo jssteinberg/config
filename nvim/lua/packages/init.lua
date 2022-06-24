@@ -78,6 +78,7 @@ use { 'jssteinberg/hackline.vim', event = 'CursorMoved', requires = {
 use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
 use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
 use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
+-- use { 'mhartington/formatter.nvim' }
 
 -- auto pair completion
 use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function()
