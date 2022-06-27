@@ -148,37 +148,39 @@ augroup vimrc
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
+packadd minpac
+
 try
-	call jetpack#begin()
+	call minpac#init()
 
-	call jetpack#add('tpope/vim-fugitive') " `G` command for git
-	call jetpack#add('junegunn/fzf.vim', { 'on': ['Files', 'Rg'] })
-	call jetpack#add('junegunn/fzf', { 'do': {-> fzf#install()} })
+	" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
+	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-	call jetpack#add('tpope/vim-commentary') " Toggle comments with gcc
-	call jetpack#add('tpope/vim-surround') " Surround with brackets or quotes
-	call jetpack#add('tpope/vim-repeat') " Repeat more with '.'
-	call jetpack#add('cohama/lexima.vim', { 'on': ['InsertEnter'] }) " Autocomplete brackets/quotes
-	call jetpack#add('subnut/visualstar.vim', { 'on': ['ModeChanged'] }) " Search selection with * or #
-	call jetpack#add('tommcdo/vim-lion') " Align text with gl gL
+	call minpac#add('tpope/vim-fugitive') " `G` command for git
+	call minpac#add('junegunn/fzf.vim')
+	call minpac#add('junegunn/fzf', { 'do': {-> fzf#install()} })
 
-	call jetpack#add('sheerun/vim-polyglot') " More filetypes, detect indent
-	" call jetpack#add('lifepillar/vim-mucomplete', { 'on': ['InsertEnter'] }) " Tab-completing mappings and vanilla completion
-	call jetpack#add('jssteinberg/hackline.vim') " Light statusline
-	call jetpack#add('justinmk/vim-sneak') " Sneak motion, hijack s/S
+	call minpac#add('tpope/vim-commentary') " Toggle comments with gcc
+	call minpac#add('tpope/vim-surround') " Surround with brackets or quotes
+	call minpac#add('tpope/vim-repeat') " Repeat more with '.'
+	call minpac#add('cohama/lexima.vim') " Autocomplete brackets/quotes
+	call minpac#add('subnut/visualstar.vim') " Search selection with * or #
+	call minpac#add('tommcdo/vim-lion') " Align text with gl gL
 
-	call jetpack#add('prabirshrestha/vim-lsp')
-	call jetpack#add('mattn/vim-lsp-settings')
-	call jetpack#add('prabirshrestha/asyncomplete.vim')
-	call jetpack#add('prabirshrestha/asyncomplete-lsp.vim')
-	call jetpack#add('prabirshrestha/asyncomplete-buffer.vim')
-	" call jetpack#add('yami-beta/asyncomplete-omni.vim')
+	call minpac#add('sheerun/vim-polyglot') " More filetypes, detect indent
+	call minpac#add('jssteinberg/hackline.vim') " Light statusline
+	call minpac#add('justinmk/vim-sneak') " Sneak motion, hijack s/S
+
+	call minpac#add('prabirshrestha/vim-lsp')
+	call minpac#add('mattn/vim-lsp-settings')
+	call minpac#add('prabirshrestha/asyncomplete.vim')
+	call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
+	call minpac#add('prabirshrestha/asyncomplete-buffer.vim')
+	" call minpac#add('yami-beta/asyncomplete-omni.vim')
 
 	" Colorscheming
-	call jetpack#add('ackyshake/Spacegray.vim')
-	call jetpack#add('cocopon/iceberg.vim')
-
-	call jetpack#end()
+	call minpac#add('ackyshake/Spacegray.vim')
+	call minpac#add('cocopon/iceberg.vim')
 
 	colo iceberg | set bg=dark hlsearch termguicolors
 
@@ -186,10 +188,10 @@ try
 	highlight LineNr guibg=NONE
 	highlight SignColumn guibg=NONE
 
-	" call jetpack#add('jremmen/vim-ripgrep') " Integrates ripgrep
-	" call jetpack#add('mhinz/vim-startify') " For session handling
+	" call minpac#add('jremmen/vim-ripgrep') " Integrates ripgrep
+	" call minpac#add('mhinz/vim-startify') " For session handling
 	" " Code completion
-	" call jetpack#add('alvan/vim-closetag', { 'on': ["InsertEnter"] }) " Autocomplete tags
+	" call minpac#add('alvan/vim-closetag', { 'on': ["InsertEnter"] }) " Autocomplete tags
 catch
 	colorscheme default
 	set notermguicolors t_Co=16 nohlsearch
