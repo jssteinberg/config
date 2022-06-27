@@ -140,37 +140,26 @@ let g:mucomplete#enable_auto_at_startup = 1
 let g:closetag_filetypes = 'html,javascript,markdown,php,svelte,typescript,twig,vue'
 let g:closetag_xhtml_filenames = g:closetag_filetypes
 
-" Autocommands
-augroup vimrc
-	au!
-	autocmd FileType netrw call NetrwRemaps()
-	" Set LSP keymaps for buffer
-	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
+command! PackUpdate call PackInit() | call minpac#update()
+command! PackClean  call PackInit() | call minpac#clean()
+command! PackStatus packadd minpac | call minpac#status()
 
-packadd minpac
-
-try
+function! PackInit() abort
+	packadd minpac
 	call minpac#init()
-
-	" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
-
-	call minpac#add('tpope/vim-fugitive') " `G` command for git
+	call minpac#add('tpope/vim-fugitive') " Git command `:G`
 	call minpac#add('junegunn/fzf.vim')
 	call minpac#add('junegunn/fzf', { 'do': {-> fzf#install()} })
-
 	call minpac#add('tpope/vim-commentary') " Toggle comments with gcc
 	call minpac#add('tpope/vim-surround') " Surround with brackets or quotes
 	call minpac#add('tpope/vim-repeat') " Repeat more with '.'
 	call minpac#add('cohama/lexima.vim') " Autocomplete brackets/quotes
 	call minpac#add('subnut/visualstar.vim') " Search selection with * or #
 	call minpac#add('tommcdo/vim-lion') " Align text with gl gL
-
 	call minpac#add('sheerun/vim-polyglot') " More filetypes, detect indent
-	call minpac#add('jssteinberg/hackline.vim') " Light statusline
+	call minpac#add('jssteinberg/hackline.vim', {'rev': 'dev'}) " Light statusline
 	call minpac#add('justinmk/vim-sneak') " Sneak motion, hijack s/S
-
 	call minpac#add('prabirshrestha/vim-lsp')
 	call minpac#add('mattn/vim-lsp-settings')
 	call minpac#add('prabirshrestha/asyncomplete.vim')
@@ -182,17 +171,27 @@ try
 	call minpac#add('ackyshake/Spacegray.vim')
 	call minpac#add('cocopon/iceberg.vim')
 
+	" call minpac#add('jremmen/vim-ripgrep') " Integrates ripgrep
+	" call minpac#add('mhinz/vim-startify') " For session handling
+	" " Code completion
+	" call minpac#add('alvan/vim-closetag') " Autocomplete tags
+endfunction
+
+try
 	colo iceberg | set bg=dark hlsearch termguicolors
 
 	highlight Normal guibg=NONE
 	highlight LineNr guibg=NONE
 	highlight SignColumn guibg=NONE
-
-	" call minpac#add('jremmen/vim-ripgrep') " Integrates ripgrep
-	" call minpac#add('mhinz/vim-startify') " For session handling
-	" " Code completion
-	" call minpac#add('alvan/vim-closetag', { 'on': ["InsertEnter"] }) " Autocomplete tags
 catch
 	colorscheme default
 	set notermguicolors t_Co=16 nohlsearch
 endtry
+
+" Autocommands
+augroup vimrc
+	au!
+	autocmd FileType netrw call NetrwRemaps()
+	" Set LSP keymaps for buffer
+	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
