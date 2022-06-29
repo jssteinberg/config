@@ -87,9 +87,8 @@ end}
 
 -- Statusline
 vim.o.laststatus = '0'
-use { 'jssteinberg/hackline.vim', event = 'CursorMoved', branch = 'dev', requires = {
-	'itchyny/vim-gitbranch'
-} }
+use { 'jssteinberg/hackline.vim', event = 'CursorMoved' }
+use { 'itchyny/vim-gitbranch', event = 'CursorMoved' }
 
 -- ### EDIT/MOVE
 
