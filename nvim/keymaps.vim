@@ -110,6 +110,10 @@ nnoremap <silent> <leader>hf :lua require("harpoon.ui").nav_file(4)<cr>
 nnoremap <silent> <leader><cr> :lua require("harpoon.term").gotoTerminal(1)<cr>i
 nnoremap <silent> <leader>1 :lua require("harpoon.term").gotoTerminal(2)<cr>i
 
+" Formatter
+nnoremap <silent> gq :Format<cr>
+nnoremap <silent> <leader>F :FormatWrite<cr>
+
 augroup keymaps
 	au!
 	autocmd FileType netrw call NetrwRemaps()

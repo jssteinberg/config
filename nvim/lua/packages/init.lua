@@ -88,6 +88,8 @@ end}
 -- Statusline
 vim.o.laststatus = '0'
 use { 'jssteinberg/hackline.vim', event = 'CursorMoved' }
+vim.o.rulerformat = '%=%m %P/%L'
+vim.g.hackline_full = '1'
 use { 'itchyny/vim-gitbranch', event = 'CursorMoved' }
 
 -- ### EDIT/MOVE
@@ -95,7 +97,9 @@ use { 'itchyny/vim-gitbranch', event = 'CursorMoved' }
 use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
 use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
 use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
--- use { 'mhartington/formatter.nvim' }
+use { 'mhartington/formatter.nvim', cmd = { 'Format', 'FormatWrite' }, config = function ()
+	require'packages.formatter'.config()
+end }
 
 -- auto pair completion
 use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function()
