@@ -86,10 +86,7 @@ end}
 -- ### UI
 
 -- Statusline
-vim.o.laststatus = '0'
 use { 'jssteinberg/hackline.vim', event = 'CursorMoved' }
-vim.o.rulerformat = '%=%m %P/%L'
-vim.g.hackline_full = '1'
 use { 'itchyny/vim-gitbranch', event = 'CursorMoved' }
 
 -- ### EDIT/MOVE
