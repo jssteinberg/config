@@ -64,7 +64,7 @@ use {
 }
 
 -- Tabnine completion
-use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp', config = function()
+use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', config = function()
 	require('cmp_tabnine.config'):setup({
 		max_lines = 1000;
 		max_num_results = 20;
@@ -77,7 +77,7 @@ use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp', c
 		};
 		show_prediction_strength = false;
 	})
-end}
+end }
 
 
 -- LAZY LOADED
@@ -86,7 +86,10 @@ end}
 -- ### UI
 
 -- Statusline
-use { 'jssteinberg/hackline.vim', event = 'CursorMoved', branch = "dev" }
+use { 'jssteinberg/hackline.vim', event = 'CursorMoved', branch = "dev", config = function()
+	vim.g.hackline_custom_end = "%( %{hackline#tab#info(1)} %)"
+			.. " %P/%L "
+end }
 use { 'itchyny/vim-gitbranch', event = 'CursorMoved' }
 
 -- ### EDIT/MOVE
@@ -94,8 +97,8 @@ use { 'itchyny/vim-gitbranch', event = 'CursorMoved' }
 use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
 use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
 use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
-use { 'mhartington/formatter.nvim', cmd = { 'Format', 'FormatWrite' }, config = function ()
-	require'packages.formatter'.config()
+use { 'mhartington/formatter.nvim', cmd = { 'Format', 'FormatWrite' }, config = function()
+	require 'packages.formatter'.config()
 end }
 
 -- auto pair completion
