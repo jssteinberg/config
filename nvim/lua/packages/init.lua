@@ -86,7 +86,7 @@ end}
 -- ### UI
 
 -- Statusline
-use { 'jssteinberg/hackline.vim', event = 'CursorMoved' }
+use { 'jssteinberg/hackline.vim', event = 'CursorMoved', branch = "dev" }
 use { 'itchyny/vim-gitbranch', event = 'CursorMoved' }
 
 -- ### EDIT/MOVE
