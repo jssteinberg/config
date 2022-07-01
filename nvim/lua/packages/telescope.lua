@@ -1,13 +1,13 @@
 local M = {}
 
-M.config = function ()
+M.config = function()
 	local telescope = require('telescope')
 
 	telescope.setup({
 		defaults = {
 			file_ignore_patterns = { 'node_modules' },
-      layout_strategy = 'vertical',
-      layout_config = { height = 0.95 },
+			layout_strategy = 'vertical',
+			layout_config = { height = 0.95 },
 		},
 	})
 end

@@ -63,7 +63,7 @@ nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' :
 
 " Grep
 nnoremap <leader>G :grep -g "!package-lock.json" -g "!yarn.lock" 
-vnoremap <leader>G y:grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+vnoremap <silent> <leader>G y:grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " Replace [normal, selection]
 nnoremap <leader>R :%s/
