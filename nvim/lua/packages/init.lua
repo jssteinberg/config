@@ -71,7 +71,7 @@ use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp'
 		max_num_results = 20;
 		sort = true;
 		run_on_every_keystroke = true;
-		snippet_placeholder = '..';
+		snippet_placeholder = '…';
 		show_prediction_strength = false;
 	})
 end }
@@ -84,7 +84,7 @@ end }
 
 -- Statusline
 use {
-	'jssteinberg/hackline.vim',
+	'~/dev/hackline.vim',
 	branch = "dev",
 	requires = { 'itchyny/vim-gitbranch' },
 	config = function()
