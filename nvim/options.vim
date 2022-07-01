@@ -18,6 +18,9 @@ set updatetime=100
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**
 set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 
+set grepprg=rg\ --line-number\ --column
+set grepformat^=%f:%l:%c:%m
+
 " Formatoptions
 " (c) auto hard wrap comments
 " (j) remove comment leader when joining lines

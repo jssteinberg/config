@@ -61,6 +61,10 @@ nnoremap <leader>q :cnext<cr>
 nnoremap <leader>Q :cprev<cr>
 nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
+" Grep
+nnoremap <leader>G :grep -g "!package-lock.json" -g "!yarn.lock" 
+vnoremap <leader>G y:grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+
 " Replace [normal, selection]
 nnoremap <leader>R :%s/
 vnoremap <leader>R :s/
@@ -75,10 +79,6 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 function! NetrwRemaps ()
 	nn <buffer> s /
 endfunction
-
-" Ripgrep
-nnoremap <leader>G :Rg -g "!package-lock.json" -g "!yarn.lock" 
-vnoremap <leader>G y:Rg -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " FZF Fuzzy finder
 nnoremap <silent> <leader>fb :Telescope buffers<cr>

@@ -141,7 +141,6 @@ local function init()
 	-- ### SEARCH/EXPLORE
 
 	use { 'subnut/visualstar.vim', keys = { { 'x', '*' }, { 'x', '#' }, } }
-	use { 'jremmen/vim-ripgrep', cmd = { 'Rg', 'RgRoot' } } -- ripgrep integration
 	use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
 
 	-- Fuzzy searcher
