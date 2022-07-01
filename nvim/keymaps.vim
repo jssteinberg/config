@@ -81,11 +81,11 @@ nnoremap <leader>G :Rg -g "!package-lock.json" -g "!yarn.lock"
 vnoremap <leader>G y:Rg -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " FZF Fuzzy finder
-nnoremap <leader>fb :Telescope buffers<cr>
-nnoremap <leader>ff :Telescope find_files<cr>
-nnoremap <leader>fs :Telescope live_grep<cr>
-nnoremap <leader>gf :Telescope git_files<cr>
-nnoremap <leader>s :Telescope find_files<cr>
+nnoremap <silent> <leader>fb :Telescope buffers<cr>
+nnoremap <silent> <leader>ff :Telescope find_files<cr>
+nnoremap <silent> <leader>fs :Telescope live_grep<cr>
+nnoremap <silent> <leader>gf :Telescope git_files<cr>
+nnoremap <silent> <leader>s :Telescope find_files<cr>
 
 " Git
 nnoremap <leader>gg <cmd>Git<cr>
