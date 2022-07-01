@@ -64,20 +64,16 @@ use {
 }
 
 -- Tabnine completion
-use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp', config = function()
+use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', config = function()
 	require('cmp_tabnine.config'):setup({
 		max_lines = 1000;
 		max_num_results = 20;
 		sort = true;
 		run_on_every_keystroke = true;
 		snippet_placeholder = '..';
-		ignored_file_types = { -- default is not to ignore
-			-- uncomment to ignore in lua:
-			-- lua = true
-		};
 		show_prediction_strength = false;
 	})
-end}
+end }
 
 
 -- LAZY LOADED
@@ -86,10 +82,15 @@ end}
 -- ### UI
 
 -- Statusline
-vim.o.laststatus = '0'
-use { 'jssteinberg/hackline.vim', event = 'CursorMoved', branch = 'dev', requires = {
-	'itchyny/vim-gitbranch'
-} }
+vim.g.hackline_branch_sign = " "
+vim.g.hackline_separators = { l = "", r = "" }
+vim.g.hackline_custom_end =
+	"%( %{hackline#tab#info(1)} %)"
+	.. " %P/%L "
+use { '~/dev/hackline.vim', event = 'CursorMoved' }
+-- vim.g.skyline_gitbranch = '1'
+-- use { '~/dev/skyline.vim', event = 'CursorMoved' }
+use { 'itchyny/vim-gitbranch', event = 'CursorMoved' }
 
 -- ### EDIT/MOVE
 
