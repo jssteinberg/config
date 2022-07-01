@@ -50,6 +50,7 @@ use {
 	'neovim/nvim-lspconfig',
 	requires = {
 		'williamboman/nvim-lsp-installer',
+		'lukas-reineke/lsp-format.nvim',
 		'hrsh7th/nvim-cmp',
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-buffer',
@@ -82,22 +83,21 @@ end }
 -- ### UI
 
 -- Statusline
-vim.g.hackline_branch_sign = " "
-vim.g.hackline_separators = { l = "", r = "" }
-vim.g.hackline_custom_end =
-	"%( %{hackline#tab#info(1)} %)"
-	.. " %P/%L "
-use { '~/dev/hackline.vim', event = 'CursorMoved' }
--- vim.g.skyline_gitbranch = '1'
--- use { '~/dev/skyline.vim', event = 'CursorMoved' }
-use { 'itchyny/vim-gitbranch', event = 'CursorMoved' }
+use {
+	'jssteinberg/hackline.vim',
+	branch = "dev",
+	requires = { 'itchyny/vim-gitbranch' },
+	config = function()
+		vim.g.hackline_custom_end = "%( %{hackline#tab#info(1)} %)"
+				.. " %P/%L "
+	end
+}
 
 -- ### EDIT/MOVE
 
 use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
 use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
 use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
--- use { 'mhartington/formatter.nvim' }
 
 -- auto pair completion
 use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function()

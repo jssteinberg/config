@@ -28,13 +28,6 @@ M.config = function()
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),
 			}),
-			['<tab>'] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.confirm({ select = true })
-				else
-					fallback()
-				end
-			end, { "i" }),
 			['<c-f>'] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.confirm({ select = true })
@@ -49,6 +42,20 @@ M.config = function()
 					fallback()
 				end
 			end, { 'i' }),
+			['<tab>'] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.select_next_item()
+				else
+					fallback()
+				end
+			end, { "i" }),
+			['<s-tab>'] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.select_prev_item()
+				else
+					fallback()
+				end
+			end, { "i" }),
 			['<c-n>'] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()

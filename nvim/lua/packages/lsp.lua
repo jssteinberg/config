@@ -5,6 +5,7 @@ M.register_keymaps = function(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
 	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, bufopts)
+	-- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting_sync, bufopts)
 	-- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { async = true, noremap = true, silent = true, buffer = bufnr })
 
 	vim.keymap.set('n', '<cr>', vim.diagnostic.open_float, bufopts)
@@ -27,6 +28,7 @@ M.register_keymaps = function(bufnr)
 end
 
 M.config = function()
+	require("lsp-format").setup {}
 	local lsp_installer = require('nvim-lsp-installer')
 
 	-- General LSP config for buffer
@@ -38,20 +40,14 @@ M.config = function()
 
 	-- Handler that's called for all installed servers
 	lsp_installer.on_server_ready(function(server)
-		-- local capabilities = require('cmp_nvim_lsp').update_capabilities( vim.lsp.protocol.make_client_capabilities() )
-		-- capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-		-- if server.name == 'stylelint_lsp' then
-		-- 	server:setup({
-		-- 		on_attach = on_attach_general,
-		-- 		capabilities = capabilities,
-		-- 	})
-		-- else
-		server:setup({
-			on_attach = on_attach_general,
-			-- capabilities = capabilities,
-		})
-		-- end
+		if server.name == 'sumneko_lua' then
+			server:setup({ on_attach = function(client, bufnr)
+				on_attach_general(client, bufnr)
+				require "lsp-format".on_attach(client)
+			end })
+		else
+			server:setup({ on_attach = on_attach_general, })
+		end
 
 		vim.cmd [[ do User LspAttachBuffers ]]
 	end)
