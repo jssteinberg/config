@@ -7,6 +7,7 @@ M.register_keymaps = function(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
 	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting_sync, bufopts)
+	vim.keymap.set('n', 'gq', vim.lsp.buf.formatting_sync, bufopts)
 
 	vim.keymap.set('n', '<cr>', vim.diagnostic.open_float, bufopts)
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
