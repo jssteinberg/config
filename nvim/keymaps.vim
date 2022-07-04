@@ -52,8 +52,6 @@ nnoremap <silent> <leader>ed :Neotree reveal toggle<cr>
 " nnoremap <silent> <leader>fc :lua require'lir.float'.toggle('%')<cr>
 
 " Find
-" neo-tree
-nnoremap <silent> <leader>fd :NeoTreeFloatToggle<cr>
 nnoremap <leader>fh :edit %:h<c-z>*
 
 " Quickfix [next, previous]

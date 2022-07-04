@@ -141,6 +141,12 @@ let g:mucomplete#enable_auto_at_startup = 1
 let g:closetag_filetypes = 'html,javascript,markdown,php,svelte,typescript,twig,vue'
 let g:closetag_xhtml_filenames = g:closetag_filetypes
 
+" FZF config
+" Preview window on the upper side of the window with 40% height,
+" hidden by default, ctrl-/ to toggle
+let g:fzf_preview_window = ['up:40%', 'ctrl-p']
+
+" Packages commands
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean  call PackInit() | call minpac#clean()
 command! PackStatus packadd minpac | call minpac#status()

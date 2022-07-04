@@ -1,11 +1,12 @@
 local M = {}
 
+M.format_on_save = "sumneko_lua tsserver"
+
 -- Register keymaps per buffer
 M.register_keymaps = function(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, bufopts)
-	-- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting_sync, bufopts)
+	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting_sync, bufopts)
 	-- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { async = true, noremap = true, silent = true, buffer = bufnr })
 
 	vim.keymap.set('n', '<cr>', vim.diagnostic.open_float, bufopts)
@@ -29,18 +30,19 @@ end
 
 M.config = function()
 	require("lsp-format").setup {}
+
 	local lsp_installer = require('nvim-lsp-installer')
 
 	-- General LSP config for buffer
 	local on_attach_general = function(client, bufnr)
 		M.register_keymaps(bufnr)
-		-- Set omnifunc completion to use LSP
+		-- Use LSP completion
 		vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 	end
 
 	-- Handler that's called for all installed servers
 	lsp_installer.on_server_ready(function(server)
-		if server.name == 'sumneko_lua' then
+		if string.find(M.format_on_save, server.name) then
 			server:setup({ on_attach = function(client, bufnr)
 				on_attach_general(client, bufnr)
 				require "lsp-format".on_attach(client)

@@ -7,13 +7,12 @@ local function init()
 	end
 
 	local use = packer.use
+
 	packer.reset()
 
-	-- Package manager
 	use { 'wbthomason/packer.nvim', opt = true }
 
-	-- Increase startup time
-	use { 'nathom/filetype.nvim', config = function() -- Replace native filetype.vim
+	use { 'nathom/filetype.nvim', config = function() -- Set filetypes
 		require 'packages.filetype'.config()
 	end }
 
@@ -21,15 +20,6 @@ local function init()
 	use { 'tpope/vim-surround' } -- Surround stuff with stuff
 	use { 'tommcdo/vim-lion' } -- Align text
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
-	-- use { 'github/copilot.vim' }
-	use { 'folke/which-key.nvim', config = function()
-		require('packages.which-key').config()
-	end }
-
-	-- Open/search with `gx`
-	use { 'tyru/open-browser.vim', config = function()
-		require 'packages.openbrowser'.config()
-	end }
 
 	-- Project drawer
 	use { 'lambdalisue/fern.vim', requires = {
@@ -38,10 +28,35 @@ local function init()
 	-- let g:fern#default_hidden=1
 	-- vim.g.fern.default_hidden = true
 
+	-- Open/search with `gx`
+	use { 'tyru/open-browser.vim', config = function()
+		require 'packages.openbrowser'.config()
+	end }
+
 	-- Treesitter
 	use { 'nvim-treesitter/nvim-treesitter', config = function()
 		require 'packages.treesitter'.config()
 	end }
+
+	use { 'folke/which-key.nvim', config = function()
+		require('packages.which-key').config()
+	end }
+
+	-- Statusline
+	use {
+		'jssteinberg/hackline.vim',
+		branch = "dev",
+		config = function()
+			vim.g.hackline_custom_end = "%( %{hackline#tab#info(1)} %)" .. " %P/%L "
+		end
+	}
+
+	-- Gitsigns
+	use {
+		"lewis6991/gitsigns.nvim",
+		config = function() require('gitsigns').setup() end
+	}
+	-- use { 'itchyny/vim-gitbranch' }
 
 	-- Quick switch files and terminals
 	use {
@@ -73,6 +88,14 @@ local function init()
 		end
 	}
 
+	-- use {
+	-- 	'jose-elias-alvarez/null-ls.nvim',
+	-- 	requires = { 'nvim-lua/plenary' },
+	-- 	config = function()
+	-- 		require "packages.null-ls".config()
+	-- 	end
+	-- }
+
 	-- Tabnine completion
 	use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', config = function()
 		require('cmp_tabnine.config'):setup({
@@ -88,19 +111,6 @@ local function init()
 
 	-- LAZY LOADED
 	-- -----------
-
-	-- ### UI
-
-	-- Statusline
-	use {
-		'~/dev/hackline.vim',
-		branch = "dev",
-		requires = { 'itchyny/vim-gitbranch' },
-		config = function()
-			vim.g.hackline_custom_end = "%( %{hackline#tab#info(1)} %)"
-					.. " %P/%L "
-		end
-	}
 
 	-- ### EDIT/MOVE
 
