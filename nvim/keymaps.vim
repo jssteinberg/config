@@ -15,8 +15,6 @@ tnoremap jk <c-\><c-n>
 " Search
 nnoremap <c-s> /
 xnoremap <c-s> /
-cnoremap <expr> <tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
-cnoremap <expr> <s-tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
 
 " Shift + J/K moves selected lines down/up in visual mode
 vnoremap J :m '>+1<CR>gv=gv
@@ -47,9 +45,6 @@ nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
 nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
 " neo-tree
 nnoremap <silent> <leader>ed :Neotree reveal toggle<cr>
-" lir
-" nnoremap <silent> <leader>fd :lua require'lir.float'.toggle('.')<cr>
-" nnoremap <silent> <leader>fc :lua require'lir.float'.toggle('%')<cr>
 
 " Find
 nnoremap <leader>fh :edit %:h<c-z>*

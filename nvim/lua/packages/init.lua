@@ -44,10 +44,10 @@ local function init()
 
 	-- Statusline
 	use {
-		'jssteinberg/hackline.vim',
 		branch = "dev",
 		config = function()
 			vim.g.hackline_custom_end = "%( %{hackline#tab#info(1)} %)" .. " %P/%L "
+			vim.g.hackline_modified = "2"
 		end
 	}
 
@@ -90,7 +90,7 @@ local function init()
 
 	use {
 		'jose-elias-alvarez/null-ls.nvim',
-		requires = { 'nvim-lua/plenary' },
+		requires = { 'nvim-lua/plenary', 'neovim/nvim-lspconfig' },
 		config = function()
 			require "packages.null-ls".config()
 		end
@@ -151,7 +151,7 @@ local function init()
 	-- ### SEARCH/EXPLORE
 
 	use { 'subnut/visualstar.vim', keys = { { 'x', '*' }, { 'x', '#' }, } }
-	use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+	-- use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
 
 	-- Fuzzy searcher
 	use {

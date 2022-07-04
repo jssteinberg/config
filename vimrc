@@ -18,6 +18,10 @@ set sessionoptions=curdir,folds,tabpages,help
 set wildmode=lastused:full " :b <tab> for last used buffer(s)
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
 
+if executable('rg')
+	set grepformat^=%f:%l:%c:%m grepprg=rg\ --line-number\ --column
+endif
+
 " Persisten undo, mkdir
 if !isdirectory($HOME."/.vimundo") | call mkdir($HOME."/.vimundo", "", 0770) | endif
 set undofile undodir=$HOME/.vimundo
@@ -79,6 +83,10 @@ nnoremap <leader>q :cnext<cr>
 nnoremap <leader>Q :cprev<cr>
 nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
+" Grep
+nnoremap <leader>G :grep -g "!package-lock.json" -g "!yarn.lock" 
+vnoremap <silent> <leader>G y:grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+
 " Replace [normal, visual]
 nnoremap <leader>R :%s/
 vnoremap <leader>R :s/
@@ -102,10 +110,6 @@ nnoremap <leader>hf 'F
 nnoremap <leader>ff :Files<cr>
 nnoremap <leader>fs :Rg<cr>
 nnoremap <leader>s :Files<cr>
-
-" Ripgrep
-nnoremap <leader>G :Rg 
-vnoremap <leader>G y:Rg <c-r>"<cr>
 
 " Git
 nnoremap <leader>gg :Git<cr>
