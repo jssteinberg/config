@@ -44,7 +44,8 @@ local function init()
 
 	-- Statusline
 	use {
-		branch = "dev",
+		'jssteinberg/hackline.vim',
+		branch = "ui",
 		config = function()
 			vim.g.hackline_custom_end = "%( %{hackline#tab#info(1)} %)" .. " %P/%L "
 			vim.g.hackline_modified = "2"
@@ -74,7 +75,7 @@ local function init()
 		'neovim/nvim-lspconfig',
 		requires = {
 			'williamboman/nvim-lsp-installer',
-			-- 'lukas-reineke/lsp-format.nvim',
+			'lukas-reineke/lsp-format.nvim',
 			'hrsh7th/nvim-cmp',
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',

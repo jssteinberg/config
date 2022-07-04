@@ -1,6 +1,6 @@
 local M = {}
 
-M.format_on_save = "null-ls"
+M.format_on_save = "sumneko_lua"
 
 -- Register keymaps per buffer
 M.register_keymaps = function(bufnr)
@@ -30,7 +30,7 @@ M.register_keymaps = function(bufnr)
 end
 
 M.config = function()
-	-- require("lsp-format").setup {}
+	require("lsp-format").setup {}
 
 	local lsp_installer = require('nvim-lsp-installer')
 
@@ -43,14 +43,14 @@ M.config = function()
 
 	-- Handler that's called for all installed servers
 	lsp_installer.on_server_ready(function(server)
-		-- if string.find(M.format_on_save, server.name) then
-		-- 	server:setup({ on_attach = function(client, bufnr)
-		-- 		on_attach_general(client, bufnr)
-		-- 		require "lsp-format".on_attach(client)
-		-- 	end })
-		-- else
-		server:setup({ on_attach = on_attach_general, })
-		-- end
+		if string.find(M.format_on_save, server.name) then
+			server:setup({ on_attach = function(client, bufnr)
+				on_attach_general(client, bufnr)
+				require "lsp-format".on_attach(client)
+			end })
+		else
+			server:setup({ on_attach = on_attach_general, })
+		end
 
 		vim.cmd [[ do User LspAttachBuffers ]]
 	end)
