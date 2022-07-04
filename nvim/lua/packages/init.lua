@@ -74,7 +74,7 @@ local function init()
 		'neovim/nvim-lspconfig',
 		requires = {
 			'williamboman/nvim-lsp-installer',
-			'lukas-reineke/lsp-format.nvim',
+			-- 'lukas-reineke/lsp-format.nvim',
 			'hrsh7th/nvim-cmp',
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',
@@ -88,13 +88,13 @@ local function init()
 		end
 	}
 
-	-- use {
-	-- 	'jose-elias-alvarez/null-ls.nvim',
-	-- 	requires = { 'nvim-lua/plenary' },
-	-- 	config = function()
-	-- 		require "packages.null-ls".config()
-	-- 	end
-	-- }
+	use {
+		'jose-elias-alvarez/null-ls.nvim',
+		requires = { 'nvim-lua/plenary' },
+		config = function()
+			require "packages.null-ls".config()
+		end
+	}
 
 	-- Tabnine completion
 	use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', config = function()
