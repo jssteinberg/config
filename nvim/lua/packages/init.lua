@@ -190,22 +190,6 @@ local function init()
 
 	-- Measure startuptime
 	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
-
-	-- Zen mode
-	use {
-		'folke/zen-mode.nvim',
-		cmd = { 'ZenMode' },
-		config = function() require('zen-mode').setup { window = {
-				backdrop = 1,
-				width = 100,
-				heigth = 0.9,
-				options = {
-					cursorline = false,
-					cursorcolumn = false, -- disable cursor column
-				},
-			} }
-		end
-	}
 end
 
 local packages = setmetatable({}, {

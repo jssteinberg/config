@@ -33,8 +33,6 @@ M.normal = {
 	['<leader>l'] = { name = 'lsp' },
 	-- No/now (toggle, (de)activate)
 	['<leader>n'] = { name = 'no/now' },
-	-- Zen mode
-	['<leader>Z'] = { ':ZenMode<cr>', 'Zen mode' },
 }
 
 return M
