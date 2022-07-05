@@ -1,6 +1,6 @@
 local M = {}
 
-M.format_on_save = "sumneko_lua"
+M.format_on_save = { "sumneko_lua" }
 
 -- Register keymaps per buffer
 M.register_keymaps = function(bufnr)
@@ -43,7 +43,7 @@ M.config = function()
 
 	-- Handler that's called for all installed servers
 	lsp_installer.on_server_ready(function(server)
-		if string.find(M.format_on_save, server.name) then
+		if string.find(table.concat(M.format_on_save, " "), server.name) then
 			server:setup({ on_attach = function(client, bufnr)
 				on_attach_general(client, bufnr)
 				require "lsp-format".on_attach(client)

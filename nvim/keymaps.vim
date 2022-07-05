@@ -31,7 +31,7 @@ nnoremap <leader>b :buffer#<cr>
 " Buffer switcher
 nnoremap <leader><tab> :buffer 
 " Write/save file
-nnoremap <leader>w :w<cr>
+nnoremap <silent> <leader>w :w<cr>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
 nnoremap <leader>ep :edit package.json<cr>

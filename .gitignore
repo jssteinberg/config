@@ -1,4 +1,5 @@
 *
+!.prettierrc.json
 !colocyclone.vim
 !README.md
 !tmux.conf

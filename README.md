@@ -56,11 +56,10 @@ Packages are installed/updated with `:PackUpdate`. Requires:
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing. Uncomplicated config for dummies hacking (author included).
 
-Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat ... Open nvim, watch error messages, run `:PackerInstall`, restart nvim, repeat.
+Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat, [prettierd](https://github.com/fsouza/prettierd) ... Open nvim and get warning/error messages, run `:PackerSync`, restart nvim, repeat. Then:
 
-- `:TSInstall [...]` treesitter language for syntax, indentation ... via [nvim-treesitter][nts].
-- `:LspInstall [...]` for language diagnostics and completion.
-- `jk` to ESC insert and terminal mode.
+- `:TSInstall all`/`:TSUpdate`
+- `:LspInstallInfo` and `i`/`U`
 
 ### Plugins to consider
 

@@ -67,7 +67,7 @@ nnoremap <leader>b :buffer#<cr>
 nnoremap <leader><tab> :buffer 
 
 " Write/save file
-nnoremap <leader>w :w<cr>
+nnoremap <silent> <leader>w :w<cr>
 
 " Edit/explore [explore cwd, explore buffer dir, project drawer, buffer in new tab]
 nnoremap <leader>e. :let g:netrw_banner=0<cr>:let g:netrw_liststyle=0<cr>:edit .<cr>
