@@ -16,8 +16,8 @@ local function init()
 		require 'packages.filetype'.config()
 	end }
 
-	use { 'cocopon/iceberg.vim' } -- use { 'folke/tokyonight.nvim' } -- colo
-	use { 'tpope/vim-surround' } -- Surround stuff with stuff
+	use { 'romainl/vim-malotru' }
+	use { 'cocopon/iceberg.vim' }
 	use { 'tommcdo/vim-lion' } -- Align text
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 
@@ -44,7 +44,7 @@ local function init()
 
 	-- Statusline
 	use {
-		'jssteinberg/hackline.vim',
+		'~/dev/hackline.vim',
 		branch = "ui",
 		config = function()
 			vim.g.hackline_custom_end = "%( %{hackline#tab#info(1)} %)" .. " %P/%L "
@@ -58,6 +58,13 @@ local function init()
 		config = function() require('gitsigns').setup() end
 	}
 	-- use { 'itchyny/vim-gitbranch' }
+	-- use {
+	-- 	"tanvirtin/vgit.nvim",
+	-- 	requires = { 'nvim-lua/plenary.nvim' },
+	-- 	config = function()
+	-- 		require('packages.vgit').config()
+	-- 	end
+	-- }
 
 	-- Quick switch files and terminals
 	use {
@@ -89,13 +96,13 @@ local function init()
 		end
 	}
 
-	use {
-		'jose-elias-alvarez/null-ls.nvim',
-		requires = { 'nvim-lua/plenary', 'neovim/nvim-lspconfig' },
-		config = function()
-			require "packages.null-ls".config()
-		end
-	}
+	-- use {
+	-- 	'jose-elias-alvarez/null-ls.nvim',
+	-- 	requires = { 'nvim-lua/plenary', 'neovim/nvim-lspconfig' },
+	-- 	config = function()
+	-- 		require "packages.null-ls".config()
+	-- 	end
+	-- }
 
 	-- Tabnine completion
 	use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', config = function()
@@ -115,6 +122,7 @@ local function init()
 
 	-- ### EDIT/MOVE
 
+	use { 'tpope/vim-surround', keys = { { 'n', 'ys' }, { 'v', 'S' } } } -- Surround stuff with stuff
 	use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
 	use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
 	use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
@@ -176,7 +184,7 @@ local function init()
 
 	-- ### GIT
 
-	use { 'tpope/vim-fugitive', cmd = { 'G', 'Git' } } -- Git wrapper
+	use { 'tpope/vim-fugitive', cmd = { 'G', 'Git', 'Gdiffsplit', 'Gvdiffsplit' } } -- Git wrapper
 	use { 'APZelos/blamer.nvim', cmd = { 'BlamerToggle' } } -- git blame
 	use { 'rhysd/git-messenger.vim', cmd = { 'GitMessenger' } } -- git message under cursor
 	use {

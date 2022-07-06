@@ -1,4 +1,7 @@
 function! SetColoOpts()
+	colo somedarkterm1 | set bg=dark hlsearch
+	return
+
 	try
 		colo iceberg | set bg=dark hlsearch termguicolors
 		hi Normal guibg=none
