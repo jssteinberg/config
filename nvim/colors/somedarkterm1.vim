@@ -6,12 +6,12 @@ let g:colors_name = 'somedarkterm1'
 
 " Common fixes for dark and light
 hi ColorColumn ctermbg=8
-hi CursorColumn ctermbg=0 cterm=bold
-hi CursorLine ctermbg=0 cterm=none
-hi CursorLineNr ctermbg=none cterm=none
-hi DiffAdd ctermbg=none ctermfg=3 cterm=bold
-hi DiffChange ctermbg=none ctermfg=2
-hi DiffText ctermbg=none ctermfg=10 cterm=bold
+hi CursorColumn ctermbg=none cterm=bold
+hi CursorLine ctermbg=none cterm=none
+hi CursorLineNr ctermbg=none
+hi DiffAdd ctermbg=none ctermfg=2 cterm=bold
+hi DiffChange ctermbg=none ctermfg=3
+hi DiffText ctermbg=none ctermfg=11 cterm=bold
 hi DiffDelete ctermbg=none ctermfg=8
 hi LineNr ctermfg=8
 hi MatchParen ctermbg=none cterm=underline,italic
