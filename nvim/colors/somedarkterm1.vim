@@ -19,7 +19,8 @@ hi MatchParen ctermbg=none cterm=underline,italic
 hi MatchParenCur cterm=underline
 hi MatchWord cterm=underline
 hi NonText ctermfg=8
-hi Pmenu ctermbg=8
+hi Pmenu ctermbg=8 ctermfg=15
+hi PmenuSel ctermbg=7 ctermfg=0
 hi SignColumn ctermbg=none
 hi StatusLineNC ctermfg=8 ctermbg=0
 hi TabLine cterm=none ctermfg=8 ctermbg=none
