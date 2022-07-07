@@ -12,12 +12,11 @@ local function init()
 
 	use { 'wbthomason/packer.nvim', opt = true }
 
-	use { 'nathom/filetype.nvim', config = function() -- Set filetypes
+	use { 'nathom/filetype.nvim', config = function()
 		require 'packages.filetype'.config()
 	end }
 
-	use { 'romainl/vim-malotru' }
-	use { 'cocopon/iceberg.vim' }
+	use { 'wuelnerdotexe/vim-enfocado' }
 	use { 'tommcdo/vim-lion' } -- Align text
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 
@@ -44,11 +43,28 @@ local function init()
 
 	-- Statusline
 	use {
-		'~/dev/hackline.vim',
-		branch = "ui",
+		'jssteinberg/hackline.vim',
+		branch = "dev",
 		config = function()
-			vim.g.hackline_custom_end = "%( %{hackline#tab#info(1)} %)" .. " %P/%L "
-			vim.g.hackline_modified = "2"
+			vim.g.hackline_custom_end     = "%( %{hackline#tab#info(1)} %)"
+					.. " %P/%L "
+			vim.g.hackline_sign           = "Neo"
+			vim.g.hackline_modified       = "2"
+			vim.g.hackline_separators     = { l = "/", r = "/" }
+			vim.g.hackline_label_command  = "/ C"
+			vim.g.hackline_label_insert   = "/ I"
+			vim.g.hackline_label_terminal = "/ T"
+			vim.g.hackline_label_visual   = "/ V"
+			vim.g.hackline_label_select   = "/ S"
+			vim.g.hackline_label_replace  = "/ R"
+			vim.g.hackline_label_modified = "/ +"
+
+			-- vim.g.hackline_labels = {
+			-- 	sign = "Nvi",
+			-- 	command = "/ C",
+			-- 	insert = "/ I",
+			-- 	...
+			-- }
 		end
 	}
 
@@ -57,14 +73,6 @@ local function init()
 		"lewis6991/gitsigns.nvim",
 		config = function() require('gitsigns').setup() end
 	}
-	-- use { 'itchyny/vim-gitbranch' }
-	-- use {
-	-- 	"tanvirtin/vgit.nvim",
-	-- 	requires = { 'nvim-lua/plenary.nvim' },
-	-- 	config = function()
-	-- 		require('packages.vgit').config()
-	-- 	end
-	-- }
 
 	-- Quick switch files and terminals
 	use {
@@ -96,13 +104,13 @@ local function init()
 		end
 	}
 
-	-- use {
-	-- 	'jose-elias-alvarez/null-ls.nvim',
-	-- 	requires = { 'nvim-lua/plenary', 'neovim/nvim-lspconfig' },
-	-- 	config = function()
-	-- 		require "packages.null-ls".config()
-	-- 	end
-	-- }
+	use {
+		'jose-elias-alvarez/null-ls.nvim',
+		requires = { 'nvim-lua/plenary', 'neovim/nvim-lspconfig' },
+		config = function()
+			require "packages.null-ls".config()
+		end
+	}
 
 	-- Tabnine completion
 	use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', config = function()

@@ -1,4 +1,4 @@
-let g:color_theme = 'dark'
+nnoremap <leader>ec :tabedit ~/.config/nvim/keymaps.vim<cr>:tcd %:h<cr>
 
 " Better defaults
 vnoremap < <gv
@@ -110,13 +110,3 @@ augroup keymaps
 	au!
 	autocmd FileType netrw call NetrwRemaps()
 augroup END
-
-function! CycleColo()
-	if g:color_theme == 'dark'
-		let g:color_theme = 'light'
-		lua require('packages.colors').set_colo('light')
-	else
-		let g:color_theme = 'dark'
-		lua require('packages.colors').set_colo('dark')
-	endif
-endfunction

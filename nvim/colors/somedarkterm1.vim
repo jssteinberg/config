@@ -1,5 +1,6 @@
 " somedarkterm1.vim
 " Highlight some, dark terminal first
+" Supports: vim-matchup, WinBar
 
 hi clear
 let g:colors_name = 'somedarkterm1'
@@ -8,7 +9,7 @@ let g:colors_name = 'somedarkterm1'
 hi ColorColumn ctermbg=8
 hi CursorColumn ctermbg=none cterm=bold
 hi CursorLine ctermbg=none cterm=none
-hi CursorLineNr ctermbg=none
+hi CursorLineNr ctermbg=none cterm=italic
 hi DiffAdd ctermbg=none ctermfg=2 cterm=bold
 hi DiffChange ctermbg=none ctermfg=3
 hi DiffText ctermbg=none ctermfg=11 cterm=bold
@@ -18,11 +19,14 @@ hi MatchParen ctermbg=none cterm=underline,italic
 hi MatchParenCur cterm=underline
 hi MatchWord cterm=underline
 hi NonText ctermfg=8
+hi Pmenu ctermbg=8
 hi SignColumn ctermbg=none
 hi StatusLineNC ctermfg=8 ctermbg=0
 hi TabLine cterm=none ctermfg=8 ctermbg=none
 hi TabLineFill cterm=none
 hi WinSeparator ctermbg=none ctermfg=8
+
+hi! link WinBarNC WinSeparator
 
 if &bg == 'dark'
 endif
