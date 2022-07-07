@@ -169,7 +169,7 @@ function! PackInit() abort
 	call minpac#add('subnut/visualstar.vim') " Search selection with * or #
 	call minpac#add('tommcdo/vim-lion') " Align text with gl gL
 	call minpac#add('sheerun/vim-polyglot') " More filetypes, detect indent
-	call minpac#add('jssteinberg/hackline.vim', {'rev': 'dev'}) " Light statusline
+	call minpac#add('jssteinberg/hackline.vim', {'rev': 'ui'}) " Light statusline
 	call minpac#add('justinmk/vim-sneak') " Sneak motion, hijack s/S
 	call minpac#add('prabirshrestha/vim-lsp')
 	call minpac#add('mattn/vim-lsp-settings')

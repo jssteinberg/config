@@ -35,8 +35,8 @@ Adding global fish config from the shell:
 
 ```sh
 set -Ux EDITOR "nvim"
-alias gs "git status"
-funcsave gs
+alias gt "git checkout --track"
+funcsave gt
 ```
 
 For NVM, to update npm at the same time add the `--latest-npm` flag, like this:

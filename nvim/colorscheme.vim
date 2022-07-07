@@ -1,4 +1,7 @@
 function! SetColoOpts()
+	colo somedarkterm1 | set bg=dark hlsearch
+	return
+
 	try
 		colo iceberg | set bg=dark hlsearch termguicolors
 		hi Normal guibg=none
@@ -8,4 +11,12 @@ function! SetColoOpts()
 	catch
 		colo default | set notermguicolors t_Co=16 nohlsearch nocursorcolumn
 	endtry
+endfunction
+
+function! CycleColo()
+	if &bg == 'dark'
+		set bg=light | colo enfocado
+	else
+		set bg=dark | colo somedarkterm1
+	endif
 endfunction

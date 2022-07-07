@@ -12,12 +12,11 @@ local function init()
 
 	use { 'wbthomason/packer.nvim', opt = true }
 
-	use { 'nathom/filetype.nvim', config = function() -- Set filetypes
+	use { 'nathom/filetype.nvim', config = function()
 		require 'packages.filetype'.config()
 	end }
 
-	use { 'cocopon/iceberg.vim' } -- use { 'folke/tokyonight.nvim' } -- colo
-	use { 'tpope/vim-surround' } -- Surround stuff with stuff
+	use { 'wuelnerdotexe/vim-enfocado' }
 	use { 'tommcdo/vim-lion' } -- Align text
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 
@@ -45,10 +44,27 @@ local function init()
 	-- Statusline
 	use {
 		'jssteinberg/hackline.vim',
-		branch = "ui",
+		branch = "dev",
 		config = function()
-			vim.g.hackline_custom_end = "%( %{hackline#tab#info(1)} %)" .. " %P/%L "
-			vim.g.hackline_modified = "2"
+			vim.g.hackline_custom_end     = "%( %{hackline#tab#info(1)} %)"
+					.. " %P/%L "
+			vim.g.hackline_sign           = "Neo"
+			vim.g.hackline_modified       = "2"
+			vim.g.hackline_separators     = { l = "/", r = "/" }
+			vim.g.hackline_label_command  = "/ C"
+			vim.g.hackline_label_insert   = "/ I"
+			vim.g.hackline_label_terminal = "/ T"
+			vim.g.hackline_label_visual   = "/ V"
+			vim.g.hackline_label_select   = "/ S"
+			vim.g.hackline_label_replace  = "/ R"
+			vim.g.hackline_label_modified = "/ +"
+
+			-- vim.g.hackline_labels = {
+			-- 	sign = "Nvi",
+			-- 	command = "/ C",
+			-- 	insert = "/ I",
+			-- 	...
+			-- }
 		end
 	}
 
@@ -57,7 +73,6 @@ local function init()
 		"lewis6991/gitsigns.nvim",
 		config = function() require('gitsigns').setup() end
 	}
-	-- use { 'itchyny/vim-gitbranch' }
 
 	-- Quick switch files and terminals
 	use {
@@ -115,6 +130,7 @@ local function init()
 
 	-- ### EDIT/MOVE
 
+	use { 'tpope/vim-surround', keys = { { 'n', 'ys' }, { 'v', 'S' } } } -- Surround stuff with stuff
 	use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
 	use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
 	use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
@@ -176,7 +192,7 @@ local function init()
 
 	-- ### GIT
 
-	use { 'tpope/vim-fugitive', cmd = { 'G', 'Git' } } -- Git wrapper
+	use { 'tpope/vim-fugitive', cmd = { 'G', 'Git', 'Gdiffsplit', 'Gvdiffsplit' } } -- Git wrapper
 	use { 'APZelos/blamer.nvim', cmd = { 'BlamerToggle' } } -- git blame
 	use { 'rhysd/git-messenger.vim', cmd = { 'GitMessenger' } } -- git message under cursor
 	use {

@@ -19,5 +19,4 @@ lua << EOF
 	vim.cmd [[command! PackerCompile packadd packer.nvim | lua require('packages').compile()]]
 
 	require'packages'
-	-- require'packages.colors'.set_colo()
 EOF

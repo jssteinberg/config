@@ -1,4 +1,4 @@
-let g:color_theme = 'dark'
+nnoremap <leader>ec :tabedit ~/.config/nvim/keymaps.vim<cr>:tcd %:h<cr>
 
 " Better defaults
 vnoremap < <gv
@@ -88,6 +88,9 @@ nnoremap <leader>gp <cmd>Git pull<cr>
 nnoremap <leader>gP <cmd>Git push<cr>
 nnoremap <leader>gl <cmd>Git log<cr>
 nnoremap <leader>go <cmd>OpenGithubFile<cr>
+nnoremap <leader>gj /<<<<<<<\\|=======\\|>>>>>>><cr>
+nnoremap <leader>gk ?<<<<<<<\\|=======\\|>>>>>>><cr>
+nnoremap <leader>X :Gitsigns reset_hunk<cr>
 
 " Copilot
 " imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
@@ -107,13 +110,3 @@ augroup keymaps
 	au!
 	autocmd FileType netrw call NetrwRemaps()
 augroup END
-
-function! CycleColo()
-	if g:color_theme == 'dark'
-		let g:color_theme = 'light'
-		lua require('packages.colors').set_colo('light')
-	else
-		let g:color_theme = 'dark'
-		lua require('packages.colors').set_colo('dark')
-	endif
-endfunction
