@@ -90,7 +90,8 @@ nnoremap <leader>gl <cmd>Git log<cr>
 nnoremap <leader>go <cmd>OpenGithubFile<cr>
 nnoremap <leader>gj /<<<<<<<\\|=======\\|>>>>>>><cr>
 nnoremap <leader>gk ?<<<<<<<\\|=======\\|>>>>>>><cr>
-nnoremap <leader>X :Gitsigns reset_hunk<cr>
+nnoremap <leader>X <cmd>Gitsigns reset_hunk<cr>
+xnoremap <leader>X <cmd>Gitsigns reset_hunk<cr>
 
 " Copilot
 " imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")

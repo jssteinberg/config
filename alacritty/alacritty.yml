@@ -12,7 +12,7 @@ alt_send_esc: false
 window:
   decorations: buttonless
   # Use decimal, e.g. .95
-  opacity: .9
+  opacity: 1
   padding:
     x: 12
     y: 16 # Keep 10 for y
