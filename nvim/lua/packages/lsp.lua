@@ -1,6 +1,9 @@
 local M = {}
 
-M.format_on_save = { "sumneko_lua" }
+M.format_on_save = {
+	"sumneko_lua",
+	"svelte",
+}
 
 -- Register keymaps per buffer
 M.register_keymaps = function(bufnr)
