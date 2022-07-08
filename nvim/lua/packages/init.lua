@@ -46,19 +46,18 @@ local function init()
 		'jssteinberg/hackline.vim',
 		branch = "dev",
 		config = function()
-			vim.g.hackline_custom_end     = "%( %{&fileformat} %)"
-					.. "%( %{hackline#tab#info(1)} %)"
-					.. " %P/%L "
-			vim.g.hackline_sign           = "Vim"
-			vim.g.hackline_modified       = "2"
-			vim.g.hackline_separators     = { l = "/", r = "/" }
-			vim.g.hackline_label_command  = "/ C"
-			vim.g.hackline_label_insert   = "/ I"
-			vim.g.hackline_label_terminal = "/ T"
-			vim.g.hackline_label_visual   = "/ V"
-			vim.g.hackline_label_select   = "/ S"
-			vim.g.hackline_label_replace  = "/ R"
-			vim.g.hackline_label_modified = "/ +"
+			-- vim.g.hackline_custom_end     = "%( %{&fileformat} %)"
+			-- 		.. "%( %{hackline#tab#info(1)} %)"
+			-- 		.. " %P/%L %c "
+			-- vim.g.hackline_modified       = "2"
+			-- vim.g.hackline_separators     = { l = "/", r = "/" }
+			-- vim.g.hackline_label_command  = "/ C"
+			-- vim.g.hackline_label_insert   = "/ I"
+			-- vim.g.hackline_label_terminal = "/ T"
+			-- vim.g.hackline_label_visual   = "/ V"
+			-- vim.g.hackline_label_select   = "/ S"
+			-- vim.g.hackline_label_replace  = "/ R"
+			-- vim.g.hackline_label_modified = "/ +"
 
 			-- vim.g.hackline_labels = {
 			-- 	sign = "Nvi",

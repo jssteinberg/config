@@ -2,11 +2,13 @@
 " Highlight some, dark terminal first
 " Supports: vim-matchup, WinBar
 
+set notermguicolors t_Co=16 " rm when support gui (perhaps not support 256/in-between)
 hi clear
 let g:colors_name = 'somedarkterm1'
 
 " Common fixes for dark and light
 hi ColorColumn ctermbg=8
+hi Cursor cterm=reverse
 hi CursorColumn ctermbg=none cterm=bold
 hi CursorLine ctermbg=none cterm=none
 hi CursorLineNr ctermbg=none cterm=italic

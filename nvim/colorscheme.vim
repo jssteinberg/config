@@ -1,22 +1,24 @@
-function! SetColoOpts()
-	colo somedarkterm1 | set bg=dark hlsearch
-	return
+let s:d = "set bg=dark | colo somedarkterm1"
+let s:l = "set termguicolors bg=light | colo enfocado"
 
-	try
-		colo iceberg | set bg=dark hlsearch termguicolors
-		hi Normal guibg=none
-		hi LineNr guibg=none
-		hi SignColumn guibg=none
-		hi! link Visual PmenuSel
-	catch
-		colo default | set notermguicolors t_Co=16 nohlsearch nocursorcolumn
-	endtry
+function! SetColoOpts()
+	exe(s:d)
+
+	" try
+	" 	colo iceberg | set bg=dark hlsearch termguicolors
+	" 	hi Normal guibg=none
+	" 	hi LineNr guibg=none
+	" 	hi SignColumn guibg=none
+	" 	hi! link Visual PmenuSel
+	" catch
+	" 	colo default | set notermguicolors t_Co=16 nohlsearch nocursorcolumn
+	" endtry
 endfunction
 
 function! CycleColo()
 	if &bg == 'dark'
-		set bg=light | colo enfocado
+		exe(s:l)
 	else
-		set bg=dark | colo somedarkterm1
+		exe(s:d)
 	endif
 endfunction
