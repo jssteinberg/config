@@ -1,8 +1,9 @@
 " somedarkterm1.vim
-" Highlight some, dark terminal first
+" Highlight some---dark terminal first, then you can change from dark to
+" light. Not opposite.
 " Supports: vim-matchup, WinBar
 
-set notermguicolors t_Co=16 " rm when support gui (perhaps not support 256/in-between)
+set notermguicolors " rm when support gui
 hi clear
 let g:colors_name = 'somedarkterm1'
 
@@ -10,12 +11,14 @@ let g:colors_name = 'somedarkterm1'
 hi ColorColumn ctermbg=8
 hi Cursor cterm=reverse
 hi CursorColumn ctermbg=none cterm=bold
-hi CursorLine ctermbg=none cterm=none
-hi CursorLineNr ctermbg=none cterm=italic
+hi CursorLine ctermbg=0 cterm=none
+hi CursorLineNr ctermbg=none ctermfg=8 cterm=none
 hi DiffAdd ctermbg=none ctermfg=2 cterm=bold
 hi DiffChange ctermbg=none ctermfg=3
 hi DiffText ctermbg=none ctermfg=11 cterm=bold
 hi DiffDelete ctermbg=none ctermfg=8
+hi Error ctermbg=none ctermfg=9 cterm=underline
+hi Folded ctermbg=none
 hi LineNr ctermfg=8
 hi MatchParen ctermbg=none cterm=underline,italic
 hi MatchParenCur cterm=underline
@@ -27,8 +30,12 @@ hi SignColumn ctermbg=none
 hi StatusLineNC ctermfg=8 ctermbg=0
 hi TabLine cterm=none ctermfg=8 ctermbg=none
 hi TabLineFill cterm=none
+hi Visual ctermbg=15 ctermfg=0
 hi WinSeparator ctermbg=none ctermfg=8
 
+hi! link ErrorMsg Error
+hi! link FoldColumn Folded
+hi! link SpellBad ErrorMsg
 hi! link WinBarNC WinSeparator
 
 if &bg == 'dark'

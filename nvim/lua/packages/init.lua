@@ -43,7 +43,7 @@ local function init()
 
 	-- Statusline
 	use {
-		'jssteinberg/hackline.vim',
+		'~/dev/hackline.vim',
 		branch = "dev",
 		config = function()
 			-- vim.g.hackline_custom_end     = "%( %{&fileformat} %)"

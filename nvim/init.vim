@@ -20,3 +20,19 @@ lua << EOF
 
 	require'packages'
 EOF
+
+function! PowerLine() abort
+	let g:hackline_separators = #{ l: "", r: "" }
+	" let g:hackline_separators = #{ l: "\uE0BD", r: "\uE0BD" }
+	let g:hackline_big_separators = #{
+				\l: "",
+				\lr: "\uE0B0",
+				\r: "",
+				\rl: "\uE0B2" }
+	" let g:hackline_big_separators = #{
+	" 			\l: "\uE0BA",
+	" 			\r: "",
+	" 			\rl: "\uE0BA" }
+				" \r: "\uE0B8",
+	let g:hackline_branch_sign = " "
+endfunction

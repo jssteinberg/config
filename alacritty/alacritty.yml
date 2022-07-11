@@ -26,61 +26,61 @@ mouse:
 draw_bold_text_with_bright_colors: true
 
 # TokyoNight Alacritty Colors
-colors:
-  # Default colors
-  primary:
-    background: '0x1a1b26'
-    foreground: '0xc0caf5'
-
-  # Normal colors
-  normal:
-    black:   '0x15161E'
-    red:     '0xf7768e'
-    green:   '0x9ece6a'
-    yellow:  '0xe0af68'
-    blue:    '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan:    '0x7dcfff'
-    white:   '0xa9b1d6'
-
-  # Bright colors
-  bright:
-    black:   '0x414868'
-    red:     '0xf7768e'
-    green:   '0x9ece6a'
-    yellow:  '0xe0af68'
-    blue:    '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan:    '0x7dcfff'
-    white:   '0xc0caf5'
-
-  indexed_colors:
-    - { index: 16, color: '0xff9e64' }
-    - { index: 17, color: '0xdb4b4b' }
-
-# # Colors (Molokai Dark)
 # colors:
 #   # Default colors
 #   primary:
-#     background: '#1B1D1E'
-#     foreground: '#F8F8F2'
+#     background: '0x1a1b26'
+#     foreground: '0xc0caf5'
+#
 #   # Normal colors
 #   normal:
-#     black:   '#333333'
-#     red:     '#C4265E'
-#     green:   '#86B42B'
-#     yellow:  '#B3B42B'
-#     blue:    '#6A7EC8'
-#     magenta: '#8C6BC8'
-#     cyan:    '#56ADBC'
-#     white:   '#E3E3DD'
+#     black:   '0x15161E'
+#     red:     '0xf7768e'
+#     green:   '0x9ece6a'
+#     yellow:  '0xe0af68'
+#     blue:    '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan:    '0x7dcfff'
+#     white:   '0xa9b1d6'
+#
 #   # Bright colors
 #   bright:
-#     black:   '#666666'
-#     red:     '#F92672'
-#     green:   '#A6E22E'
-#     yellow:  '#E2E22E'
-#     blue:    '#819AFF'
-#     magenta: '#AE81FF'
-#     cyan:    '#66D9EF'
-#     white:   '#F8F8F2'
+#     black:   '0x414868'
+#     red:     '0xf7768e'
+#     green:   '0x9ece6a'
+#     yellow:  '0xe0af68'
+#     blue:    '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan:    '0x7dcfff'
+#     white:   '0xc0caf5'
+#
+#   indexed_colors:
+#     - { index: 16, color: '0xff9e64' }
+#     - { index: 17, color: '0xdb4b4b' }
+
+# Colors (Molokai Dark)
+colors:
+  # Default colors
+  primary:
+    background: '#1B1D1E'
+    foreground: '#F8F8F2'
+  # Normal colors
+  normal:
+    black:   '#333333'
+    red:     '#C4265E'
+    green:   '#86B42B'
+    yellow:  '#B3B42B'
+    blue:    '#6A7EC8'
+    magenta: '#8C6BC8'
+    cyan:    '#56ADBC'
+    white:   '#E3E3DD'
+  # Bright colors
+  bright:
+    black:   '#666666'
+    red:     '#F92672'
+    green:   '#A6E22E'
+    yellow:  '#E2E22E'
+    blue:    '#819AFF'
+    magenta: '#AE81FF'
+    cyan:    '#66D9EF'
+    white:   '#F8F8F2'
