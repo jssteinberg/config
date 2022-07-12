@@ -43,12 +43,12 @@ local function init()
 
 	-- Statusline
 	use {
-		'~/dev/hackline.vim',
-		branch = "dev",
+		'~/Documents/hackline.vim',
+		branch = "main",
 		config = function()
-			-- vim.g.hackline_custom_end     = "%( %{&fileformat} %)"
-			-- 		.. "%( %{hackline#tab#info(1)} %)"
-			-- 		.. " %P/%L %c "
+			vim.g.hackline_custom_end = "%( %{&fileformat} %)"
+					.. "%( %{hackline#tab#info(1)} %)"
+					.. " %P/%L %c "
 			-- vim.g.hackline_modified       = "2"
 			-- vim.g.hackline_separators     = { l = "/", r = "/" }
 			-- vim.g.hackline_label_command  = "/ C"
@@ -201,6 +201,14 @@ local function init()
 			'OpenGithubFile', 'OpenGithuIssue', 'OpenGithubPullReq', 'OpenGithubProject',
 		},
 		requires = { 'tyru/open-browser.vim' },
+	}
+	use {
+		'TimUntersberger/neogit',
+		requires = 'nvim-lua/plenary.nvim',
+		cmd = { "Neogit" },
+		config = function()
+			require "neogit".setup({})
+		end
 	}
 
 	-- git linker

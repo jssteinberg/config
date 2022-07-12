@@ -21,18 +21,22 @@ lua << EOF
 	require'packages'
 EOF
 
-function! PowerLine() abort
-	let g:hackline_separators = #{ l: "", r: "" }
+function! SlashLine() abort
+	" let g:hackline_branch_sign = " "
+	" let g:hackline_separators = #{ l: "", r: "" }
 	" let g:hackline_separators = #{ l: "\uE0BD", r: "\uE0BD" }
-	let g:hackline_big_separators = #{
-				\l: "",
-				\lr: "\uE0B0",
-				\r: "",
-				\rl: "\uE0B2" }
-	" let g:hackline_big_separators = #{
-	" 			\l: "\uE0BA",
-	" 			\r: "",
-	" 			\rl: "\uE0BA" }
-				" \r: "\uE0B8",
-	let g:hackline_branch_sign = " "
+	let g:hackline_separators     = #{ l: "/", r: "/" }
+
+	let g:hackline_custom_end = "
+				\%( %{&fileformat} %)
+				\%( %{hackline#tab#info()} %)
+				\ %P/L%L c%c "
+	let g:hackline_modified       = "2"
+	let g:hackline_label_command  = "/ C"
+	let g:hackline_label_insert   = "/ I"
+	let g:hackline_label_terminal = "/ T"
+	let g:hackline_label_visual   = "/ V"
+	let g:hackline_label_select   = "/ S"
+	let g:hackline_label_replace  = "/ R"
+	let g:hackline_label_modified = "/ +"
 endfunction
