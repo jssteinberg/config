@@ -11,6 +11,7 @@ source $HOME/.config/nvim/colorscheme.vim
 
 call SetColoOpts()
 
+
 lua << EOF
 	vim.cmd [[command! PackerInstall packadd packer.nvim | lua require('packages').install()]]
 	vim.cmd [[command! PackerUpdate packadd packer.nvim | lua require('packages').update()]]
@@ -32,11 +33,12 @@ function! SlashLine() abort
 				\%( %{hackline#tab#info()} %)
 				\ %P/L%L c%c "
 	let g:hackline_modified       = "2"
-	let g:hackline_label_command  = "/ C"
-	let g:hackline_label_insert   = "/ I"
-	let g:hackline_label_terminal = "/ T"
-	let g:hackline_label_visual   = "/ V"
-	let g:hackline_label_select   = "/ S"
-	let g:hackline_label_replace  = "/ R"
-	let g:hackline_label_modified = "/ +"
+	let g:hackline_sign = "N"
+	let g:hackline_label_command  = "C"
+	let g:hackline_label_insert   = "I"
+	let g:hackline_label_terminal = "T"
+	let g:hackline_label_visual   = "V"
+	let g:hackline_label_select   = "S"
+	let g:hackline_label_replace  = "R"
+	let g:hackline_label_modified = "+"
 endfunction

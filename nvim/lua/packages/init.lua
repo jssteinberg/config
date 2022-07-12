@@ -44,7 +44,7 @@ local function init()
 	-- Statusline
 	use {
 		'jssteinberg/hackline.vim',
-		branch = "main",
+		branch = "dev",
 		config = function()
 			vim.g.hackline_sign = "Neo"
 			-- vim.g.hackline_custom_end = "%( %{&fileformat} %)"
