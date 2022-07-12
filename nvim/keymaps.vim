@@ -1,4 +1,4 @@
-nnoremap <leader>ec :tabedit ~/.config/nvim/keymaps.vim<cr>:tcd %:h<cr>
+nnoremap <leader>ec :tabedit ~/.config/README.md<cr>:tcd %:h<cr>
 
 " Better defaults
 vnoremap < <gv

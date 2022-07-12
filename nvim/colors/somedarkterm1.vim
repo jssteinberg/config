@@ -13,6 +13,7 @@ hi Cursor cterm=reverse
 hi CursorColumn ctermbg=none cterm=bold
 hi CursorLine ctermbg=0 cterm=none
 hi CursorLineNr ctermbg=none ctermfg=7 cterm=none
+hi DiagnosticHint ctermfg=8
 hi DiffAdd ctermbg=none ctermfg=2 cterm=bold
 hi DiffChange ctermbg=none ctermfg=3
 hi DiffText ctermbg=none ctermfg=11 cterm=bold
