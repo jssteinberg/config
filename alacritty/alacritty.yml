@@ -25,6 +25,35 @@ mouse:
 
 draw_bold_text_with_bright_colors: true
 
+# somedarkterm1
+colors:
+  # Default colors
+  primary:
+    background: '0x16141f'
+    foreground: '0xb5b3cc'
+
+  # Normal colors
+  normal:
+    black:   '0x2b293d'
+    red:     '0xbc8f98'
+    green:   '0x98bc8f'
+    yellow:  '0xbcb38f'
+    blue:    '0x8f96bc'
+    magenta: '0x958fbc'
+    cyan:    '0x8fb8bc'
+    white:   '0x9894b8'
+
+  # Bright colors
+  bright:
+    black:   '0x56527a'
+    red:     '0xcda9d6'
+    green:   '0xabd6a9'
+    yellow:  '0xd6d3a9'
+    blue:    '0xa9bcd6'
+    magenta: '0xaea9d6'
+    cyan:    '0xa9d6cd'
+    white:   '0xffffff'
+
 # TokyoNight Alacritty Colors
 # colors:
 #   # Default colors
@@ -59,28 +88,28 @@ draw_bold_text_with_bright_colors: true
 #     - { index: 17, color: '0xdb4b4b' }
 
 # Colors (Molokai Dark)
-colors:
-  # Default colors
-  primary:
-    background: '#1B1D1E'
-    foreground: '#F8F8F2'
-  # Normal colors
-  normal:
-    black:   '#333333'
-    red:     '#C4265E'
-    green:   '#86B42B'
-    yellow:  '#B3B42B'
-    blue:    '#6A7EC8'
-    magenta: '#8C6BC8'
-    cyan:    '#56ADBC'
-    white:   '#E3E3DD'
-  # Bright colors
-  bright:
-    black:   '#666666'
-    red:     '#F92672'
-    green:   '#A6E22E'
-    yellow:  '#E2E22E'
-    blue:    '#819AFF'
-    magenta: '#AE81FF'
-    cyan:    '#66D9EF'
-    white:   '#F8F8F2'
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#1B1D1E'
+#     foreground: '#F8F8F2'
+#   # Normal colors
+#   normal:
+#     black:   '#333333'
+#     red:     '#C4265E'
+#     green:   '#86B42B'
+#     yellow:  '#B3B42B'
+#     blue:    '#6A7EC8'
+#     magenta: '#8C6BC8'
+#     cyan:    '#56ADBC'
+#     white:   '#E3E3DD'
+#   # Bright colors
+#   bright:
+#     black:   '#666666'
+#     red:     '#F92672'
+#     green:   '#A6E22E'
+#     yellow:  '#E2E22E'
+#     blue:    '#819AFF'
+#     magenta: '#AE81FF'
+#     cyan:    '#66D9EF'
+#     white:   '#F8F8F2'
