@@ -30,7 +30,7 @@ hi MatchWord cterm=underline
 hi NonText ctermfg=8
 hi Pmenu ctermbg=8 ctermfg=15
 hi PmenuSel ctermbg=7 ctermfg=0
-hi PreProc ctermfg=4
+hi PreProc ctermfg=12
 hi SignColumn ctermbg=none
 hi StatusLine ctermbg=7 ctermfg=0 cterm=none
 hi StatusLineNC ctermfg=8 ctermbg=7
