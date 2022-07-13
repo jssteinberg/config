@@ -37,10 +37,6 @@ local function init()
 		require 'packages.treesitter'.config()
 	end }
 
-	use { 'folke/which-key.nvim', config = function()
-		require('packages.which-key').config()
-	end }
-
 	-- Statusline
 	use {
 		'jssteinberg/hackline.vim',
@@ -131,7 +127,7 @@ local function init()
 
 	-- ### EDIT/MOVE
 
-	use { 'tpope/vim-surround', keys = { { 'n', 'ys' }, { 'v', 'S' } } } -- Surround stuff with stuff
+	use { 'tpope/vim-surround', keys = { { 'n', 'ys' }, { 'n', 'c' }, { 'v', 'S' } } }
 	use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
 	use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
 	use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
