@@ -29,23 +29,23 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x16141f'
-    foreground: '0xb5b3cc'
+    background: '0x120f24'
+    foreground: '0xbfbfbf'
 
   # Normal colors
   normal:
-    black:   '0x2b293d'
-    red:     '0xbc8f98'
-    green:   '0x98bc8f'
-    yellow:  '0xbcb38f'
-    blue:    '0x8f96bc'
-    magenta: '0x958fbc'
-    cyan:    '0x8fb8bc'
-    white:   '0x9894b8'
+    black:   '0x211d3c'
+    red:     '0xc98290'
+    green:   '0x90c982'
+    yellow:  '0xc9bb82'
+    blue:    '0x828dc9'
+    magenta: '0x8a82c9'
+    cyan:    '0x82c3c9'
+    white:   '0xa6a6a6'
 
   # Bright colors
   bright:
-    black:   '0x56527a'
+    black:   '0x4b428a'
     red:     '0xcda9d6'
     green:   '0xabd6a9'
     yellow:  '0xd6d3a9'

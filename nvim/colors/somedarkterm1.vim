@@ -11,7 +11,7 @@ let g:colors_name = 'somedarkterm1'
 
 " Common fixes for dark and light
 hi ColorColumn ctermbg=8
-hi Comment cterm=italic
+hi Comment ctermfg=6 cterm=italic
 hi Cursor cterm=reverse
 hi CursorColumn ctermbg=none cterm=bold
 hi CursorLine ctermbg=0 cterm=none
@@ -30,11 +30,13 @@ hi MatchWord cterm=underline
 hi NonText ctermfg=8
 hi Pmenu ctermbg=8 ctermfg=15
 hi PmenuSel ctermbg=7 ctermfg=0
+hi PreProc ctermfg=4
 hi SignColumn ctermbg=none
 hi StatusLine ctermbg=7 ctermfg=0 cterm=none
 hi StatusLineNC ctermfg=8 ctermbg=7
 hi TabLine cterm=none ctermfg=8 ctermbg=none
 hi TabLineFill cterm=none
+hi Type ctermfg=2
 hi Todo ctermbg=6
 hi Visual ctermbg=8 ctermfg=15
 hi WinSeparator ctermbg=none ctermfg=8
