@@ -9,7 +9,6 @@ set notermguicolors " rm when support gui
 hi clear
 let g:colors_name = 'somedarkterm1'
 
-" Common fixes for dark and light
 hi ColorColumn ctermbg=8
 hi Comment ctermfg=6 cterm=italic
 hi Cursor cterm=reverse
@@ -28,7 +27,6 @@ hi LineNr ctermfg=8
 hi MatchParen ctermbg=none cterm=underline,italic
 hi MatchParenCur cterm=underline
 hi MatchWord cterm=underline
-hi MoreMsg ctermfg=10
 hi NonText ctermfg=8
 hi Pmenu ctermbg=8 ctermfg=15
 hi PmenuSel ctermbg=7 ctermfg=0
@@ -39,16 +37,28 @@ hi StatusLine ctermbg=7 ctermfg=0 cterm=none
 hi StatusLineNC ctermfg=8 ctermbg=7
 hi TabLine cterm=none ctermfg=8 ctermbg=none
 hi TabLineFill cterm=none
-hi Type ctermfg=10
 hi Todo ctermbg=6
 hi Visual ctermbg=8 ctermfg=15
 hi WinSeparator ctermbg=none ctermfg=8
+
+hi RedrawDebugClear     ctermbg=11 ctermfg=0
+hi RedrawDebugComposed  ctermbg=10 ctermfg=0
+hi RedrawDebugRecompose ctermbg=9  ctermfg=0
 
 hi! link ErrorMsg Error
 hi! link FoldColumn Folded
 hi! link SpellBad ErrorMsg
 hi! link WinBarNC WinSeparator
 
+" Red fg
+hi Title ctermfg=9
+
+" Green fg
+hi Type ctermfg=10
+hi! link MoreMsg Type
+hi! link Question Type
+
 if &bg == "light"
 	hi Normal ctermbg=15 ctermfg=0
+	hi CursorLine ctermbg=none
 endif
