@@ -84,6 +84,7 @@ nnoremap <silent> <leader>s :Telescope find_files<cr>
 nnoremap <leader>gg <cmd>Git<cr>
 nnoremap <leader>gq <cmd>Git mergetool<cr>
 nnoremap <leader>gb <cmd>BlamerToggle<cr>
+nnoremap <leader>gd <cmd>Gvdiffsplit<cr>
 nnoremap <leader>gp <cmd>Git pull<cr>
 nnoremap <leader>gP <cmd>Git push<cr>
 nnoremap <leader>gl <cmd>Git log<cr>
@@ -92,10 +93,6 @@ nnoremap <leader>gj /<<<<<<<\\|=======\\|>>>>>>><cr>
 nnoremap <leader>gk ?<<<<<<<\\|=======\\|>>>>>>><cr>
 nnoremap <leader>X <cmd>Gitsigns reset_hunk<cr>
 xnoremap <leader>X <cmd>Gitsigns reset_hunk<cr>
-
-" Copilot
-" imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
-" inoremap jl <esc>:Copilot<cr>
 
 " Harpoon
 nnoremap <leader>hh :lua require("harpoon.mark").add_file()<cr>

@@ -28,10 +28,6 @@ function! SlashLine() abort
 	" let g:hackline_separators = #{ l: "\uE0BD", r: "\uE0BD" }
 	let g:hackline_separators     = #{ l: "/", r: "/" }
 
-	let g:hackline_custom_end = "
-				\%( %{&fileformat} %)
-				\%( %{hackline#tab#info()} %)
-				\ %P/L%L c%c "
 	let g:hackline_modified       = "2"
 	let g:hackline_sign = "N"
 	let g:hackline_label_command  = "C"

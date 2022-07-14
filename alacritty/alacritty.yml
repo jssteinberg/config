@@ -2,9 +2,15 @@
 
 font:
   size: 14
-  normal: 
+  normal:
+    family: monospace
     family: courier prime
     family: cousine nerd font mono
+  # Italic font face
+  italic:
+    family: courier prime
+    family: cousine nerd font mono
+    style: Italic
 
 # Send ESC (\x1b) before characters when alt is pressed---needed for several non-us keyboards usually
 alt_send_esc: false
@@ -30,7 +36,8 @@ colors:
   # Default colors
   primary:
     background: '0x15151e'
-    foreground: '0xc1c0d3'
+    # foreground: '0xc1c0d3'
+    foreground: '0xe1e1ea'
 
   # Normal colors
   normal:
@@ -45,7 +52,7 @@ colors:
 
   # Bright colors
   bright:
-    black:   '0x3d376b'
+    black:   '0x615e87'
     red:     '0xd49c94'
     green:   '0x94d4c7'
     yellow:  '0xccd494'

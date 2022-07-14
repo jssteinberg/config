@@ -39,13 +39,10 @@ local function init()
 
 	-- Statusline
 	use {
-		'jssteinberg/hackline.vim',
+		'~/dev/hackline.vim',
 		branch = "dev",
 		config = function()
 			vim.g.hackline_sign = "Neo"
-			-- vim.g.hackline_custom_end = "%( %{&fileformat} %)"
-			-- 		.. "%( %{hackline#tab#info(1)} %)"
-			-- 		.. " %P/%L %c "
 			-- vim.g.hackline_modified       = "2"
 			-- vim.g.hackline_separators     = { l = "/", r = "/" }
 			-- vim.g.hackline_label_command  = "/ C"
