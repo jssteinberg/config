@@ -28,6 +28,7 @@ hi LineNr ctermfg=8
 hi MatchParen ctermbg=none cterm=underline,italic
 hi MatchParenCur cterm=underline
 hi MatchWord cterm=underline
+hi MoreMsg ctermfg=10
 hi NonText ctermfg=8
 hi Pmenu ctermbg=8 ctermfg=15
 hi PmenuSel ctermbg=7 ctermfg=0
