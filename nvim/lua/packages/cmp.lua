@@ -15,6 +15,7 @@ M.config = function()
 	cmp.setup {
 		experimental = {
 			ghost_text = true,
+			hl_group = LineNr,
 		},
 		snippet = {
 			expand = function(args)
@@ -84,11 +85,11 @@ M.config = function()
 			end, { 'i' }),
 		},
 		sources = {
-			{ name = 'nvim_lsp_signature_help' },
-			{ name = 'cmp_tabnine' },
-			{ name = 'nvim_lsp' },
-			{ name = 'buffer', keyword_length = 2 },
-			{ name = 'luasnip' },
+			{ name = 'nvim_lsp_signature_help', group_index = 1, max_item_count = 1 },
+			{ name = 'cmp_tabnine', group_index = 3, max_item_count = 3 },
+			{ name = 'nvim_lsp', group_index = 3, max_item_count = 3 },
+			{ name = 'buffer', group_index = 3, max_item_count = 3 },
+			{ name = 'luasnip', group_index = 3, max_item_count = 3 },
 		},
 	}
 end

@@ -1,3 +1,18 @@
+" <leader>
+" b: buffer
+" c: color
+" e: edit
+" g: git
+" f: find/fuzzy files
+" h: harpoon harpooned/marked project files
+" s: search files
+" t: tab
+" q: quickfix
+" G: grep
+" Q: quickfix window
+" R: replace (search and replace)
+" X: git(signs) reset
+
 nnoremap <leader>ec :tabedit ~/.config/README.md<cr>:tcd %:h<cr>
 
 " Better defaults
@@ -103,6 +118,9 @@ nnoremap <silent> <leader>hd :lua require("harpoon.ui").nav_file(3)<cr>
 nnoremap <silent> <leader>hf :lua require("harpoon.ui").nav_file(4)<cr>
 nnoremap <silent> <leader><cr> :lua require("harpoon.term").gotoTerminal(1)<cr>i
 nnoremap <silent> <leader>1 :lua require("harpoon.term").gotoTerminal(2)<cr>i
+
+" Treesitter
+nnoremap <leader>ch :TSHighlightCapturesUnderCursor<cr>
 
 augroup keymaps
 	au!

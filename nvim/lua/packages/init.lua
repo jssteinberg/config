@@ -33,9 +33,15 @@ local function init()
 	end }
 
 	-- Treesitter
-	use { 'nvim-treesitter/nvim-treesitter', config = function()
-		require 'packages.treesitter'.config()
-	end }
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		requires = {
+			"nvim-treesitter/playground"
+		},
+		config = function()
+			require 'packages.treesitter'.config()
+		end
+	}
 
 	-- Statusline
 	use {

@@ -2,8 +2,27 @@
 " Highlight some---dark terminal first, then you can change from dark to
 " light. Not opposite.
 "
-" Design: base 8 with 16 for extra finesse; readable comments (not muted)
+" Design: base 16 when notermguicolors; extended color details when termguicolors; readable comments (not muted).
 " Supports: gitsigns, vim-matchup, WinBar, Telescope
+"
+"   background #15151e
+"   foreground #e1e1ea
+"   black      #0      #2d2c3f
+"   black      #8      #615e87
+"   red        #1      #bb695d
+"   red        #9      #d49c94
+"   green      #2      #5dbba3
+"   green      #10     #94d4c7
+"   yellow     #3      #b0bb5d
+"   yellow     #11     #ccd494
+"   blue       #4      #5d86bb
+"   blue       #12     #9794d4
+"   magenta    #5      #695dbb
+"   magenta    #13     #9c94d4
+"   cyan       #6      #5db0bb
+"   cyan       #14     #94ccd4
+"   white      #7      #e0f0db
+"   white      #15     #ffffff
 
 " set notermguicolors " rm when support gui
 hi clear
@@ -20,10 +39,12 @@ hi Special ctermfg=10 guifg=#94d4c7 " also links to TelescopeMatch
 hi SpecialKey ctermfg=12 guifg=#9794d4
 hi Statement ctermfg=4 guifg=#5d86bb
 hi String ctermfg=13 guifg=#9c94d4
-hi Title ctermfg=13 guifg=#9c94d4
+hi Title ctermfg=13 cterm=bold guifg=#9c94d4 gui=bold
 hi Todo ctermbg=none ctermfg=6 cterm=bold,italic guifg=#5db0bb gui=bold,italic guibg=none
 hi Type ctermfg=14 guifg=#94ccd4 gui=none
-hi Underlined ctermfg=4 guifg=#5d86bb
+hi Underlined ctermfg=12 guifg=#9794d4
+
+hi markdownUrl ctermfg=5 guifg=#695dbb
 
 " DEBUG
 
