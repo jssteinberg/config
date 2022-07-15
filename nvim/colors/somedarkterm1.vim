@@ -33,18 +33,21 @@ let g:colors_name = 'somedarkterm1'
 hi Comment ctermfg=2 cterm=italic guifg=#5dbba3 gui=italic
 
 hi Constant ctermfg=3 guifg=#b0bb5d
+hi Delimiter ctermfg=5 guifg=#695dbb
 hi Identifier cterm=none ctermfg=12 guifg=#9794d4
 hi PreProc ctermfg=12 guifg=#9794d4
 hi Special ctermfg=10 guifg=#94d4c7 " also links to TelescopeMatch
 hi SpecialKey ctermfg=12 guifg=#9794d4
-hi Statement ctermfg=4 guifg=#5d86bb
-hi String ctermfg=13 guifg=#9c94d4
+hi Statement ctermfg=6 guifg=#5db0bb
+hi String ctermfg=14 guifg=#94ccd4
 hi Title ctermfg=13 cterm=bold guifg=#9c94d4 gui=bold
 hi Todo ctermbg=none ctermfg=6 cterm=bold,italic guifg=#5db0bb gui=bold,italic guibg=none
 hi Type ctermfg=14 guifg=#94ccd4 gui=none
 hi Underlined ctermfg=12 guifg=#9794d4
 
 hi markdownUrl ctermfg=5 guifg=#695dbb
+
+hi! link javascriptTSTag Tag
 
 " DEBUG
 
@@ -93,8 +96,8 @@ hi PmenuSel ctermbg=8 ctermfg=15 guibg=#615e87 guifg=#ffffff
 hi PmenuThumb     ctermbg=7 guibg=#e0f0db
 hi Search ctermfg=11 ctermbg=none cterm=underline guibg=none guifg=#ccd494 gui=underline
 hi SignColumn ctermbg=none guibg=none guifg=#94ccd4
-hi StatusLine ctermbg=7 ctermfg=0 cterm=none guibg=#e0f0db guifg=#2d2c3f gui=none
-hi StatusLineNC ctermfg=8 ctermbg=7 guifg=#615e87 guifg=#615e87
+hi StatusLine ctermbg=none ctermfg=none cterm=reverse guibg=#15151e guifg=#e1e1ea gui=none
+hi StatusLineNC ctermfg=8 ctermbg=none cterm=reverse guibg=none guifg=#615e87 gui=reverse
 hi TabLine cterm=none ctermfg=8 ctermbg=none guifg=#615e87 guibg=none gui=none
 hi TabLineFill cterm=none gui=none
 hi Visual ctermbg=0 cterm=italic guibg=#2d2c3f gui=italic " also affects TelescopePreviewLine
