@@ -209,8 +209,17 @@ local function init()
 
 	-- ### UTIL
 
+	use {
+		"norcalli/nvim-colorizer.lua",
+		cmd = { "ColorizerToggle" },
+		config = function()
+			require 'colorizer'.setup()
+		end
+	}
+
 	-- Measure startuptime
 	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
+
 end
 
 local packages = setmetatable({}, {

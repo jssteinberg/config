@@ -1,4 +1,4 @@
-let s:d = "set bg=dark nocursorcolumn | colo somedarkterm1"
+let s:d = "set termguicolors bg=dark nocursorcolumn | colo somedarkterm1"
 let s:l = "set termguicolors bg=light cursorcolumn | colo enfocado"
 
 function! SetColoOpts()
