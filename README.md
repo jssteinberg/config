@@ -61,6 +61,10 @@ Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripg
 - `:TSInstall all`/`:TSUpdate`
 - `:LspInstallInfo` and `i`/`U`
 
+### Room for improvement
+
+...
+
 ### Plugins to consider
 
 - https://github.com/dyng/ctrlsf.vim

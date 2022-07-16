@@ -1,5 +1,18 @@
 local M = {}
 
+M.tabnine_nr = 2
+
+M.tabnine = function()
+	require('cmp_tabnine.config'):setup({
+		max_lines = 1000;
+		max_num_results = M.tabnine_nr;
+		sort = true;
+		run_on_every_keystroke = true;
+		snippet_placeholder = '…';
+		show_prediction_strength = false;
+	})
+end
+
 M.config = function()
 	local cmp = require 'cmp'
 	local luasnip = require 'luasnip'
@@ -13,9 +26,25 @@ M.config = function()
 
 	-- nvim-cmp setup
 	cmp.setup {
+		sources = {
+			{
+				name = 'nvim_lsp_signature_help', max_item_count = 1
+			},
+			{
+				name = 'luasnip', max_item_count = 2
+			},
+			{
+				name = 'nvim_lsp', max_item_count = 3
+			},
+			{
+				name = 'cmp_tabnine', max_item_count = M.tabnine_nr
+			},
+			{
+				name = 'buffer', max_item_count = 3
+			},
+		},
 		experimental = {
 			ghost_text = true,
-			hl_group = LineNr,
 		},
 		snippet = {
 			expand = function(args)
@@ -83,13 +112,6 @@ M.config = function()
 					fallback()
 				end
 			end, { 'i' }),
-		},
-		sources = {
-			{ name = 'nvim_lsp_signature_help', group_index = 1, max_item_count = 1 },
-			{ name = 'cmp_tabnine', group_index = 3, max_item_count = 3 },
-			{ name = 'nvim_lsp', group_index = 3, max_item_count = 3 },
-			{ name = 'buffer', group_index = 3, max_item_count = 3 },
-			{ name = 'luasnip', group_index = 3, max_item_count = 3 },
 		},
 	}
 end

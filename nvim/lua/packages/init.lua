@@ -46,7 +46,6 @@ local function init()
 	-- Statusline
 	use {
 		'jssteinberg/hackline.vim',
-		branch = "dev",
 		config = function()
 			vim.g.hackline_sign = "Neo"
 			-- vim.g.hackline_labels = {
@@ -94,6 +93,14 @@ local function init()
 		end
 	}
 
+	-- Tabnine completion
+	use {
+		'tzachar/cmp-tabnine',
+		run = './install.sh',
+		requires = 'hrsh7th/nvim-cmp',
+		config = function() require "packages.cmp".tabnine() end
+	}
+
 	use {
 		'jose-elias-alvarez/null-ls.nvim',
 		requires = { 'nvim-lua/plenary', 'neovim/nvim-lspconfig' },
@@ -101,18 +108,6 @@ local function init()
 			require "packages.null-ls".config()
 		end
 	}
-
-	-- Tabnine completion
-	use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', config = function()
-		require('cmp_tabnine.config'):setup({
-			max_lines = 1000;
-			max_num_results = 20;
-			sort = true;
-			run_on_every_keystroke = true;
-			snippet_placeholder = '…';
-			show_prediction_strength = false;
-		})
-	end }
 
 
 	-- LAZY LOADED
