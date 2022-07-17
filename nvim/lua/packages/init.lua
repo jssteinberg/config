@@ -16,8 +16,7 @@ local function init()
 		require 'packages.filetype'.config()
 	end }
 
-	use { 'wuelnerdotexe/vim-enfocado' }
-	use { 'tommcdo/vim-lion' } -- Align text
+	use { 'wuelnerdotexe/vim-enfocado' } -- colorscheme
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 
 	-- Project drawer
@@ -45,7 +44,7 @@ local function init()
 
 	-- Statusline
 	use {
-		'jssteinberg/hackline.vim',
+		'~/Documents/hackline.vim',
 		config = function()
 			vim.g.hackline_sign = "Neo"
 			-- vim.g.hackline_labels = {
@@ -117,8 +116,9 @@ local function init()
 
 	use { 'tpope/vim-surround', keys = { { 'n', 'ys' }, { 'n', 'c' }, { 'v', 'S' } } }
 	use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
-	use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
+	use { 'tommcdo/vim-lion', keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
 	use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
+	use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
 
 	-- auto pair completion
 	use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function()
