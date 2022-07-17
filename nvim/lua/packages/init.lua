@@ -34,9 +34,7 @@ local function init()
 	-- Treesitter
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		requires = {
-			"nvim-treesitter/playground"
-		},
+		requires = { "nvim-treesitter/playground" },
 		config = function()
 			require 'packages.treesitter'.config()
 		end

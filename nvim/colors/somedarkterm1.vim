@@ -7,22 +7,14 @@
 "
 " background #15151e
 " foreground #e1e1ea
-" black      #0      #2d2c3f
-" black      #8      #615e87
-" red        #1      #bb695d
-" red        #9      #d49c94
-" green      #2      #5dbba3
-" green      #10     #94d4c7
-" yellow     #3      #b0bb5d
-" yellow     #11     #ccd494
-" blue       #4      #5d86bb
-" blue       #12     #9794d4
-" magenta    #5      #695dbb
-" magenta    #13     #9c94d4
-" cyan       #6      #5db0bb
-" cyan       #14     #94ccd4
-" white      #7      #e0f0db
-" white      #15     #ffffff
+" black      #0      #2d2c3f black      #8      #615e87
+" red        #1      #bb695d red        #9      #d49c94
+" green      #2      #5dbba3 green      #10     #94d4c7
+" yellow     #3      #b0bb5d yellow     #11     #ccd494 alt #545925
+" blue       #4      #5d86bb blue       #12     #9794d4
+" magenta    #5      #695dbb magenta    #13     #9c94d4
+" cyan       #6      #5db0bb cyan       #14     #94ccd4
+" white      #7      #e0f0db white      #15     #ffffff
 
 " set notermguicolors " rm when support gui
 hi clear
@@ -30,7 +22,7 @@ let g:colors_name = 'somedarkterm1'
 
 " SYNTAX
 
-hi Comment ctermfg=2 cterm=italic guifg=#5dbba3 gui=italic
+hi Comment ctermfg=2 guifg=#5dbba3
 
 hi Constant ctermfg=3 guifg=#b0bb5d
 hi Delimiter ctermfg=5 guifg=#695dbb
@@ -68,7 +60,7 @@ hi NvimInternalError ctermfg=9 ctermbg=9 guifg=#bb695d guibg=#bb695d
 hi Pmenu ctermbg=0 ctermfg=7 guibg=#2d2c3f guifg=#e0f0db
 hi PmenuSel ctermbg=8 ctermfg=15 guibg=#615e87 guifg=#ffffff
 hi PmenuThumb     ctermbg=7 guibg=#e0f0db
-hi Search ctermfg=11 ctermbg=none cterm=underline guibg=none guifg=#ccd494 gui=underline
+hi Search ctermfg=11 ctermbg=none cterm=underline guibg=#545925 guifg=#ccd494 gui=underline
 hi SignColumn ctermbg=none guibg=none guifg=#94ccd4
 hi StatusLine ctermbg=none ctermfg=none cterm=reverse guifg=#15151e guibg=#e1e1ea gui=none
 hi StatusLineNC ctermfg=8 ctermbg=none cterm=reverse guibg=none guifg=#615e87 gui=reverse
@@ -86,9 +78,9 @@ hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#d49c94
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#695dbb
 hi DiagnosticUnderlineInfo cterm=underline gui=underline guisp=#9794d4
 hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#615e87
-hi DiffAdd ctermbg=none ctermfg=2 cterm=bold guibg=none gui=bold
-hi DiffChange ctermbg=none ctermfg=3 guibg=none
-hi DiffText ctermbg=none ctermfg=11 cterm=bold guibg=none gui=bold
+hi DiffAdd ctermbg=none ctermfg=2 cterm=reverse guibg=none guifg=#5dbba3 gui=reverse
+hi DiffChange ctermbg=none ctermfg=3 cterm=bold guibg=none guifg=#b0bb5d gui=bold
+hi DiffText ctermbg=none ctermfg=3 cterm=reverse guibg=none guifg=#b0bb5d gui=reverse
 hi DiffDelete ctermbg=none ctermfg=8 guifg=#615e87 guibg=none
 hi Error ctermbg=none ctermfg=9 cterm=underline guibg=none guifg=#d49c94 gui=underline
 hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#ccd494 guifg=#15151e
