@@ -70,7 +70,7 @@ hi PmenuSel ctermbg=8 ctermfg=15 guibg=#615e87 guifg=#ffffff
 hi PmenuThumb     ctermbg=7 guibg=#e0f0db
 hi Search ctermfg=11 ctermbg=none cterm=underline guibg=none guifg=#ccd494 gui=underline
 hi SignColumn ctermbg=none guibg=none guifg=#94ccd4
-hi StatusLine ctermbg=none ctermfg=none cterm=reverse guibg=#15151e guifg=#e1e1ea gui=none
+hi StatusLine ctermbg=none ctermfg=none cterm=reverse guifg=#15151e guibg=#e1e1ea gui=none
 hi StatusLineNC ctermfg=8 ctermbg=none cterm=reverse guibg=none guifg=#615e87 gui=reverse
 hi TabLine cterm=none ctermfg=8 ctermbg=none guifg=#615e87 guibg=none gui=none
 hi TabLineFill cterm=none gui=none
