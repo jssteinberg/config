@@ -42,7 +42,7 @@ local function init()
 
 	-- Statusline
 	use {
-		'~/Documents/hackline.vim',
+		'jssteinberg/hackline.vim',
 		config = function()
 			vim.g.hackline_sign = "Neo"
 			-- vim.g.hackline_labels = {
