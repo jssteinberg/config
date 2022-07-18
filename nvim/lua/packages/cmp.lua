@@ -1,17 +1,17 @@
 local M = {}
 
-M.tabnine_nr = 2
-
-M.tabnine = function()
-	require('cmp_tabnine.config'):setup({
-		max_lines = 1000;
-		max_num_results = M.tabnine_nr;
-		sort = true;
-		run_on_every_keystroke = true;
-		snippet_placeholder = '…';
-		show_prediction_strength = false;
-	})
-end
+-- M.tabnine_nr = 2
+--
+-- M.tabnine = function()
+-- 	require('cmp_tabnine.config'):setup({
+-- 		max_lines = 1000;
+-- 		max_num_results = M.tabnine_nr;
+-- 		sort = true;
+-- 		run_on_every_keystroke = true;
+-- 		snippet_placeholder = '…';
+-- 		show_prediction_strength = false;
+-- 	})
+-- end
 
 M.config = function()
 	local cmp = require 'cmp'
@@ -36,9 +36,9 @@ M.config = function()
 			{
 				name = 'nvim_lsp', max_item_count = 3
 			},
-			{
-				name = 'cmp_tabnine', max_item_count = M.tabnine_nr
-			},
+			-- {
+			-- 	name = 'cmp_tabnine', max_item_count = M.tabnine_nr
+			-- },
 			{
 				name = 'buffer', max_item_count = 3
 			},
