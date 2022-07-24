@@ -20,7 +20,7 @@ local function init()
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 
 	-- Project drawer
-	use { 'lambdalisue/fern.vim', requires = {
+	use { 'lambdalisue/fern.vim', branch = "main", requires = {
 		'antoinemadec/FixCursorHold.nvim', 'lambdalisue/fern-hijack.vim'
 	} }
 	-- let g:fern#default_hidden=1
