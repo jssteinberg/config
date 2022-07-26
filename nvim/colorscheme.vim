@@ -1,5 +1,8 @@
-let s:d = "set termguicolors bg=dark nocursorcolumn | colo somedarkterm1"
-let s:l = "set termguicolors bg=light cursorcolumn | colo enfocado"
+let s:d = "set termguicolors t_Co=256 bg=dark nocursorcolumn"
+			\." | colo somedarkterm1"
+let s:l = "set termguicolors t_Co=256 bg=light cursorcolumn"
+			\." | colo enfocado"
+			\." | hi Search gui=none"
 
 function! SetColoOpts()
 	exe(s:d)
