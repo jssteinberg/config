@@ -11,13 +11,13 @@
 " Supports: gitsigns, vim-matchup, WinBar, Telescope
 "
 " background #15151e
-" foreground #e1e1ea
-" black      #0      #2d2c3f black      #8      #615e87 black_between #2d2c3f
+" foreground #e1e1ea fg_muted #a8a7c1
+" black      #0      #2d2c3f black      #8      #615e87
 " red        #1      #bb695d red        #9      #d49c94
 " green      #2      #5dbba3 green      #10     #94d4c7
 " yellow     #3      #b0bb5d yellow     #11     #ccd494
-" blue       #4      #5d86bb blue       #12     #9794d4
-" magenta    #5      #695dbb magenta    #13     #9c94d4
+" blue       #4      #5d86bb blue       #12     #9794d4 blue_between #6f93c3
+" magenta    #5      #695dbb magenta    #13     #9c94d4 magenta_bg #2c2559
 " cyan       #6      #5db0bb cyan       #14     #94ccd4
 " white      #7      #e0f0db white      #15     #ffffff
 
@@ -27,7 +27,7 @@ let g:colors_name = 'somedarkterm1'
 " GROUP NAMES (:h group-name)
 
 "Comment
-hi Comment ctermfg=2 guifg=#5dbba3
+hi Comment ctermfg=4 guifg=#6f93c3 gui=italic
 
 " *Constant String Character Number Boolean Float
 hi Constant ctermfg=3 guifg=#b0bb5d
@@ -44,6 +44,7 @@ hi PreProc ctermfg=12 guifg=#9794d4
 
 " *Type StorageClass Structure Typedef
 hi Type ctermfg=14 guifg=#94ccd4 gui=none
+hi Structure ctermfg=5 guifg=#695dbb
 
 " *Special SpecialChar Tag Delimiter SpecialComment Debug
 hi Special ctermfg=10 guifg=#94d4c7 " also links to TelescopeMatch
@@ -90,7 +91,7 @@ hi StatusLine ctermbg=none ctermfg=none cterm=reverse guifg=none guibg=none gui=
 hi StatusLineNC ctermfg=8 ctermbg=none cterm=reverse guibg=none guifg=#615e87 gui=reverse
 hi TabLine cterm=none ctermfg=8 ctermbg=none guifg=#615e87 guibg=none gui=none
 hi TabLineFill cterm=none gui=none
-hi Visual ctermbg=0 cterm=italic guibg=#2d2c3f gui=italic " also affects TelescopePreviewLine
+hi Visual ctermbg=0 cterm=italic guibg=#2c2559 " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=5 guifg=#695dbb
 hi WinSeparator ctermbg=none ctermfg=8 guifg=#615e87 guibg=none
 
@@ -123,8 +124,8 @@ hi! link WildMenu Pmenu
 
 " Diffs
 hi DiffAdd cterm=none ctermbg=none ctermfg=7 gui=none guibg=none guifg=#e0f0db
-hi DiffChange ctermbg=none ctermfg=5 guibg=none guifg=#695dbb
-hi DiffText ctermbg=none ctermfg=3 cterm=reverse guibg=#e0f0db guifg=#15151e gui=none
+hi DiffChange cterm=none ctermbg=none ctermfg=7 gui=none guibg=none guifg=#e0f0db
+hi DiffText cterm=reverse ctermbg=none ctermfg=15 gui=none guibg=#ffffff guifg=#15151e
 hi! link DiffDelete DiffAdd
 
 " Search

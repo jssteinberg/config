@@ -99,7 +99,7 @@ nnoremap <silent> <leader>s :Telescope find_files<cr>
 nnoremap <leader>gg <cmd>Git<cr>
 nnoremap <leader>gq <cmd>Git mergetool<cr>
 nnoremap <leader>gb <cmd>BlamerToggle<cr>
-nnoremap <leader>gd <cmd>Gvdiffsplit<cr>
+nnoremap <leader>gd <cmd>tabnew %<cr><cmd>Gvdiffsplit<cr>
 nnoremap <leader>gp <cmd>Git pull<cr>
 nnoremap <leader>gP <cmd>Git push<cr>
 nnoremap <leader>gl <cmd>Git log<cr>
