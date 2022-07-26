@@ -151,7 +151,9 @@ local function init()
 	-- ### SEARCH/EXPLORE
 
 	use { 'subnut/visualstar.vim', keys = { { 'x', '*' }, { 'x', '#' }, } }
-	-- use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+
+	-- Quickfix
+	use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
 
 	-- Fuzzy searcher
 	use {
