@@ -123,10 +123,10 @@ hi! link WinBarNC WinSeparator
 hi! link WildMenu Pmenu
 
 " Diffs
-hi DiffAdd cterm=none ctermbg=none ctermfg=7 gui=none guibg=none guifg=#e0f0db
-hi DiffChange cterm=none ctermbg=none ctermfg=7 gui=none guibg=none guifg=#e0f0db
-hi DiffText cterm=reverse ctermbg=none ctermfg=15 gui=none guibg=#ffffff guifg=#15151e
-hi! link DiffDelete DiffAdd
+hi DiffAdd    cterm=bold ctermbg=none ctermfg=7 gui=bold guibg=none guifg=#e0f0db
+hi DiffDelete cterm=bold ctermbg=none ctermfg=1 gui=bold guibg=none guifg=#bb695d
+hi DiffChange cterm=none ctermbg=none ctermfg=8 gui=none guibg=none guifg=#a8a7c1
+hi DiffText   cterm=bold ctermbg=none ctermfg=9 gui=bold guibg=none guifg=#d49c94
 
 " Search
 hi IncSearch ctermbg=7 ctermfg=0 cterm=none guibg=#e0f0db guifg=#15151e gui=none
