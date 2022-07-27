@@ -27,7 +27,7 @@ let g:colors_name = 'somedarkterm1'
 " GROUP NAMES (:h group-name)
 
 "Comment
-hi Comment ctermfg=4 guifg=#6f93c3 gui=italic
+hi Comment ctermfg=4 guifg=#6f93c3
 
 " *Constant String Character Number Boolean Float
 hi Constant ctermfg=3 guifg=#b0bb5d
@@ -35,6 +35,7 @@ hi String ctermfg=14 guifg=#94ccd4
 
 " *Identifier Function
 hi Identifier cterm=none ctermfg=12 guifg=#9794d4
+" hi Function cterm=none ctermfg=6 guifg=#5db0bb
 
 " *Statement Conditional Repeat Label Operator Keyword Exception
 hi Statement ctermfg=6 guifg=#5db0bb

@@ -188,23 +188,13 @@ local function init()
 		},
 		requires = { 'tyru/open-browser.vim' },
 	}
-	use {
-		'TimUntersberger/neogit',
-		requires = 'nvim-lua/plenary.nvim',
-		cmd = { "Neogit" },
-		config = function()
-			require "neogit".setup({})
-		end
-	}
 
 	-- git linker
 	use {
 		'ruifm/gitlinker.nvim',
 		requires = 'nvim-lua/plenary.nvim',
 		keys = { { 'n', '<leader>gy' }, { 'v', '<leader>gy' } },
-		config = function()
-			require('gitlinker').setup({})
-		end
+		config = function() require('gitlinker').setup({}) end
 	}
 
 	-- ### UTIL
@@ -212,9 +202,7 @@ local function init()
 	use {
 		"norcalli/nvim-colorizer.lua",
 		cmd = { "ColorizerToggle" },
-		config = function()
-			require 'colorizer'.setup()
-		end
+		config = function() require 'colorizer'.setup() end
 	}
 
 	-- Measure startuptime
