@@ -189,9 +189,6 @@ local function init()
 
 	-- ### UTIL
 
-	-- Inspect highlight groups
-	use { "cocopon/inspecthi.vim", cmd = { "Inspecthi" } }
-
 	use {
 		"norcalli/nvim-colorizer.lua",
 		cmd = { "ColorizerToggle" },
