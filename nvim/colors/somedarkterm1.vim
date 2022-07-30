@@ -1,5 +1,5 @@
 " somedarkterm1.vim
-" Highlight some---dark terminal first, then you can change from dark to
+" Syntax highlight some dark terminal first, then you can change from dark to
 " light. Not opposite.
 "
 " Design: purple blueish theme with cyan, yellow and whiteish primaries, based
@@ -35,8 +35,8 @@ hi Constant ctermfg=3 guifg=#b0bb5d
 hi String ctermfg=14 guifg=#94ccd4
 
 " *Identifier Function
-hi Identifier cterm=NONE ctermfg=12 guifg=#9794d4
-" hi Function cterm=NONE ctermfg=6 guifg=#5db0bb
+hi Identifier cterm=NONE ctermfg=12 gui=bold guifg=#9794d4
+hi Function cterm=NONE ctermfg=6 gui=NONE guifg=#5db0bb
 
 " *Statement Conditional Repeat Label Operator Keyword Exception
 hi Statement ctermfg=6 guifg=#5db0bb

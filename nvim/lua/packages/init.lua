@@ -40,7 +40,7 @@ local function init()
 
 	-- Statusline
 	use {
-		'jssteinberg/hackline.vim',
+		'~/Documents/hackline.vim',
 		config = function() vim.g.hackline_sign = "Neo" end
 	}
 
