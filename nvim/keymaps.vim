@@ -83,11 +83,6 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " Package/plugin mappings
 " -----------------------
 
-" Netrw remaps
-function! NetrwRemaps ()
-	nn <buffer> s /
-endfunction
-
 " FZF Fuzzy finder
 nnoremap <silent> <leader>fb :Telescope buffers<cr>
 nnoremap <silent> <leader>ff :Telescope find_files<cr>
@@ -119,10 +114,14 @@ nnoremap <silent> <leader>hf :lua require("harpoon.ui").nav_file(4)<cr>
 nnoremap <silent> <leader><cr> :lua require("harpoon.term").gotoTerminal(1)<cr>i
 nnoremap <silent> <leader>1 :lua require("harpoon.term").gotoTerminal(2)<cr>i
 
-" Treesitter
-nnoremap <leader>ch :TSHighlightCapturesUnderCursor<cr>
+" Color highlight groups
+nnoremap <leader>ct <cmd>TSHighlightCapturesUnderCursor<cr>
+nmap <leader>ch <cmd>call <SID>SynStack()<CR>
+nn <leader>cg <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
 
-augroup keymaps
-	au!
-	autocmd FileType netrw call NetrwRemaps()
-augroup END
+function! <SID>SynStack()
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc

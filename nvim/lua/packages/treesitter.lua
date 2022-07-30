@@ -2,10 +2,10 @@ local M = {}
 
 M.config = function()
 	require("nvim-treesitter.configs").setup({
-		ignore_install = { "vim", "markdown" },
+		ignore_install = { "lua", "vim" },
 		highlight = {
 			enable = true,
-			disable = { "lua", "vim", "markdown" },
+			disable = { "lua", "vim" },
 		},
 		autotag = { enable = true },
 		playground = {

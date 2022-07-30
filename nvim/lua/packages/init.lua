@@ -35,23 +35,13 @@ local function init()
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		requires = { "nvim-treesitter/playground" },
-		config = function()
-			require 'packages.treesitter'.config()
-		end
+		config = function() require 'packages.treesitter'.config() end
 	}
 
 	-- Statusline
 	use {
 		'jssteinberg/hackline.vim',
-		config = function()
-			vim.g.hackline_sign = "Neo"
-			-- vim.g.hackline_labels = {
-			-- 	sign = "Nvi",
-			-- 	command = "/ C",
-			-- 	insert = "/ I",
-			-- 	...
-			-- }
-		end
+		config = function() vim.g.hackline_sign = "Neo" end
 	}
 
 	-- Gitsigns
@@ -198,6 +188,9 @@ local function init()
 	}
 
 	-- ### UTIL
+
+	-- Inspect highlight groups
+	use { "cocopon/inspecthi.vim", cmd = { "Inspecthi" } }
 
 	use {
 		"norcalli/nvim-colorizer.lua",

@@ -189,11 +189,7 @@ function! PackInit() abort
 endfunction
 
 try
-	colo iceberg | set bg=dark hlsearch termguicolors
-
-	highlight Normal guibg=NONE
-	highlight LineNr guibg=NONE
-	highlight SignColumn guibg=NONE
+	colo somedarkterm1 | set bg=dark hlsearch termguicolors
 catch
 	colorscheme default
 	set notermguicolors t_Co=16 nohlsearch

@@ -11,15 +11,16 @@
 " Supports: gitsigns, vim-matchup, WinBar, Telescope
 "
 " background #15151e
-" foreground #e1e1ea fg_muted #a8a7c1
-" black      #0      #2d2c3f black      #8      #615e87
-" red        #1      #bb695d red        #9      #d49c94
-" green      #2      #5dbba3 green      #10     #94d4c7
-" yellow     #3      #b0bb5d yellow     #11     #ccd494
-" blue       #4      #5d86bb blue       #12     #9794d4 blue_between #6f93c3
-" magenta    #5      #695dbb magenta    #13     #9c94d4 magenta_bg #2c2559
-" cyan       #6      #5db0bb cyan       #14     #94ccd4
-" white      #7      #e0f0db white      #15     #ffffff
+" foreground #e1e1ea fg_muted   #a8a7c1
+"
+" black#0    #2d2c3f black#8    #615e87
+" red#1      #bb695d red#9      #d49c94
+" green#2    #5dbba3 green#10   #94d4c7
+" yellow#3   #b0bb5d yellow#11  #ccd494
+" blue#4     #5d86bb blue#12    #9794d4 blue_between #6f93c3
+" magenta#5  #695dbb magenta#13 #9c94d4 magenta_bg   #2c2559
+" cyan#6     #5db0bb cyan#14    #94ccd4
+" white#7    #e0f0db white#15   #ffffff
 
 hi clear
 let g:colors_name = 'somedarkterm1'
@@ -34,8 +35,8 @@ hi Constant ctermfg=3 guifg=#b0bb5d
 hi String ctermfg=14 guifg=#94ccd4
 
 " *Identifier Function
-hi Identifier cterm=none ctermfg=12 guifg=#9794d4
-" hi Function cterm=none ctermfg=6 guifg=#5db0bb
+hi Identifier cterm=NONE ctermfg=12 guifg=#9794d4
+" hi Function cterm=NONE ctermfg=6 guifg=#5db0bb
 
 " *Statement Conditional Repeat Label Operator Keyword Exception
 hi Statement ctermfg=6 guifg=#5db0bb
@@ -44,7 +45,7 @@ hi Statement ctermfg=6 guifg=#5db0bb
 hi PreProc ctermfg=12 guifg=#9794d4
 
 " *Type StorageClass Structure Typedef
-hi Type ctermfg=14 guifg=#94ccd4 gui=none
+hi Type ctermfg=14 guifg=#94ccd4 gui=NONE
 hi Structure ctermfg=5 guifg=#695dbb
 
 " *Special SpecialChar Tag Delimiter SpecialComment Debug
@@ -60,7 +61,7 @@ hi Underlined ctermfg=12 guifg=#9794d4
 " *Error
 
 " *Todo
-hi Todo ctermbg=none ctermfg=6 cterm=bold,italic guifg=#5db0bb gui=bold,italic guibg=none
+hi Todo ctermbg=NONE ctermfg=6 cterm=bold,italic guifg=#5db0bb gui=bold,italic guibg=NONE
 
 " OTHER SYNTAX
 
@@ -72,29 +73,29 @@ hi! link javascriptTSTag Tag
 
 hi ColorColumn ctermbg=8 guibg=#615e87
 hi Conceal ctermbg=8 guifg=#e0f0db guibg=#615e87
-hi Cursor cterm=none ctermbg=7 ctermfg=0 guibg=#e1e1ea guifg=#15151e gui=none
-hi CursorColumn ctermbg=none cterm=bold guibg=none gui=bold
-hi CursorLine ctermbg=0 cterm=none guibg=#222230 gui=none
-hi CursorLineNr ctermbg=none ctermfg=7 cterm=none guibg=none guifg=#e0f0db gui=none
+hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e1e1ea guifg=#15151e gui=NONE
+hi CursorColumn ctermbg=NONE cterm=bold guibg=NONE gui=bold
+hi CursorLine ctermbg=0 cterm=NONE guibg=#222230 gui=NONE
+hi CursorLineNr ctermbg=NONE ctermfg=7 cterm=NONE guibg=NONE guifg=#e0f0db gui=NONE
 hi Directory ctermfg=6 guifg=#5db0bb
-hi Folded ctermbg=none cterm=italic guibg=none guifg=#94ccd4 gui=italic
+hi Folded ctermbg=NONE cterm=italic guibg=NONE guifg=#94ccd4 gui=italic
 hi LineNr ctermfg=8 guifg=#615e87
 hi MatchParen ctermbg=0 cterm=underline,italic guibg=#2d2c3f guifg=#9c94d4 gui=bold
 hi MatchParenCur cterm=underline ctermbg=0 guibg=#2d2c3f gui=bold
 hi MatchWord cterm=underline ctermbg=0 guibg=#2d2c3f
-hi NonText ctermfg=0 guifg=#2d2c3f gui=none
+hi NonText ctermfg=0 guifg=#2d2c3f gui=NONE
 hi NvimInternalError ctermfg=9 ctermbg=9 guifg=#bb695d guibg=#bb695d
 hi Pmenu ctermbg=0 ctermfg=7 guibg=#2d2c3f guifg=#e0f0db
 hi PmenuSel ctermbg=8 ctermfg=15 guibg=#615e87 guifg=#ffffff
 hi PmenuThumb     ctermbg=7 guibg=#e0f0db
-hi SignColumn ctermbg=none guibg=none guifg=#94ccd4
-hi StatusLine ctermbg=none ctermfg=none cterm=reverse guifg=none guibg=none gui=reverse
-hi StatusLineNC ctermfg=8 ctermbg=none cterm=reverse guibg=none guifg=#615e87 gui=reverse
-hi TabLine cterm=none ctermfg=8 ctermbg=none guifg=#615e87 guibg=none gui=none
-hi TabLineFill cterm=none gui=none
+hi SignColumn ctermbg=NONE guibg=NONE guifg=#94ccd4
+hi StatusLine ctermbg=NONE ctermfg=NONE cterm=reverse guifg=NONE guibg=NONE gui=reverse
+hi StatusLineNC ctermfg=8 ctermbg=NONE cterm=reverse guibg=NONE guifg=#615e87 gui=reverse
+hi TabLine cterm=NONE ctermfg=8 ctermbg=NONE guifg=#615e87 guibg=NONE gui=NONE
+hi TabLineFill cterm=NONE gui=NONE
 hi Visual ctermbg=0 cterm=italic guibg=#2c2559 " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=5 guifg=#695dbb
-hi WinSeparator ctermbg=none ctermfg=8 guifg=#615e87 guibg=none
+hi WinSeparator ctermbg=NONE ctermfg=8 guifg=#615e87 guibg=NONE
 
 hi DiagnosticHint ctermfg=8 guifg=#615e87
 hi DiagnosticError ctermfg=1 guifg=#d49c94
@@ -105,7 +106,7 @@ hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#695dbb
 hi DiagnosticUnderlineInfo cterm=underline gui=underline guisp=#9794d4
 hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#615e87
 
-hi Error ctermbg=none ctermfg=9 cterm=underline guibg=none guifg=#d49c94 gui=underline
+hi Error ctermbg=NONE ctermfg=9 cterm=underline guibg=NONE guifg=#d49c94 gui=underline
 hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#ccd494 guifg=#15151e
 hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#94d4c7 guifg=#15151e
 hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d49c94 guifg=#15151e
@@ -124,18 +125,18 @@ hi! link WinBarNC WinSeparator
 hi! link WildMenu Pmenu
 
 " Diffs
-hi DiffAdd    cterm=bold ctermbg=none ctermfg=7 gui=bold guibg=none guifg=#e0f0db
-hi DiffDelete cterm=bold ctermbg=none ctermfg=1 gui=bold guibg=none guifg=#bb695d
-hi DiffChange cterm=none ctermbg=none ctermfg=8 gui=none guibg=none guifg=#a8a7c1
-hi DiffText   cterm=bold ctermbg=none ctermfg=9 gui=bold guibg=none guifg=#d49c94
+hi DiffAdd    cterm=bold ctermbg=NONE ctermfg=7 gui=bold guibg=NONE guifg=#e0f0db
+hi DiffDelete cterm=bold ctermbg=NONE ctermfg=1 gui=bold guibg=NONE guifg=#bb695d
+hi DiffChange cterm=NONE ctermbg=NONE ctermfg=8 gui=NONE guibg=NONE guifg=#a8a7c1
+hi DiffText   cterm=bold ctermbg=NONE ctermfg=9 gui=bold guibg=NONE guifg=#d49c94
 
 " Search
-hi IncSearch ctermbg=7 ctermfg=0 cterm=none guibg=#e0f0db guifg=#15151e gui=none
-hi Search ctermbg=3 ctermfg=0 guibg=#b0bb5d guifg=#15151e
+hi IncSearch ctermbg=7 ctermfg=0 cterm=NONE guibg=#e0f0db guifg=#15151e gui=NONE
+hi Search ctermbg=11 ctermfg=0 guibg=#ccd494 guifg=#15151e
 
 if &bg == "light"
 	hi Normal ctermbg=15 ctermfg=0 guibg=#ffffff guifg=#2d2c3f
-	hi CursorLine ctermbg=none guibg=none
+	hi CursorLine ctermbg=NONE guibg=NONE
 endif
 
 " ColorColumn	Used for the columns set with 'colorcolumn'.
