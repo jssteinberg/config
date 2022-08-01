@@ -1,3 +1,5 @@
+" Set options
+
 set clipboard=unnamedplus
 set copyindent
 set cursorline cursorcolumn
@@ -18,11 +20,8 @@ set updatetime=100
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**
 set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 
-if executable('rg')
-	set grepformat^=%f:%l:%c:%m grepprg=rg\ --line-number\ --column
-endif
-
 " Formatoptions
+
 " (c) auto hard wrap comments
 " (j) remove comment leader when joining lines
 " (l) don't break long lines (does c still work?)
@@ -30,6 +29,19 @@ endif
 " (p) don't break lines on single space following period
 " (q) allow gq formatting
 set formatoptions=cjlnpq
+
+" Grep
+
+if executable('rg')
+	" use ripgrep
+	set grepformat^=%f:%l:%c:%m grepprg=rg\ --line-number\ --column
+endif
+
+" alias to silent grep
+cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
+cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
+
+" General auto commands
 
 augroup option_like_autocmds
 	au!

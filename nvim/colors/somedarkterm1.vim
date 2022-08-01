@@ -25,7 +25,7 @@
 hi clear
 let g:colors_name = 'somedarkterm1'
 
-hi Normal ctermfg=12 guifg=#9794d4
+" hi Normal ctermfg=12 guifg=#9794d4
 
 " GROUP NAMES (:h group-name)
 
@@ -141,6 +141,9 @@ hi DiffText   cterm=bold ctermbg=NONE ctermfg=9 gui=bold guibg=NONE guifg=#d49c9
 " Search
 hi IncSearch ctermbg=7 ctermfg=0 cterm=NONE guibg=#e0f0db guifg=#15151e gui=NONE
 hi Search ctermbg=11 ctermfg=0 guibg=#ccd494 guifg=#15151e
+
+" Telescope
+hi! link TelescopePromptCounter Comment
 
 if &bg == "light"
 	hi Normal ctermbg=15 ctermfg=0 guibg=#ffffff guifg=#2d2c3f

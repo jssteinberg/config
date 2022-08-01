@@ -13,7 +13,7 @@
 " R: replace (search and replace)
 " X: git(signs) reset
 
-nnoremap <leader>ec :tabedit ~/.config/README.md<cr>:tcd %:h<cr>
+nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
 
 " Better defaults
 vnoremap < <gv
@@ -70,8 +70,8 @@ nnoremap <leader>Q :cprev<cr>
 nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Grep
-nnoremap <leader>G :grep -g "!package-lock.json" -g "!yarn.lock" 
-vnoremap <silent> <leader>G y:grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+nnoremap <silent> <leader>G :silent grep -g "!package-lock.json" -g "!yarn.lock" 
+vnoremap <silent> <leader>G y:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " Replace [normal, selection]
 nnoremap <leader>R :%s/
