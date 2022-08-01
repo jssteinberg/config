@@ -102,7 +102,7 @@ local function init()
 
 	-- ### EDIT/MOVE
 
-	use { 'tpope/vim-surround', keys = { { 'n', 'ys' }, { 'n', 'c' }, { 'v', 'S' } } }
+	use { 'tpope/vim-surround', keys = { { 'n', 'ys' }, { 'n', 'c' }, { 'n', 'd' }, { 'v', 'S' } } }
 	use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
 	use { 'tommcdo/vim-lion', keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
 	use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
@@ -143,7 +143,19 @@ local function init()
 	use { 'subnut/visualstar.vim', keys = { { 'x', '*' }, { 'x', '#' }, } }
 
 	-- Quickfix
-	use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+	use {
+		'kevinhwang91/nvim-bqf',
+		ft = 'qf',
+		-- config = function()
+		-- 	require "bqf".setup({
+		-- 		preview = {
+		-- 			wrap = {
+		-- 				default = true
+		-- 			},
+		-- 		}
+		-- 	})
+		-- end
+	}
 
 	-- Fuzzy searcher
 	use {
