@@ -40,24 +40,24 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x2d2c3f'
+    black:   '0x2b2a3c'
     red:     '0xbb695d'
     green:   '0x5dbba3'
     yellow:  '0xb0bb5d'
-    blue:    '0x95b0d3'
+    blue:    '0x93aed2'
     magenta: '0x695dbb'
     cyan:    '0x5db0bb'
     white:   '0xe0f0db'
 
   # Bright colors
   bright:
-    black:   '0x615e87'
-    red:     '0xd49c94'
-    green:   '0x94d4c7'
-    yellow:  '0xccd494'
-    blue:    '0x9794d4'
-    magenta: '0x9c94d4'
-    cyan:    '0x94ccd4'
+    black:   '0x565478'
+    red:     '0xd39a92'
+    green:   '0x92d3c6'
+    yellow:  '0xcbd392'
+    blue:    '0x9592d3'
+    magenta: '0x9a92d3'
+    cyan:    '0x92cbd3'
     white:   '0xffffff'
 
 # TokyoNight Alacritty Colors

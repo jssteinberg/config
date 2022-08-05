@@ -40,7 +40,8 @@ local function init()
 
 	-- Statusline
 	use {
-		'jssteinberg/hackline.vim',
+		"jssteinberg/hackline.vim",
+		branch = "dev",
 		config = function() vim.g.hackline_sign = "Neo" end
 	}
 
