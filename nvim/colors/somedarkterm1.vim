@@ -63,7 +63,7 @@ hi! link TSTag Tag
 hi! link javascriptTSTag Tag
 
 " *Underlined
-hi Underlined ctermfg=12 guifg=#9592d3
+hi Underlined ctermfg=4 guifg=#95b0d3
 
 " *Ignore
 
