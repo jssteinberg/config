@@ -40,11 +40,11 @@ hi! link String Constant
 " *Identifier Function
 hi Identifier cterm=bold ctermfg=12 gui=bold guifg=#9592d3
 " hi Function cterm=NONE gui=NONE ctermfg=4 guifg=#95b0d3
-hi Function cterm=NONE gui=NONE ctermfg=13 guifg=#9a92d3
+hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#92cbd3
 
 " *Statement Conditional Repeat Label Operator Keyword Exception
 hi Statement cterm=NONE gui=NONE ctermfg=2 guifg=#5dbba3
-hi Keyword cterm=NONE ctermfg=6 gui=NONE guifg=#5db0bb
+hi Keyword cterm=NONE ctermfg=13 gui=NONE guifg=#9a92d3
 
 " *PreProc Include Define Macro PreCondit
 hi PreProc ctermfg=12 guifg=#9592d3
@@ -55,7 +55,7 @@ hi Structure ctermfg=5 guifg=#695dbb
 hi! link TSProperty Type
 
 " *Special SpecialChar Tag Delimiter SpecialComment Debug
-hi Special cterm=none ctermfg=10 gui=none guifg=#92d3c6 " also links to TelescopeMatch
+hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#92cbd3 " also links to TelescopeMatch
 hi SpecialKey ctermfg=12 guifg=#9592d3
 hi Delimiter ctermfg=4 guifg=#95b0d3
 hi! link TSPunctBrack Delimiter
