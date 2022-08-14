@@ -17,6 +17,7 @@ local function init()
 	end }
 
 	use { 'wuelnerdotexe/vim-enfocado' } -- colorscheme
+	use { 'tpope/vim-repeat' } -- Extend `.` repeat
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 
 	-- Project drawer
@@ -104,7 +105,6 @@ local function init()
 	-- ### EDIT/MOVE
 
 	use { 'tpope/vim-surround', keys = { { 'n', 'ys' }, { 'n', 'c' }, { 'n', 'd' }, { 'v', 'S' } } }
-	use { 'tpope/vim-repeat', keys = { { 'n', '.' } } } -- Extend `.` repeat
 	use { 'tommcdo/vim-lion', keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
 	use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
 	use { 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } } -- outline code from lsp
