@@ -16,7 +16,7 @@
 " black#0    #2b2a3c black#8    #565478
 " red#1      #bb695d red#9      #d39a92
 " green#2    #5dbba3 green#10   #92d3c6
-" yellow#3   #b0bb5d yellow#11  #cbd392
+" yellow#3   #b0bb5d yellow#11  #cbd392 yellow_bg #3a3c2a
 " blue#4     #95b0d3 blue#12    #9592d3
 " magenta#5  #695dbb magenta#13 #9a92d3 magenta_bg #3e357e magenta_between #796fc3
 " cyan#6     #5db0bb cyan#14    #92cbd3
@@ -63,7 +63,7 @@ hi! link TSTag Tag
 hi! link javascriptTSTag Tag
 
 " *Underlined
-hi Underlined ctermfg=4 guifg=#95b0d3
+hi Underlined cterm=NONE gui=NONE ctermfg=4 guifg=#95b0d3
 
 " *Ignore
 
@@ -97,7 +97,8 @@ hi PmenuSel ctermbg=8 ctermfg=15 guibg=#565478 guifg=#ffffff
 hi PmenuThumb     ctermbg=7 guibg=#e0f0db
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#92cbd3
 hi StatusLine ctermbg=NONE ctermfg=NONE cterm=reverse guifg=NONE guibg=NONE gui=reverse
-hi StatusLineNC cterm=underline gui=underline ctermbg=NONE guibg=NONE ctermfg=8 guifg=#565478
+" hi StatusLineNC cterm=underline gui=underline ctermbg=NONE guibg=NONE ctermfg=8 guifg=#565478
+hi StatusLineNC cterm=reverse gui=reverse ctermbg=NONE guibg=NONE ctermfg=8 guifg=#565478
 hi TabLine cterm=NONE ctermfg=8 ctermbg=NONE guifg=#565478 guibg=NONE gui=NONE
 hi TabLineFill cterm=NONE gui=NONE
 hi Visual cterm=italic gui=NONE ctermbg=0 guibg=#3e357e " also affects TelescopePreviewLine
@@ -142,7 +143,8 @@ hi! link FoldColumn Folded
 
 " Search
 hi IncSearch ctermbg=7 ctermfg=0 cterm=NONE guibg=#e0f0db guifg=#15151e gui=NONE
-hi Search ctermbg=11 guibg=#b0bb5d ctermfg=0 guifg=#15151e
+" hi Search ctermbg=11 guibg=#b0bb5d ctermfg=0 guifg=#15151e
+hi Search gui=underline ctermbg=11 guibg=#3a3c2a ctermfg=0 guifg=NONE
 
 " Telescope
 hi! link TelescopePromptCounter Comment
