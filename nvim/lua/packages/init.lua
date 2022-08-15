@@ -43,7 +43,13 @@ local function init()
 	use {
 		"jssteinberg/hackline.vim",
 		branch = "dev",
-		config = function() vim.g.hackline_sign = "Neo" end
+		config = function()
+			vim.g.hackline_sign = "Neo"
+			vim.g.hackline_highlight_secondary = 'StatusLine'
+			vim.g.hackline_highlight_items = 'StatusLine'
+			vim.g.hackline_highlight_modified = 'StatusLine'
+			vim.g.hackline_hightlight_branch = 'StatusLine'
+		end
 	}
 
 	-- Gitsigns
