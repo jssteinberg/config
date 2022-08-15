@@ -7,7 +7,8 @@ set hidden
 set fileencoding=utf-8
 set foldmethod=indent nofoldenable
 set ignorecase smartcase
-set list listchars+=tab:\·\  fillchars+=vert:\·
+set list listchars+=tab:\·\ 
+" fillchars+=vert:\·
 set number relativenumber signcolumn=yes
 set mouse=a
 set sessionoptions=curdir,folds,tabpages,help
