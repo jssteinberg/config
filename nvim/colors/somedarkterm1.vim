@@ -96,9 +96,8 @@ hi Pmenu ctermbg=0 ctermfg=7 guibg=#2b2a3c guifg=#e0f0db
 hi PmenuSel ctermbg=8 ctermfg=15 guibg=#565478 guifg=#ffffff
 hi PmenuThumb     ctermbg=7 guibg=#e0f0db
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#92cbd3
-hi StatusLine ctermbg=NONE ctermfg=NONE cterm=reverse guifg=NONE guibg=NONE gui=reverse
-" hi StatusLineNC cterm=underline gui=underline ctermbg=NONE guibg=NONE ctermfg=8 guifg=#565478
-hi StatusLineNC cterm=reverse gui=reverse ctermbg=NONE guibg=NONE ctermfg=8 guifg=#565478
+hi StatusLine cterm=underline gui=underline ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
+hi StatusLineNC cterm=underline gui=underline ctermbg=NONE guibg=NONE ctermfg=8 guifg=#565478
 hi TabLine cterm=NONE ctermfg=8 ctermbg=NONE guifg=#565478 guibg=NONE gui=NONE
 hi TabLineFill cterm=NONE gui=NONE
 hi Visual cterm=italic gui=NONE ctermbg=0 guibg=#3e357e " also affects TelescopePreviewLine
@@ -142,12 +141,17 @@ hi! link Folded Comment
 hi! link FoldColumn Folded
 
 " Search
-hi IncSearch ctermbg=7 ctermfg=0 cterm=NONE guibg=#e0f0db guifg=#15151e gui=NONE
+hi IncSearch cterm=italic gui=italic ctermbg=7 ctermfg=0 guibg=#e0f0db guifg=#15151e
 " hi Search ctermbg=11 guibg=#b0bb5d ctermfg=0 guifg=#15151e
-hi Search gui=underline ctermbg=11 guibg=#3a3c2a ctermfg=0 guifg=NONE
+hi Search cterm=italic,underline gui=italic,underline ctermbg=11 guibg=#3a3c2a ctermfg=0 guifg=NONE
 
 " Telescope
 hi! link TelescopePromptCounter Comment
+
+" if get(g:, "somedarkterm1_trad", v:false)
+	hi StatusLine cterm=NONE gui=NONE ctermbg=8 guibg=#565478 ctermfg=NONE guifg=NONE
+	hi StatusLineNC cterm=NONE gui=NONE ctermfg=0 guifg=#2b2a3c ctermbg=8 guibg=#565478
+" endif
 
 if &bg == "light"
 	hi Normal ctermbg=15 ctermfg=0 guibg=#ffffff guifg=#2b2a3c
