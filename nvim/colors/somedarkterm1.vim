@@ -70,7 +70,7 @@ hi Underlined cterm=NONE gui=NONE ctermfg=4 guifg=#95b0d3
 " *Error
 
 " *Todo
-hi Todo ctermbg=NONE ctermfg=6 cterm=bold,italic guifg=#5db0bb gui=bold,italic guibg=NONE
+hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=13 guifg=#9a92d3
 
 " OTHER SYNTAX
 
