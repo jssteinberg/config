@@ -31,7 +31,7 @@
 hi clear
 let g:colors_name = 'somedarkterm1'
 
-" hi Normal ctermfg=12 guifg=#9592d3
+" hi Normal ctermfg=7 guifg=#e0f0db
 
 " GROUP NAMES (:h group-name)
 
@@ -90,9 +90,9 @@ hi Conceal ctermbg=8 guifg=#e0f0db guibg=#352d6c
 hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#c7d5c3 guifg=#15151e gui=NONE
 hi CursorColumn cterm=bold gui=bold ctermbg=NONE guibg=#0b0a0f
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#181736
-hi CursorLineNr ctermbg=NONE ctermfg=5 cterm=NONE guibg=NONE guifg=#695dbb gui=NONE
+hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#181736 ctermfg=13 guifg=#9a92d3
 hi Directory ctermfg=6 guifg=#5db0bb
-hi LineNr ctermfg=8 guifg=#352d6c
+hi LineNr ctermfg=7 guifg=#7a78a1
 hi MatchParen cterm=underline,italic gui=bold ctermbg=0 guibg=#575a3f guifg=#9a92d3
 hi MatchParenCur cterm=underline gui=bold ctermbg=0 guibg=#575a3f
 hi MatchWord cterm=underline ctermbg=0 guibg=#575a3f
@@ -102,18 +102,17 @@ hi Pmenu ctermbg=0 ctermfg=7 guibg=#181736 guifg=#e0f0db
 hi PmenuSel ctermbg=8 ctermfg=15 guibg=#352d6c guifg=#ffffff
 hi PmenuThumb     ctermbg=7 guibg=#e0f0db
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#92cbd3
-hi StatusLine cterm=NONE gui=NONE ctermbg=16 guibg=#0b0a0f ctermfg=7 guifg=#e0f0db
-hi StatusLineNC cterm=NONE gui=NONE ctermbg=16 guibg=#0b0a0f ctermfg=5 guifg=#695dbb
-hi TabLine cterm=NONE ctermfg=8 ctermbg=NONE guifg=#352d6c guibg=NONE gui=NONE
+hi StatusLine cterm=NONE gui=NONE ctermbg=16 guibg=#0b0a0f ctermfg=5 guifg=#695dbb
+hi StatusLineNC cterm=NONE gui=NONE ctermbg=16 guibg=#0b0a0f ctermfg=8 guifg=#352d6c
+hi TabLine cterm=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE gui=NONE
 hi TabLineFill cterm=NONE gui=NONE
 hi Visual cterm=italic gui=NONE ctermbg=0 guibg=#352d6c " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=5 guifg=#695dbb
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=5 guifg=#0b0a0f
 
-hi DiagnosticHint ctermfg=8 guifg=#352d6c
+hi DiagnosticHint ctermfg=4 guifg=#9592d3
 hi DiagnosticError ctermfg=1 guifg=#d39a92
-hi DiagnosticInfo ctermfg=4 guifg=#9592d3
-hi DiagnosticHint ctermfg=8 guifg=#352d6c
+hi DiagnosticInfo ctermfg=5 guifg=#695dbb
 hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#d39a92
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#695dbb
 hi DiagnosticUnderlineInfo cterm=underline gui=underline guisp=#9592d3
