@@ -44,7 +44,7 @@ hi! link String Constant
 " hi String ctermfg=14 guifg=#92cbd3
 
 " *Identifier Function
-hi Identifier cterm=bold ctermfg=12 gui=bold guifg=#9592d3
+hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9592d3
 " hi Function cterm=NONE gui=NONE ctermfg=4 guifg=#93aed2
 hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#92cbd3
 
@@ -80,7 +80,7 @@ hi Todo cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=9 guifg=#d392b3
 
 " OTHER SYNTAX
 
-hi Title ctermfg=13 cterm=bold guifg=#9a92d3 gui=bold
+hi Title cterm=bold gui=bold ctermfg=13 guifg=#9a92d3
 hi markdownUrl ctermfg=5 guifg=#695dbb
 
 " UI
