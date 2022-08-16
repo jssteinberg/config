@@ -73,7 +73,9 @@ local function init()
 	use {
 		'neovim/nvim-lspconfig',
 		requires = {
-			'williamboman/nvim-lsp-installer',
+			-- 'williamboman/nvim-lsp-installer',
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
 			'lukas-reineke/lsp-format.nvim',
 			'hrsh7th/nvim-cmp',
 			'hrsh7th/cmp-nvim-lsp',

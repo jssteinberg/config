@@ -116,12 +116,7 @@ nnoremap <silent> <leader>1 :lua require("harpoon.term").gotoTerminal(2)<cr>i
 
 " Color highlight groups
 nnoremap <leader>ct <cmd>TSHighlightCapturesUnderCursor<cr>
-nmap <leader>ch <cmd>call <SID>SynStack()<CR>
 nn <leader>cg <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
 
-function! <SID>SynStack()
-	if !exists("*synstack")
-		return
-	endif
-	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+" LSP
+" nnoremap gd :lua vim.lsp.buf.definition
