@@ -1,7 +1,7 @@
 " somedarkterm1.vim
-
-" Colors
-" somedarkterm1.
+"
+" # Colors: somedarkterm1.
+"
 " Syntax highlight some dark terminal first, then you can change from dark to
 " light. Not opposite.
 "
@@ -13,20 +13,20 @@
 " termguicolors.
 " Supports: gitsigns, vim-matchup, WinBar, Telescope
 "
-" background #15151e
-" foreground #c7d5c3
+" background #13131b
+" foreground #cad7c6
 "
-" black#0    #181736 black#8    #352d6c black_bg #0b0a0f
-" red#1      #bb695d red#9      #d39a92
-" green#2    #5dbba3 green#10   #92d3c6
-" yellow#3   #b0bb5d yellow#11  #cbd392 yellow_bg #575a3f
-" blue#4     #93aed2 blue#12    #9592d3
-" magenta#5  #695dbb magenta#13 #9a92d3
-" cyan#6     #5db0bb cyan#14    #92cbd3
+" black#0    #171532 black#8    #372f6f black_bg #060609
+" red#1      #bb695d red#9      #d59d95
+" green#2    #5dbba3 green#10   #95d5c8
+" yellow#3   #b0bb5d yellow#11  #cdd595 yellow_bg #5a5d41
+" blue#4     #97b1d3 blue#12    #9995d5
+" magenta#5  #695dbb magenta#13 #9d95d5
+" cyan#6     #5db0bb cyan#14    #95cdd5
 " white#7    #e0f0db white#15   #ffffff
 "
 " gray #7a78a1
-" pink #bb5d8c pink_bright #d392b3
+" pink #bb5d8c pink_bright #d595b5
 
 hi clear
 let g:colors_name = 'somedarkterm1'
@@ -41,88 +41,88 @@ hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bb5d8c
 " *Constant String Character Number Boolean Float
 hi Constant ctermfg=3 guifg=#b0bb5d
 hi! link String Constant
-" hi String ctermfg=14 guifg=#92cbd3
+" hi String ctermfg=14 guifg=#95cdd5
 
 " *Identifier Function
-hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9592d3
-" hi Function cterm=NONE gui=NONE ctermfg=4 guifg=#93aed2
-hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#92cbd3
+hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9995d5
+" hi Function cterm=NONE gui=NONE ctermfg=4 guifg=#97b1d3
+hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#95cdd5
 
 " *Statement Conditional Repeat Label Operator Keyword Exception
 hi Statement cterm=NONE gui=NONE ctermfg=2 guifg=#5dbba3
-hi Keyword cterm=NONE ctermfg=13 gui=NONE guifg=#9a92d3
+hi Keyword cterm=NONE ctermfg=13 gui=NONE guifg=#9d95d5
 
 " *PreProc Include Define Macro PreCondit
-hi PreProc ctermfg=12 guifg=#9592d3
+hi PreProc ctermfg=12 guifg=#9995d5
 
 " *Type StorageClass Structure Typedef
-hi Type cterm=NONE ctermfg=14 gui=NONE guifg=#92cbd3
+hi Type cterm=NONE ctermfg=14 gui=NONE guifg=#95cdd5
 hi Structure ctermfg=5 guifg=#695dbb
 hi! link TSProperty Type
 
 " *Special SpecialChar Tag Delimiter SpecialComment Debug
-hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#92cbd3 " also links to TelescopeMatch
-hi SpecialKey ctermfg=12 guifg=#9592d3
-hi Delimiter ctermfg=4 guifg=#93aed2
+hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#95cdd5 " also links to TelescopeMatch
+hi SpecialKey ctermfg=12 guifg=#9995d5
+hi Delimiter ctermfg=4 guifg=#97b1d3
 hi! link TSPunctBrack Delimiter
 hi! link TSTag Tag
 hi! link javascriptTSTag Tag
 
 " *Underlined
-hi Underlined cterm=NONE gui=NONE ctermfg=4 guifg=#93aed2
+hi Underlined cterm=NONE gui=NONE ctermfg=4 guifg=#97b1d3
 
 " *Ignore
 
 " *Error
 
 " *Todo
-hi Todo cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=9 guifg=#d392b3
+hi Todo cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=9 guifg=#d595b5
 
 " OTHER SYNTAX
 
-hi Title cterm=bold gui=bold ctermfg=13 guifg=#9a92d3
+hi Title cterm=bold gui=bold ctermfg=13 guifg=#9d95d5
 hi markdownUrl ctermfg=5 guifg=#695dbb
 
 " UI
 
-hi ColorColumn ctermbg=8 guibg=#352d6c
-hi Conceal ctermbg=8 guifg=#e0f0db guibg=#352d6c
-hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#c7d5c3 guifg=#15151e gui=NONE
-hi CursorColumn cterm=bold gui=bold ctermbg=NONE guibg=#0b0a0f
-hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#181736
-hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#181736 ctermfg=13 guifg=#9a92d3
+hi ColorColumn ctermbg=8 guibg=#372f6f
+hi Conceal ctermbg=8 guifg=#e0f0db guibg=#372f6f
+hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#cad7c6 guifg=#13131b gui=NONE
+hi CursorColumn cterm=bold gui=bold ctermbg=NONE guibg=#060609
+hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#171532
+hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#171532 ctermfg=13 guifg=#9d95d5
 hi Directory ctermfg=6 guifg=#5db0bb
 hi LineNr ctermfg=7 guifg=#7a78a1
-hi MatchParen cterm=underline,italic gui=bold ctermbg=0 guibg=#575a3f guifg=#9a92d3
-hi MatchParenCur cterm=underline gui=bold ctermbg=0 guibg=#575a3f
-hi MatchWord cterm=underline ctermbg=0 guibg=#575a3f
-hi NonText gui=NONE ctermfg=8 guifg=#352d6c
+hi MatchParen cterm=underline,italic gui=bold ctermbg=0 guibg=#5a5d41 guifg=#9d95d5
+hi MatchParenCur cterm=underline gui=bold ctermbg=0 guibg=#5a5d41
+hi MatchWord cterm=underline ctermbg=0 guibg=#5a5d41
+hi NonText gui=NONE ctermfg=8 guifg=#372f6f
 hi NvimInternalError ctermfg=9 ctermbg=9 guifg=#bb695d guibg=#bb695d
-hi Pmenu ctermbg=0 ctermfg=7 guibg=#181736 guifg=#e0f0db
-hi PmenuSel ctermbg=8 ctermfg=15 guibg=#352d6c guifg=#ffffff
+hi Pmenu ctermbg=0 ctermfg=7 guibg=#171532 guifg=#e0f0db
+hi PmenuSel ctermbg=8 ctermfg=15 guibg=#372f6f guifg=#ffffff
 hi PmenuThumb     ctermbg=7 guibg=#e0f0db
-hi SignColumn ctermbg=NONE guibg=NONE guifg=#92cbd3
-hi StatusLine cterm=NONE gui=NONE ctermbg=16 guibg=#0b0a0f ctermfg=5 guifg=#695dbb
-hi StatusLineNC cterm=NONE gui=NONE ctermbg=16 guibg=#0b0a0f ctermfg=8 guifg=#352d6c
+hi SignColumn ctermbg=NONE guibg=NONE guifg=#95cdd5
+hi StatusLine cterm=NONE gui=NONE ctermbg=16 guibg=#060609 ctermfg=5 guifg=#695dbb
+hi StatusLineNC cterm=NONE gui=NONE ctermbg=16 guibg=#060609 ctermfg=8 guifg=#372f6f
 hi TabLine cterm=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE gui=NONE
 hi TabLineFill cterm=NONE gui=NONE
-hi Visual cterm=italic gui=NONE ctermbg=0 guibg=#352d6c " also affects TelescopePreviewLine
+hi Visual cterm=italic gui=NONE ctermbg=0 guibg=#372f6f " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=5 guifg=#695dbb
-hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=5 guifg=#0b0a0f
+hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=5 guifg=#060609
 
-hi DiagnosticHint ctermfg=4 guifg=#9592d3
-hi DiagnosticError ctermfg=1 guifg=#d39a92
+hi DiagnosticHint ctermfg=4 guifg=#9995d5
+hi DiagnosticError ctermfg=1 guifg=#d59d95
 hi DiagnosticInfo ctermfg=5 guifg=#695dbb
-hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#d39a92
+hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#d59d95
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#695dbb
-hi DiagnosticUnderlineInfo cterm=underline gui=underline guisp=#9592d3
-hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#352d6c
+hi DiagnosticUnderlineInfo cterm=underline gui=underline guisp=#9995d5
+hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#372f6f
 
-hi Error ctermbg=NONE ctermfg=9 cterm=underline guibg=NONE guifg=#d39a92 gui=underline
-hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#cbd392 guifg=#15151e
-hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#92d3c6 guifg=#15151e
-hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d39a92 guifg=#15151e
-hi SpellCap       ctermbg=4 ctermfg=15 gui=undercurl guisp=#93aed2
+hi Error ctermbg=NONE ctermfg=9 cterm=underline guibg=NONE guifg=#d59d95 gui=underline
+hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#cdd595 guifg=#13131b
+hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#95d5c8 guifg=#13131b
+hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d59d95 guifg=#13131b
+hi SpellCap       ctermbg=4 ctermfg=15 gui=undercurl guisp=#97b1d3
 hi SpellRare      ctermbg=5 ctermfg=15 gui=undercurl guisp=#695dbb
 hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5db0bb
 
@@ -139,20 +139,20 @@ hi! link WildMenu Pmenu
 hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e0f0db
 hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bb695d
 hi DiffChange cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7a78a1
-hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#d39a92
+hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#d59d95
 
 " Folds
 hi! link Folded Comment
 hi! link FoldColumn Folded
 
 " Search
-hi IncSearch cterm=NONE gui=NONE ctermbg=11 ctermfg=0 guibg=#e0f0db guifg=#15151e
-hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#575a3f ctermfg=0 guifg=NONE
+hi IncSearch cterm=NONE gui=NONE ctermbg=11 ctermfg=0 guibg=#e0f0db guifg=#13131b
+hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#5a5d41 ctermfg=0 guifg=NONE
 
 " Telescope
 hi! link TelescopePromptCounter Comment
 
 if &bg == "light"
-	hi Normal ctermbg=15 ctermfg=0 guibg=#ffffff guifg=#181736
+	hi Normal ctermbg=15 ctermfg=0 guibg=#ffffff guifg=#171532
 	hi CursorLine ctermbg=NONE guibg=NONE
 endif

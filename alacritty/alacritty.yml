@@ -36,29 +36,29 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x15151e'
-    foreground: '0xc7d5c3'
+    background: '0x13131b'
+    foreground: '0xcad7c6'
 
   # Normal colors
   normal:
-    black:   '0x181736'
+    black:   '0x171532'
     red:     '0xbb695d'
     green:   '0x5dbba3'
     yellow:  '0xb0bb5d'
-    blue:    '0x93aed2'
+    blue:    '0x97b1d3'
     magenta: '0x695dbb'
     cyan:    '0x5db0bb'
     white:   '0xe0f0db'
 
   # Bright colors
   bright:
-    black:   '0x352d6c'
-    red:     '0xd39a92'
-    green:   '0x92d3c6'
-    yellow:  '0xcbd392'
-    blue:    '0x9592d3'
-    magenta: '0x9a92d3'
-    cyan:    '0x92cbd3'
+    black:   '0x372f6f'
+    red:     '0xd59d95'
+    green:   '0x95d5c8'
+    yellow:  '0xcdd595'
+    blue:    '0x9995d5'
+    magenta: '0x9d95d5'
+    cyan:    '0x95cdd5'
     white:   '0xffffff'
 
 # TokyoNight Alacritty Colors
