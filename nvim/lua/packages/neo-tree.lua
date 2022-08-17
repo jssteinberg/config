@@ -9,8 +9,8 @@ M.config = function()
 			indent = {
 				-- indent guides
 				with_markers = true,
-				indent_marker = "·",
-				last_indent_marker = "·",
+				-- indent_marker = "·",
+				-- last_indent_marker = "·",
 				expander_collapsed = "+",
 				expander_expanded = "-",
 			},

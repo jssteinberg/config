@@ -19,6 +19,9 @@ local function init()
 	use { 'wuelnerdotexe/vim-enfocado' } -- colorscheme
 	use { 'tpope/vim-repeat' } -- Extend `.` repeat
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
+	use { 'echasnovski/mini.nvim', config = function ()
+		require('mini.cursorword').setup({})
+	end }
 
 	-- Project drawer
 	use { 'lambdalisue/fern.vim', branch = "main", requires = {

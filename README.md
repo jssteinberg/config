@@ -19,15 +19,15 @@ Requires: git ... Install with your OS package manager.
 
 ## Recommended terminal tools
 
-- fish---shell with modern, usable defaults (and keep an eye on nu shell)
-	- [fisher](https://github.com/jorgebucaran/fisher), fish plugin manager
-- ripgrep
-- [fd](https://github.com/sharkdp/fd), find replacement
-- [bat](https://github.com/sharkdp/bat), cat replacement
-- [nvm](https://github.com/nvm-sh/nvm), and for fish [fish-nvm](https://github.com/FabioAntunes/fish-nvm)
-- [fzf](https://github.com/junegunn/fzf)
+- fish---shell with modern, usable defaults (and keep an eye on nu shell).
+	- [fisher](https://github.com/jorgebucaran/fisher), fish plugin manager.
+- ripgrep.
+- [fd](https://github.com/sharkdp/fd), find replacement.
+- [bat](https://github.com/sharkdp/bat), cat replacement.
+- [fzf](https://github.com/junegunn/fzf).
 	- and for fish: https://github.com/PatrickF1/fzf.fish or https://github.com/jethrokuan/fzf
-- [np](https://github.com/sindresorhus/np) for easy NPM package publication
+- [np](https://github.com/sindresorhus/np) for easy NPM package publication.
+- [fnm](https://github.com/Schniz/fnm) for fast Node.js version managing. *Previously used [nvm](https://github.com/nvm-sh/nvm), and for fish [fish-nvm](https://github.com/FabioAntunes/fish-nvm).*
 
 ### Tips
 

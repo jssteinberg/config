@@ -35,6 +35,13 @@ end
 M.config = function()
 	local lspconfig = require("lspconfig")
 
+	-- General LSP config for buffer
+	local on_attach_general = function(client, bufnr)
+		M.register_keymaps(bufnr)
+		-- Use LSP completion
+		vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+	end
+
 	require("mason").setup {}
 	require("mason-lspconfig").setup()
 	require("lsp-format").setup {}
@@ -44,12 +51,11 @@ M.config = function()
 		-- and will be called for each installed server that doesn't have
 		-- a dedicated handler.
 		function (server_name) -- default handler (optional)
-			lspconfig[server_name].setup {}
+			lspconfig[server_name].setup {
+				on_attach = on_attach_general
+			}
 		end,
 		-- Next, you can provide targeted overrides for specific servers.
-		-- ["svelte"] = function ()
-		-- 	require "lsp-format".on_attach(client)
-		-- end
 		["sumneko_lua"] = function ()
 			lspconfig.sumneko_lua.setup {
 				settings = {
@@ -62,22 +68,6 @@ M.config = function()
 			}
 		end,
 	}
-end
-
-M.get_connected_client_names = function()
-	local connected_clients = {}
-	local clients = vim.lsp.get_active_clients()
-	local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-
-	for _, client in pairs(clients) do
-		local filetypes = client.config.filetypes
-
-		if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-			table.insert(connected_clients, client.name)
-		end
-	end
-
-	return connected_clients
 end
 
 M.old_config = function()

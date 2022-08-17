@@ -2,8 +2,8 @@
 "
 " # Colors: somedarkterm1.
 "
-" Syntax highlight some dark terminal first, then you can change from dark to
-" light. Not opposite.
+" Handcrafted syntax highlight for some dark terminal first, then you can
+" change from dark to light. Not opposite.
 "
 " Design: purple blueish theme with cyan, yellow and whiteish primaries, based
 " on a certain profile pic---neon spaceish. Comments should be readable (no
@@ -80,7 +80,7 @@ hi Todo cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=9 guifg=#d595b5
 
 " OTHER SYNTAX
 
-hi Title cterm=bold gui=bold ctermfg=13 guifg=#9d95d5
+hi Title cterm=NONE gui=NONE ctermfg=7 guifg=#e0f0db
 hi markdownUrl ctermfg=5 guifg=#695dbb
 
 " UI
@@ -93,9 +93,9 @@ hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#171532
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#171532 ctermfg=13 guifg=#9d95d5
 hi Directory ctermfg=6 guifg=#5db0bb
 hi LineNr ctermfg=7 guifg=#7a78a1
-hi MatchParen cterm=underline,italic gui=bold ctermbg=0 guibg=#5a5d41 guifg=#9d95d5
-hi MatchParenCur cterm=underline gui=bold ctermbg=0 guibg=#5a5d41
-hi MatchWord cterm=underline ctermbg=0 guibg=#5a5d41
+hi MatchParen cterm=italic gui=italic ctermbg=8 guibg=#372f6f guifg=#9d95d5
+hi MatchParenCur cterm=NONE gui=NONE ctermbg=8 guibg=#372f6f
+hi MatchWord cterm=italic gui=italic ctermbg=8 guibg=#372f6f
 hi NonText gui=NONE ctermfg=8 guifg=#372f6f
 hi NvimInternalError ctermfg=9 ctermbg=9 guifg=#bb695d guibg=#bb695d
 hi Pmenu ctermbg=0 ctermfg=7 guibg=#171532 guifg=#e0f0db
@@ -106,7 +106,7 @@ hi StatusLine cterm=NONE gui=NONE ctermbg=16 guibg=#060609 ctermfg=5 guifg=#695d
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=16 guibg=#060609 ctermfg=8 guifg=#372f6f
 hi TabLine cterm=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE gui=NONE
 hi TabLineFill cterm=NONE gui=NONE
-hi Visual cterm=italic gui=NONE ctermbg=0 guibg=#372f6f " also affects TelescopePreviewLine
+hi Visual cterm=underline gui=underline ctermbg=8 guibg=#5a5d41 " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=5 guifg=#695dbb
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=5 guifg=#060609
 
@@ -148,6 +148,11 @@ hi! link FoldColumn Folded
 " Search
 hi IncSearch cterm=NONE gui=NONE ctermbg=11 ctermfg=0 guibg=#e0f0db guifg=#13131b
 hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#5a5d41 ctermfg=0 guifg=NONE
+
+" PLUGINS
+
+" mini.nvim
+hi MiniCursorword cterm=NONE gui=NONE ctermbg=8 guibg=#372f6f
 
 " Telescope
 hi! link TelescopePromptCounter Comment
