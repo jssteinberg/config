@@ -20,18 +20,18 @@
 " red#1      #bb695d red#9      #d59d95
 " green#2    #5dbba3 green#10   #95d5c8
 " yellow#3   #b0bb5d yellow#11  #cdd595 yellow_bg #5a5d41
-" blue#4     #97b1d3 blue#12    #9995d5
+" blue#4     #97b1d3 blue#12    #9995d5 blue_bg #2d486c
 " magenta#5  #695dbb magenta#13 #9d95d5
 " cyan#6     #5db0bb cyan#14    #95cdd5
 " white#7    #e0f0db white#15   #ffffff
 "
-" gray #7a78a1
-" pink #bb5d8c pink_bright #d595b5
+" gray #7d78a1
+" pink #bb5d8c pink_bright #d595b5 pink_bg #6c2d4d
 
 hi clear
 let g:colors_name = 'somedarkterm1'
 
-" hi Normal ctermfg=7 guifg=#e0f0db
+" hi Normal guibg=#13131b guifg=#cad7c6
 
 " GROUP NAMES (:h group-name)
 
@@ -92,12 +92,12 @@ hi CursorColumn cterm=bold gui=bold ctermbg=NONE guibg=#060609
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#171532
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#171532 ctermfg=13 guifg=#9d95d5
 hi Directory ctermfg=6 guifg=#5db0bb
-hi LineNr ctermfg=7 guifg=#7a78a1
+hi LineNr ctermfg=5 guifg=#7d78a1
 hi MatchParen cterm=italic gui=italic ctermbg=8 guibg=#372f6f guifg=#9d95d5
 hi MatchParenCur cterm=NONE gui=NONE ctermbg=8 guibg=#372f6f
 hi MatchWord cterm=italic gui=italic ctermbg=8 guibg=#372f6f
 hi NonText gui=NONE ctermfg=8 guifg=#372f6f
-hi NvimInternalError ctermfg=9 ctermbg=9 guifg=#bb695d guibg=#bb695d
+hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bb695d guibg=#bb695d
 hi Pmenu ctermbg=0 ctermfg=7 guibg=#171532 guifg=#e0f0db
 hi PmenuSel ctermbg=8 ctermfg=15 guibg=#372f6f guifg=#ffffff
 hi PmenuThumb     ctermbg=7 guibg=#e0f0db
@@ -106,19 +106,19 @@ hi StatusLine cterm=NONE gui=NONE ctermbg=16 guibg=#060609 ctermfg=5 guifg=#695d
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=16 guibg=#060609 ctermfg=8 guifg=#372f6f
 hi TabLine cterm=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE gui=NONE
 hi TabLineFill cterm=NONE gui=NONE
-hi Visual cterm=underline gui=underline ctermbg=8 guibg=#5a5d41 " also affects TelescopePreviewLine
+hi Visual cterm=bold gui=NONE ctermbg=8 guibg=#2d486c " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=5 guifg=#695dbb
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=5 guifg=#060609
 
 hi DiagnosticHint ctermfg=4 guifg=#9995d5
-hi DiagnosticError ctermfg=1 guifg=#d59d95
+hi DiagnosticError ctermfg=1 guifg=#bb695d
 hi DiagnosticInfo ctermfg=5 guifg=#695dbb
-hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#d59d95
+hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#bb695d
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#695dbb
 hi DiagnosticUnderlineInfo cterm=underline gui=underline guisp=#9995d5
 hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#372f6f
 
-hi Error ctermbg=NONE ctermfg=9 cterm=underline guibg=NONE guifg=#d59d95 gui=underline
+hi Error ctermbg=NONE ctermfg=1 cterm=underline guibg=NONE guifg=#bb695d gui=underline
 hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#cdd595 guifg=#13131b
 hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#95d5c8 guifg=#13131b
 hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d59d95 guifg=#13131b
@@ -138,8 +138,8 @@ hi! link WildMenu Pmenu
 " Diffs
 hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e0f0db
 hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bb695d
-hi DiffChange cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7a78a1
-hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#d59d95
+hi DiffChange cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
+hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e0f0db
 
 " Folds
 hi! link Folded Comment
