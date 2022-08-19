@@ -33,17 +33,19 @@ local function init()
 	-- Treesitter
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		requires = { 'nvim-treesitter/playground',  'JoosepAlviste/nvim-ts-context-commentstring' },
+		requires = { 'nvim-treesitter/playground', 'JoosepAlviste/nvim-ts-context-commentstring' },
 		config = function() require 'packages.treesitter'.config() end
 	}
 
 	-- Mini plugins
 	use {
 		'echasnovski/mini.nvim',
-		requires = { 'nvim-treesitter/nvim-treesitter' },
-		config = function ()
+		requires = { 'nvim-treesitter/nvim-treesitter', 'JoosepAlviste/nvim-ts-context-commentstring' },
+		config = function()
+
 			-- Highlight word under cursor
 			require('mini.cursorword').setup({})
+
 			-- Comment in/out
 			require('mini.comment').setup({
 				hooks = {
@@ -56,6 +58,7 @@ local function init()
 					end,
 				},
 			})
+
 		end
 	}
 

@@ -1,10 +1,5 @@
 local M = {}
 
-M.format_on_save = {
-	"sumneko_lua",
-	"svelte",
-}
-
 -- Register keymaps per buffer
 M.register_keymaps = function(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -50,14 +45,19 @@ M.config = function()
 		-- The first entry (without a key) will be the default handler
 		-- and will be called for each installed server that doesn't have
 		-- a dedicated handler.
-		function (server_name) -- default handler (optional)
+		function(server_name) -- default handler (optional)
 			lspconfig[server_name].setup {
 				on_attach = on_attach_general
 			}
 		end,
-		-- Next, you can provide targeted overrides for specific servers.
-		["sumneko_lua"] = function ()
+		["svelte"] = function()
+			lspconfig.svelte.setup {
+				on_attach = require "lsp-format".on_attach,
+			}
+		end,
+		["sumneko_lua"] = function()
 			lspconfig.sumneko_lua.setup {
+				on_attach = require "lsp-format".on_attach,
 				settings = {
 					Lua = {
 						diagnostics = {
@@ -68,28 +68,6 @@ M.config = function()
 			}
 		end,
 	}
-end
-
-M.old_config = function()
-	require("lsp-format").setup {}
-
-	local lsp_installer = require('nvim-lsp-installer')
-
-	-- Handler that's called for all installed servers
-	lsp_installer.on_server_ready(function(server)
-		if string.find(table.concat(M.format_on_save, " "), server.name) then
-			server:setup({
-				on_attach = function(client, bufnr)
-					on_attach_general(client, bufnr)
-					require "lsp-format".on_attach(client)
-				end
-			})
-		else
-			server:setup({ on_attach = on_attach_general, })
-		end
-
-		vim.cmd [[ do User LspAttachBuffers ]]
-	end)
 end
 
 return M
