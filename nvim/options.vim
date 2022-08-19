@@ -7,7 +7,7 @@ set hidden
 set fileencoding=utf-8
 set foldmethod=indent nofoldenable
 set ignorecase smartcase
-set list listchars+=tab:\›\ 
+set list listchars+=tab:\~\ 
 " set list listchars+=tab:\·\ 
 " fillchars+=vert:\·
 set number relativenumber signcolumn=yes
