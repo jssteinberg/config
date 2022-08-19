@@ -19,16 +19,11 @@ local function init()
 	use { 'wuelnerdotexe/vim-enfocado' } -- colorscheme
 	use { 'tpope/vim-repeat' } -- Extend `.` repeat
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
-	use { 'echasnovski/mini.nvim', config = function ()
-		require('mini.cursorword').setup({})
-	end }
 
 	-- Project drawer
 	use { 'lambdalisue/fern.vim', branch = "main", requires = {
 		'antoinemadec/FixCursorHold.nvim', 'lambdalisue/fern-hijack.vim'
 	} }
-	-- let g:fern#default_hidden=1
-	-- vim.g.fern.default_hidden = true
 
 	-- Open/search with `gx`
 	use { 'tyru/open-browser.vim', config = function()
@@ -38,8 +33,30 @@ local function init()
 	-- Treesitter
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		requires = { "nvim-treesitter/playground" },
+		requires = { 'nvim-treesitter/playground',  'JoosepAlviste/nvim-ts-context-commentstring' },
 		config = function() require 'packages.treesitter'.config() end
+	}
+
+	-- Mini plugins
+	use {
+		'echasnovski/mini.nvim',
+		requires = { 'nvim-treesitter/nvim-treesitter' },
+		config = function ()
+			-- Highlight word under cursor
+			require('mini.cursorword').setup({})
+			-- Comment in/out
+			require('mini.comment').setup({
+				hooks = {
+					pre = function()
+						local buf = vim.api.nvim_get_current_buf()
+						local highlighter = require "vim.treesitter.highlighter"
+						if highlighter.active[buf] then
+							require('ts_context_commentstring.internal').update_commentstring()
+						end
+					end,
+				},
+			})
+		end
 	}
 
 	-- Statusline
@@ -125,12 +142,6 @@ local function init()
 	end }
 
 	use { 'andymass/vim-matchup', event = 'CursorHold' }
-
-	-- gcc, gc in visual mode, to (un)comment. Lua
-	use {
-		'terrortylor/nvim-comment', keys = { { 'n', 'gcc' }, { 'x', 'gc' }, },
-		config = function() require('nvim_comment').setup({}) end
-	}
 
 	-- Better f, F, t, T, repeatable with f/F, and s motion
 	use {

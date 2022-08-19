@@ -147,7 +147,7 @@ hi! link FoldColumn Folded
 
 " Search
 hi IncSearch cterm=NONE gui=NONE ctermbg=11 ctermfg=0 guibg=#e5f2e0 guifg=#121118
-hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#656d2c ctermfg=0 guifg=NONE
+hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c486d ctermfg=0 guifg=NONE
 
 " PLUGINS
 

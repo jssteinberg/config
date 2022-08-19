@@ -25,6 +25,11 @@ M.config = function()
 				goto_node = "<cr>",
 				show_help = "?",
 			},
+		},
+		-- For JoosepAlviste/nvim-ts-context-commentstring
+		context_commentstring = {
+			enable = true,
+			enable_autocmd = false,
 		}
 	})
 end
