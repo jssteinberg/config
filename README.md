@@ -45,7 +45,7 @@ For NVM, to update npm at the same time add the `--latest-npm` flag, like this:
 nvm install 'lts/*' --reinstall-packages-from=default --latest-npm
 ```
 
-## Vim >= 8 +lua
+## Vim 8 +lua
 
 A simple Vim config in a single vimrc. It can be used as a boilerplate and works without packages/plugins. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim >= version 8 +lua.*
 
@@ -60,10 +60,6 @@ Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripg
 
 - `:TSInstall all`/`:TSUpdate`
 - `:LspInstallInfo` and `i`/`U`
-
-### Room for improvement
-
-...
 
 ### Plugins to consider
 
@@ -84,15 +80,15 @@ Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripg
 
 - Neovim packer errors on launch:
 
-	1. `nvim ~/.config/nvim/lua/packages/init.lua`
-	2. `:luafile %`
-	3. `:PackerInstall`, `:PackerSync`. Restart neovim, repeat.
+	1. (Re)launch Neovim, `nvim`
+	2. `:PackerSync`.
+	3. Restart neovim, repeat.
 
 - Neovim Treesitter "missing xcrun" for Macos: `xcode-select --install`
 
-- Neovim css autocompletion with css-lsp may depend on native non-LSP omnifunc.
+- Neovim Treesitter "error executing Lua": https://github.com/nvim-treesitter/nvim-treesitter/issues/3092
 
-- Neovim has no lsp for javascript/typescript: If you use nvm, also install a system nodejs with your system package manager.
+- Neovim css autocompletion with css-lsp may depend on native non-LSP omnifunc.
 
 
 [gl]: https://github.com/junegunn/gv.vim

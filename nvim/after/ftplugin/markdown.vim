@@ -3,7 +3,9 @@ setlocal noexpandtab
 setlocal noswapfile
 
 let g:markdown_fenced_languages = [
+			\"bash",
 			\"lua",
+			\"sh",
 			\"vim",
 			\]
 

@@ -29,9 +29,7 @@ end
 
 M.config = function()
 	local lspconfig = require("lspconfig")
-
-	-- General LSP config for buffer
-	local on_attach_general = function(client, bufnr)
+	local on_attach = function(client, bufnr)
 		M.register_keymaps(bufnr)
 		-- Use LSP completion
 		vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -40,14 +38,13 @@ M.config = function()
 	require("mason").setup {}
 	require("mason-lspconfig").setup()
 	require("lsp-format").setup {}
-
 	require("mason-lspconfig").setup_handlers {
 		-- The first entry (without a key) will be the default handler
 		-- and will be called for each installed server that doesn't have
 		-- a dedicated handler.
 		function(server_name) -- default handler (optional)
 			lspconfig[server_name].setup {
-				on_attach = on_attach_general
+				on_attach = on_attach
 			}
 		end,
 		["svelte"] = function()

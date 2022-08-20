@@ -80,7 +80,7 @@ hi Todo cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
 
 " OTHER SYNTAX
 
-hi Title cterm=NONE gui=NONE ctermfg=7 guifg=#e5f2e0
+hi Title cterm=NONE gui=NONE ctermfg=13 guifg=#a19ad6
 hi markdownUrl ctermfg=5 guifg=#685cbc
 
 " UI
@@ -102,13 +102,12 @@ hi Pmenu ctermbg=0 ctermfg=7 guibg=#181533 guifg=#e5f2e0
 hi PmenuSel ctermbg=8 ctermfg=15 guibg=#342c6d guifg=#ffffff
 hi PmenuThumb     ctermbg=7 guibg=#e5f2e0
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9aced6
-hi StatusLine cterm=NONE gui=NONE ctermbg=16 guibg=#05040b ctermfg=5 guifg=#685cbc
-hi StatusLineNC cterm=NONE gui=NONE ctermbg=16 guibg=#05040b ctermfg=8 guifg=#342c6d
-hi TabLine cterm=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE gui=NONE
-hi TabLineFill cterm=NONE gui=NONE
+hi StatusLine cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d ctermfg=13 guifg=#a19ad6
+hi StatusLineNC cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d ctermfg=5 guifg=#685cbc
+hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#181533
 hi Visual cterm=bold gui=NONE ctermbg=8 guibg=#6d342c " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=5 guifg=#685cbc
-hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=5 guifg=#05040b
+hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
 
 hi DiagnosticHint ctermfg=4 guifg=#9d9ad6
 hi DiagnosticError ctermfg=1 guifg=#bc685c
@@ -132,6 +131,9 @@ hi! link MoreMsg Type
 hi! link PmenuSbar Pmenu
 hi! link Question Type
 hi! link SpellBad ErrorMsg
+hi! link TabLine LineNr
+hi! link TabLineFill LineNr
+hi! link TabLineSel CursorLineNr
 hi! link WinBarNC WinSeparator
 hi! link WildMenu Pmenu
 
@@ -146,7 +148,7 @@ hi! link Folded Comment
 hi! link FoldColumn Folded
 
 " Search
-hi IncSearch cterm=NONE gui=NONE ctermbg=11 ctermfg=0 guibg=#e5f2e0 guifg=#121118
+hi IncSearch cterm=NONE gui=NONE ctermbg=11 ctermfg=0 guibg=#656d2c guifg=NONE
 hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c486d ctermfg=0 guifg=NONE
 
 " PLUGINS

@@ -40,7 +40,6 @@ local function init()
 	-- Mini plugins
 	use {
 		'echasnovski/mini.nvim',
-		requires = { 'nvim-treesitter/nvim-treesitter', 'JoosepAlviste/nvim-ts-context-commentstring' },
 		config = function()
 
 			-- Highlight word under cursor
