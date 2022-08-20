@@ -113,14 +113,6 @@ local function init()
 		end
 	}
 
-	-- Tabnine completion
-	-- use {
-	-- 	'tzachar/cmp-tabnine',
-	-- 	run = './install.sh',
-	-- 	requires = 'hrsh7th/nvim-cmp',
-	-- 	config = function() require "packages.cmp".tabnine() end
-	-- }
-
 	use {
 		'jose-elias-alvarez/null-ls.nvim',
 		requires = { 'nvim-lua/plenary', 'neovim/nvim-lspconfig' },
