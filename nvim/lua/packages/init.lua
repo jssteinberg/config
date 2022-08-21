@@ -218,6 +218,18 @@ local function init()
 	-- ### UTIL
 
 	use {
+		"amrbashir/nvim-docs-view",
+		opt = true,
+		cmd = { "DocsViewToggle" },
+		config = function()
+			require("docs-view").setup {
+				position = "right",
+				width = 60,
+			}
+		end
+	}
+
+	use {
 		"norcalli/nvim-colorizer.lua",
 		cmd = { "ColorizerToggle" },
 		config = function() require 'colorizer'.setup() end

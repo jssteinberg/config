@@ -98,9 +98,9 @@ hi MatchParenCur cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d
 hi MatchWord cterm=italic gui=italic ctermbg=8 guibg=#342c6d
 hi NonText gui=NONE ctermfg=8 guifg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc685c guibg=#bc685c
-hi Pmenu ctermbg=0 ctermfg=7 guibg=#181533 guifg=#e5f2e0
-hi PmenuSel ctermbg=8 ctermfg=15 guibg=#342c6d guifg=#ffffff
-hi PmenuThumb     ctermbg=7 guibg=#e5f2e0
+hi Pmenu    ctermbg=8 guibg=#342c6d ctermfg=13 guifg=#a19ad6
+hi PmenuSel ctermbg=8 guibg=#342c6d ctermfg=7 guifg=#e5f2e0
+hi PmenuThumb ctermbg=5 guibg=#181533
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9aced6
 hi StatusLine cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d ctermfg=13 guifg=#a19ad6
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d ctermfg=5 guifg=#685cbc
