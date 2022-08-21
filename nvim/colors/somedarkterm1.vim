@@ -85,10 +85,10 @@ hi markdownUrl ctermfg=5 guifg=#685cbc
 
 " UI
 
-hi ColorColumn ctermbg=8 guibg=#342c6d
+hi ColorColumn ctermbg=8 guibg=#05040b
 hi Conceal ctermbg=8 guifg=#e5f2e0 guibg=#342c6d
 hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e6e5ed guifg=#121118 gui=NONE
-hi CursorColumn cterm=bold gui=bold ctermbg=NONE guibg=#05040b
+hi CursorColumn cterm=bold gui=bold ctermbg=0 guibg=#181533
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#181533
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#181533 ctermfg=13 guifg=#a19ad6
 hi Directory ctermfg=6 guifg=#5cb1bc
