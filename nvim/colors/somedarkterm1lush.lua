@@ -1,13 +1,13 @@
 local lush = require('lush')
 local hsl = lush.hsl
 
+-- Colors
 local hue = 247.3;
 local sat = 42;
-
+local some_bg = hsl("#121118")
+local some_fg = hsl("#e6e5ed")
 local some = {
-	bg = hsl(hue, 17.8, 8),
-	fg = hsl(hue, 17.8, 91.5),
-
+	black = { hsl("#181533"), hsl("#342c6d") }
 	-- { i = 0, h = priHue, s = sat, l = "14", name = "black" },
 	-- { i = 8, h = priHue, s = sat, l = "30", name = "black" },
 	--
@@ -72,7 +72,7 @@ local theme = lush(function()
 		-- Set a highlight group from hsl variables
 		-- Uncomment "Normal"
 		-- Normal { bg = sea_deep, fg = sea_foam }, -- normal text
-		Normal { bg = some.bg, fg = some.fg }, -- normal text
+		Normal { bg = some_bg, fg = some_fg }, -- normal text
 
 		-- You should be on the water now, Lush.ify has automatically
 		-- recognized our Highlight definition and applied it in real time.
