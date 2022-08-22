@@ -8,6 +8,7 @@
 " s: search files
 " t: tab
 " q: quickfix
+" C: tabclose
 " G: grep
 " Q: quickfix window
 " R: replace (search and replace)
@@ -53,7 +54,7 @@ nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>ew :edit **/*
 nnoremap <leader>tb :tabedit %<cr>'"
-nnoremap <leader>tc :tabclose<cr>
+nnoremap <leader>C :tabclose<cr>
 " fern
 nnoremap <silent> <leader>eh :Fern %:p:.:h -reveal=%<cr>
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>

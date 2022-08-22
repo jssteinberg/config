@@ -12,7 +12,7 @@ Requires: git ... Install with your OS package manager.
 2. git clone as ~/.config
 3. tmux and (not neo)vim
 
-	```sh
+	```bash
 	ln -s .config/tmux.conf .tmux.conf
 	ln -s .config/vimrc .vimrc
 	```
@@ -33,16 +33,10 @@ Requires: git ... Install with your OS package manager.
 
 Adding global fish config from the shell:
 
-```sh
+```fish
 set -Ux EDITOR "nvim"
 alias gt "git checkout --track"
 funcsave gt
-```
-
-For NVM, to update npm at the same time add the `--latest-npm` flag, like this:
-
-```sh
-nvm install 'lts/*' --reinstall-packages-from=default --latest-npm
 ```
 
 ## Vim 8 +lua
@@ -74,7 +68,7 @@ Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripg
 
 - UTF-8 fish, tmux, neovim LANG, LC_ALL error. Try adding this to your `~/.config/fish/config.fish`:
 
-	```sh
+	```bash
 	set -gx  LC_ALL en_US.UTF-8
 	```
 

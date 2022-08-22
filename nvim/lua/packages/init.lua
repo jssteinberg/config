@@ -11,14 +11,10 @@ local function init()
 	packer.reset()
 
 	use { 'wbthomason/packer.nvim', opt = true }
-
-	use { 'nathom/filetype.nvim', config = function()
-		require 'packages.filetype'.config()
-	end }
-
-	use { 'wuelnerdotexe/vim-enfocado' } -- colorscheme
+	use { 'nathom/filetype.nvim', config = function() require 'packages.filetype'.config() end }
 	use { 'tpope/vim-repeat' } -- Extend `.` repeat
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
+	use { "catppuccin/nvim", as = "catppuccin" }
 
 	-- Project drawer
 	use { 'lambdalisue/fern.vim', branch = "main", requires = {
@@ -35,30 +31,6 @@ local function init()
 		'nvim-treesitter/nvim-treesitter',
 		requires = { 'nvim-treesitter/playground', 'JoosepAlviste/nvim-ts-context-commentstring' },
 		config = function() require 'packages.treesitter'.config() end
-	}
-
-	-- Mini plugins
-	use {
-		'echasnovski/mini.nvim',
-		config = function()
-
-			-- Highlight word under cursor
-			require('mini.cursorword').setup({})
-
-			-- Comment in/out
-			require('mini.comment').setup({
-				hooks = {
-					pre = function()
-						local buf = vim.api.nvim_get_current_buf()
-						local highlighter = require "vim.treesitter.highlighter"
-						if highlighter.active[buf] then
-							require('ts_context_commentstring.internal').update_commentstring()
-						end
-					end,
-				},
-			})
-
-		end
 	}
 
 	-- Statusline
@@ -120,22 +92,47 @@ local function init()
 		end
 	}
 
+	-- Mini plugins
+	use {
+		'echasnovski/mini.nvim',
+		config = function()
+
+			-- Highlight word under cursor
+			require('mini.cursorword').setup({})
+
+			-- Comment in/out
+			require('mini.comment').setup({
+				hooks = {
+					pre = function()
+						local buf = vim.api.nvim_get_current_buf()
+						local highlighter = require "vim.treesitter.highlighter"
+						if highlighter.active[buf] then
+							require('ts_context_commentstring.internal').update_commentstring()
+						end
+					end,
+				},
+			})
+
+		end
+	}
+
 
 	-- LAZY LOADED
 	-- -----------
+
+	use { 'rktjmp/lush.nvim', cmd = { 'LushRunQuickstart', 'LushRunTutorial', 'Lushify' } }
 
 	-- ### EDIT/MOVE
 
 	use { 'tpope/vim-surround', keys = { { 'n', 'ys' }, { 'n', 'c' }, { 'n', 'd' }, { 'v', 'S' } } }
 	use { 'tommcdo/vim-lion', keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
+	use { 'andymass/vim-matchup', event = 'CursorHold' } -- better matching functionality
 	use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
 
 	-- auto pair completion
 	use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function()
 		require('nvim-autopairs').setup {}
 	end }
-
-	use { 'andymass/vim-matchup', event = 'CursorHold' }
 
 	-- Better f, F, t, T, repeatable with f/F, and s motion
 	use {

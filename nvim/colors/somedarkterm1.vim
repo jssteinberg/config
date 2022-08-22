@@ -5,14 +5,6 @@
 " Handcrafted syntax highlight for some dark terminal first, then you can
 " change from dark to light. Not opposite.
 "
-" Design: purple blueish theme with cyan, yellow and whiteish primaries, based
-" on a certain profile pic---neon spaceish. Comments should be readable (no
-" grey but dimmed down color variant), not all syntax is important and some
-" secondary syntax can have dimmed down color variant.
-" Function: base 16 when notermguicolors; extended color details when
-" termguicolors.
-" Supports: gitsigns, vim-matchup, WinBar, Telescope
-"
 " background #121118
 " foreground #e6e5ed
 "
@@ -27,6 +19,17 @@
 "
 " gray #7d78a1
 " pink #985cbc pink_bright #bf9ad6
+"
+" Design: purple blueish theme with cyan, yellow and whiteish primaries, based
+" on a certain profile pic---neon spaceish. Comments should be readable (no
+" grey but dimmed down color variant), not all syntax is important and some
+" secondary syntax can have dimmed down color variant.
+" Function: base 16 when notermguicolors; extended color details when
+" termguicolors.
+" Supports: gitsigns, vim-matchup, WinBar, Telescope
+" Util:
+" - Error: red#1
+" - Warning/orange: red#9/yellow*
 
 hi clear
 let g:colors_name = 'somedarkterm1'
@@ -140,7 +143,7 @@ hi! link WildMenu Pmenu
 " Diffs
 hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e5f2e0
 hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc685c
-hi DiffChange cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
+hi DiffChange cterm=italic gui=italic ctermbg=NONE guibg=NONE ctermfg=9 guifg=#d6a19a
 hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e5f2e0
 
 " Folds
