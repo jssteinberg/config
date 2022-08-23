@@ -2,7 +2,7 @@
 
 set clipboard=unnamedplus
 set copyindent
-set cursorline cursorcolumn
+set colorcolumn=80 cursorline cursorcolumn
 set hidden
 set fileencoding=utf-8
 set foldmethod=indent nofoldenable

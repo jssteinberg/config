@@ -1,4 +1,4 @@
-let s:d = "set termguicolors t_Co=256 bg=dark nocursorcolumn"
+let s:d = "set termguicolors t_Co=256 bg=dark"
 			\." | colo somedarkterm1"
 
 function! SetColoOpts()
@@ -9,7 +9,7 @@ function! CycleColo()
 	if &bg == 'dark'
 		let g:catppuccin_flavour = "latte" " latte, frappe, macchiato, mocha
 		lua require("catppuccin").setup()
-		set termguicolors t_Co=256 cursorcolumn
+		set termguicolors t_Co=256
 		colorscheme catppuccin
 	else
 		exe(s:d)
