@@ -75,7 +75,7 @@ M.config = function()
 				hide_dotfiles = false,
 				hide_gitignored = false,
 			},
-			hijack_netrw_behavior = "disabled",
+			hijack_netrw_behavior = "open_current",
 		},
 		buffers = {
 			window = {

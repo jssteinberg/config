@@ -56,14 +56,11 @@ nnoremap <leader>ew :edit **/*
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>C :tabclose<cr>
 " fern
-nnoremap <silent> <leader>eh :Fern %:p:.:h -reveal=%<cr>
-nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
-nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
+nnoremap <silent> <leader>eh :edit %:p:.:h<cr>
+nnoremap <silent> <leader>e. :edit .<cr>
 " neo-tree
 nnoremap <silent> <leader>ed :Neotree reveal toggle<cr>
-
-" Find
-nnoremap <leader>fh :edit %:h<c-z>*
+nnoremap <silent> <leader>et :Neotree reveal toggle<cr>
 
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>

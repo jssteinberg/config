@@ -16,14 +16,14 @@ local function init()
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 	use { "catppuccin/nvim", as = "catppuccin" }
 
-	-- Project drawer
-	use { 'lambdalisue/fern.vim', branch = "main", requires = {
-		'antoinemadec/FixCursorHold.nvim', 'lambdalisue/fern-hijack.vim'
-	} }
-
 	-- Open/search with `gx`
 	use { 'tyru/open-browser.vim', config = function()
 		require 'packages.openbrowser'.config()
+	end }
+
+	-- Gitsigns
+	use { "lewis6991/gitsigns.nvim", config = function()
+		require('gitsigns').setup()
 	end }
 
 	-- Treesitter
@@ -31,6 +31,30 @@ local function init()
 		'nvim-treesitter/nvim-treesitter',
 		requires = { 'nvim-treesitter/playground', 'JoosepAlviste/nvim-ts-context-commentstring' },
 		config = function() require 'packages.treesitter'.config() end
+	}
+
+	-- Quick switch files and terminals
+	use {
+		'ThePrimeagen/harpoon',
+		requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' },
+		config = function()
+			require('harpoon').setup({
+				global_settings = { save_on_toggle = true },
+			})
+		end
+	}
+
+	-- Project drawer
+	vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+	use { 'MunifTanjim/nui.nvim' --[[, cmd = { 'Neotree' } ]] }
+	use {
+		'nvim-neo-tree/neo-tree.nvim',
+		branch = 'v2.x',
+		after = 'nui.nvim',
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require 'packages.neo-tree'.config()
+		end
 	}
 
 	-- Statusline
@@ -50,23 +74,6 @@ local function init()
 			vim.g.hackline_highlight_select = 'IncSearch'
 			vim.g.hackline_highlight_command = 'IncSearch'
 			vim.g.hackline_highlight_terminal = 'IncSearch'
-		end
-	}
-
-	-- Gitsigns
-	use {
-		"lewis6991/gitsigns.nvim",
-		config = function() require('gitsigns').setup() end
-	}
-
-	-- Quick switch files and terminals
-	use {
-		'ThePrimeagen/harpoon',
-		requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' },
-		config = function()
-			require('harpoon').setup({
-				global_settings = { save_on_toggle = true },
-			})
 		end
 	}
 
@@ -127,8 +134,6 @@ local function init()
 	-- LAZY LOADED
 	-- -----------
 
-	use { 'rktjmp/lush.nvim', cmd = { 'LushRunQuickstart', 'LushRunTutorial', 'Lushify' } }
-
 	-- ### EDIT/MOVE
 
 	use { 'tpope/vim-surround', keys = { { 'n', 'ys' }, { 'n', 'c' }, { 'n', 'd' }, { 'v', 'S' } } }
@@ -163,19 +168,7 @@ local function init()
 	use { 'subnut/visualstar.vim', keys = { { 'x', '*' }, { 'x', '#' }, } }
 
 	-- Quickfix
-	use {
-		'kevinhwang91/nvim-bqf',
-		ft = 'qf',
-		-- config = function()
-		-- 	require "bqf".setup({
-		-- 		preview = {
-		-- 			wrap = {
-		-- 				default = true
-		-- 			},
-		-- 		}
-		-- 	})
-		-- end
-	}
+	use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
 
 	-- Fuzzy searcher
 	use {
@@ -184,18 +177,6 @@ local function init()
 		cmd = 'Telescope',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function() require 'packages.telescope'.config() end
-	}
-
-	-- Project drawer
-	use { 'MunifTanjim/nui.nvim', cmd = { 'Neotree' } }
-	use {
-		'nvim-neo-tree/neo-tree.nvim',
-		branch = 'v2.x',
-		after = 'nui.nvim',
-		requires = { 'nvim-lua/plenary.nvim' },
-		config = function()
-			require 'packages.neo-tree'.config()
-		end
 	}
 
 	-- ### GIT
@@ -221,26 +202,17 @@ local function init()
 
 	-- ### UTIL
 
-	use {
-		"amrbashir/nvim-docs-view",
-		opt = true,
-		cmd = { "DocsViewToggle" },
-		config = function()
-			require("docs-view").setup {
-				position = "right",
-				width = 60,
-			}
-		end
-	}
+	-- Measure startuptime
+	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
+
+	-- Colors
+	use { 'rktjmp/lush.nvim', cmd = { 'LushRunQuickstart', 'LushRunTutorial', 'Lushify' } }
 
 	use {
 		"norcalli/nvim-colorizer.lua",
 		cmd = { "ColorizerToggle" },
 		config = function() require 'colorizer'.setup() end
 	}
-
-	-- Measure startuptime
-	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
 
 end
 
