@@ -101,12 +101,13 @@ hi MatchParenCur cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d
 hi MatchWord cterm=italic gui=italic ctermbg=8 guibg=#342c6d
 hi NonText gui=NONE ctermfg=8 guifg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc685c guibg=#bc685c
-hi Pmenu    ctermbg=8 guibg=#342c6d ctermfg=13 guifg=#a19ad6
-hi PmenuSel ctermbg=8 guibg=#342c6d ctermfg=7 guifg=#e5f2e0
-hi PmenuThumb ctermbg=5 guibg=#181533
+hi Pmenu      ctermbg=0 guibg=#181533 ctermfg=5 guifg=#7d78a1 " Pmenu affects some floating windows
+hi PmenuSel   ctermbg=0 guibg=#181533 ctermfg=7 guifg=#e5f2e0 " Pmenu affects some floating windows
+hi! link PmenuSbar Pmenu
+hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9aced6
-hi StatusLine cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d ctermfg=13 guifg=#a19ad6
-hi StatusLineNC cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d ctermfg=5 guifg=#685cbc
+hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a19ad6
+hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685cbc
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#181533
 hi Visual cterm=bold gui=NONE ctermbg=8 guibg=#6d342c " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=5 guifg=#685cbc
@@ -131,7 +132,6 @@ hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
 hi! link DiagnosticWarn WarningMsg
 hi! link ErrorMsg Error
 hi! link MoreMsg Type
-hi! link PmenuSbar Pmenu
 hi! link Question Type
 hi! link SpellBad ErrorMsg
 hi! link TabLine LineNr
