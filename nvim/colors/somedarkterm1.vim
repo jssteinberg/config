@@ -157,6 +157,9 @@ hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c486d ctermfg=0 guifg=NONE
 
 " PLUGINS
 
+" clever-f
+hi! link CleverFDefaultLabel IncSearch
+
 " leap.nvim
 hi! link LeapLabelPrimary IncSearch
 

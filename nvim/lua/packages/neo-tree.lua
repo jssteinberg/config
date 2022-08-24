@@ -70,12 +70,13 @@ M.config = function()
 			}
 		},
 		filesystem = {
+			bind_to_cwd = false, -- true creates a 2-way binding between vim's cwd and neo-tree's root
 			follow_current_file = true,
 			filtered_items = {
 				hide_dotfiles = false,
 				hide_gitignored = false,
 			},
-			bind_to_cwd = false, -- true creates a 2-way binding between vim's cwd and neo-tree's root
+			hijack_netrw_behavior = "disabled",
 		},
 		buffers = {
 			window = {

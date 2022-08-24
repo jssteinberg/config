@@ -44,7 +44,7 @@ M.config = function()
 			},
 		},
 		experimental = {
-			ghost_text = true,
+			ghost_text = { hl_group = "LineNr" },
 		},
 		snippet = {
 			expand = function(args)

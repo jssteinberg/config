@@ -11,6 +11,12 @@ source $HOME/.config/nvim/colorscheme.vim
 
 call SetColoOpts()
 
+let g:netrw_altfile = 1
+let g:netrw_alto = 1
+let g:netrw_altv = 1
+let g:netrw_banner = 0
+let g:netrw_liststyle = 1
+let g:netrw_sort_by = "exten"
 
 lua << EOF
 	vim.cmd [[command! PackerInstall packadd packer.nvim | lua require('packages').install()]]
@@ -23,9 +29,6 @@ lua << EOF
 EOF
 
 function! SlashLine() abort
-	" let g:hackline_branch_sign = " "
-	" let g:hackline_separators = #{ l: "", r: "" }
-	" let g:hackline_separators = #{ l: "\uE0BD", r: "\uE0BD" }
 	let g:hackline_separators     = #{ l: "/", r: "/" }
 
 	let g:hackline_modified       = "2"

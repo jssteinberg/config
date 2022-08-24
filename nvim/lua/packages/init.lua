@@ -33,17 +33,6 @@ local function init()
 		config = function() require 'packages.treesitter'.config() end
 	}
 
-	-- Quick switch files and terminals
-	use {
-		'ThePrimeagen/harpoon',
-		requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' },
-		config = function()
-			require('harpoon').setup({
-				global_settings = { save_on_toggle = true },
-			})
-		end
-	}
-
 	-- Statusline
 	use {
 		"jssteinberg/hackline.vim",
@@ -93,18 +82,20 @@ local function init()
 		end
 	}
 
+	use {
+		"RRethy/vim-illuminate",
+		event = "CursorHold"
+	}
+
 	-- Mini plugins
 	use {
 		'echasnovski/mini.nvim',
 		config = function()
 
-			-- Highlight word under cursor
-			require('mini.cursorword').setup({})
+			-- Highlight word under cursor (replace)
+			-- require('mini.cursorword').setup({})
 
-			-- Jump across line with f/t/F/T
-			require('mini.jump').setup({})
-
-			-- Comment in/out
+			-- Comment in/out (replace)
 			require('mini.comment').setup({
 				hooks = {
 					pre = function()
@@ -136,7 +127,13 @@ local function init()
 		require('nvim-autopairs').setup {}
 	end }
 
-	-- Better f, F, t, T, repeatable with f/F, and s motion
+	-- Better f, F, t, T motion, repeatable with f/F
+	use { 'rhysd/clever-f.vim', keys = {
+		{ 'n', 'f' }, { 'n', 'F' }, { 'n', 't' }, { 'n', 'T' },
+		{ 'x', 'f' }, { 'x', 'F' }, { 'x', 't' }, { 'x', 'T' }
+	} }
+
+	-- Leap s/S motion
 	use {
 		'ggandor/leap.nvim',
 		keys = {
