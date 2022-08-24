@@ -74,18 +74,6 @@ local theme = lush(function()
 		-- Normal { bg = sea_deep, fg = sea_foam }, -- normal text
 		Normal { bg = some_bg, fg = some_fg }, -- normal text
 
-		-- You should be on the water now, Lush.ify has automatically
-		-- recognized our Highlight definition and applied it in real time.
-		-- Note: This is applied *vim wide* so other buffers reflect your changes
-		--       too. Try opening up a project in a split to see your new theme in
-		--       a real setting.
-
-		-- Lush is most useful when you use previously defined groups aid in
-		-- picking colours for future groups.
-		--
-		-- For example, lets set our cursorline (if enabled: `setlocal cursorline`)
-		-- to be slightly lighter than our normal background.
-		--
 		-- Set a highlight group from another highlight group
 		-- CursorLine { bg = Normal.bg.lighten(5) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
 
@@ -126,28 +114,6 @@ local theme = lush(function()
 
 		-- We can also mix colours together
 		-- Type         { fg = Normal.fg.mix(LineNr.fg, 30) }
-
-		-- And that's the basics of using Lush!
-		--
-		-- If you want to know more about exporting themes for use without lush
-		-- (for distribution) or integration with other plugins (such as
-		-- lightline), see the bottom of this file `/export-external`, the README,
-		-- or the examples folder.
-
-		-- For experimentation, below is all the Neovim default highlight groups
-		-- from docs as of 0.5.0-812.
-		--
-		-- If you wish to create a theme, it's recommended you copy the template
-		-- folder from the examples folder.
-		--
-		-- Referenced/linked groups must come before being referenced/linked,
-		-- (i.e. above we create Normal before trying to set CursorLine)
-		-- so the order shown ((mostly) alphabetical) is likely
-		-- not the order you will end up with.
-		--
-		-- You can uncomment these and leave them empty to disable any
-		-- styling for that group (meaning they mostly get styled as Normal)
-		-- or leave them commented to apply vims default colouring or linking.
 
 		-- NormalFloat  { }, -- Normal text in floating windows.
 		-- ColorColumn  { }, -- used for the columns set with 'colorcolumn'
