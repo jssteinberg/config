@@ -75,7 +75,7 @@ M.config = function()
 				hide_dotfiles = false,
 				hide_gitignored = false,
 			},
-			hijack_netrw_behavior = "open_current",
+			bind_to_cwd = false, -- true creates a 2-way binding between vim's cwd and neo-tree's root
 		},
 		buffers = {
 			window = {

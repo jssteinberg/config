@@ -1,5 +1,5 @@
 " <leader>
-" b: buffer
+" b: buffer alternate
 " c: color
 " e: edit
 " g: git
@@ -14,13 +14,16 @@
 " R: replace (search and replace)
 " X: git(signs) reset
 
-nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
+"
+nnoremap <leader>ec :tabedit $MYVIMRC<cr>:tcd %:h<cr>
 
-" Better defaults
+" Better default indent
 vnoremap < <gv
 vnoremap > >gv
+" Better default cmdline browsing
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
+" Better default move across wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
 
@@ -53,13 +56,13 @@ nnoremap <silent> <leader>w :w<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>ew :edit **/*
+nnoremap <leader>fw :find **/*
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>C :tabclose<cr>
-" fern
-nnoremap <silent> <leader>eh :edit %:p:.:h<cr>
-nnoremap <silent> <leader>e. :edit .<cr>
 " neo-tree
-nnoremap <silent> <leader>ed :Neotree reveal toggle<cr>
+nnoremap <silent> <leader>e. :Neotree current dir=.<cr>
+nnoremap <silent> <leader>ed :Neotree action=show toggle<cr>
+nnoremap <silent> <leader>eh :Neotree current dir=%:p:.:h<cr>
 nnoremap <silent> <leader>et :Neotree reveal toggle<cr>
 
 " Quickfix [next, previous]

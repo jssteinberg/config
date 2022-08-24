@@ -44,19 +44,6 @@ local function init()
 		end
 	}
 
-	-- Project drawer
-	vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-	use { 'MunifTanjim/nui.nvim' --[[, cmd = { 'Neotree' } ]] }
-	use {
-		'nvim-neo-tree/neo-tree.nvim',
-		branch = 'v2.x',
-		after = 'nui.nvim',
-		requires = { 'nvim-lua/plenary.nvim' },
-		config = function()
-			require 'packages.neo-tree'.config()
-		end
-	}
-
 	-- Statusline
 	use {
 		"jssteinberg/hackline.vim",
@@ -114,6 +101,9 @@ local function init()
 			-- Highlight word under cursor
 			require('mini.cursorword').setup({})
 
+			-- Jump across line with f/t/F/T
+			require('mini.jump').setup({})
+
 			-- Comment in/out
 			require('mini.comment').setup({
 				hooks = {
@@ -148,18 +138,13 @@ local function init()
 
 	-- Better f, F, t, T, repeatable with f/F, and s motion
 	use {
-		'ggandor/lightspeed.nvim',
+		'ggandor/leap.nvim',
 		keys = {
 			{ 'n', 's' }, { 'n', 'S' },
 			{ 'x', 'z' }, { 'x', 'Z' },
-			{ 'n', 'f' }, { 'n', 'F' }, { 'n', 't' }, { 'n', 'T' },
-			{ 'x', 'f' }, { 'x', 'F' }, { 'x', 't' }, { 'x', 'T' }
 		},
 		config = function()
-			require 'lightspeed'.setup {
-				repeat_ft_with_target_char = true,
-				limit_ft_matches = 10
-			}
+			require('leap').set_default_keymaps()
 		end
 	}
 
@@ -177,6 +162,18 @@ local function init()
 		cmd = 'Telescope',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function() require 'packages.telescope'.config() end
+	}
+
+	-- File tree
+	use { 'MunifTanjim/nui.nvim', cmd = { 'Neotree' } }
+	use {
+		'nvim-neo-tree/neo-tree.nvim',
+		branch = 'v2.x',
+		after = 'nui.nvim',
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require 'packages.neo-tree'.config()
+		end
 	}
 
 	-- ### GIT

@@ -77,6 +77,8 @@ nnoremap <leader>et :let g:netrw_banner=0<cr>:let g:netrw_liststyle=3<cr>:Lexplo
 nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
+nnoremap <leader>ew :edit **/*
+nnoremap <leader>fw :find **/*
 
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>

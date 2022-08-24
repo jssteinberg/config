@@ -152,13 +152,17 @@ hi! link Folded Comment
 hi! link FoldColumn Folded
 
 " Search
-hi IncSearch cterm=NONE gui=NONE ctermbg=11 ctermfg=0 guibg=#656d2c guifg=NONE
+hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#656d2c ctermfg=11 guifg=#ffffff
 hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c486d ctermfg=0 guifg=NONE
 
 " PLUGINS
 
+" leap.nvim
+hi! link LeapLabelPrimary IncSearch
+
 " mini.nvim
 hi MiniCursorword cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d
+hi! link MiniJump IncSearch
 
 " Neo-tree
 " NeoTreeBufferNumber       The buffer number shown in the buffers source.
