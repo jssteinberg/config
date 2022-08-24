@@ -160,6 +160,11 @@ hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c486d ctermfg=0 guifg=NONE
 " clever-f
 hi! link CleverFDefaultLabel IncSearch
 
+" illuminate.vim
+hi IlluminatedWordText cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d
+hi! link IlluminatedWordRead IlluminatedWordText
+hi! link IlluminatedWordWrite IlluminatedWordText
+
 " leap.nvim
 hi! link LeapLabelPrimary IncSearch
 

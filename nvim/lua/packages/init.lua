@@ -82,18 +82,10 @@ local function init()
 		end
 	}
 
-	use {
-		"RRethy/vim-illuminate",
-		event = "CursorHold"
-	}
-
 	-- Mini plugins
 	use {
 		'echasnovski/mini.nvim',
 		config = function()
-
-			-- Highlight word under cursor (replace)
-			-- require('mini.cursorword').setup({})
 
 			-- Comment in/out (replace)
 			require('mini.comment').setup({
@@ -114,6 +106,11 @@ local function init()
 
 	-- LAZY LOADED
 	-- -----------
+
+	use {
+		"RRethy/vim-illuminate",
+		event = "CursorHold"
+	}
 
 	-- ### EDIT/MOVE
 
