@@ -82,27 +82,6 @@ local function init()
 		end
 	}
 
-	-- Mini plugins
-	use {
-		'echasnovski/mini.nvim',
-		config = function()
-
-			-- Comment in/out (replace)
-			require('mini.comment').setup({
-				hooks = {
-					pre = function()
-						local buf = vim.api.nvim_get_current_buf()
-						local highlighter = require "vim.treesitter.highlighter"
-						if highlighter.active[buf] then
-							require('ts_context_commentstring.internal').update_commentstring()
-						end
-					end,
-				},
-			})
-
-		end
-	}
-
 
 	-- LAZY LOADED
 	-- -----------
@@ -139,6 +118,20 @@ local function init()
 		},
 		config = function()
 			require('leap').set_default_keymaps()
+		end
+	}
+
+	-- Comment in/out
+	use {
+		'numToStr/Comment.nvim',
+		keys = {
+			{ 'n', 'gc' }, { 'n', 'gb' },
+			{ 'v', 'gc' }, { 'v', 'gb' },
+		},
+		config = function()
+			require('Comment').setup {
+				pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+			}
 		end
 	}
 

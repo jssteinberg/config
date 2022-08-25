@@ -22,6 +22,12 @@ set updatetime=100
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**
 set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 
+try
+	set winbar=%{pathshorten(expand('%:p:.:h'))}/%t%m
+catch
+	set showtabline=2
+endtry
+
 " Formatoptions
 
 " (c) auto hard wrap comments

@@ -109,6 +109,8 @@ hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
 hi Visual cterm=bold gui=NONE ctermbg=8 guibg=#6d342c " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=9 guifg=#d6a19a
+hi TabLineSel cterm=underline gui=underline ctermfg=5 guifg=#7d78a1
+hi WinBar cterm=bold gui=bold ctermfg=5 guifg=#7d78a1
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
 
 hi DiagnosticHint ctermfg=4 guifg=#9d9ad6
@@ -127,6 +129,18 @@ hi SpellCap       ctermbg=4 ctermfg=15 gui=undercurl guisp=#9ab3d6
 hi SpellRare      ctermbg=5 ctermfg=15 gui=undercurl guisp=#685cbc
 hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
 
+" Diffs
+hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e5f2e0
+hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc685c
+hi DiffChange cterm=italic gui=italic ctermbg=NONE guibg=NONE ctermfg=9 guifg=#d6a19a
+hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e5f2e0
+
+" Search
+hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#656d2c ctermfg=11 guifg=#ffffff
+hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c486d ctermfg=0 guifg=NONE
+
+" LINKED
+
 hi! link DiagnosticWarn WarningMsg
 hi! link ErrorMsg Error
 hi! link MoreMsg Type
@@ -137,23 +151,12 @@ hi! link QuickFixLine CursorLine
 hi! link SpellBad ErrorMsg
 hi! link TabLine LineNr
 hi! link TabLineFill LineNr
-hi! link TabLineSel CursorLineNr
-hi! link WinBarNC WinSeparator
+hi! link WinBarNC LineNr
 hi! link WildMenu Pmenu
-
-" Diffs
-hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e5f2e0
-hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc685c
-hi DiffChange cterm=italic gui=italic ctermbg=NONE guibg=NONE ctermfg=9 guifg=#d6a19a
-hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e5f2e0
 
 " Folds
 hi! link Folded Comment
 hi! link FoldColumn Folded
-
-" Search
-hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#656d2c ctermfg=11 guifg=#ffffff
-hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c486d ctermfg=0 guifg=NONE
 
 " PLUGINS
 
@@ -168,11 +171,8 @@ hi! link IlluminatedWordWrite IlluminatedWordText
 " leap.nvim
 hi! link LeapLabelPrimary IncSearch
 
-" mini.nvim
-hi MiniCursorword cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d
-hi! link MiniJump IncSearch
-
 " Neo-tree
+hi! link NeoTreeTitleBar StatusLine
 " NeoTreeBufferNumber       The buffer number shown in the buffers source.
 " NeoTreeCursorLine         |hl-CursorLine| override in Neo-tree window.
 " NeoTreeDimText            Greyed out text used in various places.
@@ -183,12 +183,9 @@ hi! link MiniJump IncSearch
 " NeoTreeFileName           File name, when not overwritten by another status.
 " NeoTreeFileNameOpened     File name when the file is open. Not used yet.
 " NeoTreeFilterTerm         The filter term, as displayed in the root node.
-" NeoTreeFloatBorder        The border for pop-up windows.
 " NeoTreeFloatTitle         Used for the title text of pop-ups when the border-style
 "                           is set to another style than "NC". This is derived
 "                           from NeoTreeFloatBorder.
-" NeoTreeTitleBar           Used for the title bar of pop-ups, when the border-style
-"                           is set to "NC". This is derived from NeoTreeFloatBorder.
 " NeoTreeGitAdded           File name when the git status is added.
 " NeoTreeGitConflict        File name when the git status is conflict.
 " NeoTreeGitDeleted         File name when the git status is deleted.
@@ -211,8 +208,6 @@ hi! link MiniJump IncSearch
 " NeoTreeEndOfBuffer        |hl-EndOfBuffer| override in Neo-tree window.
 " NeoTreeRootName           The name of the root node.
 " NeoTreeSymbolicLinkTarget Symbolic link target.
-" NeoTreeTitleBar           Used for the title bar of pop-ups, when the border-style
-"                           is set to "NC". This is derived from NeoTreeFloatBorder.
 " NeoTreeWindowsHidden      Used for icons and names that are hidden on Windows.
 
 

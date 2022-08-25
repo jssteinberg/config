@@ -61,6 +61,7 @@ nnoremap <leader>tb :tabedit %<cr>'"
 nnoremap <leader>C :tabclose<cr>
 " neo-tree
 nnoremap <silent> <leader>e. :Neotree current dir=.<cr>
+nnoremap <silent> <leader>eb :Neotree toggle buffers<cr>
 nnoremap <silent> <leader>ed :Neotree action=show toggle<cr>
 nnoremap <silent> <leader>eh :Neotree current dir=%:p:.:h<cr>
 nnoremap <silent> <leader>et :Neotree reveal toggle<cr>
@@ -79,11 +80,11 @@ nnoremap <leader>R :%s/
 vnoremap <leader>R :s/
 
 " Marks
-nnoremap <leader>ha 'A
-nnoremap <leader>hs 'S
-nnoremap <leader>hd 'D
-nnoremap <leader>hf 'F
-nnoremap <leader>hc 'C
+nnoremap <leader>ha 'A'"
+nnoremap <leader>hs 'S'"
+nnoremap <leader>hd 'D'"
+nnoremap <leader>hf 'F'"
+nnoremap <leader>hc 'C'"
 
 " Terminal
 nnoremap <silent> <leader><cr> :terminal<cr>i
