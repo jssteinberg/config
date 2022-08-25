@@ -46,6 +46,7 @@ local function init()
 				},
 			})
 			vim.keymap.set({ "n", "v" }, "<leader>n", "<plug>(CybuLastusedNext)")
+			vim.keymap.set({ "n", "v" }, "<leader>N", "<plug>(CybuLastusedPrev)")
 			vim.keymap.set({ "n", "v" }, "<leader>p", "<plug>(CybuLastusedPrev)")
 		end,
 	}

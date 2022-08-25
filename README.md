@@ -57,12 +57,7 @@ Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripg
 
 ### Plugins to consider
 
-- https://github.com/dyng/ctrlsf.vim
-
-## Todo
-
-- When `gf` fails, should have Telescope guess which file.
-- `<leader>ff` in visual-mode should fuzzy file-search selection
+...
 
 ## Troubleshooting
 
