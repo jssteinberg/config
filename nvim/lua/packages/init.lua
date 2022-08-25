@@ -15,6 +15,40 @@ local function init()
 	use { 'tpope/vim-repeat' } -- Extend `.` repeat
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 	use { "catppuccin/nvim", as = "catppuccin" }
+	use {
+		"ghillb/cybu.nvim",
+		requires = { "nvim-lua/plenary.nvim" }, -- optional for icon support
+		config = function()
+			local ok, cybu = pcall(require, "cybu")
+			if not ok then
+				return
+			end
+			cybu.setup({
+				position = {
+					anchor = "centerright",
+				},
+				style = {
+					devicons = {
+						enabled = false
+					},
+				},
+				behavior = { -- set behavior for different modes
+					mode = {
+						default = {
+							switch = "immediate", -- immediate, on_close
+							view = "rolling", -- paging, rolling
+						},
+						last_used = {
+							switch = "immediate", -- immediate, on_close
+							view = "paging", -- paging, rolling
+						},
+					},
+				},
+			})
+			vim.keymap.set({ "n", "v" }, "<leader>n", "<plug>(CybuLastusedNext)")
+			vim.keymap.set({ "n", "v" }, "<leader>p", "<plug>(CybuLastusedPrev)")
+		end,
+	}
 
 	-- Open/search with `gx`
 	use { 'tyru/open-browser.vim', config = function()
@@ -38,6 +72,7 @@ local function init()
 		"jssteinberg/hackline.vim",
 		branch = "dev",
 		config = function()
+			vim.g.hackline_bufnr = true
 			vim.g.hackline_sign = "Neo"
 			vim.g.hackline_highlight_secondary = 'StatusLine'
 			vim.g.hackline_highlight_items = 'StatusLine'
