@@ -29,7 +29,7 @@
 " Supports: gitsigns, vim-matchup, WinBar, Telescope
 " Util:
 " - Error: red#1
-" - Warning/orange: red#9/yellow*
+" - Warning/orange: red#9/magenta#5
 
 hi clear
 let g:colors_name = 'somedarkterm1'
@@ -94,7 +94,7 @@ hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e6e5ed guifg=#121118 gui=NONE
 hi CursorColumn cterm=bold gui=bold ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a19ad6
-hi Directory ctermfg=6 guifg=#5cb1bc
+hi Directory ctermfg=4 guifg=#9ab3d6
 hi LineNr ctermfg=5 guifg=#7d78a1
 hi MatchParen cterm=italic gui=italic ctermbg=8 guibg=#342c6d guifg=#a19ad6
 hi MatchParenCur cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d
@@ -106,10 +106,9 @@ hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9aced6
 hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a19ad6
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685cbc
-hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
+hi TabLineSel cterm=underline gui=underline ctermfg=5 guifg=#7d78a1
 hi Visual cterm=bold gui=NONE ctermbg=8 guibg=#6d342c " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=9 guifg=#d6a19a
-hi TabLineSel cterm=underline gui=underline ctermfg=5 guifg=#7d78a1
 hi WinBar cterm=bold gui=bold ctermfg=5 guifg=#7d78a1
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
 
@@ -132,7 +131,7 @@ hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
 " Diffs
 hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e5f2e0
 hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc685c
-hi DiffChange cterm=italic gui=italic ctermbg=NONE guibg=NONE ctermfg=9 guifg=#d6a19a
+hi DiffChange cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=5 guifg=#685cbc
 hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e5f2e0
 
 " Search
@@ -172,31 +171,13 @@ hi! link IlluminatedWordWrite IlluminatedWordText
 hi! link LeapLabelPrimary IncSearch
 
 " Neo-tree
+hi! link NeoTreeDimText LineNr
+hi! link NeoTreeDotfile NeoTreeDimText
+hi! link NeoTreeGitConflict WarningMsg
+hi! link NeoTreeGitConflict WarningMsg
+hi! link NeoTreeGitUntracked Structure
+hi! link NeoTreeIndentMarker WinSeparator
 hi! link NeoTreeTitleBar StatusLine
-" NeoTreeBufferNumber       The buffer number shown in the buffers source.
-" NeoTreeCursorLine         |hl-CursorLine| override in Neo-tree window.
-" NeoTreeDimText            Greyed out text used in various places.
-" NeoTreeDirectoryIcon      Directory icon.
-" NeoTreeDirectoryName      Directory name.
-" NeoTreeDotfile            Used for icons and names when dotfiles are filtered.
-" NeoTreeFileIcon           File icon, when not overriden by devicons.
-" NeoTreeFileName           File name, when not overwritten by another status.
-" NeoTreeFileNameOpened     File name when the file is open. Not used yet.
-" NeoTreeFilterTerm         The filter term, as displayed in the root node.
-" NeoTreeFloatTitle         Used for the title text of pop-ups when the border-style
-"                           is set to another style than "NC". This is derived
-"                           from NeoTreeFloatBorder.
-" NeoTreeGitAdded           File name when the git status is added.
-" NeoTreeGitConflict        File name when the git status is conflict.
-" NeoTreeGitDeleted         File name when the git status is deleted.
-" NeoTreeGitIgnored         File name when the git status is ignored.
-" NeoTreeGitModified        File name when the git status is modified.
-" NeoTreeGitUnstaged        Used for git unstaged symbol.
-" NeoTreeGitUntracked       File name when the git status is untracked.
-" NeoTreeGitStaged          Used for git staged symbol.
-" NeoTreeHiddenByName       Used for icons and names when `hide_by_name` is used.
-" NeoTreeIndentMarker       The style of indentation markers (guides). By default,
-"                           the "Normal" highlight is used.
 " NeoTreeExpander           Used for collapsed/expanded icons.
 " NeoTreeNormal             |hl-Normal| override in Neo-tree window.
 " NeoTreeNormalNC           |hl-NormalNC| override in Neo-tree window.
