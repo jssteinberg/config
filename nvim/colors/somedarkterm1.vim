@@ -140,10 +140,11 @@ hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c486d ctermfg=0 guifg=NONE
 
 " LINKED
 
+hi! link lCursor Cursor
 hi! link DiagnosticWarn WarningMsg
 hi! link ErrorMsg Error
 hi! link MoreMsg Type
-hi! link PmenuSel StatusLine " Pmenu affects some floating windows
+hi! link PmenuSel CursorLine " Pmenu affects some floating windows
 hi! link PmenuSbar Pmenu " Pmenu affects some floating windows
 hi! link Question Type
 hi! link QuickFixLine CursorLine

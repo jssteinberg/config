@@ -4,10 +4,9 @@ local hsl = lush.hsl
 -- Colors
 local hue = 247.3;
 local sat = 42;
-local some_bg = hsl("#121118")
-local some_fg = hsl("#e6e5ed")
 local some = {
-	black = { hsl("#181533"), hsl("#342c6d") }
+	d_theme = { hsl("#121118"), hsl("#e6e5ed") },
+	black = { hsl("#181533"), hsl("#342c6d") },
 	-- { i = 0, h = priHue, s = sat, l = "14", name = "black" },
 	-- { i = 8, h = priHue, s = sat, l = "30", name = "black" },
 	--
@@ -48,15 +47,6 @@ local some = {
 
 local theme = lush(function()
 	return {
-		-- It's recommended to disable wrapping with `setlocal nowrap`, each
-		-- group in this tutorial is appended by it's description for ease of use,
-		-- but the wrapping may be distracting.
-		--
-		-- You may also receive (mostly ignorable) linter/lsp warnings,
-		-- because our lua is a bit more dynamic than they expect.
-		-- You may also wish to disable those while editing your theme
-		-- they produce a lot of visual noise.
-
 		-- lush-spec statements are in the form:
 		--
 		--   <HighlightGroupName> { bg = <hsl>|<string>,
@@ -72,7 +62,7 @@ local theme = lush(function()
 		-- Set a highlight group from hsl variables
 		-- Uncomment "Normal"
 		-- Normal { bg = sea_deep, fg = sea_foam }, -- normal text
-		Normal { bg = some_bg, fg = some_fg }, -- normal text
+		-- Normal { bg = some.normal[1], fg = some.normal[2] }, -- normal text
 
 		-- Set a highlight group from another highlight group
 		-- CursorLine { bg = Normal.bg.lighten(5) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.

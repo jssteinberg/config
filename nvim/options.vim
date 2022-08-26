@@ -7,14 +7,14 @@ set hidden
 set fileencoding=utf-8
 set foldmethod=indent nofoldenable
 set ignorecase smartcase
-set list listchars+=tab:\-\ 
+set list listchars+=tab:\│\ 
 " set list listchars+=tab:\·\ 
 " fillchars+=vert:\·
 set number relativenumber signcolumn=yes
 set mouse=a
 set sessionoptions=curdir,folds,tabpages,help
 set scrolloff=5
-set synmaxcol=200 " reduce column to search for syntax items
+set synmaxcol=300 " reduce column to search for syntax items
 set tabstop=2 shiftwidth=2 " indent size
 set timeoutlen=500 " Wait less for typing of keymaps
 set undofile noswapfile
@@ -22,16 +22,16 @@ set updatetime=100
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**
 set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 
-try
+if exists("&winbar")
 	augroup winbar
 		au!
-		autocmd BufReadPost * setlocal winbar=%{pathshorten(expand('%:p:.:h'))}/%t%m
+		au BufReadPost * setlocal winbar=%{pathshorten(expand('%:p:.:h'))}/%t%m
 	augroup END
 
 	set laststatus=3
-catch
+else
 	set showtabline=2
-endtry
+endif
 
 " Formatoptions
 
