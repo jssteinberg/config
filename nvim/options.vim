@@ -23,7 +23,11 @@ set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**
 set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 
 try
-	set winbar=%{pathshorten(expand('%:p:.:h'))}/%t%m
+	augroup winbar
+		au!
+		autocmd BufReadPost * setlocal winbar=%{pathshorten(expand('%:p:.:h'))}/%t%m
+	augroup END
+
 	set laststatus=3
 catch
 	set showtabline=2
