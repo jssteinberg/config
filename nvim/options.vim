@@ -24,6 +24,7 @@ set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 
 try
 	set winbar=%{pathshorten(expand('%:p:.:h'))}/%t%m
+	set laststatus=3
 catch
 	set showtabline=2
 endtry

@@ -15,40 +15,6 @@ local function init()
 	use { 'tpope/vim-repeat' } -- Extend `.` repeat
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 	use { "catppuccin/nvim", as = "catppuccin" }
-	use {
-		"ghillb/cybu.nvim",
-		requires = { "nvim-lua/plenary.nvim" }, -- optional for icon support
-		event = "BufAdd",
-		config = function()
-			local ok, cybu = pcall(require, "cybu")
-			if not ok then
-				return
-			end
-			cybu.setup({
-				position = {
-					anchor = "centerright",
-				},
-				style = {
-					devicons = {
-						enabled = false
-					},
-				},
-				behavior = { -- set behavior for different modes
-					mode = {
-						last_used = {
-							switch = "immediate", -- immediate, on_close
-							view = "paging", -- paging, rolling
-						},
-					},
-				},
-			})
-			vim.keymap.set({ "n", "v" }, "<c-n>", "<plug>(CybuLastusedNext)")
-			vim.keymap.set({ "n", "v" }, "<c-N>", "<plug>(CybuLastusedPrev)")
-			vim.keymap.set({ "n", "v" }, "<leader>n", "<plug>(CybuLastusedNext)")
-			vim.keymap.set({ "n", "v" }, "<leader>N", "<plug>(CybuLastusedPrev)")
-			vim.keymap.set({ "n", "v" }, "<leader>p", "<plug>(CybuLastusedPrev)")
-		end,
-	}
 
 	-- Open/search with `gx`
 	use { 'tyru/open-browser.vim', config = function()
@@ -172,7 +138,7 @@ local function init()
 
 	-- ### SEARCH/EXPLORE
 
-	use { 'subnut/visualstar.vim', keys = { { 'x', '*' }, { 'x', '#' }, } }
+	use { 'subnut/visualstar.vim', keys = { { 'x', '*' }, { 'x', '#' } } }
 
 	-- Quickfix
 	use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
@@ -196,6 +162,14 @@ local function init()
 		config = function()
 			require 'packages.neo-tree'.config()
 		end
+	}
+
+	-- Cycle buffers
+	use {
+		"ghillb/cybu.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		event = "BufAdd",
+		config = function() require 'packages.cybu'.config() end,
 	}
 
 	-- ### GIT
