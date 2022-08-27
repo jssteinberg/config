@@ -53,14 +53,7 @@ local theme = lush(function()
 		--                          fg = <hsl>|<string>,
 		--                          sp = <hsl>|<string>,
 		--                          gui = <string> },
-		--
-		-- Any vim highlight group name is valid, and any unrecognized key is
-		-- omitted.
-		--
-		-- Lets define our "Normal" highlight group, using our sea colours.
 
-		-- Set a highlight group from hsl variables
-		-- Uncomment "Normal"
 		-- Normal { bg = sea_deep, fg = sea_foam }, -- normal text
 		-- Normal { bg = some.normal[1], fg = some.normal[2] }, -- normal text
 

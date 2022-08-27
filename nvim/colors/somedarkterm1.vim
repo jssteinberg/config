@@ -30,6 +30,9 @@
 " Util:
 " - Error: red#1
 " - Warning/orange: red#9/magenta#5
+"
+" Turn to gui only:
+" :%s/\v cterm[^ ]*//g | %s/\vsomedarkterm1(['|.])/somedarkterm1_gui\1/g
 
 hi clear
 let g:colors_name = 'somedarkterm1'
