@@ -85,6 +85,7 @@ hi Todo cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
 
 hi Title cterm=NONE gui=NONE ctermfg=13 guifg=#a19ad6
 hi markdownUrl ctermfg=5 guifg=#685cbc
+hi! link markdown_inlineTSURI markdownUrl
 
 " UI
 
@@ -138,7 +139,7 @@ hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e5f2e
 hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#656d2c ctermfg=11 guifg=#ffffff
 hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c486d ctermfg=0 guifg=NONE
 
-" LINKED
+" UI LINKED
 
 hi! link lCursor Cursor
 hi! link DiagnosticWarn WarningMsg
