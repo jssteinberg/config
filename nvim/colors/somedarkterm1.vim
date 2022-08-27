@@ -5,8 +5,8 @@
 " Handcrafted syntax highlight for some dark terminal first, then you can
 " change from dark to light. Not opposite.
 "
-" background #121118
-" foreground #e6e5ed
+" bg #121118
+" fg #e6e5ed
 "
 " black#0    #1a1636 black#8    #342c6d black_bg #05040b
 " red#1      #bc685c red#9      #d6a19a red_bg #6d342c
@@ -17,7 +17,7 @@
 " cyan#6     #5cb1bc cyan#14    #9aced6
 " white#7    #e5f2e0 white#15   #ffffff
 "
-" gray #7d78a1
+" gray #7d78a1 gray_bright #aeabc4
 " pink #985cbc pink_bright #bf9ad6
 "
 " Design: purple blueish theme with cyan, yellow and whiteish primaries, based
@@ -83,7 +83,7 @@ hi Todo cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
 
 " OTHER SYNTAX
 
-hi Title cterm=NONE gui=NONE ctermfg=13 guifg=#a19ad6
+hi Title cterm=NONE gui=NONE ctermfg=11 guifg=#ced69a
 hi markdownUrl ctermfg=5 guifg=#685cbc
 hi! link markdown_inlineTSURI markdownUrl
 
@@ -95,7 +95,7 @@ hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e6e5ed guifg=#121118 gui=NONE
 hi CursorColumn cterm=bold gui=bold ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a19ad6
-hi Directory ctermfg=4 guifg=#9ab3d6
+hi Directory cterm=bold gui=bold ctermfg=5 guifg=#685cbc
 hi LineNr ctermfg=5 guifg=#7d78a1
 hi MatchParen cterm=italic gui=italic ctermbg=8 guibg=#342c6d guifg=#a19ad6
 hi MatchParenCur cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d
@@ -175,12 +175,13 @@ hi! link LeapLabelPrimary IncSearch
 " Neo-tree
 hi! link NeoTreeDimText LineNr
 hi! link NeoTreeDotfile NeoTreeDimText
+hi! link NeoTreeExpander NeoTreeDirectoryIcon
 hi! link NeoTreeGitConflict WarningMsg
 hi! link NeoTreeGitConflict WarningMsg
 hi! link NeoTreeGitUntracked Structure
 hi! link NeoTreeIndentMarker WinSeparator
+hi! link NeoTreeRootName Title
 hi! link NeoTreeTitleBar StatusLine
-" NeoTreeExpander           Used for collapsed/expanded icons.
 " NeoTreeNormal             |hl-Normal| override in Neo-tree window.
 " NeoTreeNormalNC           |hl-NormalNC| override in Neo-tree window.
 " NeoTreeSignColumn         |hl-SignColumn| override in Neo-tree window.
