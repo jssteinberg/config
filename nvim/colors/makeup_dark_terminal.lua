@@ -1,37 +1,70 @@
 vim.cmd [[hi clear]]
 vim.g.colors_name = "makeup_dark_terminal"
 
--- variant = "b(ase)"/"s(trong)"/"bg"
-local function get(color, variant)
+-- UTIL
+
+-- fn color() - use color
+-- {string} color - color name or color util name
+-- {string} [variant] - "bg", other truthy for emphasized, nil for base
+local color = function(color, variant)
 	-- if &bg == "light"/"dark"...
 
-	-- Colors { base, lighter, darker }
+	-- Colors { base, emphasized, background }
+	-- base colors
 	local colors = {
-		black = { "#1a1636", "#342c6d", "#05040b" },
-		gray = { "#7d78a1", "#aeabc4" },
-		violet = { "#985cbc", "#bf9ad6" },
+		-- terminal color keys
+		bg      = { "#121118" },
+		fg      = { "#e6e5ed" },
+		black   = { "#1a1636", "#342c6d", "#05040b" },
+		red     = { "#bc685c", "#d6a19a", "#6d342c" },
+		green   = { "#5cbca4", "#9ad6c9" },
+		yellow  = { "#b1bc5c", "#ced69a", "#656d2c" },
+		blue    = { "#9ab3d6", "#9d9ad6", "#2c486d" },
+		magenta = { "#685cbc", "#a19ad6" },
+		cyan    = { "#5cb1bc", "#9aced6" },
+		white   = { "#e5f2e0", "#ffffff" },
+		-- additional color keys
+		gray    = { "#7d78a1" },
+		violet  = { "#985cbc", "#bf9ad6", "#552c6d" },
 	}
-	-- red#1      #bc685c red#9      #d6a19a red_bg #6d342c
-	-- green#2    #5cbca4 green#10   #9ad6c9
-	-- yellow#3   #b1bc5c yellow#11  #ced69a yellow_bg #656d2c
-	-- blue#4     #9ab3d6 blue#12    #9d9ad6 blue_bg #2c486d
-	-- magenta#5  #685cbc magenta#13 #a19ad6
-	-- cyan#6     #5cb1bc cyan#14    #9aced6
-	-- white#7    #e5f2e0 white#15   #ffffff
+	-- Colors by utility
+	colors.error = { colors.red[1] }
+	colors.warning = { colors.magenta[1], colors.red[2] }
 
-	-- Extra colors
-	local bg = {
-		base = "#121118",
-	}
-
-	return colors[color][1]
+	if variant and variant == "bg" and colors[color][3] then
+		-- return background variant (fall back to base)
+		return colors[color][3]
+	elseif not variant or variant == "bg" or #colors[color] == 1 then
+		-- return base color variant if no variant or missing index
+		return colors[color][1]
+	else
+		-- return emphasized variant if string is not "bg" and has index 2
+		return colors[color][2]
+	end
 end
 
--- Util
-local hi = vim.api.nvim_set_hl
+local hi = function(group, highlights)
+	return vim.api.nvim_set_hl(0, group, highlights)
+end
 
--- Comment
-hi(0, "Comment", { fg = get("violet") })
+-- SYNTAX
+-- Group names (:h group-name)
+
+-- Comment, *Todo
+hi("Comment", { fg = color("violet") })
+hi("Todo", { fg = color("violet", 2), bold = true })
+-- *Constant String Character Number Boolean Float
+hi("Constant", { fg = color("yellow", 2) })
+hi("String", { fg = color("yellow", 2) })
+-- *Identifier Function
+hi("Identifier", { fg = color("blue", 2) })
+hi("Function", { fg = color("cyan", 2) })
+-- *Statement Conditional Repeat Label Operator Keyword Exception
+hi("Statement", { fg = color("green") })
+hi("Keyword", { fg = color("magenta", 2) })
+-- *PreProc Include Define Macro PreCondit
+hi("PreProc", { fg = color("blue", 2) })
 
 -- UI
-hi(0, "CursorLine", { bg = get("black") })
+
+hi("CursorLine", { bg = color("black") })

@@ -18,7 +18,7 @@
 " white#7    #e5f2e0 white#15   #ffffff
 "
 " gray #7d78a1 gray_bright #aeabc4
-" violet #985cbc violet_bright #bf9ad6
+" violet #985cbc violet_bright #bf9ad6 violet_bg #552c6d
 "
 " Design: purple blueish theme with cyan, yellow and whiteish primaries, based
 " on a certain profile pic---neon spaceish. Comments should be readable (no
@@ -45,13 +45,12 @@ let g:colors_name = 'somedarkterm1'
 hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#985cbc
 
 " *Constant String Character Number Boolean Float
-hi Constant ctermfg=3 guifg=#b1bc5c
-hi! link String Constant
-" hi String ctermfg=14 guifg=#9aced6
+hi Constant ctermfg=11 guifg=#ced69a
+hi String ctermfg=11 guifg=#ced69a
+" hi! link String Constant
 
 " *Identifier Function
 hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9d9ad6
-" hi Function cterm=NONE gui=NONE ctermfg=4 guifg=#9ab3d6
 hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9aced6
 
 " *Statement Conditional Repeat Label Operator Keyword Exception
@@ -110,10 +109,10 @@ hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9aced6
 hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a19ad6
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685cbc
-hi TabLineSel cterm=underline gui=underline ctermfg=5 guifg=#7d78a1
-hi Visual cterm=bold gui=NONE ctermbg=8 guibg=#6d342c " also affects TelescopePreviewLine
+hi TabLineSel cterm=NONE gui=NONE ctermfg=13 guifg=#a19ad6
+hi Visual cterm=bold gui=NONE ctermbg=8 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=9 guifg=#d6a19a
-hi WinBar cterm=bold gui=bold ctermfg=5 guifg=#7d78a1
+hi WinBar cterm=bold gui=bold ctermfg=13 guifg=#a19ad6
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
 
 hi DiagnosticHint ctermfg=4 guifg=#9d9ad6
