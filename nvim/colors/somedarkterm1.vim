@@ -2,7 +2,7 @@
 "
 " # Colors: somedarkterm1.
 "
-" Handcrafted syntax highlight for some dark terminal first, then you can
+" Handcrafted syntax highlight for some dark terminal first, (TODO) then you can
 " change from dark to light. Not opposite.
 "
 " bg #121118
@@ -18,7 +18,7 @@
 " white#7    #e5f2e0 white#15   #ffffff
 "
 " gray #7d78a1 gray_bright #aeabc4
-" pink #985cbc pink_bright #bf9ad6
+" violet #985cbc violet_bright #bf9ad6
 "
 " Design: purple blueish theme with cyan, yellow and whiteish primaries, based
 " on a certain profile pic---neon spaceish. Comments should be readable (no
@@ -42,7 +42,7 @@ let g:colors_name = 'somedarkterm1'
 " GROUP NAMES (:h group-name)
 
 " Comment
-hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#985cbc
+hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#985cbc
 
 " *Constant String Character Number Boolean Float
 hi Constant ctermfg=3 guifg=#b1bc5c
@@ -82,7 +82,7 @@ hi Underlined cterm=NONE gui=NONE ctermfg=4 guifg=#9ab3d6
 " *Error
 
 " *Todo
-hi Todo cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
+hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
 
 " OTHER SYNTAX
 
@@ -197,11 +197,5 @@ hi! link NeoTreeTitleBar StatusLine
 " NeoTreeSymbolicLinkTarget Symbolic link target.
 " NeoTreeWindowsHidden      Used for icons and names that are hidden on Windows.
 
-
 " Telescope
 hi! link TelescopePromptCounter Comment
-
-if &bg == "light"
-	hi Normal ctermbg=15 ctermfg=0 guibg=#ffffff guifg=#1a1636
-	hi CursorLine ctermbg=NONE guibg=NONE
-endif
