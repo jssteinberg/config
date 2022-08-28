@@ -3,7 +3,6 @@ vim.g.colors_name = "makeup_dark_terminal"
 
 -- UTIL
 
--- fn color() - use color
 -- {string} color - color name or color util name
 -- {string} [variant] - "bg", other truthy for emphasized, nil for base
 local color = function(color, variant)
@@ -15,21 +14,26 @@ local color = function(color, variant)
 		-- terminal color keys
 		bg      = { "#121118" },
 		fg      = { "#e6e5ed" },
-		black   = { "#1a1636", "#342c6d", "#05040b" },
-		red     = { "#bc685c", "#d6a19a", "#6d342c" },
-		green   = { "#5cbca4", "#9ad6c9" },
-		yellow  = { "#b1bc5c", "#ced69a", "#656d2c" },
-		blue    = { "#9ab3d6", "#9d9ad6", "#2c486d" },
+		black   = { "#1a1636", "#342c6d" },
+		red     = { "#bc675c", "#d6a19a" },
+		green   = { "#80bc5c", "#a8d69a" },
+		yellow  = { "#bc985c", "#ced69a" },
+		blue    = { "#9ab0d6", "#9d9ad6" },
 		magenta = { "#685cbc", "#a19ad6" },
 		cyan    = { "#5cb1bc", "#9aced6" },
 		white   = { "#e5f2e0", "#ffffff" },
 		-- additional color keys
 		gray    = { "#7d78a1" },
-		violet  = { "#985cbc", "#bf9ad6", "#552c6d" },
+		violet  = { "#985cbc", "#bf9ad6" },
 	}
+	-- Colors' backgrounds
+	colors.black[#colors.black + 1] = "#05040b"
+	colors.yellow[#colors.yellow + 1] = "#646d2c"
+	colors.blue[#colors.blue + 1] = "#2c446d"
+	colors.violet[#colors.violet + 1] = "#552c6d"
 	-- Colors by utility
 	colors.error = { colors.red[1] }
-	colors.warning = { colors.magenta[1], colors.red[2] }
+	colors.warning = { colors.yellow[1] }
 
 	if variant and variant == "bg" and colors[color][3] then
 		-- return background variant (fall back to base)
@@ -54,7 +58,7 @@ end
 hi("Comment", { fg = color("violet") })
 hi("Todo", { fg = color("violet", 2), bold = true })
 -- *Constant String Character Number Boolean Float
-hi("Constant", { fg = color("yellow", 2) })
+hi("Constant", { fg = color("yellow") })
 hi("String", { fg = color("yellow", 2) })
 -- *Identifier Function
 hi("Identifier", { fg = color("blue", 2) })
@@ -64,6 +68,19 @@ hi("Statement", { fg = color("green") })
 hi("Keyword", { fg = color("magenta", 2) })
 -- *PreProc Include Define Macro PreCondit
 hi("PreProc", { fg = color("blue", 2) })
+-- *Type StorageClass Structure Typedef
+hi("Type", { fg = color("green", 2) })
+hi("Structure", { fg = color("magenta") })
+-- *Special SpecialChar Tag Delimiter SpecialComment Debug
+hi("Special", { fg = color("cyan", 2) })
+hi("SpecialKey", { fg = color("blue", 2) })
+hi("Delimiter", { fg = color("blue") })
+-- *Underlined
+hi("Underlined", { fg = color("blue") })
+-- Other
+hi("Title", { fg = color("yellow", 2) })
+hi("TSTagAttribute", { fg = color("cyan", 2) })
+hi("markdownUrl", { fg = color("magenta") })
 
 -- UI
 

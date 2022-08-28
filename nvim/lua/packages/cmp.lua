@@ -40,7 +40,7 @@ M.config = function()
 			-- 	name = 'cmp_tabnine', max_item_count = M.tabnine_nr
 			-- },
 			{
-				name = 'buffer', max_item_count = 3
+				name = 'buffer', max_item_count = 4
 			},
 		},
 		experimental = {
