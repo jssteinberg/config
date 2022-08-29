@@ -4,7 +4,7 @@
 "
 " # Colors: nightterminal1.
 "
-" Handcrafted syntax highlight for some dark terminal first, (TODO) then you can
+" Handcrafted syntax highlight for dark terminals, but with good contrasts. (TODO) then you can
 " change from dark to light. Not opposite.
 "
 " bg #121118 fg #e6e5ed
@@ -42,6 +42,8 @@ if &bg == 'light' | set bg=dark | endif
 
 if get(g:, 'nightterminal1_bg', '0')
 	hi Normal guibg=#121118 guifg=#e6e5ed
+else
+	hi Normal guifg=#e6e5ed
 endif
 
 " GROUP NAMES (:h group-name)
@@ -74,7 +76,9 @@ hi Underlined cterm=NONE gui=NONE ctermfg=4 guifg=#9ab0d6
 hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
 " Other syntax
 hi Bold cterm=bold gui=bold
+hi Italic cterm=italic gui=italic
 hi Title cterm=NONE gui=NONE ctermfg=11 guifg=#ced69a
+hi TooLong cterm=underline gui=underline ctermfg=3 guifg=#bc985c
 hi TSTagAttribute ctermfg=14 guifg=#9aced6
 hi markdownUrl ctermfg=5 guifg=#685cbc
 " Linked syntax
