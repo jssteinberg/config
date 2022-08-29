@@ -1,11 +1,6 @@
 " nightterminal1.vim
-"
-" (...nightterminal1)
-"
-" # Colors: nightterminal1.
-"
-" Handcrafted syntax highlight for dark terminals, but with good contrasts. (TODO) then you can
-" change from dark to light. Not opposite.
+
+" Handcrafted syntax highlight for dark terminals, but with good contrasts.
 "
 " bg #121118 fg #e6e5ed
 " black#0    #1a1636 black#8    #342c6d black_bg #05040b
@@ -131,10 +126,9 @@ hi SpellRare      ctermbg=5 ctermfg=15 gui=undercurl guisp=#685cbc
 hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
 
 " Diffs
-hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=10 guifg=#a8d69a
-hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
-hi DiffChange cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=5 guifg=#685cbc
-hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=10 guifg=#a8d69a
+hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
+hi DiffChange cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e6e5ed
+hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
 
 " Search
 hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#646d2c ctermfg=11 guifg=#ffffff
@@ -184,7 +178,7 @@ hi! link NeoTreeGitUntracked Structure
 hi! link NeoTreeIndentMarker WinSeparator
 hi! link NeoTreeRootName Title
 hi! link NeoTreeTitleBar StatusLine
-" NeoTreeSymbolicLinkTarget Symbolic link target.
 
 " Telescope
+hi! link TelescopeNormal Normal
 hi! link TelescopePromptCounter Comment
