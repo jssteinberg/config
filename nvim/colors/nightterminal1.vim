@@ -1,13 +1,13 @@
-" somedarkterm1.vim
+" nightterminal1.vim
 "
-" # Colors: somedarkterm1.
+" (...nightterminal1)
+"
+" # Colors: nightterminal1.
 "
 " Handcrafted syntax highlight for some dark terminal first, (TODO) then you can
 " change from dark to light. Not opposite.
 "
-" bg #121118
-" fg #e6e5ed
-"
+" bg #121118 fg #e6e5ed
 " black#0    #1a1636 black#8    #342c6d black_bg #05040b
 " red#1      #bc675c red#9      #d6a19a
 " green#2    #80bc5c green#10   #a8d69a
@@ -21,70 +21,62 @@
 " violet #985cbc violet_bright #bf9ad6 violet_bg #552c6d
 "
 " Design: purple blueish theme with cyan, yellow and whiteish primaries, based
-" on a certain profile pic---neon spaceish. Comments should be readable (no
+" on an urban neon toilet. **Comments** should be readable (no
 " grey but dimmed down color variant), not all syntax is important and some
 " secondary syntax can have dimmed down color variant.
-" Function: base 16 when notermguicolors; extended color details when
-" termguicolors.
 " Supports: gitsigns, vim-matchup, WinBar, Telescope
 " Util:
 " - Error: red#1
-" - Warning/orange: yellow#3/red#9
 " - Info: violet*/magenta#5
+" - Warning: yellow#3
+" - Selection (bg): violet_bg
 "
-" Turn to gui only:
-" :%s/\v cterm[^ ]*//g | %s/\vsomedarkterm1(['|.])/somedarkterm1_gui\1/g
+" Make gui only:
+" :%s/\v cterm[^ ]*//g | %s/\vnightterminal1(['|.])/nightterminal1_gui\1/g
 
 hi clear
-let g:colors_name = 'somedarkterm1'
 
-" hi Normal guibg=#121118 guifg=#e6e5ed
+let g:colors_name = 'nightterminal1'
+
+if &bg == 'light' | set bg=dark | endif
+
+if get(g:, 'nightterminal1_bg', '0')
+	hi Normal guibg=#121118 guifg=#e6e5ed
+endif
 
 " GROUP NAMES (:h group-name)
 
 " Comment
 hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#985cbc
-
 " *Constant String Character Number Boolean Float
 hi Constant ctermfg=3 guifg=#bc985c
 hi String ctermfg=11 guifg=#ced69a
-
 " *Identifier Function
 hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9d9ad6
 hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9aced6
-
 " *Statement Conditional Repeat Label Operator Keyword Exception
 hi Statement cterm=NONE gui=NONE ctermfg=4 guifg=#9ab0d6
 hi Keyword cterm=NONE ctermfg=13 gui=NONE guifg=#a19ad6
-
 " *PreProc Include Define Macro PreCondit
 hi PreProc ctermfg=12 guifg=#9d9ad6
-
 " *Type StorageClass Structure Typedef
 hi Type cterm=NONE gui=NONE ctermfg=10 guifg=#a8d69a
 hi Structure ctermfg=5 guifg=#685cbc
-
 " *Special SpecialChar Tag Delimiter SpecialComment Debug
 hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9aced6 " also links to TelescopeMatch
 hi SpecialKey ctermfg=12 guifg=#9d9ad6
 hi Delimiter ctermfg=4 guifg=#9ab0d6
-
 " *Underlined
 hi Underlined cterm=NONE gui=NONE ctermfg=4 guifg=#9ab0d6
-
 " *Ignore
-
 " *Error
-
 " *Todo
 hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
-
-" OTHER SYNTAX
+" Other syntax
 hi Title cterm=NONE gui=NONE ctermfg=11 guifg=#ced69a
 hi TSTagAttribute ctermfg=14 guifg=#9aced6
 hi markdownUrl ctermfg=5 guifg=#685cbc
-
-" LINKED SYNTAX
+" Linked syntax
 hi! link javascriptTSTag Tag
 hi! link markdown_inlineTSURI markdownUrl
 hi! link Tag Type
@@ -102,7 +94,7 @@ hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have sligh
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a19ad6
 hi Directory cterm=bold gui=bold ctermfg=5 guifg=#685cbc
 hi LineNr ctermfg=5 guifg=#7d78a1
-hi MatchParen cterm=italic gui=italic ctermbg=8 guibg=#342c6d guifg=#a19ad6
+hi MatchParen cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d guifg=#a19ad6
 hi MatchParenCur cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d
 hi MatchWord cterm=italic gui=italic ctermbg=8 guibg=#342c6d
 hi NonText gui=NONE ctermfg=8 guifg=#342c6d

@@ -1,5 +1,5 @@
 let s:d = "set termguicolors t_Co=256 bg=dark"
-			\." | colo somedarkterm1"
+			\." | colo nightterminal1"
 
 function! SetColoOpts()
 	exe(s:d)
