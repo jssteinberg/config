@@ -191,7 +191,7 @@ function! PackInit() abort
 endfunction
 
 try
-	colo somedarkterm1 | set bg=dark hlsearch termguicolors
+	colo somedarkterminal1 | set bg=dark hlsearch termguicolors
 catch
 	colorscheme default
 	set notermguicolors t_Co=16 nohlsearch

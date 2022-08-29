@@ -1,8 +1,9 @@
-" nightterminal1.vim
+" somedarkterminal1.vim
 
-" ("nightwchell1."?)
-
-" Handcrafted syntax highlight for dark terminals (defaults to transparent bg), but with good contrasts.
+" A neon illuminated city-park WC...
+"
+" Handcrafted syntax highlight for some dark terminals first (defaults to
+" transparent bg), but with good contrasts.
 "
 " bg #121118 fg #e6e5ed
 " black#0    #1a1636 black#8    #342c6d black_bg #05040b
@@ -17,9 +18,9 @@
 " gray #7d78a1
 " violet #985cbc violet_bright #bf9ad6 violet_bg #552c6d
 "
-" Design: Colorscheme of blue tones with cyan and light green foregrounds. Based
-" on an illuminated city park WC at night. `Comments` should be readable (no
-" dimmed grey).
+" Design: Colorscheme of blue tones with cyan and light green foregrounds.
+" Based on a neon illuminated city-park WC... `Comments` should be readable
+" (no dimmed grey).
 " Supports: gitsigns, vim-matchup, WinBar, Telescope
 " Util:
 " - Error: red#1
@@ -28,15 +29,15 @@
 " - Selection (bg): violet_bg
 "
 " Make gui only:
-" :%s/\v cterm[^ ]*//g | %s/\vnightterminal1(['|.])/nightterminal1_gui\1/g
+" :%s/\v cterm[^ ]*//g | %s/\vsomedarkterminal1(['|.])/somedarkterminal1_gui\1/g
 
 hi clear
 
-let g:colors_name = 'nightterminal1'
+let g:colors_name = 'somedarkterminal1'
 
 if &bg == 'light' | set bg=dark | endif
 
-if get(g:, 'nightterminal1_bg', '0')
+if get(g:, 'somedarkterminal1_bg', '0')
 	hi Normal guibg=#121118 guifg=#e6e5ed
 else
 	hi Normal guifg=#e6e5ed
