@@ -1,6 +1,8 @@
 " nightterminal1.vim
 
-" Handcrafted syntax highlight for dark terminals, but with good contrasts.
+" ("nightwchell1."?)
+
+" Handcrafted syntax highlight for dark terminals (defaults to transparent bg), but with good contrasts.
 "
 " bg #121118 fg #e6e5ed
 " black#0    #1a1636 black#8    #342c6d black_bg #05040b
@@ -15,10 +17,9 @@
 " gray #7d78a1
 " violet #985cbc violet_bright #bf9ad6 violet_bg #552c6d
 "
-" Design: purple blueish theme with cyan, yellow and whiteish primaries, based
-" on an urban neon toilet. **Comments** should be readable (no
-" grey but dimmed down color variant), not all syntax is important and some
-" secondary syntax can have dimmed down color variant.
+" Design: Colorscheme of blue tones with cyan and light green foregrounds. Based
+" on an illuminated city park WC at night. `Comments` should be readable (no
+" dimmed grey).
 " Supports: gitsigns, vim-matchup, WinBar, Telescope
 " Util:
 " - Error: red#1
@@ -127,6 +128,7 @@ hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
 
 " Diffs
 hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
+hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#7d78a1
 hi DiffChange cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e6e5ed
 hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
 
