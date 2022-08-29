@@ -1,49 +1,52 @@
 local lush = require('lush')
 local hsl = lush.hsl
 
--- Colors
-local hue = 247.3;
-local sat = 42;
-local some = {
-	d_theme = { hsl("#121118"), hsl("#e6e5ed") },
-	black = { hsl("#181533"), hsl("#342c6d") },
-	-- { i = 0, h = priHue, s = sat, l = "14", name = "black" },
-	-- { i = 8, h = priHue, s = sat, l = "30", name = "black" },
-	--
-	-- { i = 1, h = "7.3", s = sat, l = "55", name = "red" },
-	-- { i = 9, h = "7.5", s = sat, l = "72", name = "red" },
-	--
-	-- { i = 2, h = "164.5", s = sat, l = "55", name = "green" },
-	-- { i = 10, h = "167.8", s = sat, l = "72", name = "green" },
-	--
-	-- { i = 3, h = "67.3", s = sat, l = "55", name = "yellow" },
-	-- { i = 11, h = "67.5", s = sat, l = "72", name = "yellow" },
-	--
-	-- { i = 4, h = "214.3", s = sat, l = "72", name = "blue" },
-	-- { i = 12, h = "243.2", s = sat, l = "72", name = "blue" },
-	--
-	-- { i = 5, h = priHue, s = sat, l = "55", name = "magenta" },
-	-- { i = 13, h = "247.3", s = sat, l = "72", name = "magenta" },
-	--
-	-- { i = 6, h = "187.3", s = sat, l = "55", name = "cyan" },
-	-- { i = 14, h = "187.5", s = sat, l = "72", name = "cyan" },
-	--
-	-- { i = 7, h = "105.7", s = sat, l = "91.5", name = "white" },
-	-- { i = 15, h = priHue, s = 17.8, l = "100", name = "white" },
-	--
-	-- { h = "7.3", s = sat, l = "30", name = "selection_background" },
-	--
-	-- { h = "214.3", s = sat, l = "30", name = "blue_bg" },
-	--
-	-- { h = "277.5", s = sat, l = "55", name = "pink" },
-	-- { h = "277.5", s = sat, l = "72", name = "pink_bright" },
-	-- { h = "277.5", s = sat, l = "30", name = "pink_bg" },
-	--
-	-- { h = priHue, s = sat, l = "3", name = "black_bg" },
-	-- { h = "67.3", s = sat, l = "30", name = "yellow_bg" },
-	--
-	-- { h = priHue, s = "17.8", l = "55", name = "gray" },
-};
+-- {string} color - color name or color util name
+-- {string} [variant] - "bg", other truthy for emphasized, nil for base
+local color = function(color, variant)
+	-- if &bg == "light"/"dark"...
+
+	-- Colors { base, emphasized, background }
+	-- base colors
+	local colors = {
+		-- terminal color keys
+		bg      = { hsl("#121118") },
+		fg      = { hsl("#e6e5ed") },
+		black   = { hsl("#1a1636"), hsl("#342c6d") },
+		red     = { hsl("#bc675c"), hsl("#d6a19a") },
+		green   = { hsl("#80bc5c"), hsl("#a8d69a") },
+		yellow  = { hsl("#bc985c"), hsl("#ced69a") },
+		blue    = { hsl("#9ab0d6"), hsl("#9d9ad6") },
+		magenta = { hsl("#685cbc"), hsl("#a19ad6") },
+		cyan    = { hsl("#5cb1bc"), hsl("#9aced6") },
+		white   = { hsl("#e5f2e0"), hsl("#ffffff") },
+		-- additional color keys
+		gray    = { hsl("#7d78a1") },
+		violet  = { hsl("#985cbc"), hsl("#bf9ad6") },
+	}
+	-- Colors' backgrounds
+	colors.black[#colors.black + 1] = hsl("#05040b")
+	colors.yellow[#colors.yellow + 1] = hsl("#646d2c")
+	colors.blue[#colors.blue + 1] = hsl("#2c446d")
+	colors.violet[#colors.violet + 1] = hsl("#552c6d")
+	-- Colors by utility
+	colors.comment = { colors.violet[1] }
+	colors.error = { colors.red[1] }
+	colors.selection = { colors.violet[3] }
+	colors.warning = { colors.yellow[1] }
+
+	if variant and variant == "bg" and colors[color][3] then
+		-- return background variant (fall back to base)
+		return colors[color][3]
+	elseif not variant or variant == "bg" or #colors[color] == 1 then
+		-- return base color variant if no variant or missing index
+		return colors[color][1]
+	else
+		-- return emphasized variant if string is not "bg" and has index 2
+		return colors[color][2]
+	end
+end
+
 
 local theme = lush(function()
 	return {
@@ -56,34 +59,24 @@ local theme = lush(function()
 
 		-- Normal { bg = sea_deep, fg = sea_foam }, -- normal text
 		-- Normal { bg = some.normal[1], fg = some.normal[2] }, -- normal text
+		Normal { fg = color("fg") },
+		Comment { fg = color("comment") },
 
 		-- Set a highlight group from another highlight group
-		-- CursorLine { bg = Normal.bg.lighten(5) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+		CursorLine { bg = color("bg").li(15) },
 
-		-- Or maybe lets style our visual selection to match Cusorlines background,
-		-- and render text in Normal's foreground complement.
+		-- ...and render text in Normal's foreground complement.
 		-- Visual { bg = CursorLine.bg, fg = Normal.fg.rotate(180) },
+		Visual { bg = color("selection") },
 
-		-- We can also link a group to another group. These will inherit all
-		-- of the linked group options (See h: hi-link).
-		-- (`setlocal cursorcolumn`)
-		-- (May have performance impact depending on terminal)
-		-- CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+		CursorColumn { CursorLine },
 
 		-- We can make white space characters slighly visible
-		-- Whitespace { fg = Normal.bg.desaturate(25).lighten(25) },
+		Whitespace { fg = color("bg").desaturate(-15).lighten(30) },
 
-		-- We can inherit properties if we want to tweak a group slightly
-		-- Note: This looks similar to a link, but the defined group will have its
-		-- own properties, cloned from the parent.
-		-- Lets make Comments look like Whitespace, but with italics
-		-- Comment { Whitespace, gui="italic" },
-
-		-- Here's how we might set our line numbers to be relational to Normal,
 		-- note we'er also using some shorter aliases here.
-		-- (`setlocal number`)
-		LineNr { bg = Normal.bg.da(10), fg = Normal.bg.li(5) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-		-- CursorLineNr { bg = CursorLine.bg, fg = Normal.fg.ro(180) }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+		LineNr { fg = color("bg").li(30) },
+		CursorLineNr { bg = CursorLine.bg, fg = Normal.fg.ro(180).da(45) },
 
 		-- You can also use highlight groups to define "base" colors, if you dont
 		-- want to use regular lua variables. They will behave in the same way.
@@ -91,12 +84,12 @@ local theme = lush(function()
 		-- try not to pick names that might end up being used by something.
 		--
 		-- CamelCase is by tradition but you don't have to use it.
-		-- search_base  { bg = hsl(52, 52, 52), fg = hsl(52, 10, 10) },
-		-- Search       { search_base },
-		-- IncSearch    { bg = search_base.bg.rotate(-20), fg = search_base.fg.darken(90) },
+		search_base { bg = color("blue", "bg") },
+		Search { search_base },
+		IncSearch { bg = search_base.bg.li(45) },
 
 		-- We can also mix colours together
-		-- Type         { fg = Normal.fg.mix(LineNr.fg, 30) }
+		Type { fg = Normal.fg.mix(LineNr.fg, 30) }
 
 		-- NormalFloat  { }, -- Normal text in floating windows.
 		-- ColorColumn  { }, -- used for the columns set with 'colorcolumn'
