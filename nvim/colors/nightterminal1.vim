@@ -73,6 +73,7 @@ hi Underlined cterm=NONE gui=NONE ctermfg=4 guifg=#9ab0d6
 " *Todo
 hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
 " Other syntax
+hi Bold cterm=bold gui=bold
 hi Title cterm=NONE gui=NONE ctermfg=11 guifg=#ced69a
 hi TSTagAttribute ctermfg=14 guifg=#9aced6
 hi markdownUrl ctermfg=5 guifg=#685cbc
@@ -179,17 +180,7 @@ hi! link NeoTreeGitUntracked Structure
 hi! link NeoTreeIndentMarker WinSeparator
 hi! link NeoTreeRootName Title
 hi! link NeoTreeTitleBar StatusLine
-" NeoTreeNormal             |hl-Normal| override in Neo-tree window.
-" NeoTreeNormalNC           |hl-NormalNC| override in Neo-tree window.
-" NeoTreeSignColumn         |hl-SignColumn| override in Neo-tree window.
-" NeoTreeStatusLine         |hl-StatusLine| override in Neo-tree window.
-" NeoTreeStatusLineNC       |hl-StatusLineNC| override in Neo-tree window.
-" NeoTreeVertSplit          |hl-VertSplit| override in Neo-tree window.
-" NeoTreeWinSeparator       |hl-WinSeparator| override in Neo-tree window.
-" NeoTreeEndOfBuffer        |hl-EndOfBuffer| override in Neo-tree window.
-" NeoTreeRootName           The name of the root node.
 " NeoTreeSymbolicLinkTarget Symbolic link target.
-" NeoTreeWindowsHidden      Used for icons and names that are hidden on Windows.
 
 " Telescope
 hi! link TelescopePromptCounter Comment
