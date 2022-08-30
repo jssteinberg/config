@@ -12,6 +12,7 @@ local function init()
 
 	use { 'wbthomason/packer.nvim', opt = true }
 	use { 'nathom/filetype.nvim', config = function() require 'packages.filetype'.config() end }
+	use { 'tpope/vim-surround' }
 	use { 'tpope/vim-repeat' } -- Extend `.` repeat
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 	use { "catppuccin/nvim", as = "catppuccin" }
@@ -82,7 +83,6 @@ local function init()
 
 	-- ### EDIT/MOVE
 
-	use { 'tpope/vim-surround', keys = { { 'n', 'ys' }, { 'n', 'c' }, { 'n', 'd' }, { 'v', 'S' } } }
 	use { 'tommcdo/vim-lion', keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
 	use { 'andymass/vim-matchup', event = 'CursorHold' } -- better matching functionality
 	use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
