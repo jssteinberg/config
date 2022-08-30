@@ -25,19 +25,20 @@ local color = function(color, variant)
 		violet  = { hsl("#985cbc"), hsl("#bf9ad6") },
 	}
 	-- Colors' backgrounds
-	colors.black[#colors.black + 1] = hsl("#05040b")
-	colors.yellow[#colors.yellow + 1] = hsl("#646d2c")
-	colors.blue[#colors.blue + 1] = hsl("#2c446d")
-	colors.violet[#colors.violet + 1] = hsl("#552c6d")
+	colors.black.bg = hsl("#05040b")
+	colors.yellow.bg = hsl("#646d2c")
+	colors.blue.bg = hsl("#2c446d")
+	colors.violet.bg = hsl("#552c6d")
 	-- Colors by utility
 	colors.comment = { colors.violet[1], colors.violet[2] }
 	colors.error = { colors.red[1] }
-	colors.selection = { colors.violet[3] }
+	colors.selection = { bg = colors.violet.bg }
 	colors.warning = { colors.yellow[1] }
+	colors.sel = { colors.gray[1], colors.magenta[2] }
 
-	if variant and variant == "bg" and colors[color][3] then
+	if variant and variant == "bg" and colors[color]["bg"] then
 		-- return background variant (fall back to base)
-		return colors[color][3]
+		return colors[color]["bg"]
 	elseif not variant or variant == "bg" or #colors[color] == 1 then
 		-- return base color variant if no variant or missing index
 		return colors[color][1]
@@ -66,13 +67,13 @@ local theme = lush(function()
 
 		-- ...and render text in Normal's foreground complement.
 		-- Visual { bg = CursorLine.bg, fg = Normal.fg.rotate(180) },
-		Visual { bg = color("selection") },
+		Visual { bg = color("selection", "bg") },
 
 		-- We can make white space characters slighly visible
 		-- Whitespace { fg = color("bg").desaturate(-15).lighten(30) },
 
 		-- note we'er also using some shorter aliases here.
-		LineNr { fg = color("gray") },
+		LineNr { fg = color("sel") },
 		-- CursorLineNr { CursorLine, fg = LineNr.fg.rotate(180).lighten(15) },
 
 		-- You can also use highlight groups to define "base" colors, if you dont
@@ -118,22 +119,22 @@ local theme = lush(function()
 		SpellLocal {}, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		SpellRare {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 		StatusLine { bg = color("black", 2), fg = color("magenta", 2) }, -- status line of current window
-		TabLine {}, -- tab pages line, not active tab page label
+		TabLine { fg = color("sel") }, -- tab pages line, not active tab page label
 		TabLineFill {}, -- tab pages line, where there are no labels
-		TabLineSel {}, -- tab pages line, active tab page label
+		TabLineSel { fg = color("sel", 2) }, -- tab pages line, active tab page label
 		Title {}, -- titles for output from ":set all", ":autocmd" etc.
 		-- Visual {}, -- Visual mode selection
 		VisualNOS {}, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg { fg = color("warning") }, -- warning messages
 		WildMenu {}, -- current match in 'wildmenu' completion
 		-- Partially linked:
-		CursorLineNr { CursorLine, fg = color("magenta", 2), gui = "italic" },
 		IncSearch { bg = Search.bg.ro(180), fg = Normal.fg.lighten(45) },
 		PmenuThumb { bg = Pmenu.fg }, -- Popup menu: Thumb of the scrollbar.
-		StatusLineNC { StatusLine, fg = color("gray") }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		VertSplit { fg = StatusLine.bg }, -- the column separating vertically split windows
 		-- Linked and extended
+		CursorLineNr { CursorLine, fg = color("sel", 2), gui = "italic" },
 		Folded { Comment, bg = color("black", "bg") }, -- line used for closed folds
+		StatusLineNC { StatusLine, fg = color("gray") }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		-- Linked:
 		CursorColumn { CursorLine },
 		FoldColumn { Comment, gui = "bold" }, -- 'foldcolumn'
