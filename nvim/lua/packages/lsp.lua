@@ -4,11 +4,11 @@ local M = {}
 M.register_keymaps = function(bufnr, client)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-	-- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting_sync, bufopts)
-	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, bufopts)
+	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting_sync, bufopts)
+	-- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, bufopts)
 
 	if client.supports_method("textDocument/formatting") then
-		vim.keymap.set('n', 'gq', vim.lsp.buf.format, bufopts)
+		vim.keymap.set('n', 'gq', vim.lsp.buf.formatting_sync, bufopts)
 	end
 
 	vim.keymap.set('n', '<cr>', vim.diagnostic.open_float, bufopts)
