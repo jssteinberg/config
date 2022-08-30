@@ -28,6 +28,7 @@ Requires: git ... Install with your OS package manager.
 	- and for fish: https://github.com/PatrickF1/fzf.fish or https://github.com/jethrokuan/fzf
 - [np](https://github.com/sindresorhus/np) for easy NPM package publication.
 - [fnm](https://github.com/Schniz/fnm) for fast Node.js version managing. *Previously used [nvm](https://github.com/nvm-sh/nvm), and for fish [fish-nvm](https://github.com/FabioAntunes/fish-nvm).*
+- exa, `ls` replacement.
 
 ### Tips
 
@@ -41,9 +42,9 @@ funcsave gt
 
 ## Vim 8 +lua
 
-A simple Vim config in a single vimrc. It can be used as a boilerplate and works without packages/plugins. It gives no errors on missing packages unless keymaps/commands requiring packages are used. *Requries Vim >= version 8 +lua.*
+A simple Vim config in a single vimrc. It can be used as a boilerplate and works without plugins. It gives no errors on missing plugins unless keymaps/commands requiring plugins are used. *Requries Vim >= version 8 +lua.*
 
-Packages are installed/updated with `:PackUpdate`. Requires:
+Plugins are installed/updated with `:PackUpdate`. Requires:
 [minpac](https://github.com/k-takata/minpac).
 
 ## Neovim >= 0.7

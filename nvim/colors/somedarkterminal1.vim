@@ -49,7 +49,7 @@ endif
 " GROUP NAMES (:h group-name)
 
 " Comment
-hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#985cbc
+hi Comment cterm=italic gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#985cbc
 " *Constant String Character Number Boolean Float
 hi Constant ctermfg=3 guifg=#bc985c
 hi String ctermfg=11 guifg=#ced69a
@@ -97,7 +97,7 @@ hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e6e5ed guifg=#121118 gui=NONE
 hi CursorColumn cterm=bold gui=bold ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a19ad6
-hi Directory cterm=bold gui=bold ctermfg=5 guifg=#685cbc
+hi Directory cterm=bold gui=bold ctermfg=12 guifg=#9d9ad6
 hi LineNr ctermfg=5 guifg=#7d78a1
 hi MatchParen cterm=italic gui=NONE ctermbg=8 guibg=#342c6d guifg=#a19ad6
 " hi MatchParenCur cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d
@@ -130,7 +130,7 @@ hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
 " Diffs
 hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
 hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#7d78a1
-hi DiffChange cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=7 guifg=#e6e5ed
+hi DiffChange cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=5 guifg=#7d78a1
 hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
 
 " Search
@@ -185,14 +185,15 @@ hi! link IlluminatedWordWrite IlluminatedWordText
 hi! link LeapLabelPrimary IncSearch
 
 " Neo-tree
-hi! link NeoTreeDimText LineNr
+hi NeoTreeDimText cterm=italic gui=italic ctermfg=5 guifg=#7d78a1
+hi NeoTreeSymbolicLinkTarget ctermfg=6 guifg=#5cb1bc
 hi! link NeoTreeDotfile NeoTreeDimText
 hi! link NeoTreeExpander NeoTreeDirectoryIcon
 hi! link NeoTreeGitConflict WarningMsg
 hi! link NeoTreeGitConflict WarningMsg
 hi! link NeoTreeGitUntracked Structure
 hi! link NeoTreeIndentMarker WinSeparator
-hi! link NeoTreeRootName Title
+hi! link NeoTreeRootName NeoTreeDirectoryName
 hi! link NeoTreeTitleBar StatusLine
 
 " Telescope

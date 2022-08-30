@@ -29,8 +29,9 @@ if exists("&winbar")
 	augroup END
 
 	try
-		set laststatus=3 cmdheight=0
-		let g:somedarkterminal1_statusline_bg = "none"
+		set laststatus=3
+		" set cmdheight=0
+		" let g:somedarkterminal1_statusline_bg = "none"
 	catch | endtry
 else
 	set showtabline=2

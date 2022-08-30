@@ -64,7 +64,7 @@ nnoremap <silent> <leader>e. :Neotree current dir=.<cr>
 nnoremap <silent> <leader>eb :Neotree toggle buffers<cr>
 nnoremap <silent> <leader>ed :Neotree action=show toggle<cr>
 nnoremap <silent> <leader>eh :Neotree current dir=%:p:.:h<cr>
-nnoremap <silent> <leader>et :Neotree reveal toggle<cr>
+nnoremap <silent> <leader>et :Neotree reveal<cr>
 
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
@@ -72,8 +72,8 @@ nnoremap <leader>Q :cprev<cr>
 nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Grep
-nnoremap <leader>G :silent grep -g "!package-lock.json" -g "!yarn.lock" 
-vnoremap <silent> <leader>G y:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+nnoremap <silent> <leader>G yiw<cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+vnoremap <silent> <leader>G y<cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " Replace [normal, selection]
 nnoremap <leader>R :%s/

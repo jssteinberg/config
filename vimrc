@@ -11,7 +11,8 @@ set clipboard=unnamed " Sync system clioboard
 set hidden " Unsaved files can be 'hidden'
 set foldmethod=indent nofoldenable
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
-set list listchars=tab:\·\  fillchars=vert:\· " Show tabs, consistent char
+set list listchars+=tab:\│\ 
+" set list listchars=tab:\·\  fillchars=vert:\· " Show tabs, consistent char
 set number relativenumber signcolumn=yes " Line number, relative numbers, always show signcolumn
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set sessionoptions=curdir,folds,tabpages,help
@@ -21,6 +22,10 @@ set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `b
 if executable('rg')
 	set grepformat^=%f:%l:%c:%m grepprg=rg\ --line-number\ --column
 endif
+
+" alias to silent grep
+cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
+cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
 " Persisten undo, mkdir
 if !isdirectory($HOME."/.vimundo") | call mkdir($HOME."/.vimundo", "", 0770) | endif
@@ -86,8 +91,8 @@ nnoremap <leader>Q :cprev<cr>
 nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Grep
-nnoremap <leader>G :grep -g "!package-lock.json" -g "!yarn.lock" 
-vnoremap <silent> <leader>G y:grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+nnoremap <silent> <leader>G <cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" 
+vnoremap <silent> <leader>G y<cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " Replace [normal, visual]
 nnoremap <leader>R :%s/
@@ -184,14 +189,13 @@ function! PackInit() abort
 	call minpac#add('ackyshake/Spacegray.vim')
 	call minpac#add('cocopon/iceberg.vim')
 
-	" call minpac#add('jremmen/vim-ripgrep') " Integrates ripgrep
 	" call minpac#add('mhinz/vim-startify') " For session handling
 	" " Code completion
 	" call minpac#add('alvan/vim-closetag') " Autocomplete tags
 endfunction
 
 try
-	colo somedarkterminal1 | set bg=dark hlsearch termguicolors
+	colo somedarkterminal1 | set hlsearch termguicolors
 catch
 	colorscheme default
 	set notermguicolors t_Co=16 nohlsearch
