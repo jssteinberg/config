@@ -30,6 +30,7 @@ noremap <expr> k v:count ? 'k' : 'gk'
 " Esc [normal, terminal]
 inoremap jk <esc>
 tnoremap jk <c-\><c-n>
+vnoremap jk <esc>
 
 " Search
 nnoremap <c-s> /

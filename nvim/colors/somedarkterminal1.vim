@@ -1,9 +1,9 @@
 " somedarkterminal1.vim
 
-" A neon illuminated city-park WC...
+" In the night, outside of a neon illuminated city-park WC...
 "
 " Handcrafted syntax highlight for some dark terminals first (defaults to
-" transparent bg), but with good contrasts.
+" background NONE to use terminal background), but with good contrasts.
 "
 " bg #121118 fg #e6e5ed
 " black#0    #1a1636 black#8    #342c6d black_bg #05040b
@@ -18,6 +18,9 @@
 " gray #7d78a1
 " violet #985cbc violet_bright #bf9ad6 violet_bg #552c6d
 "
+" Options:
+" - g:somedarkterminal1_bg = 0 or 1. 0 for NONE, 1 for background.
+" - g:somedarkterminal1_statusline_bg = 'none' or 'black'
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
 " Based on a neon illuminated city-park WC... `Comments` should be readable
 " (no dimmed grey).
@@ -96,21 +99,18 @@ hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have sligh
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a19ad6
 hi Directory cterm=bold gui=bold ctermfg=5 guifg=#685cbc
 hi LineNr ctermfg=5 guifg=#7d78a1
-hi MatchParen cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d guifg=#a19ad6
-hi MatchParenCur cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d
-hi MatchWord cterm=italic gui=italic ctermbg=8 guibg=#342c6d
+hi MatchParen cterm=italic gui=NONE ctermbg=8 guibg=#342c6d guifg=#a19ad6
+" hi MatchParenCur cterm=NONE gui=NONE ctermbg=8 guibg=#342c6d
+hi MatchWord cterm=italic gui=NONE ctermbg=8 guibg=#342c6d
 hi NonText gui=NONE ctermfg=8 guifg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
 hi Pmenu      ctermbg=0 guibg=#05040b ctermfg=5 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9aced6
-hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a19ad6
-hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685cbc
 hi TabLineSel cterm=NONE gui=NONE ctermfg=13 guifg=#a19ad6
 hi Visual cterm=bold gui=NONE ctermbg=8 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=bold gui=bold ctermfg=13 guifg=#a19ad6
-hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
 
 hi DiagnosticHint ctermfg=5 guifg=#685cbc
 hi DiagnosticError ctermfg=1 guifg=#bc675c
@@ -136,6 +136,19 @@ hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffff
 " Search
 hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#646d2c ctermfg=11 guifg=#ffffff
 hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
+
+" StatusLine and WinSeparator
+hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a19ad6
+hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685cbc
+hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
+if get(g:, "somedarkterminal1_statusline_bg", "default") == "none"
+	hi StatusLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a19ad6
+	hi StatusLineNC cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#685cbc
+elseif get(g:, "somedarkterminal1_statusline_bg", "default") == "black" && &termguicolors
+	hi StatusLine gui=NONE guibg=#05040b guifg=#a19ad6
+	hi StatusLineNC gui=NONE guibg=#05040b guifg=#685cbc
+	hi WinSeparator guibg=NONE guifg=#05040b
+endif
 
 " UI LINKED
 

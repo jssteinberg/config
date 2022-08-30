@@ -103,6 +103,8 @@ M.config = function()
 			['<c-s>'] = cmp.mapping(function()
 				if luasnip.jumpable() then
 					luasnip.jump(1)
+				elseif cmp.get_active_entry() then
+					cmp.confirm({ select = true })
 				end
 			end, { 'i' }),
 			['<c-b>'] = cmp.mapping(function(fallback)
