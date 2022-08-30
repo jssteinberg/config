@@ -28,7 +28,10 @@ if exists("&winbar")
 		au BufReadPost * setlocal winbar=%{pathshorten(expand('%:p:.:h'))}/%t%m
 	augroup END
 
-	set laststatus=3
+	try
+		set laststatus=3 cmdheight=0
+		let g:somedarkterminal1_statusline_bg = "none"
+	catch | endtry
 else
 	set showtabline=2
 endif
