@@ -6,7 +6,7 @@
 " background NONE to use terminal background), but with good contrasts.
 "
 " bg #121118 fg #e6e5ed
-" black#0    #1a1636 black#8    #342c6d black_bg #05040b
+" black#0    #1a1636 black#8    #7d78a1 black_2 #342c6d black_bg #05040b
 " red#1      #bc675c red#9      #d6a19a
 " green#2    #80bc5c green#10   #a8d69a
 " yellow#3   #bc985c yellow#11  #ced69a yellow_bg #646d2c
@@ -15,7 +15,7 @@
 " cyan#6     #5cb1bc cyan#14    #9aced6
 " white#7    #e5f2e0 white#15   #ffffff
 "
-" gray #7d78a1
+" gray/dim #7d78a1
 " violet #985cbc violet_bright #bf9ad6 violet_bg #552c6d
 "
 " Options:
@@ -59,6 +59,7 @@ hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9aced6
 " *Statement Conditional Repeat Label Operator Keyword Exception
 hi Statement cterm=NONE gui=NONE ctermfg=4 guifg=#5c80bc
 hi Keyword cterm=NONE ctermfg=13 gui=NONE guifg=#a19ad6
+hi! link Label Keyword
 " *PreProc Include Define Macro PreCondit
 hi PreProc ctermfg=12 guifg=#9ab0d6
 " *Type StorageClass Structure Typedef
@@ -91,6 +92,8 @@ hi! link TSTag Tag
 hi! link TSProperty Type
 hi! link cssTSProperty String
 hi! link scssTSProperty cssTSProperty
+hi! link cssTSString PreProc
+hi! link scssTSString cssTSString
 
 " UI
 
@@ -103,9 +106,8 @@ hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a1
 hi Directory cterm=bold gui=bold ctermfg=12 guifg=#9ab0d6
 hi LineNr ctermfg=5 guifg=#7d78a1
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a19ad6
-" hi MatchParenCur cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
-hi NonText gui=NONE ctermfg=8 guifg=#342c6d
+hi NonText gui=NONE ctermfg=8 guifg=#7d78a1
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
 hi Pmenu      ctermbg=0 guibg=#05040b ctermfg=5 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
@@ -115,14 +117,14 @@ hi Visual cterm=bold gui=NONE ctermbg=0 guibg=#552c6d " also affects TelescopePr
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=bold gui=bold ctermfg=13 guifg=#a19ad6
 
-hi DiagnosticHint ctermfg=5 guifg=#685cbc
+hi DiagnosticHint ctermfg=8 guifg=#7d78a1
 hi DiagnosticError ctermfg=1 guifg=#bc675c
 hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#d6a19a
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
 hi DiagnosticUnderlineInfo cterm=underline gui=underline guisp=#a19ad6
 hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#5c80bc
 
-hi Error ctermbg=NONE ctermfg=1 cterm=underline guibg=NONE guifg=#bc675c gui=underline
+hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#ced69a guifg=#121118
 hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#a8d69a guifg=#121118
 hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d6a19a guifg=#121118
@@ -131,10 +133,15 @@ hi SpellRare      ctermbg=5 ctermfg=15 gui=undercurl guisp=#685cbc
 hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
 
 " Diffs
+" `hi`s in context of normal syntax, so can't use green/red---distinguish another way
 hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
-hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#7d78a1
-hi DiffChange cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=5 guifg=#7d78a1
+hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
+hi DiffChange cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
+" `hi`s in own context, so can grey out and use green/red
+hi gitDiff ctermfg=5 guifg=#685cbc
+hi diffAdded ctermfg=2 guifg=#80bc5c
+hi diffRemoved ctermfg=1 guifg=#bc675c
 
 " Search
 hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#646d2c ctermfg=11 guifg=#ffffff
@@ -143,7 +150,7 @@ hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
 " StatusLine and WinSeparator
 hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a19ad6
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685cbc
-hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#342c6d
+hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=5 guifg=#342c6d
 if get(g:, "somedarkterminal1_statusline_bg", "default") == "none"
 	hi StatusLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a19ad6
 	hi StatusLineNC cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#685cbc

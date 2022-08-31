@@ -36,7 +36,7 @@ local function init()
 
 	-- Statusline
 	use {
-		"~/dev/hackline.vim",
+		"jssteinberg/hackline.vim",
 		branch = "dev",
 		config = function()
 			require 'packages.hackline'.config()

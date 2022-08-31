@@ -1,5 +1,3 @@
-" Set options
-
 set clipboard=unnamedplus
 set copyindent
 set cursorline
@@ -7,8 +5,8 @@ set hidden
 set fileencoding=utf-8
 set foldmethod=indent nofoldenable
 set ignorecase smartcase
-set list listchars+=tab:\│\ 
-" set list listchars+=tab:\·\ 
+" set list listchars+=tab:\│\ 
+set list listchars+=tab:\·\ 
 " fillchars+=vert:\·
 set number relativenumber signcolumn=yes
 set mouse=a
@@ -37,7 +35,7 @@ else
 	set showtabline=2
 endif
 
-" Formatoptions
+" FORMATOPTIONS
 
 " (c) auto hard wrap comments
 " (j) remove comment leader when joining lines
@@ -47,7 +45,16 @@ endif
 " (q) allow gq formatting
 set formatoptions=cjlnpq
 
-" Grep
+" NETRW
+
+let g:netrw_altfile = 1
+let g:netrw_alto = 1
+let g:netrw_altv = 1
+let g:netrw_banner = 0
+let g:netrw_liststyle = 1
+let g:netrw_sort_by = "exten"
+
+" GREP
 
 if executable('rg')
 	" use ripgrep
@@ -58,7 +65,7 @@ endif
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
-" General auto commands
+" AUTO COMMANDS
 
 augroup option_like_autocmds
 	au!
