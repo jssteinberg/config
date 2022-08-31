@@ -63,7 +63,7 @@ hi! link Label Keyword
 " *PreProc Include Define Macro PreCondit
 hi PreProc ctermfg=12 guifg=#9ab0d6
 " *Type StorageClass Structure Typedef
-hi Type cterm=NONE gui=NONE ctermfg=10 guifg=#a8d69a
+hi Type cterm=NONE gui=NONE ctermfg=12 guifg=#9ab0d6 " Have good constrast from String
 hi Structure ctermfg=5 guifg=#685cbc
 " *Special SpecialChar Tag Delimiter SpecialComment Debug
 hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9aced6 " also links to TelescopeMatch
