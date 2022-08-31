@@ -1,5 +1,5 @@
 local M = {}
-local disable_ft = { "markdown", "lua", "vim" }
+local disable_ft = { "markdown", "markdown_inline", "lua", "vim" }
 
 M.config = function()
 	require("nvim-treesitter.configs").setup({
