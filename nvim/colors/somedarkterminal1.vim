@@ -92,7 +92,7 @@ hi! link TSTag Tag
 hi! link TSProperty Type
 hi! link cssTSProperty String
 hi! link scssTSProperty cssTSProperty
-hi! link cssTSString PreProc
+hi! link cssTSString Tag
 hi! link scssTSString cssTSString
 
 " UI
