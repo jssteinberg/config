@@ -95,7 +95,7 @@ hi! link scssTSProperty cssTSProperty
 " UI
 
 hi ColorColumn ctermbg=0 guibg=#05040b
-hi Conceal clear
+hi clear Conceal
 hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e6e5ed guifg=#121118 gui=NONE
 hi CursorColumn cterm=bold gui=bold ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
