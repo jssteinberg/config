@@ -14,9 +14,6 @@
 " R: replace (search and replace)
 " X: git(signs) reset
 
-"
-nnoremap <leader>ec :tabedit $MYVIMRC<cr>:tcd %:h<cr>
-
 " Better default indent
 vnoremap < <gv
 vnoremap > >gv
@@ -44,7 +41,6 @@ nnoremap <space> <nop>
 let mapleader=' '
 
 " Alternate buffer
-nnoremap <bs> :buffer#<cr>
 nnoremap <leader>b :buffer#<cr>
 
 " Buffer switcher
@@ -53,6 +49,7 @@ nnoremap <leader><tab> :buffer
 nnoremap <silent> <leader>w :w<cr>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
+nnoremap <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>ew :edit **/*

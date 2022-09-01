@@ -49,6 +49,8 @@ M.config = function()
 				["l"] = "open",
 				["o"] = "open_split",
 				["v"] = "open_vsplit",
+				["p"] = "open_vsplit",
+				["P"] = "vsplit_with_window_picker",
 				["h"] = "close_node",
 				["-"] = "navigate_up",
 				["cd"] = "set_root",
@@ -64,9 +66,9 @@ M.config = function()
 				["mc"] = "copy_to_clipboard",
 				["mm"] = "cut_to_clipboard",
 				["mt"] = "paste_from_clipboard",
-				["Y"] = "copy", -- takes text input for destination
-				["p"] = "move", -- takes text input for destination
 				["q"] = "close_window",
+
+				["Y"] = "copy",
 			}
 		},
 		filesystem = {

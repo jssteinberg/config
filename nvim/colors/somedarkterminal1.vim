@@ -58,12 +58,12 @@ hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9ab0d6
 hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9aced6
 " *Statement Conditional Repeat Label Operator Keyword Exception
 hi Statement cterm=NONE gui=NONE ctermfg=4 guifg=#5c80bc
-hi Keyword cterm=NONE ctermfg=13 gui=NONE guifg=#a19ad6
+hi Keyword cterm=NONE gui=NONE ctermfg=12 guifg=#9ab0d6
 hi! link Label Keyword
 " *PreProc Include Define Macro PreCondit
-hi PreProc ctermfg=12 guifg=#9ab0d6
+hi PreProc ctermfg=13 guifg=#a19ad6
 " *Type StorageClass Structure Typedef
-hi Type cterm=NONE gui=NONE ctermfg=12 guifg=#9ab0d6 " Have good constrast from String
+hi Type cterm=NONE gui=NONE ctermfg=10 guifg=#a8d69a " Have good constrast from String
 hi Structure ctermfg=5 guifg=#685cbc
 " *Special SpecialChar Tag Delimiter SpecialComment Debug
 hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9aced6 " also links to TelescopeMatch
@@ -80,7 +80,7 @@ hi Bold cterm=bold gui=bold
 hi Italic cterm=italic gui=italic
 hi Title cterm=NONE gui=NONE ctermfg=11 guifg=#ced69a
 hi TooLong cterm=underline gui=underline ctermfg=3 guifg=#bc985c
-hi TSTagAttribute ctermfg=14 guifg=#9aced6
+hi TSTagAttribute ctermfg=2 guifg=#80bc5c
 hi markdownUrl ctermfg=5 guifg=#685cbc
 " Linked syntax
 hi! link javascriptTSTag Tag
@@ -103,19 +103,20 @@ hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e6e5ed guifg=#121118 gui=NONE
 hi CursorColumn cterm=bold gui=bold ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a19ad6
-hi Directory cterm=bold gui=bold ctermfg=12 guifg=#9ab0d6
-hi LineNr ctermfg=5 guifg=#7d78a1
+hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
+hi LineNr cterm=italic gui=italic ctermfg=5 guifg=#7d78a1
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a19ad6
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
-hi NonText gui=NONE ctermfg=8 guifg=#7d78a1
+hi NonText gui=NONE ctermfg=8 guifg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
 hi Pmenu      ctermbg=0 guibg=#05040b ctermfg=5 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9aced6
-hi TabLineSel cterm=NONE gui=NONE ctermfg=13 guifg=#a19ad6
+hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#7d78a1
+hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a19ad6
 hi Visual cterm=bold gui=NONE ctermbg=0 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
-hi WinBar cterm=bold gui=bold ctermfg=13 guifg=#a19ad6
+hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a19ad6
 
 hi DiagnosticHint ctermfg=8 guifg=#7d78a1
 hi DiagnosticError ctermfg=1 guifg=#bc675c
@@ -172,8 +173,7 @@ hi! link PmenuSbar Pmenu " Pmenu affects some floating windows
 hi! link Question Type
 hi! link QuickFixLine CursorLine
 hi! link SpellBad ErrorMsg
-hi! link TabLine LineNr
-hi! link TabLineFill LineNr
+hi! link TabLineFill TabLine
 hi! link WinBarNC LineNr
 hi! link WildMenu Pmenu
 
@@ -196,13 +196,13 @@ hi! link LeapLabelPrimary IncSearch
 
 " Neo-tree
 hi NeoTreeDimText cterm=italic gui=italic ctermfg=5 guifg=#7d78a1
+hi NeoTreeIndentMarker ctermfg=0 guifg=#1a1636
 hi NeoTreeSymbolicLinkTarget ctermfg=6 guifg=#5cb1bc
 hi! link NeoTreeDotfile NeoTreeDimText
 hi! link NeoTreeExpander NeoTreeDirectoryIcon
 hi! link NeoTreeGitConflict WarningMsg
 hi! link NeoTreeGitConflict WarningMsg
 hi! link NeoTreeGitUntracked Structure
-hi! link NeoTreeIndentMarker WinSeparator
 hi! link NeoTreeRootName NeoTreeDirectoryName
 hi! link NeoTreeTitleBar StatusLine
 

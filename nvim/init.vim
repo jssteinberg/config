@@ -4,9 +4,9 @@ lua << EOF
 EOF
 
 " Source config
-source $HOME/.config/nvim/options.vim
-source $HOME/.config/nvim/keymaps.vim
-source $HOME/.config/nvim/colorscheme.vim
+runtime options.vim
+runtime keymaps.vim
+runtime colorscheme.vim
 
 " Set colorscheme
 call SetColoOpts()
