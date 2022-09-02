@@ -32,6 +32,12 @@ M.config = function()
 			enable_autocmd = false,
 		}
 	})
+
+	require('hlargs').setup {
+		color = '#d6a19a',
+		highlight = {},
+		excluded_filetypes = disable_ft,
+	}
 end
 
 return M

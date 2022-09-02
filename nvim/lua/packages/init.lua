@@ -30,7 +30,11 @@ local function init()
 	-- Treesitter
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		requires = { 'nvim-treesitter/playground', 'JoosepAlviste/nvim-ts-context-commentstring' },
+		requires = {
+			'nvim-treesitter/playground',
+			'JoosepAlviste/nvim-ts-context-commentstring',
+			'm-demare/hlargs.nvim'
+		},
 		config = function() require 'packages.treesitter'.config() end
 	}
 
@@ -78,7 +82,14 @@ local function init()
 
 	use {
 		"RRethy/vim-illuminate",
-		event = "CursorHold"
+		event = "CursorHold",
+		config = function()
+			require 'illuminate'.configure({
+				under_cursor = false,
+				-- providers_regex_syntax_denylist = { "javasriptstring" },
+				-- providers_regex_syntax_allowlist = { "css.*" },
+			})
+		end
 	}
 
 	-- ### EDIT/MOVE

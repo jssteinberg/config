@@ -146,7 +146,7 @@ hi diffRemoved ctermfg=1 guifg=#bc675c
 
 " Search
 hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#646d2c ctermfg=11 guifg=#ffffff
-hi Search cterm=NONE gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
+hi Search cterm=italic gui=italic ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
 
 " StatusLine and WinSeparator
 hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a19ad6
