@@ -80,18 +80,6 @@ local function init()
 	-- LAZY LOADED
 	-- -----------
 
-	use {
-		"RRethy/vim-illuminate",
-		event = "CursorHold",
-		config = function()
-			require 'illuminate'.configure({
-				under_cursor = false,
-				-- providers_regex_syntax_denylist = { "javasriptstring" },
-				-- providers_regex_syntax_allowlist = { "css.*" },
-			})
-		end
-	}
-
 	-- ### EDIT/MOVE
 
 	use { 'tommcdo/vim-lion', keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
@@ -193,6 +181,9 @@ local function init()
 	}
 
 	-- ### UTIL
+
+	-- Illuminate cursor word
+	use { "RRethy/vim-illuminate", event = "CursorHold" }
 
 	-- Measure startuptime
 	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
