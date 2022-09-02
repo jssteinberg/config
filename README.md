@@ -40,13 +40,6 @@ alias gt "git checkout --track"
 funcsave gt
 ```
 
-## Vim 8 +lua
-
-A simple Vim config in a single vimrc. It can be used as a boilerplate and works without plugins. It gives no errors on missing plugins unless keymaps/commands requiring plugins are used. *Requries Vim >= version 8 +lua.*
-
-Plugins are installed/updated with `:PackUpdate`. Requires:
-[minpac](https://github.com/k-takata/minpac).
-
 ## Neovim >= 0.7
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing. Uncomplicated config for dummies hacking (author included).
@@ -56,9 +49,19 @@ Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripg
 - `:TSInstall all`/`:TSUpdate`
 - `:LspInstallInfo` and `i`/`U`
 
-### Plugins to consider
+### Improve
 
-...
+- cii/dif - change/delete in indent
+- cif/dif - change/delete in function
+- cai/daf - change/delete around indent
+- caf/daf - change/delete around function
+
+## Vim 8 +lua
+
+A simple Vim config in a single vimrc. It can be used as a boilerplate and works without plugins. It gives no errors on missing plugins unless keymaps/commands requiring plugins are used. *Requries Vim >= version 8 +lua.*
+
+Plugins are installed/updated with `:PackUpdate`. Requires:
+[minpac](https://github.com/k-takata/minpac).
 
 ## Troubleshooting
 

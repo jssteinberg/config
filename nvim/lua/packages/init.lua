@@ -12,10 +12,21 @@ local function init()
 
 	use { 'wbthomason/packer.nvim', opt = true }
 	use { 'nathom/filetype.nvim', config = function() require 'packages.filetype'.config() end }
-	use { 'tpope/vim-surround' }
 	use { 'tpope/vim-repeat' } -- Extend `.` repeat
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 	use { "catppuccin/nvim", as = "catppuccin" }
+
+	-- use { 'tpope/vim-surround' }
+	use { "echasnovski/mini.nvim" }
+	use({
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end
+	})
 
 	-- Open/search with `gx`
 	use { 'tyru/open-browser.vim', config = function()
