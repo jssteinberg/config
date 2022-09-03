@@ -80,6 +80,8 @@ hi Italic cterm=italic gui=italic
 hi Title cterm=NONE gui=NONE ctermfg=11 guifg=#ced69b
 hi TooLong cterm=underline gui=underline ctermfg=3 guifg=#bc985c
 hi TSTagAttribute ctermfg=2 guifg=#80bc5c
+" green#2    #80bc5c green#10   #a9d69b
+hi markdownCode ctermfg=10 guifg=#a9d69b
 hi markdownUrl ctermfg=5 guifg=#685cbc
 " Linked syntax
 hi! link htmlArg TSTagAttribute

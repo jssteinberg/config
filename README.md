@@ -47,13 +47,11 @@ Functional, lightweight and 'native extending' neovim config with a focus on web
 Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat, [prettierd](https://github.com/fsouza/prettierd) ... Open nvim and get warning/error messages, run `:PackerSync`, restart nvim, repeat. Then:
 
 - `:TSInstall all`/`:TSUpdate`
-- `:LspInstallInfo` and `i`/`U`
+- `:Mason`
 
 ### Improve
 
-- cii/dif - change/delete in indent
 - cif/dif - change/delete in function
-- cai/daf - change/delete around indent
 - caf/daf - change/delete around function
 
 ## Vim 8 +lua
