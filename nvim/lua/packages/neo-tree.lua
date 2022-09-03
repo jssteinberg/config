@@ -11,13 +11,13 @@ M.config = function()
 				with_markers = true,
 				indent_marker = "·",
 				last_indent_marker = "·",
-				expander_collapsed = "/",
+				expander_collapsed = "·",
 				expander_expanded = "·",
 			},
 			icon = {
-				folder_closed = "/",
+				folder_closed = "",
 				folder_open = "·",
-				folder_empty = "-",
+				folder_empty = "",
 				default = "",
 			},
 			git_status = {

@@ -17,21 +17,14 @@ local function init()
 	use { "catppuccin/nvim", as = "catppuccin" }
 
 	use { "echasnovski/mini.nvim", config = function()
-		require('mini.indentscope').setup({
-			-- Module mappings. Use `''` (empty string) to disable one.
-			symbol = '·',
-		})
+		require('mini.indentscope').setup({ symbol = '·' })
 	end }
 
 	-- use { 'tpope/vim-surround' }
 	use({
 		"kylechui/nvim-surround",
-		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
-		end
+		tag = "*",
+		config = function() require("nvim-surround").setup({}) end
 	})
 
 	-- Open/search with `gx`
