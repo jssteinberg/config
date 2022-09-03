@@ -1,5 +1,6 @@
 " somedarkterminal1.vim
 
+" neoncitywc...
 " Handcrafted syntax highlight for some dark terminals first (defaults to
 " background NONE to use terminal background), with good contrasts.
 "
@@ -87,6 +88,7 @@ hi! link htmlTag Delimiter
 hi! link htmlTagName Tag
 hi! link javascriptTSTag Tag
 hi! link markdown_inlineTSURI markdownUrl
+hi! link markdownLinkDelimiter Delimiter
 hi! link markdownLinkTextDelimiter Delimiter
 hi! link Tag Type
 hi! link TSPunctBrack Delimiter
