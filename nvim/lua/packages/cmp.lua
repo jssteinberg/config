@@ -1,18 +1,5 @@
 local M = {}
 
--- M.tabnine_nr = 2
---
--- M.tabnine = function()
--- 	require('cmp_tabnine.config'):setup({
--- 		max_lines = 1000;
--- 		max_num_results = M.tabnine_nr;
--- 		sort = true;
--- 		run_on_every_keystroke = true;
--- 		snippet_placeholder = '…';
--- 		show_prediction_strength = false;
--- 	})
--- end
-
 M.config = function()
 	local cmp = require 'cmp'
 	local luasnip = require 'luasnip'
@@ -27,20 +14,17 @@ M.config = function()
 	-- nvim-cmp setup
 	cmp.setup {
 		sources = {
-			{
-				name = 'nvim_lsp_signature_help', max_item_count = 1
-			},
+			-- {
+			-- 	name = 'nvim_lsp_signature_help', max_item_count = 1
+			-- },
 			{
 				name = 'luasnip', max_item_count = 2
 			},
 			{
 				name = 'nvim_lsp', max_item_count = 3
 			},
-			-- {
-			-- 	name = 'cmp_tabnine', max_item_count = M.tabnine_nr
-			-- },
 			{
-				name = 'buffer', max_item_count = 4
+				name = 'buffer', max_item_count = 5
 			},
 		},
 		experimental = {
@@ -61,6 +45,8 @@ M.config = function()
 			['<c-f>'] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.confirm({ select = true })
+				elseif luasnip.jumpable() then
+					luasnip.jump(1)
 				else
 					fallback()
 				end
