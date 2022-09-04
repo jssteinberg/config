@@ -7,12 +7,17 @@ endfunction
 
 function! CycleColo()
 	if &bg == 'dark'
-		set bg=light
-		let g:catppuccin_flavour = "latte" " latte, frappe, macchiato, mocha
-		lua require("catppuccin").setup()
-		set termguicolors t_Co=256
-		colorscheme catppuccin
+		set bg=light termguicolors t_Co=256
+		colo makeuplush
+
+		" let g:catppuccin_flavour = "latte" " latte, frappe, macchiato, mocha
+		" lua require("catppuccin").setup()
+		" set termguicolors t_Co=256
+		" colorscheme catppuccin
 	else
-		exe(s:d)
+		set bg=dark termguicolors t_Co=256
+		colo makeuplush
+
+		" exe(s:d)
 	endif
 endfunction
