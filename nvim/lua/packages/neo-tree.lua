@@ -15,10 +15,10 @@ M.config = function()
 				expander_expanded = "·",
 			},
 			icon = {
-				folder_closed = "",
+				folder_closed = " ",
 				folder_open = "·",
-				folder_empty = "",
-				default = "",
+				folder_empty = " ",
+				default = " ",
 			},
 			git_status = {
 				symbols = {
