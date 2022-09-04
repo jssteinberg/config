@@ -67,6 +67,7 @@ end
 local theme = lush(function()
 	return {
 		Normal { bg = color("bg"), fg = color("fg") },
+		Title { fg = color("fg", 2) }, -- titles for output from ":set all", ":autocmd" etc.
 		-- Comment { fg = color("comment") },
 		Comment { fg = color("comment") },
 		Todo { fg = color("comment", 2), gui = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
@@ -142,8 +143,6 @@ local theme = lush(function()
 		-- SpellRare {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 		-- -- Linked and extended
 		-- CursorLineNr { CursorLine, fg = color("sel", 2), gui = "italic" },
-
-		Title {}, -- titles for output from ":set all", ":autocmd" etc.
 
 		Constant {}, -- (preferred) any constant
 		String {}, --   a string constant: "this is a string"
