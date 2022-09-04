@@ -15,9 +15,8 @@ function! CycleColo()
 		" set termguicolors t_Co=256
 		" colorscheme catppuccin
 	else
-		set bg=dark termguicolors t_Co=256
-		colo makeuplush
-
-		" exe(s:d)
+		" set bg=dark termguicolors t_Co=256
+		" colo makeuplush
+		exe(s:d)
 	endif
 endfunction

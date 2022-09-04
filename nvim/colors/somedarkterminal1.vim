@@ -66,7 +66,7 @@ hi Type cterm=NONE gui=NONE ctermfg=10 guifg=#a9d69b " Have good constrast from 
 hi Structure ctermfg=5 guifg=#685cbc
 " *Special SpecialChar Tag Delimiter SpecialComment Debug
 hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9bcfd6 " also links to TelescopeMatch
-hi SpecialKey ctermfg=12 guifg=#9bb2d6
+hi SpecialKey ctermfg=12 guifg=#9bb2d6 " Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
 hi Delimiter ctermfg=4 guifg=#5c80bc
 " *Underlined
 hi Underlined cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
