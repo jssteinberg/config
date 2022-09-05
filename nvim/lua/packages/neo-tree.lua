@@ -9,14 +9,16 @@ M.config = function()
 			indent = {
 				-- indent guides
 				with_markers = true,
-				indent_marker = "·",
-				last_indent_marker = "·",
-				expander_collapsed = "·",
-				expander_expanded = "·",
+				-- indent_marker = "·",
+				-- last_indent_marker = "·",
+				-- expander_collapsed = "·",
+				-- expander_expanded = "·",
+				expander_collapsed = "",
+				expander_expanded = "",
 			},
 			icon = {
-				folder_closed = " ",
-				folder_open = "·",
+				folder_closed = "›",
+				folder_open = "",
 				folder_empty = " ",
 				default = " ",
 			},

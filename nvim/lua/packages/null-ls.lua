@@ -5,13 +5,13 @@ M.config = function()
 	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 	local sources = {
 		null_ls.builtins.code_actions.gitsigns,
-		null_ls.builtins.formatting.prettierd.with({
-			filetypes = { "javascript", "json", "yaml" },
-			env = {
-				PRETTIERD_DEFAULT_CONFIG = vim.fn.expand "~/.config/.prettierrc.json",
-			},
-			command = "prettierd"
-		}),
+		-- null_ls.builtins.formatting.prettierd.with({
+		-- 	filetypes = { "javascript", "json", "yaml" },
+		-- 	env = {
+		-- 		PRETTIERD_DEFAULT_CONFIG = vim.fn.expand "~/.config/.prettierrc.json",
+		-- 	},
+		-- 	command = "prettierd"
+		-- }),
 	}
 	local async_formatting = function(bufnr)
 		bufnr = bufnr or vim.api.nvim_get_current_buf()

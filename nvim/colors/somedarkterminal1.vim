@@ -200,6 +200,9 @@ hi! link IlluminatedWordWrite IlluminatedWordText
 " leap.nvim
 hi! link LeapLabelPrimary IncSearch
 
+" mini.nvim
+hi! link MiniIndentscopePrefix NonText
+
 " Neo-tree
 hi NeoTreeDimText cterm=italic gui=italic ctermfg=5 guifg=#7d78a1
 hi NeoTreeIndentMarker ctermfg=0 guifg=#1a1636

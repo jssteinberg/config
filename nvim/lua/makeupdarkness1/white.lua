@@ -9,6 +9,7 @@ local color = function(color, variant)
 
 	local sa, li, li2, li3, bg, fg
 
+	-- TODO: rm dynamic dark/light remains
 	if dark then
 		vim.o.background = "dark"
 		sa = 42
@@ -19,28 +20,26 @@ local color = function(color, variant)
 		fg = { hsl("#e5f2e0") }
 	else
 		vim.o.background = "light"
-		sa = 85
+		sa = 95
 		li = 40
-		li2 = 30
+		li2 = 20
 		li3 = 80
-		bg = { hsl("#ffffff"), hsl("#e5f2e0") }
-		fg = { hsl(hue, 42, 30), hsl("#121118").li(5) }
 	end
 
 	-- Colors { base, emphasized, background }
 	-- base colors
 	local colors = {
 		-- terminal color keys
-		bg      = bg,
-		fg      = fg,
+		bg      = { hsl("#ffffff"), hsl("#e5f2e0") },
+		fg      = { hsl(hue, 42, 30), hsl("#121118").li(5) },
 		black   = { hsl("#1a1636"), hsl(hue, 17.8, li2) }, -- add 2 index color
 		red     = { hsl(6.9, sa, li), hsl(7.5, sa, li2), hsl(6.9, sa, li3) }, -- add 2 index color
 		green   = { hsl(97.5, sa, li), hsl(105.7, sa, li2), hsl(97.5, sa, li3) }, -- add 2 index color
-		yellow  = { hsl(37.5, sa, li), hsl(68, sa, li2), hsl(68, sa, li3) }, -- add 2 index color
+		yellow  = { hsl(37.5, sa, li), hsl(68, sa, li2), hsl("#ced69b") }, -- add 2 index color
 		blue    = { hsl(217.5, sa, li), hsl(217.5, sa, li2), hsl(217.5, sa, li3) }, -- add 2 index color
 		magenta = { hsl(hue, sa, li), hsl(hue, sa, li2), hsl(hue, sa, li3) }, -- add 2 index color
 		cyan    = { hsl(187.3, sa, li), hsl(187.5, sa, li2), hsl(187.3, sa, li3) }, -- add 2 index color
-		white   = { hsl("#afacc5"), hsl("#e5f2e0") }, -- add 2 index color
+		white   = { hsl("#afacc5"), hsl("#e5f2e0"), hsl("#ffffff") }, -- add 2 index color
 		-- additional color keys
 		violet  = { hsl(277.5, sa, li), hsl(277.5, sa, li2), hsl(277.5, sa, li3) },
 	}
@@ -66,9 +65,8 @@ end
 
 local theme = lush(function()
 	return {
-		Normal { bg = color("bg"), fg = color("fg") },
-		Title { fg = color("fg", 2) }, -- titles for output from ":set all", ":autocmd" etc.
-		-- Comment { fg = color("comment") },
+		Normal { bg = color("bg"), fg = color("fg", 2) },
+		Title { gui = "bold" }, -- titles for output from ":set all", ":autocmd" etc.
 		Comment { fg = color("comment") },
 		Todo { fg = color("comment", 2), gui = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 		Error { fg = color("red") }, -- (preferred) any erroneous construct
@@ -78,20 +76,21 @@ local theme = lush(function()
 		-- UI
 
 		-- necessities
-		LineNr { fg = Normal.fg.li(65) },
+		LineNr { fg = color("white") },
 		SignColumn { LineNr }, -- column where |signs| are displayed
 		ColorColumn { bg = color("red").li(90) }, -- used for the columns set with 'colorcolumn'
 		CursorLine { bg = color("bg", 2).li(50) },
-		CursorLineNr { CursorLine, gui = "italic" },
+		CursorLineNr { CursorLine },
 		CursorColumn { bg = CursorLine.bg.li(10) },
-		NonText { fg = LineNr.fg.li(60) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+		NonText { fg = hsl("#ced69b") }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		WinSeparator { fg = LineNr.fg.li(50) },
 		StatusLine { bg = WinSeparator.fg.li(50), fg = color("fg") },
 		StatusLineNC { StatusLine, fg = StatusLine.fg.li(50) },
-		TabLineFill { LineNr }, -- tab pages line, where there are no labels
-		TabLine { TabLineFill }, -- tab pages line, not active tab page label
-		TabLineSel { CursorLineNr }, -- tab pages line, active tab page label
+		TabLine { LineNr }, -- tab pages line, not active tab page label
+		TabLineFill { TabLine }, -- tab pages line, where there are no labels
+		TabLineSel { Normal }, -- tab pages line, active tab page label
+		WinBar { TabLineSel },
 		WinBarNC { LineNr },
 		Pmenu { StatusLineNC }, -- Popup menu: normal item.
 		PmenuSel { StatusLine }, -- Popup menu: selected item.
@@ -107,6 +106,7 @@ local theme = lush(function()
 		SpecialKey { LineNr }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
 		Folded { Comment }, -- line used for closed folds
 		FoldColumn { Comment, gui = "bold" }, -- 'foldcolumn'
+		MoreMsg {}, -- |more-prompt|
 
 		-- diff
 		DiffAdd { fg = color("green", 2) }, -- diff mode: Added line |diff.txt|
@@ -114,14 +114,16 @@ local theme = lush(function()
 		DiffDelete { fg = color("red") }, -- diff mode: Deleted line |diff.txt|
 		DiffText { DiffAdd }, -- diff mode: Changed text within a changed line |diff.txt|
 
-		DiagnosticsError { Error }, -- used for "Error" diagnostic virtual text
-		DiagnosticsWarning { LineNr }, -- used for "Warning" diagnostic virtual text
-		DiagnosticsInformation { LineNr }, -- used for "Information" diagnostic virtual text
-		DiagnosticsHint { LineNr }, -- used for "Hint" diagnostic virtual text
-
+		-- LSP
+		DiagnosticError { Error }, -- used for "Error" diagnostic virtual text
+		DiagnosticWarn { LineNr }, -- used for "Warning" diagnostic virtual text
+		DiagnosticInfo { LineNr }, -- used for "Information" diagnostic virtual text
+		DiagnosticHint { LineNr }, -- used for "Hint" diagnostic virtual text
 		LspReferenceText {}, -- used for highlighting "text" references
 		LspReferenceRead {}, -- used for highlighting "read" references
 		LspReferenceWrite {}, -- used for highlighting "write" references
+
+		TelescopeNormal { Normal },
 
 		IlluminatedWordText { bg = color("bg", 2).da(5) },
 		IlluminatedWordRead { IlluminatedWordText },
@@ -135,7 +137,6 @@ local theme = lush(function()
 		-- Substitute {}, -- |:substitute| replacement text highlighting
 		-- ModeMsg {}, -- 'showmode' message (e.g., "-- INSERT -- ")
 		-- MsgArea {}, -- Area for messages and cmdline
-		-- MoreMsg {}, -- |more-prompt|
 		-- NormalNC {}, -- normal text in non-current windows
 		-- SpellBad {}, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
 		-- SpellCap {}, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.

@@ -16,7 +16,8 @@ local function init()
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
 
 	use { "echasnovski/mini.nvim", config = function()
-		require('mini.indentscope').setup({ symbol = '·' })
+		require('mini.indentscope').setup({ symbol = '│' })
+		require('mini.indentscope').gen_animation('none')
 	end }
 
 	-- use { 'tpope/vim-surround' }
@@ -192,7 +193,9 @@ local function init()
 	-- ### UTIL
 
 	-- Illuminate cursor word
-	use { "RRethy/vim-illuminate", event = "CursorHold" }
+	use { "RRethy/vim-illuminate", event = "CursorHold", config = function()
+		require 'illuminate'.configure({ under_cursor = false })
+	end }
 
 	-- Measure startuptime
 	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }

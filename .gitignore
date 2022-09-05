@@ -20,4 +20,4 @@ nvim/lua/.DS_Store
 nvim/lua/packages/.DS_Store
 !nvim/lua/utils/*
 !nvim/lua/wip/*
-!nvim/lua/makeuplush/*
+!nvim/lua/makeupdarkness1/*

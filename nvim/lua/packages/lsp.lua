@@ -41,7 +41,11 @@ M.config = function()
 
 	require("mason").setup {}
 	require("mason-lspconfig").setup()
-	require("lsp-format").setup {}
+	require("lsp-format").setup {
+		javascript = {
+			semicolons = true,
+		}
+	}
 	require("mason-lspconfig").setup_handlers {
 		-- The first entry (without a key) will be the default handler
 		-- and will be called for each installed server that doesn't have
@@ -66,6 +70,12 @@ M.config = function()
 						}
 					}
 				}
+			}
+		end,
+		["tsserver"] = function()
+			lspconfig.tsserver.setup {
+				on_attach = require "lsp-format".on_attach,
+				-- javascript.format.semicolons: true,
 			}
 		end,
 	}
