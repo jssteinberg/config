@@ -23,7 +23,7 @@ set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 if exists("&winbar")
 	augroup winbar
 		au!
-		au BufReadPost * setlocal winbar=%{pathshorten(expand('%:p:.:h'))}/%t%m
+		au BufReadPost * setlocal winbar=\ %{pathshorten(expand('%:p:.:h'))}/%t%m
 	augroup END
 
 	try

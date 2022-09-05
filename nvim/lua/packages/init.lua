@@ -14,7 +14,6 @@ local function init()
 	use { 'nathom/filetype.nvim', config = function() require 'packages.filetype'.config() end }
 	use { 'tpope/vim-repeat' } -- Extend `.` repeat
 	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
-	use { "catppuccin/nvim", as = "catppuccin" }
 
 	use { "echasnovski/mini.nvim", config = function()
 		require('mini.indentscope').setup({ symbol = '·' })

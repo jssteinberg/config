@@ -7,8 +7,8 @@ endfunction
 
 function! CycleColo()
 	if &bg == 'dark'
-		set bg=light termguicolors t_Co=256
-		colo makeuplush
+		set termguicolors t_Co=256
+		colo makeudarkness2
 
 		" let g:catppuccin_flavour = "latte" " latte, frappe, macchiato, mocha
 		" lua require("catppuccin").setup()
