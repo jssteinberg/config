@@ -75,7 +75,16 @@ M.config = function()
 		["tsserver"] = function()
 			lspconfig.tsserver.setup {
 				on_attach = require "lsp-format".on_attach,
-				-- javascript.format.semicolons: true,
+				settings = {
+					javascript = {
+						format = {
+							semicolons = "insert"
+						},
+						preferences = {
+							quoteStyle = "double"
+						}
+					}
+				}
 			}
 		end,
 	}

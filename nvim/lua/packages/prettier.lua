@@ -19,7 +19,7 @@ M.config = function()
 	})
 
 	prettier.setup({
-		bin = 'prettier', -- or `prettierd`
+		bin = 'prettierd', -- or `prettierd`
 		filetypes = {
 			"css",
 			"graphql",
