@@ -5,6 +5,9 @@ M.config = function()
 	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 	local sources = {
 		null_ls.builtins.code_actions.gitsigns,
+		null_ls.builtins.formatting.prettier.with({
+			filetypes = { "javascript", "json", "yaml" },
+		}),
 		-- null_ls.builtins.formatting.prettierd.with({
 		-- 	filetypes = { "javascript", "json", "yaml" },
 		-- 	env = {
@@ -45,18 +48,18 @@ M.config = function()
 
 	null_ls.setup({
 		sources = sources,
-		-- on_attach = function(client, bufnr)
-		-- 	if client.supports_method("textDocument/formatting") then
-		-- 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		-- 		vim.api.nvim_create_autocmd("BufWritePre", {
-		-- 			group = augroup,
-		-- 			buffer = bufnr,
-		-- 			callback = function()
-		-- 				async_formatting(bufnr)
-		-- 			end,
-		-- 		})
-		-- 	end
-		-- end,
+		on_attach = function(client, bufnr)
+			if client.supports_method("textDocument/formatting") then
+				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					group = augroup,
+					buffer = bufnr,
+					callback = function()
+						async_formatting(bufnr)
+					end,
+				})
+			end
+		end,
 	})
 end
 

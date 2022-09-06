@@ -2,7 +2,7 @@ local packer = nil
 
 local function init()
 	if packer == nil then
-		packer = require 'packer'
+		packer = require "packer"
 		packer.init { disable_commands = true }
 	end
 
@@ -10,14 +10,14 @@ local function init()
 
 	packer.reset()
 
-	use { 'wbthomason/packer.nvim', opt = true }
-	use { 'nathom/filetype.nvim', config = function() require 'packages.filetype'.config() end }
-	use { 'tpope/vim-repeat' } -- Extend `.` repeat
-	use { 'tpope/vim-sleuth' } -- detects indent, also uses .editorconfig
+	use { "wbthomason/packer.nvim", opt = true }
+	use { "nathom/filetype.nvim", config = function() require "packages.filetype".config() end }
+	use { "tpope/vim-repeat" } -- Extend `.` repeat
+	use { "tpope/vim-sleuth" } -- detects indent, also uses .editorconfig
 
 	use { "echasnovski/mini.nvim", config = function()
-		require('mini.indentscope').setup({ symbol = '│' })
-		require('mini.indentscope').gen_animation('none')
+		require("mini.indentscope").setup({ symbol = "│" })
+		require("mini.indentscope").gen_animation("none")
 	end }
 
 	-- use { 'tpope/vim-surround' }
@@ -28,24 +28,24 @@ local function init()
 	})
 
 	-- Open/search with `gx`
-	use { 'tyru/open-browser.vim', config = function()
-		require 'packages.openbrowser'.config()
+	use { "tyru/open-browser.vim", config = function()
+		require "packages.openbrowser".config()
 	end }
 
 	-- Gitsigns
 	use { "lewis6991/gitsigns.nvim", config = function()
-		require('gitsigns').setup()
+		require("gitsigns").setup()
 	end }
 
 	-- Treesitter
 	use {
-		'nvim-treesitter/nvim-treesitter',
+		"nvim-treesitter/nvim-treesitter",
 		requires = {
-			'nvim-treesitter/playground',
-			'JoosepAlviste/nvim-ts-context-commentstring',
-			'm-demare/hlargs.nvim'
+			"nvim-treesitter/playground",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			"m-demare/hlargs.nvim"
 		},
-		config = function() require 'packages.treesitter'.config() end
+		config = function() require "packages.treesitter".config() end
 	}
 
 	-- Statusline
@@ -53,27 +53,27 @@ local function init()
 		"jssteinberg/hackline.vim",
 		branch = "dev",
 		config = function()
-			require 'packages.hackline'.config()
+			require "packages.hackline".config()
 		end
 	}
 
 	-- LSP
 	use {
-		'neovim/nvim-lspconfig',
+		"neovim/nvim-lspconfig",
 		requires = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			'lukas-reineke/lsp-format.nvim',
-			'hrsh7th/nvim-cmp',
-			'hrsh7th/cmp-nvim-lsp',
-			'hrsh7th/cmp-buffer',
+			"lukas-reineke/lsp-format.nvim",
+			"hrsh7th/nvim-cmp",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
 			-- 'hrsh7th/cmp-nvim-lsp-signature-help',
-			'L3MON4D3/LuaSnip',
-			'saadparwaiz1/cmp_luasnip',
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
 		},
 		config = function()
-			require 'packages.lsp'.config()
-			require 'packages.cmp'.config()
+			require "packages.lsp".config()
+			require "packages.cmp".config()
 		end
 	}
 
@@ -91,72 +91,72 @@ local function init()
 
 	-- ### EDIT/MOVE
 
-	use { 'tommcdo/vim-lion', keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
-	use { 'andymass/vim-matchup', event = 'CursorHold' } -- better matching functionality
-	use { 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } } -- sudo save
+	use { "tommcdo/vim-lion", keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
+	use { "andymass/vim-matchup", event = "CursorHold" } -- better matching functionality
+	use { "lambdalisue/suda.vim", cmd = { "SudaRead", "SudaWrite" } } -- sudo save
 
 	-- auto pair completion
-	use { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function()
-		require('nvim-autopairs').setup {}
+	use { "windwp/nvim-autopairs", event = "InsertEnter", config = function()
+		require("nvim-autopairs").setup {}
 	end }
 
 	-- Better f, F, t, T motion, repeatable with f/F
-	use { 'rhysd/clever-f.vim', keys = {
-		{ 'n', 'f' }, { 'n', 'F' }, { 'n', 't' }, { 'n', 'T' },
-		{ 'x', 'f' }, { 'x', 'F' }, { 'x', 't' }, { 'x', 'T' }
+	use { "rhysd/clever-f.vim", keys = {
+		{ "n", "f" }, { "n", "F" }, { "n", "t" }, { "n", "T" },
+		{ "x", "f" }, { "x", "F" }, { "x", "t" }, { "x", "T" }
 	} }
 
 	-- Leap s/S motion
 	use {
-		'ggandor/leap.nvim',
+		"ggandor/leap.nvim",
 		keys = {
-			{ 'n', 's' }, { 'n', 'S' },
-			{ 'x', 'z' }, { 'x', 'Z' },
+			{ "n", "s" }, { "n", "S" },
+			{ "x", "z" }, { "x", "Z" },
 		},
 		config = function()
-			require('leap').set_default_keymaps()
+			require("leap").set_default_keymaps()
 		end
 	}
 
 	-- Comment in/out
 	use {
-		'numToStr/Comment.nvim',
+		"numToStr/Comment.nvim",
 		keys = {
-			{ 'n', 'gc' }, { 'n', 'gb' },
-			{ 'v', 'gc' }, { 'v', 'gb' },
+			{ "n", "gc" }, { "n", "gb" },
+			{ "v", "gc" }, { "v", "gb" },
 		},
 		config = function()
-			require('Comment').setup {
-				pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+			require("Comment").setup {
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 			}
 		end
 	}
 
 	-- ### SEARCH/EXPLORE
 
-	use { 'subnut/visualstar.vim', keys = { { 'x', '*' }, { 'x', '#' } } }
+	use { "subnut/visualstar.vim", keys = { { "x", "*" }, { "x", "#" } } }
 
 	-- Quickfix
-	use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+	use { "kevinhwang91/nvim-bqf", ft = "qf" }
 
 	-- Fuzzy searcher
 	use {
-		'nvim-telescope/telescope.nvim',
+		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
-		cmd = 'Telescope',
-		requires = { 'nvim-lua/plenary.nvim' },
-		config = function() require 'packages.telescope'.config() end
+		cmd = "Telescope",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function() require "packages.telescope".config() end
 	}
 
 	-- File tree
-	use { 'MunifTanjim/nui.nvim', cmd = { 'Neotree' } }
+	use { "MunifTanjim/nui.nvim", cmd = { "Neotree" } }
 	use {
-		'nvim-neo-tree/neo-tree.nvim',
-		branch = 'v2.x',
-		after = 'nui.nvim',
-		requires = { 'nvim-lua/plenary.nvim' },
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		after = "nui.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
 		config = function()
-			require 'packages.neo-tree'.config()
+			require "packages.neo-tree".config()
 		end
 	}
 
@@ -165,47 +165,47 @@ local function init()
 		"ghillb/cybu.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
 		event = "BufAdd",
-		config = function() require 'packages.cybu'.config() end,
+		config = function() require "packages.cybu".config() end,
 	}
 
 	-- ### GIT
 
-	use { 'tpope/vim-fugitive', cmd = { 'G', 'Git', 'Gdiffsplit', 'Gvdiffsplit' } } -- Git wrapper
-	use { 'APZelos/blamer.nvim', cmd = { 'BlamerToggle' } } -- git blame
-	use { 'rhysd/git-messenger.vim', cmd = { 'GitMessenger' } } -- git message under cursor
+	use { "tpope/vim-fugitive", cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit" } } -- Git wrapper
+	use { "APZelos/blamer.nvim", cmd = { "BlamerToggle" } } -- git blame
+	use { "rhysd/git-messenger.vim", cmd = { "GitMessenger" } } -- git message under cursor
 	use {
-		'tyru/open-browser-github.vim',
+		"tyru/open-browser-github.vim",
 		cmd = {
-			'OpenGithubFile', 'OpenGithuIssue', 'OpenGithubPullReq', 'OpenGithubProject',
+			"OpenGithubFile", "OpenGithuIssue", "OpenGithubPullReq", "OpenGithubProject",
 		},
-		requires = { 'tyru/open-browser.vim' },
+		requires = { "tyru/open-browser.vim" },
 	}
 
 	-- git linker
 	use {
-		'ruifm/gitlinker.nvim',
-		requires = 'nvim-lua/plenary.nvim',
-		keys = { { 'n', '<leader>gy' }, { 'v', '<leader>gy' } },
-		config = function() require('gitlinker').setup({}) end
+		"ruifm/gitlinker.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		keys = { { "n", "<leader>gy" }, { "v", "<leader>gy" } },
+		config = function() require("gitlinker").setup({}) end
 	}
 
 	-- ### UTIL
 
 	-- Illuminate cursor word
 	use { "RRethy/vim-illuminate", event = "CursorHold", config = function()
-		require 'illuminate'.configure({ under_cursor = false })
+		require "illuminate".configure({ under_cursor = false })
 	end }
 
 	-- Measure startuptime
-	use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
+	use { "dstein64/vim-startuptime", cmd = { "StartupTime" } }
 
 	-- Colors
-	use { 'rktjmp/lush.nvim', cmd = { 'LushRunQuickstart', 'LushRunTutorial', 'Lushify' } }
+	use { "rktjmp/lush.nvim", cmd = { "LushRunQuickstart", "LushRunTutorial", "Lushify" } }
 
 	use {
 		"norcalli/nvim-colorizer.lua",
 		cmd = { "ColorizerToggle" },
-		config = function() require 'colorizer'.setup() end
+		config = function() require "colorizer".setup() end
 	}
 
 end
