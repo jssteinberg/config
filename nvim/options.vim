@@ -20,20 +20,24 @@ set updatetime=100
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**
 set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 
-if exists("&winbar")
-	augroup winbar
-		au!
-		au BufReadPost * setlocal winbar=\ %{pathshorten(expand('%:p:.:h'))}/%t%m
-	augroup END
-
+" if exists("&winbar")
+" 	augroup winbar
+" 		au!
+" 		au BufReadPost * setlocal winbar=%=\ %{pathshorten(expand('%:p:.:h'))}/%t%m\ %=
+" 	augroup END
+"
+" 	try
+" 		set laststatus=3
+" 		" set cmdheight=0
+" 		" let g:somedarkterminal1_statusline_bg = "none"
+" 	catch | endtry
+" else
+	set showtabline=2
 	try
-		set laststatus=3
-		" set cmdheight=0
+		set cmdheight=0
 		" let g:somedarkterminal1_statusline_bg = "none"
 	catch | endtry
-else
-	set showtabline=2
-endif
+" endif
 
 " FORMATOPTIONS
 

@@ -43,14 +43,14 @@ local function init()
 		requires = {
 			"nvim-treesitter/playground",
 			"JoosepAlviste/nvim-ts-context-commentstring",
-			"m-demare/hlargs.nvim"
+			"nvim-treesitter/nvim-treesitter-context",
 		},
 		config = function() require "packages.treesitter".config() end
 	}
 
 	-- Statusline
 	use {
-		"jssteinberg/hackline.vim",
+		"~/dev/hackline.vim",
 		branch = "dev",
 		config = function()
 			require "packages.hackline".config()
@@ -96,9 +96,10 @@ local function init()
 	use { "lambdalisue/suda.vim", cmd = { "SudaRead", "SudaWrite" } } -- sudo save
 
 	-- auto pair completion
-	use { "windwp/nvim-autopairs", event = "InsertEnter", config = function()
-		require("nvim-autopairs").setup {}
-	end }
+	-- use { "windwp/nvim-autopairs", event = "InsertEnter", config = function()
+	-- 	require("nvim-autopairs").setup {}
+	-- end }
+	use { "m4xshen/autoclose.nvim", event = "InsertEnter" }
 
 	-- Better f, F, t, T motion, repeatable with f/F
 	use { "rhysd/clever-f.vim", keys = {
