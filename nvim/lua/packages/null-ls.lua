@@ -8,7 +8,7 @@ M.config = function()
 		-- null_ls.builtins.formatting.prettierd.with({
 		-- 	filetypes = { "javascript", "json", "yaml" },
 		-- 	env = {
-		-- 		PRETTIERD_DEFAULT_CONFIG = vim.fn.expand "~/.config/.prettierrc.json",
+		-- 		PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/.prettierrc.json"),
 		-- 	},
 		-- 	command = "prettierd"
 		-- }),
@@ -45,20 +45,18 @@ M.config = function()
 
 	null_ls.setup({
 		sources = sources,
-		-- Somehow one can reuse a shared lspconfig on_attach callback here
-		on_attach = function(client, bufnr)
-			if client.supports_method("textDocument/formatting") then
-				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					group = augroup,
-					buffer = bufnr,
-					callback = function()
-						-- vim.lsp.buf.format({ bufnr = bufnr })
-						async_formatting(bufnr)
-					end,
-				})
-			end
-		end,
+		-- on_attach = function(client, bufnr)
+		-- 	if client.supports_method("textDocument/formatting") then
+		-- 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		-- 		vim.api.nvim_create_autocmd("BufWritePre", {
+		-- 			group = augroup,
+		-- 			buffer = bufnr,
+		-- 			callback = function()
+		-- 				async_formatting(bufnr)
+		-- 			end,
+		-- 		})
+		-- 	end
+		-- end,
 	})
 end
 

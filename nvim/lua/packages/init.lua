@@ -61,7 +61,6 @@ local function init()
 	use {
 		'neovim/nvim-lspconfig',
 		requires = {
-			-- 'williamboman/nvim-lsp-installer',
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			'lukas-reineke/lsp-format.nvim',
@@ -78,13 +77,13 @@ local function init()
 		end
 	}
 
-	use {
-		'jose-elias-alvarez/null-ls.nvim',
-		requires = { 'nvim-lua/plenary', 'neovim/nvim-lspconfig' },
-		config = function()
-			require "packages.null-ls".config()
-		end
-	}
+	-- use {
+	-- 	'jose-elias-alvarez/null-ls.nvim',
+	-- 	requires = { 'nvim-lua/plenary', 'neovim/nvim-lspconfig' },
+	-- 	config = function()
+	-- 		require "packages.null-ls".config()
+	-- 	end
+	-- }
 
 
 	-- LAZY LOADED

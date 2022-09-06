@@ -20,9 +20,10 @@ local color = function(color, variant)
 		fg = { hsl("#e5f2e0") }
 	else
 		vim.o.background = "light"
-		sa = 95
-		li = 40
-		li2 = 20
+		sa = 42
+		sa2 = 84
+		li = 55
+		li2 = 30
 		li3 = 80
 	end
 
@@ -33,15 +34,15 @@ local color = function(color, variant)
 		bg      = { hsl("#ffffff"), hsl("#e5f2e0") },
 		fg      = { hsl(hue, 42, 30), hsl("#121118").li(5) },
 		black   = { hsl("#1a1636"), hsl(hue, 17.8, li2) }, -- add 2 index color
-		red     = { hsl(6.9, sa, li), hsl(7.5, sa, li2), hsl(6.9, sa, li3) }, -- add 2 index color
-		green   = { hsl(97.5, sa, li), hsl(105.7, sa, li2), hsl(97.5, sa, li3) }, -- add 2 index color
-		yellow  = { hsl(37.5, sa, li), hsl(68, sa, li2), hsl("#ced69b") }, -- add 2 index color
-		blue    = { hsl(217.5, sa, li), hsl(217.5, sa, li2), hsl(217.5, sa, li3) }, -- add 2 index color
-		magenta = { hsl(hue, sa, li), hsl(hue, sa, li2), hsl(hue, sa, li3) }, -- add 2 index color
-		cyan    = { hsl(187.3, sa, li), hsl(187.5, sa, li2), hsl(187.3, sa, li3) }, -- add 2 index color
+		red     = { hsl(6.9, sa, li), hsl(7.5, sa2, li2), hsl(6.9, sa, li3) }, -- add 2 index color
+		green   = { hsl(97.5, sa, li), hsl(105.7, sa2, li2), hsl(97.5, sa, li3) }, -- add 2 index color
+		yellow  = { hsl(37.5, sa, li), hsl(68, sa2, li2), hsl("#ced69b") }, -- add 2 index color
+		blue    = { hsl(217.5, sa, li), hsl(217.5, sa2, li2), hsl(217.5, sa, li3) }, -- add 2 index color
+		magenta = { hsl(hue, sa, li), hsl(hue, sa2, li2), hsl(hue, sa, li3) }, -- add 2 index color
+		cyan    = { hsl(187.3, sa, li), hsl(187.5, sa2, li2), hsl(187.3, sa, li3) }, -- add 2 index color
 		white   = { hsl("#afacc5"), hsl("#e5f2e0"), hsl("#ffffff") }, -- add 2 index color
 		-- additional color keys
-		violet  = { hsl(277.5, sa, li), hsl(277.5, sa, li2), hsl(277.5, sa, li3) },
+		violet  = { hsl(277.5, sa, li), hsl(277.5, sa2, li2), hsl(277.5, sa, li3) },
 	}
 	-- Colors by utility
 	colors.comment = colors.violet
@@ -62,12 +63,30 @@ local color = function(color, variant)
 	end
 end
 
+vim.g.terminal_color_0 = color("black")
+vim.g.terminal_color_1 = color("red")
+vim.g.terminal_color_2 = color("green")
+vim.g.terminal_color_3 = color("yellow")
+vim.g.terminal_color_4 = color("blue")
+vim.g.terminal_color_5 = color("magenta")
+vim.g.terminal_color_6 = color("cyan")
+vim.g.terminal_color_7 = color("white")
+vim.g.terminal_color_8 = color("black", 2)
+vim.g.terminal_color_9 = color("red", 2)
+vim.g.terminal_color_10 = color("green", 2)
+vim.g.terminal_color_11 = color("yellow", 2)
+vim.g.terminal_color_12 = color("blue", 2)
+vim.g.terminal_color_13 = color("magenta", 2)
+vim.g.terminal_color_14 = color("cyan", 2)
+vim.g.terminal_color_15 = color("white", 2)
+vim.g.terminal_color_background = color("bg")
+vim.g.terminal_color_foreground = color("fg")
 
 local theme = lush(function()
 	return {
 		Normal { bg = color("bg"), fg = color("fg", 2) },
 		Title { gui = "bold" }, -- titles for output from ":set all", ":autocmd" etc.
-		Comment { fg = color("comment") },
+		Comment { fg = color("comment", 2) },
 		Todo { fg = color("comment", 2), gui = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 		Error { fg = color("red") }, -- (preferred) any erroneous construct
 		ErrorMsg { Error }, -- error messages on the command line
@@ -89,7 +108,7 @@ local theme = lush(function()
 		StatusLineNC { StatusLine, fg = StatusLine.fg.li(50) },
 		TabLine { LineNr }, -- tab pages line, not active tab page label
 		TabLineFill { TabLine }, -- tab pages line, where there are no labels
-		TabLineSel { Normal }, -- tab pages line, active tab page label
+		TabLineSel { fg = color("fg") }, -- tab pages line, active tab page label
 		WinBar { TabLineSel },
 		WinBarNC { LineNr },
 		Pmenu { StatusLineNC }, -- Popup menu: normal item.
@@ -110,9 +129,12 @@ local theme = lush(function()
 
 		-- diff
 		DiffAdd { fg = color("green", 2) }, -- diff mode: Added line |diff.txt|
-		DiffChange { fg = color("magenta") }, -- diff mode: Changed line |diff.txt|
-		DiffDelete { fg = color("red") }, -- diff mode: Deleted line |diff.txt|
+		DiffChange { fg = color("yellow") }, -- diff mode: Changed line |diff.txt|
+		DiffDelete { fg = color("red", 2) }, -- diff mode: Deleted line |diff.txt|
 		DiffText { DiffAdd }, -- diff mode: Changed text within a changed line |diff.txt|
+		gitDiff { fg = color("fg") },
+		diffAdded { DiffAdd },
+		diffRemoved { DiffDelete },
 
 		-- LSP
 		DiagnosticError { Error }, -- used for "Error" diagnostic virtual text
@@ -123,11 +145,27 @@ local theme = lush(function()
 		LspReferenceRead {}, -- used for highlighting "read" references
 		LspReferenceWrite {}, -- used for highlighting "write" references
 
+		-- Telescope
 		TelescopeNormal { Normal },
 
+		-- Vim Illuminated
 		IlluminatedWordText { bg = color("bg", 2).da(5) },
 		IlluminatedWordRead { IlluminatedWordText },
 		IlluminatedWordWrite { IlluminatedWordText },
+
+
+		-- Neo-tree
+		NeoTreeNormal { fg = color("fg") },
+		NeoTreeDimText { fg = color("white") },
+		NeoTreeIndentMarker { WinSeparator },
+		NeoTreeSymbolicLinkTarget { fg = color("cyan", 2) },
+		NeoTreeDotfile { NeoTreeDimText },
+		NeoTreeExpander { link = "NeoTreeDirectoryIcon" },
+		NeoTreeGitConflict { WarningMsg },
+		NeoTreeGitConflict { WarningMsg },
+		NeoTreeGitUntracked { fg = color("fg") },
+		NeoTreeRootName { Directory },
+		NeoTreeTitleBar { StatusLine },
 
 		-- Cursor {}, -- character under the cursor
 		-- lCursor {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
