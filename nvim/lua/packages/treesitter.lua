@@ -34,12 +34,14 @@ M.config = function()
 		}
 	})
 
-	require('hlargs').setup {
-		-- color = '#d6a19a',
-		color = '#afacc5',
-		highlight = {},
-		excluded_filetypes = disable_ft,
-	}
+	require 'treesitter-context'.setup {}
+
+	-- require('hlargs').setup {
+	-- 	-- color = '#d6a19a',
+	-- 	color = '#afacc5',
+	-- 	highlight = {},
+	-- 	excluded_filetypes = disable_ft,
+	-- }
 end
 
 return M

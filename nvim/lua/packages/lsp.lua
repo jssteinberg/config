@@ -33,6 +33,8 @@ end
 
 M.config = function()
 	local lspconfig = require("lspconfig")
+	local mason_lspconfig = require("mason-lspconfig")
+	local lsp_format = require("lsp-format")
 	local on_attach = function(client, bufnr)
 		M.register_keymaps(bufnr, client)
 		-- Use LSP completion
@@ -40,13 +42,21 @@ M.config = function()
 	end
 
 	require("mason").setup {}
-	require("mason-lspconfig").setup()
-	require("lsp-format").setup {
+	mason_lspconfig.setup()
+	lsp_format.setup {
 		javascript = {
-			semicolons = true,
-		}
+			format = {
+				semicolons = true,
+			}
+		},
+		typescript = {
+			format = {
+				semicolons = true,
+			}
+		},
 	}
-	require("mason-lspconfig").setup_handlers {
+
+	mason_lspconfig.setup_handlers {
 		-- The first entry (without a key) will be the default handler
 		-- and will be called for each installed server that doesn't have
 		-- a dedicated handler.
@@ -57,12 +67,12 @@ M.config = function()
 		end,
 		["svelte"] = function()
 			lspconfig.svelte.setup {
-				on_attach = require "lsp-format".on_attach,
+				on_attach = lsp_format.on_attach,
 			}
 		end,
 		["sumneko_lua"] = function()
 			lspconfig.sumneko_lua.setup {
-				on_attach = require "lsp-format".on_attach,
+				on_attach = lsp_format.on_attach,
 				settings = {
 					Lua = {
 						diagnostics = {
@@ -74,7 +84,9 @@ M.config = function()
 		end,
 		["tsserver"] = function()
 			lspconfig.tsserver.setup {
-				on_attach = require "lsp-format".on_attach,
+				on_attach = function(client, bufnr)
+					lsp_format.on_attach(client, bufnr)
+				end,
 				settings = {
 					javascript = {
 						format = {

@@ -103,7 +103,7 @@ local theme = lush(function()
 		CursorColumn { bg = CursorLine.bg.li(10) },
 		NonText { fg = hsl("#ced69b") }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
-		WinSeparator { fg = LineNr.fg.li(50) },
+		WinSeparator { fg = color("bg", 2).da(25) },
 		StatusLine { bg = WinSeparator.fg.li(50), fg = color("fg") },
 		StatusLineNC { StatusLine, fg = StatusLine.fg.li(50) },
 		TabLine { LineNr }, -- tab pages line, not active tab page label
@@ -126,6 +126,9 @@ local theme = lush(function()
 		Folded { Comment }, -- line used for closed folds
 		FoldColumn { Comment, gui = "bold" }, -- 'foldcolumn'
 		MoreMsg {}, -- |more-prompt|
+		Substitute {}, -- |:substitute| replacement text highlighting
+		ModeMsg {}, -- 'showmode' message (e.g., "-- INSERT -- ")
+		MsgArea {}, -- Area for messages and cmdline
 
 		-- diff
 		DiffAdd { fg = color("green", 2) }, -- diff mode: Added line |diff.txt|
@@ -172,16 +175,12 @@ local theme = lush(function()
 		-- CursorIM {}, -- like Cursor, but used when in IME mode |CursorIM|
 		-- TermCursor {}, -- cursor in a focused terminal
 		-- TermCursorNC {}, -- cursor in an unfocused terminal
-		-- Substitute {}, -- |:substitute| replacement text highlighting
-		-- ModeMsg {}, -- 'showmode' message (e.g., "-- INSERT -- ")
-		-- MsgArea {}, -- Area for messages and cmdline
 		-- NormalNC {}, -- normal text in non-current windows
 		-- SpellBad {}, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
 		-- SpellCap {}, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
 		-- SpellLocal {}, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		-- SpellRare {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 		-- -- Linked and extended
-		-- CursorLineNr { CursorLine, fg = color("sel", 2), gui = "italic" },
 
 		Constant {}, -- (preferred) any constant
 		String {}, --   a string constant: "this is a string"

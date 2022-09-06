@@ -43,7 +43,8 @@ local function init()
 		requires = {
 			'nvim-treesitter/playground',
 			'JoosepAlviste/nvim-ts-context-commentstring',
-			'm-demare/hlargs.nvim'
+			-- 'm-demare/hlargs.nvim',
+			"nvim-treesitter/nvim-treesitter-context",
 		},
 		config = function() require 'packages.treesitter'.config() end
 	}
