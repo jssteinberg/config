@@ -202,6 +202,7 @@ hi! link LeapLabelPrimary IncSearch
 
 " mini.nvim
 hi! link MiniIndentscopePrefix NonText
+hi! link MiniIndentscopeSymbol NonText
 
 " Neo-tree
 hi NeoTreeDimText cterm=italic gui=italic ctermfg=5 guifg=#7d78a1
