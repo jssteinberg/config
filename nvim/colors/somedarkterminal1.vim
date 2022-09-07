@@ -1,6 +1,6 @@
 " somedarkterminal1.vim
 
-" neoncitywc...
+" neonnightwc...
 " Handcrafted syntax highlight for some dark terminals first (defaults to
 " background NONE to use terminal background), with good contrasts.
 "
@@ -18,8 +18,8 @@
 " violet #985cbc violet_bright #bf9ad6 violet_bg #552c6d
 "
 " Options:
-" - g:somedarkterminal1_bg = 0 or 1. 0 for NONE, 1 for background.
-" - g:somedarkterminal1_statusline_bg = 'none' or 'black'
+" - `let g:somedarkterminal1_bg = 1`. 0 for NONE (transparent), 1 for background.
+" - `let g:somedarkterminal1_statusline_bg =`...unlet for default, 'none' or 'black'.
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
 " Based on a neon illuminated city-park WC... `Comments` should be readable
 " (no dimmed grey).
@@ -39,7 +39,7 @@ let g:colors_name = 'somedarkterminal1'
 
 if &bg == 'light' | set bg=dark | endif
 
-if get(g:, 'somedarkterminal1_bg', '0')
+if get(g:, 'somedarkterminal1_bg', '1')
 	hi Normal guibg=#121118 guifg=#e5f2e0
 else
 	hi Normal guifg=#e5f2e0
@@ -126,6 +126,7 @@ hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a39bd6
 
 hi DiagnosticHint ctermfg=8 guifg=#7d78a1
 hi DiagnosticError ctermfg=1 guifg=#bc675c
+hi DiagnosticWarn ctermfg=4 guifg=#5c80bc
 hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#d6a39b
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
 hi DiagnosticUnderlineInfo cterm=underline gui=underline guisp=#a39bd6
@@ -135,6 +136,7 @@ hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#ced69b guifg=#121118
 hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#a9d69b guifg=#121118
 hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d6a39b guifg=#121118
+hi SpellBad cterm=NONE gui=NONE ctermfg=9 guifg=#d6a39b
 hi SpellCap       ctermbg=4 ctermfg=15 gui=undercurl guisp=#5c80bc
 hi SpellRare      ctermbg=5 ctermfg=15 gui=undercurl guisp=#685cbc
 hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
@@ -171,14 +173,12 @@ endif
 
 hi! link lCursor Cursor
 hi! link DiagnosticInfo DiagnosticHint
-hi! link DiagnosticWarn WarningMsg
 hi! link ErrorMsg Error
 hi! link MoreMsg Type
 hi! link PmenuSel CursorLine " Pmenu affects some floating windows
 hi! link PmenuSbar Pmenu " Pmenu affects some floating windows
 hi! link Question Type
 hi! link QuickFixLine CursorLine
-hi! link SpellBad ErrorMsg
 hi! link TabLineFill TabLine
 hi! link WinBarNC LineNr
 hi! link WildMenu Pmenu

@@ -1,4 +1,5 @@
 let s:d = "set bg=dark termguicolors t_Co=256"
+			\." | let g:somedarkterminal1_bg=0"
 			\." | colo somedarkterminal1"
 
 function! SetColoOpts()

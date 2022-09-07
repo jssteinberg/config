@@ -122,7 +122,7 @@ local theme = lush(function()
 		Question { fg = color("green", 2) }, -- |hit-enter| prompt and yes/no questions
 		SpecialKey { LineNr }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
 		Folded { Comment }, -- line used for closed folds
-		FoldColumn { Comment, gui = "bold" }, -- 'foldcolumn'
+		FoldColumn { Folded }, -- 'foldcolumn'
 		MoreMsg {}, -- |more-prompt|
 		Substitute {}, -- |:substitute| replacement text highlighting
 		ModeMsg {}, -- 'showmode' message (e.g., "-- INSERT -- ")
