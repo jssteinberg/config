@@ -61,14 +61,14 @@ local color = function(color, variant)
 	end
 end
 
-vim.g.terminal_color_0 = color("black", 2)
+vim.g.terminal_color_0 = color("black")
 vim.g.terminal_color_1 = color("red", 2)
 vim.g.terminal_color_2 = color("green", 2)
 vim.g.terminal_color_3 = color("yellow", 2)
 vim.g.terminal_color_4 = color("blue", 2)
 vim.g.terminal_color_5 = color("magenta", 2)
 vim.g.terminal_color_6 = color("cyan", 2)
-vim.g.terminal_color_7 = color("white", 2)
+vim.g.terminal_color_7 = color("white")
 vim.g.terminal_color_8 = color("black", 2)
 vim.g.terminal_color_9 = color("red", 2)
 vim.g.terminal_color_10 = color("green", 2)
