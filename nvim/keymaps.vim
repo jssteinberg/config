@@ -69,8 +69,8 @@ nnoremap <leader>Q :cprev<cr>
 nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Grep
-nnoremap <silent> <leader>G yiw<cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
-vnoremap <silent> <leader>G y<cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+nnoremap <leader>G yiw<cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+vnoremap <leader>G y<cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " Replace [normal, selection]
 nnoremap <leader>R :%s/
@@ -117,5 +117,6 @@ xnoremap <leader>X <cmd>Gitsigns reset_hunk<cr>
 nnoremap <leader>ct <cmd>TSHighlightCapturesUnderCursor<cr>
 nn <leader>cg <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
 
-" LSP
-" nnoremap gd :lua vim.lsp.buf.definition
+" URL
+nn gx <cmd>OpenURLFind<cr>
+vn gx y:OpenSearchURL duckduckgo <c-r>"<cr>

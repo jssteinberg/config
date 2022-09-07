@@ -14,6 +14,7 @@ local function init()
 	use { "nathom/filetype.nvim", config = function() require "packages.filetype".config() end }
 	use { "tpope/vim-repeat" } -- Extend `.` repeat
 	use { "tpope/vim-sleuth" } -- detects indent, also uses .editorconfig
+	use { "dhruvasagar/vim-open-url" } -- URLs and search
 
 	use { "echasnovski/mini.nvim", config = function()
 		require("mini.indentscope").setup({ symbol = "│" })
@@ -28,9 +29,9 @@ local function init()
 	})
 
 	-- Open/search with `gx`
-	use { "tyru/open-browser.vim", config = function()
-		require "packages.openbrowser".config()
-	end }
+	-- use { "tyru/open-browser.vim", config = function()
+	-- 	require "packages.openbrowser".config()
+	-- end }
 
 	-- Gitsigns
 	use { "lewis6991/gitsigns.nvim", config = function()
@@ -39,7 +40,7 @@ local function init()
 
 	-- Statusline
 	use {
-		"jssteinberg/hackline.vim",
+		"~/dev/hackline.vim",
 		branch = "v3",
 		config = function()
 			require "packages.hackline".config()
@@ -210,7 +211,7 @@ local function init()
 	use { "rktjmp/lush.nvim", cmd = { "LushRunQuickstart", "LushRunTutorial", "Lushify" } }
 
 	use {
-		"norcalli/nvim-colorizer.lua",
+		"NvChad/nvim-colorizer.lua",
 		cmd = { "ColorizerToggle" },
 		config = function() require "colorizer".setup() end
 	}
