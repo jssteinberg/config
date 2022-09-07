@@ -33,8 +33,6 @@ M.config = function()
 			enable_autocmd = false,
 		}
 	})
-
-	require "treesitter-context".setup {}
 end
 
 return M

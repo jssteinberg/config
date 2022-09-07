@@ -1,4 +1,4 @@
-local lush = require('lush')
+local lush = require("lush")
 local hsl = lush.hsl
 
 -- {string} color - color name or color util name
@@ -24,7 +24,7 @@ local color = function(color, variant)
 		sa2 = 84
 		li = 55
 		li2 = 30
-		li3 = 80
+		li3 = 85
 	end
 
 	-- Colors { base, emphasized, background }
@@ -32,11 +32,11 @@ local color = function(color, variant)
 	local colors = {
 		-- terminal color keys
 		bg      = { hsl("#ffffff"), hsl("#e5f2e0") },
-		fg      = { hsl(hue, 42, 30), hsl("#121118").li(5) },
-		black   = { hsl("#1a1636"), hsl(hue, 17.8, li2) }, -- add 2 index color
+		fg      = { hsl(hue, 42, 30), hsl("#121118") },
+		black   = { hsl(hue, 17.8, li2), hsl("#1a1636") }, -- add 2 index color
 		red     = { hsl(6.9, sa, li), hsl(7.5, sa2, li2), hsl(6.9, sa, li3) }, -- add 2 index color
 		green   = { hsl(97.5, sa, li), hsl(105.7, sa2, li2), hsl(97.5, sa, li3) }, -- add 2 index color
-		yellow  = { hsl(37.5, sa, li), hsl(68, sa2, li2), hsl("#ced69b") }, -- add 2 index color
+		yellow  = { hsl(37.5, sa, li), hsl(68, sa2, li2), hsl(68, sa2, li3), hsl("#ced69b") }, -- add 2 index color
 		blue    = { hsl(217.5, sa, li), hsl(217.5, sa2, li2), hsl(217.5, sa, li3) }, -- add 2 index color
 		magenta = { hsl(hue, sa, li), hsl(hue, sa2, li2), hsl(hue, sa, li3) }, -- add 2 index color
 		cyan    = { hsl(187.3, sa, li), hsl(187.5, sa2, li2), hsl(187.3, sa, li3) }, -- add 2 index color
@@ -47,9 +47,7 @@ local color = function(color, variant)
 	-- Colors by utility
 	colors.comment = colors.violet
 	colors.error = { colors.red[1] }
-	colors.selection = { bg = colors.violet.bg }
 	colors.warning = { colors.yellow[1] }
-	colors.sel = { colors.black[2], colors.magenta[2] }
 
 	if variant and variant == "bg" and #colors[color] == 3 then
 		-- return background variant
@@ -63,14 +61,14 @@ local color = function(color, variant)
 	end
 end
 
-vim.g.terminal_color_0 = color("black")
-vim.g.terminal_color_1 = color("red")
-vim.g.terminal_color_2 = color("green")
-vim.g.terminal_color_3 = color("yellow")
-vim.g.terminal_color_4 = color("blue")
-vim.g.terminal_color_5 = color("magenta")
-vim.g.terminal_color_6 = color("cyan")
-vim.g.terminal_color_7 = color("white")
+vim.g.terminal_color_0 = color("black", 2)
+vim.g.terminal_color_1 = color("red", 2)
+vim.g.terminal_color_2 = color("green", 2)
+vim.g.terminal_color_3 = color("yellow", 2)
+vim.g.terminal_color_4 = color("blue", 2)
+vim.g.terminal_color_5 = color("magenta", 2)
+vim.g.terminal_color_6 = color("cyan", 2)
+vim.g.terminal_color_7 = color("white", 2)
 vim.g.terminal_color_8 = color("black", 2)
 vim.g.terminal_color_9 = color("red", 2)
 vim.g.terminal_color_10 = color("green", 2)
@@ -101,14 +99,14 @@ local theme = lush(function()
 		CursorLine { bg = color("bg", 2).li(50) },
 		CursorLineNr { CursorLine },
 		CursorColumn { bg = CursorLine.bg.li(10) },
-		NonText { fg = hsl("#ced69b") }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+		NonText { LineNr }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
-		WinSeparator { fg = color("bg", 2).da(25) },
-		StatusLine { bg = WinSeparator.fg.li(50), fg = color("fg") },
-		StatusLineNC { StatusLine, fg = StatusLine.fg.li(50) },
+		WinSeparator { fg = color("magenta", "bg") },
+		StatusLine { bg = WinSeparator.fg, fg = color("magenta", 2) },
+		StatusLineNC { StatusLine, fg = color("magenta") },
 		TabLine { LineNr }, -- tab pages line, not active tab page label
 		TabLineFill { TabLine }, -- tab pages line, where there are no labels
-		TabLineSel { fg = color("fg") }, -- tab pages line, active tab page label
+		TabLineSel { fg = color("magenta", 2) }, -- tab pages line, active tab page label
 		WinBar { TabLineSel },
 		WinBarNC { LineNr },
 		Pmenu { StatusLineNC }, -- Popup menu: normal item.
@@ -116,9 +114,9 @@ local theme = lush(function()
 		PmenuThumb { bg = Pmenu.fg }, -- Popup menu: Thumb of the scrollbar.
 		PmenuSbar { Pmenu }, -- Popup menu: scrollbar.
 		WildMenu { Pmenu }, -- current match in 'wildmenu' completion
-		Visual { bg = NonText.fg },
-		Search { bg = color("green", "bg") },
-		IncSearch { bg = color("blue", "bg") },
+		Visual { bg = color("magenta", "bg") },
+		Search { bg = color("blue", "bg"), gui = "italic" },
+		IncSearch { bg = color("red", "bg") },
 		MatchParen { bg = color("comment", "bg").li(50) },
 		Directory { fg = color("blue"), gui = "bold" }, -- directory names (and other special names in listings)
 		Question { fg = color("green", 2) }, -- |hit-enter| prompt and yes/no questions
@@ -131,8 +129,8 @@ local theme = lush(function()
 		MsgArea {}, -- Area for messages and cmdline
 
 		-- diff
-		DiffAdd { fg = color("green", 2) }, -- diff mode: Added line |diff.txt|
-		DiffChange { fg = color("yellow") }, -- diff mode: Changed line |diff.txt|
+		DiffAdd { fg = color("green", 2), gui = "bold" }, -- diff mode: Added line |diff.txt|
+		DiffChange { Normal }, -- diff mode: Changed line |diff.txt|
 		DiffDelete { fg = color("red", 2) }, -- diff mode: Deleted line |diff.txt|
 		DiffText { DiffAdd }, -- diff mode: Changed text within a changed line |diff.txt|
 		gitDiff { fg = color("fg") },
@@ -152,15 +150,17 @@ local theme = lush(function()
 		TelescopeNormal { Normal },
 
 		-- Vim Illuminated
-		IlluminatedWordText { bg = color("bg", 2).da(5) },
+		IlluminatedWordText { bg = color("green", "bg") },
 		IlluminatedWordRead { IlluminatedWordText },
 		IlluminatedWordWrite { IlluminatedWordText },
 
+		-- Mini.nvim
+		MiniIndentscopeSymbol { LineNr },
 
 		-- Neo-tree
 		NeoTreeNormal { fg = color("fg") },
 		NeoTreeDimText { fg = color("white") },
-		NeoTreeIndentMarker { WinSeparator },
+		NeoTreeIndentMarker { LineNr },
 		NeoTreeSymbolicLinkTarget { fg = color("cyan", 2) },
 		NeoTreeDotfile { NeoTreeDimText },
 		NeoTreeExpander { link = "NeoTreeDirectoryIcon" },
@@ -214,7 +214,7 @@ local theme = lush(function()
 		Special {}, -- (preferred) any special symbol
 		SpecialChar {}, --  special character in a constant
 		Tag {}, --    you can use CTRL-] on this
-		Delimiter {}, --  character that needs attention
+		Delimiter { fg = color("magenta") }, --  character that needs attention
 		SpecialComment {}, -- special things inside a comment
 		Debug {}, --    debugging statements
 

@@ -37,24 +37,23 @@ local function init()
 		require("gitsigns").setup()
 	end }
 
+	-- Statusline
+	use {
+		"jssteinberg/hackline.vim",
+		branch = "v3",
+		config = function()
+			require "packages.hackline".config()
+		end
+	}
+
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		requires = {
 			"nvim-treesitter/playground",
 			"JoosepAlviste/nvim-ts-context-commentstring",
-			"nvim-treesitter/nvim-treesitter-context",
 		},
 		config = function() require "packages.treesitter".config() end
-	}
-
-	-- Statusline
-	use {
-		"~/dev/hackline.vim",
-		branch = "dev",
-		config = function()
-			require "packages.hackline".config()
-		end
 	}
 
 	-- LSP
@@ -96,10 +95,9 @@ local function init()
 	use { "lambdalisue/suda.vim", cmd = { "SudaRead", "SudaWrite" } } -- sudo save
 
 	-- auto pair completion
-	-- use { "windwp/nvim-autopairs", event = "InsertEnter", config = function()
-	-- 	require("nvim-autopairs").setup {}
-	-- end }
-	use { "m4xshen/autoclose.nvim", event = "InsertEnter" }
+	use { "windwp/nvim-autopairs", event = "InsertEnter", config = function()
+		require("nvim-autopairs").setup {}
+	end }
 
 	-- Better f, F, t, T motion, repeatable with f/F
 	use { "rhysd/clever-f.vim", keys = {
@@ -167,6 +165,14 @@ local function init()
 		requires = { "nvim-lua/plenary.nvim" },
 		event = "BufAdd",
 		config = function() require "packages.cybu".config() end,
+	}
+
+	-- Context topbar
+	use {
+		"nvim-treesitter/nvim-treesitter-context",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		event = "CursorHold",
+		config = function() require "treesitter-context".setup {} end
 	}
 
 	-- ### GIT

@@ -33,10 +33,6 @@ set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 " 	catch | endtry
 " else
 	set showtabline=2
-	try
-		set cmdheight=0
-		" let g:somedarkterminal1_statusline_bg = "none"
-	catch | endtry
 " endif
 
 " FORMATOPTIONS
