@@ -14,7 +14,7 @@ M.config = function()
 	vim.g.hackline_highlight_command = "IncSearch"
 	vim.g.hackline_highlight_terminal = "IncSearch"
 
-	vim.g.hackline_separators = { l = ":", r = ":" }
+	-- vim.g.hackline_separators = { l = ":", r = ":" }
 end
 
 return M
