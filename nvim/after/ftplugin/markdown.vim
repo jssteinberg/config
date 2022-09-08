@@ -8,6 +8,7 @@ let g:markdown_fenced_languages = [
 			\"javascript",
 			\"html",
 			\"lua",
+			\"scss",
 			\"sh",
 			\"vim",
 			\"zsh",

@@ -113,6 +113,9 @@ local function init()
 			{ "x", "z" }, { "x", "Z" },
 		},
 		config = function()
+			require("leap").setup {
+				highlight_unlabeled = true
+			}
 			require("leap").set_default_keymaps()
 		end
 	}
