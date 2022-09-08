@@ -69,8 +69,8 @@ nnoremap <leader>Q :cprev<cr>
 nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Grep
-nnoremap <silent> <leader>G yiw<cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
-vnoremap <silent> <leader>G y<cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+nnoremap <leader>G yiw<cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
+vnoremap <leader>G y<cmd>copen<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>""<cr>
 
 " Replace [normal, selection]
 nnoremap <leader>R :%s/
@@ -113,19 +113,10 @@ nnoremap <leader>gk ?<<<<<<<\\|=======\\|>>>>>>><cr>
 nnoremap <leader>X <cmd>Gitsigns reset_hunk<cr>
 xnoremap <leader>X <cmd>Gitsigns reset_hunk<cr>
 
-" Harpoon
-" nnoremap <leader>hh :lua require("harpoon.mark").add_file()<cr>
-" nnoremap <silent> <leader>he :lua require("harpoon.ui").toggle_quick_menu()<cr>
-" nnoremap <silent> <leader>ha :lua require("harpoon.ui").nav_file(1)<cr>
-" nnoremap <silent> <leader>hs :lua require("harpoon.ui").nav_file(2)<cr>
-" nnoremap <silent> <leader>hd :lua require("harpoon.ui").nav_file(3)<cr>
-" nnoremap <silent> <leader>hf :lua require("harpoon.ui").nav_file(4)<cr>
-" nnoremap <silent> <leader><cr> :lua require("harpoon.term").gotoTerminal(1)<cr>i
-" nnoremap <silent> <leader>1 :lua require("harpoon.term").gotoTerminal(2)<cr>i
-
 " Color highlight groups
 nnoremap <leader>ct <cmd>TSHighlightCapturesUnderCursor<cr>
 nn <leader>cg <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
 
-" LSP
-" nnoremap gd :lua vim.lsp.buf.definition
+" URL
+nn gx <cmd>OpenURLFind<cr>
+vn gx y:OpenSearchURL duckduckgo <c-r>"<cr>

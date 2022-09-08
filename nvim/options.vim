@@ -11,7 +11,7 @@ set list listchars+=tab:\·\
 set number relativenumber signcolumn=yes
 set mouse=a
 set sessionoptions=curdir,folds,tabpages,help
-set scrolloff=5
+set scrolloff=15
 set synmaxcol=300 " reduce column to search for syntax items
 set tabstop=2 shiftwidth=2 " indent size
 set timeoutlen=500 " Wait less for typing of keymaps

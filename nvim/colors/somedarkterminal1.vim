@@ -219,3 +219,7 @@ hi! link NeoTreeTitleBar StatusLine
 " Telescope
 hi! link TelescopeNormal Normal
 hi! link TelescopePromptCounter Comment
+
+" Treesitter context
+hi! link TreesitterContext CursorLine
+hi! link TreesitterContextLineNumber CursorLineNr

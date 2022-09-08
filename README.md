@@ -53,6 +53,8 @@ Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripg
 
 - cif/dif - change/delete in function
 - caf/daf - change/delete around function
+- snippet `<`: `<$1>$2</$1>$3`
+- snippet `const()`: `const $1 = ($2) => $3`
 
 ## Vim 8 +lua
 
