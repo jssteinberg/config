@@ -34,9 +34,9 @@ local function init()
 	-- end }
 
 	-- Gitsigns
-	use { "lewis6991/gitsigns.nvim", config = function()
-		require("gitsigns").setup()
-	end }
+	-- use { "lewis6991/gitsigns.nvim", config = function()
+	-- 	require("gitsigns").setup()
+	-- end }
 
 	-- Statusline
 	use {
@@ -89,10 +89,27 @@ local function init()
 	-- LAZY LOADED
 	-- -----------
 
+	-- ### ON CURSOR EVENTS
+
+	-- Illuminate cursor word
+	use { "RRethy/vim-illuminate", event = "CursorHold", config = function()
+		require "illuminate".configure({ under_cursor = false })
+	end }
+
+	-- better matching functionality
+	use { "andymass/vim-matchup", event = "CursorHold" }
+
+	-- Context topbar
+	use {
+		"nvim-treesitter/nvim-treesitter-context",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		event = "CursorHold",
+		config = function() require "treesitter-context".setup {} end
+	}
+
 	-- ### EDIT/MOVE
 
 	use { "tommcdo/vim-lion", keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
-	use { "andymass/vim-matchup", event = "CursorHold" } -- better matching functionality
 	use { "lambdalisue/suda.vim", cmd = { "SudaRead", "SudaWrite" } } -- sudo save
 
 	-- auto pair completion
@@ -171,14 +188,6 @@ local function init()
 		config = function() require "packages.cybu".config() end,
 	}
 
-	-- Context topbar
-	use {
-		"nvim-treesitter/nvim-treesitter-context",
-		requires = { "nvim-treesitter/nvim-treesitter" },
-		event = "CursorHold",
-		config = function() require "treesitter-context".setup {} end
-	}
-
 	-- ### GIT
 
 	use { "tpope/vim-fugitive", cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit" } } -- Git wrapper
@@ -201,11 +210,6 @@ local function init()
 	}
 
 	-- ### UTIL
-
-	-- Illuminate cursor word
-	use { "RRethy/vim-illuminate", event = "CursorHold", config = function()
-		require "illuminate".configure({ under_cursor = false })
-	end }
 
 	-- Measure startuptime
 	use { "dstein64/vim-startuptime", cmd = { "StartupTime" } }

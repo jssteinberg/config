@@ -84,7 +84,7 @@ nnoremap <leader>hf 'F'"
 nnoremap <leader>hc 'C'"
 
 " Terminal
-nnoremap <silent> <leader><cr> :terminal<cr>i
+nnoremap <silent> <leader><cr> <cmd>split<cr><cmd>terminal<cr>i
 
 " Cycle colorschemes
 nnoremap <silent> <leader>cc :call CycleColo()<cr>
@@ -94,10 +94,9 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 
 " FZF Fuzzy finder
 nnoremap <silent> <leader>fb :Telescope buffers<cr>
-nnoremap <silent> <leader>ff :Telescope find_files<cr>
 nnoremap <silent> <leader>fs :Telescope live_grep<cr>
 nnoremap <silent> <leader>gf :Telescope git_files<cr>
-nnoremap <silent> <leader>s :Telescope find_files<cr>
+nnoremap <silent> <leader>s :Telescope find_files hidden=true<cr>
 
 " Git
 nnoremap <leader>gg <cmd>Git<cr>

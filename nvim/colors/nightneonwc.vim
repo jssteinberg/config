@@ -53,6 +53,7 @@ hi String ctermfg=11 guifg=#ced69b
 " *Identifier Function
 hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9bb2d6
 hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9bcfd6
+hi! link TSParameter Normal
 " *Statement Conditional Repeat Label Operator Keyword Exception
 hi Statement cterm=NONE gui=NONE ctermfg=4 guifg=#5c80bc
 hi Keyword cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
@@ -203,8 +204,10 @@ hi! link MiniIndentscopePrefix NonText
 hi! link MiniIndentscopeSymbol NonText
 
 " Neo-tree
-if get(g:, "nightneonwc_plugin_neo_tree", 1)
-	call nightneonwc#plugins#neo_tree#highlights()
+if has("nvim") && get(g:, "nightneonwc_plugin_neo_tree", 1)
+	try
+		call nightneonwc#plugins#neo_tree#highlights()
+	catch | endtry
 endif
 
 " Telescope

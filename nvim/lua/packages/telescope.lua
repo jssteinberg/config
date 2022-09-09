@@ -30,13 +30,13 @@ local new_maker = function(filepath, bufnr, opts)
 end
 
 M.config = function()
-	local telescope = require('telescope')
+	local telescope = require("telescope")
 
 	telescope.setup({
 		defaults = {
 			buffer_previewer_maker = new_maker,
-			file_ignore_patterns = { 'node_modules' },
-			layout_strategy = 'vertical',
+			file_ignore_patterns = { "node_modules", ".*[-|.]lock" },
+			layout_strategy = "vertical",
 			layout_config = { height = 0.95 },
 		},
 	})

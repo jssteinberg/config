@@ -21,9 +21,9 @@ local color = function(color, variant)
 	else
 		vim.o.background = "light"
 		sa = 42
-		sa2 = 84
+		sa2 = 95
 		li = 55
-		li2 = 30
+		li2 = 40
 		li3 = 85
 	end
 
@@ -104,9 +104,9 @@ local theme = lush(function()
 		WinSeparator { fg = color("magenta", "bg") },
 		StatusLine { bg = WinSeparator.fg, fg = color("magenta", 2) },
 		StatusLineNC { StatusLine, fg = color("magenta") },
-		TabLine { LineNr }, -- tab pages line, not active tab page label
+		TabLine { CursorLine, fg = color("fg") }, -- tab pages line, not active tab page label
 		TabLineFill { TabLine }, -- tab pages line, where there are no labels
-		TabLineSel { fg = color("magenta", 2) }, -- tab pages line, active tab page label
+		TabLineSel { Title, bg = CursorLine.bg }, -- tab pages line, active tab page label
 		WinBar { TabLineSel },
 		WinBarNC { LineNr },
 		Pmenu { StatusLineNC }, -- Popup menu: normal item.
@@ -115,9 +115,9 @@ local theme = lush(function()
 		PmenuSbar { Pmenu }, -- Popup menu: scrollbar.
 		WildMenu { Pmenu }, -- current match in 'wildmenu' completion
 		Visual { bg = color("magenta", "bg") },
-		Search { bg = color("blue", "bg"), gui = "italic" },
+		Search { bg = color("blue", "bg") },
 		IncSearch { bg = color("red", "bg") },
-		MatchParen { bg = color("comment", "bg").li(50) },
+		MatchParen { bg = color("comment", "bg") },
 		Directory { fg = color("blue"), gui = "bold" }, -- directory names (and other special names in listings)
 		Question { fg = color("green", 2) }, -- |hit-enter| prompt and yes/no questions
 		SpecialKey { LineNr }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
@@ -127,6 +127,10 @@ local theme = lush(function()
 		Substitute {}, -- |:substitute| replacement text highlighting
 		ModeMsg {}, -- 'showmode' message (e.g., "-- INSERT -- ")
 		MsgArea {}, -- Area for messages and cmdline
+		SpellBad { fg = color("red", 2) }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+		SpellCap { SpellBad }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+		-- SpellLocal {}, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+		-- SpellRare {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 
 		-- diff
 		DiffAdd { fg = color("green", 2), gui = "bold" }, -- diff mode: Added line |diff.txt|
@@ -174,17 +178,16 @@ local theme = lush(function()
 		NeoTreeRootName { Directory },
 		NeoTreeTitleBar { StatusLine },
 
+		-- Treesitter context
+		TreesitterContext { CursorLine },
+		TreesitterContextLineNumber { CursorLineNr },
+
 		-- Cursor {}, -- character under the cursor
 		-- lCursor {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
 		-- CursorIM {}, -- like Cursor, but used when in IME mode |CursorIM|
 		-- TermCursor {}, -- cursor in a focused terminal
 		-- TermCursorNC {}, -- cursor in an unfocused terminal
 		-- NormalNC {}, -- normal text in non-current windows
-		-- SpellBad {}, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-		-- SpellCap {}, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-		-- SpellLocal {}, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-		-- SpellRare {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-		-- -- Linked and extended
 
 		Constant {}, -- (preferred) any constant
 		String {}, --   a string constant: "this is a string"
@@ -194,14 +197,14 @@ local theme = lush(function()
 		Float {}, --    a floating point constant: 2.3e10
 
 		Identifier {}, -- (preferred) any variable name
-		Function {}, -- function name (also: methods for classes)
+		Function { fg = color("blue", 2) }, -- function name (also: methods for classes)
 
 		Statement {}, -- (preferred) any statement
 		Conditional {}, --  if, then, else, endif, switch, etc.
 		Repeat {}, --   for, do, while, etc.
 		Label {}, --    case, default, etc.
-		Operator {}, -- "sizeof", "+", "*", etc.
-		Keyword {}, --  any other keyword
+		Operator { fg = color("blue", 2) }, -- "sizeof", "+", "*", etc.
+		Keyword { fg = color("fg") }, --  any other keyword
 		Exception {}, --  try, catch, throw
 
 		PreProc {}, -- (preferred) generic Preprocessor
@@ -212,13 +215,13 @@ local theme = lush(function()
 
 		Type {}, -- (preferred) int, long, char, etc.
 		StorageClass {}, -- static, register, volatile, etc.
-		Structure {}, --  struct, union, enum, etc.
+		Structure { fg = color("blue", 2) }, --  struct, union, enum, etc.
 		Typedef {}, --  A typedef
 
 		Special {}, -- (preferred) any special symbol
 		SpecialChar {}, --  special character in a constant
 		Tag {}, --    you can use CTRL-] on this
-		Delimiter { fg = color("magenta") }, --  character that needs attention
+		Delimiter { fg = color("blue", 2) }, --  character that needs attention
 		SpecialComment {}, -- special things inside a comment
 		Debug {}, --    debugging statements
 
