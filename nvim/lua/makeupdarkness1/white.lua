@@ -179,7 +179,7 @@ local theme = lush(function()
 		NeoTreeTitleBar { StatusLine },
 
 		-- Treesitter context
-		TreesitterContext { CursorLine },
+		TreesitterContext { ColorColumn },
 		TreesitterContextLineNumber { CursorLineNr },
 
 		-- Cursor {}, -- character under the cursor

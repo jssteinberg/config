@@ -33,14 +33,10 @@ local function init()
 	-- 	require "packages.openbrowser".config()
 	-- end }
 
-	-- Gitsigns
-	-- use { "lewis6991/gitsigns.nvim", config = function()
-	-- 	require("gitsigns").setup()
-	-- end }
-
 	-- Statusline
 	use {
 		"jssteinberg/hackline.vim",
+		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 		config = function()
 			require "packages.hackline".config()
@@ -97,13 +93,13 @@ local function init()
 	end }
 
 	-- better matching functionality
-	use { "andymass/vim-matchup", event = "CursorHold" }
+	use { "andymass/vim-matchup", after = "vim-illuminate" }
 
 	-- Context topbar
 	use {
 		"nvim-treesitter/nvim-treesitter-context",
 		requires = { "nvim-treesitter/nvim-treesitter" },
-		event = "CursorHold",
+		after = "vim-matchup",
 		config = function() require "treesitter-context".setup {} end
 	}
 

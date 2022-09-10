@@ -215,5 +215,5 @@ hi! link TelescopeNormal Normal
 hi! link TelescopePromptCounter Comment
 
 " Treesitter context
-hi! link TreesitterContext CursorLine
+hi! link TreesitterContext ColorColumn
 hi! link TreesitterContextLineNumber CursorLineNr
