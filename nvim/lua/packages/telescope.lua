@@ -35,6 +35,7 @@ M.config = function()
 	telescope.setup({
 		defaults = {
 			buffer_previewer_maker = new_maker,
+			-- ignore node_modules, lock files, hidden directories
 			file_ignore_patterns = { "node_modules", ".*[-|.]lock", "[.].*/" },
 			layout_strategy = "vertical",
 			layout_config = { height = 0.95 },
