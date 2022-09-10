@@ -21,26 +21,16 @@ local function init()
 		require("mini.indentscope").gen_animation("none")
 	end }
 
-	-- use { 'tpope/vim-surround' }
 	use({
 		"kylechui/nvim-surround",
 		tag = "*",
 		config = function() require("nvim-surround").setup({}) end
 	})
 
-	-- Open/search with `gx`
-	-- use { "tyru/open-browser.vim", config = function()
-	-- 	require "packages.openbrowser".config()
-	-- end }
-
-	-- Gitsigns
-	-- use { "lewis6991/gitsigns.nvim", config = function()
-	-- 	require("gitsigns").setup()
-	-- end }
-
 	-- Statusline
 	use {
 		"jssteinberg/hackline.vim",
+		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 		config = function()
 			require "packages.hackline".config()
