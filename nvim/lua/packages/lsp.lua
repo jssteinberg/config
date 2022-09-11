@@ -41,25 +41,13 @@ M.config = function()
 		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	end
 
-	require("mason").setup {}
-	mason_lspconfig.setup()
-	lsp_format.setup {
-		javascript = {
-			format = {
-				semicolons = true,
-			}
-		},
-		typescript = {
-			format = {
-				semicolons = true,
-			}
-		},
-	}
+	require("mason").setup({})
+
+	mason_lspconfig.setup({})
+
+	lsp_format.setup({})
 
 	mason_lspconfig.setup_handlers {
-		-- The first entry (without a key) will be the default handler
-		-- and will be called for each installed server that doesn't have
-		-- a dedicated handler.
 		function(server_name) -- default handler (optional)
 			lspconfig[server_name].setup {
 				on_attach = on_attach

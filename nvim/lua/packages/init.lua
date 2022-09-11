@@ -32,9 +32,6 @@ local function init()
 		"jssteinberg/hackline.vim",
 		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
-		config = function()
-			require "packages.hackline".config()
-		end
 	}
 
 	-- Treesitter
@@ -68,8 +65,8 @@ local function init()
 	}
 
 	-- use {
-	-- 	'jose-elias-alvarez/null-ls.nvim',
-	-- 	requires = { 'nvim-lua/plenary', 'neovim/nvim-lspconfig' },
+	-- 	"jose-elias-alvarez/null-ls.nvim",
+	-- 	requires = { "nvim-lua/plenary", "neovim/nvim-lspconfig" },
 	-- 	config = function()
 	-- 		require "packages.null-ls".config()
 	-- 	end

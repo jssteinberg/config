@@ -2,19 +2,20 @@ local M = {}
 
 M.config = function()
 	local null_ls = require("null-ls")
-	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+	local augroup = vim.api.nvim_create_augroup("NullLsFormatting", {})
 	local sources = {
-		null_ls.builtins.code_actions.gitsigns,
-		null_ls.builtins.formatting.prettier.with({
-			filetypes = { "javascript", "json", "yaml" },
-		}),
-		-- null_ls.builtins.formatting.prettierd.with({
+		-- null_ls.builtins.code_actions.gitsigns,
+		-- null_ls.builtins.formatting.prettier.with({
+		-- 	extra_args = { "--single-quote", "false" },
 		-- 	filetypes = { "javascript", "json", "yaml" },
-		-- 	env = {
-		-- 		PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/.prettierrc.json"),
-		-- 	},
-		-- 	command = "prettierd"
 		-- }),
+		null_ls.builtins.formatting.prettierd.with({
+			filetypes = { "javascript", "json", "yaml" },
+			env = {
+				PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/.prettierrc.json"),
+			},
+			command = "prettierd"
+		}),
 	}
 	local async_formatting = function(bufnr)
 		bufnr = bufnr or vim.api.nvim_get_current_buf()
@@ -51,6 +52,7 @@ M.config = function()
 		on_attach = function(client, bufnr)
 			if client.supports_method("textDocument/formatting") then
 				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					group = augroup,
 					buffer = bufnr,

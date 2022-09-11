@@ -1,4 +1,4 @@
 {
-  "tabs": "true",
+  "tabs": true,
   "arrowParens": "avoid"
 }
