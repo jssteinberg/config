@@ -29,7 +29,7 @@ local function init()
 
 	-- Statusline
 	use {
-		"jssteinberg/hackline.vim",
+		"~/Documents/hackline.vim",
 		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 	}
@@ -40,6 +40,7 @@ local function init()
 		requires = {
 			"nvim-treesitter/playground",
 			"JoosepAlviste/nvim-ts-context-commentstring",
+			-- "David-Kunz/markid",
 		},
 		config = function() require "packages.treesitter".config() end
 	}

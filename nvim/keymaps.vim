@@ -94,7 +94,7 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 
 " FZF Fuzzy finder
 nnoremap <silent> <leader>fb :Telescope buffers<cr>
-nnoremap <silent> <leader>fs :Telescope live_grep<cr>
+nnoremap <silent> <leader>fs :Telescope live_grep hidden=true<cr>
 nnoremap <silent> <leader>gf :Telescope git_files<cr>
 nnoremap <silent> <leader>s :Telescope find_files hidden=true<cr>
 

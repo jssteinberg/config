@@ -9,7 +9,6 @@ M.config = function()
 			enable = true,
 			disable = disable_ft,
 		},
-		autotag = { enable = true },
 		playground = {
 			enable = true,
 			updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
@@ -27,11 +26,16 @@ M.config = function()
 				show_help = "?",
 			},
 		},
+		autotag = { enable = true },
 		-- For JoosepAlviste/nvim-ts-context-commentstring
 		context_commentstring = {
 			enable = true,
 			enable_autocmd = false,
-		}
+		},
+		-- markid plugin (color arguments)
+		-- markid = {
+		-- 	enable = true,
+		-- }
 	})
 end
 

@@ -21,7 +21,7 @@
 " Based on a neon illuminated city-park WC... `Comments` should be readable
 " (no dimmed grey).
 "
-" Supports: telescope, fugitive, neo-tree, gitsigns, vim-illuminate, vim-matchup, winbar
+" Supports: treesitter, telescope, fugitive, neo-tree, gitsigns, vim-illuminate, treesitter-context, vim-matchup, winbar
 "
 " Util:
 " - Disabled/inacive: black#8
@@ -55,8 +55,8 @@ hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9bb2d6
 hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9bcfd6
 hi! link TSParameter Normal
 " *Statement Conditional Repeat Label Operator Keyword Exception
-hi Statement cterm=NONE gui=NONE ctermfg=4 guifg=#5c80bc
-hi Keyword cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
+hi Statement cterm=NONE gui=NONE ctermfg=4 guifg=#9bb2d6
+" hi Keyword cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
 hi! link Label Keyword
 " *PreProc Include Define Macro PreCondit
 hi PreProc ctermfg=13 guifg=#a39bd6
@@ -123,13 +123,12 @@ hi Visual cterm=bold gui=NONE ctermbg=0 guibg=#552c6d " also affects TelescopePr
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a39bd6
 
-hi DiagnosticHint ctermfg=8 guifg=#7d78a1
 hi DiagnosticError ctermfg=1 guifg=#bc675c
-hi DiagnosticWarn ctermfg=4 guifg=#5c80bc
-hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#d6a39b
-hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
-hi DiagnosticUnderlineInfo cterm=underline gui=underline guisp=#a39bd6
+hi DiagnosticHint ctermfg=8 guifg=#5c80bc
+hi DiagnosticWarn ctermfg=4 guifg=#7d78a1
+hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#bc675c
 hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#5c80bc
+hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
 
 hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#ced69b guifg=#121118
@@ -172,6 +171,7 @@ endif
 
 hi! link lCursor Cursor
 hi! link DiagnosticInfo DiagnosticHint
+hi! link DiagnosticUnderlineInfo DiagnosticUnderlineHint
 hi! link ErrorMsg Error
 hi! link MoreMsg Type
 hi! link PmenuSel CursorLine " Pmenu affects some floating windows

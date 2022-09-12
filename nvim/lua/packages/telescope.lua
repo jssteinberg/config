@@ -4,7 +4,7 @@ local previewers = require("telescope.previewers")
 local putils = require("telescope.previewers.utils")
 local pfiletype = require("plenary.filetype")
 
-local _bad = { ".*%.csv", ".*%.lua" } -- Put all filetypes that slow you down in this array
+local _bad = { ".*%.csv", ".*%.lua" } -- Put all error prone filetypes in this array
 local bad_files = function(filepath)
 	for _, v in ipairs(_bad) do
 		if filepath:match(v) then
@@ -39,6 +39,19 @@ M.config = function()
 			file_ignore_patterns = { "node_modules", ".*[-|.]lock", "[.].*/" },
 			layout_strategy = "vertical",
 			layout_config = { height = 0.95 },
+			vimgrep_arguments = {
+				"rg",
+				"--color=never",
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+				"--smart-case",
+				-- follow symlinks
+				"--follow",
+				-- grep in hidden files
+				"--hidden"
+			},
 		},
 	})
 end
