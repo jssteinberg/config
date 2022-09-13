@@ -119,11 +119,11 @@ local theme = lush(function()
 		IncSearch { bg = color("red", "bg") },
 		MatchParen { bg = color("comment", "bg") },
 		Directory { fg = color("blue"), gui = "bold" }, -- directory names (and other special names in listings)
-		Question { fg = color("green", 2) }, -- |hit-enter| prompt and yes/no questions
+		Question { Normal, gui = "italic" }, -- |hit-enter| prompt and yes/no questions
 		SpecialKey { LineNr }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
 		Folded { Comment }, -- line used for closed folds
 		FoldColumn { Folded }, -- 'foldcolumn'
-		MoreMsg {}, -- |more-prompt|
+		MoreMsg { Question }, -- |more-prompt|
 		Substitute {}, -- |:substitute| replacement text highlighting
 		ModeMsg {}, -- 'showmode' message (e.g., "-- INSERT -- ")
 		MsgArea {}, -- Area for messages and cmdline
@@ -197,7 +197,7 @@ local theme = lush(function()
 		Float {}, --    a floating point constant: 2.3e10
 
 		Identifier {}, -- (preferred) any variable name
-		Function { fg = color("magenta") }, -- function name (also: methods for classes)
+		Function {}, -- function name (also: methods for classes)
 
 		Statement {}, -- (preferred) any statement
 		Conditional {}, --  if, then, else, endif, switch, etc.
@@ -213,7 +213,7 @@ local theme = lush(function()
 		Macro {}, --    same as Define
 		PreCondit {}, --  preprocessor #if, #else, #endif, etc.
 
-		Type { fg = color("blue", 2) }, -- (preferred) int, long, char, etc.
+		Type { fg = color("magenta", 2) }, -- (preferred) int, long, char, etc.
 		StorageClass {}, -- static, register, volatile, etc.
 		Structure { fg = color("blue", 2) }, --  struct, union, enum, etc.
 		Typedef {}, --  A typedef
@@ -230,6 +230,7 @@ local theme = lush(function()
 		Italic { gui = "italic" },
 
 		TSInclude { fg = color("magenta") }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+		TSMethod {}, -- For method calls and definitions.
 		TSProperty { Type }, -- Same as `TSField`.
 		TSTag { Tag }, -- Same as `TSField`.
 		-- TSVariable { fg = color("blue", 2) }, -- Any variable name that does not have another highlight.
@@ -275,7 +276,6 @@ local theme_WIP = (function()
 		-- TSFuncMacro          { }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
 		-- TSParameter          { }, -- For parameters of a function.
 		-- TSParameterReference { }, -- For references to parameters of a function.
-		-- TSMethod             { }, -- For method calls and definitions.
 		-- TSField              { }, -- For fields.
 		-- TSConstructor        { }, -- For constructor calls and definitions: `                                                                       { }` in Lua, and Java constructors.
 		-- TSConditional        { }, -- For keywords related to conditionnals.
