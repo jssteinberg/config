@@ -32,7 +32,7 @@ local color = function(color, variant)
 	local colors = {
 		-- terminal color keys
 		bg      = { hsl("#ffffff"), hsl("#e5f2e0") },
-		fg      = { hsl(hue, 42, 30), hsl("#121118") },
+		fg      = { hsl("#121118"), hsl("#121118") },
 		black   = { hsl(hue, 17.8, li2), hsl("#1a1636") }, -- add 2 index color
 		red     = { hsl(6.9, sa, li), hsl(7.5, sa2, li2), hsl(6.9, sa, li3) }, -- add 2 index color
 		green   = { hsl(97.5, sa, li), hsl(105.7, sa2, li2), hsl(97.5, sa, li3) }, -- add 2 index color
@@ -104,7 +104,7 @@ local theme = lush(function()
 		WinSeparator { fg = color("magenta", "bg") },
 		StatusLine { bg = WinSeparator.fg, fg = color("magenta", 2) },
 		StatusLineNC { StatusLine, fg = color("magenta") },
-		TabLine { CursorLine, fg = color("fg") }, -- tab pages line, not active tab page label
+		TabLine { CursorLine, fg = color("magenta") }, -- tab pages line, not active tab page label
 		TabLineFill { TabLine }, -- tab pages line, where there are no labels
 		TabLineSel { Title, bg = CursorLine.bg }, -- tab pages line, active tab page label
 		WinBar { TabLineSel },
@@ -137,7 +137,7 @@ local theme = lush(function()
 		DiffChange { Normal }, -- diff mode: Changed line |diff.txt|
 		DiffDelete { fg = color("red", 2) }, -- diff mode: Deleted line |diff.txt|
 		DiffText { DiffAdd }, -- diff mode: Changed text within a changed line |diff.txt|
-		gitDiff { fg = color("fg") },
+		gitDiff { fg = color("magenta") },
 		diffAdded { DiffAdd },
 		diffRemoved { DiffDelete },
 
@@ -166,7 +166,7 @@ local theme = lush(function()
 		MiniIndentscopeSymbol { LineNr },
 
 		-- Neo-tree
-		NeoTreeNormal { fg = color("fg") },
+		NeoTreeNormal { fg = color("magenta") },
 		NeoTreeDimText { fg = color("white") },
 		NeoTreeIndentMarker { LineNr },
 		NeoTreeSymbolicLinkTarget { fg = color("cyan", 2) },
@@ -174,7 +174,7 @@ local theme = lush(function()
 		NeoTreeExpander { link = "NeoTreeDirectoryIcon" },
 		NeoTreeGitConflict { WarningMsg },
 		NeoTreeGitConflict { WarningMsg },
-		NeoTreeGitUntracked { fg = color("fg") },
+		NeoTreeGitUntracked { fg = color("magenta") },
 		NeoTreeRootName { Directory },
 		NeoTreeTitleBar { StatusLine },
 
@@ -197,14 +197,14 @@ local theme = lush(function()
 		Float {}, --    a floating point constant: 2.3e10
 
 		Identifier {}, -- (preferred) any variable name
-		Function { fg = color("blue", 2) }, -- function name (also: methods for classes)
+		Function { fg = color("magenta") }, -- function name (also: methods for classes)
 
 		Statement {}, -- (preferred) any statement
 		Conditional {}, --  if, then, else, endif, switch, etc.
 		Repeat {}, --   for, do, while, etc.
 		Label {}, --    case, default, etc.
 		Operator { fg = color("blue", 2) }, -- "sizeof", "+", "*", etc.
-		Keyword { fg = color("fg") }, --  any other keyword
+		Keyword { fg = color("blue", 2) }, --  any other keyword
 		Exception {}, --  try, catch, throw
 
 		PreProc {}, -- (preferred) generic Preprocessor
@@ -213,15 +213,15 @@ local theme = lush(function()
 		Macro {}, --    same as Define
 		PreCondit {}, --  preprocessor #if, #else, #endif, etc.
 
-		Type {}, -- (preferred) int, long, char, etc.
+		Type { fg = color("blue", 2) }, -- (preferred) int, long, char, etc.
 		StorageClass {}, -- static, register, volatile, etc.
 		Structure { fg = color("blue", 2) }, --  struct, union, enum, etc.
 		Typedef {}, --  A typedef
 
 		Special {}, -- (preferred) any special symbol
 		SpecialChar {}, --  special character in a constant
-		Tag {}, --    you can use CTRL-] on this
-		Delimiter { fg = color("blue", 2) }, --  character that needs attention
+		Tag { Type }, --    you can use CTRL-] on this
+		Delimiter { fg = color("fg", 2) }, --  character that needs attention
 		SpecialComment {}, -- special things inside a comment
 		Debug {}, --    debugging statements
 
@@ -229,8 +229,15 @@ local theme = lush(function()
 		Bold { gui = "bold" },
 		Italic { gui = "italic" },
 
+		TSInclude { fg = color("magenta") }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+		TSProperty { Type }, -- Same as `TSField`.
+		TSTag { Tag }, -- Same as `TSField`.
 		-- TSVariable { fg = color("blue", 2) }, -- Any variable name that does not have another highlight.
 		-- TSVariableBuiltin { fg = color("blue", 2) }, -- Variable names that are defined by the languages, like `this` or `self`.
+
+		htmlTagName { Tag },
+		htmlTag { Delimiter },
+		htmlEndTag { htmlTag },
 	}
 end)
 
@@ -270,7 +277,6 @@ local theme_WIP = (function()
 		-- TSParameterReference { }, -- For references to parameters of a function.
 		-- TSMethod             { }, -- For method calls and definitions.
 		-- TSField              { }, -- For fields.
-		-- TSProperty           { }, -- Same as `TSField`.
 		-- TSConstructor        { }, -- For constructor calls and definitions: `                                                                       { }` in Lua, and Java constructors.
 		-- TSConditional        { }, -- For keywords related to conditionnals.
 		-- TSRepeat             { }, -- For keywords related to loops.
@@ -282,7 +288,6 @@ local theme_WIP = (function()
 		-- TSType               { }, -- For types.
 		-- TSTypeBuiltin        { }, -- For builtin types (you guessed it, right ?).
 		-- TSNamespace          { }, -- For identifiers referring to modules and namespaces.
-		-- TSInclude            { }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 		-- TSAnnotation         { }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
 		-- TSText               { }, -- For strings considered text in a markup language.
 		-- TSStrong             { }, -- For text to be represented with strong.
