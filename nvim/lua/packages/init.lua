@@ -29,7 +29,7 @@ local function init()
 
 	-- Statusline
 	use {
-		"~/Documents/hackline.vim",
+		"jssteinberg/hackline.vim",
 		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 	}
@@ -73,6 +73,10 @@ local function init()
 	-- 	end
 	-- }
 
+
+	-- FILETYPE
+	-- --------
+	-- use { "hail2u/vim-css3-syntax", ft = { "css" } }
 
 	-- LAZY LOADED
 	-- -----------
@@ -166,6 +170,11 @@ local function init()
 		config = function()
 			require "packages.neo-tree".config()
 		end
+	}
+	use {
+		"mrbjarksen/neo-tree-diagnostics.nvim",
+		after = "neo-tree.nvim",
+		module = "neo-tree.sources.diagnostics", -- if wanting to lazyload
 	}
 
 	-- Cycle buffers

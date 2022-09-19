@@ -26,7 +26,7 @@
 " Util:
 " - Disabled/inacive: black#8
 " - Error: red#1
-" - Info: violet*/magenta#5
+" - Info: magenta#5/violet*
 " - Warning: yellow#3
 " - Selection (bg): violet_bg
 "
@@ -47,6 +47,7 @@ endif
 
 hi! link Constant Normal
 hi! link Delimiter Normal
+hi! link Structure Delimiter
 hi! link TSParameter Normal
 
 " Comment
@@ -74,7 +75,7 @@ hi PreProc ctermfg=13 guifg=#a39bd6
 " *Type StorageClass Structure Typedef
 hi Type cterm=NONE gui=NONE ctermfg=10 guifg=#a9d69b " Have good constrast from String
 hi StorageClass cterm=NONE ctermfg=14 gui=NONE guifg=#9bcfd6
-hi Structure ctermfg=5 guifg=#685cbc
+" hi Structure ctermfg=5 guifg=#685cbc
 " linked
 hi! link Tag Type
 hi! link TSProperty Type
