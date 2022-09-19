@@ -48,8 +48,8 @@ endif
 " Comment
 hi Comment cterm=italic gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#985cbc
 " *Constant String Character Number Boolean Float
-hi Constant ctermfg=3 guifg=#bc985c
-hi String ctermfg=11 guifg=#ced69b
+hi Constant ctermfg=11 guifg=#ced69b
+hi String cterm=italic gui=italic ctermfg=11 guifg=#ced69b
 " *Identifier Function
 hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9bb2d6
 hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9bcfd6
@@ -62,6 +62,7 @@ hi! link Label Keyword
 hi PreProc ctermfg=13 guifg=#a39bd6
 " *Type StorageClass Structure Typedef
 hi Type cterm=NONE gui=NONE ctermfg=10 guifg=#a9d69b " Have good constrast from String
+hi StorageClass cterm=NONE ctermfg=14 gui=NONE guifg=#9bcfd6
 hi Structure ctermfg=5 guifg=#685cbc
 " *Special SpecialChar Tag Delimiter SpecialComment Debug
 hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9bcfd6 " also links to TelescopeMatch
@@ -82,22 +83,33 @@ hi TSTagAttribute ctermfg=2 guifg=#80bc5c
 " green#2    #80bc5c green#10   #a9d69b
 hi markdownCode ctermfg=10 guifg=#a9d69b
 hi markdownUrl ctermfg=5 guifg=#685cbc
-" Linked syntax
-hi! link htmlArg TSTagAttribute
-hi! link htmlEndTag htmlTag
-hi! link htmlTag Delimiter
+
+" LINKED SYNTAX
+
+" Type
+hi! link Tag Type
+hi! link TSProperty Type
+
+" Tag
 hi! link htmlTagName Tag
 hi! link javascriptTSTag Tag
+hi! link TSTag Tag
+hi! link TSConstructor Tag
+hi! link cssTSString Tag
+
+" Others
+hi! link cssAttributeSelector htmlArg
+hi! link cssClassName htmlArg
+hi! link htmlArg TSTagAttribute
+hi! link htmlTag Delimiter
+hi! link htmlEndTag htmlTag
 hi! link markdown_inlineTSURI markdownUrl
 hi! link markdownLinkDelimiter Delimiter
 hi! link markdownLinkTextDelimiter Delimiter
-hi! link Tag Type
 hi! link TSPunctBrack Delimiter
-hi! link TSTag Tag
-hi! link TSProperty Type
+hi! link cssTagName htmlTagName
 hi! link cssTSProperty String
 hi! link scssTSProperty cssTSProperty
-hi! link cssTSString Tag
 hi! link scssTSString cssTSString
 
 " UI
