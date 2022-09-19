@@ -142,17 +142,17 @@ hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
 " Diffs
 " `hi`s in context of normal syntax, so can't use green/red---distinguish another way
 hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
-hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
+hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi DiffChange cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
 " `hi`s in own context, so can grey out and use green/red
-hi gitDiff ctermfg=5 guifg=#685cbc
-hi diffAdded ctermfg=2 guifg=#80bc5c
-hi diffRemoved ctermfg=1 guifg=#bc675c
+hi gitDiff cterm=bold gui=bold ctermfg=5 guifg=#685cbc
+hi diffAdded cterm=bold gui=bold ctermfg=2 guifg=#80bc5c
+hi! link diffRemoved DiffDelete
 
 " Search
 hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#646d2c ctermfg=11 guifg=#ffffff
-hi Search cterm=italic gui=italic ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
+hi Search cterm=italic gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
 
 " StatusLine and WinSeparator
 hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a39bd6
