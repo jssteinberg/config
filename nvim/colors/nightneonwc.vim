@@ -37,69 +37,77 @@ set bg=dark
 hi clear
 let g:colors_name = 'nightneonwc'
 
+" GROUP NAMES (:h group-name)
+
 if get(g:, 'nightneonwc_bg', '1')
 	hi Normal guibg=#121118 guifg=#e5f2e0
 else
 	hi Normal guifg=#e5f2e0
 endif
 
-" GROUP NAMES (:h group-name)
+hi! link Constant Normal
+hi! link Delimiter Normal
+hi! link TSParameter Normal
 
 " Comment
 hi Comment cterm=italic gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#985cbc
+
 " *Constant String Character Number Boolean Float
-hi Constant ctermfg=11 guifg=#ced69b
-hi String cterm=italic gui=italic ctermfg=11 guifg=#ced69b
+hi String ctermfg=11 guifg=#ced69b
+" linked
+hi! link cssClassName String
+hi! link cssTSProperty String
+
 " *Identifier Function
 hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9bb2d6
 hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9bcfd6
-hi! link TSParameter Normal
+
 " *Statement Conditional Repeat Label Operator Keyword Exception
 hi Statement cterm=NONE gui=NONE ctermfg=4 guifg=#9bb2d6
 " hi Keyword cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
+" linked
 hi! link Label Keyword
+
 " *PreProc Include Define Macro PreCondit
 hi PreProc ctermfg=13 guifg=#a39bd6
+
 " *Type StorageClass Structure Typedef
 hi Type cterm=NONE gui=NONE ctermfg=10 guifg=#a9d69b " Have good constrast from String
 hi StorageClass cterm=NONE ctermfg=14 gui=NONE guifg=#9bcfd6
 hi Structure ctermfg=5 guifg=#685cbc
-" *Special SpecialChar Tag Delimiter SpecialComment Debug
-hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9bcfd6 " also links to TelescopeMatch
-hi SpecialKey ctermfg=12 guifg=#9bb2d6 " Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-hi Delimiter ctermfg=4 guifg=#5c80bc
-" *Underlined
-hi Underlined cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
-" *Ignore
-" *Error
-" *Todo
-hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
-" Other syntax
-hi Bold cterm=bold gui=bold
-hi Italic cterm=italic gui=italic
-hi Title cterm=NONE gui=NONE ctermfg=11 guifg=#ced69b
-hi TooLong cterm=underline gui=underline ctermfg=3 guifg=#bc985c
-hi TSTagAttribute ctermfg=2 guifg=#80bc5c
-" green#2    #80bc5c green#10   #a9d69b
-hi markdownCode ctermfg=10 guifg=#a9d69b
-hi markdownUrl ctermfg=5 guifg=#685cbc
-
-" LINKED SYNTAX
-
-" Type
+" linked
 hi! link Tag Type
 hi! link TSProperty Type
 
-" Tag
+" *Special SpecialChar Tag Delimiter SpecialComment Debug
+hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9bcfd6 " also links to TelescopeMatch
+hi SpecialKey ctermfg=12 guifg=#9bb2d6 " Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+hi TSTagAttribute ctermfg=2 guifg=#80bc5c
+" linked
 hi! link htmlTagName Tag
 hi! link javascriptTSTag Tag
 hi! link TSTag Tag
 hi! link TSConstructor Tag
 hi! link cssTSString Tag
 
-" Others
+" *Underlined
+hi Underlined cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
+
+" *Ignore
+" *Error
+
+" *Todo
+hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
+
+" Other syntax
+hi Bold cterm=bold gui=bold
+hi Italic cterm=italic gui=italic
+hi Title cterm=NONE gui=NONE ctermfg=11 guifg=#ced69b
+hi TooLong cterm=underline gui=underline ctermfg=3 guifg=#bc985c
+hi markdownCode ctermfg=10 guifg=#a9d69b
+hi markdownUrl ctermfg=5 guifg=#685cbc
+" linked
 hi! link cssAttributeSelector htmlArg
-hi! link cssClassName htmlArg
 hi! link htmlArg TSTagAttribute
 hi! link htmlTag Delimiter
 hi! link htmlEndTag htmlTag
@@ -108,7 +116,6 @@ hi! link markdownLinkDelimiter Delimiter
 hi! link markdownLinkTextDelimiter Delimiter
 hi! link TSPunctBrack Delimiter
 hi! link cssTagName htmlTagName
-hi! link cssTSProperty String
 hi! link scssTSProperty cssTSProperty
 hi! link scssTSString cssTSString
 

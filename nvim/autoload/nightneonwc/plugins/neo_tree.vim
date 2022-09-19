@@ -5,7 +5,7 @@ function nightneonwc#plugins#neo_tree#highlights() abort
 	hi! link NeoTreeDotfile NeoTreeDimText
 	hi! link NeoTreeExpander NeoTreeDirectoryIcon
 	hi! link NeoTreeGitConflict WarningMsg
-	hi! link NeoTreeGitConflict WarningMsg
+	hi! link NeoTreeGitDeleted WarningMsg
 	hi! link NeoTreeGitUntracked Structure
 	hi! link NeoTreeRootName NeoTreeDirectoryName
 	hi! link NeoTreeTitleBar StatusLine
