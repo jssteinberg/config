@@ -68,14 +68,17 @@ nnoremap <leader>q :cnext<cr>
 nnoremap <leader>Q :cprev<cr>
 nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
-" Replace [normal, selection]
-nnoremap <leader>R :%s/
-vnoremap <leader>R :s/
+" Substitute/Replace [normal, selection]
+nnoremap <leader>S :%s/
+vnoremap <leader>S :s/
+nnoremap <leader>R "ryiw:%s/<c-r>r
+vnoremap <leader>R "ry:s/<c-r>r
 
 " Grep
-nnoremap <leader>G "gyiw<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
+nnoremap <leader>G :silent grep -g "!package-lock.json" -g "!yarn.lock" 
+nnoremap gr "gyiw<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
 nnoremap gs "gyiw<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
-vnoremap <leader>G "gy<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
+vnoremap gr "gy<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
 vnoremap gs "gy<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 
 " Marks
