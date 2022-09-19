@@ -46,8 +46,6 @@ else
 endif
 
 hi! link Constant Normal
-hi! link Delimiter Normal
-hi! link Structure Delimiter
 hi! link TSParameter Normal
 
 " Comment
@@ -84,12 +82,14 @@ hi! link TSProperty Type
 hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9bcfd6 " also links to TelescopeMatch
 hi SpecialKey ctermfg=12 guifg=#9bb2d6 " Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
 hi TSTagAttribute ctermfg=2 guifg=#80bc5c
+hi Delimiter ctermfg=8 guifg=#7d78a1
 " linked
+hi! link Structure Delimiter
+hi! link cssTSString Tag
 hi! link htmlTagName Tag
 hi! link javascriptTSTag Tag
 hi! link TSTag Tag
 hi! link TSConstructor Tag
-hi! link cssTSString Tag
 
 " *Underlined
 hi Underlined cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
@@ -129,15 +129,15 @@ hi CursorColumn cterm=bold gui=bold ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a39bd6
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
-hi LineNr cterm=italic gui=italic ctermfg=5 guifg=#7d78a1
+hi LineNr cterm=italic gui=italic ctermfg=8 guifg=#7d78a1
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a39bd6
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
 hi NonText gui=NONE ctermfg=8 guifg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
-hi Pmenu      ctermbg=0 guibg=#05040b ctermfg=5 guifg=#7d78a1 " Pmenu affects some floating windows
+hi Pmenu      ctermbg=0 guibg=#05040b ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9bcfd6
-hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#7d78a1
+hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a39bd6
 hi Visual cterm=bold gui=NONE ctermbg=0 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
