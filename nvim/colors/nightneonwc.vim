@@ -1,16 +1,16 @@
 " nightneonwc.vim
 
-" bg         #121118 fg            #e5f2e0
-" black#0    #1a1636 black#8       #7d78a1 black_2   #342c6d black_bg #05040b
-" red#1      #bc675c red#9         #d6a39b
-" green#2    #80bc5c green#10      #a9d69b
-" yellow#3   #bc985c yellow#11     #ced69b yellow_bg #646d2c
-" blue#4     #5c80bc blue#12       #9bb2d6 blue_bg   #2c446d
-" magenta#5  #685cbc magenta#13    #a39bd6
-" cyan#6     #5cb1bc cyan#14       #9bcfd6
-" white#7    #afacc5 white#15      #ffffff
+" bg        #121118 fg         #e5f2e0
+" black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d black_bg #05040b
+" red#1     #bc675c red#9      #d6a39b
+" green#2   #80bc5c green#10   #a9d69b
+" yellow#3  #bc985c yellow#11  #ced69b yellow_bg #646d2c
+" blue#4    #5c80bc blue#12    #9bb2d6 blue_bg   #2c446d
+" magenta#5 #685cbc magenta#13 #a39bd6
+" cyan#6    #5cb1bc cyan#14    #9bcfd6
+" white#7   #afacc5 white#15   #ffffff
 " ---
-" violet     #985cbc violet_bright #bf9ad6 violet_bg #552c6d
+" violet    #985cbc violet_2   #bf9ad6 violet_bg #552c6d
 "
 " Options:
 " - `let g:nightneonwc_bg = 1`. 0 for NONE (transparent), 1 for background.
