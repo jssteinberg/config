@@ -171,11 +171,11 @@ local function init()
 			require "packages.neo-tree".config()
 		end
 	}
-	use {
-		"mrbjarksen/neo-tree-diagnostics.nvim",
-		after = "neo-tree.nvim",
-		module = "neo-tree.sources.diagnostics", -- if wanting to lazyload
-	}
+	-- use {
+	-- 	"mrbjarksen/neo-tree-diagnostics.nvim",
+	-- 	after = "neo-tree.nvim",
+	-- 	module = "neo-tree.sources.diagnostics", -- if wanting to lazyload
+	-- }
 
 	-- Cycle buffers
 	use {
