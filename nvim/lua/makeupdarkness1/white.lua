@@ -7,7 +7,7 @@ local color = function(color, variant)
 	local dark = false
 	local hue = 247.3
 
-	local sa, sa2, li, li2, li3
+	local sa, sa2, li, li2, li2_2, li3
 
 	-- TODO: rm dynamic dark/light remains
 	if dark then
@@ -22,6 +22,7 @@ local color = function(color, variant)
 		li = 55
 		sa2 = 95
 		li2 = 40
+		li2_2 = 27.5
 		li3 = 85
 	end
 
@@ -33,7 +34,7 @@ local color = function(color, variant)
 		fg      = { hsl("#121118"), hsl("#121118") },
 		black   = { hsl(hue, 17.8, li2), hsl("#1a1636") }, -- add 2 index color
 		red     = { hsl(6.9, sa, li), hsl(7.5, sa2, li2), hsl(6.9, sa, li3) }, -- add 2 index color
-		green   = { hsl(97.5, sa, li), hsl(105.7, sa2, li2), hsl(97.5, sa, li3) }, -- add 2 index color
+		green   = { hsl(97.5, sa, li), hsl(105.7, sa2, li2_2), hsl(97.5, sa, li3) }, -- add 2 index color
 		yellow  = { hsl(37.5, sa, li), hsl(68, sa2, li2), hsl(68, sa2, li3), hsl("#ced69b") }, -- add 2 index color
 		blue    = { hsl(217.5, sa, li), hsl(217.5, sa2, li2), hsl(217.5, sa, li3) }, -- add 2 index color
 		magenta = { hsl(hue, sa, li), hsl(hue, sa2, li2), hsl(hue, sa, li3) }, -- add 2 index color
