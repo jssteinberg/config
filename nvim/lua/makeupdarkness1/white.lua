@@ -7,7 +7,7 @@ local color = function(color, variant)
 	local dark = false
 	local hue = 247.3
 
-	local sa, li, li2, li3, bg, fg
+	local sa, sa2, li, li2, li3
 
 	-- TODO: rm dynamic dark/light remains
 	if dark then
@@ -16,13 +16,11 @@ local color = function(color, variant)
 		li = 55
 		li2 = 72.5
 		li3 = 30 -- background
-		bg = { hsl("#121118") }
-		fg = { hsl("#e5f2e0") }
 	else
 		vim.o.background = "light"
 		sa = 42
-		sa2 = 95
 		li = 55
+		sa2 = 95
 		li2 = 40
 		li3 = 85
 	end
@@ -207,7 +205,7 @@ local theme = lush(function()
 		Keyword { fg = color("blue", 2) }, --  any other keyword
 		Exception {}, --  try, catch, throw
 
-		PreProc {}, -- (preferred) generic Preprocessor
+		PreProc { fg = color("blue", 2) }, -- (preferred) generic Preprocessor
 		Include {}, --  preprocessor #include
 		Define {}, --   preprocessor #define
 		Macro {}, --    same as Define
@@ -221,7 +219,7 @@ local theme = lush(function()
 		Special {}, -- (preferred) any special symbol
 		SpecialChar {}, --  special character in a constant
 		Tag { Type }, --    you can use CTRL-] on this
-		Delimiter { fg = color("fg", 2) }, --  character that needs attention
+		Delimiter { Structure }, --  character that needs attention
 		SpecialComment {}, -- special things inside a comment
 		Debug {}, --    debugging statements
 
@@ -231,13 +229,14 @@ local theme = lush(function()
 
 		TSInclude { fg = color("magenta") }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 		TSMethod {}, -- For method calls and definitions.
-		TSProperty { Type }, -- Same as `TSField`.
+		TSProperty {}, -- Same as `TSField`.
 		TSTag { Tag }, -- Same as `TSField`.
 		-- TSVariable { fg = color("blue", 2) }, -- Any variable name that does not have another highlight.
 		-- TSVariableBuiltin { fg = color("blue", 2) }, -- Variable names that are defined by the languages, like `this` or `self`.
 
+		htmlArg { TSProperty },
 		htmlTagName { Tag },
-		htmlTag { Delimiter },
+		htmlTag { htmlArg },
 		htmlEndTag { htmlTag },
 	}
 end)
