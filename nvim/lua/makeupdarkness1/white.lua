@@ -239,6 +239,11 @@ local theme = lush(function()
 		htmlTagName { Tag },
 		htmlTag { htmlArg },
 		htmlEndTag { htmlTag },
+		cssTagName { htmlTagName },
+		-- cssAttributeSelector { htmlArg },
+		-- cssClassName { String },
+		-- cssTSProperty { String },
+		-- cssTSString { Tag },
 	}
 end)
 
