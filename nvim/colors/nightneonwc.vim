@@ -193,10 +193,10 @@ hi! link lCursor Cursor
 hi! link DiagnosticInfo DiagnosticHint
 hi! link DiagnosticUnderlineInfo DiagnosticUnderlineHint
 hi! link ErrorMsg Error
-hi! link MoreMsg Type
+hi! link MoreMsg Bold
 hi! link PmenuSel CursorLine " Pmenu affects some floating windows
 hi! link PmenuSbar Pmenu " Pmenu affects some floating windows
-hi! link Question Type
+hi! link Question Bold
 hi! link QuickFixLine Visual
 hi! link TabLineFill TabLine
 hi! link WinBarNC LineNr

@@ -89,7 +89,11 @@ nnoremap <leader>hf 'F'"
 nnoremap <leader>hc 'C'"
 
 " Terminal
-nnoremap <silent> <leader><cr> <cmd>split<cr><cmd>terminal<cr>i
+nnoremap <silent> <leader><cr> <cmd>split<cr><cmd>wincmd J<cr><cmd>terminal<cr>i
+
+" No/now
+nn <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
+nn <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 
 " Cycle colorschemes
 nnoremap <silent> <leader>cc :call CycleColo()<cr>
