@@ -82,6 +82,9 @@ vim.g.terminal_color_foreground = color("fg")
 local theme = lush(function()
 	return {
 		Normal { bg = color("bg"), fg = color("fg", 2) },
+		Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
+		Bold { gui = "bold" },
+		Italic { gui = "italic" },
 		Title { gui = "bold" }, -- titles for output from ":set all", ":autocmd" etc.
 		Comment { fg = color("comment", 2) },
 		Todo { fg = color("comment", 2), gui = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
@@ -118,11 +121,11 @@ local theme = lush(function()
 		IncSearch { bg = color("red", "bg") },
 		MatchParen { bg = color("comment", "bg") },
 		Directory { fg = color("blue"), gui = "bold" }, -- directory names (and other special names in listings)
-		Question { Normal, gui = "italic" }, -- |hit-enter| prompt and yes/no questions
+		Question { Bold }, -- |hit-enter| prompt and yes/no questions
 		SpecialKey { LineNr }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
 		Folded { Comment }, -- line used for closed folds
 		FoldColumn { Folded }, -- 'foldcolumn'
-		MoreMsg { Question }, -- |more-prompt|
+		MoreMsg { Bold }, -- |more-prompt|
 		Substitute {}, -- |:substitute| replacement text highlighting
 		ModeMsg {}, -- 'showmode' message (e.g., "-- INSERT -- ")
 		MsgArea {}, -- Area for messages and cmdline
@@ -223,10 +226,6 @@ local theme = lush(function()
 		Delimiter { Structure }, --  character that needs attention
 		SpecialComment {}, -- special things inside a comment
 		Debug {}, --    debugging statements
-
-		Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
-		Bold { gui = "bold" },
-		Italic { gui = "italic" },
 
 		TSInclude { fg = color("magenta") }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 		TSMethod {}, -- For method calls and definitions.

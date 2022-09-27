@@ -28,8 +28,8 @@ M.config = function()
 					modified  = "M",
 					renamed   = "R",
 					-- Status type
-					untracked = "-",
-					ignored   = "I",
+					untracked = "?",
+					ignored   = "-",
 					unstaged  = "U",
 					staged    = "S",
 					conflict  = "C",

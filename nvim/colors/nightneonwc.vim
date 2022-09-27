@@ -33,6 +33,12 @@
 " Make gui only:
 " :%s/\v cterm[^ ]*//g | %s/\vnightneonwc(['|.])/nightneonwc_gui\1/g
 
+" #7ad544 green 1.5 color
+" #d59e44 yellow 1.5 color
+" #44c3d5 cyan 1.5 color
+" #7eaaf4 blue 2 color
+" #8c7ef4 magenta 2 color
+
 set bg=dark
 hi clear
 let g:colors_name = 'nightneonwc'
@@ -216,8 +222,12 @@ hi IlluminatedWordText cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi! link IlluminatedWordRead IlluminatedWordText
 hi! link IlluminatedWordWrite IlluminatedWordText
 
-" leap.nvim
-hi! link LeapLabelPrimary IncSearch
+" markid
+hi markid1 gui=italic guifg=#7ad544
+hi markid2 gui=italic guifg=#d59e44
+hi markid3 gui=italic guifg=#44c3d5
+hi markid4 gui=italic guifg=#7eaaf4
+hi markid5 gui=italic guifg=#8c7ef4
 
 " mini.nvim
 hi! link MiniIndentscopePrefix NonText

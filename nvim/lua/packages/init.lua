@@ -40,7 +40,7 @@ local function init()
 		requires = {
 			"nvim-treesitter/playground",
 			"JoosepAlviste/nvim-ts-context-commentstring",
-			-- "David-Kunz/markid",
+			"David-Kunz/markid",
 		},
 		config = function() require "packages.treesitter".config() end
 	}
@@ -189,7 +189,7 @@ local function init()
 
 	use { "tpope/vim-fugitive", cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit" } } -- Git wrapper
 	use { "APZelos/blamer.nvim", cmd = { "BlamerToggle" } } -- git blame
-	use { "rhysd/git-messenger.vim", cmd = { "GitMessenger" } } -- git message under cursor
+	-- use { "rhysd/git-messenger.vim", cmd = { "GitMessenger" } } -- git message under cursor
 	use {
 		"tyru/open-browser-github.vim",
 		cmd = {
