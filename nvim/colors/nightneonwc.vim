@@ -33,11 +33,10 @@
 " Make gui only:
 " :%s/\v cterm[^ ]*//g | %s/\vnightneonwc(['|.])/nightneonwc_gui\1/g
 
-" #7ad544 green 1.5 color
-" #d59e44 yellow 1.5 color
-" #44c3d5 cyan 1.5 color
-" #7eaaf4 blue 2 color
-" #8c7ef4 magenta 2 color
+" #cae138 yellow_id color
+" #38cce1 cyan_id color
+" #e1a138 orange_id color
+" #77e138 green_id color
 
 set bg=dark
 hi clear
@@ -223,11 +222,10 @@ hi! link IlluminatedWordRead IlluminatedWordText
 hi! link IlluminatedWordWrite IlluminatedWordText
 
 " markid
-hi markid1 gui=italic guifg=#7ad544
-hi markid2 gui=italic guifg=#d59e44
-hi markid3 gui=italic guifg=#44c3d5
-hi markid4 gui=italic guifg=#7eaaf4
-hi markid5 gui=italic guifg=#8c7ef4
+hi markid1 guifg=#cae138 " yellow_id color
+hi markid2 guifg=#38cce1 " cyan_id color
+hi markid3 guifg=#e1a138 " orange_id color
+hi markid4 guifg=#77e138 " green_id color
 
 " mini.nvim
 hi! link MiniIndentscopePrefix NonText
