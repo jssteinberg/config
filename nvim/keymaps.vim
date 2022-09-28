@@ -101,23 +101,24 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " Package/plugin mappings
 " -----------------------
 
-" FZF Fuzzy finder
-nnoremap <silent> <leader>fb :Telescope buffers<cr>
-nnoremap <silent> <leader>fs :Telescope live_grep hidden=true<cr>
-nnoremap <silent> <leader>gf :Telescope git_files<cr>
-nnoremap <silent> <leader>s :Telescope find_files hidden=true<cr>
+" Fuzzy finder
+nnoremap <silent> <leader>fb :FzfLua buffers<cr>
+nnoremap <silent> <leader>fs :FzfLua live_grep hidden=true<cr>
+nnoremap <silent> <leader>gf :FzfLua git_files<cr>
+nnoremap <silent> <leader>s :FzfLua files hidden=true<cr>
 
 " Git
-nnoremap <leader>gg <cmd>Git<cr>
-nnoremap <leader>gq <cmd>Git mergetool<cr>
 nnoremap <leader>gb <cmd>BlamerToggle<cr>
 nnoremap <leader>gd <cmd>tabnew %<cr><cmd>Gvdiffsplit<cr>
-nnoremap <leader>gp <cmd>Git pull<cr>
-nnoremap <leader>gP <cmd>Git push<cr>
-nnoremap <leader>gl <cmd>Git log<cr>
-nnoremap <leader>go <cmd>OpenGithubFile<cr>
+nnoremap <leader>gg <cmd>Git<cr>
 nnoremap <leader>gj /<<<<<<<\\|=======\\|>>>>>>><cr>
 nnoremap <leader>gk ?<<<<<<<\\|=======\\|>>>>>>><cr>
+nnoremap <leader>gl <cmd>Git log<cr>
+nnoremap <leader>go <cmd>OpenGithubFile<cr>
+nnoremap <leader>gp <cmd>Git pull<cr>
+nnoremap <leader>gP <cmd>Git push<cr>
+nnoremap <leader>gq <cmd>Git mergetool<cr>
+nnoremap <leader>gs <cmd>SignifyEnableAll<cr>
 nnoremap <leader>X <cmd>Gitsigns reset_hunk<cr>
 xnoremap <leader>X <cmd>Gitsigns reset_hunk<cr>
 

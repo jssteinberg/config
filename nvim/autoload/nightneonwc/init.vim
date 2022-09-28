@@ -13,7 +13,6 @@
 " Options:
 " - `let g:nightneonwc_bg = 1`. 0 for NONE (transparent), 1 for background.
 " - `let g:nightneonwc_statusline_bg =`...unlet for default, 'none' or 'black'.
-" - `let g:nightneonwc_plugin_neo_tree = 1`. Or `0` to not highlight plugin.
 "
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
 " Based on a neon illuminated city-park WC... `Comments` should be readable
@@ -212,32 +211,9 @@ function nightneonwc#init#highlights() abort
 	" clever-f
 	hi! link CleverFDefaultLabel IncSearch
 
-	" illuminate.vim
-	hi IlluminatedWordText cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
-	hi! link IlluminatedWordRead IlluminatedWordText
-	hi! link IlluminatedWordWrite IlluminatedWordText
-
-	" markid
-	hi markid1 guifg=#cae138 " yellow_id color
-	hi markid2 guifg=#38cce1 " cyan_id color
-	" hi markid3 guifg=#e1a138 " orange_id color
-	hi markid3 guifg=#77e138 " green_id color
-
-	" mini.nvim
-	hi! link MiniIndentscopePrefix NonText
-	hi! link MiniIndentscopeSymbol NonText
-
-	" Telescope
-	hi! link TelescopeNormal Normal
-	hi! link TelescopePromptCounter Comment
-
-	" Treesitter context
-	hi TreesitterContext cterm=underline gui=underline
-	hi! link TreesitterContextLineNumber CursorLineNr
-
-	" Neo-tree
-	if has("nvim") && get(g:, "nightneonwc_plugin_neo_tree", 1)
+	if has("nvim")
 		try
+			call nightneonwc#nvim#highlights()
 			call nightneonwc#plugins#neo_tree#highlights()
 		catch | endtry
 	endif

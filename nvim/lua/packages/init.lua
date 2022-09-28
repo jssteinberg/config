@@ -152,13 +152,17 @@ local function init()
 	-- Quickfix
 	use { "kevinhwang91/nvim-bqf", ft = "qf" }
 
-	-- Fuzzy searcher
+	-- Fuzzy finder
+	-- use {
+	-- 	"nvim-telescope/telescope.nvim",
+	-- 	branch = "0.1.x",
+	-- 	-- cmd = "Telescope",
+	-- 	requires = { "nvim-lua/plenary.nvim" },
+	-- 	config = function() require "packages.telescope".config() end
+	-- }
 	use {
-		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		-- cmd = "Telescope",
-		requires = { "nvim-lua/plenary.nvim" },
-		config = function() require "packages.telescope".config() end
+		"ibhagwan/fzf-lua",
+		cmd = "FzfLua"
 	}
 
 	-- File tree
@@ -191,6 +195,13 @@ local function init()
 			"OpenGithubFile", "OpenGithuIssue", "OpenGithubPullReq", "OpenGithubProject",
 		},
 		requires = { "tyru/open-browser.vim" },
+	}
+
+	-- git signs
+	vim.g.signify_disable_by_default = 1
+	use {
+		"mhinz/vim-signify",
+		cmd = { "SignifyToggle", "SignifyEnable", "SignifyEnableAll" }
 	}
 
 	-- git linker
