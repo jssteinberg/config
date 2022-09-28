@@ -32,8 +32,9 @@
 
 " #cae138 yellow_id color
 " #38cce1 cyan_id color
-" #e1a138 orange_id color
 " #77e138 green_id color
+" #3877e1 blue_id
+" #e1a138 orange_id color
 
 function nightneonwc#init#highlights() abort
 
