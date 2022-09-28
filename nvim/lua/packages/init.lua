@@ -187,9 +187,8 @@ local function init()
 
 	-- ### GIT
 
-	use { "tpope/vim-fugitive", cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit" } } -- Git wrapper
+	use { "tpope/vim-fugitive", cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit" } } -- git wrapper
 	use { "APZelos/blamer.nvim", cmd = { "BlamerToggle" } } -- git blame
-	-- use { "rhysd/git-messenger.vim", cmd = { "GitMessenger" } } -- git message under cursor
 	use {
 		"tyru/open-browser-github.vim",
 		cmd = {
