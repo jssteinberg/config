@@ -85,7 +85,8 @@ local function init()
 
 	-- Illuminate cursor word
 	use { "RRethy/vim-illuminate", event = "CursorHold", config = function()
-		require "illuminate".configure({ under_cursor = false })
+		-- require "illuminate".configure({ under_cursor = false })
+		require "illuminate".configure({})
 	end }
 
 	-- better matching functionality
@@ -155,7 +156,7 @@ local function init()
 	use {
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
-		cmd = "Telescope",
+		-- cmd = "Telescope",
 		requires = { "nvim-lua/plenary.nvim" },
 		config = function() require "packages.telescope".config() end
 	}
@@ -171,11 +172,6 @@ local function init()
 			require "packages.neo-tree".config()
 		end
 	}
-	-- use {
-	-- 	"mrbjarksen/neo-tree-diagnostics.nvim",
-	-- 	after = "neo-tree.nvim",
-	-- 	module = "neo-tree.sources.diagnostics", -- if wanting to lazyload
-	-- }
 
 	-- Cycle buffers
 	use {

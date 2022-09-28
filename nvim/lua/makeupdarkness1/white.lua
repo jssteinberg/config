@@ -7,7 +7,7 @@ local color = function(color, variant)
 	local dark = false
 	local hue = 247.3
 
-	local sa, sa2, li, li2, li2_2, li3
+	local sa, sa2, li, li2, li2_2, sa3, li3, li_id
 
 	-- TODO: rm dynamic dark/light remains
 	if dark then
@@ -23,7 +23,11 @@ local color = function(color, variant)
 		sa2 = 95
 		li2 = 40
 		li2_2 = 27.5
-		li3 = 85
+		-- bg colors, but TODO: separate on full line bg and subline bg
+		sa3 = 79
+		li3 = 90
+		-- id colors
+		li_id = 27.5
 	end
 
 	-- Colors { base, emphasized, background }
@@ -33,12 +37,12 @@ local color = function(color, variant)
 		bg      = { hsl("#ffffff"), hsl("#e5f2e0") },
 		fg      = { hsl("#121118"), hsl("#121118") },
 		black   = { hsl(hue, 17.8, li2), hsl("#1a1636") }, -- add 2 index color
-		red     = { hsl(6.9, sa, li), hsl(7.5, sa2, li2), hsl(6.9, sa, li3) }, -- add 2 index color
-		green   = { hsl(97.5, sa, li), hsl(105.7, sa2, li2_2), hsl(97.5, sa, li3) }, -- add 2 index color
-		yellow  = { hsl(37.5, sa, li), hsl(68, sa2, li2_2), hsl(68, sa2, li3), hsl("#ced69b") }, -- add 2 index color
-		blue    = { hsl(217.5, sa, li), hsl(217.5, sa2, li2), hsl(217.5, sa, li3) }, -- add 2 index color
-		magenta = { hsl(hue, sa, li), hsl(hue, sa2, li2), hsl(hue, sa, li3) }, -- add 2 index color
-		cyan    = { hsl(187.3, sa, li), hsl(187.5, sa2, li2), hsl(187.3, sa, li3) }, -- add 2 index color
+		red     = { hsl(6.9, sa, li), hsl(7.5, sa2, li2), hsl(6.9, sa3, li3) }, -- add 2 index color
+		green   = { hsl(97.5, sa, li), hsl(105.7, sa2, li2_2), hsl(97.5, sa3, li3) }, -- add 2 index color
+		yellow  = { hsl(37.5, sa, li), hsl(68, sa2, li2_2), hsl(68, sa3, 92.5) }, -- add 2 index color
+		blue    = { hsl(217.5, sa, li), hsl(217.5, sa2, li2), hsl(217.5, sa3, li3) }, -- add 2 index color
+		magenta = { hsl(hue, sa, li), hsl(hue, sa2, li2), hsl(hue, sa3, 92.5) }, -- add 2 index color
+		cyan    = { hsl(187.3, sa, li), hsl(187.5, sa2, li2), hsl(187.3, sa3, li3) }, -- add 2 index color
 		white   = { hsl("#afacc5"), hsl("#e5f2e0"), hsl("#ffffff") }, -- add 2 index color
 		-- additional color keys
 		violet  = { hsl(277.5, sa, li), hsl(277.5, sa2, li2), hsl(277.5, sa, li3) },
@@ -47,6 +51,7 @@ local color = function(color, variant)
 	colors.comment = colors.violet
 	colors.error = { colors.red[1] }
 	colors.warning = { colors.yellow[1] }
+	colors.id = { hsl(97.5, sa2, li_id), hsl(187.3, sa2, li_id) }
 
 	if variant and variant == "bg" and #colors[color] == 3 then
 		-- return background variant
@@ -55,8 +60,8 @@ local color = function(color, variant)
 		-- return base color variant if missing index
 		return colors[color][1]
 	else
-		-- return emphasized variant if string is not "bg" and has index 2
-		return colors[color][2]
+		-- return variant index if string is not "bg" and index is not 1
+		return colors[color][variant]
 	end
 end
 
@@ -76,7 +81,7 @@ vim.g.terminal_color_12 = color("blue", 2)
 vim.g.terminal_color_13 = color("magenta", 2)
 vim.g.terminal_color_14 = color("cyan", 2)
 vim.g.terminal_color_15 = color("white", 2)
-vim.g.terminal_color_background = color("bg")
+vim.g.terminal_color_background = color("magenta", "bg")
 vim.g.terminal_color_foreground = color("fg")
 
 local theme = lush(function()
@@ -85,7 +90,7 @@ local theme = lush(function()
 		Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
 		Bold { gui = "bold" },
 		Italic { gui = "italic" },
-		Title { gui = "bold" }, -- titles for output from ":set all", ":autocmd" etc.
+		Title { fg = color("fg"), gui = "bold" }, -- titles for output from ":set all", ":autocmd" etc.
 		Comment { fg = color("comment", 2) },
 		Todo { fg = color("comment", 2), gui = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 		Error { fg = color("red") }, -- (preferred) any erroneous construct
@@ -98,7 +103,7 @@ local theme = lush(function()
 		LineNr { fg = color("white") },
 		SignColumn { LineNr }, -- column where |signs| are displayed
 		ColorColumn { bg = color("red").li(90) }, -- used for the columns set with 'colorcolumn'
-		CursorLine { bg = color("bg", 2).li(50) },
+		CursorLine { bg = color("yellow", "bg") },
 		CursorLineNr { CursorLine },
 		CursorColumn { bg = CursorLine.bg.li(10) },
 		NonText { LineNr }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
@@ -106,9 +111,9 @@ local theme = lush(function()
 		WinSeparator { fg = color("magenta", "bg") },
 		StatusLine { bg = WinSeparator.fg, fg = color("magenta", 2) },
 		StatusLineNC { StatusLine, fg = color("magenta") },
-		TabLine { CursorLine, fg = color("magenta") }, -- tab pages line, not active tab page label
+		TabLine { StatusLineNC }, -- tab pages line, not active tab page label
 		TabLineFill { TabLine }, -- tab pages line, where there are no labels
-		TabLineSel { Title, bg = CursorLine.bg }, -- tab pages line, active tab page label
+		TabLineSel { StatusLine }, -- tab pages line, active tab page label
 		WinBar { TabLineSel },
 		WinBarNC { LineNr },
 		Pmenu { StatusLineNC }, -- Popup menu: normal item.
@@ -116,15 +121,15 @@ local theme = lush(function()
 		PmenuThumb { bg = Pmenu.fg }, -- Popup menu: Thumb of the scrollbar.
 		PmenuSbar { Pmenu }, -- Popup menu: scrollbar.
 		WildMenu { Pmenu }, -- current match in 'wildmenu' completion
-		Visual { bg = color("magenta", "bg") },
+		Visual { bg = color("red", "bg") },
 		Search { bg = color("blue", "bg") },
-		IncSearch { bg = color("red", "bg") },
+		IncSearch { bg = color("blue", "bg"), gui = "bold" },
 		MatchParen { bg = color("comment", "bg") },
 		Directory { fg = color("blue"), gui = "bold" }, -- directory names (and other special names in listings)
 		Question { Bold }, -- |hit-enter| prompt and yes/no questions
 		SpecialKey { LineNr }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-		Folded { Comment }, -- line used for closed folds
-		FoldColumn { Folded }, -- 'foldcolumn'
+		Folded { Comment, bg = color("magenta", "bg") }, -- line used for closed folds
+		FoldColumn { Comment }, -- 'foldcolumn'
 		MoreMsg { Bold }, -- |more-prompt|
 		Substitute {}, -- |:substitute| replacement text highlighting
 		ModeMsg {}, -- 'showmode' message (e.g., "-- INSERT -- ")
@@ -145,16 +150,16 @@ local theme = lush(function()
 
 		-- LSP
 		DiagnosticError { Error }, -- used for "Error" diagnostic virtual text
-		DiagnosticWarn { LineNr }, -- used for "Warning" diagnostic virtual text
-		DiagnosticInfo { LineNr }, -- used for "Information" diagnostic virtual text
-		DiagnosticHint { LineNr }, -- used for "Hint" diagnostic virtual text
+		DiagnosticWarn { fg = color("magenta") }, -- used for "Warning" diagnostic virtual text
+		DiagnosticInfo { fg = color("magenta") }, -- used for "Information" diagnostic virtual text
+		DiagnosticHint { fg = color("magenta") }, -- used for "Hint" diagnostic virtual text
 		LspReferenceText {}, -- used for highlighting "text" references
 		LspReferenceRead {}, -- used for highlighting "read" references
 		LspReferenceWrite {}, -- used for highlighting "write" references
 
 		-- Leap
-		LeapMatch { IncSearch },
-		LeapLabelPrimary { IncSearch },
+		-- LeapMatch { IncSearch },
+		-- LeapLabelPrimary { IncSearch },
 
 		-- Telescope
 		TelescopeNormal { Normal },
@@ -163,6 +168,12 @@ local theme = lush(function()
 		IlluminatedWordText { bg = color("green", "bg") },
 		IlluminatedWordRead { IlluminatedWordText },
 		IlluminatedWordWrite { IlluminatedWordText },
+
+		--markid
+		markid1 { gui = "bold", fg = color("magenta", 2) },
+		markid2 { gui = "bold", fg = color("blue", 2) },
+		markid3 { gui = "bold", fg = color("magenta") },
+		-- markid4 { gui = "bold", fg = color("cyan", 2) },
 
 		-- Mini.nvim
 		MiniIndentscopeSymbol { LineNr },
@@ -181,8 +192,8 @@ local theme = lush(function()
 		NeoTreeTitleBar { StatusLine },
 
 		-- Treesitter context
-		TreesitterContext { ColorColumn },
-		TreesitterContextLineNumber { CursorLineNr },
+		TreesitterContext { bg = StatusLine.bg },
+		TreesitterContextLineNumber { fg = StatusLine.fg },
 
 		-- Cursor {}, -- character under the cursor
 		-- lCursor {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
@@ -202,7 +213,7 @@ local theme = lush(function()
 		Function {}, -- function name (also: methods for classes)
 
 		Statement {}, -- (preferred) any statement
-		Conditional {}, --  if, then, else, endif, switch, etc.
+		Conditional { fg = color("blue", 2) }, --  if, then, else, endif, switch, etc.
 		Repeat {}, --   for, do, while, etc.
 		Label {}, --    case, default, etc.
 		Operator { fg = color("blue", 2) }, -- "sizeof", "+", "*", etc.
