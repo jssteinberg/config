@@ -109,6 +109,7 @@ nnoremap <silent> <leader>s :FzfLua files hidden=true<cr>
 
 " Git
 nnoremap <leader>gb <cmd>BlamerToggle<cr>
+nnoremap <leader>gc <cmd>Git log -p %<cr>
 nnoremap <leader>gd <cmd>tabnew %<cr><cmd>Gvdiffsplit<cr>
 nnoremap <leader>gg <cmd>Git<cr>
 nnoremap <leader>gj /<<<<<<<\\|=======\\|>>>>>>><cr>

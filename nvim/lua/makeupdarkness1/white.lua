@@ -34,8 +34,8 @@ local color = function(color, variant)
 	-- base colors
 	local colors = {
 		-- terminal color keys
-		bg      = { hsl("#ffffff"), hsl("#e5f2e0") },
-		fg      = { hsl("#121118"), hsl("#121118") },
+		bg      = { hsl("#ffffff") },
+		fg      = { hsl("#121118") },
 		black   = { hsl(hue, 17.8, li2), hsl("#1a1636") }, -- add 2 index color
 		red     = { hsl(6.9, sa, li), hsl(7.5, sa2, li2), hsl(6.9, sa3, li3) }, -- add 2 index color
 		green   = { hsl(97.5, sa, li), hsl(105.7, sa2, li2_2), hsl(97.5, sa3, li3) }, -- add 2 index color
@@ -86,7 +86,7 @@ vim.g.terminal_color_foreground = color("fg")
 
 local theme = lush(function()
 	return {
-		Normal { bg = color("bg"), fg = color("fg", 2) },
+		Normal { bg = color("bg"), fg = color("fg") },
 		Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
 		Bold { gui = "bold" },
 		Italic { gui = "italic" },
