@@ -167,7 +167,7 @@ local function init()
 	use { "junegunn/fzf", run = "fzf#install()" }
 	use {
 		"junegunn/fzf.vim",
-		cmd = { "Files", "Buffers", "Rg", "GFiles" }
+		cmd = { "Files", "Buffers", "Rg", "GFiles", "FZF" }
 	}
 
 	-- File tree
