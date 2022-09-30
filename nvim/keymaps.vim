@@ -102,10 +102,14 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " -----------------------
 
 " Fuzzy finder
-nnoremap <silent> <leader>fb :FzfLua buffers<cr>
-nnoremap <silent> <leader>fs :FzfLua live_grep hidden=true<cr>
-nnoremap <silent> <leader>gf :FzfLua git_files<cr>
-nnoremap <silent> <leader>s :FzfLua files hidden=true<cr>
+" nnoremap <silent> <leader>fb :FzfLua buffers<cr>
+" nnoremap <silent> <leader>fs :FzfLua live_grep hidden=true<cr>
+" nnoremap <silent> <leader>gf :FzfLua git_files<cr>
+" nnoremap <silent> <leader>s :FzfLua files hidden=true<cr>
+nnoremap <silent> <leader>fb :Buffers<cr>
+nnoremap <silent> <leader>fs :Rg <cr>
+nnoremap <silent> <leader>gf :GFiles<cr>
+nnoremap <silent> <leader>s :Files<cr>
 
 " Git
 nnoremap <leader>gb <cmd>BlamerToggle<cr>
