@@ -85,8 +85,7 @@ local function init()
 
 	-- Illuminate cursor word
 	use { "RRethy/vim-illuminate", event = "CursorHold", config = function()
-		-- require "illuminate".configure({ under_cursor = false })
-		require "illuminate".configure({})
+		require "illuminate".configure({ under_cursor = false })
 	end }
 
 	-- better matching functionality
@@ -219,6 +218,7 @@ local function init()
 
 	-- Colors
 	use { "rktjmp/lush.nvim", cmd = { "LushRunQuickstart", "LushRunTutorial", "Lushify" } }
+	use { "rktjmp/shipwright.nvim", cmd = "Shipwright" }
 
 	use {
 		"NvChad/nvim-colorizer.lua",

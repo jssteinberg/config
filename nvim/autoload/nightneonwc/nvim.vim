@@ -20,6 +20,6 @@ function nightneonwc#nvim#highlights() abort
 	hi! link TelescopePromptCounter Comment
 
 	" Treesitter context
-	hi TreesitterContext cterm=underline gui=underline
-	hi! link TreesitterContextLineNumber CursorLineNr
+	hi TreesitterContext guibg=NONE
+	hi! link TreesitterContextLineNumber StatusLine
 endfunction

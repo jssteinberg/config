@@ -9,7 +9,7 @@ endfunction
 function! CycleColo()
 	if &bg == 'dark'
 		set termguicolors t_Co=256
-		colo makeudarkness1white
+		colo makeudarkness1whitelush
 	else
 		exe(s:d)
 	endif
