@@ -159,9 +159,14 @@ local function init()
 	-- 	requires = { "nvim-lua/plenary.nvim" },
 	-- 	config = function() require "packages.telescope".config() end
 	-- }
+	-- use {
+	-- 	"ibhagwan/fzf-lua",
+	-- 	cmd = "FzfLua"
+	-- }
+	use { "junegunn/fzf", run = "fzf#install()" }
 	use {
-		"ibhagwan/fzf-lua",
-		cmd = "FzfLua"
+		"junegunn/fzf.vim",
+		cmd = { "Files", "Buffers", "Rg", "GFiles", "FZF" }
 	}
 
 	-- File tree

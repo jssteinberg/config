@@ -75,7 +75,7 @@ nnoremap <leader>R "ryiw:%s/<c-r>r
 vnoremap <leader>R "ry:s/<c-r>r
 
 " Grep
-nnoremap <leader>G :silent grep -g "!package-lock.json" -g "!yarn.lock" 
+nnoremap <leader>G :silent grep -g "!{}"
 nnoremap gr "gyiw<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
 nnoremap gs "gyiw<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 vnoremap gr "gy<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
@@ -102,10 +102,15 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " -----------------------
 
 " Fuzzy finder
-nnoremap <silent> <leader>fb :FzfLua buffers<cr>
-nnoremap <silent> <leader>fs :FzfLua live_grep hidden=true<cr>
-nnoremap <silent> <leader>gf :FzfLua git_files<cr>
-nnoremap <silent> <leader>s :FzfLua files hidden=true<cr>
+let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow -g '!{node_modules,.git,package-lock.json,yarn.lock}'"
+nnoremap <silent> <leader>fb :Buffers<cr>
+nnoremap <silent> <leader>fs :Rg <cr>
+nnoremap <silent> <leader>gf :GFiles<cr>
+nnoremap <silent> <leader>s :Files<cr>
+" nnoremap <silent> <leader>fb :Telescope buffers<cr>
+" nnoremap <silent> <leader>fs :Telescope live_grep hidden=true<cr>
+" nnoremap <silent> <leader>gf :Telescope git_files<cr>
+" nnoremap <silent> <leader>s :Telescope find_files hidden=true<cr>
 
 " Git
 nnoremap <leader>gb <cmd>BlamerToggle<cr>
