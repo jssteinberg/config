@@ -9,7 +9,7 @@ runtime keymaps.vim
 runtime colorscheme.vim
 
 " Set colorscheme
-call SetColoOpts()
+call InitColo()
 
 " Init plugins
 lua << EOF

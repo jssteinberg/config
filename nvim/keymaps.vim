@@ -49,7 +49,7 @@ nnoremap <leader><tab> :buffer
 nnoremap <silent> <leader>w :w<cr>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
-nnoremap <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>
+nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>ew :edit **/*
