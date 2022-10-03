@@ -6,20 +6,20 @@ Includes **config** for alacritty (used **for Macos**), kitty (used **for Ubuntu
 
 ## Get started
 
-Requires: git, ripgrep, fzf
+Requires: git, fish, ripgrep, fzf
 
 1. `cd`
 2. git clone as ~/.config
 3. tmux and (not neo)vim
 
-	```bash
+	```fish
 	ln -s .config/tmux.conf .tmux.conf
 	ln -s .config/vimrc .vimrc
 	set -Ux RIPGREP_CONFIG_PATH ~/.config/ripgreprc
 	set -Ux FZF_DEFAULT_COMMAND rg --files --hidden --follow
 	```
 
-## Recommended terminal tools
+## Terminal tools
 
 - fish---shell with modern, usable defaults (and keep an eye on nu shell).
 	- [fisher](https://github.com/jorgebucaran/fisher), fish plugin manager.
@@ -32,9 +32,9 @@ Requires: git, ripgrep, fzf
 - [fnm](https://github.com/Schniz/fnm) for fast Node.js version managing. *Previously used [nvm](https://github.com/nvm-sh/nvm), and for fish [fish-nvm](https://github.com/FabioAntunes/fish-nvm).*
 - exa, `ls` replacement.
 
-### Tips
+### *Tips*
 
-Adding global fish config from the shell:
+More global fish config from the shell:
 
 ```fish
 set -Ux EDITOR "nvim"
