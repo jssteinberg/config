@@ -98,15 +98,12 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " -----------------------
 
 " Fuzzy finder
-let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
+" let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
+" let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow -g '!{node_modules,.git,.github,package-lock.json,yarn.lock}'"
 nnoremap <silent> <leader>fb :Buffers<cr>
 nnoremap <silent> <leader>fs :Rg <cr>
 nnoremap <silent> <leader>gf :GFiles<cr>
 nnoremap <silent> <leader>s :Files<cr>
-" nnoremap <silent> <leader>fb :Telescope buffers<cr>
-" nnoremap <silent> <leader>fs :Telescope live_grep hidden=true<cr>
-" nnoremap <silent> <leader>gf :Telescope git_files<cr>
-" nnoremap <silent> <leader>s :Telescope find_files hidden=true<cr>
 
 " Git
 nnoremap <leader>gb <cmd>BlamerToggle<cr>
