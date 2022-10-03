@@ -32,10 +32,6 @@ tnoremap jk <c-\><c-n>
 nnoremap <c-s> /
 xnoremap <c-s> /
 
-" Shift + J/K moves selected lines down/up in visual mode
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
 " Set space as leader key
 nnoremap <space> <nop>
 let mapleader=' '
@@ -76,10 +72,10 @@ vnoremap <leader>R "ry:s/<c-r>r
 
 " Grep
 nnoremap <leader>G :silent grep -g "!{}"
-nnoremap gr "gyiw<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
-nnoremap gs "gyiw<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
-vnoremap gr "gy<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
-vnoremap gs "gy<cr>:silent grep -g "!package-lock.json" -g "!yarn.lock" -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
+nnoremap gr "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
+nnoremap gs "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
+vnoremap gr "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
+vnoremap gs "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 
 " Marks
 nnoremap <leader>ha 'A'"
@@ -102,7 +98,7 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " -----------------------
 
 " Fuzzy finder
-let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow -g '!{node_modules,.git,package-lock.json,yarn.lock}'"
+" let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
 nnoremap <silent> <leader>fb :Buffers<cr>
 nnoremap <silent> <leader>fs :Rg <cr>
 nnoremap <silent> <leader>gf :GFiles<cr>

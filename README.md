@@ -6,7 +6,7 @@ Includes **config** for alacritty (used **for Macos**), kitty (used **for Ubuntu
 
 ## Get started
 
-Requires: git ... Install with your OS package manager.
+Requires: git, ripgrep
 
 1. `cd`
 2. git clone as ~/.config
@@ -15,6 +15,7 @@ Requires: git ... Install with your OS package manager.
 	```bash
 	ln -s .config/tmux.conf .tmux.conf
 	ln -s .config/vimrc .vimrc
+	set -Ux RIPGREP_CONFIG_PATH ~/.config/ripgreprc
 	```
 
 ## Recommended terminal tools
