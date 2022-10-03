@@ -71,7 +71,7 @@ nnoremap <leader>R "ryiw:%s/<c-r>r
 vnoremap <leader>R "ry:s/<c-r>r
 
 " Grep
-nnoremap <leader>G :silent grep -g "!{}"
+nnoremap <leader>G :silent grep 
 nnoremap gr "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
 nnoremap gs "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 vnoremap gr "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
@@ -98,7 +98,7 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " -----------------------
 
 " Fuzzy finder
-" let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
+let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
 nnoremap <silent> <leader>fb :Buffers<cr>
 nnoremap <silent> <leader>fs :Rg <cr>
 nnoremap <silent> <leader>gf :GFiles<cr>

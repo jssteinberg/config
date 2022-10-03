@@ -224,11 +224,11 @@ hi! link IlluminatedWordRead IlluminatedWordText
 hi! link IlluminatedWordWrite IlluminatedWordText
 
 " markid
-hi markid1 guifg=#cae138 " yellow_id color
-hi markid2 guifg=#38cce1 " cyan_id color
-hi markid3 guifg=#77e138 " green_id color
-hi markid4 guifg=#3877e1 " blue color
-hi markid5 guifg=#e1a138 " orange_id color
+hi markid1 gui=bold guifg=#cae138 " yellow_id color
+hi markid3 gui=bold guifg=#77e138 " green_id color
+hi markid5 gui=bold guifg=#e1a138 " orange_id color
+" hi markid2 guifg=#38cce1 " cyan_id color
+" hi markid4 guifg=#3877e1 " blue color
 
 " mini.nvim
 hi! link MiniIndentscopePrefix NonText
