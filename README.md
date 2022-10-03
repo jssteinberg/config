@@ -6,7 +6,7 @@ Includes **config** for alacritty (used **for Macos**), kitty (used **for Ubuntu
 
 ## Get started
 
-Requires: git, ripgrep
+Requires: git, ripgrep, fzf
 
 1. `cd`
 2. git clone as ~/.config
@@ -16,6 +16,7 @@ Requires: git, ripgrep
 	ln -s .config/tmux.conf .tmux.conf
 	ln -s .config/vimrc .vimrc
 	set -Ux RIPGREP_CONFIG_PATH ~/.config/ripgreprc
+	set -Ux FZF_DEFAULT_COMMAND rg --files --hidden --follow
 	```
 
 ## Recommended terminal tools
