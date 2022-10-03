@@ -3,7 +3,6 @@
 set bg=dark
 hi clear
 let g:colors_name = 'nightneonwc'
-call nightneonwc#init#highlights()
 
 " bg        #121118 fg         #e5f2e0
 " black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d black_bg #05040b
@@ -135,7 +134,7 @@ hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e5f2e0 guifg=#121118 gui=NONE
 hi CursorColumn cterm=bold gui=bold ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
-hi LineNr cterm=italic gui=italic ctermfg=8 guifg=#7d78a1
+hi LineNr cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a39bd6
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
 hi NonText gui=NONE ctermfg=8 guifg=#342c6d
@@ -236,7 +235,7 @@ hi! link MiniIndentscopePrefix NonText
 hi! link MiniIndentscopeSymbol NonText
 
 " neo-tree
-hi NeoTreeDimText cterm=italic gui=italic ctermfg=5 guifg=#7d78a1
+hi NeoTreeDimText cterm=NONE gui=NONE ctermfg=5 guifg=#7d78a1
 hi NeoTreeIndentMarker ctermfg=8 guifg=#342c6d
 hi NeoTreeSymbolicLinkTarget ctermfg=6 guifg=#5cb1bc
 hi! link NeoTreeDotfile NeoTreeDimText
