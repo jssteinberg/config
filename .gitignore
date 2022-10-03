@@ -20,8 +20,4 @@ nvim/lua/.DS_Store
 nvim/lua/packages/.DS_Store
 !nvim/lua/utils/*
 !nvim/lua/wip/*
-!nvim/lua/makeupdarkness1/*
-!nvim/autoload/*
-!nvim/autoload/nightneonwc/*
-!nvim/autoload/nightneonwc/plugins/*
-!nvim/plugin/nightneonwc.vim
+!nvim/lua/nightcool/*

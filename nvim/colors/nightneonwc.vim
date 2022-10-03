@@ -108,7 +108,7 @@ hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
 
 " Other syntax
 hi Bold cterm=bold gui=bold
-hi Italic cterm=italic gui=italic
+hi Italic cterm=nocombine,italic gui=nocombine,italic
 hi Title cterm=NONE gui=NONE ctermfg=11 guifg=#ced69b
 hi TooLong cterm=underline gui=underline ctermfg=3 guifg=#bc985c
 hi markdownCode ctermfg=10 guifg=#a9d69b
@@ -243,6 +243,8 @@ hi! link NeoTreeExpander NeoTreeDirectoryIcon
 hi! link NeoTreeGitConflict WarningMsg
 hi! link NeoTreeGitDeleted WarningMsg
 hi! link NeoTreeGitUntracked Structure
+hi! link NeoTreeGitModfied NeoTreeNormal
+hi! link NeoTreeModified NeoTreeNormal
 hi! link NeoTreeRootName NeoTreeDirectoryName
 hi! link NeoTreeTitleBar StatusLine
 
