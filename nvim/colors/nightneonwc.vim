@@ -55,7 +55,7 @@ hi! link CursorLineNr Normal
 hi! link TSParameter Normal
 
 " Comment
-hi Comment cterm=italic gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#985cbc
+hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#985cbc
 
 " *Constant String Character Number Boolean Float
 hi String ctermfg=11 guifg=#ced69b
