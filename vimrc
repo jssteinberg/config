@@ -7,7 +7,7 @@ set clipboard=unnamed " Sync system clioboard
 set hidden " Unsaved files can be 'hidden'
 set foldmethod=indent nofoldenable
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
-set list listchars=tab:\│\  fillchars=vert:\│ " Show tabs, consistent char
+set list listchars+=tab:\·\  fillchars=vert:\│ " Show tabs, consistent char
 set number relativenumber " Line number, relative numbers
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set sessionoptions=curdir,folds,tabpages,help
@@ -69,7 +69,7 @@ nnoremap <silent> <leader>w :w<cr>
 " Edit/explore [explore cwd, explore buffer dir, ...]
 nnoremap <leader>e. :edit .<cr>
 nnoremap <leader>eh :edit %:p:.:h<cr>
-nnoremap <leader>ec :tabedit $MYVIMRC<cr>
+nnoremap <leader>ec :tabedit ~/.config/vimrc<cr>:tcd  %:p:.:h<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>ew :edit **/*
