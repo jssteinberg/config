@@ -4,31 +4,21 @@ local hsl = lush.hsl
 -- {string} color - color name or color util name
 -- {string} [variant] - "bg", other truthy for emphasized, nil for base
 local color = function(color, variant)
-	local dark = false
 	local hue = 247.3
 
 	local sa, sa2, li, li2, li2_2, sa3, li3, li_id
 
-	-- TODO: rm dynamic dark/light remains
-	if dark then
-		vim.o.background = "dark"
-		sa = 42
-		li = 55
-		li2 = 72.5
-		li3 = 30 -- background
-	else
-		vim.o.background = "light"
-		sa = 42
-		li = 55
-		sa2 = 95
-		li2 = 40
-		li2_2 = 27.5
-		-- bg colors, but TODO: separate on full line bg and subline bg
-		sa3 = 79
-		li3 = 90
-		-- id colors
-		li_id = 27.5
-	end
+	vim.o.background = "light"
+	sa = 42
+	li = 55
+	sa2 = 95
+	li2 = 40
+	li2_2 = 27.5
+	-- bg colors, but TODO: separate on full line bg and subline bg
+	sa3 = 79
+	li3 = 90
+	-- id colors
+	li_id = 27.5
 
 	-- Colors { base, emphasized, background }
 	-- base colors
@@ -101,21 +91,21 @@ local theme = lush(function()
 
 		-- necessities
 		LineNr { fg = color("white") },
-		SignColumn { LineNr }, -- column where |signs| are displayed
 		ColorColumn { bg = color("red").li(90) }, -- used for the columns set with 'colorcolumn'
 		CursorLine { bg = color("yellow", "bg") },
 		CursorLineNr { CursorLine },
 		CursorColumn { bg = CursorLine.bg.li(10) },
 		NonText { LineNr }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
-		WinSeparator { fg = color("magenta", "bg") },
-		StatusLine { bg = WinSeparator.fg, fg = color("magenta", 2) },
+		StatusLine { bg = color("magenta", "bg"), fg = color("magenta", 2) },
 		StatusLineNC { StatusLine, fg = color("magenta") },
 		TabLine { StatusLineNC }, -- tab pages line, not active tab page label
 		TabLineFill { TabLine }, -- tab pages line, where there are no labels
 		TabLineSel { StatusLine }, -- tab pages line, active tab page label
 		WinBar { TabLineSel },
 		WinBarNC { LineNr },
+		WinSeparator { LineNr },
+		SignColumn { LineNr }, -- column where |signs| are displayed
 		Pmenu { StatusLineNC }, -- Popup menu: normal item.
 		PmenuSel { StatusLine }, -- Popup menu: selected item.
 		PmenuThumb { bg = Pmenu.fg }, -- Popup menu: Thumb of the scrollbar.
@@ -150,9 +140,9 @@ local theme = lush(function()
 
 		-- LSP
 		DiagnosticError { Error }, -- used for "Error" diagnostic virtual text
-		DiagnosticWarn { fg = color("magenta") }, -- used for "Warning" diagnostic virtual text
-		DiagnosticInfo { fg = color("magenta") }, -- used for "Information" diagnostic virtual text
-		DiagnosticHint { fg = color("magenta") }, -- used for "Hint" diagnostic virtual text
+		DiagnosticWarn { bg = SignColumn.bg, fg = color("magenta") }, -- used for "Warning" diagnostic virtual text
+		DiagnosticInfo { bg = SignColumn.bg, fg = color("magenta") }, -- used for "Information" diagnostic virtual text
+		DiagnosticHint { bg = SignColumn.bg, fg = color("magenta") }, -- used for "Hint" diagnostic virtual text
 		LspReferenceText {}, -- used for highlighting "text" references
 		LspReferenceRead {}, -- used for highlighting "read" references
 		LspReferenceWrite {}, -- used for highlighting "write" references
@@ -192,8 +182,7 @@ local theme = lush(function()
 		NeoTreeTitleBar { StatusLine },
 
 		-- Treesitter context
-		TreesitterContext { bg = StatusLine.bg },
-		TreesitterContextLineNumber { fg = StatusLine.fg },
+		TreesitterContextLineNumber { StatusLine },
 
 		-- Cursor {}, -- character under the cursor
 		-- lCursor {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
@@ -259,10 +248,6 @@ end)
 
 local theme_WIP = (function()
 	return {
-
-		-- We can also mix colours together
-		Type { fg = Normal.fg.mix(LineNr.fg, 30) },
-
 		-- ("Ignore", below, may be invisible...)
 		Ignore {}, -- (preferred) left blank, hidden  |hl-Ignore|
 
@@ -314,8 +299,6 @@ local theme_WIP = (function()
 	}
 end)
 
--- export-external
---
 -- Integrating Lush with other tools:
 --
 -- By default, lush() actually returns your theme in parsed form. You can
