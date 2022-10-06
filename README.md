@@ -6,7 +6,7 @@ Includes **config** for alacritty (used **for Macos**), kitty (used **for Ubuntu
 
 ## Get started
 
-Requires: git, fish, ripgrep, fzf
+Requires: git, fish, ripgrep, fzy
 
 1. `cd`
 2. git clone as ~/.config
@@ -16,7 +16,6 @@ Requires: git, fish, ripgrep, fzf
 	ln -s .config/tmux.conf .tmux.conf
 	ln -s .config/vimrc .vimrc
 	set -Ux RIPGREP_CONFIG_PATH ~/.config/ripgreprc
-	set -Ux FZF_DEFAULT_COMMAND rg --files --hidden --follow
 	```
 
 ## Terminal tools
@@ -37,6 +36,7 @@ Requires: git, fish, ripgrep, fzf
 More global fish config from the shell:
 
 ```fish
+set -Ux FZF_DEFAULT_COMMAND rg --files --hidden --follow
 set -Ux EDITOR "nvim"
 alias gt "git checkout --track"
 funcsave gt
@@ -46,7 +46,7 @@ funcsave gt
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing. Uncomplicated config for dummies hacking (author included).
 
-Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), ripgrep, fd, bat, delta, [prettierd](https://github.com/fsouza/prettierd) ... Open nvim and get warning/error messages, run `:PackerSync`, restart nvim, repeat. Then:
+Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), fzy, ripgrep, fd, bat, delta, [prettierd](https://github.com/fsouza/prettierd) ... Open nvim and get warning/error messages, run `:PackerSync`, restart nvim, repeat. Then:
 
 - `:TSInstall all`/`:TSUpdate`
 - `:Mason`

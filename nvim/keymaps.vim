@@ -98,10 +98,11 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " -----------------------
 
 " Fuzzy finder
-nnoremap <silent> <leader>fb :Buffers<cr>
-nnoremap <silent> <leader>fs :Rg <cr>
-nnoremap <silent> <leader>gf :GFiles<cr>
-nnoremap <silent> <leader>s :Files<cr>
+" nnoremap <silent> <leader>fb :Buffers<cr>
+" nnoremap <silent> <leader>fs :Rg <cr>
+" nnoremap <silent> <leader>gf :GFiles<cr>
+" nnoremap <silent> <leader>s :Files<cr>
+nnoremap <leader>s :FuzzyOpen<CR>
 
 " Git
 nnoremap <leader>gb <cmd>BlamerToggle<cr>
@@ -116,8 +117,6 @@ nnoremap <leader>gp <cmd>Git pull<cr>
 nnoremap <leader>gP <cmd>Git push<cr>
 nnoremap <leader>gq <cmd>Git mergetool<cr>
 nnoremap <leader>gs <cmd>SignifyEnableAll<cr>
-nnoremap <leader>X <cmd>Gitsigns reset_hunk<cr>
-xnoremap <leader>X <cmd>Gitsigns reset_hunk<cr>
 
 " Color highlight groups
 nnoremap <leader>ct <cmd>TSHighlightCapturesUnderCursor<cr>

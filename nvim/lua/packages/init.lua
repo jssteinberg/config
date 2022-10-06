@@ -159,6 +159,7 @@ local function init()
 	use { "kevinhwang91/nvim-bqf", ft = "qf" }
 
 	-- Fuzzy finder
+	-- telescope
 	-- use {
 	-- 	"nvim-telescope/telescope.nvim",
 	-- 	branch = "0.1.x",
@@ -166,17 +167,25 @@ local function init()
 	-- 	requires = { "nvim-lua/plenary.nvim" },
 	-- 	config = function() require "packages.telescope".config() end
 	-- }
+	-- fzf lua
 	-- use {
 	-- 	"ibhagwan/fzf-lua",
 	-- 	cmd = "FzfLua"
 	-- }
-	use { "junegunn/fzf", run = "fzf#install()" }
-	use {
-		"junegunn/fzf.vim",
-		cmd = { "Files", "Buffers", "Rg", "GFiles", "FZF" }
-	}
+	-- fzf
+	-- use { "junegunn/fzf", run = "fzf#install()" }
+	-- use {
+	-- 	"junegunn/fzf.vim",
+	-- 	cmd = { "Files", "Buffers", "Rg", "GFiles", "FZF" }
+	-- }
+	-- snap
 	-- use { "camspiers/snap", config = function ()
 	-- end }
+	-- fzy
+	use {
+		"cloudhead/neovim-fuzzy",
+		cmd = { "FuzzyOpen" },
+	}
 
 	-- File tree
 	use { "MunifTanjim/nui.nvim", cmd = { "Neotree" } }
