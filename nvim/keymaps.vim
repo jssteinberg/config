@@ -51,7 +51,7 @@ nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>ew :edit **/*
 nnoremap <leader>fw :find **/*
 nnoremap <leader>tb :tabedit %<cr>'"
-nnoremap <leader>C :tabclose<cr>
+nnoremap <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 " neo-tree
 nnoremap <silent> <leader>e. :Neotree current dir=.<cr>
 nnoremap <silent> <leader>eb :Neotree toggle buffers<cr>
@@ -98,8 +98,6 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " -----------------------
 
 " Fuzzy finder
-" let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
-" let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow -g '!{node_modules,.git,.github,package-lock.json,yarn.lock}'"
 nnoremap <silent> <leader>fb :Buffers<cr>
 nnoremap <silent> <leader>fs :Rg <cr>
 nnoremap <silent> <leader>gf :GFiles<cr>
@@ -128,3 +126,7 @@ nn <leader>cg <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
 " URL
 nn gx <cmd>OpenURLFind<cr>
 vn gx y:OpenSearchURL duckduckgo <c-r>"<cr>
+
+" Hop
+noremap <leader>j <cmd>HopLine<cr>
+noremap <leader>k <cmd>HopLine<cr>

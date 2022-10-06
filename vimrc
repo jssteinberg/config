@@ -7,7 +7,7 @@ set clipboard=unnamed " Sync system clioboard
 set hidden " Unsaved files can be 'hidden'
 set foldmethod=indent nofoldenable
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
-set list listchars+=tab:\·\  fillchars=vert:\│ " Show tabs, consistent char
+set list listchars=tab:\·\  fillchars=vert:\│ " Show tabs, consistent char
 set number relativenumber " Line number, relative numbers
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set sessionoptions=curdir,folds,tabpages,help
@@ -140,6 +140,7 @@ augroup END
 
 " COLORS
 set bg=dark
-colo lunaperche " habamax quiet torte zellner
+colo torte " DUAL lunaperche DARK: habamax torte LIGHT: quiet zellner 
 hi Normal ctermbg=NONE
-hi! link TablineFill Normal
+hi! link Tabline Normal
+hi! link TablineFill Tabline

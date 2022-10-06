@@ -130,6 +130,13 @@ local function init()
 		end
 	}
 
+	-- Hop motion commands
+	use {
+		"phaazon/hop.nvim",
+		cmd = { "HopWord", "HopLine" },
+		config = function() require "hop".setup() end
+	}
+
 	-- Comment in/out
 	use {
 		"numToStr/Comment.nvim",
@@ -168,6 +175,8 @@ local function init()
 		"junegunn/fzf.vim",
 		cmd = { "Files", "Buffers", "Rg", "GFiles", "FZF" }
 	}
+	-- use { "camspiers/snap", config = function ()
+	-- end }
 
 	-- File tree
 	use { "MunifTanjim/nui.nvim", cmd = { "Neotree" } }
@@ -176,9 +185,7 @@ local function init()
 		branch = "v2.x",
 		after = "nui.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require "packages.neo-tree".config()
-		end
+		config = require "packages.neo-tree",
 	}
 
 	-- Cycle buffers

@@ -147,10 +147,6 @@ local theme = lush(function()
 		LspReferenceRead {}, -- used for highlighting "read" references
 		LspReferenceWrite {}, -- used for highlighting "write" references
 
-		-- Leap
-		-- LeapMatch { IncSearch },
-		-- LeapLabelPrimary { IncSearch },
-
 		-- Telescope
 		TelescopeNormal { Normal },
 

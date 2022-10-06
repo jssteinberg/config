@@ -1,8 +1,8 @@
 local lush = require("lush")
 local hsl = lush.hsl
 
--- {string} color - color name or color util name
--- {string} [variant] - "bg", other truthy for emphasized, nil for base
+-- @arg {string} color - color name or color util name
+-- @arg {string} [variant] - "bg", other truthy for emphasized, nil for base
 local color = function(color, variant)
 	local hue = 247.3
 

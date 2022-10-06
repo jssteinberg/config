@@ -211,11 +211,6 @@ hi! link WildMenu Pmenu
 hi! link Folded Comment
 hi! link FoldColumn Folded
 
-" PLUGINS VIM
-
-" clever-f
-hi! link CleverFDefaultLabel IncSearch
-
 " PLUGINS NVIM
 
 " illuminate.vim

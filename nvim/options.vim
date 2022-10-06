@@ -1,3 +1,4 @@
+" OPTIONS
 set clipboard=unnamedplus
 set copyindent
 set cursorline
@@ -5,11 +6,9 @@ set hidden
 set fileencoding=utf-8
 set foldmethod=indent nofoldenable
 set ignorecase smartcase
-" set list listchars+=tab:\│\ 
 set list listchars+=tab:\·\ 
-" fillchars+=vert:\·
 set number relativenumber signcolumn=yes
-set mouse=a
+" set mouse=a
 set sessionoptions=curdir,folds,tabpages,help
 set scrolloff=15
 set synmaxcol=300 " reduce column to search for syntax items
@@ -19,24 +18,9 @@ set undofile noswapfile
 set updatetime=100
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**
 set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
-
-" if exists("&winbar")
-" 	augroup winbar
-" 		au!
-" 		au BufReadPost * setlocal winbar=%=\ %{pathshorten(expand('%:p:.:h'))}/%t%m\ %=
-" 	augroup END
-"
-" 	try
-" 		set laststatus=3
-" 		" set cmdheight=0
-" 		" let g:somedarkterminal1_statusline_bg = "none"
-" 	catch | endtry
-" else
-	set showtabline=2
-" endif
+set showtabline=2
 
 " FORMATOPTIONS
-
 " (c) auto hard wrap comments
 " (j) remove comment leader when joining lines
 " (l) don't break long lines (does c still work?)
@@ -46,7 +30,6 @@ set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 set formatoptions=cjlnpq
 
 " NETRW
-
 let g:netrw_altfile = 1
 let g:netrw_alto = 1
 let g:netrw_altv = 1
@@ -55,7 +38,6 @@ let g:netrw_liststyle = 1
 let g:netrw_sort_by = "exten"
 
 " GREP
-
 if executable('rg')
 	" use ripgrep
 	set grepformat^=%f:%l:%c:%m grepprg=rg\ --line-number\ --column
@@ -66,7 +48,6 @@ cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? '
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
 " AUTO COMMANDS
-
 augroup option_like_autocmds
 	au!
 	" Go to last known cursor position, unless it's invalid
