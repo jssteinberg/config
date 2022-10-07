@@ -272,4 +272,4 @@ hi! link TelescopePromptCounter Comment
 
 " Treesitter context
 hi! link TreesitterContext CursorLine
-hi! link TreesitterContextLineNumber StatusLine
+hi TreesitterContextLineNumber cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a39bd6
