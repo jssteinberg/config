@@ -99,15 +99,15 @@ local theme = lush(function()
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		StatusLine { bg = color("magenta", "bg"), fg = color("magenta", 2) },
 		StatusLineNC { StatusLine, fg = color("magenta") },
-		TabLine { StatusLineNC }, -- tab pages line, not active tab page label
+		TabLine { bg = color("magenta", "bg"), fg = color("magenta") }, -- tab pages line, not active tab page label
 		TabLineFill { TabLine }, -- tab pages line, where there are no labels
-		TabLineSel { StatusLine }, -- tab pages line, active tab page label
+		TabLineSel { bg = color("magenta", "bg"), fg = color("magenta", 2) }, -- tab pages line, active tab page label
 		WinBar { TabLineSel },
 		WinBarNC { LineNr },
 		WinSeparator { LineNr },
 		SignColumn { LineNr }, -- column where |signs| are displayed
-		Pmenu { StatusLineNC }, -- Popup menu: normal item.
-		PmenuSel { StatusLine }, -- Popup menu: selected item.
+		Pmenu { bg = color("magenta", "bg"), fg = color("magenta") },
+		PmenuSel { bg = color("magenta", "bg"), fg = color("magenta", 2) },
 		PmenuThumb { bg = Pmenu.fg }, -- Popup menu: Thumb of the scrollbar.
 		PmenuSbar { Pmenu }, -- Popup menu: scrollbar.
 		WildMenu { Pmenu }, -- current match in 'wildmenu' completion
