@@ -5,10 +5,8 @@ local hsl = lush.hsl
 -- {string} [variant] - "bg", other truthy for emphasized, nil for base
 local color = function(color, variant)
 	local hue = 247.3
-
 	local sa, sa2, li, li2, li2_2, sa3, li3, li_id
 
-	vim.o.background = "light"
 	sa = 42
 	li = 55
 	sa2 = 95
@@ -55,25 +53,6 @@ local color = function(color, variant)
 	end
 end
 
-vim.g.terminal_color_0 = color("black")
-vim.g.terminal_color_1 = color("red", 2)
-vim.g.terminal_color_2 = color("green", 2)
-vim.g.terminal_color_3 = color("yellow", 2)
-vim.g.terminal_color_4 = color("blue", 2)
-vim.g.terminal_color_5 = color("magenta", 2)
-vim.g.terminal_color_6 = color("cyan", 2)
-vim.g.terminal_color_7 = color("white")
-vim.g.terminal_color_8 = color("black", 2)
-vim.g.terminal_color_9 = color("red", 2)
-vim.g.terminal_color_10 = color("green", 2)
-vim.g.terminal_color_11 = color("yellow", 2)
-vim.g.terminal_color_12 = color("blue", 2)
-vim.g.terminal_color_13 = color("magenta", 2)
-vim.g.terminal_color_14 = color("cyan", 2)
-vim.g.terminal_color_15 = color("white", 2)
-vim.g.terminal_color_background = color("magenta", "bg")
-vim.g.terminal_color_foreground = color("fg")
-
 local theme = lush(function()
 	return {
 		Normal { bg = color("bg"), fg = color("fg", 2) },
@@ -95,7 +74,6 @@ local theme = lush(function()
 		CursorLine { bg = color("yellow", "bg") },
 		CursorLineNr { CursorLine },
 		CursorColumn { bg = CursorLine.bg.li(10) },
-		NonText { LineNr }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		StatusLine { bg = color("magenta", "bg"), fg = color("magenta", 2) },
 		StatusLineNC { StatusLine, fg = color("magenta") },
@@ -104,7 +82,8 @@ local theme = lush(function()
 		TabLineSel { bg = color("magenta", "bg"), fg = color("magenta", 2) }, -- tab pages line, active tab page label
 		WinBar { TabLineSel },
 		WinBarNC { LineNr },
-		WinSeparator { LineNr },
+		WinSeparator { fg = TabLine.bg },
+		NonText { WinSeparator }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		SignColumn { LineNr }, -- column where |signs| are displayed
 		Pmenu { bg = color("magenta", "bg"), fg = color("magenta") },
 		PmenuSel { bg = color("magenta", "bg"), fg = color("magenta", 2) },
@@ -178,7 +157,7 @@ local theme = lush(function()
 		NeoTreeTitleBar { StatusLine },
 
 		-- Treesitter context
-		TreesitterContextLineNumber { StatusLine },
+		TreesitterContextLineNumber { bg = color("magenta", "bg"), fg = color("magenta", 2) },
 
 		-- Cursor {}, -- character under the cursor
 		-- lCursor {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
