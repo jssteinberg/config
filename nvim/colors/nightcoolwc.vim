@@ -1,8 +1,8 @@
-" nightneonwc.vim
+" nightcoolwc.vim
 
 set bg=dark
 hi clear
-let g:colors_name = 'nightneonwc'
+let g:colors_name = 'nightcoolwc'
 
 " bg        #121118 fg         #e5f2e0
 " black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d black_bg #05040b
@@ -17,8 +17,8 @@ let g:colors_name = 'nightneonwc'
 " violet    #985cbc violet_2   #bf9ad6 violet_bg #552c6d
 "
 " Options:
-" - `let g:nightneonwc_bg = 1`. 0 for NONE (transparent), 1 for background.
-" - `let g:nightneonwc_statusline_bg =`...unlet for default, 'none' or 'black'.
+" - `let g:nightcoolwc_bg = 1`. 0 for NONE (transparent), 1 for background.
+" - `let g:nightcoolwc_statusline =`...unlet for default, 'none' or 'black'.
 "
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
 " Based on a neon illuminated city-park WC... `Comments` should be readable
@@ -34,7 +34,7 @@ let g:colors_name = 'nightneonwc'
 " - Selection (bg): violet_bg
 "
 " Make gui only:
-" :%s/\v cterm[^ ]*//g | %s/\vnightneonwc(['|.])/nightneonwc_gui\1/g
+" :%s/\v cterm[^ ]*//g | %s/\vnightcoolwc(['|.])/nightcoolwc_gui\1/g
 
 " #cae138 yellow_id color
 " #38cce1 cyan_id color
@@ -44,7 +44,7 @@ let g:colors_name = 'nightneonwc'
 
 " GROUP NAMES (:h group-name)
 
-if get(g:, 'nightneonwc_bg', '1')
+if get(g:, 'nightcoolwc_bg', '1')
 	hi Normal guibg=#121118 guifg=#e5f2e0
 else
 	hi Normal guifg=#e5f2e0
@@ -55,7 +55,7 @@ hi! link CursorLineNr Normal
 hi! link TSParameter Normal
 
 " Comment
-hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#985cbc
+hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#985cbc
 
 " *Constant String Character Number Boolean Float
 hi String ctermfg=11 guifg=#ced69b
@@ -183,13 +183,16 @@ hi Search cterm=italic gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
 hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a39bd6
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685cbc
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=5 guifg=#342c6d
-if get(g:, "nightneonwc_statusline_bg", "default") == "none"
-	hi StatusLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a39bd6
-	hi StatusLineNC cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=5 guifg=#685cbc
-elseif get(g:, "nightneonwc_statusline_bg", "default") == "black" && &termguicolors
-	hi StatusLine gui=NONE guibg=#05040b guifg=#a39bd6
-	hi StatusLineNC gui=NONE guibg=#05040b guifg=#685cbc
-	hi WinSeparator guibg=NONE guifg=#05040b
+if get(g:, "nightcoolwc_statusline", "default") == "none"
+	hi StatusLine ctermbg=NONE guibg=NONE
+	hi StatusLineNC ctermbg=NONE guibg=NONE
+elseif get(g:, "nightcoolwc_statusline", "default") == "underline"
+	hi StatusLine   cterm=underline gui=underline ctermbg=NONE guibg=NONE
+	hi StatusLineNC cterm=underline gui=underline ctermbg=NONE guibg=NONE
+elseif get(g:, "nightcoolwc_statusline", "default") == "black" && &termguicolors
+	hi StatusLine ctermbg=16 guibg=#05040b
+	hi StatusLineNC ctermbg=16 guibg=#05040b
+	hi WinSeparator guibg=NONE ctermbg=16 guifg=#05040b
 endif
 
 " UI LINKED

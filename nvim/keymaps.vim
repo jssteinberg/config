@@ -67,8 +67,8 @@ nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' :
 " Substitute/Replace [normal, selection]
 nnoremap <leader>S :%s/
 vnoremap <leader>S :s/
-nnoremap <leader>R "ryiw:%s/<c-r>r
-vnoremap <leader>R "ry:s/<c-r>r
+nnoremap <leader>R "ryiw:%s/\(<c-r>r\)/
+vnoremap <leader>R "ry:s/\(<c-r>r\)/
 
 " Grep
 nnoremap <leader>G :silent grep 
@@ -100,8 +100,6 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " Fuzzy finder
 " nnoremap <silent> <leader>fb :Buffers<cr>
 " nnoremap <silent> <leader>fs :Rg <cr>
-" nnoremap <silent> <leader>gf :GFiles<cr>
-" nnoremap <silent> <leader>s :Files<cr>
 nnoremap <leader>s :FuzzyOpen<CR>
 
 " Git

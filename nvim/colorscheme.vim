@@ -1,6 +1,7 @@
 let s:d = "set bg=dark termguicolors t_Co=256"
-			\." | let g:nightneonwc_bg=0"
-			\." | colo nightneonwc"
+			\." | let g:nightcoolwc_bg=0"
+			\." | let g:nightcoolwc_statusline='underline'"
+			\." | colo nightcoolwc"
 
 let s:l = "set bg=light termguicolors t_Co=256"
 			\." | colo lushwhitecool"
