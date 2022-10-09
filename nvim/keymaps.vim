@@ -98,8 +98,6 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " -----------------------
 
 " Fuzzy finder
-" nnoremap <silent> <leader>fb :Buffers<cr>
-" nnoremap <silent> <leader>fs :Rg <cr>
 nnoremap <leader>s :FuzzyOpen<CR>
 
 " Git

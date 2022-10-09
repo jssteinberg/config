@@ -16,7 +16,7 @@ set tabstop=2 shiftwidth=2 " indent size
 set timeoutlen=500 " Wait less for typing of keymaps
 set undofile noswapfile
 set updatetime=100
-set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**
+set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git/**
 set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 set showtabline=2
 

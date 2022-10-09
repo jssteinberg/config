@@ -85,11 +85,6 @@ local function init()
 	-- 	end
 	-- }
 
-
-	-- FILETYPE
-	-- --------
-	-- use { "hail2u/vim-css3-syntax", ft = { "css" } }
-
 	-- LAZY LOADED
 	-- -----------
 
@@ -197,6 +192,7 @@ local function init()
 	use {
 		"cloudhead/neovim-fuzzy",
 		cmd = { "FuzzyOpen" },
+		config = function() vim.g.fuzzy_rootcmds = {} end
 	}
 
 	-- File tree
