@@ -2,7 +2,11 @@
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
+" Create undo dir
+if !isdirectory($HOME.'/.vimundo') | call mkdir($HOME.'/.vimundo', '', 0770) | endif
+
 " OPTIONS
+set noswapfile undofile undodir=$HOME/.vimundo " No swap files, but undo files
 set clipboard=unnamed " Sync system clioboard
 set cursorline " Highlight cursor line
 set hidden " Unsaved files can be 'hidden'
@@ -16,10 +20,6 @@ set tabstop=2 shiftwidth=2 " indent size
 set wildmode=lastused:full " :b <tab> for last used buffer(s)
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
 set showtabline=2 " Always show tabline
-
-" Persisten undo, mkdir
-if !isdirectory($HOME.'/.vimundo') | call mkdir($HOME.'/.vimundo', '', 0770) | endif
-set undofile undodir=$HOME/.vimundo
 
 " netrw settings
 let g:netrw_altfile = 1
