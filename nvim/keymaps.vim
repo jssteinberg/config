@@ -8,7 +8,7 @@
 " s: search files
 " t: tab
 " q: quickfix
-" C: tabclose
+" C: tabclose || close all
 " G: grep
 " Q: quickfix window
 " R: replace (search and replace)
@@ -102,7 +102,7 @@ nnoremap <silent> <leader>cc :call CycleColo()<cr>
 " -----------------------
 
 " Fuzzy finder
-nnoremap <leader>s :FuzzyOpen<CR>
+nnoremap <leader>s :FuzzyOpen<cr>
 
 " Git
 nnoremap <leader>gb <cmd>BlamerToggle<cr>

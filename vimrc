@@ -76,7 +76,7 @@ nnoremap <leader>ew :edit **/*
 nnoremap <leader>fw :find **/*
 " ...with tabs
 nnoremap <leader>tb :tabedit %<cr>'"
-nnoremap <leader>C :tabclose<cr>
+nnoremap <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
