@@ -137,8 +137,11 @@ augroup quickfix
 augroup END
 
 " COLORS
-set bg=dark
-colo lunaperche " DUAL lunaperche DARK: habamax torte LIGHT: quiet zellner 
-hi Normal ctermbg=NONE
-hi! link Tabline Normal
-hi! link TablineFill Tabline
+try
+	colo nightcoolwc
+catch
+	set bg=dark | colo lunaperche " DUAL lunaperche DARK: habamax torte LIGHT: quiet zellner 
+	hi Normal ctermbg=NONE
+	hi! link Tabline Normal
+	hi! link TablineFill Tabline
+endtry

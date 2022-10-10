@@ -29,7 +29,7 @@ local function init()
 
 	-- Statusline
 	use {
-		"~/Documents/hackline.vim",
+		"jssteinberg/hackline.vim",
 		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 		config = function()
@@ -133,7 +133,7 @@ local function init()
 	-- Hop motion commands
 	use {
 		"phaazon/hop.nvim",
-		cmd = { "HopWord", "HopVertical" },
+		cmd = { "HopWord", "HopVerticalAC", "HopVerticalBC" },
 		config = function() require "hop".setup() end
 	}
 

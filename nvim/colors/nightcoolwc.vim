@@ -163,7 +163,7 @@ hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9bcfd6
 hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a39bd6
-hi Visual cterm=bold gui=NONE ctermbg=0 guibg=#552c6d " also affects TelescopePreviewLine
+hi Visual cterm=bold gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a39bd6
 
@@ -227,6 +227,7 @@ hi! link PmenuSbar Pmenu " Pmenu affects some floating windows
 hi! link Question Bold
 hi! link QuickFixLine Visual
 hi! link TabLineFill TabLine
+hi! link VertSplit WinSeparator
 hi! link WinBarNC LineNr
 hi! link WildMenu Pmenu
 
