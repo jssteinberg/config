@@ -4,6 +4,7 @@ source $VIMRUNTIME/defaults.vim
 
 " OPTIONS
 set clipboard=unnamed " Sync system clioboard
+set cursorline " Highlight cursor line
 set hidden " Unsaved files can be 'hidden'
 set foldmethod=indent nofoldenable
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
@@ -14,8 +15,7 @@ set sessionoptions=curdir,folds,tabpages,help
 set tabstop=2 shiftwidth=2 " indent size
 set wildmode=lastused:full " :b <tab> for last used buffer(s)
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
-set showtabline=2
-
+set showtabline=2 " Always show tabline
 
 " Persisten undo, mkdir
 if !isdirectory($HOME.'/.vimundo') | call mkdir($HOME.'/.vimundo', '', 0770) | endif
@@ -140,7 +140,7 @@ augroup END
 
 " COLORS
 set bg=dark
-colo torte " DUAL lunaperche DARK: habamax torte LIGHT: quiet zellner 
+colo lunaperche " DUAL lunaperche DARK: habamax torte LIGHT: quiet zellner 
 hi Normal ctermbg=NONE
 hi! link Tabline Normal
 hi! link TablineFill Tabline

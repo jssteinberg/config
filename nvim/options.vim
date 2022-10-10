@@ -48,7 +48,7 @@ cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? '
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
 " AUTO COMMANDS
-augroup option_like_autocmds
+augroup set_option_autocmds
 	au!
 	" Go to last known cursor position, unless it's invalid
 	autocmd BufReadPost *
@@ -57,4 +57,6 @@ augroup option_like_autocmds
 				\ | endif
 	" Check if file has been updated
 	autocmd FocusGained,BufEnter * :checktime
+	" Remove numbers in terminal
+	autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END

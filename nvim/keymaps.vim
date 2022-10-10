@@ -41,6 +41,7 @@ nnoremap <leader>b :buffer#<cr>
 
 " Buffer switcher
 nnoremap <leader><tab> :buffer 
+
 " Write/save file
 nnoremap <silent> <leader>w :w<cr>
 
@@ -77,15 +78,18 @@ nnoremap gs "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen
 vnoremap gr "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
 vnoremap gs "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 
+" Terminal
+nnoremap <silent> <leader><cr> <cmd>terminal<cr>i
+
+" Paste
+nn <c-p> "0p
+
 " Marks
 nnoremap <leader>ha 'A'"
 nnoremap <leader>hs 'S'"
 nnoremap <leader>hd 'D'"
 nnoremap <leader>hf 'F'"
 nnoremap <leader>hc 'C'"
-
-" Terminal
-nnoremap <silent> <leader><cr> <cmd>terminal<cr>i
 
 " No/now (toggle options)
 nn <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
