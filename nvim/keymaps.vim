@@ -14,21 +14,23 @@
 " R: replace (search and replace)
 " X: git(signs) reset
 
-" Better default indent
+" EXTEND CORE MAPPINGS
+
+" Simpler indent mapping
 vnoremap < <gv
 vnoremap > >gv
-" Better default cmdline browsing
+" Additional incremental cmdline browsing
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
-" Better default move across wrapped lines
+" Move across wrapped lines like normal lines
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
-
-" Esc [normal, terminal]
+" Paste last yanked
+nn <c-p> "0p
+" Additional esc mappings
 inoremap jk <esc>
 tnoremap jk <c-\><c-n>
-
-" Search
+" Additional search mappings
 nnoremap <c-s> /
 xnoremap <c-s> /
 
@@ -81,9 +83,6 @@ vnoremap gs "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<c
 " Terminal
 nnoremap <silent> <leader><cr> <cmd>terminal<cr>i
 
-" Paste
-nn <c-p> "0p
-
 " Marks
 nnoremap <leader>ha 'A'"
 nnoremap <leader>hs 'S'"
@@ -92,14 +91,13 @@ nnoremap <leader>hf 'F'"
 nnoremap <leader>hc 'C'"
 
 " No/now (toggle options)
-nn <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
-nn <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
+nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
+nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 
 " Cycle colorschemes
 nnoremap <silent> <leader>cc :call CycleColo()<cr>
 
-" Package/plugin mappings
-" -----------------------
+" PACKAGE/PLUGIN MAPPINGS
 
 " Fuzzy finder
 nnoremap <leader>s :FuzzyOpen<cr>
@@ -127,5 +125,5 @@ nn gx <cmd>OpenURLFind<cr>
 vn gx y:OpenSearchURL duckduckgo <c-r>"<cr>
 
 " Hop
-noremap <leader>j <cmd>HopLine<cr>
-noremap <leader>k <cmd>HopLine<cr>
+noremap <leader>j <cmd>HopVerticalAC<cr>
+noremap <leader>k <cmd>HopVerticalBC<cr>

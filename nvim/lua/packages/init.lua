@@ -140,7 +140,7 @@ local function init()
 	-- Hop motion commands
 	use {
 		"phaazon/hop.nvim",
-		cmd = { "HopWord", "HopLine" },
+		cmd = { "HopWord", "HopVertical" },
 		config = function() require "hop".setup() end
 	}
 
