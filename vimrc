@@ -35,26 +35,24 @@ if executable('rg')
 endif
 
 " KEYMAPS
-" Better defaults
-vnoremap < <gv
-vnoremap > >gv
+" Extend default mappings
 nnoremap Y y$
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
+vnoremap < <gv
+vnoremap > >gv
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
+nnoremap <c-s> /
+xnoremap <c-s> /
+nnoremap <c-p> "0p
 
-" Esc [normal, terminal]
+" Esc mappings
 inoremap jk <esc>
 tnoremap jk <c-w>N
 
-" Search (for their defaults, use cl and cc) [search, backwards, visual mode]
-nnoremap <c-s> /
-xnoremap <c-s> /
-
 " Set space as leader key
-"nnoremap <space> <nop>
 let mapleader=' '
 
 " Alternate buffer

@@ -14,25 +14,20 @@
 " R: replace (search and replace)
 " X: git(signs) reset
 
-" EXTEND CORE MAPPINGS
-
-" Simpler indent mapping
+" EXTEND DEFAULT MAPPINGS
 vnoremap < <gv
 vnoremap > >gv
-" Additional incremental cmdline browsing
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
-" Move across wrapped lines like normal lines
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
-" Paste last yanked
-nn <c-p> "0p
-" Additional esc mappings
-inoremap jk <esc>
-tnoremap jk <c-\><c-n>
-" Additional search mappings
 nnoremap <c-s> /
 xnoremap <c-s> /
+nnoremap <c-p> "0p
+
+" Esc mappings
+inoremap jk <esc>
+tnoremap jk <c-\><c-n>
 
 " Set space as leader key
 nnoremap <space> <nop>
