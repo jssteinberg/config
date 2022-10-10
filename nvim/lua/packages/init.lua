@@ -29,20 +29,13 @@ local function init()
 
 	-- Statusline
 	use {
-		"jssteinberg/hackline.vim",
+		"~/Documents/hackline.vim",
 		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 		config = function()
-			vim.g.hackline_git_info       = true
-			vim.g.hackline_mode           = true
-			vim.g.hackline_cwd            = true
-			vim.g.hackline_normal_px      = 0
-			vim.g.hackline_label_command  = "—C—"
-			vim.g.hackline_label_insert   = "–I–"
-			vim.g.hackline_label_terminal = "–T–"
-			vim.g.hackline_label_visual   = "–V–"
-			vim.g.hackline_label_select   = "–S–"
-			vim.g.hackline_label_replace  = "–R–"
+			vim.g.hackline_git_info  = true
+			vim.g.hackline_cwd       = true
+			vim.g.hackline_normal_px = 0
 		end
 	}
 
