@@ -1,7 +1,7 @@
 " nightcoolwc.vim
 
-set bg=dark
 hi clear
+set bg=dark
 let g:colors_name = 'nightcoolwc'
 
 " bg        #121118 fg         #e5f2e0
@@ -18,7 +18,7 @@ let g:colors_name = 'nightcoolwc'
 "
 " Options:
 " - `let g:nightcoolwc_bg = 1`. 0 for NONE (transparent), 1 for background.
-" - `let g:nightcoolwc_statusline =`...unlet for default, 'none' or 'black'.
+" - `let g:nightcoolwc_statusline =`...unlet for default, "bold" or "black".
 "
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
 " Based on a neon illuminated city-park WC... `Comments` should be readable
@@ -64,13 +64,12 @@ let g:terminal_color_background = "#121118"
 let g:terminal_color_foreground = "#e5f2e0"
 
 if get(g:, 'nightcoolwc_bg', '1')
-	hi Normal guibg=#121118 guifg=#e5f2e0
+	hi Normal ctermbg=233 guibg=#121118 ctermfg=230 guifg=#e5f2e0
 else
-	hi Normal guifg=#e5f2e0
+	hi Normal ctermfg=230 guifg=#e5f2e0
 endif
 
 hi! link Constant Normal
-hi! link CursorLineNr Normal
 hi! link TSParameter Normal
 
 " Comment
@@ -152,6 +151,7 @@ hi clear Conceal
 hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e5f2e0 guifg=#121118 gui=NONE
 hi CursorColumn cterm=bold gui=bold ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
+hi CursorLineNr cterm=bold gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#e5f2e0
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi LineNr cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a39bd6
@@ -163,7 +163,7 @@ hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9bcfd6
 hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a39bd6
-hi Visual cterm=bold gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 " also affects TelescopePreviewLine
+hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a39bd6
 
@@ -199,15 +199,13 @@ hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#646d2c ctermfg=11 guifg=
 hi Search cterm=italic gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
 
 " StatusLine and WinSeparator
-hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a39bd6
+hi StatusLine cterm=bold gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a39bd6
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685cbc
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=5 guifg=#342c6d
-if get(g:, "nightcoolwc_statusline", "default") == "none"
-	hi StatusLine ctermbg=NONE guibg=NONE
-	hi StatusLineNC ctermbg=NONE guibg=NONE
-elseif get(g:, "nightcoolwc_statusline", "default") == "underline"
-	hi StatusLine   cterm=underline gui=underline ctermbg=NONE guibg=NONE
-	hi StatusLineNC cterm=underline gui=underline ctermbg=NONE guibg=NONE
+if get(g:, "nightcoolwc_statusline", "default") == "bold"
+	hi StatusLine   gui=bold guibg=#1a1636
+	hi StatusLineNC gui=NONE guibg=#1a1636
+	hi WinSeparator guifg=#685cbc
 elseif get(g:, "nightcoolwc_statusline", "default") == "black" && &termguicolors
 	hi StatusLine ctermbg=16 guibg=#05040b
 	hi StatusLineNC ctermbg=16 guibg=#05040b

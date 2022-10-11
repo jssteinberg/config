@@ -46,10 +46,8 @@ nnoremap <silent> <leader>w :w<cr>
 nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
-nnoremap <leader>ew :edit **/*
-nnoremap <leader>fw :find **/*
 nnoremap <leader>tb :tabedit %<cr>'"
-nnoremap <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
+nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 " neo-tree
 nnoremap <silent> <leader>e. :Neotree current dir=.<cr>
 nnoremap <silent> <leader>eb :Neotree toggle buffers<cr>

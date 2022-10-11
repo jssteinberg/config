@@ -29,13 +29,16 @@ local function init()
 
 	-- Statusline
 	use {
-		"jssteinberg/hackline.vim",
+		"~/dev/hackline.vim",
 		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 		config = function()
-			vim.g.hackline_git_info  = true
-			vim.g.hackline_cwd       = true
-			vim.g.hackline_normal_px = 0
+			vim.g.hackline_git_info       = true
+			vim.g.hackline_cwd            = true
+			vim.g.hackline_normal_px      = 0
+			-- vim.g.hackline_separators     = { l = "  ", r = "  " }
+			vim.g.hackline_sep_inner_left = ""
+			-- vim.g.hackline_sep_inner_right = "  "
 		end
 	}
 

@@ -6,7 +6,7 @@ Includes **config** for alacritty (used **for Macos**), kitty (used **for Ubuntu
 
 ## Get started
 
-Requires: git, fish, ripgrep, fzy
+Requires: git, fish, ripgrep, fzy, fd
 
 1. `cd`
 2. git clone as ~/.config

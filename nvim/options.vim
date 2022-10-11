@@ -20,7 +20,16 @@ set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git
 set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 set showtabline=2
 
-" FORMATOPTIONS
+if executable('rg')
+	set grepformat^=%f:%l:%c:%m grepprg=rg\ --line-number\ --column
+endif
+
+" NETRW OPTIONS
+let g:netrw_banner = 0
+let g:netrw_altv = 1
+let g:netrw_sort_by = "exten"
+
+" FORMAT OPTIONS
 " (c) auto hard wrap comments
 " (j) remove comment leader when joining lines
 " (l) don't break long lines (does c still work?)
@@ -29,21 +38,7 @@ set showtabline=2
 " (q) allow gq formatting
 set formatoptions=cjlnpq
 
-" NETRW
-let g:netrw_altfile = 1
-let g:netrw_alto = 1
-let g:netrw_altv = 1
-let g:netrw_banner = 0
-let g:netrw_liststyle = 1
-let g:netrw_sort_by = "exten"
-
-" GREP
-if executable('rg')
-	" use ripgrep
-	set grepformat^=%f:%l:%c:%m grepprg=rg\ --line-number\ --column
-endif
-
-" alias to silent grep
+" ALIAS GREP
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
