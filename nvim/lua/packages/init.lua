@@ -11,37 +11,16 @@ local function init()
 	packer.reset()
 
 	use { "wbthomason/packer.nvim", opt = true }
-	use { "nathom/filetype.nvim", config = function() require "packages.filetype".config() end }
+	-- use { "nathom/filetype.nvim", config = function() require "packages.filetype".config() end }
+	use { "tpope/vim-surround" }
 	use { "tpope/vim-repeat" } -- Extend `.` repeat
 	use { "tpope/vim-sleuth" } -- detects indent, also uses .editorconfig
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
-	use { "machakann/vim-sandwich" }
 
 	use { "echasnovski/mini.nvim", config = function()
 		require("mini.indentscope").setup({ symbol = "│" })
 		require("mini.indentscope").gen_animation("none")
 	end }
-
-	-- use({
-	-- 	"kylechui/nvim-surround",
-	-- 	tag = "*",
-	-- 	config = function() require("nvim-surround").setup({}) end
-	-- })
-
-	-- Statusline
-	use {
-		"jssteinberg/hackline.vim",
-		requires = { "itchyny/vim-gitbranch" },
-		branch = "dev",
-		config = function()
-			vim.g.hackline_git_info       = true
-			vim.g.hackline_cwd            = true
-			vim.g.hackline_normal_px      = 0
-			-- vim.g.hackline_separators     = { l = "  ", r = "  " }
-			vim.g.hackline_sep_inner_left = ""
-			-- vim.g.hackline_sep_inner_right = "  "
-		end
-	}
 
 	-- Treesitter
 	use {
@@ -85,7 +64,20 @@ local function init()
 	-- LAZY LOADED
 	-- -----------
 
-	-- ### ON CURSOR EVENTS
+	-- ### ON CURSOR HOLD
+
+	-- Statusline
+	use { "itchyny/vim-gitbranch", event = "CursorHold" }
+	use {
+		"jssteinberg/hackline.vim",
+		after = "vim-gitbranch",
+		branch = "dev",
+		config = function()
+			vim.g.hackline_git_info  = true
+			vim.g.hackline_cwd       = true
+			vim.g.hackline_normal_px = 0
+		end
+	}
 
 	-- Illuminate cursor word
 	use { "RRethy/vim-illuminate", event = "CursorHold", config = function()
@@ -114,10 +106,10 @@ local function init()
 	end }
 
 	-- Better f, F, t, T motion, repeatable with f/F
-	use { "rhysd/clever-f.vim", keys = {
-		{ "n", "f" }, { "n", "F" }, { "n", "t" }, { "n", "T" },
-		{ "x", "f" }, { "x", "F" }, { "x", "t" }, { "x", "T" }
-	} }
+	-- use { "rhysd/clever-f.vim", keys = {
+	-- 	{ "n", "f" }, { "n", "F" }, { "n", "t" }, { "n", "T" },
+	-- 	{ "x", "f" }, { "x", "F" }, { "x", "t" }, { "x", "T" }
+	-- } }
 
 	-- Leap s/S motion
 	use {
@@ -127,9 +119,7 @@ local function init()
 			{ "x", "z" }, { "x", "Z" },
 		},
 		config = function()
-			require("leap").setup {
-				highlight_unlabeled = true
-			}
+			require("leap").setup { highlight_unlabeled = true }
 			require("leap").set_default_keymaps()
 		end
 	}
@@ -208,20 +198,12 @@ local function init()
 	-- ### GIT
 
 	use { "tpope/vim-fugitive", cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit" } } -- git wrapper
-	use { "APZelos/blamer.nvim", cmd = { "BlamerToggle" } } -- git blame
 	use {
 		"tyru/open-browser-github.vim",
 		cmd = {
 			"OpenGithubFile", "OpenGithuIssue", "OpenGithubPullReq", "OpenGithubProject",
 		},
 		requires = { "tyru/open-browser.vim" },
-	}
-
-	-- git signs
-	vim.g.signify_disable_by_default = 1
-	use {
-		"mhinz/vim-signify",
-		cmd = { "SignifyToggle", "SignifyEnable", "SignifyEnableAll" }
 	}
 
 	-- git linker
@@ -232,20 +214,26 @@ local function init()
 		config = function() require("gitlinker").setup({}) end
 	}
 
+	-- git blame inline
+	use { "APZelos/blamer.nvim", opt = true } -- git blame
+
+	-- git signs
+	use { "mhinz/vim-signify", opt = true }
+
 	-- ### UTIL
 
-	-- Measure startuptime
-	use { "dstein64/vim-startuptime", cmd = { "StartupTime" } }
-
 	-- Colors
-	use { "rktjmp/lush.nvim", cmd = { "LushRunQuickstart", "LushRunTutorial", "Lushify" } }
-	use { "rktjmp/shipwright.nvim", cmd = "Shipwright" }
+	use {
+		"uga-rosa/ccc.nvim",
+		cmd = { "CccHighlighterEnable" },
+		config = function() require("ccc").setup({}) end
+	}
+	-- Colorscheme creation
+	use { "rktjmp/lush.nvim", opt = true }
+	use { "rktjmp/shipwright.nvim", opt = true }
 
-	-- use {
-	-- 	"NvChad/nvim-colorizer.lua",
-	-- 	cmd = { "ColorizerToggle" },
-	-- 	config = function() require "colorizer".setup() end
-	-- }
+	-- Measure startuptime
+	use { "dstein64/vim-startuptime", opt = true }
 
 end
 

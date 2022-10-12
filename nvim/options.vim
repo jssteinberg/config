@@ -44,7 +44,7 @@ cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? '
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
 " AUTO COMMANDS
-augroup set_option_autocmds
+augroup options
 	au!
 	" Go to last known cursor position, unless it's invalid
 	autocmd BufReadPost *
@@ -55,9 +55,6 @@ augroup set_option_autocmds
 	autocmd FocusGained,BufEnter * :checktime
 	" Remove numbers in terminal
 	autocmd TermOpen * setlocal nonumber norelativenumber
-	" Open quickfix window
-	" autocmd QuickFixCmdPost cgetexpr cwindow
-	" autocmd QuickFixCmdPost lgetexpr lwindow
+	" Open quickfix window when relevant
 	autocmd QuickFixCmdPost [^l]* cwindow
-	autocmd QuickFixCmdPost l* lwindow
 augroup END

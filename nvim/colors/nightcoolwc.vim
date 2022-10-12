@@ -66,7 +66,7 @@ let g:terminal_color_background = "#121118"
 let g:terminal_color_foreground = "#e5f2e0"
 
 if get(g:, 'nightcoolwc_bg', '1')
-	hi Normal ctermbg=233 guibg=#121118 ctermfg=230 guifg=#e5f2e0
+	hi Normal ctermbg=233 guibg=#121118 guifg=#e5f2e0
 else
 	hi Normal ctermfg=230 guifg=#e5f2e0
 endif
@@ -158,7 +158,7 @@ hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi LineNr cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a39bd6
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
-hi NonText gui=NONE ctermfg=8 guifg=#342c6d
+hi NonText gui=NONE ctermfg=238 guifg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
 hi Pmenu      ctermbg=0 guibg=#05040b ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
@@ -227,7 +227,7 @@ hi! link QuickFixLine Visual
 hi! link TabLineFill TabLine
 hi! link VertSplit WinSeparator
 hi! link WinBarNC LineNr
-hi! link WildMenu Pmenu
+hi! link WildMenu PmenuSel
 
 " Folds
 hi! link Folded Comment

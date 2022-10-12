@@ -24,9 +24,7 @@ noremap <expr> k v:count ? 'k' : 'gk'
 nnoremap <c-s> /
 xnoremap <c-s> /
 nnoremap <c-p> "0p
-nnoremap <c-P> "0P
-map > ]
-map < [
+"cnoreabbrev <expr>    (getcmdtype() ==# '/')  ? <cr> : '  '
 
 " Esc mappings
 inoremap jk <esc>

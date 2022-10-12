@@ -24,7 +24,6 @@ function M.config()
 		},
 	})
 	vim.keymap.set({ "n", "v" }, "<c-n>", "<plug>(CybuLastusedNext)")
-	vim.keymap.set({ "n", "v" }, "<c-N>", "<plug>(CybuLastusedPrev)")
 	vim.keymap.set({ "n", "v" }, "<leader>n", "<plug>(CybuLastusedNext)")
 	vim.keymap.set({ "n", "v" }, "<leader>N", "<plug>(CybuLastusedPrev)")
 	vim.keymap.set({ "n", "v" }, "<leader>p", "<plug>(CybuLastusedPrev)")
