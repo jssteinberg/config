@@ -21,18 +21,15 @@ set wildmode=lastused:full " :b <tab> for last used buffer(s)
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
 set showtabline=2 " Always show tabline
 
-" netrw settings
-let g:netrw_altfile = 1
-let g:netrw_altv = 1
-let g:netrw_banner = 0
-let g:netrw_liststyle = 1
-let g:netrw_sort_by = "exten"
-let g:netrw_winsize=25
-
-" grep
 if executable('rg')
-	set grepformat^=%f:%l:%c:%m grepprg=rg\ --line-number\ --column
+	set grepformat^=%f:%l:%c:%m grepprg=rg\ --vimgrep
+	" grepprg=rg\ --line-number\ --column
 endif
+
+" NETRW OPTIONS
+let g:netrw_banner = 0
+let g:netrw_altv = 1
+let g:netrw_sort_by = "exten"
 
 " KEYMAPS
 " Extend default mappings
@@ -70,11 +67,9 @@ nnoremap <leader>eh :edit %:p:.:h<cr>
 nnoremap <leader>ec :tabedit ~/.config/vimrc<cr>:tcd  %:p:.:h<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
-nnoremap <leader>ew :edit **/*
-nnoremap <leader>fw :find **/*
 " ...with tabs
 nnoremap <leader>tb :tabedit %<cr>'"
-nnoremap <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
+nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
@@ -99,24 +94,20 @@ nnoremap <leader>hd 'D'"
 nnoremap <leader>hf 'F'"
 nnoremap <leader>hc 'C'"
 
-" Fuzzy find
-nnoremap <leader>s :Files<cr>
-
-" FZF
-" https://dev.to/pbnj/interactive-fuzzy-finding-in-vim-without-plugins-4kkj
-function! FZF() abort
-	let l:tempname = tempname()
-	" fzf | awk '{ print $1":1:0" }' > file
-	execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
-	try
-		execute 'cfile ' . l:tempname
-		redraw!
-	finally
-		call delete(l:tempname)
-	endtry
+" FUZZY FIND
+function! FzyCommand(choice_command, vim_command)
+  try
+    let output = system(a:choice_command . " | fzy ")
+  catch /Vim:Interrupt/
+    " Swallow errors from ^C, allow redraw! below
+  endtry
+  redraw!
+  if v:shell_error == 0 && !empty(output)
+    exec a:vim_command . ' ' . output
+  endif
 endfunction
 
-command! -nargs=* Files call FZF()
+nnoremap <leader>s :call FzyCommand("fd --hidden --follow -E node_modules -E .git -E .github -E .swc", ":e")<cr>
 
 " GREP COMMAND
 " https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
@@ -140,8 +131,9 @@ augroup END
 try
 	colo nightcoolwc
 catch
-	set bg=dark | colo lunaperche " DUAL lunaperche DARK: habamax torte LIGHT: quiet zellner 
+	set background=dark | colo slate " DUAL lunaperche (9) DARK: habamax (9) industry slate LIGHT: quiet zellner 
 	hi Normal ctermbg=NONE
-	hi! link Tabline Normal
-	hi! link TablineFill Tabline
+	hi CursorLine cterm=NONE ctermbg=236 | hi! link CursorLineNr CursorLine
+	hi! link SignColumn LineNr
+	hi! link Tabline Normal | hi! link TablineFill Tabline
 endtry
