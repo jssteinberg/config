@@ -151,7 +151,7 @@ hi! link scssTSString cssTSString
 hi ColorColumn ctermbg=0 guibg=#05040b
 hi clear Conceal
 hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e5f2e0 guifg=#121118 gui=NONE
-hi CursorColumn cterm=bold gui=bold ctermbg=0 guibg=#1a1636
+hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
 hi CursorLineNr cterm=bold gui=bold ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=fg
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
