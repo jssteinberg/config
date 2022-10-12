@@ -15,17 +15,18 @@ local function init()
 	use { "tpope/vim-repeat" } -- Extend `.` repeat
 	use { "tpope/vim-sleuth" } -- detects indent, also uses .editorconfig
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
+	use { "machakann/vim-sandwich" }
 
 	use { "echasnovski/mini.nvim", config = function()
 		require("mini.indentscope").setup({ symbol = "│" })
 		require("mini.indentscope").gen_animation("none")
 	end }
 
-	use({
-		"kylechui/nvim-surround",
-		tag = "*",
-		config = function() require("nvim-surround").setup({}) end
-	})
+	-- use({
+	-- 	"kylechui/nvim-surround",
+	-- 	tag = "*",
+	-- 	config = function() require("nvim-surround").setup({}) end
+	-- })
 
 	-- Statusline
 	use {
