@@ -21,7 +21,8 @@ set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`
 set showtabline=2
 
 if executable('rg')
-	set grepformat^=%f:%l:%c:%m grepprg=rg\ --line-number\ --column
+	" set grepformat^=%f:%l:%c:%m grepprg=rg\ --line-number\ --column
+	set grepformat^=%f:%l:%c:%m grepprg=rg\ --vimgrep
 endif
 
 " NETRW OPTIONS

@@ -29,7 +29,7 @@ local function init()
 
 	-- Statusline
 	use {
-		"~/dev/hackline.vim",
+		"jssteinberg/hackline.vim",
 		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 		config = function()
@@ -175,12 +175,6 @@ local function init()
 	-- 	"ibhagwan/fzf-lua",
 	-- 	cmd = "FzfLua"
 	-- }
-	-- fzf
-	-- use { "junegunn/fzf", run = "fzf#install()" }
-	-- use {
-	-- 	"junegunn/fzf.vim",
-	-- 	cmd = { "Files", "Buffers", "Rg", "GFiles", "FZF" }
-	-- }
 	-- snap
 	-- use { "camspiers/snap", config = function ()
 	-- end }
@@ -190,6 +184,7 @@ local function init()
 		cmd = { "FuzzyOpen" },
 		config = function() vim.g.fuzzy_rootcmds = {} end
 	}
+
 
 	-- File tree
 	use { "MunifTanjim/nui.nvim", cmd = { "Neotree" } }
@@ -245,11 +240,11 @@ local function init()
 	use { "rktjmp/lush.nvim", cmd = { "LushRunQuickstart", "LushRunTutorial", "Lushify" } }
 	use { "rktjmp/shipwright.nvim", cmd = "Shipwright" }
 
-	use {
-		"NvChad/nvim-colorizer.lua",
-		cmd = { "ColorizerToggle" },
-		config = function() require "colorizer".setup() end
-	}
+	-- use {
+	-- 	"NvChad/nvim-colorizer.lua",
+	-- 	cmd = { "ColorizerToggle" },
+	-- 	config = function() require "colorizer".setup() end
+	-- }
 
 end
 

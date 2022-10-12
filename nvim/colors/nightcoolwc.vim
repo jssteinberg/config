@@ -18,7 +18,8 @@ let g:colors_name = 'nightcoolwc'
 "
 " Options:
 " - `let g:nightcoolwc_bg = 1`. 0 for NONE (transparent), 1 for background.
-" - `let g:nightcoolwc_statusline =`...unlet for default, "bold" or "black".
+" - `let g:nightcoolwc_statusline = "default"` or "bold"
+"   darker variant using bold for clarity.
 "
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
 " Based on a neon illuminated city-park WC... `Comments` should be readable
@@ -199,17 +200,15 @@ hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#646d2c ctermfg=11 guifg=
 hi Search cterm=italic gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
 
 " StatusLine and WinSeparator
+" default
 hi StatusLine cterm=bold gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a39bd6
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685cbc
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=5 guifg=#342c6d
+" bold variant
 if get(g:, "nightcoolwc_statusline", "default") == "bold"
-	hi StatusLine   gui=bold guibg=#1a1636
+	hi StatusLine   gui=bold guibg=#1a1636 ctermfg=8 guifg=#7d78a1
 	hi StatusLineNC gui=NONE guibg=#1a1636
-	hi WinSeparator guifg=#685cbc
-elseif get(g:, "nightcoolwc_statusline", "default") == "black" && &termguicolors
-	hi StatusLine ctermbg=16 guibg=#05040b
-	hi StatusLineNC ctermbg=16 guibg=#05040b
-	hi WinSeparator guibg=NONE ctermbg=16 guifg=#05040b
+	hi WinSeparator ctermfg=8 guifg=#7d78a1
 endif
 
 " UI LINKED
