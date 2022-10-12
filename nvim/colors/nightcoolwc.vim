@@ -18,7 +18,8 @@ let g:colors_name = 'nightcoolwc'
 "
 " Options:
 " - `let g:nightcoolwc_bg = 1`. 0 for NONE (transparent), 1 for background.
-" - `let g:nightcoolwc_statusline = "default"` or "bold"
+" - `let g:nightcoolwc_statusline = "default"` or "bold" (default if
+"   notermguicolors)
 "   darker variant using bold for clarity.
 "
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
@@ -152,7 +153,7 @@ hi clear Conceal
 hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e5f2e0 guifg=#121118 gui=NONE
 hi CursorColumn cterm=bold gui=bold ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
-hi CursorLineNr cterm=bold gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#e5f2e0
+hi CursorLineNr cterm=bold gui=bold ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=fg
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi LineNr cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a39bd6
@@ -163,7 +164,7 @@ hi Pmenu      ctermbg=0 guibg=#05040b ctermfg=8 guifg=#7d78a1 " Pmenu affects so
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9bcfd6
 hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
-hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a39bd6
+hi TabLineSel ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a39bd6
@@ -201,14 +202,14 @@ hi Search cterm=italic gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
 
 " StatusLine and WinSeparator
 " default
-hi StatusLine cterm=bold gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a39bd6
+hi StatusLine cterm=bold gui=NONE ctermbg=0 guibg=#342c6d ctermfg=8 guifg=#a39bd6
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685cbc
-hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=5 guifg=#342c6d
+hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
 " bold variant
 if get(g:, "nightcoolwc_statusline", "default") == "bold"
-	hi StatusLine   gui=bold guibg=#1a1636 ctermfg=8 guifg=#7d78a1
+	hi StatusLine   gui=bold guibg=#1a1636 guifg=#7d78a1
 	hi StatusLineNC gui=NONE guibg=#1a1636
-	hi WinSeparator ctermfg=8 guifg=#7d78a1
+	hi WinSeparator guifg=#7d78a1
 endif
 
 " UI LINKED
@@ -270,4 +271,4 @@ hi! link TelescopePromptCounter Comment
 
 " Treesitter context
 hi! link TreesitterContext CursorLine
-hi TreesitterContextLineNumber cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#a39bd6
+hi TreesitterContextLineNumber cterm=bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=13 guifg=fg

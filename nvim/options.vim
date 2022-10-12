@@ -55,4 +55,9 @@ augroup set_option_autocmds
 	autocmd FocusGained,BufEnter * :checktime
 	" Remove numbers in terminal
 	autocmd TermOpen * setlocal nonumber norelativenumber
+	" Open quickfix window
+	" autocmd QuickFixCmdPost cgetexpr cwindow
+	" autocmd QuickFixCmdPost lgetexpr lwindow
+	autocmd QuickFixCmdPost [^l]* cwindow
+	autocmd QuickFixCmdPost l* lwindow
 augroup END
