@@ -68,11 +68,12 @@ nnoremap <leader>R "ryiw:%s/\(<c-r>r\)/
 vnoremap <leader>R "ry:s/\(<c-r>r\)/
 
 " Grep
-nnoremap <leader>G :silent grep 
 nnoremap gr "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
 nnoremap gs "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 vnoremap gr "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
 vnoremap gs "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
+vnoremap <leader>G "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
+nnoremap <leader>G :silent grep 
 
 " Terminal
 nnoremap <silent> <leader><cr> <cmd>terminal<cr>i

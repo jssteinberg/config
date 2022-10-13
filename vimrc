@@ -1,9 +1,9 @@
-" DEFAULTS
+" Source defaults.vim
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
 " Create undo dir
-if !isdirectory($HOME.'/.vimundo') | call mkdir($HOME.'/.vimundo', '', 0770) | endif
+if !isdirectory($HOME.'/.vimundo') | call mkdir($HOME.'/.vimundo', '', 0770) | en
 
 " OPTIONS
 set noswapfile undofile undodir=$HOME/.vimundo " No swap files, but undo files
@@ -16,18 +16,19 @@ set list listchars=tab:\·\  fillchars=vert:\│ " Show tabs, consistent char
 set number relativenumber signcolumn=yes
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set sessionoptions=curdir,folds,tabpages,help
+set splitright
 set tabstop=2 shiftwidth=2 " indent size
 set wildmode=lastused:full " :b <tab> for last used buffer(s)
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
 set showtabline=2 " Always show tabline
 
+" Netrw
+let g:netrw_banner = 0 | let g:netrw_altv = 1 | let g:netrw_sort_by = "exten"
+
 " (Rip)grep
 if executable('rg')
 	set grepformat^=%f:%l:%c:%m grepprg=rg\ --vimgrep
-endif
-
-" Netrw
-let g:netrw_banner = 0 | let g:netrw_altv = 1 | let g:netrw_sort_by = "exten"
+en
 
 " KEYMAPS
 nnoremap Y y$
@@ -77,13 +78,6 @@ nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' :
 nnoremap <leader>R :%s/
 vnoremap <leader>R :s/
 
-" Marks
-nnoremap <leader>ha 'A'"
-nnoremap <leader>hs 'S'"
-nnoremap <leader>hd 'D'"
-nnoremap <leader>hf 'F'"
-nnoremap <leader>hc 'C'"
-
 " Grep (grep cmd, grep cursor word, grep cursor word and populate cfdo)
 nnoremap <leader>G :silent! grep  
 nnoremap gr "gyiw<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>
@@ -94,18 +88,17 @@ vnoremap gs "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:cfdo %
 " Fuzzy find files with Fzy
 nnoremap <leader>s :call FzyCommand("fd --hidden --follow -E node_modules -E .git -E .github -E .swc", ":e")<cr>
 
-function! FzyCommand(choice_command, vim_command)
-	try
-		let output = system(a:choice_command . " | fzy ")
-	catch /Vim:Interrupt/ | endtry
-	redraw! | if v:shell_error == 0 && !empty(output)
+fu! FzyCommand(choice_command, vim_command)
+	try | let output = system(a:choice_command . " | fzy ")
+	catch /Vim:Interrupt/ | endtry | redraw!
+	if v:shell_error == 0 && !empty(output)
 		exec a:vim_command . ' ' . output
-	endif
-endfunction
+	en
+endf
 
 " COLORS
 try | colo nightcoolwc | catch
-	set background=dark | colo slate " DUAL lunaperche (9) DARK: habamax (9) industry slate LIGHT: quiet zellner 
+	set background=dark | colo slate " DUAL lunaperche quiet (9) DARK: habamax (9) industry slate LIGHT: zellner
 	hi Normal ctermbg=NONE
 	hi CursorLine cterm=NONE ctermbg=236 | hi! link CursorLineNr CursorLine
 	hi! link SignColumn LineNr

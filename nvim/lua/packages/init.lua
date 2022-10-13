@@ -43,7 +43,6 @@ local function init()
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
-			-- 'hrsh7th/cmp-nvim-lsp-signature-help',
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 		},
@@ -73,9 +72,10 @@ local function init()
 		after = "vim-gitbranch",
 		branch = "dev",
 		config = function()
-			vim.g.hackline_git_info  = true
-			vim.g.hackline_cwd       = true
-			vim.g.hackline_normal_px = 0
+			vim.g.hackline_git_info       = true
+			vim.g.hackline_cwd            = true
+			vim.g.hackline_normal_px      = 0
+			vim.g.hackline_sep_inner_left = ":"
 		end
 	}
 
@@ -166,9 +166,6 @@ local function init()
 	-- 	"ibhagwan/fzf-lua",
 	-- 	cmd = "FzfLua"
 	-- }
-	-- snap
-	-- use { "camspiers/snap", config = function ()
-	-- end }
 	-- fzy
 	use {
 		"cloudhead/neovim-fuzzy",
@@ -222,6 +219,9 @@ local function init()
 
 	-- ### UTIL
 
+	-- Measure startuptime
+	use { "dstein64/vim-startuptime", cmd = "StartupTime" }
+
 	-- Colors
 	use {
 		"uga-rosa/ccc.nvim",
@@ -231,9 +231,6 @@ local function init()
 	-- Colorscheme creation
 	use { "rktjmp/lush.nvim", opt = true }
 	use { "rktjmp/shipwright.nvim", opt = true }
-
-	-- Measure startuptime
-	use { "dstein64/vim-startuptime", opt = true }
 
 end
 

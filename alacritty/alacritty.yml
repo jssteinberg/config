@@ -4,11 +4,8 @@ font:
   size: 14
   normal:
     family: monospace
-    family: courier prime
     family: cousine nerd font mono
-  # Italic font face
   italic:
-    family: courier prime
     family: cousine nerd font mono
     style: Italic
 
@@ -37,6 +34,7 @@ colors:
   # Default colors
   primary:
     background: '0x121118'
+    # background: '0x05040b'
     foreground: '0xe5f2e0'
 
   # Normal colors

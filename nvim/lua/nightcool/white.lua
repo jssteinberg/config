@@ -31,7 +31,7 @@ local color = function(color, variant)
 		blue    = { hsl(217.5, sa, li), hsl(217.5, sa2, li2), hsl(217.5, sa3, li3) }, -- add 2 index color
 		magenta = { hsl(hue, sa, li), hsl(hue, sa2, li2), hsl(hue, sa3, 92.5) }, -- add 2 index color
 		cyan    = { hsl(187.3, sa, li), hsl(187.5, sa2, li2), hsl(187.3, sa3, li3) }, -- add 2 index color
-		white   = { hsl("#afacc5"), hsl("#e5f2e0"), hsl("#ffffff") }, -- add 2 index color
+		white   = { hsl(hue, 17.8, li), hsl("#e5f2e0"), hsl("#ffffff") }, -- add 2 index color
 		-- additional color keys
 		violet  = { hsl(277.5, sa, li), hsl(277.5, sa2, li2), hsl(277.5, sa, li3) },
 	}
@@ -70,9 +70,10 @@ local theme = lush(function()
 
 		-- necessities
 		LineNr { fg = color("white") },
+		LineNrBelow { LineNr, fg = color("magenta") },
 		ColorColumn { bg = color("red").li(90) }, -- used for the columns set with 'colorcolumn'
 		CursorLine { bg = color("yellow", "bg") },
-		CursorLineNr { CursorLine },
+		CursorLineNr { CursorLine, fg = color("black", 2) },
 		CursorColumn { bg = CursorLine.bg.li(10) },
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		StatusLine { bg = color("magenta", "bg"), fg = color("magenta", 2) },
@@ -181,7 +182,7 @@ local theme = lush(function()
 		Repeat {}, --   for, do, while, etc.
 		Label {}, --    case, default, etc.
 		Operator { fg = color("blue", 2) }, -- "sizeof", "+", "*", etc.
-		Keyword { fg = color("blue", 2) }, --  any other keyword
+		Keyword { gui = "bold" }, --  any other keyword
 		Exception {}, --  try, catch, throw
 
 		PreProc { fg = color("blue", 2) }, -- (preferred) generic Preprocessor

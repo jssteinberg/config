@@ -1,4 +1,5 @@
 " OPTIONS
+set noswapfile undofile
 set clipboard=unnamedplus
 set copyindent
 set cursorline
@@ -8,13 +9,12 @@ set foldmethod=indent nofoldenable
 set ignorecase smartcase
 set list listchars+=tab:\·\ 
 set number relativenumber signcolumn=yes
-" set mouse=a
 set sessionoptions=curdir,folds,tabpages,help
 set scrolloff=15
+set splitright
 set synmaxcol=300 " reduce column to search for syntax items
 set tabstop=2 shiftwidth=2 " indent size
 set timeoutlen=500 " Wait less for typing of keymaps
-set undofile noswapfile
 set updatetime=100
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git/**
 set wrap breakindent linebreak " Inherit indent, `linebreak` use `breakat`

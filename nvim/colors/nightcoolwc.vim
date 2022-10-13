@@ -17,7 +17,7 @@ let g:colors_name = 'nightcoolwc'
 " violet    #985cbc violet_2   #bf9ad6 violet_bg #552c6d
 "
 " Options:
-" - `let g:nightcoolwc_bg = 1`. 0 for NONE (transparent), 1 for background.
+" - `let g:nightcoolwc_bg = "default"` or "none" (transparent) or "black"
 " - `let g:nightcoolwc_statusline = "default"` or "bold" (default if
 "   notermguicolors)
 "   darker variant using bold for clarity.
@@ -65,12 +65,15 @@ let g:terminal_color_15 = "#ffffff"
 let g:terminal_color_background = "#121118"
 let g:terminal_color_foreground = "#e5f2e0"
 
-if get(g:, 'nightcoolwc_bg', '1')
-	hi Normal ctermbg=233 guibg=#121118 guifg=#e5f2e0
-else
-	hi Normal ctermfg=230 guifg=#e5f2e0
+hi Normal guifg=#e5f2e0
+
+if get(g:, "nightcoolwc_bg", "default") == "default"
+	hi Normal ctermbg=233 guibg=#121118
+elseif get(g:, "nightcoolwc_bg", "default") == "black"
+	hi Normal ctermbg=16 guibg=#05040b
 endif
 
+hi clear Conceal
 hi! link Constant Normal
 hi! link TSParameter Normal
 
@@ -88,8 +91,8 @@ hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9bb2d6
 hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9bcfd6
 
 " *Statement Conditional Repeat Label Operator Keyword Exception
-hi Statement cterm=NONE gui=NONE ctermfg=4 guifg=#9bb2d6
-" hi Keyword cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
+hi Statement cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
+hi Keyword cterm=NONE gui=NONE ctermfg=15 guifg=#ffffff
 " linked
 hi! link Label Keyword
 
@@ -149,25 +152,26 @@ hi! link scssTSString cssTSString
 " UI
 
 hi ColorColumn ctermbg=0 guibg=#05040b
-hi clear Conceal
 hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e5f2e0 guifg=#121118 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
 hi CursorLineNr cterm=bold gui=bold ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=fg
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
-hi LineNr cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
+hi LineNr ctermfg=8 guifg=#7d78a1
+hi LineNrAbove ctermfg=5 guifg=#685cbc
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a39bd6
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
-hi NonText gui=NONE ctermfg=238 guifg=#342c6d
+hi NonText gui=NONE ctermfg=5 guifg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
 hi Pmenu      ctermbg=0 guibg=#05040b ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9bcfd6
-hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
-hi TabLineSel ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1
+hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=#121118 ctermfg=8 guifg=#7d78a1
+hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#afacc5
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a39bd6
+hi WildMenu cterm=bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=13 guifg=fg
 
 hi DiagnosticError ctermfg=1 guifg=#bc675c
 hi DiagnosticHint ctermfg=8 guifg=#5c80bc
@@ -202,13 +206,13 @@ hi Search cterm=italic gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
 
 " StatusLine and WinSeparator
 " default
-hi StatusLine cterm=bold gui=NONE ctermbg=0 guibg=#342c6d ctermfg=8 guifg=#a39bd6
-hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=5 guifg=#685cbc
+hi StatusLine cterm=bold gui=NONE ctermbg=0 guibg=#342c6d ctermfg=7 guifg=#a39bd6
+hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=8 guifg=#685cbc
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
 " bold variant
 if get(g:, "nightcoolwc_statusline", "default") == "bold"
-	hi StatusLine   gui=bold guibg=#1a1636 guifg=#7d78a1
-	hi StatusLineNC gui=NONE guibg=#1a1636
+	hi StatusLine   gui=bold guibg=#1a1636 guifg=#afacc5
+	hi StatusLineNC gui=NONE guibg=#1a1636 guifg=#7d78a1
 	hi WinSeparator guifg=#7d78a1
 endif
 
@@ -227,7 +231,6 @@ hi! link QuickFixLine Visual
 hi! link TabLineFill TabLine
 hi! link VertSplit WinSeparator
 hi! link WinBarNC LineNr
-hi! link WildMenu PmenuSel
 
 " Folds
 hi! link Folded Comment
@@ -271,4 +274,4 @@ hi! link TelescopePromptCounter Comment
 
 " Treesitter context
 hi! link TreesitterContext CursorLine
-hi TreesitterContextLineNumber cterm=bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=13 guifg=fg
+hi! link TreesitterContextLineNumber WildMenu
