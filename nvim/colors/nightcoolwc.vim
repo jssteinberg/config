@@ -4,8 +4,8 @@ hi clear
 set bg=dark
 let g:colors_name = 'nightcoolwc'
 
-" bg        #121118 fg         #e5f2e0
-" black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d black_bg #05040b
+" bg_black #05040b bg_blackblue #121118 fg #e5f2e0
+" black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d
 " red#1     #bc675c red#9      #d6a39b
 " green#2   #80bc5c green#10   #a9d69b
 " yellow#3  #bc985c yellow#11  #ced69b yellow_bg #646d2c
@@ -17,8 +17,8 @@ let g:colors_name = 'nightcoolwc'
 " violet    #985cbc violet_2   #bf9ad6 violet_bg #552c6d
 "
 " Options:
-" - `let g:nightcoolwc_bg = "default"` or "none" (transparent) or "black"
-" - `let g:nightcoolwc_statusline = "default"` or "bold" (default if
+" - `let g:nightcoolwc_bg = "black"`, "none" (transparent) or "blackblue"
+" - `let g:nightcoolwc_statusline = "darkblue"` or "bold"
 "   notermguicolors)
 "   darker variant using bold for clarity.
 "
@@ -67,10 +67,10 @@ endif
 
 hi Normal guifg=#e5f2e0
 
-if get(g:, "nightcoolwc_bg", "default") == "default"
-	hi Normal ctermbg=233 guibg=#121118
-elseif get(g:, "nightcoolwc_bg", "default") == "black"
+if get(g:, "nightcoolwc_bg", "default") == "black"
 	hi Normal ctermbg=16 guibg=#05040b
+elseif get(g:, "nightcoolwc_bg", "default") == "blackblue"
+	hi Normal ctermbg=233 guibg=#121118
 endif
 
 hi clear Conceal
@@ -155,7 +155,7 @@ hi! link scssTSString cssTSString
 
 " UI
 
-hi ColorColumn ctermbg=0 guibg=#05040b
+hi ColorColumn ctermbg=233 guibg=#121118
 hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e5f2e0 guifg=#121118 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
@@ -167,11 +167,11 @@ hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a39bd6
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
 hi NonText gui=NONE ctermfg=5 guifg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
-hi Pmenu      ctermbg=0 guibg=#05040b ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
+hi Pmenu ctermbg=233 guibg=#121118 ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9bcfd6
 hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
-hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#afacc5
+hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afacc5
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a39bd6
@@ -209,7 +209,7 @@ hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#646d2c ctermfg=11 guifg=
 hi Search cterm=italic gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
 
 " StatusLine and WinSeparator
-" default
+" darkblue
 hi StatusLine cterm=bold gui=NONE ctermbg=0 guibg=#342c6d ctermfg=7 guifg=#a39bd6
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=8 guifg=#685cbc
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
@@ -217,13 +217,13 @@ hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
 if get(g:, "nightcoolwc_statusline", "default") == "bold"
 	hi StatusLine   gui=bold guibg=#1a1636 guifg=#afacc5
 	hi StatusLineNC gui=NONE guibg=#1a1636 guifg=#7d78a1
-	hi WinSeparator guifg=#7d78a1
+	hi WinSeparator ctermfg=0 guifg=#1a1636
 endif
 
 " Adjust for bg alternative
-if get(g:, "nightcoolwc_bg", "default") == "black"
-	hi CursorColumn ctermbg=233 guibg=#121118
-	hi Pmenu ctermbg=233 guibg=#121118
+if get(g:, "nightcoolwc_bg", "default") == "blackblue"
+	hi ColorColumn ctermbg=0 guibg=#05040b
+	hi Pmenu ctermbg=0 guibg=#05040b
 endif
 
 " UI LINKED
