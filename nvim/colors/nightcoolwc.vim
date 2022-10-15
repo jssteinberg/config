@@ -35,7 +35,7 @@ let g:colors_name = 'nightcoolwc'
 " - Warning: yellow#3
 " - Selection (bg): violet_bg
 "
-" Make gui only:
+" Make gui only version:
 " :%s/\v cterm[^ ]*//g | %s/\vnightcoolwc(['|.])/nightcoolwc_gui\1/g
 
 " #cae138 yellow_id color
@@ -50,7 +50,7 @@ if has("nvim")
 	let g:terminal_color_0 = "#1a1636"
 	let g:terminal_color_1 = "#bc675c"
 	let g:terminal_color_2 = "#80bc5c"
-	let g:terminal_color_3 = "#bc985c "
+	let g:terminal_color_3 = "#bc985c"
 	let g:terminal_color_4 = "#5c80bc"
 	let g:terminal_color_5 = "#685cbc"
 	let g:terminal_color_6 = "#5cb1bc"
@@ -132,6 +132,7 @@ hi Underlined cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
 " *Todo
 hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
 " linked
+hi! link vimCommentTitle Todo
 hi! link TSNote Todo
 
 " Other syntax
