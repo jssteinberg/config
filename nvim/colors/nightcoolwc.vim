@@ -46,24 +46,26 @@ let g:colors_name = 'nightcoolwc'
 
 " GROUP NAMES (:h group-name)
 
-let g:terminal_color_0 = "#1a1636"
-let g:terminal_color_1 = "#bc675c"
-let g:terminal_color_2 = "#80bc5c"
-let g:terminal_color_3 = "#bc985c "
-let g:terminal_color_4 = "#5c80bc"
-let g:terminal_color_5 = "#685cbc"
-let g:terminal_color_6 = "#5cb1bc"
-let g:terminal_color_7 = "#afacc5"
-let g:terminal_color_8 = "#7d78a1"
-let g:terminal_color_9 = "#d6a39b"
-let g:terminal_color_10 = "#a9d69b"
-let g:terminal_color_11 = "#ced69b"
-let g:terminal_color_12 = "#9bb2d6"
-let g:terminal_color_13 = "#a39bd6"
-let g:terminal_color_14 = "#9bcfd6"
-let g:terminal_color_15 = "#ffffff"
-let g:terminal_color_background = "#121118"
-let g:terminal_color_foreground = "#e5f2e0"
+if has("nvim")
+	let g:terminal_color_0 = "#1a1636"
+	let g:terminal_color_1 = "#bc675c"
+	let g:terminal_color_2 = "#80bc5c"
+	let g:terminal_color_3 = "#bc985c "
+	let g:terminal_color_4 = "#5c80bc"
+	let g:terminal_color_5 = "#685cbc"
+	let g:terminal_color_6 = "#5cb1bc"
+	let g:terminal_color_7 = "#afacc5"
+	let g:terminal_color_8 = "#7d78a1"
+	let g:terminal_color_9 = "#d6a39b"
+	let g:terminal_color_10 = "#a9d69b"
+	let g:terminal_color_11 = "#ced69b"
+	let g:terminal_color_12 = "#9bb2d6"
+	let g:terminal_color_13 = "#a39bd6"
+	let g:terminal_color_14 = "#9bcfd6"
+	let g:terminal_color_15 = "#ffffff"
+	let g:terminal_color_background = "#121118"
+	let g:terminal_color_foreground = "#e5f2e0"
+endif
 
 hi Normal guifg=#e5f2e0
 
@@ -129,14 +131,16 @@ hi Underlined cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
 
 " *Todo
 hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#bf9ad6
+" linked
+hi! link TSNote Todo
 
 " Other syntax
 hi Bold cterm=bold gui=bold
 hi Italic cterm=nocombine,italic gui=nocombine,italic
-hi Title cterm=NONE gui=NONE ctermfg=11 guifg=#ced69b
+hi Title cterm=bold gui=bold ctermfg=NONE guifg=NONE
 hi TooLong cterm=underline gui=underline ctermfg=3 guifg=#bc985c
 hi markdownCode ctermfg=10 guifg=#a9d69b
-hi markdownUrl ctermfg=5 guifg=#685cbc
+hi markdownUrl ctermfg=8 guifg=#7d78a1
 " linked
 hi! link cssAttributeSelector htmlArg
 hi! link htmlArg TSTagAttribute

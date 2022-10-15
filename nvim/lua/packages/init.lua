@@ -223,11 +223,8 @@ local function init()
 	use { "dstein64/vim-startuptime", cmd = "StartupTime" }
 
 	-- Colors
-	use {
-		"uga-rosa/ccc.nvim",
-		cmd = { "CccHighlighterEnable" },
-		config = function() require("ccc").setup({}) end
-	}
+	use { "chrisbra/Colorizer", cmd = "ColorHighlight" }
+
 	-- Colorscheme creation
 	use { "rktjmp/lush.nvim", opt = true }
 	use { "rktjmp/shipwright.nvim", opt = true }

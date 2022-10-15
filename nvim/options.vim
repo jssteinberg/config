@@ -8,7 +8,7 @@ set fileencoding=utf-8
 set foldmethod=indent nofoldenable
 set ignorecase smartcase
 set list listchars+=tab:\·\ 
-set number relativenumber signcolumn=yes
+set number relativenumber signcolumn=yes:1
 set sessionoptions=curdir,folds,tabpages,help
 set scrolloff=15
 set splitright
