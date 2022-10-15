@@ -63,8 +63,6 @@ if has("nvim")
 	let g:terminal_color_13 = "#a39bd6"
 	let g:terminal_color_14 = "#9bcfd6"
 	let g:terminal_color_15 = "#ffffff"
-	let g:terminal_color_background = "#121118"
-	let g:terminal_color_foreground = "#e5f2e0"
 endif
 
 hi Normal guifg=#e5f2e0
