@@ -240,6 +240,8 @@ hi! link PmenuSel CursorLineNr " Pmenu affects some floating windows
 hi! link PmenuSbar Pmenu " Pmenu affects some floating windows
 hi! link Question Bold
 hi! link QuickFixLine Visual
+hi! link StatusLineTerm StatusLine
+hi! link StatusLineTermNC StatusLineNC
 hi! link TabLineFill TabLine
 hi! link VertSplit WinSeparator
 hi! link WinBarNC LineNr
