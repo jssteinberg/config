@@ -98,6 +98,7 @@ hi! link Label Keyword
 
 " *PreProc Include Define Macro PreCondit
 hi PreProc ctermfg=13 guifg=#a39bd6
+hi TSInclude ctermfg=7 guifg=#afacc5
 
 " *Type StorageClass Structure Typedef
 hi Type cterm=NONE gui=NONE ctermfg=10 guifg=#a9d69b " Have good constrast from String
@@ -158,7 +159,7 @@ hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have sligh
 hi CursorLineNr cterm=bold gui=bold ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=fg
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi LineNr ctermfg=8 guifg=#7d78a1
-hi LineNrAbove ctermfg=5 guifg=#685cbc
+hi LineNrAbove ctermfg=5 guifg=#342c6d
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a39bd6
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
 hi NonText gui=NONE ctermfg=5 guifg=#342c6d
@@ -166,7 +167,7 @@ hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
 hi Pmenu      ctermbg=0 guibg=#05040b ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9bcfd6
-hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=#121118 ctermfg=8 guifg=#7d78a1
+hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#afacc5
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
@@ -216,6 +217,12 @@ if get(g:, "nightcoolwc_statusline", "default") == "bold"
 	hi WinSeparator guifg=#7d78a1
 endif
 
+" Adjust for bg alternative
+if get(g:, "nightcoolwc_bg", "default") == "black"
+	hi CursorColumn ctermbg=233 guibg=#121118
+	hi Pmenu ctermbg=233 guibg=#121118
+endif
+
 " UI LINKED
 
 hi! link lCursor Cursor
@@ -224,7 +231,7 @@ hi! link DiagnosticUnderlineInfo DiagnosticUnderlineHint
 hi! link ErrorMsg Error
 hi! link ModeMsg Title
 hi! link MoreMsg Bold
-hi! link PmenuSel CursorLine " Pmenu affects some floating windows
+hi! link PmenuSel CursorLineNr " Pmenu affects some floating windows
 hi! link PmenuSbar Pmenu " Pmenu affects some floating windows
 hi! link Question Bold
 hi! link QuickFixLine Visual

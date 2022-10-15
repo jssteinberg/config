@@ -1,5 +1,5 @@
 let s:d = "set bg=dark termguicolors t_Co=256"
-			\." | let g:nightcoolwc_bg='black'"
+			\." | let g:nightcoolwc_bg='default'"
 			\." | let g:nightcoolwc_statusline='bold'"
 			\." | colo nightcoolwc"
 
