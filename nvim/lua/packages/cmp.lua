@@ -1,15 +1,15 @@
 local M = {}
 
 M.config = function()
-	local cmp = require 'cmp'
-	local luasnip = require 'luasnip'
+	local cmp = require "cmp"
+	local luasnip = require "luasnip"
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 	-- Add additional capabilities supported by nvim-cmp
-	capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 	-- Set completeopt to have a better completion experience
-	vim.o.completeopt = 'menuone,noselect'
+	vim.o.completeopt = "menuone,noselect"
 
 	-- nvim-cmp setup
 	cmp.setup {
@@ -18,13 +18,13 @@ M.config = function()
 			-- 	name = 'nvim_lsp_signature_help', max_item_count = 1
 			-- },
 			{
-				name = 'luasnip', max_item_count = 2
+				name = "luasnip", max_item_count = 2
 			},
 			{
-				name = 'nvim_lsp', max_item_count = 3
+				name = "nvim_lsp", max_item_count = 3
 			},
 			{
-				name = 'buffer', max_item_count = 5
+				name = "buffer", max_item_count = 5
 			},
 		},
 		experimental = {
@@ -36,13 +36,13 @@ M.config = function()
 			end,
 		},
 		mapping = {
-			['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-			['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-			['<C-c>'] = cmp.mapping({
+			["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+			["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+			["<C-c>"] = cmp.mapping({
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),
 			}),
-			['<c-f>'] = cmp.mapping(function(fallback)
+			["<c-f>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.confirm({ select = true })
 				elseif luasnip.jumpable() then
@@ -51,55 +51,55 @@ M.config = function()
 					fallback()
 				end
 			end, { "i" }),
-			['<CR>'] = cmp.mapping(function(fallback)
+			["<CR>"] = cmp.mapping(function(fallback)
 				if cmp.get_active_entry() then
 					cmp.confirm({ select = true })
 				else
 					fallback()
 				end
-			end, { 'i' }),
-			['<tab>'] = cmp.mapping(function(fallback)
+			end, { "i" }),
+			["<tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
 				else
 					fallback()
 				end
 			end, { "i" }),
-			['<s-tab>'] = cmp.mapping(function(fallback)
+			["<s-tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item()
 				else
 					fallback()
 				end
 			end, { "i" }),
-			['<c-n>'] = cmp.mapping(function(fallback)
+			["<c-n>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
 				else
 					fallback()
 				end
-			end, { 'i' }),
-			['<c-p>'] = cmp.mapping(function(fallback)
+			end, { "i" }),
+			["<c-p>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item()
 				else
 					fallback()
 				end
-			end, { 'i' }),
-			['<c-s>'] = cmp.mapping(function()
+			end, { "i" }),
+			["<c-s>"] = cmp.mapping(function()
 				if luasnip.jumpable() then
 					luasnip.jump(1)
 				elseif cmp.get_active_entry() then
 					cmp.confirm({ select = true })
 				end
-			end, { 'i' }),
-			['<c-b>'] = cmp.mapping(function(fallback)
+			end, { "i" }),
+			["<c-b>"] = cmp.mapping(function(fallback)
 				if luasnip.jumpable(-1) then
 					luasnip.jump(-1)
 				else
 					fallback()
 				end
-			end, { 'i' }),
+			end, { "i" }),
 		},
 	}
 end
