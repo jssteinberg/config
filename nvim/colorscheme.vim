@@ -10,7 +10,7 @@ function! InitColo()
 	exe(s:d)
 endfunction
 
-function! CycleColo()
+function! NowColo()
 	if &bg == 'dark'
 		exe(s:l)
 	else

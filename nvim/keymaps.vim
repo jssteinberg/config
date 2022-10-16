@@ -87,7 +87,7 @@ nnoremap <leader>hf 'F'"
 nnoremap <leader>hc 'C'"
 
 " No/now (toggle options)
-nnoremap <silent> <leader>nc :call NowColor()<cr>
+nnoremap <silent> <leader>nc :call NowColo()<cr>
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 
