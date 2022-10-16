@@ -28,7 +28,7 @@ local function init()
 		requires = {
 			"nvim-treesitter/playground",
 			"JoosepAlviste/nvim-ts-context-commentstring",
-			-- "David-Kunz/markid",
+			"David-Kunz/markid",
 		},
 		config = function() require "packages.treesitter".config() end
 	}

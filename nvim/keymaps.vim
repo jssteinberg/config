@@ -1,6 +1,6 @@
 " <leader>
 " b: buffer alternate
-" c: color
+" c: close window
 " e: edit
 " g: git
 " f: find/fuzzy files
@@ -23,8 +23,8 @@ noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
 nnoremap <c-s> /
 xnoremap <c-s> /
+cnoremap <c-s> <cr>
 nnoremap <c-p> "0p
-"cnoreabbrev <expr>    (getcmdtype() ==# '/')  ? <cr> : '  '
 
 " Esc mappings
 inoremap jk <esc>
@@ -48,6 +48,7 @@ nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
+nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
 nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 " neo-tree
 nnoremap <silent> <leader>e. :Neotree current dir=.<cr>
@@ -86,11 +87,9 @@ nnoremap <leader>hf 'F'"
 nnoremap <leader>hc 'C'"
 
 " No/now (toggle options)
+nnoremap <silent> <leader>nc :call NowColor()<cr>
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
-
-" Cycle colorschemes
-nnoremap <silent> <leader>cc :call CycleColo()<cr>
 
 " PACKAGE/PLUGIN MAPPINGS
 
