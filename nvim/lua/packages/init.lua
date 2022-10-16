@@ -185,12 +185,24 @@ local function init()
 	}
 
 	-- Cycle buffers
-	use {
-		"ghillb/cybu.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
-		event = "BufAdd",
-		config = function() require "packages.cybu".config() end,
-	}
+	-- use {
+	-- 	"ghillb/cybu.nvim",
+	-- 	requires = { "nvim-lua/plenary.nvim" },
+	-- 	event = "BufAdd",
+	-- 	config = function() require "packages.cybu".config() end,
+	-- }
+	use({
+		"kwkarlwang/bufjump.nvim",
+		config = function()
+			require("bufjump").setup({
+				forward = "<C-n>",
+				backward = "<C-p>",
+				on_success = nil
+			})
+		end,
+	})
+
+
 
 	-- ### GIT
 
