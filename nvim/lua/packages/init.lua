@@ -25,7 +25,7 @@ local function init()
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		commit = "4cccb6f494eb255b32a290d37c35ca12584c74d0",
+		-- commit = "4cccb6f494eb255b32a290d37c35ca12584c74d0",
 		requires = {
 			"nvim-treesitter/playground",
 			"JoosepAlviste/nvim-ts-context-commentstring",
@@ -76,7 +76,7 @@ local function init()
 			vim.g.hackline_git_info       = true
 			vim.g.hackline_cwd            = true
 			vim.g.hackline_normal_px      = 0
-			vim.g.hackline_sep_inner_left = "/"
+			vim.g.hackline_sep_inner_left = ": "
 		end
 	}
 

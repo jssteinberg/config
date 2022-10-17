@@ -4,7 +4,7 @@ hi clear
 set bg=dark
 let g:colors_name = 'nightcoolwc'
 
-" bg_black #05040b bg_blackblue #121118 fg #e5f2e0
+" bg_black #05040b bg_blackblue #13121a fg #e5f2e0
 " black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d
 " red#1     #bc675c red#9      #d6a39b
 " green#2   #80bc5c green#10   #a9d69b
@@ -70,7 +70,7 @@ hi Normal guifg=#e5f2e0
 if get(g:, "nightcoolwc_bg", "default") == "black"
 	hi Normal ctermbg=16 guibg=#05040b
 elseif get(g:, "nightcoolwc_bg", "default") == "blackblue"
-	hi Normal ctermbg=233 guibg=#121118
+	hi Normal ctermbg=233 guibg=#13121a
 endif
 
 hi clear Conceal
@@ -157,8 +157,8 @@ hi! link scssTSString cssTSString
 
 " UI
 
-hi ColorColumn ctermbg=233 guibg=#121118
-hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e5f2e0 guifg=#121118 gui=NONE
+hi ColorColumn ctermbg=233 guibg=#13121a
+hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e5f2e0 guifg=#13121a gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
 hi CursorLineNr cterm=bold gui=bold ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=fg
@@ -169,7 +169,7 @@ hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a39bd6
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
 hi NonText gui=NONE ctermfg=5 guifg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
-hi Pmenu ctermbg=233 guibg=#121118 ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
+hi Pmenu ctermbg=233 guibg=#13121a ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9bcfd6
 hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
@@ -187,9 +187,9 @@ hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#5c80bc
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
 
 hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
-hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#ced69b guifg=#121118
-hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#a9d69b guifg=#121118
-hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d6a39b guifg=#121118
+hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#ced69b guifg=#05040b
+hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#a9d69b guifg=#05040b
+hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d6a39b guifg=#05040b
 hi SpellBad cterm=NONE gui=NONE ctermfg=9 guifg=#d6a39b
 hi SpellCap       ctermbg=4 ctermfg=15 gui=undercurl guisp=#5c80bc
 hi SpellRare      ctermbg=5 ctermfg=15 gui=undercurl guisp=#685cbc
@@ -226,6 +226,9 @@ endif
 if get(g:, "nightcoolwc_bg", "default") == "blackblue"
 	hi ColorColumn ctermbg=0 guibg=#05040b
 	hi Pmenu ctermbg=0 guibg=#05040b
+	hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#ced69b guifg=#13121a
+	hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#a9d69b guifg=#13121a
+	hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d6a39b guifg=#13121a
 endif
 
 " UI LINKED

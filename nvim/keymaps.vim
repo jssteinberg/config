@@ -65,8 +65,8 @@ nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' :
 " Substitute/Replace [normal, selection]
 nnoremap <leader>S :%s/
 vnoremap <leader>S :s/
-nnoremap <leader>R "ryiw:%s/\(<c-r>r\)/
-vnoremap <leader>R "ry:s/\(<c-r>r\)/
+nnoremap <leader>R "ryiw:%s/<c-r>r/
+vnoremap <leader>R "ry:%s/<c-r>r/
 
 " Grep
 " nnoremap gr "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>
