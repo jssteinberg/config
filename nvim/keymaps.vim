@@ -48,7 +48,7 @@ nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
-nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
+" nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
 nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 " neo-tree
 nnoremap <silent> <leader>e. :Neotree current dir=.<cr>
@@ -69,12 +69,13 @@ nnoremap <leader>R "ryiw:%s/\(<c-r>r\)/
 vnoremap <leader>R "ry:s/\(<c-r>r\)/
 
 " Grep
-nnoremap gr "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
-nnoremap gs "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
-vnoremap gr "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
-vnoremap gs "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
-vnoremap <leader>G "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:copen<cr>
-nnoremap <leader>G :silent grep 
+" nnoremap gr "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>
+" vnoremap gr "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>
+" nnoremap <leader>G :silent grep 
+nnoremap <leader>G "gyiw<cr>:silent grep <c-r>=escape('<c-r>g', '#')<cr>
+vnoremap <leader>G "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>
+nnoremap gs "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
+vnoremap gs "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 
 " Terminal
 nnoremap <silent> <leader><cr> <cmd>terminal<cr>i

@@ -10,13 +10,12 @@ Requires: git, fish, ripgrep, fzy, fd
 
 1. `cd`
 2. git clone as ~/.config
-3. tmux and (not neo)vim
 
-	```fish
-	ln -s .config/tmux.conf .tmux.conf
-	ln -s .config/vimrc .vimrc
-	set -Ux RIPGREP_CONFIG_PATH ~/.config/ripgreprc
-	```
+```sh
+ln -s .config/vimrc .vimrc
+set -Ux RIPGREP_CONFIG_PATH ~/.config/ripgreprc
+# ln -s .config/tmux.conf .tmux.conf
+```
 
 ## Terminal tools
 
@@ -29,6 +28,7 @@ Requires: git, fish, ripgrep, fzy, fd
 	- and for fish: https://github.com/PatrickF1/fzf.fish or https://github.com/jethrokuan/fzf
 - [np](https://github.com/sindresorhus/np) for easy NPM package publication.
 - [fnm](https://github.com/Schniz/fnm) for fast Node.js version managing. *Previously used [nvm](https://github.com/nvm-sh/nvm), and for fish [fish-nvm](https://github.com/FabioAntunes/fish-nvm).*
+- multiplexer: [tab-rs](https://github.com/austinjones/tab-rs)
 - exa, `ls` replacement.
 
 ### *Tips*

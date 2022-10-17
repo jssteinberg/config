@@ -120,6 +120,8 @@ hi! link htmlTagName Tag
 hi! link javascriptTSTag Tag
 hi! link TSTag Tag
 hi! link TSConstructor Tag
+" hi! link @tag Tag
+" hi! link @variable Type
 
 " *Underlined
 hi Underlined cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6

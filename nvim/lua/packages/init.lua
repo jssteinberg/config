@@ -18,17 +18,18 @@ local function init()
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
 
 	use { "echasnovski/mini.nvim", config = function()
-		require("mini.indentscope").setup({ symbol = "│" })
-		require("mini.indentscope").gen_animation("none")
+		-- require("mini.indentscope").setup({ symbol = "│" })
+		-- require("mini.indentscope").gen_animation("none")
 	end }
 
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
+		commit = "4cccb6f494eb255b32a290d37c35ca12584c74d0",
 		requires = {
 			"nvim-treesitter/playground",
 			"JoosepAlviste/nvim-ts-context-commentstring",
-			"David-Kunz/markid",
+			-- "David-Kunz/markid",
 		},
 		config = function() require "packages.treesitter".config() end
 	}
