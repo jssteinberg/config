@@ -31,7 +31,7 @@ local color = function(color, variant)
 		blue    = { hsl(217.5, sa, li), hsl(217.5, sa2, li2), hsl(217.5, sa3, li3) }, -- add 2 index color
 		magenta = { hsl(hue, sa, li), hsl(hue, sa2, li2), hsl(hue, sa3, 92.5) }, -- add 2 index color
 		cyan    = { hsl(187.3, sa, li), hsl(187.5, sa2, li2), hsl(187.3, sa3, li3) }, -- add 2 index color
-		white   = { hsl(hue, 17.8, li), hsl("#e5f2e0"), hsl("#ffffff") }, -- add 2 index color
+		white   = { hsl(hue, 17.8, li), hsl(hue, 17.8, li3) }, -- add 2 index color
 		-- additional color keys
 		violet  = { hsl(277.5, sa, li), hsl(277.5, sa2, li2), hsl(277.5, sa, li3) },
 	}
@@ -55,7 +55,7 @@ end
 
 local theme = lush(function()
 	return {
-		Normal { bg = color("bg"), fg = color("fg", 2) },
+		Normal { bg = color("bg"), fg = color("fg") },
 		Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
 		Bold { gui = "bold" },
 		Italic { gui = "italic" },
@@ -65,6 +65,25 @@ local theme = lush(function()
 		Error { fg = color("red") }, -- (preferred) any erroneous construct
 		ErrorMsg { Error }, -- error messages on the command line
 		WarningMsg { fg = color("warning") }, -- warning messages
+
+		-- TERMINAL COLORS
+
+		TerminalColor00 { fg = color("black") },
+		TerminalColor08 { fg = color("black", 2) },
+		TerminalColor01 { fg = color("red") },
+		TerminalColor09 { fg = color("red", 2) },
+		TerminalColor02 { fg = color("green") },
+		TerminalColor10 { fg = color("green", 2) },
+		TerminalColor03 { fg = color("yellow") },
+		TerminalColor11 { fg = color("yellow", 2) },
+		TerminalColor04 { fg = color("blue") },
+		TerminalColor12 { fg = color("blue", 2) },
+		TerminalColor05 { fg = color("magenta") },
+		TerminalColor13 { fg = color("magenta", 2) },
+		TerminalColor06 { fg = color("cyan") },
+		TerminalColor14 { fg = color("cyan", 2) },
+		TerminalColor07 { fg = color("white") },
+		TerminalColor15 { fg = color("white", 2) },
 
 		-- UI
 
