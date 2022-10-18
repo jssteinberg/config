@@ -205,7 +205,7 @@ local theme = lush(function()
 		Debug {}, --    debugging statements
 
 		TSFunctionCall { gui = "bold" },
-		TSInclude { fg = color("magenta") }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+		TSInclude { fg = color("blue", 2) }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 		TSMethod {}, -- For method calls and definitions.
 		TSProperty {}, -- Same as `TSField`.
 		TSTag { Tag }, -- Same as `TSField`.
