@@ -17,15 +17,22 @@ local function init()
 	use { "tpope/vim-sleuth" } -- detects indent, also uses .editorconfig
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
 
-	use { "echasnovski/mini.nvim", config = function()
-		-- require("mini.indentscope").setup({ symbol = "│" })
-		-- require("mini.indentscope").gen_animation("none")
-	end }
+	-- Prev/next buffer
+	use({
+		"kwkarlwang/bufjump.nvim",
+		config = function()
+			require("bufjump").setup({
+				forward = "<C-n>",
+				backward = "<C-p>",
+				on_success = nil
+			})
+		end,
+	})
 
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		-- commit = "4cccb6f494eb255b32a290d37c35ca12584c74d0",
+		commit = "4cccb6f494eb255b32a290d37c35ca12584c74d0",
 		requires = {
 			"nvim-treesitter/playground",
 			"JoosepAlviste/nvim-ts-context-commentstring",
@@ -106,12 +113,6 @@ local function init()
 		require("nvim-autopairs").setup {}
 	end }
 
-	-- Better f, F, t, T motion, repeatable with f/F
-	-- use { "rhysd/clever-f.vim", keys = {
-	-- 	{ "n", "f" }, { "n", "F" }, { "n", "t" }, { "n", "T" },
-	-- 	{ "x", "f" }, { "x", "F" }, { "x", "t" }, { "x", "T" }
-	-- } }
-
 	-- Leap s/S motion
 	use {
 		"ggandor/leap.nvim",
@@ -185,26 +186,6 @@ local function init()
 		config = require "packages.neo-tree",
 	}
 
-	-- Cycle buffers
-	-- use {
-	-- 	"ghillb/cybu.nvim",
-	-- 	requires = { "nvim-lua/plenary.nvim" },
-	-- 	event = "BufAdd",
-	-- 	config = function() require "packages.cybu".config() end,
-	-- }
-	use({
-		"kwkarlwang/bufjump.nvim",
-		config = function()
-			require("bufjump").setup({
-				forward = "<C-n>",
-				backward = "<C-p>",
-				on_success = nil
-			})
-		end,
-	})
-
-
-
 	-- ### GIT
 
 	use { "tpope/vim-fugitive", cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit" } } -- git wrapper
@@ -231,6 +212,8 @@ local function init()
 	use { "mhinz/vim-signify", opt = true }
 
 	-- ### UTIL
+
+	use { "echasnovski/mini.nvim", opt = true }
 
 	-- Measure startuptime
 	use { "dstein64/vim-startuptime", cmd = "StartupTime" }
