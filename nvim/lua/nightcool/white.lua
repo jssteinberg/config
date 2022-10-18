@@ -183,6 +183,7 @@ local theme = lush(function()
 		Label {}, --    case, default, etc.
 		Operator { fg = color("blue", 2) }, -- "sizeof", "+", "*", etc.
 		Keyword { gui = "bold" }, --  any other keyword
+		-- Keyword { fg = color("blue", 2) }, --  any other keyword
 		Exception {}, --  try, catch, throw
 
 		PreProc { fg = color("blue", 2) }, -- (preferred) generic Preprocessor
@@ -203,11 +204,11 @@ local theme = lush(function()
 		SpecialComment {}, -- special things inside a comment
 		Debug {}, --    debugging statements
 
+		TSFunctionCall { gui = "bold" },
 		TSInclude { fg = color("magenta") }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 		TSMethod {}, -- For method calls and definitions.
 		TSProperty {}, -- Same as `TSField`.
 		TSTag { Tag }, -- Same as `TSField`.
-		-- TSVariable { fg = color("blue", 2) }, -- Any variable name that does not have another highlight.
 		-- TSVariableBuiltin { fg = color("blue", 2) }, -- Variable names that are defined by the languages, like `this` or `self`.
 
 		htmlArg { TSProperty },

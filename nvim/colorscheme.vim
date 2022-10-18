@@ -13,7 +13,9 @@ endfunction
 function! NowColo()
 	if &bg == 'dark'
 		exe(s:l)
+		set listchars=tab:\│\ 
 	else
 		exe(s:d)
+		set listchars+=tab:\·\ 
 	endif
 endfunction

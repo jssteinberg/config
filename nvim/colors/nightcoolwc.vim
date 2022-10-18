@@ -250,7 +250,7 @@ hi! link VertSplit WinSeparator
 hi! link WinBarNC LineNr
 
 " Folds
-hi! link Folded Comment
+hi! link Folded Todo
 hi! link FoldColumn Folded
 
 " PLUGINS NVIM

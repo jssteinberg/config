@@ -71,8 +71,8 @@ vnoremap <leader>R "ry:%s/<c-r>r/
 " Grep
 " nnoremap gr "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>
 " vnoremap gr "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>
-" nnoremap <leader>G :silent grep 
-nnoremap <leader>G "gyiw<cr>:silent grep <c-r>=escape('<c-r>g', '#')<cr>
+nnoremap <leader>G :silent grep 
+" nnoremap <leader>G "gyiw<cr>:silent grep <c-r>=escape('<c-r>g', '#')<cr>
 vnoremap <leader>G "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>
 nnoremap gs "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 vnoremap gs "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
