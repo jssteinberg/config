@@ -156,18 +156,12 @@ local function init()
 
 	-- Fuzzy finder
 	-- telescope
-	-- use {
-	-- 	"nvim-telescope/telescope.nvim",
-	-- 	branch = "0.1.x",
-	-- 	-- cmd = "Telescope",
-	-- 	requires = { "nvim-lua/plenary.nvim" },
-	-- 	config = function() require "packages.telescope".config() end
-	-- }
-	-- fzf lua
-	-- use {
-	-- 	"ibhagwan/fzf-lua",
-	-- 	cmd = "FzfLua"
-	-- }
+	use {
+		"nvim-telescope/telescope.nvim",
+		opt = true,
+		requires = { "nvim-lua/plenary.nvim" },
+		config = require "packages.telescope".config()
+	}
 	-- fzy
 	use {
 		"cloudhead/neovim-fuzzy",

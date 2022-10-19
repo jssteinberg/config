@@ -1,5 +1,3 @@
-local M = {}
-
 local previewers = require("telescope.previewers")
 local putils = require("telescope.previewers.utils")
 local pfiletype = require("plenary.filetype")
@@ -29,7 +27,7 @@ local new_maker = function(filepath, bufnr, opts)
 	previewers.buffer_previewer_maker(filepath, bufnr, opts)
 end
 
-M.config = function()
+return function()
 	local telescope = require("telescope")
 
 	telescope.setup({
@@ -55,5 +53,3 @@ M.config = function()
 		},
 	})
 end
-
-return M

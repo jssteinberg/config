@@ -65,7 +65,10 @@ if has("nvim")
 	let g:terminal_color_15="#ffffff"
 endif
 
-hi Normal guifg=#e6f3e2
+hi Normal guifg=#afacc5
+hi Bold cterm=bold gui=bold
+hi Italic cterm=italic gui=italic
+hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#ffffff
 
 if get(g:, "nightcoolwc_bg", "default") == "black"
 	hi Normal ctermbg=16 guibg=#07060e
@@ -136,9 +139,6 @@ hi! link vimCommentTitle Todo
 hi! link TSNote Todo
 
 " Other syntax
-hi Bold cterm=bold gui=bold
-hi Italic cterm=nocombine,italic gui=nocombine,italic
-hi Title cterm=bold gui=bold ctermfg=NONE guifg=NONE
 hi TooLong cterm=underline gui=underline ctermfg=3 guifg=#bc985c
 hi markdownCode ctermfg=10 guifg=#a9d69b
 hi markdownUrl ctermfg=8 guifg=#7d78a1
@@ -158,7 +158,7 @@ hi! link scssTSString cssTSString
 " UI
 
 hi ColorColumn ctermbg=233 guibg=#121118
-hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e6f3e2 guifg=#121118 gui=NONE
+hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#07060e gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
 hi CursorLineNr cterm=NONE gui=bold ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=fg
@@ -225,6 +225,7 @@ endif
 " Adjust for bg alternative
 if get(g:, "nightcoolwc_bg", "default") == "blackblue"
 	hi ColorColumn ctermbg=0 guibg=#07060e
+	hi Cursor guifg=#121118
 	hi Pmenu ctermbg=0 guibg=#07060e
 	hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#ced69b guifg=#121118
 	hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#a9d69b guifg=#121118

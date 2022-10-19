@@ -24,7 +24,6 @@ noremap <expr> k v:count ? 'k' : 'gk'
 nnoremap <c-s> /
 xnoremap <c-s> /
 cnoremap <c-s> <cr>
-nnoremap <c-p> "0p
 
 " Esc mappings
 inoremap jk <esc>
