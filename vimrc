@@ -2,33 +2,16 @@
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
-" Create undo dir
-if !isdirectory($HOME.'/.vimundo') | call mkdir($HOME.'/.vimundo', '', 0770) | en
-
 " OPTIONS
-set noswapfile undofile undodir=$HOME/.vimundo " No swap files, but undo files
 set clipboard=unnamed " Sync system clioboard
-set cursorline " Highlight cursor line
-set hidden " Unsaved files can be 'hidden'
-set foldmethod=indent nofoldenable
-set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
-set list listchars=tab:\·\  fillchars=vert:\│ " Show tabs, consistent char
-set number relativenumber signcolumn=yes
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
-set sessionoptions=curdir,folds,tabpages,help
-set splitright
-set tabstop=2 shiftwidth=2 " indent size
-set wildmode=lastused:full " :b <tab> for last used buffer(s)
-set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
-set showtabline=2 " Always show tabline
+set list listchars=tab:\·\  fillchars=vert:\│ " Show tabs, consistent char
+" Undo dir
+if !isdirectory($HOME.'/.vimundo') | call mkdir($HOME.'/.vimundo', '', 0770) | en
+set undodir=$HOME/.vimundo
 
-" Netrw
-let g:netrw_banner = 0 | let g:netrw_altv = 1 | let g:netrw_sort_by = "exten"
-
-" (Rip)grep
-if executable('rg')
-	set grepformat^=%f:%l:%c:%m grepprg=rg\ --vimgrep
-en
+" COMMON VIM/NVIM MINIMAL CONFIG
+source $HOME/.config/any.vim
 
 " KEYMAPS
 nnoremap Y y$

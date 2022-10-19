@@ -161,7 +161,7 @@ hi ColorColumn ctermbg=233 guibg=#121118
 hi Cursor cterm=NONE ctermbg=7 ctermfg=0 guibg=#e6f3e2 guifg=#121118 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
-hi CursorLineNr cterm=bold gui=bold ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=fg
+hi CursorLineNr cterm=NONE gui=bold ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=fg
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi LineNr ctermfg=8 guifg=#7d78a1
 hi LineNrAbove ctermfg=5 guifg=#342c6d

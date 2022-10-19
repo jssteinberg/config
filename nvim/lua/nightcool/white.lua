@@ -69,20 +69,15 @@ local theme = lush(function()
 		-- TERMINAL COLORS
 
 		terminal_color_00 { fg = color("black") },
-		terminal_color_08 { fg = color("black", 2) },
 		terminal_color_01 { fg = color("red", 2) },
-		terminal_color_09 { fg = color("red", 2) },
 		terminal_color_02 { fg = color("green", 2) },
-		terminal_color_10 { fg = color("green", 2) },
 		terminal_color_03 { fg = color("yellow") },
 		terminal_color_11 { fg = color("yellow", 2) },
 		terminal_color_04 { fg = color("blue", 2) },
-		terminal_color_12 { fg = color("blue", 2) },
 		terminal_color_05 { fg = color("magenta", 2) },
-		terminal_color_13 { fg = color("magenta", 2) },
 		terminal_color_06 { fg = color("cyan", 2) },
-		terminal_color_14 { fg = color("cyan", 2) },
 		terminal_color_07 { fg = color("white") },
+		terminal_color_08 { fg = color("black", 2) },
 		terminal_color_15 { fg = color("white", 2) },
 
 		-- UI
@@ -196,7 +191,7 @@ local theme = lush(function()
 		Identifier {}, -- (preferred) any variable name
 		Function {}, -- function name (also: methods for classes)
 
-		Statement {}, -- (preferred) any statement
+		Statement { fg = color("magenta", 2) }, -- (preferred) any statement
 		Conditional { fg = color("blue", 2) }, --  if, then, else, endif, switch, etc.
 		Repeat {}, --   for, do, while, etc.
 		Label {}, --    case, default, etc.
@@ -223,7 +218,7 @@ local theme = lush(function()
 		SpecialComment {}, -- special things inside a comment
 		Debug {}, --    debugging statements
 
-		TSFunctionCall { gui = "bold" },
+		TSFunctionCall { fg = color("magenta", 2) },
 		TSInclude { fg = color("blue", 2) }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 		TSMethod {}, -- For method calls and definitions.
 		TSProperty {}, -- Same as `TSField`.
