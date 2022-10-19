@@ -53,8 +53,6 @@ augroup options
 				\ | endif
 	" Check if file has been updated
 	autocmd FocusGained,BufEnter * :checktime
-	" Remove numbers in terminal
-	autocmd TermOpen * setlocal signcolumn=no
 	" Open quickfix window when relevant
 	autocmd QuickFixCmdPost [^l]* cwindow
 augroup END

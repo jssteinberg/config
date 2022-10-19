@@ -68,28 +68,28 @@ local theme = lush(function()
 
 		-- TERMINAL COLORS
 
-		TerminalColor00 { fg = color("black") },
-		TerminalColor08 { fg = color("black", 2) },
-		TerminalColor01 { fg = color("red") },
-		TerminalColor09 { fg = color("red", 2) },
-		TerminalColor02 { fg = color("green") },
-		TerminalColor10 { fg = color("green", 2) },
-		TerminalColor03 { fg = color("yellow") },
-		TerminalColor11 { fg = color("yellow", 2) },
-		TerminalColor04 { fg = color("blue") },
-		TerminalColor12 { fg = color("blue", 2) },
-		TerminalColor05 { fg = color("magenta") },
-		TerminalColor13 { fg = color("magenta", 2) },
-		TerminalColor06 { fg = color("cyan") },
-		TerminalColor14 { fg = color("cyan", 2) },
-		TerminalColor07 { fg = color("white") },
-		TerminalColor15 { fg = color("white", 2) },
+		terminal_color_00 { fg = color("black") },
+		terminal_color_08 { fg = color("black", 2) },
+		terminal_color_01 { fg = color("red", 2) },
+		terminal_color_09 { fg = color("red", 2) },
+		terminal_color_02 { fg = color("green", 2) },
+		terminal_color_10 { fg = color("green", 2) },
+		terminal_color_03 { fg = color("yellow") },
+		terminal_color_11 { fg = color("yellow", 2) },
+		terminal_color_04 { fg = color("blue", 2) },
+		terminal_color_12 { fg = color("blue", 2) },
+		terminal_color_05 { fg = color("magenta", 2) },
+		terminal_color_13 { fg = color("magenta", 2) },
+		terminal_color_06 { fg = color("cyan", 2) },
+		terminal_color_14 { fg = color("cyan", 2) },
+		terminal_color_07 { fg = color("white") },
+		terminal_color_15 { fg = color("white", 2) },
 
 		-- UI
 
 		-- necessities
 		LineNr { fg = color("white") },
-		LineNrBelow { LineNr, fg = color("magenta") },
+		LineNrAbove { LineNr, fg = color("magenta") },
 		ColorColumn { bg = color("red").li(90) }, -- used for the columns set with 'colorcolumn'
 		CursorLine { bg = color("yellow", "bg") },
 		CursorLineNr { CursorLine, fg = color("black", 2) },
