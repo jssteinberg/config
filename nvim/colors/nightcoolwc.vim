@@ -65,7 +65,7 @@ if has("nvim")
 	let g:terminal_color_15="#ffffff"
 endif
 
-hi Normal guifg=#afacc5
+hi Normal ctermfg=7 guifg=#afacc5
 hi Bold cterm=bold gui=bold
 hi Italic cterm=italic gui=italic
 hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#ffffff

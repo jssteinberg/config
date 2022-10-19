@@ -11,7 +11,7 @@ if !isdirectory($HOME.'/.vimundo') | call mkdir($HOME.'/.vimundo', '', 0770) | e
 set undodir=$HOME/.vimundo
 
 " COMMON VIM/NVIM MINIMAL CONFIG
-source $HOME/.config/any.vim
+source $HOME/.config/nvim/any.vim
 
 " KEYMAPS
 nnoremap Y y$
