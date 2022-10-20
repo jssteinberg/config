@@ -17,7 +17,7 @@ alt_send_esc: false
 window:
   decorations: buttonless
   # Opacity use decimal, e.g. .95
-  opacity: 1
+  opacity: .975
   padding:
     x: 12
     y: 16 # Keep 10 for y
@@ -60,8 +60,8 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x07060e'
-    foreground: '0xe6f3e2'
+    background: '0x0c0a19'
+    foreground: '0xe9f5e6'
 
   # Normal colors
   normal:
@@ -72,15 +72,15 @@ colors:
     blue:    '0x5c80bc'
     magenta: '0x685cbc'
     cyan:    '0x5cb1bc'
-    white:   '0xb1aec6'
+    white:   '0xafc5c7'
 
   # Bright colors
   bright:
     black:   '0x7d78a1'
-    red:     '0xd7a49d'
-    green:   '0xabd79d'
-    yellow:  '0xcfd79d'
-    blue:    '0x9db3d7'
-    magenta: '0xa49dd7'
-    cyan:    '0x9dd0d7'
-    white:   '0xe6f3e2'
+    red:     '0xd8a69f'
+    green:   '0xadd89f'
+    yellow:  '0xd0d89f'
+    blue:    '0x9fb4d8'
+    magenta: '0xa69fd8'
+    cyan:    '0x9fd1d8'
+    white:   '0xe9f5e6'

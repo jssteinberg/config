@@ -12,7 +12,7 @@ set number relativenumber signcolumn=yes " Show (relative)numbers and signcolumn
 set cursorline " Highlight cursor line
 set splitright
 set showtabline=2 " Always show tabline
-set timeoutlen=500 " Wait less for typing of keymaps
+set timeoutlen=750 " Timeout for keymaps
 set updatetime=100
 
 " FORMAT OPTIONS
