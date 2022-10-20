@@ -179,13 +179,14 @@ local function init()
 	-- 	requires = { "nvim-lua/plenary.nvim" },
 	-- 	config = require "packages.neo-tree",
 	-- }
-	use {
-		"SidOfc/carbon.nvim",
-		cmd = { "Carbon", "Explore", "Lcarbon", "Lexplore", "Fcarbon" }
-	}
+	-- use {
+	-- 	"SidOfc/carbon.nvim",
+	-- 	cmd = { "Carbon", "Explore", "Lcarbon", "Lexplore", "Fcarbon" }
+	-- }
 	use {
 		"TheBlob42/drex.nvim",
-		cmd = { "DrexDrawerOpen", "Drex" }
+		cmd = { "DrexDrawerOpen", "Drex" },
+		config = require "packages.drex",
 	}
 
 	-- ### GIT
