@@ -4,7 +4,7 @@ lua << EOF
 EOF
 
 " Source config
-source $HOME/.config/nvim/any.vim
+runtime any.vim
 runtime options.vim
 runtime keymaps.vim
 runtime colorscheme.vim

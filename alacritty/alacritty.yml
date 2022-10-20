@@ -72,15 +72,15 @@ colors:
     blue:    '0x5c80bc'
     magenta: '0x685cbc'
     cyan:    '0x5cb1bc'
-    white:   '0xafacc5'
+    white:   '0xb1aec6'
 
   # Bright colors
   bright:
     black:   '0x7d78a1'
-    red:     '0xd6a39b'
-    green:   '0xa9d69b'
-    yellow:  '0xced69b'
-    blue:    '0x9bb2d6'
-    magenta: '0xa39bd6'
-    cyan:    '0x9bcfd6'
+    red:     '0xd7a49d'
+    green:   '0xabd79d'
+    yellow:  '0xcfd79d'
+    blue:    '0x9db3d7'
+    magenta: '0xa49dd7'
+    cyan:    '0x9dd0d7'
     white:   '0xe6f3e2'

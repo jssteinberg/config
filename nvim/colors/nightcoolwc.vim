@@ -4,15 +4,15 @@ hi clear
 set bg=dark
 let g:colors_name="nightcoolwc"
 
-" bg_black #07060e bg_blackblue #121118 fg #afacc5
+" bg_black #07060e bg_blackblue #121118 fg #b1aec6
 " black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d
-" red#1     #bc675c red#9      #d6a39b
-" green#2   #80bc5c green#10   #a9d69b
-" yellow#3  #bc985c yellow#11  #ced69b yellow_bg #646d2c
-" blue#4    #5c80bc blue#12    #9bb2d6 blue_bg   #2c446d
-" magenta#5 #685cbc magenta#13 #a39bd6
-" cyan#6    #5cb1bc cyan#14    #9bcfd6
-" white#7   #afacc5 white#15   #e6f3e2
+" red#1     #bc675c red#9      #d7a49d
+" green#2   #80bc5c green#10   #abd79d
+" yellow#3  #bc985c yellow#11  #cfd79d yellow_bg #646d2c
+" blue#4    #5c80bc blue#12    #9db3d7 blue_bg   #2c446d
+" magenta#5 #685cbc magenta#13 #a49dd7
+" cyan#6    #5cb1bc cyan#14    #9dd0d7
+" white#7   #b1aec6 white#15   #e6f3e2
 " ---
 " violet    #985cbc violet_2   #bf9ad6 violet_bg #552c6d
 "
@@ -54,18 +54,18 @@ if has("nvim")
 	let g:terminal_color_4="#5c80bc"
 	let g:terminal_color_5="#685cbc"
 	let g:terminal_color_6="#5cb1bc"
-	let g:terminal_color_7="#afacc5"
+	let g:terminal_color_7="#b1aec6"
 	let g:terminal_color_8="#7d78a1"
-	let g:terminal_color_9="#d6a39b"
-	let g:terminal_color_10="#a9d69b"
-	let g:terminal_color_11="#ced69b"
-	let g:terminal_color_12="#9bb2d6"
-	let g:terminal_color_13="#a39bd6"
-	let g:terminal_color_14="#9bcfd6"
+	let g:terminal_color_9="#d7a49d"
+	let g:terminal_color_10="#abd79d"
+	let g:terminal_color_11="#cfd79d"
+	let g:terminal_color_12="#9db3d7"
+	let g:terminal_color_13="#a49dd7"
+	let g:terminal_color_14="#9dd0d7"
 	let g:terminal_color_15="#e6f3e2"
 endif
 
-hi Normal ctermfg=7 guifg=#afacc5
+hi Normal ctermfg=7 guifg=#b1aec6
 hi Bold cterm=bold gui=bold
 hi Italic cterm=italic gui=italic
 hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#e6f3e2
@@ -84,36 +84,36 @@ hi! link TSParameter Normal
 hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#985cbc
 
 " *Constant String Character Number Boolean Float
-hi String ctermfg=11 guifg=#ced69b
+hi String ctermfg=11 guifg=#cfd79d
 " linked
 hi! link cssClassName String
 hi! link cssTSProperty String
 
 " *Identifier Function
-hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9bb2d6
-hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9bcfd6
+hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9db3d7
+hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9dd0d7
 
 " *Statement Conditional Repeat Label Operator Keyword Exception
-hi Statement cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
+hi Statement cterm=NONE gui=NONE ctermfg=12 guifg=#9db3d7
 hi Keyword cterm=NONE gui=NONE ctermfg=15 guifg=#e6f3e2
 " linked
 hi! link Label Keyword
 
 " *PreProc Include Define Macro PreCondit
-hi PreProc ctermfg=13 guifg=#a39bd6
-hi TSInclude ctermfg=7 guifg=#afacc5
+hi PreProc ctermfg=13 guifg=#a49dd7
+hi TSInclude ctermfg=7 guifg=#b1aec6
 
 " *Type StorageClass Structure Typedef
-hi Type cterm=NONE gui=NONE ctermfg=10 guifg=#a9d69b " Have good constrast from String
-hi StorageClass cterm=NONE ctermfg=14 gui=NONE guifg=#9bcfd6
+hi Type cterm=NONE gui=NONE ctermfg=10 guifg=#abd79d " Have good constrast from String
+hi StorageClass cterm=NONE ctermfg=14 gui=NONE guifg=#9dd0d7
 " hi Structure ctermfg=5 guifg=#685cbc
 " linked
 hi! link Tag Type
 hi! link TSProperty Type
 
 " *Special SpecialChar Tag Delimiter SpecialComment Debug
-hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9bcfd6 " also links to TelescopeMatch
-hi SpecialKey ctermfg=12 guifg=#9bb2d6 " Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9dd0d7 " also links to TelescopeMatch
+hi SpecialKey ctermfg=12 guifg=#9db3d7 " Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
 hi TSTagAttribute ctermfg=2 guifg=#80bc5c
 hi Delimiter ctermfg=8 guifg=#7d78a1
 " linked
@@ -127,7 +127,7 @@ hi! link TSConstructor Tag
 " hi! link @variable Type
 
 " *Underlined
-hi Underlined cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
+hi Underlined cterm=NONE gui=NONE ctermfg=12 guifg=#9db3d7
 
 " *Ignore
 " *Error
@@ -140,7 +140,7 @@ hi! link TSNote Todo
 
 " Other syntax
 hi TooLong cterm=underline gui=underline ctermfg=3 guifg=#bc985c
-hi markdownCode ctermfg=10 guifg=#a9d69b
+hi markdownCode ctermfg=10 guifg=#abd79d
 hi markdownUrl ctermfg=8 guifg=#7d78a1
 " linked
 hi! link cssAttributeSelector htmlArg
@@ -161,22 +161,22 @@ hi ColorColumn ctermbg=233 guibg=#121118
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#07060e gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
-hi CursorLineNr cterm=NONE gui=bold ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=fg
+hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#e6f3e2
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi LineNr ctermfg=8 guifg=#7d78a1
-hi LineNrAbove ctermfg=5 guifg=#342c6d
-hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a39bd6
+hi LineNrBelow guifg=#985cbc
+hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a49dd7
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
 hi NonText gui=NONE ctermfg=5 guifg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
 hi Pmenu ctermbg=233 guibg=#121118 ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
-hi SignColumn ctermbg=NONE guibg=NONE guifg=#9bcfd6
+hi SignColumn ctermbg=NONE guibg=NONE guifg=#9dd0d7
 hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
-hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afacc5
+hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#b1aec6
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
-hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a39bd6
+hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a49dd7
 hi WildMenu cterm=bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=13 guifg=fg
 
 hi DiagnosticError ctermfg=1 guifg=#bc675c
@@ -187,10 +187,10 @@ hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#5c80bc
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
 
 hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
-hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#ced69b guifg=#07060e
-hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#a9d69b guifg=#07060e
-hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d6a39b guifg=#07060e
-hi SpellBad cterm=NONE gui=NONE ctermfg=9 guifg=#d6a39b
+hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#cfd79d guifg=#07060e
+hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#abd79d guifg=#07060e
+hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d7a49d guifg=#07060e
+hi SpellBad cterm=NONE gui=NONE ctermfg=9 guifg=#d7a49d
 hi SpellCap       ctermbg=4 ctermfg=15 gui=undercurl guisp=#5c80bc
 hi SpellRare      ctermbg=5 ctermfg=15 gui=undercurl guisp=#685cbc
 hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
@@ -212,12 +212,12 @@ hi Search cterm=italic gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
 
 " StatusLine and WinSeparator
 " darkblue
-hi StatusLine cterm=bold gui=NONE ctermbg=0 guibg=#342c6d ctermfg=7 guifg=#a39bd6
+hi StatusLine cterm=bold gui=NONE ctermbg=0 guibg=#342c6d ctermfg=7 guifg=#a49dd7
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=8 guifg=#685cbc
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
 " bold variant
 if get(g:, "nightcoolwc_statusline", "default") == "bold"
-	hi StatusLine   gui=bold guibg=#1a1636 guifg=#afacc5
+	hi StatusLine   gui=bold guibg=#1a1636 guifg=#b1aec6
 	hi StatusLineNC gui=NONE guibg=#1a1636 guifg=#7d78a1
 	hi WinSeparator ctermfg=0 guifg=#1a1636
 endif
@@ -227,9 +227,9 @@ if get(g:, "nightcoolwc_bg", "default") == "blackblue"
 	hi ColorColumn ctermbg=0 guibg=#07060e
 	hi Cursor guifg=#121118
 	hi Pmenu ctermbg=0 guibg=#07060e
-	hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#ced69b guifg=#121118
-	hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#a9d69b guifg=#121118
-	hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d6a39b guifg=#121118
+	hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#cfd79d guifg=#121118
+	hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#abd79d guifg=#121118
+	hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d7a49d guifg=#121118
 endif
 
 " UI LINKED
