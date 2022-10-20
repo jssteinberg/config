@@ -119,5 +119,6 @@ nn gx <cmd>OpenURLFind<cr>
 vn gx y:OpenSearchURL duckduckgo <c-r>"<cr>
 
 " Hop
+noremap s <cmd>HopChar1<cr>
 noremap <leader>j <cmd>HopVerticalAC<cr>
 noremap <leader>k <cmd>HopVerticalBC<cr>

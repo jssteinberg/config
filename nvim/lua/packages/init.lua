@@ -16,6 +16,7 @@ local function init()
 	use { "tpope/vim-repeat" } -- Extend `.` repeat
 	use { "tpope/vim-sleuth" } -- detects indent, also uses .editorconfig
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
+	use { "michaeljsmith/vim-indent-object" }
 
 	-- Prev/next buffer
 	use({
@@ -36,7 +37,6 @@ local function init()
 		requires = {
 			"nvim-treesitter/playground",
 			"JoosepAlviste/nvim-ts-context-commentstring",
-			-- "David-Kunz/markid",
 		},
 		config = function() require "packages.treesitter".config() end
 	}
@@ -59,14 +59,6 @@ local function init()
 			require "packages.cmp".config()
 		end
 	}
-
-	-- use {
-	-- 	"jose-elias-alvarez/null-ls.nvim",
-	-- 	requires = { "nvim-lua/plenary", "neovim/nvim-lspconfig" },
-	-- 	config = function()
-	-- 		require "packages.null-ls".config()
-	-- 	end
-	-- }
 
 	-- LAZY LOADED
 	-- -----------
@@ -113,23 +105,10 @@ local function init()
 		require("nvim-autopairs").setup {}
 	end }
 
-	-- Leap s/S motion
-	use {
-		"ggandor/leap.nvim",
-		keys = {
-			{ "n", "s" }, { "n", "S" },
-			{ "x", "z" }, { "x", "Z" },
-		},
-		config = function()
-			require("leap").setup { highlight_unlabeled = true }
-			require("leap").set_default_keymaps()
-		end
-	}
-
 	-- Hop motion commands
 	use {
 		"phaazon/hop.nvim",
-		cmd = { "HopWord", "HopVerticalAC", "HopVerticalBC" },
+		cmd = { "HopChar1", "HopVerticalAC", "HopVerticalBC" },
 		config = function() require "hop".setup() end
 	}
 

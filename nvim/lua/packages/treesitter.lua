@@ -32,11 +32,6 @@ M.config = function()
 			enable = true,
 			enable_autocmd = false,
 		},
-		-- markid plugin
-		markid = {
-			enable = true,
-			colors = false,
-		}
 	})
 end
 
