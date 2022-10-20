@@ -4,7 +4,7 @@ hi clear
 set bg=dark
 let g:colors_name="nightcoolwc"
 
-" bg_black #07060e bg_blackblue #121118 fg #e6f3e2
+" bg_black #07060e bg_blackblue #121118 fg #afacc5
 " black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d
 " red#1     #bc675c red#9      #d6a39b
 " green#2   #80bc5c green#10   #a9d69b
@@ -12,7 +12,7 @@ let g:colors_name="nightcoolwc"
 " blue#4    #5c80bc blue#12    #9bb2d6 blue_bg   #2c446d
 " magenta#5 #685cbc magenta#13 #a39bd6
 " cyan#6    #5cb1bc cyan#14    #9bcfd6
-" white#7   #afacc5 white#15   #ffffff
+" white#7   #afacc5 white#15   #e6f3e2
 " ---
 " violet    #985cbc violet_2   #bf9ad6 violet_bg #552c6d
 "
@@ -62,13 +62,13 @@ if has("nvim")
 	let g:terminal_color_12="#9bb2d6"
 	let g:terminal_color_13="#a39bd6"
 	let g:terminal_color_14="#9bcfd6"
-	let g:terminal_color_15="#ffffff"
+	let g:terminal_color_15="#e6f3e2"
 endif
 
 hi Normal ctermfg=7 guifg=#afacc5
 hi Bold cterm=bold gui=bold
 hi Italic cterm=italic gui=italic
-hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#ffffff
+hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#e6f3e2
 
 if get(g:, "nightcoolwc_bg", "default") == "black"
 	hi Normal ctermbg=16 guibg=#07060e
@@ -95,7 +95,7 @@ hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9bcfd6
 
 " *Statement Conditional Repeat Label Operator Keyword Exception
 hi Statement cterm=NONE gui=NONE ctermfg=12 guifg=#9bb2d6
-hi Keyword cterm=NONE gui=NONE ctermfg=15 guifg=#ffffff
+hi Keyword cterm=NONE gui=NONE ctermfg=15 guifg=#e6f3e2
 " linked
 hi! link Label Keyword
 
@@ -197,17 +197,17 @@ hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
 
 " Diffs
 " `hi`s in context of normal syntax, so can't use green/red---distinguish another way
-hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
+hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e6f3e2
 hi DiffDelete cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi DiffChange cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
-hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
+hi DiffText   cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e6f3e2
 " `hi`s in own context, so can grey out and use green/red
 hi gitDiff cterm=bold gui=bold ctermfg=5 guifg=#685cbc
 hi diffAdded cterm=bold gui=bold ctermfg=2 guifg=#80bc5c
 hi! link diffRemoved DiffDelete
 
 " Search
-hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#646d2c ctermfg=11 guifg=#ffffff
+hi IncSearch cterm=reverse gui=NONE ctermbg=NONE guibg=#646d2c ctermfg=11 guifg=#e6f3e2
 hi Search cterm=italic gui=NONE ctermbg=3 guibg=#2c446d ctermfg=0 guifg=NONE
 
 " StatusLine and WinSeparator

@@ -156,12 +156,12 @@ local function init()
 
 	-- Fuzzy finder
 	-- telescope
-	use {
-		"nvim-telescope/telescope.nvim",
-		opt = true,
-		requires = { "nvim-lua/plenary.nvim" },
-		config = require "packages.telescope".config()
-	}
+	-- use {
+	-- 	"nvim-telescope/telescope.nvim",
+	-- 	opt = true,
+	-- 	requires = { "nvim-lua/plenary.nvim" },
+	-- 	config = require "packages.telescope",
+	-- }
 	-- fzy
 	use {
 		"cloudhead/neovim-fuzzy",
@@ -171,14 +171,14 @@ local function init()
 
 
 	-- File tree
-	use { "MunifTanjim/nui.nvim", cmd = { "Neotree" } }
-	use {
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		after = "nui.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
-		config = require "packages.neo-tree",
-	}
+	-- use { "MunifTanjim/nui.nvim", cmd = { "Neotree" } }
+	-- use {
+	-- 	"nvim-neo-tree/neo-tree.nvim",
+	-- 	branch = "v2.x",
+	-- 	after = "nui.nvim",
+	-- 	requires = { "nvim-lua/plenary.nvim" },
+	-- 	config = require "packages.neo-tree",
+	-- }
 
 	-- ### GIT
 
@@ -192,12 +192,12 @@ local function init()
 	}
 
 	-- git linker
-	use {
-		"ruifm/gitlinker.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		keys = { { "n", "<leader>gy" }, { "v", "<leader>gy" } },
-		config = function() require("gitlinker").setup({}) end
-	}
+	-- use {
+	-- 	"ruifm/gitlinker.nvim",
+	-- 	requires = "nvim-lua/plenary.nvim",
+	-- 	keys = { { "n", "<leader>gy" }, { "v", "<leader>gy" } },
+	-- 	config = function() require("gitlinker").setup({}) end
+	-- }
 
 	-- git blame inline
 	use { "APZelos/blamer.nvim", opt = true } -- git blame
@@ -218,6 +218,9 @@ local function init()
 	-- Colorscheme creation
 	use { "rktjmp/lush.nvim", opt = true }
 	use { "rktjmp/shipwright.nvim", opt = true }
+
+	-- Colorschemes
+	use { "bratpeki/truedark-vim" }
 
 end
 

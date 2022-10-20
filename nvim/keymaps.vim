@@ -47,14 +47,16 @@ nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
 nnoremap <leader>tb :tabedit %<cr>'"
+nnoremap <silent> <leader>e. :edit .<cr>
+nnoremap <silent> <leader>eh :edit %:p:.:h<cr>
 " nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
 nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 " neo-tree
-nnoremap <silent> <leader>e. :Neotree current dir=.<cr>
-nnoremap <silent> <leader>eb :Neotree toggle buffers<cr>
-nnoremap <silent> <leader>ed :Neotree action=show toggle<cr>
-nnoremap <silent> <leader>eh :Neotree current dir=%:p:.:h reveal<cr>
-nnoremap <silent> <leader>et :Neotree reveal<cr>
+" nnoremap <silent> <leader>e. :Neotree current dir=.<cr>
+" nnoremap <silent> <leader>eb :Neotree toggle buffers<cr>
+" nnoremap <silent> <leader>ed :Neotree action=show toggle<cr>
+" nnoremap <silent> <leader>eh :Neotree current dir=%:p:.:h reveal<cr>
+" nnoremap <silent> <leader>et :Neotree reveal<cr>
 
 " Quickfix [next, previous]
 nnoremap <leader>q :cnext<cr>
