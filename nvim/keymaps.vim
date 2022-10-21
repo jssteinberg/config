@@ -43,8 +43,8 @@ nnoremap <leader>gq <cmd>Git mergetool<cr>
 nnoremap <leader>gs <cmd>SignifyEnableAll<cr>
 
 " Color highlight groups
-nnoremap <leader>ct <cmd>TSHighlightCapturesUnderCursor<cr>
-nn <leader>cg <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
+nnoremap <leader>hc <cmd>TSHighlightCapturesUnderCursor<cr>
+nn <leader>ht <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
 
 " URL
 nn gx <cmd>OpenURLFind<cr>
