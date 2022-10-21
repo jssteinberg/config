@@ -208,6 +208,7 @@ local function init()
 	use { "rktjmp/shipwright.nvim", opt = true }
 
 	-- Colorschemes
+	use { "ackyshake/Spacegray.vim" }
 	use { "bratpeki/truedark-vim" }
 
 end

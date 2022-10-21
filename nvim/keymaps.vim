@@ -1,80 +1,14 @@
-" <leader>
-" b: buffer alternate
-" c: close window
-" e: edit
-" g: git
-" f: find/fuzzy files
-" h: harpoon harpooned/marked project files
-" s: search files
-" t: tab
-" q: quickfix
-" C: tabclose || close all
-" G: grep
-" Q: quickfix window
-" R: replace (search and replace)
-" X: git(signs) reset
-
-" EXTEND DEFAULT MAPPINGS
-vnoremap < <gv
-vnoremap > >gv
-cnoremap <c-p> <up>
-cnoremap <c-n> <down>
-noremap <expr> j v:count ? 'j' : 'gj'
-noremap <expr> k v:count ? 'k' : 'gk'
-nnoremap <c-s> /
-xnoremap <c-s> /
-cnoremap <c-s> <cr>
-
-" Esc mappings
-inoremap jk <esc>
+" Additional esc map
 tnoremap jk <c-\><c-n>
-
-" Set space as leader key
-nnoremap <space> <nop>
-let mapleader=' '
-
-" Alternate buffer
-nnoremap <leader>b :buffer#<cr>
-
-" Buffer switcher
-nnoremap <leader><tab> :buffer 
-
-" Write/save file
-nnoremap <silent> <leader>w :w<cr>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
 nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
-nnoremap <leader>ep :edit package.json<cr>
-nnoremap <leader>er :edit README.md<cr>
-nnoremap <leader>tb :tabedit %<cr>'"
 " nnoremap <silent> <leader>e. :edit .<cr>
 " nnoremap <silent> <leader>eh :edit %:p:.:h<cr>
-" nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
-nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 " Drex
 nnoremap <silent> <leader>e. :Drex<cr>
 nnoremap <silent> <leader>ed :DrexDrawerOpen<cr>
 nnoremap <silent> <leader>eh :Drex %:p:.:h<cr>
-
-" Quickfix [next, previous]
-nnoremap <leader>q :cnext<cr>
-nnoremap <leader>Q :cprev<cr>
-nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
-
-" Substitute/Replace [normal, selection]
-nnoremap <leader>S :%s/
-vnoremap <leader>S :s/
-nnoremap <leader>R "ryiw:%s/<c-r>r/
-vnoremap <leader>R "ry:%s/<c-r>r/
-
-" Grep
-" nnoremap gr "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>
-" vnoremap gr "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>
-nnoremap <leader>G :silent grep 
-" nnoremap <leader>G "gyiw<cr>:silent grep <c-r>=escape('<c-r>g', '#')<cr>
-vnoremap <leader>G "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>
-nnoremap gs "gyiw<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
-vnoremap gs "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 
 " Terminal
 nnoremap <silent> <leader><cr> <cmd>terminal<cr>i
@@ -88,8 +22,6 @@ nnoremap <leader>hc 'C'"
 
 " No/now (toggle options)
 nnoremap <silent> <leader>nc :call NowColo()<cr>
-nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
-nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 
 " PACKAGE/PLUGIN MAPPINGS
 

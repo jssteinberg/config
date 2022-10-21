@@ -2,6 +2,7 @@
 set clipboard=unnamedplus
 set copyindent
 set list listchars+=tab:\·\  " Show tabs, consistent char
+set undofile
 
 " ALIAS GREP
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
@@ -17,6 +18,4 @@ augroup options
 				\ | endif
 	" Check if file has been updated
 	autocmd FocusGained,BufEnter * :checktime
-	" Open quickfix window when relevant
-	autocmd QuickFixCmdPost [^l]* cwindow
 augroup END

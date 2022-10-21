@@ -1,7 +1,11 @@
+" Avoid loading some native vim packages
 lua << EOF
-	-- Avoid loading some native vim packages
 	require'options'.to_not_load()
 EOF
+
+" Set space as leader key
+nnoremap <space> <nop>
+let mapleader=' '
 
 " Source config
 runtime any.vim

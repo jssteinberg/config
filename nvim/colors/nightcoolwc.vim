@@ -17,7 +17,7 @@ let g:colors_name="nightcoolwc"
 " violet    #985cbc violet_2   #c39fd8 violet_bg #552c6d
 "
 " Options:
-" - `let g:nightcoolwc_bg="black"` or "none" (transparent)
+" - `let g:nightcoolwc_bg=v:true` or v:false for `NONE` (transparent)
 " - `let g:nightcoolwc_statusline="darkblue"` or "bold"
 " - `let g:nightcoolwc_comments="darker"` or "bright"
 "
@@ -63,7 +63,7 @@ hi Bold cterm=bold gui=bold
 hi Italic cterm=italic gui=italic
 hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#e9f5e6
 
-if get(g:, "nightcoolwc_bg", "black") == "black"
+if get(g:, "nightcoolwc_bg", v:true)
 	hi Normal ctermbg=16 guibg=#0c0a19
 endif
 
@@ -75,7 +75,7 @@ hi! link TSParameter Normal
 hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#985cbc
 
 if get(g:, "nightcoolwc_comments", "darker") == "bright"
-	hi Comment guifg=#c39fd8
+	hi Comment gui=italic ctermfg=9 guifg=#c39fd8
 endif
 
 " *Constant String Character Number Boolean Float
@@ -108,7 +108,7 @@ hi! link TSProperty Type
 
 " *Special SpecialChar Tag Delimiter SpecialComment Debug
 hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9fd1d8 " also links to TelescopeMatch
-hi SpecialKey ctermfg=12 guifg=#9fb4d8 " Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+hi SpecialKey ctermfg=8 guifg=#7d78a1
 hi TSTagAttribute ctermfg=2 guifg=#80bc5c
 hi Delimiter ctermfg=8 guifg=#7d78a1
 " linked
@@ -155,14 +155,14 @@ hi! link scssTSString cssTSString
 hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
-hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 " bg should have slightly better contrast
+hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#e9f5e6
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi LineNr ctermfg=8 guifg=#7d78a1
-hi LineNrBelow guifg=#985cbc
+hi LineNrAbove ctermfg=5 guifg=#685cbc
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a69fd8
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
-hi NonText gui=NONE ctermfg=5 guifg=#342c6d
+hi NonText gui=NONE ctermfg=8 guifg=#342c6d " keep cterm same as `SpecialKey`
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
 hi Pmenu ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
@@ -185,10 +185,10 @@ hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#d0d89f guifg=#0c0a19
 hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#add89f guifg=#0c0a19
 hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d8a69f guifg=#0c0a19
-hi SpellBad cterm=NONE gui=NONE ctermfg=9 guifg=#d8a69f
-hi SpellCap       ctermbg=4 ctermfg=15 gui=undercurl guisp=#5c80bc
-hi SpellRare      ctermbg=5 ctermfg=15 gui=undercurl guisp=#685cbc
-hi SpellLocal     ctermbg=6 ctermfg=15 gui=undercurl guisp=#5cb1bc
+hi SpellBad cterm=underline gui=NONE ctermbg=NONE ctermfg=1 guifg=#d8a69f
+hi SpellCap   cterm=underline gui=undercurl ctermbg=NONE guisp=#5c80bc
+hi SpellRare  cterm=underline gui=undercurl ctermbg=NONE guisp=#685cbc
+hi SpellLocal cterm=underline gui=undercurl ctermbg=NONE guisp=#5cb1bc
 
 " Diffs
 " `hi`s in context of normal syntax, so can't use green/red---distinguish another way
