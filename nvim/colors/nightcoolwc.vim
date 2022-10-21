@@ -64,7 +64,7 @@ hi Italic cterm=italic gui=italic
 hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#e9f5e6
 
 if get(g:, "nightcoolwc_bg", v:true)
-	hi Normal ctermbg=16 guibg=#0c0a19
+	hi Normal guibg=#0c0a19
 endif
 
 hi clear Conceal

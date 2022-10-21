@@ -39,7 +39,7 @@ nnoremap <leader>tb :tabedit %<cr>'"
 " Close tab or quit all
 nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 " Close window or quit
-" nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
+nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
 " Edit common files
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
