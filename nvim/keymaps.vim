@@ -6,9 +6,8 @@ nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
 " nnoremap <silent> <leader>e. :edit .<cr>
 " nnoremap <silent> <leader>eh :edit %:p:.:h<cr>
 " Eplorer plugin
-noremap <leader>et :Fern . -drawer -reveal=% -toggle<cr>
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
-nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
+nnoremap <silent> <leader>ed :Fern . -drawer -reveal=% -toggle<cr>
 
 " Terminal
 nnoremap <silent> <leader><cr> <cmd>terminal<cr>i
