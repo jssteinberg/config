@@ -5,20 +5,20 @@ tnoremap jk <c-\><c-n>
 nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
 " nnoremap <silent> <leader>e. :edit .<cr>
 " nnoremap <silent> <leader>eh :edit %:p:.:h<cr>
-" Drex
-nnoremap <silent> <leader>e. :Drex<cr>
-nnoremap <silent> <leader>ed :DrexDrawerOpen<cr>
-nnoremap <silent> <leader>eh :Drex %:p:.:h<cr>
+" Eplorer plugin
+noremap <leader>et :Fern . -drawer -reveal=% -toggle<cr>
+nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
+nnoremap <silent> <leader>et :Fern . -drawer -reveal=% -toggle<cr>
 
 " Terminal
 nnoremap <silent> <leader><cr> <cmd>terminal<cr>i
 
 " Marks
-nnoremap <leader>ha 'A'"
-nnoremap <leader>hs 'S'"
-nnoremap <leader>hd 'D'"
-nnoremap <leader>hf 'F'"
-nnoremap <leader>hc 'C'"
+nnoremap <leader>ma 'A'"
+nnoremap <leader>ms 'S'"
+nnoremap <leader>md 'D'"
+nnoremap <leader>mf 'F'"
+nnoremap <leader>mc 'C'"
 
 " No/now (toggle options)
 nnoremap <silent> <leader>nc :call NowColo()<cr>

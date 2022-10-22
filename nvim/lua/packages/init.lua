@@ -163,9 +163,8 @@ local function init()
 	-- 	cmd = { "Carbon", "Explore", "Lcarbon", "Lexplore", "Fcarbon" }
 	-- }
 	use {
-		"TheBlob42/drex.nvim",
-		cmd = { "DrexDrawerOpen", "Drex" },
-		config = require "packages.drex",
+		"lambdalisue/fern.vim",
+		cmd = "Fern"
 	}
 
 	-- ### GIT
