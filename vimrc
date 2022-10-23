@@ -36,6 +36,12 @@ set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set list listchars=tab:\·\  fillchars=vert:\│ " Show tabs, consistent char
 set undodir=$HOME/.vimundo undofile
 
+" AUTO COMMANDS
+aug vim_config
+	" FileTypes
+	au BufNewFile,BufRead *.astro set ft=markdown
+augroup END
+
 " COLORS
 try
 	set background=dark | let g:nightcoolwc_comments="bright" | colo nightcoolwc
