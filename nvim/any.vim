@@ -103,7 +103,7 @@ endif
 let g:netrw_banner = 0
 let g:netrw_altv = 1
 let g:netrw_sort_by = "exten"
-let g:netrw_winsize=25
+let g:netrw_winsize=35
 let g:netrw_preview=1 " Vertical preview
 let g:netrw_keepdir = 0
 

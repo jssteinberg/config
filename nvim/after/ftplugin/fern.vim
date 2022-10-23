@@ -1,5 +1,12 @@
-setlocal nonumber norelativenumber signcolumn=no
-setlocal nocursorcolumn
+" The perfect file explorer for me is a flexible tree file manager, supporting
+" both drawer and window mode. It has to use the basic Netrw keymaps, but can
+" extend beyond that.
+
+setlocal nonumber norelativenumber nocursorcolumn
+
+" unmap
+nunmap <buffer> fe
+nunmap <buffer> fi
 
 nmap <buffer> s /
 nmap <buffer> ZQ :q!<cr>
@@ -13,12 +20,12 @@ nmap <buffer> - <Plug>(fern-action-leave)
 nmap <buffer> gh <Plug>(fern-action-hidden)
 nmap <buffer> <c-l> <Plug>(fern-action-reload)
 
-nmap <buffer> mf <Plug>(fern-action-mark)
+nmap <buffer> mf <Plug>(fern-action-mark:toggle)
 nmap <buffer> mF <Plug>(fern-action-mark:clear)
 nmap <buffer> mm <Plug>(fern-action-move)
 nmap <buffer> mc <Plug>(fern-action-copy)
 nmap <buffer> R <Plug>(fern-action-rename)
 
-" Change <bs> to my config's globa alt buffer
-nmap <buffer> <bs> :buffer#<cr>
-nnoremap <buffer> N N
+" f/F to toggle and go down/up
+nmap <buffer> f <Plug>(fern-action-mark:toggle)j
+nmap <buffer> F <Plug>(fern-action-mark:toggle)k
