@@ -105,7 +105,8 @@ let g:netrw_altv = 1
 let g:netrw_sort_by = "exten"
 let g:netrw_winsize=35
 let g:netrw_preview=1 " Vertical preview
-let g:netrw_keepdir = 0
+let g:netrw_keepdir = 0 " One less error when marking/moving files
+let g:netrw_liststyle = 3 " Tree view
 
 " AUTO COMMANDS
 aug any_config

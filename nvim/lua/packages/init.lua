@@ -148,24 +148,8 @@ local function init()
 		config = function() vim.g.fuzzy_rootcmds = {} end
 	}
 
-
 	-- File tree
-	-- use { "MunifTanjim/nui.nvim", cmd = { "Neotree" } }
-	-- use {
-	-- 	"nvim-neo-tree/neo-tree.nvim",
-	-- 	branch = "v2.x",
-	-- 	after = "nui.nvim",
-	-- 	requires = { "nvim-lua/plenary.nvim" },
-	-- 	config = require "packages.neo-tree",
-	-- }
-	-- use {
-	-- 	"SidOfc/carbon.nvim",
-	-- 	cmd = { "Carbon", "Explore", "Lcarbon", "Lexplore", "Fcarbon" }
-	-- }
-	use {
-		"lambdalisue/fern.vim",
-		cmd = "Fern"
-	}
+	use { "lambdalisue/fern.vim", cmd = "Fern" }
 
 	-- ### GIT
 
