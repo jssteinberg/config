@@ -11,6 +11,7 @@ source $HOME/.config/nvim/any.vim
 " KEYMAPS
 " Core improve
 nnoremap Y y$
+nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 " Additional esc map
 tnoremap jk <c-w>N
 " Edit [CWD, buffer D, tabedit .vimrc]
@@ -65,8 +66,10 @@ fu! PackInit() abort
 	call minpac#add("k-takata/minpac", {"type": "opt"})
 	call minpac#add("tpope/vim-sleuth")
 	call minpac#add("tpope/vim-surround")
-	call minpac#add("tpope/vim-fugitive", {"type": "opt"})
+	call minpac#add("tpope/vim-commentary")
 	call minpac#add("easymotion/vim-easymotion")
+	call minpac#add("jssteinberg/hackline.vim", {"branch": "dev"})
+	call minpac#add("tpope/vim-fugitive", {"type": "opt"})
 endf
 
 command! Update source $MYVIMRC | call PackInit() | call minpac#update()
