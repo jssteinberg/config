@@ -203,7 +203,7 @@ hi! link diffRemoved DiffDelete
 
 " Search
 hi IncSearch cterm=bold,underline gui=NONE ctermbg=240 guibg=#646d2c ctermfg=NONE guifg=#e9f5e6
-hi Search cterm=NONE gui=NONE ctermbg=237 guibg=#2c446d ctermfg=NONE guifg=NONE
+hi Search cterm=italic gui=NONE ctermbg=237 guibg=#2c446d ctermfg=NONE guifg=NONE
 
 " StatusLine and WinSeparator
 " darkblue

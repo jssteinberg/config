@@ -57,6 +57,9 @@ vnoremap gr "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
 " Grep substitute [word, selection]
 nnoremap gs "gyiw<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 vnoremap gs "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
+" Git
+" grep for git merge conflicts
+" nnoremap <leader>gm ...
 " Quickfix [next, previous, toggle]
 nnoremap Q :cnext<cr>
 nnoremap <leader>q :cprev<cr>
@@ -66,8 +69,8 @@ nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 
 " OPTIONS (in order of importance)
-set nofoldenable foldmethod=indent
-set scrolloff=15
+set nofoldenable foldmethod=indent " Toggle fold on indent
+set scrolloff=15 " Avoid cursor being full top/bottom
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git/**
