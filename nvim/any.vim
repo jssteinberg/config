@@ -8,7 +8,6 @@
 " h: harpoon harpooned/marked project files
 " s: search files
 " t: tab
-" q: quickfix
 " C: tabclose || close all
 " G: grep
 " Q: quickfix window
@@ -59,9 +58,9 @@ vnoremap gr "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
 nnoremap gs "gyiw<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 vnoremap gs "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 " Quickfix [next, previous, toggle]
-nnoremap <leader>q :cnext<cr>
-nnoremap <leader>Q :cprev<cr>
-nnoremap <expr> Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
+nnoremap Q :cnext<cr>
+nnoremap <leader>q :cprev<cr>
+nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 " No/now (toggle options)
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
@@ -100,7 +99,7 @@ if executable('rg')
 endif
 
 " NETRW OPTIONS
-let g:netrw_banner = 0 " Remove top banner
+let g:netrw_banner=0 " Remove top banner
 let g:netrw_preview=1 " Vertical preview
 
 " AUTO COMMANDS

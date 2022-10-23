@@ -30,13 +30,14 @@ map <Leader>k <Plug>(easymotion-k)
 
 " OPTIONS
 set clipboard=unnamed " Sync system clioboard
+set hlsearch " Highlight search matches
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set list listchars=tab:\·\  fillchars=vert:\│ " Show tabs, consistent char
 set undodir=$HOME/.vimundo undofile
 
 " COLORS
 try
-	set background=dark | let g:nightcoolwc_comments="bright" | let g:nightcoolwc_bg=v:false | colo nightcoolwc
+	set background=dark | let g:nightcoolwc_comments="bright" | colo nightcoolwc
 catch
 	set background=dark | colo slate " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
 	hi Normal ctermbg=NONE
