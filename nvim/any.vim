@@ -59,10 +59,11 @@ nnoremap gs "gyiw<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
 vnoremap gs "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 " Git
 " grep for git merge conflicts
-" nnoremap <leader>gm ...
+nnoremap <leader>gm :silent! grep -e "<<<<<<<"<cr>
 " Quickfix [next, previous, toggle]
 nnoremap Q :cnext<cr>
 nnoremap <leader>q :cprev<cr>
+nnoremap <bs> :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 " No/now (toggle options)
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'

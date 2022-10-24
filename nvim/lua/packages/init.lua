@@ -23,8 +23,8 @@ local function init()
 		"kwkarlwang/bufjump.nvim",
 		config = function()
 			require("bufjump").setup({
-				forward = "<C-n>",
-				backward = "<C-p>",
+				forward = "<C-j>",
+				backward = "<C-k>",
 				on_success = nil
 			})
 		end,
@@ -57,6 +57,7 @@ local function init()
 		config = function()
 			require "packages.lsp".config()
 			require "packages.cmp".config()
+			require "snippets"
 		end
 	}
 
@@ -66,10 +67,10 @@ local function init()
 	-- ### ON CURSOR HOLD
 
 	-- Statusline
-	use { "itchyny/vim-gitbranch", event = "CursorHold" }
+	use { "itchyny/vim-gitbranch" }
 	use {
 		"jssteinberg/hackline.vim",
-		after = "vim-gitbranch",
+		event = "CursorHold",
 		branch = "dev",
 		config = function()
 			vim.g.hackline_git_info       = true
@@ -134,13 +135,6 @@ local function init()
 	use { "kevinhwang91/nvim-bqf", ft = "qf" }
 
 	-- Fuzzy finder
-	-- telescope
-	-- use {
-	-- 	"nvim-telescope/telescope.nvim",
-	-- 	opt = true,
-	-- 	requires = { "nvim-lua/plenary.nvim" },
-	-- 	config = require "packages.telescope",
-	-- }
 	-- fzy
 	use {
 		"cloudhead/neovim-fuzzy",
@@ -161,14 +155,6 @@ local function init()
 		},
 		requires = { "tyru/open-browser.vim" },
 	}
-
-	-- git linker
-	-- use {
-	-- 	"ruifm/gitlinker.nvim",
-	-- 	requires = "nvim-lua/plenary.nvim",
-	-- 	keys = { { "n", "<leader>gy" }, { "v", "<leader>gy" } },
-	-- 	config = function() require("gitlinker").setup({}) end
-	-- }
 
 	-- git blame inline
 	use { "APZelos/blamer.nvim", opt = true } -- git blame
