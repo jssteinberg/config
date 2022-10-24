@@ -1,14 +1,11 @@
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
-# https://github.com/be5invis/iosevka
 font:
   size: 14
   normal:
-    family: monospace
+    # family: monospace
     family: cousine nerd font mono
-    # family: iosevka
   italic:
     family: cousine nerd font mono
-    # family: iosevka
     style: Italic
 
 # Send ESC (\x1b) before characters when alt is pressed---needed for several non-us keyboards usually
