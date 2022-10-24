@@ -18,7 +18,7 @@ let g:colors_name="nightcoolwc"
 "
 " Options:
 " - `let g:nightcoolwc_bg=v:true` or v:false for `NONE` (transparent)
-" - `let g:nightcoolwc_statusline="darkblue"` or "bold"
+" - `let g:nightcoolwc_statusline="darkblue"` or "darker"
 " - `let g:nightcoolwc_comments="darker"` or "bright"
 "
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
@@ -207,12 +207,12 @@ hi Search cterm=italic gui=NONE ctermbg=237 guibg=#2c446d ctermfg=NONE guifg=NON
 
 " StatusLine and WinSeparator
 " darkblue
-hi StatusLine cterm=bold gui=NONE ctermbg=0 guibg=#342c6d ctermfg=7 guifg=#a69fd8
+hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#a69fd8
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=8 guifg=#685cbc
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
-" bold variant
-if get(g:, "nightcoolwc_statusline", "default") == "bold"
-	hi StatusLine   gui=bold guibg=#1a1636 guifg=#afc5c7
+" darker variant
+if get(g:, "nightcoolwc_statusline", "darkblue") == "darker"
+	hi StatusLine   gui=NONE guibg=#1a1636 guifg=#e9f5e6
 	hi StatusLineNC gui=NONE guibg=#1a1636 guifg=#7d78a1
 	hi WinSeparator ctermfg=0 guifg=#1a1636
 endif

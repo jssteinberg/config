@@ -26,7 +26,8 @@ nmap <buffer> d <Plug>(fern-action-new-dir)
 " Mark items
 nmap <buffer> mf <Plug>(fern-action-mark:toggle)
 nmap <buffer> mF <Plug>(fern-action-mark:clear)
-" f/F to toggle mark and go down/up
+" tab/f and F to toggle mark and go down or up
+nmap <buffer> <tab> <Plug>(fern-action-mark:toggle)j
 nmap <buffer> f <Plug>(fern-action-mark:toggle)j
 nmap <buffer> F <Plug>(fern-action-mark:toggle)k
 
