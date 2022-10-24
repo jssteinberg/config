@@ -8,6 +8,8 @@
 !kitty/*
 !alacritty/
 !alacritty/*
+!contour/
+!contour/*
 !nvim/
 !nvim/*
 nvim/.DS_Store
