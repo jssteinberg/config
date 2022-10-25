@@ -1,9 +1,41 @@
-" Source defaults.vim
-unlet! skip_defaults_vim
-source $VIMRUNTIME/defaults.vim
+" from $VIMRUNTIME/defaults.vim
+set nocompatible
+set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
+set showcmd " display incomplete commands
+set wildmenu " display completion matches in a status line
+set ttimeout " time out for key codes
+set ttimeoutlen=100 " wait up to 100ms after Esc for special key
+" Don't use Q for Ex mode, use it for formatting.
+map Q gq
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+" Revert with ":iunmap <C-U>".
+inoremap <C-U> <C-G>u<C-U>
+" Enable file type detection.
+" Use the default filetype settings, so that mail gets 'tw' set to 72,
+" 'cindent' is on in C files, etc.
+" Also load indent files, to automatically do language-dependent indenting.
+" Revert with ":filetype off".
+filetype plugin indent on
+" Revert with ":syntax off".
+syntax on
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+" Revert with: ":delcommand DiffOrig".
+if !exists(":DiffOrig")
+	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+				\ | wincmd p | diffthis
+endif
+" Prevent that the langmap option applies to characters that result from a
+" mapping.  If set (default), this may break plugins (but it's backward
+" compatible).
+if has("langmap") && exists("+langremap")
+	set nolangremap
+endif
 
 " Set space as leader key
-let mapleader=' '
+let mapleader=" "
 
 " Source common vim/nvim config
 source $HOME/.config/nvim/any.vim

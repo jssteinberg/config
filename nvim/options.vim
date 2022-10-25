@@ -9,13 +9,8 @@ cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? '
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
 " AUTO COMMANDS
-augroup options
+augroup nvim_init
 	au!
-	" Go to last known cursor position, unless it's invalid
-	autocmd BufReadPost *
-				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-				\ |   exe "normal! g`\""
-				\ | endif
 	" Check if file has been updated
 	autocmd FocusGained,BufEnter * :checktime
 augroup END
