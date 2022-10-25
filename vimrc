@@ -16,10 +16,11 @@ nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 tnoremap jk <c-w>N
 " Edit [CWD, buffer D, tabedit .vimrc]
 nnoremap <leader>e. :edit .<cr>
-nnoremap <leader>eh :edit %:p:.:h<cr>
-nnoremap <leader>ec :tabedit ~/.config/vimrc<cr>:tcd  %:p:.:h<cr>
+nnoremap <leader>eh :edit %:h<cr>
+nnoremap <leader>ec :tabedit ~/.config/vimrc<cr>:tcd  %:h<cr>
 " Fuzzy find files with Fzy
-nnoremap <leader>s :call FzyCommand("fd --hidden --follow -E node_modules -E .git -E .github -E .swc", ":e")<cr>
+" nnoremap <leader>s :call FzyCommand("fd --hidden --follow -E node_modules -E .git -E .github -E .swc", ":e")<cr>
+nnoremap <leader>s :call FzyCommand("rg --files", ":e")<cr>
 " Git
 nn <leader>gg :packadd vim-fugitive<bar>G<cr>
 nn <leader>gp :packadd vim-fugitive<bar>G pull<cr>

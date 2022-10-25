@@ -61,24 +61,27 @@ local function init()
 		end
 	}
 
-	-- LAZY LOADED
-	-- -----------
-
-	-- ### ON CURSOR HOLD
-
 	-- Statusline
-	use { "itchyny/vim-gitbranch" }
 	use {
 		"jssteinberg/hackline.vim",
-		event = "CursorHold",
+		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 		config = function()
-			vim.g.hackline_git_info       = true
 			vim.g.hackline_cwd            = true
 			vim.g.hackline_normal_px      = 0
 			vim.g.hackline_sep_inner_left = ": "
 		end
 	}
+
+	use {
+		"ibhagwan/fzf-lua",
+		cmd = { "FzfLua" }
+	}
+
+	-- LAZY LOADED
+	-- -----------
+
+	-- ### ON CURSOR HOLD
 
 	-- Illuminate cursor word
 	use { "RRethy/vim-illuminate", event = "CursorHold", config = function()

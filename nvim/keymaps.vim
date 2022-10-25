@@ -3,9 +3,7 @@ tnoremap jk <c-\><c-n>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
 nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
-" nnoremap <silent> <leader>e. :edit .<cr>
-" nnoremap <silent> <leader>eh :edit %:h<cr>
-" Eplorer plugin
+" eplorer plugin
 nnoremap <silent> <leader>e. :Fern . -reveal=%<cr>
 nnoremap <silent> <leader>ed :Fern . -drawer -reveal=% -toggle -width=35<cr>
 nnoremap <silent> <leader>eh :Fern %:h -reveal=%<cr>
@@ -27,6 +25,7 @@ nnoremap <silent> <leader>nc :call NowColo()<cr>
 
 " Fuzzy finder
 nnoremap <leader>s :FuzzyOpen<cr>
+nnoremap <leader>fs :FzfLua live_grep_native<cr>
 
 " Git
 nnoremap <leader>gb <cmd>BlamerToggle<cr>
