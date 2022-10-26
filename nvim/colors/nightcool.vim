@@ -18,7 +18,6 @@ let g:colors_name="nightcool"
 "
 " Options:
 " - `let g:nightcool_bg=v:true` or v:false for `NONE` (transparent)
-" - `let g:nightcool_statusline="darkblue"` or "darker"
 " - `let g:nightcool_comments="bright"` or "darker"
 "
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
@@ -114,16 +113,9 @@ hi IncSearch cterm=bold,underline gui=NONE ctermbg=240 guibg=#646d2c ctermfg=NON
 hi Search cterm=italic gui=NONE ctermbg=237 guibg=#2c446d ctermfg=NONE guifg=NONE
 
 " StatusLine and WinSeparator
-" darkblue
-hi StatusLine cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#a69fd8
-hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=8 guifg=#685cbc
-hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=8 guifg=#342c6d
-" darker variant
-if get(g:, "nightcoolwc_statusline", "darkblue") == "darker"
-	hi StatusLine   gui=NONE guibg=#1a1636 guifg=#e9f5e6
-	hi StatusLineNC gui=NONE guibg=#1a1636 guifg=#7d78a1
-	hi WinSeparator ctermfg=0 guifg=#1a1636
-endif
+hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#e9f5e6
+hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1
+hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#1a1636
 
 " UI LINKED
 
@@ -151,12 +143,11 @@ hi! link FoldColumn Folded
 " Group names (:h group-name)
 
 hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
-hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
-
 
 " PLUGINS
 
