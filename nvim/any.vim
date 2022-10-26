@@ -10,9 +10,10 @@
 " t: tab
 " C: tabclose || close all
 " G: grep
-" Q: quickfix window
 " R: replace (search and replace)
 " S: substitute
+
+let g:config_scrolloff=15
 
 " Core improved keymaps
 vnoremap < <gv
@@ -61,7 +62,7 @@ vnoremap gs "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:c
 " grep for git merge conflicts
 nnoremap <leader>gm :silent! grep -e "<<<<<<<"<cr>
 " Quickfix [next, previous, toggle]
-nnoremap Q :cnext<cr>
+nnoremap Q :exe "cnext\n setlocal scrolloff=" . g:config_scrolloff<cr>
 nnoremap <leader>q :cprev<cr>
 nnoremap <bs> :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
@@ -71,7 +72,7 @@ nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent li
 
 " OPTIONS (in order of importance)
 set nofoldenable foldmethod=indent " Toggle fold on indent
-set scrolloff=15 " Avoid cursor being full top/bottom
+let &scrolloff=g:config_scrolloff " Keep cursor off from top/bottom
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git/**

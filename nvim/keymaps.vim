@@ -28,8 +28,8 @@ nnoremap <leader>s :FuzzyOpen<cr>
 nnoremap <leader>fs :FzfLua live_grep_native<cr>
 
 " Git
-nnoremap <leader>gb <cmd>BlamerToggle<cr>
-nnoremap <leader>gc <cmd>Git log -p %<cr>
+nnoremap <leader>gb <cmd>Git blame<cr>
+nnoremap <leader>gc <cmd>Git log -p -50 %<cr>
 nnoremap <leader>gd <cmd>tabnew %<cr><cmd>Gvdiffsplit<cr>
 nnoremap <leader>gg <cmd>Git<cr>
 nnoremap <leader>gj /<<<<<<<\\|=======\\|>>>>>>><cr>
@@ -50,6 +50,6 @@ nn gx <cmd>OpenURLFind<cr>
 vn gx y:OpenSearchURL duckduckgo <c-r>"<cr>
 
 " Hop
-noremap s <cmd>HopChar1<cr>
+" noremap s <cmd>HopChar1<cr>
 noremap <leader>j <cmd>HopVerticalAC<cr>
 noremap <leader>k <cmd>HopVerticalBC<cr>

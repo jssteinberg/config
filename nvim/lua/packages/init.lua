@@ -14,26 +14,14 @@ local function init()
 	-- use { "nathom/filetype.nvim", config = function() require "packages.filetype".config() end }
 	use { "tpope/vim-surround" }
 	use { "tpope/vim-repeat" } -- Extend `.` repeat
-	use { "tpope/vim-sleuth" } -- detects indent, also uses .editorconfig
+	use { "tpope/vim-sleuth" } -- Detects indent, also uses .editorconfig
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
-	use { "michaeljsmith/vim-indent-object" }
-
-	-- Prev/next buffer
-	use({
-		"kwkarlwang/bufjump.nvim",
-		config = function()
-			require("bufjump").setup({
-				forward = "<C-j>",
-				backward = "<C-k>",
-				on_success = nil
-			})
-		end,
-	})
+	use { "michaeljsmith/vim-indent-object" } -- Keymaps for indents
 
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		commit = "4cccb6f494eb255b32a290d37c35ca12584c74d0",
+		-- commit = "4cccb6f494eb255b32a290d37c35ca12584c74d0",
 		requires = {
 			"nvim-treesitter/playground",
 			"JoosepAlviste/nvim-ts-context-commentstring",
@@ -114,6 +102,19 @@ local function init()
 		"phaazon/hop.nvim",
 		cmd = { "HopChar1", "HopVerticalAC", "HopVerticalBC" },
 		config = function() require "hop".setup() end
+	}
+
+	-- Leap s/S motion
+	use {
+		"ggandor/leap.nvim",
+		keys = {
+			{ "n", "s" }, { "n", "S" },
+			{ "x", "z" }, { "x", "Z" },
+		},
+		config = function()
+			require("leap").setup { highlight_unlabeled = true }
+			require("leap").set_default_keymaps()
+		end
 	}
 
 	-- Comment in/out

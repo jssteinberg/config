@@ -53,7 +53,9 @@ local color = function(color, variant)
 	end
 end
 
-local theme = lush(function()
+local theme = lush(function(injected_functions)
+	local sym = injected_functions.sym
+
 	return {
 		Normal { bg = color("bg"), fg = color("fg") },
 		Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
@@ -201,7 +203,7 @@ local theme = lush(function()
 		Exception {}, --  try, catch, throw
 
 		PreProc { fg = color("blue", 2) }, -- (preferred) generic Preprocessor
-		Include {}, --  preprocessor #include
+		Include { fg = color("blue", 2) }, --  preprocessor #include
 		Define {}, --   preprocessor #define
 		Macro {}, --    same as Define
 		PreCondit {}, --  preprocessor #if, #else, #endif, etc.
@@ -219,7 +221,6 @@ local theme = lush(function()
 		Debug {}, --    debugging statements
 
 		TSFunctionCall { fg = color("magenta", 2) },
-		TSInclude { fg = color("blue", 2) }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 		TSMethod {}, -- For method calls and definitions.
 		TSProperty {}, -- Same as `TSField`.
 		TSTag { Tag }, -- Same as `TSField`.

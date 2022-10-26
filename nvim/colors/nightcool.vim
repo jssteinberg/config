@@ -1,8 +1,8 @@
-" nightcoolwc.vim
+" nightcool.vim
 
 hi clear
 set bg=dark
-let g:colors_name="nightcoolwc"
+let g:colors_name="nightcool"
 
 " bg #0c0a19 fg #afc5c7
 " black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d
@@ -17,9 +17,9 @@ let g:colors_name="nightcoolwc"
 " violet    #985cbc violet_2   #c39fd8 violet_bg #552c6d
 "
 " Options:
-" - `let g:nightcoolwc_bg=v:true` or v:false for `NONE` (transparent)
-" - `let g:nightcoolwc_statusline="darkblue"` or "darker"
-" - `let g:nightcoolwc_comments="darker"` or "bright"
+" - `let g:nightcool_bg=v:true` or v:false for `NONE` (transparent)
+" - `let g:nightcool_statusline="darkblue"` or "darker"
+" - `let g:nightcool_comments="bright"` or "darker"
 "
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
 " Based on a neon illuminated city-park WC... `Comment` should be readable
@@ -33,122 +33,31 @@ let g:colors_name="nightcoolwc"
 " - Info: magenta#5/violet*
 " - Warning: yellow#3
 " - Selection (bg): violet_bg
-"
-" Make gui only version:
-" :%s/\v cterm[^ ]*//g | %s/\vnightcoolwc(['|.])/nightcoolwc_gui\1/g
 
-" GROUP NAMES (:h group-name)
-
-if has("nvim")
-	let g:terminal_color_0="#1a1636"
-	let g:terminal_color_1="#bc675c"
-	let g:terminal_color_2="#80bc5c"
-	let g:terminal_color_3="#bc985c"
-	let g:terminal_color_4="#5c80bc"
-	let g:terminal_color_5="#685cbc"
-	let g:terminal_color_6="#5cb1bc"
-	let g:terminal_color_7="#afc5c7"
-	let g:terminal_color_8="#7d78a1"
-	let g:terminal_color_9="#d8a69f"
-	let g:terminal_color_10="#add89f"
-	let g:terminal_color_11="#d0d89f"
-	let g:terminal_color_12="#9fb4d8"
-	let g:terminal_color_13="#a69fd8"
-	let g:terminal_color_14="#9fd1d8"
-	let g:terminal_color_15="#e9f5e6"
-endif
-
+" Normal
 hi Normal ctermfg=7 guifg=#afc5c7
-hi Bold cterm=bold gui=bold
-hi Italic cterm=italic gui=italic
-hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#e9f5e6
-
-if get(g:, "nightcoolwc_bg", v:true)
-	hi Normal guibg=#0c0a19
-endif
-
-hi clear Conceal
 hi! link Constant Normal
 hi! link TSParameter Normal
 
-" Comment
-hi Comment cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#985cbc
-
-if get(g:, "nightcoolwc_comments", "darker") == "bright"
-	hi Comment gui=italic ctermfg=9 guifg=#c39fd8
+if get(g:, "nightcool_bg", v:true)
+	hi Normal guibg=#0c0a19
 endif
 
-" *Constant String Character Number Boolean Float
-hi String ctermfg=11 guifg=#d0d89f
-" linked
-hi! link cssClassName String
-hi! link cssTSProperty String
-
-" *Identifier Function
-hi Identifier cterm=NONE ctermfg=12 gui=NONE guifg=#9fb4d8
-hi Function cterm=NONE gui=NONE ctermfg=14 guifg=#9fd1d8
-
-" *Statement Conditional Repeat Label Operator Keyword Exception
-hi Statement cterm=NONE gui=NONE ctermfg=12 guifg=#9fb4d8
-hi Keyword cterm=NONE gui=NONE ctermfg=15 guifg=#e9f5e6
-" linked
-hi! link Label Keyword
-
-" *PreProc Include Define Macro PreCondit
-hi PreProc ctermfg=13 guifg=#a69fd8
-hi Include ctermfg=7 guifg=#afc5c7
-
-" *Type StorageClass Structure Typedef
-hi Type cterm=NONE gui=NONE ctermfg=10 guifg=#add89f " Have good constrast from String
-hi StorageClass cterm=NONE ctermfg=14 gui=NONE guifg=#9fd1d8
-" hi Structure ctermfg=5 guifg=#685cbc
-" linked
-hi! link Tag Type
-hi! link TSProperty Type
-
-" *Special SpecialChar Tag Delimiter SpecialComment Debug
-hi Special cterm=NONE ctermfg=14 gui=NONE guifg=#9fd1d8 " also links to TelescopeMatch
-hi SpecialKey ctermfg=8 guifg=#7d78a1
-hi TSTagAttribute ctermfg=2 guifg=#80bc5c
-hi Delimiter ctermfg=8 guifg=#7d78a1
-" linked
-hi! link Structure Delimiter
-hi! link cssTSString Tag
-hi! link htmlTagName Tag
-hi! link javascriptTSTag Tag
-hi! link TSTag Tag
-hi! link TSConstructor Tag
-" hi! link @tag Tag
-" hi! link @variable Type
-
-" *Underlined
-hi Underlined cterm=NONE gui=NONE ctermfg=12 guifg=#9fb4d8
-
-" *Ignore
-" *Error
-
-" *Todo
+" General
+" hi clear Conceal " is this needed?
+hi Bold cterm=bold gui=bold
+hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
+hi Italic cterm=italic gui=italic
+hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#e9f5e6
 hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#c39fd8
-" linked
-hi! link vimCommentTitle Todo
-hi! link TSNote Todo
+" hi Underlined cterm=underline gui=underline
 
-" Other syntax
-hi TooLong cterm=underline gui=underline ctermfg=3 guifg=#bc985c
-hi markdownCode ctermfg=10 guifg=#add89f
-hi markdownUrl ctermfg=8 guifg=#7d78a1
-" linked
-hi! link cssAttributeSelector htmlArg
-hi! link htmlArg TSTagAttribute
-hi! link htmlTag Delimiter
-hi! link htmlEndTag htmlTag
-hi! link markdown_inlineTSURI markdownUrl
-hi! link markdownLinkDelimiter Delimiter
-hi! link markdownLinkTextDelimiter Delimiter
-hi! link TSPunctBrack Delimiter
-hi! link cssTagName htmlTagName
-hi! link scssTSProperty cssTSProperty
-hi! link scssTSString cssTSString
+" Comment
+hi Comment cterm=NONE gui=italic ctermbg=NONE guibg=NONE ctermfg=9 guifg=#c39fd8
+
+if get(g:, "nightcool_comments", "bright") == "darker"
+	hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
+endif
 
 " UI
 
@@ -181,7 +90,6 @@ hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#bc675c
 hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#5c80bc
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
 
-hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#d0d89f guifg=#0c0a19
 hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#add89f guifg=#0c0a19
 hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d8a69f guifg=#0c0a19
@@ -239,35 +147,44 @@ hi! link WinBarNC LineNr
 hi! link Folded Todo
 hi! link FoldColumn Folded
 
-" PLUGINS NVIM
+" SYNTAX
+" Group names (:h group-name)
+
+hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+
+
+" PLUGINS
 
 " illuminate.vim
 hi IlluminatedWordText cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi! link IlluminatedWordRead IlluminatedWordText
 hi! link IlluminatedWordWrite IlluminatedWordText
 
-" mini.nvim
-hi! link MiniIndentscopePrefix NonText
-hi! link MiniIndentscopeSymbol NonText
+" NEOVIM
 
-" neo-tree
-hi NeoTreeDimText cterm=NONE gui=NONE ctermfg=5 guifg=#7d78a1
-hi NeoTreeIndentMarker ctermfg=8 guifg=#342c6d
-hi NeoTreeSymbolicLinkTarget ctermfg=6 guifg=#5cb1bc
-hi! link NeoTreeDotfile NeoTreeDimText
-hi! link NeoTreeExpander NeoTreeDirectoryIcon
-hi! link NeoTreeGitConflict WarningMsg
-hi! link NeoTreeGitDeleted WarningMsg
-hi! link NeoTreeGitUntracked Structure
-hi! link NeoTreeGitModfied NeoTreeNormal
-hi! link NeoTreeModified NeoTreeNormal
-hi! link NeoTreeRootName NeoTreeDirectoryName
-hi! link NeoTreeTitleBar StatusLine
+lua require("nightcool.neovim")
 
-" Telescope
-hi! link TelescopeNormal Normal
-hi! link TelescopePromptCounter Comment
+if has("nvim")
+	let g:terminal_color_0="#1a1636"
+	let g:terminal_color_1="#bc675c"
+	let g:terminal_color_2="#80bc5c"
+	let g:terminal_color_3="#bc985c"
+	let g:terminal_color_4="#5c80bc"
+	let g:terminal_color_5="#685cbc"
+	let g:terminal_color_6="#5cb1bc"
+	let g:terminal_color_7="#afc5c7"
+	let g:terminal_color_8="#7d78a1"
+	let g:terminal_color_9="#d8a69f"
+	let g:terminal_color_10="#add89f"
+	let g:terminal_color_11="#d0d89f"
+	let g:terminal_color_12="#9fb4d8"
+	let g:terminal_color_13="#a69fd8"
+	let g:terminal_color_14="#9fd1d8"
+	let g:terminal_color_15="#e9f5e6"
+endif
 
-" Treesitter context
-hi! link TreesitterContext CursorLine
-hi! link TreesitterContextLineNumber WildMenu
