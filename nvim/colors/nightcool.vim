@@ -145,8 +145,8 @@ hi! link FoldColumn Folded
 hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
-hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
-hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
+hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 
 " PLUGINS
@@ -158,9 +158,9 @@ hi! link IlluminatedWordWrite IlluminatedWordText
 
 " NEOVIM
 
-lua require("nightcool.neovim")
-
 if has("nvim")
+	lua require("nightcool.neovim")
+
 	let g:terminal_color_0="#1a1636"
 	let g:terminal_color_1="#bc675c"
 	let g:terminal_color_2="#80bc5c"
