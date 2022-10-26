@@ -5,8 +5,8 @@ set showcmd " display incomplete commands
 set wildmenu " display completion matches in a status line
 set ttimeout " time out for key codes
 set ttimeoutlen=100 " wait up to 100ms after Esc for special key
-" Don't use Q for Ex mode, use it for formatting.
-map Q gq
+" Don't use Q for Ex mode, use it for Esc.
+map Q <esc>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 " Revert with ":iunmap <C-U>".
@@ -58,7 +58,7 @@ nn <leader>gg :packadd vim-fugitive<bar>G<cr>
 nn <leader>gp :packadd vim-fugitive<bar>G pull<cr>
 " Easymotions
 let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
-map s <Plug>(easymotion-s)
+" map s <Plug>(easymotion-s)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
@@ -77,7 +77,7 @@ augroup END
 
 " COLORS
 try
-	set background=dark | let g:nightcoolwc_comments="bright" | colo nightcoolwc
+	set background=dark | colo nightcool
 catch
 	set background=dark | colo slate " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
 	hi Normal ctermbg=NONE
@@ -113,3 +113,8 @@ endf
 
 command! Update source $MYVIMRC | call PackInit() | call minpac#update()
 command! Clean source $MYVIMRC | call PackInit() | call minpac#clean()
+
+" sneak like search motion
+noremap s :let b:sls=1<cr>/
+" nnoremap S :let b:sls=1<cr>?
+cnoremap <expr> <space> (get(b:, "sls", "0") && getcmdtype() ==# '/') ? '<cr>:unlet b:sls<cr>' : ' '

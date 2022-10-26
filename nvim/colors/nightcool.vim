@@ -110,7 +110,7 @@ hi! link diffRemoved DiffDelete
 
 " Search
 hi IncSearch cterm=bold,underline gui=NONE ctermbg=240 guibg=#646d2c ctermfg=NONE guifg=#e9f5e6
-hi Search cterm=italic gui=NONE ctermbg=237 guibg=#2c446d ctermfg=NONE guifg=NONE
+hi Search cterm=italic gui=NONE ctermbg=238 guibg=#2c446d ctermfg=NONE guifg=NONE
 
 " StatusLine and WinSeparator
 hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#e9f5e6
@@ -148,6 +148,7 @@ hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi SpecialKey ctermfg=8 guifg=#7d78a1 " ...also for list char in Vim
 
 " PLUGINS
 
