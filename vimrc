@@ -114,7 +114,7 @@ endf
 command! Update source $MYVIMRC | call PackInit() | call minpac#update()
 command! Clean source $MYVIMRC | call PackInit() | call minpac#clean()
 
-" sneak like search motion
-noremap s :let b:sls=1<cr>/
-" nnoremap S :let b:sls=1<cr>?
-cnoremap <expr> <space> (get(b:, "sls", "0") && getcmdtype() ==# '/') ? '<cr>:unlet b:sls<cr>' : ' '
+" space return, from search
+noremap s <cmd>let g:_return=v:true<cr>/
+" nnoremap S :let g:sls=1<cr>?
+cnoremap <expr> <space> (get(g:, "_return", "0") && getcmdtype() ==# '/') ? '<cr>:unlet g:_return<cr>' : ' '
