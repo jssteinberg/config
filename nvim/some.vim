@@ -21,15 +21,6 @@ vnoremap > >gv
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 noremap <c-s> /
-" Space-Enter search with faster <CR> with <Space>. The simplest sneak/leap motion!
-nn s <cmd>let b:_CR=1<cr>/
-nn S <cmd>let b:_CR=1<cr>?
-cno <expr> <space> exists("b:_CR") && match(getcmdtype(), "\[/\|?\]") == 0
-			\ ? "<cr>" : " "
-aug space_enter
-	au!
-	au CmdlineLeave /,? if exists("b:_CR") | unl b:_CR | en
-aug END
 " Line motions incbudes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
@@ -76,6 +67,15 @@ nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':cope
 " No/now (toggle options)
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
+" Space-Enter search with faster <CR> with <Space>. The simplest sneak/leap like motion!
+nn s <cmd>let g:_CR=1<cr>/
+nn S <cmd>let g:_CR=1<cr>?
+xn s <cmd>let g:_CR=1<cr>/
+cno <expr> <space> exists("g:_CR") && match(getcmdtype(), "\[/\|?\]") == 0
+			\ ? "<cr>" : " "
+aug spaceenter | au!
+	au CmdlineLeave /,? if exists("g:_CR") | unl g:_CR | en
+aug END
 
 " OPTIONS (in order of importance)
 set nofoldenable foldmethod=indent " Toggle fold on indent
@@ -115,16 +115,15 @@ let g:netrw_banner=0 " Remove top banner
 let g:netrw_preview=1 " Vertical preview
 
 " AUTO COMMANDS
-aug any_config
-	autocmd!
+aug some_config | au!
 	" When editing a file, always jump to the last known cursor position.
 	" Don't do it when the position is invalid, when inside an event handler
 	" (happens when dropping a file on gvim) and for a commit message (it's
 	" likely a different one than last time).
-	autocmd BufReadPost *
+	au BufReadPost *
 				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
 				\ |   exe "normal! g`\""
-				\ | endif
+				\ | en
 	" Open quickfix window when relevant
 	au QuickFixCmdPost [^l]* cwindow
 aug END

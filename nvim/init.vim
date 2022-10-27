@@ -8,7 +8,7 @@ nnoremap <space> <nop>
 let mapleader=' '
 
 " Source config
-runtime any.vim
+runtime some.vim
 runtime options.vim
 runtime keymaps.vim
 runtime colorscheme.vim

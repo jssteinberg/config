@@ -39,7 +39,7 @@ endif
 let mapleader=" "
 
 " Source common vim/nvim config
-source $HOME/.config/nvim/any.vim
+source $HOME/.config/nvim/some.vim
 
 " KEYMAPS
 " Core improve
@@ -80,7 +80,7 @@ augroup END
 try
 	set background=dark | colo nightcool
 catch
-	set background=dark | colo slate " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
+	set background=dark | colo quiet " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
 	hi Normal ctermbg=NONE
 	hi CursorLine cterm=NONE ctermbg=236 | hi! link CursorLineNr CursorLine
 	hi! link SignColumn LineNr
