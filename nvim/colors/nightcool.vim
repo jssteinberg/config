@@ -35,9 +35,6 @@ let g:colors_name="nightcool"
 
 " Normal
 hi Normal ctermfg=7 guifg=#afc5c7
-hi! link Constant Normal
-hi! link TSParameter Normal
-
 if get(g:, "nightcool_bg", v:true)
 	hi Normal guibg=#0c0a19
 endif
@@ -49,7 +46,7 @@ hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi Italic cterm=italic gui=italic
 hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#e9f5e6
 hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#c39fd8
-" hi Underlined cterm=underline gui=underline
+hi! link Underlined Title
 
 " Comment
 hi Comment cterm=NONE gui=italic ctermbg=NONE guibg=NONE ctermfg=9 guifg=#c39fd8
@@ -80,7 +77,7 @@ hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afc5c
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a69fd8
-hi WildMenu cterm=bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#e9f5e6
+hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#e9f5e6
 
 hi DiagnosticError ctermfg=1 guifg=#bc675c
 hi DiagnosticHint ctermfg=8 guifg=#5c80bc
@@ -142,7 +139,7 @@ hi! link FoldColumn Folded
 " SYNTAX
 " Group names (:h group-name)
 
-hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=6 guifg=#5cb1bc
 hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE

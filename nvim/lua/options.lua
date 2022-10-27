@@ -17,4 +17,12 @@ M.to_not_load = function()
 	-- vim.g.loaded_netrwPlugin = 1
 end
 
+M.add_filetypes = function()
+	vim.filetype.add({
+		extension = {
+			mdx = "markdown",
+		},
+	})
+end
+
 return M

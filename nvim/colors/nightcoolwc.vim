@@ -172,7 +172,7 @@ hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afc5c
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=italic gui=italic ctermfg=13 guifg=#a69fd8
-hi WildMenu cterm=bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=13 guifg=#e9f5e6
+hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#e9f5e6
 
 hi DiagnosticError ctermfg=1 guifg=#bc675c
 hi DiagnosticHint ctermfg=8 guifg=#5c80bc

@@ -11,13 +11,18 @@ try
 	nunmap <buffer> fi
 catch | endtry
 
-nmap <buffer> s /
 nmap <buffer> ZQ :q!<cr>
 nmap <buffer> <c-l> <Plug>(fern-action-reload)
 nmap <buffer> cd <Plug>(fern-action-tcd:cursor)
 nmap <buffer> T <Plug>(fern-action-terminal)
 nmap <buffer> - <Plug>(fern-action-leave)
 nmap <buffer> gh <Plug>(fern-action-hidden)
+" Space-Enter search with faster <CR> with <Space>. The simplest sneak/leap motion!
+nn s <cmd>let b:_CR=1<cr>/
+nn S <cmd>let b:_CR=1<cr>?
+cno <expr> <space> exists("b:_CR")
+			\ && match(getcmdtype(), "\[/\|?\]") == 0 ?
+			\ "<cr>:unl b:_CR<bar>ec escape('<c-r>/','#')<cr>" : " "
 
 " New items
 nmap <buffer> % <Plug>(fern-action-new-file)

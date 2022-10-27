@@ -18,6 +18,8 @@ call InitColo()
 
 " Init plugins
 lua << EOF
+	require'options'.add_filetypes()
+
 	vim.cmd [[command! PackerInstall packadd packer.nvim | lua require('packages').install()]]
 	vim.cmd [[command! PackerUpdate packadd packer.nvim | lua require('packages').update()]]
 	vim.cmd [[command! PackerSync packadd packer.nvim | lua require('packages').sync()]]

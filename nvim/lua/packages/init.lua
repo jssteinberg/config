@@ -104,18 +104,18 @@ local function init()
 		config = function() require "hop".setup() end
 	}
 
-	-- Leap s/S motion
-	use {
-		"ggandor/leap.nvim",
-		keys = {
-			{ "n", "s" }, { "n", "S" },
-			{ "x", "z" }, { "x", "Z" },
-		},
-		config = function()
-			require("leap").setup { highlight_unlabeled = true }
-			require("leap").set_default_keymaps()
-		end
-	}
+	-- -- Leap s/S motion
+	-- use {
+	-- 	"ggandor/leap.nvim",
+	-- 	keys = {
+	-- 		{ "n", "s" }, { "n", "S" },
+	-- 		{ "x", "z" }, { "x", "Z" },
+	-- 	},
+	-- 	config = function()
+	-- 		require("leap").setup { highlight_unlabeled = true }
+	-- 		require("leap").set_default_keymaps()
+	-- 	end
+	-- }
 
 	-- Comment in/out
 	use {

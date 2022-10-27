@@ -5,6 +5,7 @@ set showcmd " display incomplete commands
 set wildmenu " display completion matches in a status line
 set ttimeout " time out for key codes
 set ttimeoutlen=100 " wait up to 100ms after Esc for special key
+set incsearch
 " Don't use Q for Ex mode, use it for Esc.
 map Q <esc>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
@@ -72,7 +73,7 @@ set undodir=$HOME/.vimundo undofile
 " AUTO COMMANDS
 aug vim_config
 	" FileTypes
-	au BufNewFile,BufRead *.astro set ft=markdown
+	au BufNewFile,BufRead *.astro,*.mdx set ft=markdown
 augroup END
 
 " COLORS
@@ -100,7 +101,6 @@ endf
 " PLUGINS
 fu! PackInit() abort
 	packadd minpac
-
 	call minpac#init()
 	call minpac#add("k-takata/minpac", {"type": "opt"})
 	call minpac#add("tpope/vim-sleuth")
@@ -113,8 +113,3 @@ endf
 
 command! Update source $MYVIMRC | call PackInit() | call minpac#update()
 command! Clean source $MYVIMRC | call PackInit() | call minpac#clean()
-
-" space return, from search
-noremap s <cmd>let g:_return=v:true<cr>/
-" nnoremap S :let g:sls=1<cr>?
-cnoremap <expr> <space> (get(g:, "_return", "0") && getcmdtype() ==# '/') ? '<cr>:unlet g:_return<cr>' : ' '

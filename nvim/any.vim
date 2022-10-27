@@ -20,10 +20,14 @@ vnoremap < <gv
 vnoremap > >gv
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
-nnoremap <c-s> /
-xnoremap <c-s> /
-cnoremap <c-s> <cr>
-" Line motions includes wrapped lines
+noremap <c-s> /
+" Space-Enter search with faster <CR> with <Space>. The simplest sneak/leap motion!
+nn s <cmd>let b:_CR=1<cr>/
+nn S <cmd>let b:_CR=1<cr>?
+cno <expr> <space> exists("b:_CR")
+			\ && match(getcmdtype(), "\[/\|?\]") == 0 ?
+			\ "<cr>:unl b:_CR<bar>ec escape('<c-r>/','#')<cr>" : " "
+" Line motions incbudes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
 " Esc mappings
