@@ -24,9 +24,12 @@ noremap <c-s> /
 " Space-Enter search with faster <CR> with <Space>. The simplest sneak/leap motion!
 nn s <cmd>let b:_CR=1<cr>/
 nn S <cmd>let b:_CR=1<cr>?
-cno <expr> <space> exists("b:_CR")
-			\ && match(getcmdtype(), "\[/\|?\]") == 0 ?
-			\ "<cr>:unl b:_CR<bar>ec escape('<c-r>/','#')<cr>" : " "
+cno <expr> <space> exists("b:_CR") && match(getcmdtype(), "\[/\|?\]") == 0
+			\ ? "<cr>" : " "
+aug space_enter
+	au!
+	au CmdlineLeave /,? if exists("b:_CR") | unl b:_CR | en
+aug END
 " Line motions incbudes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
@@ -124,4 +127,4 @@ aug any_config
 				\ | endif
 	" Open quickfix window when relevant
 	au QuickFixCmdPost [^l]* cwindow
-augroup END
+aug END
