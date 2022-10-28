@@ -127,3 +127,8 @@ aug some_config | au!
 	" Open quickfix window when relevant
 	au QuickFixCmdPost [^l]* cwindow
 aug END
+
+function! HiGroupNames()
+	let l:s = synID(line('.'), col('.'), 1)
+	echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun

@@ -48,9 +48,13 @@ nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 " Additional esc map
 tnoremap jk <c-w>N
 " Edit [CWD, buffer D, tabedit .vimrc]
-nnoremap <leader>e. :edit .<cr>
-nnoremap <leader>eh :edit %:h<cr>
-nnoremap <leader>ec :tabedit ~/.config/vimrc<cr>:tcd  %:h<cr>
+nnoremap <leader>e. <cmd>edit .<cr>
+nnoremap <leader>eh <cmd>edit %:h<cr>
+nnoremap <leader>ec <cmd>tabedit ~/.config/vimrc<cr>:tcd  %:h<cr>
+" Terminal
+nn <leader><cr> <cmd>terminal<cr>
+" Find links
+nn <leader>fl ?\v\S+[:\|.]\S+<cr>
 " Fuzzy find files with Fzy
 " nnoremap <leader>s :call FzyCommand("fd --hidden --follow -E node_modules -E .git -E .github -E .swc", ":e")<cr>
 nnoremap <leader>s :call FzyCommand("rg --files", ":e")<cr>
@@ -62,6 +66,31 @@ let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 " map s <Plug>(easymotion-s)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+" Tab completion
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+function! s:on_lsp_buffer_enabled() abort
+	setlocal omnifunc=lsp#complete
+	setlocal signcolumn=yes
+	if exists("+tagfunc") | setlocal tagfunc=lsp#tagfunc | endif
+	nmap <buffer> gd <plug>(lsp-definition)
+	nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+	nmap <buffer> gr <plug>(lsp-references)
+	nmap <buffer> gi <plug>(lsp-implementation)
+	nmap <buffer> <leader>lt <plug>(lsp-type-definition)
+	nmap <buffer> <c-k> <plug>(lsp-previous-diagnostic)
+	nmap <buffer> <c-j> <plug>(lsp-next-diagnostic)
+	nmap <buffer> <leader>lh <plug>(lsp-hover)
+	nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+	nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+	let g:lsp_format_sync_timeout = 1000
+	autocmd! BufWritePre *.rs,*.go call execute("LspDocumentFormatSync")
+
+	" refer to doc to add more commands
+endfunction
 
 " OPTIONS
 set clipboard=unnamed " Sync system clioboard
@@ -74,6 +103,8 @@ set undodir=$HOME/.vimundo undofile
 aug vim_config
 	" FileTypes
 	au BufNewFile,BufRead *.astro,*.mdx set ft=markdown
+	" call s:on_lsp_buffer_enabled only for languages that has the server registered.
+	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
 " COLORS
@@ -81,10 +112,6 @@ set background=dark | try | colo nightcool
 catch
 	try | colo quiet " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
 	catch | colo slate | endtry
-	hi Normal ctermbg=NONE
-	hi CursorLine cterm=NONE ctermbg=236 | hi! link CursorLineNr CursorLine
-	hi! link SignColumn LineNr
-	hi! link Tabline Normal | hi! link TablineFill Tabline
 endtry
 
 " FZY FUNCTION
@@ -109,8 +136,9 @@ fu! PackInit() abort
 	call minpac#add("easymotion/vim-easymotion")
 	call minpac#add("jssteinberg/hackline.vim", {"branch": "dev"})
 	call minpac#add("tpope/vim-fugitive", {"type": "opt"})
-	call minpac#add('prabirshrestha/vim-lsp')
-	call minpac#add('mattn/vim-lsp-settings')
+	call minpac#add("prabirshrestha/vim-lsp")
+	call minpac#add("mattn/vim-lsp-settings")
+	call minpac#add("prabirshrestha/asyncomplete.vim", {"type": "opt"})
 endf
 
 command! Update source $MYVIMRC | call PackInit() | call minpac#update()
