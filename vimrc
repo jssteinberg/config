@@ -77,10 +77,10 @@ aug vim_config
 augroup END
 
 " COLORS
-try
-	set background=dark | colo nightcool
+set background=dark | try | colo nightcool
 catch
-	set background=dark | colo quiet " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
+	try | colo quiet " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
+	catch | colo slate | endtry
 	hi Normal ctermbg=NONE
 	hi CursorLine cterm=NONE ctermbg=236 | hi! link CursorLineNr CursorLine
 	hi! link SignColumn LineNr
@@ -109,6 +109,8 @@ fu! PackInit() abort
 	call minpac#add("easymotion/vim-easymotion")
 	call minpac#add("jssteinberg/hackline.vim", {"branch": "dev"})
 	call minpac#add("tpope/vim-fugitive", {"type": "opt"})
+	call minpac#add('prabirshrestha/vim-lsp')
+	call minpac#add('mattn/vim-lsp-settings')
 endf
 
 command! Update source $MYVIMRC | call PackInit() | call minpac#update()
