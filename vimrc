@@ -102,7 +102,7 @@ set undodir=$HOME/.vimundo undofile
 " AUTO COMMANDS
 aug vim_config
 	" FileTypes
-	au BufNewFile,BufRead *.astro,*.mdx set ft=markdown
+	au BufNewFile,BufRead *.mdx set ft=markdown
 	" call s:on_lsp_buffer_enabled only for languages that has the server registered.
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
@@ -139,6 +139,8 @@ fu! PackInit() abort
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")
 	call minpac#add("prabirshrestha/asyncomplete.vim", {"type": "opt"})
+	" Filetypes
+	call minpac#add("wuelnerdotexe/vim-astro")
 endf
 
 command! Update source $MYVIMRC | call PackInit() | call minpac#update()

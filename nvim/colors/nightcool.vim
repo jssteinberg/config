@@ -32,6 +32,8 @@ let g:colors_name="nightcool"
 " - Warning: yellow#3
 " - Selection (bg): violet_bg
 
+" GROUP NAMES (:h group-name)
+
 " Normal
 hi Normal ctermfg=7 guifg=#afc5c7
 
@@ -39,7 +41,14 @@ if get(g:, "nightcool_bg", v:true)
 	hi Normal guibg=#0c0a19
 endif
 
-" General
+" Comment
+hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
+
+if get(g:, "nightcool_comments", "darker") == "bright"
+	hi Comment cterm=NONE gui=italic ctermfg=9 guifg=#c39fd8
+endif
+
+" General groups
 " hi clear Conceal " is this needed?
 hi Bold cterm=bold gui=bold
 hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
@@ -50,12 +59,14 @@ hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#c39fd8
 hi! link Underlined Title
 hi! link SpecialKey NonText " ...also for list char in Vim
 
-" Comment
-hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
-
-if get(g:, "nightcool_comments", "darker") == "bright"
-	hi Comment cterm=NONE gui=italic ctermfg=9 guifg=#c39fd8
-endif
+" Parent syntax groups
+hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=6 guifg=#5cb1bc
+" hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
+hi! link Identifier Constant
+hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
+hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=12 guifg=#9fb4d8
+hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
 
 " UI
 
@@ -137,17 +148,6 @@ hi! link WinBarNC LineNr
 " Folds
 hi! link Folded Todo
 hi! link FoldColumn Folded
-
-" SYNTAX
-" Group names (:h group-name)
-
-hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=6 guifg=#5cb1bc
-hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
-hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
-hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
-hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
-" hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
-hi Special   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
 
 " PLUGINS
 
