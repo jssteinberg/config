@@ -121,7 +121,7 @@ fu! FzyCommand(choice_command, vim_command) abort
 	catch /Vim:Interrupt/ | endtry | redraw!
 
 	if v:shell_error == 0 && !empty(output)
-		exec a:vim_command . ' ' . output
+		exec a:vim_command . " " . output
 	en
 endf
 
@@ -138,10 +138,21 @@ fu! PackInit() abort
 	call minpac#add("tpope/vim-fugitive", {"type": "opt"})
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")
-	call minpac#add("prabirshrestha/asyncomplete.vim", {"type": "opt"})
+	call minpac#add("prabirshrestha/asyncomplete.vim")
+	call minpac#add("prabirshrestha/asyncomplete-lsp.vim")
+	call minpac#add("yami-beta/asyncomplete-omni.vim")
 	" Filetypes
+	call minpac#add('othree/html5.vim')
+	call minpac#add('pangloss/vim-javascript')
+	call minpac#add('evanleck/vim-svelte')
 	call minpac#add("wuelnerdotexe/vim-astro")
 endf
 
 command! Update source $MYVIMRC | call PackInit() | call minpac#update()
 command! Clean source $MYVIMRC | call PackInit() | call minpac#clean()
+
+" Javascript
+let g:javascript_plugin_jsdoc = 1
+" Svelte
+let g:svelte_preprocessors=[
+			\"postcss"] " "sass", "typescript"

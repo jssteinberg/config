@@ -68,6 +68,9 @@ hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NON
 hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=12 guifg=#9fb4d8
 hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
 
+" Language syntax groups
+hi! link jsModuleKeyword Statement
+
 " UI
 
 hi ColorColumn ctermbg=233 guibg=#361a16
