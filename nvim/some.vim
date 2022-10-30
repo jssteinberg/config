@@ -13,6 +13,7 @@
 " R: replace (search and replace)
 " S: substitute
 
+let g:indent_width=2
 let g:config_scrolloff=15
 
 " Core improved keymaps
@@ -83,7 +84,7 @@ let &scrolloff=g:config_scrolloff " Keep cursor off from top/bottom
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git/**
-set tabstop=2 shiftwidth=2 " indent size
+let &ts=g:indent_width | let &sw=g:indent_width " indent size
 set hidden " Unsaved files can be 'hidden'
 set noswapfile " No swap files, but undo files (requires `undodir` in Vim)
 set sessionoptions=curdir,folds,tabpages,help
@@ -126,6 +127,8 @@ aug some_config | au!
 				\ | en
 	" Open quickfix window when relevant
 	au QuickFixCmdPost [^l]* cwindow
+	" Set tabstop if noexpandtab
+	au BufEnter * if !(&et) | let &ts=g:indent_width | en
 aug END
 
 function! HiGroupNames()
