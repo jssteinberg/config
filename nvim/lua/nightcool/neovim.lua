@@ -1,5 +1,6 @@
 vim.api.nvim_set_hl(0, "@tag", { link = "@type" }) -- keep like Type since CSS els are @type
 vim.api.nvim_set_hl(0, "@constructor", { link = "@tag" }) -- keep like tag since often custom HTML element from ES import
+vim.api.nvim_set_hl(0, "@property", { link = "String" }) -- CSS classes are property. Keep same as String since classes in HTML are strings
 
 -- nvim_set_hl({ns_id}, {name}, {*val})                           *nvim_set_hl()*
 --     Sets a highlight group.
@@ -44,3 +45,21 @@ vim.api.nvim_set_hl(0, "@constructor", { link = "@tag" }) -- keep like tag since
 --                  • cterm: cterm attribute map, like |highlight-args|. If not
 --                    set, cterm attributes will match those from the attribute
 --                    map documented above.
+
+-- Neovi terminal colors
+vim.g.terminal_color_0  = "#1a1636"
+vim.g.terminal_color_1  = "#bc675c"
+vim.g.terminal_color_2  = "#80bc5c"
+vim.g.terminal_color_3  = "#bc985c"
+vim.g.terminal_color_4  = "#5c80bc"
+vim.g.terminal_color_5  = "#685cbc"
+vim.g.terminal_color_6  = "#5cb1bc"
+vim.g.terminal_color_7  = "#afc5c7"
+vim.g.terminal_color_8  = "#7d78a1"
+vim.g.terminal_color_9  = "#d8a69f"
+vim.g.terminal_color_10 = "#add89f"
+vim.g.terminal_color_11 = "#d0d89f"
+vim.g.terminal_color_12 = "#9fb4d8"
+vim.g.terminal_color_13 = "#a69fd8"
+vim.g.terminal_color_14 = "#9fd1d8"
+vim.g.terminal_color_15 = "#e9f5e6"
