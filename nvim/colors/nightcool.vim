@@ -61,6 +61,7 @@ hi! link SpecialKey NonText " ...also for list char in Vim
 
 " Parent syntax groups
 hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=6 guifg=#5cb1bc
+hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
 " hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi! link Identifier Constant
 hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
@@ -70,6 +71,11 @@ hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add8
 
 " Language syntax groups
 hi! link jsModuleKeyword Statement
+" HTML elements like Type since CSS treesitter uses that for elements
+hi! link htmlTagName Type
+hi! link cssTagName htmlTagName
+" CSS class like string since classes are string in tags
+hi! link cssClassName String
 
 " UI
 
