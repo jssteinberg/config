@@ -148,6 +148,11 @@ local function init()
 
 	-- File tree
 	use { "lambdalisue/fern.vim", cmd = "Fern" }
+	vim.cmd [[
+		let g:fern#renderer#default#leaf_symbol = "   "
+		let g:fern#renderer#default#collapsed_symbol = "·  "
+		let g:fern#renderer#default#expanded_symbol = "   "
+	]]
 
 	-- ### GIT
 
