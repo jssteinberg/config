@@ -10,6 +10,7 @@
 !alacritty/*
 !contour/
 !contour/*
+!fish/config.fish
 !nvim/
 !nvim/*
 nvim/.DS_Store
