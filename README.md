@@ -46,6 +46,16 @@ funcsave g
 funcsave gs
 ```
 
+Or add to "fish/config.fish":
+
+```fish
+# Git aliases
+alias g "git"
+alias gs "git status"
+alias gp "git pull"
+alias gP "git push"
+```
+
 ## Neovim >= 0.7
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing. Uncomplicated config for dummies hacking (author included).
