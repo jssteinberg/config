@@ -1,14 +1,12 @@
 # .config
 
-test
-
 <img width="1205" alt="normal" src="https://user-images.githubusercontent.com/729055/174159129-26121552-2c49-4f43-bb63-1fb0ff722bf7.png">
 
 Includes **config** for alacritty (used **for Macos**), kitty (used **for Ubuntu**), tmux and neovim. *Not tested for Windows.*
 
 ## Get started
 
-Requires: git, fish, ripgrep, fzy, fd
+Requires: git, fish, ripgrep
 
 1. `cd`
 2. git clone as ~/.config
@@ -48,7 +46,7 @@ funcsave gs
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing. Uncomplicated config for dummies hacking (author included).
 
-Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), fzy, ripgrep, fd, bat, delta, [prettierd](https://github.com/fsouza/prettierd) ... Open nvim and get warning/error messages, run `:PackerSync`, restart nvim, repeat. Then:
+Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), fzy, fzf, ripgrep, fd, bat, delta, [prettierd](https://github.com/fsouza/prettierd) ... Open nvim and get warning/error messages, run `:PackerSync`, restart nvim, repeat. Then:
 
 - `:TSInstall all`/`:TSUpdate`
 - `:Mason`
