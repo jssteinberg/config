@@ -128,10 +128,19 @@ aug some_config | au!
 	" Open quickfix window when relevant
 	au QuickFixCmdPost [^l]* cwindow
 	" Set tabstop if noexpandtab
-	au BufEnter * if !(&et) | let &ts=g:indent_width | en
+	au BufEnter * call SetTabWidth(g:indent_width)
 aug END
 
-function! HiGroupNames()
+fu! SetTabWidth(ts_width) abort
+	if !(&expandtab) " Hard-tabs uses my tabstop width
+		exe "setlocal tabstop=" . a:ts_width
+	elseif &sw != &ts " Soft-tabs gets tabstop=shiftwidth for no krøll
+		exe "setlocal tabstop=" . &sw
+	en
+endfun
+
+" Echo highlight groups
+fu! HiGroupNames()
 	let l:s = synID(line('.'), col('.'), 1)
-	echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+	echo synIDattr(l:s, 'name') . ' › ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
