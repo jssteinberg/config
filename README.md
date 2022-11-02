@@ -25,7 +25,7 @@ ln -s .config/tmux.conf .tmux.conf
 - [fd](https://github.com/sharkdp/fd), find replacement.
 - [bat](https://github.com/sharkdp/bat), cat replacement.
 - [fzf](https://github.com/junegunn/fzf).
-	- and for fish: https://github.com/PatrickF1/fzf.fish or https://github.com/jethrokuan/fzf
+	- and for fish: https://github.com/jethrokuan/fzf or https://github.com/PatrickF1/fzf.fish 
 - [np](https://github.com/sindresorhus/np) for easy NPM package publication.
 - [fnm](https://github.com/Schniz/fnm) for fast Node.js version managing. *Previously used [nvm](https://github.com/nvm-sh/nvm), and for fish [fish-nvm](https://github.com/FabioAntunes/fish-nvm).*
 - multiplexer: tmux, (keep an eye on [tab-rs](https://github.com/austinjones/tab-rs)).
@@ -37,7 +37,7 @@ More global fish config from the shell:
 
 ```fish
 set -Ux FZF_DEFAULT_COMMAND rg --files --hidden --follow
-set -Ux EDITOR "nvim"
+set -Ux EDITOR "vim"
 alias gs "git status"
 funcsave gs
 ```

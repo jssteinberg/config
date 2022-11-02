@@ -1,12 +1,12 @@
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 font:
   size: 14
-  normal:
-    # family: monospace
-    family: cousine nerd font mono
-  italic:
-    family: cousine nerd font mono
-    style: Italic
+  #normal:
+  #  # family: monospace
+  #  family: cousine nerd font mono
+  #italic:
+  #  family: cousine nerd font mono
+  #  style: Italic
 
 # Send ESC (\x1b) before characters when alt is pressed---needed for several non-us keyboards usually
 alt_send_esc: false
