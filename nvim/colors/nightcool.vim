@@ -70,6 +70,15 @@ hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NON
 hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=12 guifg=#9fb4d8
 hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
 
+" SPECIFIC SYNTAX GROUPS
+
+" HTML elements like Type since CSS treesitter uses that for elements
+hi! link htmlTagName Type
+hi! link cssTagName htmlTagName
+hi! link jsModuleKeyword htmlTagName
+" CSS class like string since classes are string in tags
+hi! link cssClassName String
+
 " UI
 
 hi ColorColumn ctermbg=233 guibg=#361a16
@@ -160,14 +169,5 @@ hi! link IlluminatedWordWrite IlluminatedWordText
 
 if has("nvim") " NEOVIM
 	lua require("nightcool.neovim")
-else " VIM
-	" SPECIFIC SYNTAX GROUPS
-
-	" HTML elements like Type since CSS treesitter uses that for elements
-	hi! link htmlTagName Type
-	hi! link cssTagName htmlTagName
-	hi! link jsModuleKeyword htmlTagName
-	" CSS class like string since classes are string in tags
-	hi! link cssClassName String
 endif
 

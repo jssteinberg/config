@@ -1,4 +1,4 @@
-vim.api.nvim_set_hl(0, "@tag", { link = "@type" }) -- keep like Type since CSS els are @type
+vim.api.nvim_set_hl(0, "@tag", { link = "htmlTagName" }) -- keep like Type since CSS els are @type
 vim.api.nvim_set_hl(0, "@constructor", { link = "@tag" }) -- keep like tag since often custom HTML element from ES import
 vim.api.nvim_set_hl(0, "@property", { link = "String" }) -- CSS classes are property. Keep same as String since classes in HTML are strings
 
