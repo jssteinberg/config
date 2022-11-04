@@ -2,7 +2,7 @@
 
 <img width="1205" alt="normal" src="https://user-images.githubusercontent.com/729055/174159129-26121552-2c49-4f43-bb63-1fb0ff722bf7.png">
 
-Includes **config** for alacritty (used **for Macos**), kitty (used **for Ubuntu**), tmux and neovim. *Not tested for Windows.*
+Config for Fish, Kitty, Neovim, Vim and Ripgrep. *Not tested for Windows.*
 
 ## Get started
 
@@ -14,7 +14,7 @@ Requires: git, fish, ripgrep
 ```sh
 ln -s .config/vimrc .vimrc
 set -Ux RIPGREP_CONFIG_PATH ~/.config/ripgreprc
-ln -s .config/tmux.conf .tmux.conf
+#ln -s .config/tmux.conf .tmux.conf
 ```
 
 ## Terminal tools
