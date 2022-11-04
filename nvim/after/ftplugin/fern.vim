@@ -2,8 +2,13 @@
 " both drawer and window mode. It has to use the basic Netrw keymaps, but can
 " extend beyond that.
 
+" UI
 setlocal nonumber norelativenumber nocursorcolumn
+let g:fern#renderer#default#leaf_symbol = "   "
+let g:fern#renderer#default#collapsed_symbol = "·  "
+let g:fern#renderer#default#expanded_symbol = "   "
 
+" Mappings
 " unmap
 try
 	nunmap <buffer> c
