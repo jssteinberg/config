@@ -5,8 +5,8 @@
 " UI
 setlocal nonumber norelativenumber nocursorcolumn
 let g:fern#renderer#default#leaf_symbol = "   "
-let g:fern#renderer#default#collapsed_symbol = "·  "
-let g:fern#renderer#default#expanded_symbol = "   "
+let g:fern#renderer#default#collapsed_symbol = " · "
+let g:fern#renderer#default#expanded_symbol = "·· "
 
 " Mappings
 " unmap

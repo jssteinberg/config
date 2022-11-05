@@ -134,6 +134,7 @@ aug END
 fu! SetTabWidth(ts_width) abort
 	if !(&expandtab) " Hard-tabs uses my tabstop width
 		exe "setlocal tabstop=" . a:ts_width
+		exe "setlocal shiftwidth=" . a:ts_width
 	elseif &sw != &ts " Soft-tabs gets tabstop=shiftwidth for no krøll
 		exe "setlocal tabstop=" . &sw
 	en
