@@ -1,5 +1,5 @@
 " OPTIONS
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set copyindent
 set list listchars+=tab:\·\ ,trail:\· " Show tabs, consistent char
 set undofile

@@ -182,7 +182,8 @@ local function init()
 
 	-- Colorschemes
 	use { "ackyshake/Spacegray.vim" }
-	use { "bratpeki/truedark-vim" }
+	use { "folke/tokyonight.nvim" }
+	use { "cocopon/iceberg.vim" }
 
 end
 
