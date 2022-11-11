@@ -26,6 +26,7 @@ nnoremap <silent> <leader>nc :call NowColo()<cr>
 " Fuzzy finder
 nnoremap <leader>s :FuzzyOpen<cr>
 nnoremap <leader>fs :FzfLua live_grep_native<cr>
+nnoremap <leader>ff :FzfLua files<cr>
 
 " Git
 nnoremap <leader>gb <cmd>Git blame<cr>
