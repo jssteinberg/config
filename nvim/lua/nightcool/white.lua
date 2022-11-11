@@ -220,11 +220,10 @@ local theme = lush(function(injected_functions)
 		SpecialComment {}, -- special things inside a comment
 		Debug {}, --    debugging statements
 
-		TSFunctionCall { fg = color("magenta", 2) },
-		TSMethod {}, -- For method calls and definitions.
-		TSProperty {}, -- Same as `TSField`.
-		TSTag { Tag }, -- Same as `TSField`.
-		-- TSVariableBuiltin { fg = color("blue", 2) }, -- Variable names that are defined by the languages, like `this` or `self`.
+		sym("@function.call") { fg = color("magenta", 2) },
+		sym("@method") {},
+		sym("@property") {},
+		sym("@tag") { Tag },
 
 		htmlArg { TSProperty },
 		htmlTagName { Tag },
@@ -233,8 +232,6 @@ local theme = lush(function(injected_functions)
 		cssTagName { htmlTagName },
 		-- cssAttributeSelector { htmlArg },
 		-- cssClassName { String },
-		-- cssTSProperty { String },
-		-- cssTSString { Tag },
 	}
 end)
 
