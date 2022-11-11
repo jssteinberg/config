@@ -107,7 +107,7 @@ hi DiagnosticError ctermfg=1 guifg=#bc675c
 hi DiagnosticHint ctermfg=8 guifg=#5c80bc
 hi DiagnosticWarn ctermfg=4 guifg=#7d78a1
 hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#bc675c
-hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#5c80bc
+hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#2c446d
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
 
 hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#d0d89f guifg=#0c0a19
