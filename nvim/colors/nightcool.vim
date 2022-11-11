@@ -62,12 +62,12 @@ hi! link SpecialKey NonText " ...also for list char in Vim
 " GENERAL SYNTAX GROUPS
 
 hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=6 guifg=#5cb1bc
-hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
+hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=11 guifg=#d0d89f
 " hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi! link Identifier Constant
 hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
-hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=12 guifg=#9fb4d8
+hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
 hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
 
 " SPECIFIC SYNTAX GROUPS
