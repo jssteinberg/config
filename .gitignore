@@ -25,3 +25,5 @@ nvim/lua/packages/.DS_Store
 !nvim/lua/utils/*
 !nvim/lua/wip/*
 !nvim/lua/nightcool/*
+!goneovim/
+!goneovim/*
