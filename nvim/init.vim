@@ -13,6 +13,10 @@ runtime options.vim
 runtime keymaps.vim
 runtime colorscheme.vim
 
+if exists("g:neovide")
+	runtime neovide.vim
+endif
+
 " Set colorscheme
 call InitColo()
 
