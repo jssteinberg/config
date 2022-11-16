@@ -67,8 +67,8 @@ hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=11 guifg=#d0d8
 hi! link Identifier Constant
 hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
-hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
-hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
+hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
+hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
 
 " SPECIFIC SYNTAX GROUPS
 
@@ -167,6 +167,25 @@ hi IlluminatedWordText cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi! link IlluminatedWordRead IlluminatedWordText
 hi! link IlluminatedWordWrite IlluminatedWordText
 
-if has("nvim") " NEOVIM
-	lua require("nightcool.neovim")
+" Neovim terminal colors
+let g:terminal_color_0  = "#1a1636"
+let g:terminal_color_1  = "#bc675c"
+let g:terminal_color_2  = "#80bc5c"
+let g:terminal_color_3  = "#bc985c"
+let g:terminal_color_4  = "#5c80bc"
+let g:terminal_color_5  = "#685cbc"
+let g:terminal_color_6  = "#5cb1bc"
+let g:terminal_color_7  = "#afc5c7"
+let g:terminal_color_8  = "#7d78a1"
+let g:terminal_color_9  = "#d8a69f"
+let g:terminal_color_10 = "#add89f"
+let g:terminal_color_11 = "#d0d89f"
+let g:terminal_color_12 = "#9fb4d8"
+let g:terminal_color_13 = "#a69fd8"
+let g:terminal_color_14 = "#9fd1d8"
+let g:terminal_color_15 = "#e9f5e6"
+
+if has("nvim-0.8") && get(g:, "nightcool_treesitter", v:true)
+	" NEOVIM Treesitter
+	lua require("nightcool.treesitter")
 endif
