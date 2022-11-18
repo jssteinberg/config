@@ -185,7 +185,7 @@ let g:terminal_color_13 = "#a69fd8"
 let g:terminal_color_14 = "#9fd1d8"
 let g:terminal_color_15 = "#e9f5e6"
 
+" NEOVIM Treesitter (version 0.8 is new hi syn "@group")
 if has("nvim-0.8") && get(g:, "nightcool_treesitter", v:true)
-	" NEOVIM Treesitter
 	lua require("nightcool.treesitter")
 endif
