@@ -75,6 +75,7 @@ hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1
 " HTML elements like Type since CSS treesitter uses that for elements
 hi! link htmlTagName Type
 hi! link cssTagName htmlTagName
+hi! link cssAttrRegion htmlTagName " to fix selector withing media
 hi! link jsModuleKeyword htmlTagName
 " CSS class like string since classes are string in tags
 hi! link cssClassName String
