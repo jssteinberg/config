@@ -97,6 +97,10 @@ local function init()
 		require("nvim-autopairs").setup {}
 	end }
 
+	-- Emmet
+	use { "mattn/emmet-vim", event = "InsertEnter" }
+	vim.g.user_emmet_leader_key = "<c-e>"
+
 	-- Hop motion commands
 	use {
 		"phaazon/hop.nvim",
