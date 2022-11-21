@@ -152,8 +152,7 @@ local function init()
 	}
 
 	-- git blame inline
-	-- use { "APZelos/blamer.nvim", opt = true } -- git blame
-	use { "f-person/git-blame.nvim", cmd = "GitBlameEnable" }
+	use { "APZelos/blamer.nvim", cmd = "BlamerToggle" } -- git blame
 
 	-- git signs
 	use { "mhinz/vim-signify", opt = true }

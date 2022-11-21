@@ -92,7 +92,7 @@ nnoremap s <cmd>let b:s_space_search=1<cr>/
 xnoremap s <cmd>let b:s_space_search=1<cr>/
 " backwards search with S in normal mode
 nnoremap S <cmd>let b:s_space_search=1<cr>?
-" in command mode, if s_space_search <space> is <cr>
+" in command mode, if s_space_search then <space> is <cr>
 cnoremap <expr> <space> exists("b:s_space_search")
 			\ ? "<cr>" : " "
 " autocmd to unlet variable so s_search is deactivated

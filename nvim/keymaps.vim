@@ -29,7 +29,7 @@ nnoremap <leader>fs :FzfLua live_grep_native<cr>
 nnoremap <leader>ff :FzfLua files<cr>
 
 " Git
-nnoremap <leader>gb <cmd>Git blame<cr>
+nnoremap <leader>gb <cmd>BlamerToggle<cr>
 nnoremap <leader>gc <cmd>Git log -p -50 %<cr>
 nnoremap <leader>gd <cmd>tabnew %<cr><cmd>Gvdiffsplit<cr>
 nnoremap <leader>gg <cmd>Git<cr>
