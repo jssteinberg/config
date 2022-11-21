@@ -22,61 +22,83 @@ vnoremap > >gv
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 noremap <c-s> /
+
 " Line motions incbudes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
+
 " Esc mappings
 inoremap jk <esc>
+
 " Alternate buffer
 nnoremap <leader>b :buffer#<cr>
+
 " Buffer switcher
 nnoremap <leader><tab> :buffer 
+
 " Write/save file
 nnoremap <silent> <leader>w :w<cr>
+
 " Tabedit buffer
 nnoremap <leader>tb :tabedit %<cr>'"
+
 " Close tab or quit all
 nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
+
 " Close window or quit
 nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
+
 " Edit common files
 nnoremap <leader>ep :edit package.json<cr>
 nnoremap <leader>er :edit README.md<cr>
+
 " Replace [word, selection]
 nnoremap <leader>R "ryiw:%s/<c-r>r/
 vnoremap <leader>R "ry:%s/<c-r>r/
+
 " Substitute in [buffer, selection]
 nnoremap <leader>S :%s/
 vnoremap <leader>S :s/
+
 " Grep [args, selection]
 nnoremap <leader>G :silent grep 
 vnoremap <leader>G "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
+
 " Grep reference [word, selection]
 nnoremap gr "gyiw<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
 vnoremap gr "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
+
 " Grep substitute [word, selection]
 nnoremap gs "gyiw<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 vnoremap gs "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
+
 " Git
 " grep for git merge conflicts
 nnoremap <leader>gm :silent! grep -e "<<<<<<<"<cr>
+
 " Quickfix [next, previous, toggle]
 nnoremap Q :exe "cnext\n setlocal scrolloff=" . g:config_scrolloff<cr>
 nnoremap <leader>q :cprev<cr>
 nnoremap <bs> :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
+
 " No/now (toggle options)
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
-" Space-Enter search with faster <CR> with <Space>. The simplest sneak/leap like motion!
-nn s <cmd>let g:_CR=1<cr>/
-nn S <cmd>let g:_CR=1<cr>?
-xn s <cmd>let g:_CR=1<cr>/
-cno <expr> <space> exists("g:_CR") && match(getcmdtype(), "\[/\|?\]") == 0
+
+" space-search: faster forward/backward search with <space>.
+" map s to (confirm) forward search with <space>
+nn s <cmd>let g:space_search=1<cr>/
+xn s <cmd>let g:space_search=1<cr>/
+" map S to (confirm) backward search with <space>
+nn S <cmd>let g:space_search=1<cr>?
+" check if space_seach is active: <space> maps to <cr>
+cno <expr> <space> exists("g:space_search") && match(getcmdtype(), "\[/\|?\]") == 0
 			\ ? "<cr>" : " "
-aug spaceenter | au!
-	au CmdlineLeave /,? if exists("g:_CR") | unl g:_CR | en
-aug END
+augroup space_search | au!
+	" cancel space_search when search is done
+	au CmdlineLeave /,? if exists("g:space_search") | unl g:space_search | en
+augroup END
 
 " OPTIONS (in order of importance)
 set nofoldenable foldmethod=indent " Toggle fold on indent

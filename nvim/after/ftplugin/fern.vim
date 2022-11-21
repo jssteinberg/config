@@ -16,6 +16,8 @@ try
 	nunmap <buffer> fi
 catch | endtry
 
+nn <buffer> s <cmd>let g:_CR=1<cr>/
+
 nmap <buffer> ZQ :q!<cr>
 nmap <buffer> <c-l> <Plug>(fern-action-reload)
 nmap <buffer> cd <Plug>(fern-action-tcd:cursor)
