@@ -6,7 +6,7 @@ Config for Fish, Kitty, Neovim, Vim and Ripgrep. *Not tested for Windows.*
 
 ## Get started
 
-Requires: git, fish, ripgrep
+Requires: git
 
 1. `cd`
 2. git clone as ~/.config

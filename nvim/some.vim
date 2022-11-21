@@ -86,18 +86,18 @@ nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':cope
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 
-" space-search: faster forward/backward search with <space>.
-" map s to (confirm) forward search with <space>
-nn s <cmd>let g:space_search=1<cr>/
-xn s <cmd>let g:space_search=1<cr>/
-" map S to (confirm) backward search with <space>
-nn S <cmd>let g:space_search=1<cr>?
-" check if space_seach is active: <space> maps to <cr>
-cno <expr> <space> exists("g:space_search") && match(getcmdtype(), "\[/\|?\]") == 0
+" s_space_search -- faster search motion with `s`, then enter with `space`.
+" search with s in normal and visual mode
+nnoremap s <cmd>let b:s_space_search=1<cr>/
+xnoremap s <cmd>let b:s_space_search=1<cr>/
+" backwards search with S in normal mode
+nnoremap S <cmd>let b:s_space_search=1<cr>?
+" in command mode, if s_space_search <space> is <cr>
+cnoremap <expr> <space> exists("b:s_space_search")
 			\ ? "<cr>" : " "
-augroup space_search | au!
-	" cancel space_search when search is done
-	au CmdlineLeave /,? if exists("g:space_search") | unl g:space_search | en
+" autocmd to unlet variable so s_search is deactivated
+augroup s_search | au!
+	au CmdlineLeave /,? if exists("b:s_space_search") | unlet b:s_space_search | en
 augroup END
 
 " OPTIONS (in order of importance)
