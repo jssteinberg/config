@@ -25,5 +25,6 @@ nvim/lua/packages/.DS_Store
 !nvim/lua/utils/*
 !nvim/lua/wip/*
 !nvim/lua/nightcool/*
+!nvim/lua/s_space_search/*
 !goneovim/
 !goneovim/*
