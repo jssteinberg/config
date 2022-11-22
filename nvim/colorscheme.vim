@@ -1,10 +1,10 @@
 let s:d = "set bg=dark termguicolors t_Co=256"
 			\." | let g:nightcool_bg=v:false"
-			\." | let g:nightcool_statusline='darker'"
+			\." | let g:nightcool_statusline='black'"
 			\." | colo nightcool"
 
 let s:l = "set bg=light termguicolors t_Co=256"
-			\." | colo lushwhitecool"
+			\." | colo whitecool"
 
 function! InitColo()
 	exe(s:d)
