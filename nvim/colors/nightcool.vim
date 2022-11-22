@@ -19,6 +19,7 @@ let g:colors_name="nightcool"
 " Options:
 " - `let g:nightcool_bg=v:true` or v:false for `NONE` (transparent)
 " - `let g:nightcool_comments="darker"` or "bright"
+" - `let g:nightcool_statusline="default"` or "black"
 "
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
 " Based on a neon illuminated city-park WC...
@@ -138,6 +139,12 @@ hi Search cterm=italic gui=NONE ctermbg=238 guibg=#2c446d ctermfg=NONE guifg=NON
 hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#e9f5e6
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#1a1636
+
+if get(g:, "nightcool_statusline", "default") == "black"
+	hi StatusLine   cterm=NONE gui=NONE ctermbg=16 guibg=#000000
+	hi StatusLineNC cterm=NONE gui=NONE ctermbg=16 guibg=#000000
+	hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=16 guifg=#000000
+en
 
 " UI LINKED
 
