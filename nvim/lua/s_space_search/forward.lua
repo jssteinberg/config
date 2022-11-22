@@ -1,6 +1,10 @@
+local M = {}
+
 -- 1. set buffer variable
 -- 2. /
 
-return function ()
-	vim.cmd("/")
+M.search = function()
+	vim.cmd [[echo "test"]]
 end
+
+return M

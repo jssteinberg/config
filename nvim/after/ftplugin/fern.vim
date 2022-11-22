@@ -47,6 +47,7 @@ nmap <buffer> F <Plug>(fern-action-mark:toggle)k
 nmap <buffer> <cr> <Plug>(fern-action-open-or-expand)
 nmap <buffer> P <Plug>(fern-action-open-or-expand)
 nmap <buffer> v <Plug>(fern-action-open:side)
+nmap <buffer> o <Plug>(fern-action-open:split)
 nmap <buffer> x <Plug>(fern-action-clipboard-move)
 nmap <buffer> y <Plug>(fern-action-clipboard-copy)
 nmap <buffer> p <Plug>(fern-action-clipboard-paste)

@@ -1,4 +1,4 @@
-nnoremap ds :lua require("s_space_search.forward")()<cr>
+nnoremap ds :lua require("s_space_search.forward").search()<cr>
 
 " Additional esc map
 tnoremap jk <c-\><c-n>

@@ -104,7 +104,7 @@ local function init()
 	-- Hop motion commands
 	use {
 		"phaazon/hop.nvim",
-		cmd = { "HopChar1", "HopVerticalAC", "HopVerticalBC" },
+		cmd = { "HopChar1", "HopVerticalAC", "HopVerticalBC", "HopVertical" },
 		config = function() require "hop".setup() end
 	}
 
@@ -172,7 +172,6 @@ local function init()
 	use { "rktjmp/shipwright.nvim", opt = true }
 
 	-- Colorschemes
-	use { "ackyshake/Spacegray.vim" }
 	use { "folke/tokyonight.nvim" }
 	use { "cocopon/iceberg.vim" }
 
