@@ -4,7 +4,9 @@ let s:d = "set bg=dark termguicolors t_Co=256"
 			\." | colo nightcool"
 
 let s:l = "set bg=light termguicolors t_Co=256"
-			\." | colo whitecool"
+			\." | colo iceberg"
+			\." | hi Normal guibg=#ffffff"
+			\." | hi! link SignColumn Normal"
 
 function! InitColo()
 	exe(s:d)

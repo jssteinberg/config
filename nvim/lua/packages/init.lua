@@ -51,7 +51,7 @@ local function init()
 
 	-- Statusline
 	use {
-		"jssteinberg/hackline.vim",
+		"~/dev/hackline.vim",
 		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 		config = function()

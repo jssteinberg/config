@@ -67,6 +67,28 @@ A simple Vim config in a single vimrc. It can be used as a boilerplate and works
 	mkdir $HOME/.vimundo`
 	```
 
+## Maintenance
+
+Terminal:
+
+```fish
+brew update && brew upgrade
+fisher update
+npm -g update
+npm -g outdate
+```
+
+- Explicitly install outdated global NPM packages not automatically updated.
+
+Neovim:
+
+```vim
+:PackerSync
+:TSUpdate
+:Mason
+U
+```
+
 ## Troubleshooting
 
 - UTF-8 fish, tmux, neovim LANG, LC_ALL error. Try adding this to your `~/.config/fish/config.fish`:
