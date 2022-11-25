@@ -4,6 +4,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+alias vi nvim
+
 # Git aliases
 alias g "git"
 alias gs "git status"

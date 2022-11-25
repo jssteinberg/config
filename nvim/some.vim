@@ -152,6 +152,8 @@ aug some_config | au!
 	au QuickFixCmdPost [^l]* cwindow
 	" Set tabstop if noexpandtab
 	au BufEnter * call SetTabWidth(g:indent_width)
+	" Open netrw on startup when no args
+	au VimEnter * if argc() == 0 | Explore! | endif
 aug END
 
 fu! SetTabWidth(ts_width) abort

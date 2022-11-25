@@ -51,7 +51,7 @@ local function init()
 
 	-- Statusline
 	use {
-		"~/dev/hackline.vim",
+		"jssteinberg/hackline.vim",
 		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 		config = function()
@@ -158,8 +158,6 @@ local function init()
 	use { "mhinz/vim-signify", opt = true }
 
 	-- ### UTIL
-
-	use { "echasnovski/mini.nvim", opt = true }
 
 	-- Measure startuptime
 	use { "dstein64/vim-startuptime", cmd = "StartupTime" }
