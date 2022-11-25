@@ -85,7 +85,8 @@ nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':cope
 " No/now (toggle options)
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
-nnoremap <expr> <leader>nn &number ? ':set nonumber norelativenumber<cr>' : ':set number relativenumber<cr>'
+nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
+nnoremap <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
 
 " s_space_search -- faster search motion with `s`, then enter with `space`.
 " search with s in normal and visual mode
@@ -96,7 +97,7 @@ nnoremap S <cmd>let b:s_space_search=1<cr>?
 " in command mode, if s_space_search then <space> is <cr>
 cnoremap <expr> <space> exists("b:s_space_search")
 			\ ? "<cr>" : " "
-" autocmd to unlet variable so s_search is deactivated
+" autocmd to unlet variable so s_space_search is deactivated
 augroup s_search | au!
 	au CmdlineLeave /,? if exists("b:s_space_search") | unlet b:s_space_search | en
 augroup END

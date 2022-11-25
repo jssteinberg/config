@@ -87,11 +87,11 @@ hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
-hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#e9f5e6
+hi CursorLineNr cterm=italic gui=italic ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#e9f5e6
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=5 guifg=#342c6d
-hi LineNr ctermfg=8 guifg=#7d78a1
-hi LineNrAbove ctermfg=5 guifg=#685cbc
+hi LineNr ctermfg=8 guifg=#685cbc
+hi LineNrBelow ctermfg=8 guifg=#7d78a1
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a69fd8
 hi MatchWord cterm=italic gui=NONE ctermbg=0 guibg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
