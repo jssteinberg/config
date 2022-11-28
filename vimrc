@@ -123,6 +123,20 @@ fu! FzyCommand(choice_command, vim_command) abort
 	en
 endf
 
+" FZF
+" https://dev.to/pbnj/interactive-fuzzy-finding-in-vim-without-plugins-4kkj
+" fu! FZF() abort
+" 	let l:tempname = tempname()
+" 	" fzf | awk '{ print $1":1:0" }' > file
+" 	execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
+" 	try
+" 		execute 'cfile ' . l:tempname
+" 		redraw!
+" 	finally
+" 		call delete(l:tempname)
+" 	endtry
+" endf
+
 " PLUGINS
 fu! PackInit() abort
 	packadd minpac
@@ -140,9 +154,9 @@ fu! PackInit() abort
 	call minpac#add("prabirshrestha/asyncomplete-lsp.vim")
 	call minpac#add("yami-beta/asyncomplete-omni.vim")
 	" Filetypes
-	call minpac#add('othree/html5.vim')
-	call minpac#add('pangloss/vim-javascript')
-	call minpac#add('evanleck/vim-svelte')
+	call minpac#add("othree/html5.vim")
+	call minpac#add("pangloss/vim-javascript")
+	call minpac#add("evanleck/vim-svelte")
 	call minpac#add("wuelnerdotexe/vim-astro")
 endf
 
