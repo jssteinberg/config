@@ -21,7 +21,6 @@ vnoremap < <gv
 vnoremap > >gv
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
-noremap <c-s> /
 
 " Line motions incbudes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
