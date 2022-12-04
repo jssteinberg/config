@@ -24,7 +24,10 @@ M.config = function()
 				name = "nvim_lsp", max_item_count = 3
 			},
 			{
-				name = "buffer", max_item_count = 5
+				name = "omni", max_item_count = 3
+			},
+			{
+				name = "buffer", max_item_count = 6
 			},
 		},
 		experimental = {
