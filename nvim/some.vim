@@ -21,7 +21,6 @@ vnoremap < <gv
 vnoremap > >gv
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
-noremap <c-s> /
 
 " Line motions incbudes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
@@ -88,18 +87,18 @@ nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent li
 nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
 nnoremap <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
 
-" s_space_search -- faster search motion with `s`, then enter with `space`.
+" space_search -- faster search motion with `s`, then enter with `space`.
 " search with s in normal and visual mode
-nnoremap s <cmd>let b:s_space_search=1<cr>/
-xnoremap s <cmd>let b:s_space_search=1<cr>/
+nnoremap s <cmd>let b:space_search=1<cr>/
+xnoremap s <cmd>let b:space_search=1<cr>/
 " backwards search with S in normal mode
-nnoremap S <cmd>let b:s_space_search=1<cr>?
-" in command mode, if s_space_search then <space> is <cr>
-cnoremap <expr> <space> exists("b:s_space_search")
+nnoremap S <cmd>let b:space_search=1<cr>?
+" in command mode, if space_search then <space> is <cr>
+cnoremap <expr> <space> exists("b:space_search")
 			\ ? "<cr>" : " "
-" autocmd to unlet variable so s_space_search is deactivated
+" autocmd to unlet variable so space_search is deactivated
 augroup s_search | au!
-	au CmdlineLeave /,? if exists("b:s_space_search") | unlet b:s_space_search | en
+	au CmdlineLeave /,? if exists("b:space_search") | unlet b:space_search | en
 augroup END
 
 " OPTIONS (in order of importance)
@@ -112,7 +111,7 @@ let &ts=g:indent_width | let &sw=g:indent_width " indent size
 set hidden " Unsaved files can be 'hidden'
 set noswapfile " No swap files, but undo files (requires `undodir` in Vim)
 set sessionoptions=curdir,folds,tabpages,help
-set signcolumn=yes " Always show signcolumn
+set signcolumn=yes number " Show signcolumn and numbers
 set cursorline " Highlight cursor line
 set splitright
 set showtabline=2 " Always show tabline

@@ -7,8 +7,8 @@ end
 alias vi "nvim"
 
 # Git aliases
-alias g "git"
-alias gs "git status"
+alias gb "git branch"
+alias gc "git checkout"
 alias gp "git pull"
 alias gP "git push"
-alias gc "git checkout"
+alias gs "git status"

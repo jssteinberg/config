@@ -36,9 +36,11 @@ M.config = function()
 	local lspconfig = require("lspconfig")
 	local mason_lspconfig = require("mason-lspconfig")
 	local lsp_format = require("lsp-format")
-	local on_attach = function(client, bufnr)
+	local on_attach_general = function(client, bufnr)
 		M.register_keymaps(client, bufnr)
-		-- Use LSP completion
+	end
+	local max_client = function(client, bufnr)
+		lsp_format.on_attach(client, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	end
 
@@ -51,17 +53,17 @@ M.config = function()
 	mason_lspconfig.setup_handlers {
 		function(server_name) -- default handler (optional)
 			lspconfig[server_name].setup {
-				on_attach = on_attach
+				on_attach = on_attach_general
 			}
 		end,
 		["svelte"] = function()
 			lspconfig.svelte.setup {
-				on_attach = lsp_format.on_attach,
+				on_attach = max_client
 			}
 		end,
 		["sumneko_lua"] = function()
 			lspconfig.sumneko_lua.setup {
-				on_attach = lsp_format.on_attach,
+				on_attach = max_client,
 				settings = {
 					Lua = {
 						diagnostics = {
@@ -78,7 +80,7 @@ M.config = function()
 		end,
 		["tsserver"] = function()
 			lspconfig.tsserver.setup {
-				on_attach = lsp_format.on_attach,
+				on_attach = max_client,
 				settings = {
 					javascript = {
 						format = {
