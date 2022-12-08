@@ -19,8 +19,8 @@ end
 
 M.add_filetypes = function()
 	vim.filetype.add({
-		extension = {
-			mdx = "markdown",
+		filename = {
+			[".mdx"] = "markdown",
 		},
 	})
 end
