@@ -153,7 +153,7 @@ aug some_config | au!
 	" Set tabstop if noexpandtab
 	au BufEnter * call SetTabWidth(g:indent_width)
 	" Open netrw on startup when no args
-	au VimEnter * if argc() == 0 | Explore! | endif
+	au VimEnter * if argc() == 0 && tabpagenr() == 1 | Explore! | endif
 aug END
 
 fu! SetTabWidth(ts_width) abort
