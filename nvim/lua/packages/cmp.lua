@@ -82,18 +82,13 @@ M.config = function()
 					fallback()
 				end
 			end, { "i" }),
-			["<c-p>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_prev_item()
-				else
-					fallback()
-				end
-			end, { "i" }),
-			["<c-s>"] = cmp.mapping(function()
+			["<c-s>"] = cmp.mapping(function(fallback)
 				if luasnip.jumpable() then
 					luasnip.jump(1)
 				elseif cmp.get_active_entry() then
 					cmp.confirm({ select = true })
+				else
+					fallback()
 				end
 			end, { "i" }),
 			["<c-b>"] = cmp.mapping(function(fallback)
@@ -103,6 +98,13 @@ M.config = function()
 					fallback()
 				end
 			end, { "i" }),
+			-- ["<c-p>"] = cmp.mapping(function(fallback)
+			-- 	if cmp.visible() then
+			-- 		cmp.select_prev_item()
+			-- 	else
+			-- 		fallback()
+			-- 	end
+			-- end, { "i" }),
 		},
 	}
 end
