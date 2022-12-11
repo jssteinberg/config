@@ -21,10 +21,10 @@ M.config = function()
 				name = "luasnip", max_item_count = 2
 			},
 			{
-				name = "nvim_lsp", max_item_count = 3
+				name = "nvim_lsp"
 			},
 			{
-				name = "omni", max_item_count = 3
+				name = "omni"
 			},
 			{
 				name = "buffer", max_item_count = 6

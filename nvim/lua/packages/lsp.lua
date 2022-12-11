@@ -56,26 +56,14 @@ M.config = function()
 				on_attach = on_attach_general
 			}
 		end,
-		["svelte"] = function()
+		["astro"] = function()
 			lspconfig.svelte.setup {
 				on_attach = max_client
 			}
 		end,
-		["sumneko_lua"] = function()
-			lspconfig.sumneko_lua.setup {
-				on_attach = max_client,
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" }
-						},
-						format = {
-							defaultConfig = {
-								quote_style = "double"
-							}
-						}
-					}
-				}
+		["svelte"] = function()
+			lspconfig.svelte.setup {
+				on_attach = max_client
 			}
 		end,
 		["tsserver"] = function()
@@ -96,6 +84,23 @@ M.config = function()
 						},
 						preferences = {
 							quoteStyle = "double"
+						}
+					}
+				}
+			}
+		end,
+		["sumneko_lua"] = function()
+			lspconfig.sumneko_lua.setup {
+				on_attach = max_client,
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" }
+						},
+						format = {
+							defaultConfig = {
+								quote_style = "double"
+							}
 						}
 					}
 				}
