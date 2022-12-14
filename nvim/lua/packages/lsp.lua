@@ -40,8 +40,8 @@ M.config = function()
 		M.register_keymaps(client, bufnr)
 	end
 	local max_client = function(client, bufnr)
-		lsp_format.on_attach(client, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+		lsp_format.on_attach(client, bufnr)
 	end
 
 	require("mason").setup({})
