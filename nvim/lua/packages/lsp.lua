@@ -57,13 +57,17 @@ M.config = function()
 			}
 		end,
 		["astro"] = function()
-			lspconfig.svelte.setup {
-				on_attach = max_client
+			lspconfig.astro.setup {
+				on_attach = function(client, bufnr)
+					vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+				end,
 			}
 		end,
 		["svelte"] = function()
 			lspconfig.svelte.setup {
-				on_attach = max_client
+				on_attach = function(client, bufnr)
+					vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+				end,
 			}
 		end,
 		["tsserver"] = function()
