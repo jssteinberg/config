@@ -61,20 +61,20 @@ M.config = function()
 					fallback()
 				end
 			end, { "i" }),
-			["<tab>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_next_item()
-				else
-					fallback()
-				end
-			end, { "i" }),
-			["<s-tab>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_prev_item()
-				else
-					fallback()
-				end
-			end, { "i" }),
+			-- ["<tab>"] = cmp.mapping(function(fallback)
+			-- 	if cmp.visible() then
+			-- 		cmp.select_next_item()
+			-- 	else
+			-- 		fallback()
+			-- 	end
+			-- end, { "i" }),
+			-- ["<s-tab>"] = cmp.mapping(function(fallback)
+			-- 	if cmp.visible() then
+			-- 		cmp.select_prev_item()
+			-- 	else
+			-- 		fallback()
+			-- 	end
+			-- end, { "i" }),
 			["<c-n>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
@@ -98,13 +98,6 @@ M.config = function()
 					fallback()
 				end
 			end, { "i" }),
-			-- ["<c-p>"] = cmp.mapping(function(fallback)
-			-- 	if cmp.visible() then
-			-- 		cmp.select_prev_item()
-			-- 	else
-			-- 		fallback()
-			-- 	end
-			-- end, { "i" }),
 		},
 	}
 end

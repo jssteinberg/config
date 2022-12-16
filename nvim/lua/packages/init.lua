@@ -17,6 +17,7 @@ local function init()
 	use { "tpope/vim-sleuth" } -- Detects indent, also uses .editorconfig
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
 	use { "michaeljsmith/vim-indent-object" } -- Keymaps for indents
+	use { "github/copilot.vim" }
 
 	-- Treesitter
 	use {
@@ -171,7 +172,6 @@ local function init()
 	use { "rktjmp/shipwright.nvim", opt = true }
 
 	-- Colorschemes
-	use { "folke/tokyonight.nvim" }
 	use { "cocopon/iceberg.vim" }
 
 end
