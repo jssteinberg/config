@@ -65,9 +65,7 @@ M.config = function()
 		end,
 		["svelte"] = function()
 			lspconfig.svelte.setup {
-				on_attach = function(client, bufnr)
-					vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-				end,
+				on_attach = max_client,
 			}
 		end,
 		["tsserver"] = function()
