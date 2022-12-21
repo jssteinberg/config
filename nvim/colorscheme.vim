@@ -6,7 +6,7 @@ let s:d = "set bg=dark termguicolors t_Co=256"
 let s:l = "set bg=light termguicolors t_Co=256"
 			\." | colo iceberg"
 			\." | hi Normal guibg=#ffffff"
-			\." | hi! link SignColumn Normal"
+			\." | hi SignColumn guibg=NONE | hi LineNr guibg=NONE"
 
 function! InitColo()
 	exe(s:d)
