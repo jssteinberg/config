@@ -225,7 +225,7 @@ local theme = lush(function(injected_functions)
 		sym("@property") {},
 		sym("@tag") { Tag },
 
-		htmlArg { TSProperty },
+		htmlArg { sym("@property") },
 		htmlTagName { Tag },
 		htmlTag { htmlArg },
 		htmlEndTag { htmlTag },
