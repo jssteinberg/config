@@ -43,7 +43,6 @@ nnoremap <leader>go <cmd>OpenGithubFile<cr>
 nnoremap <leader>gp <cmd>Git pull<cr>
 nnoremap <leader>gP <cmd>Git push<cr>
 nnoremap <leader>gq <cmd>Git mergetool<cr>
-nnoremap <leader>gs <cmd>SignifyEnableAll<cr>
 
 " Color highlight groups
 nnoremap <leader>hc <cmd>TSHighlightCapturesUnderCursor<cr>

@@ -156,9 +156,6 @@ local function init()
 	-- git blame inline
 	use { "APZelos/blamer.nvim", cmd = "BlamerToggle" } -- git blame
 
-	-- git signs
-	use { "mhinz/vim-signify", opt = true }
-
 	-- ### UTIL
 
 	-- Measure startuptime
