@@ -87,18 +87,17 @@ nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent li
 nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
 nnoremap <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
 
-" space_search -- faster search motion with `s`, then enter with `space`.
 " search with s in normal and visual mode
-nnoremap s <cmd>let b:space_search=1<cr>/
-xnoremap s <cmd>let b:space_search=1<cr>/
+nnoremap s <cmd>let g:space_search=1<cr>/
+xnoremap s <cmd>let g:space_search=1<cr>/
 " backwards search with S in normal mode
-nnoremap S <cmd>let b:space_search=1<cr>?
+nnoremap S <cmd>let g:space_search=1<cr>?
 " in command mode, if space_search then <space> is <cr>
-cnoremap <expr> <space> exists("b:space_search")
+cnoremap <expr> <space> exists("g:space_search")
 			\ ? "<cr>" : " "
 " autocmd to unlet variable so space_search is deactivated
-augroup s_search | au!
-	au CmdlineLeave /,? if exists("b:space_search") | unlet b:space_search | en
+augroup space_search | au!
+	au CmdlineLeave * if exists("g:space_search") | unlet g:space_search | en
 augroup END
 
 " OPTIONS (in order of importance)
