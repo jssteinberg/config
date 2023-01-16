@@ -108,7 +108,7 @@ augroup END
 " COLORS
 set background=dark | try | colo nightcool
 catch
-	try | colo quiet " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
+	try | colo lunaperche " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
 	catch | colo slate | endtry
 endtry
 
