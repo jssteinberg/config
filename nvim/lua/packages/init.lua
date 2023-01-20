@@ -62,11 +62,6 @@ local function init()
 		end
 	}
 
-	use {
-		"ibhagwan/fzf-lua",
-		cmd = { "FzfLua" }
-	}
-
 	-- LAZY LOADED
 	-- -----------
 
@@ -138,6 +133,9 @@ local function init()
 		cmd = { "FuzzyOpen" },
 		config = function() vim.g.fuzzy_rootcmds = {} end
 	}
+	-- fzf
+	use { "ibhagwan/fzf-lua", cmd = { "FzfLua" } }
+
 
 	-- File tree
 	use { "lambdalisue/fern.vim", cmd = "Fern" }

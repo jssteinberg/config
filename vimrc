@@ -56,7 +56,6 @@ nn <leader><cr> <cmd>terminal<cr>
 " Find links
 nn <leader>fl ?\v\S+[:\|.]\S+<cr>
 " Fuzzy find files with Fzy
-" nnoremap <leader>s :call FzyCommand("fd --hidden --follow -E node_modules -E .git -E .github -E .swc", ":e")<cr>
 nnoremap <leader>s :call FzyCommand("rg --files", ":e")<cr>
 " Git
 nn <leader>gg :packadd vim-fugitive<bar>G<cr>
@@ -101,6 +100,7 @@ set undodir=$HOME/.vimundo undofile
 aug vim_config
 	" FileTypes
 	au BufNewFile,BufRead *.mdx set ft=markdown
+	au TerminalWinOpen * setlocal bufhidden=hide
 	" call s:on_lsp_buffer_enabled only for languages that has the server registered.
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
@@ -110,6 +110,7 @@ set background=dark | try | colo nightcool
 catch
 	try | colo lunaperche " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
 	catch | colo slate | endtry
+finally | hi Normal ctermbg=NONE
 endtry
 
 " FZY FUNCTION
@@ -153,6 +154,7 @@ fu! PackInit() abort
 	call minpac#add("prabirshrestha/asyncomplete.vim")
 	call minpac#add("prabirshrestha/asyncomplete-lsp.vim")
 	call minpac#add("yami-beta/asyncomplete-omni.vim")
+	call minpac#add("Exafunction/codeium.vim")
 	" Filetypes
 	call minpac#add("othree/html5.vim")
 	call minpac#add("pangloss/vim-javascript")
