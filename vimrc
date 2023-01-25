@@ -65,10 +65,6 @@ let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 " map s <Plug>(easymotion-s)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-" Tab completion
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 function! s:on_lsp_buffer_enabled() abort
 	setlocal omnifunc=lsp#complete

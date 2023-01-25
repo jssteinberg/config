@@ -11,7 +11,7 @@ nnoremap <silent> <leader>ed :Fern . -drawer -reveal=% -toggle -width=35<cr>
 nnoremap <silent> <leader>eh :Fern %:h -reveal=%<cr>
 
 " Terminal
-nnoremap <silent> <leader><cr> <cmd>terminal<cr>i
+nnoremap <silent> <leader><cr> <cmd>wincmd s<cr><cmd>terminal<cr>i
 
 " Marks
 nnoremap <leader>ma 'A'"
