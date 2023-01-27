@@ -32,7 +32,7 @@ M.config = function()
 		},
 		experimental = {
 			-- ghost_text = { hl_group = "LineNr" },
-      ghost_text = false -- this feature conflict with copilot.vim's preview
+			ghost_text = false -- this feature conflict with copilot's preview
 		},
 		snippet = {
 			expand = function(args)
