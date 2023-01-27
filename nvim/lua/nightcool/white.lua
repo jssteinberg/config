@@ -208,7 +208,7 @@ local theme = lush(function(injected_functions)
 		Macro {}, --    same as Define
 		PreCondit {}, --  preprocessor #if, #else, #endif, etc.
 
-		Type { fg = color("green", 2), gui = "bold" }, -- (preferred) int, long, char, etc.
+		Type { fg = color("blue", 2), gui = "bold" }, -- (preferred) int, long, char, etc.
 		StorageClass {}, -- static, register, volatile, etc.
 		Structure { fg = color("blue", 2) }, --  struct, union, enum, etc.
 		Typedef {}, --  A typedef
