@@ -74,13 +74,13 @@ local function init()
 	end }
 
 	-- better matching functionality
-	use { "andymass/vim-matchup", after = "vim-illuminate" }
+	-- use { "andymass/vim-matchup", after = "vim-illuminate" }
 
 	-- Context topbar
 	use {
 		"nvim-treesitter/nvim-treesitter-context",
 		requires = { "nvim-treesitter/nvim-treesitter" },
-		after = "vim-matchup",
+		after = "vim-illuminate",
 		config = function() require "treesitter-context".setup {} end
 	}
 
