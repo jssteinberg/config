@@ -76,13 +76,13 @@ M.config = function()
 			-- 		fallback()
 			-- 	end
 			-- end, { "i" }),
-			-- ["<c-n>"] = cmp.mapping(function(fallback)
-			-- 	if cmp.visible() then
-			-- 		cmp.select_next_item()
-			-- 	else
-			-- 		fallback()
-			-- 	end
-			-- end, { "i" }),
+			["<c-n>"] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.select_next_item()
+				else
+					fallback()
+				end
+			end, { "i" }),
 			["<c-s>"] = cmp.mapping(function(fallback)
 				if luasnip.jumpable() then
 					luasnip.jump(1)
