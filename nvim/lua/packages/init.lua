@@ -70,7 +70,6 @@ local function init()
 	-- Illuminate cursor word
 	use { "RRethy/vim-illuminate", event = "CursorHold", config = function()
 		require "illuminate".configure({ under_cursor = false })
-		-- require "illuminate".configure({})
 	end }
 
 	-- better matching functionality
@@ -136,7 +135,6 @@ local function init()
 	-- fzf
 	use { "ibhagwan/fzf-lua", cmd = { "FzfLua" } }
 
-
 	-- File tree
 	use { "lambdalisue/fern.vim", cmd = "Fern" }
 
@@ -168,7 +166,6 @@ local function init()
 
 	-- Colorschemes
 	use { "cocopon/iceberg.vim" }
-
 end
 
 local packages = setmetatable({}, {
