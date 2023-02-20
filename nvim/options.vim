@@ -1,7 +1,7 @@
 " OPTIONS
 set clipboard+=unnamedplus
 set copyindent
-set list listchars+=tab:\·\ ,trail:\~,extends:… " Show tabs, consistent char
+set list listchars=tab:\·\ ,trail:\~,extends:… " Show tabs, consistent char
 set undofile
 
 " ALIAS GREP
