@@ -102,7 +102,7 @@ aug vim_config
 augroup END
 
 " COLORS
-set background=dark | try | colo nightcool
+set background=dark | try | colo clearnight
 catch
 	try | colo lunaperche " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
 	catch | colo slate | endtry
