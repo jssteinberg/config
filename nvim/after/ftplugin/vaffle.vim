@@ -7,3 +7,10 @@ nmap <buffer> D <Plug>(vaffle-delete-selected)
 nmap <buffer> <c-l> <c-l><Plug>(vaffle-refresh)
 nmap <buffer> R <Plug>(vaffle-rename-selected)
 nmap <buffer> gh <Plug>(vaffle-toggle-hidden)
+nmap <buffer> cd <Plug>(vaffle-chdir-here)
+
+nmap <buffer> f <Plug>(vaffle-toggle-current)
+nmap <buffer> x <Plug>(vaffle-move-selected)
+
+nmap <buffer> o <Plug>(vaffle-open-selected-split)
+nmap <buffer> v <Plug>(vaffle-open-selected-vsplit)

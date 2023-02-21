@@ -17,7 +17,10 @@ local function init()
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
 	use { "michaeljsmith/vim-indent-object" } -- Keymaps for indents
 	use { "github/copilot.vim" } -- AI code completion
-	use { "justinmk/vim-dirvish" } -- Replace netrw
+
+	-- Replace netrw
+	use { "cocopon/vaffle.vim" }
+	vim.g.vaffle_force_delete = 1
 
 	-- Treesitter
 	use {
