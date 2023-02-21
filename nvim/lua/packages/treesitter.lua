@@ -1,13 +1,14 @@
 local M = {}
 
 M.config = function()
-	local disable_ft = { "markdown", "markdown_inline", "lua", "vim", "help" }
+	local ignore_ts = { "markdown", "markdown_inline", "lua", "vim", "help" }
+	local disable_ts_ft = { "markdown", "lua", "vim", "help" }
 
 	require("nvim-treesitter.configs").setup({
-		ignore_install = disable_ft,
+		ignore_install = ignore_ts,
 		highlight = {
 			enable = true,
-			disable = disable_ft,
+			disable = disable_ts_ft,
 		},
 		playground = {
 			enable = true,

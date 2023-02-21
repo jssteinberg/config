@@ -10,14 +10,14 @@ local function init()
 
 	packer.reset()
 
-	use { "wbthomason/packer.nvim", opt = true }
-	-- use { "nathom/filetype.nvim", config = function() require "packages.filetype".config() end }
-	use { "tpope/vim-surround" }
-	use { "tpope/vim-repeat" } -- Extend `.` repeat
+	use { "wbthomason/packer.nvim", opt = true } -- Package manager
 	use { "tpope/vim-sleuth" } -- Detects indent, also uses .editorconfig
+	use { "tpope/vim-surround" } -- Surround text with quotes, brackets, etc.
+	use { "tpope/vim-repeat" } -- Extend `.` repeat
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
 	use { "michaeljsmith/vim-indent-object" } -- Keymaps for indents
-	use { "github/copilot.vim" }
+	use { "github/copilot.vim" } -- AI code completion
+	use { "justinmk/vim-dirvish" } -- Replace netrw
 
 	-- Treesitter
 	use {
@@ -70,7 +70,6 @@ local function init()
 	-- Illuminate cursor word
 	use { "RRethy/vim-illuminate", event = "CursorHold", config = function()
 		require "illuminate".configure({ under_cursor = false })
-		-- require "illuminate".configure({})
 	end }
 
 	-- better matching functionality
@@ -136,9 +135,40 @@ local function init()
 	-- fzf
 	use { "ibhagwan/fzf-lua", cmd = { "FzfLua" } }
 
-
 	-- File tree
-	use { "lambdalisue/fern.vim", cmd = "Fern" }
+	use {
+		"dinhhuy258/sfm.nvim",
+		cmd = { "SFMToggle" },
+		config = function()
+			require("sfm").setup({
+				mappings = {
+					custom_only = false,
+					list = {
+						-- user mappings go here
+					}
+				},
+				renderer = {
+					icons = {
+						file = {
+							default = " ",
+							symlink = "~",
+						},
+						folder = {
+							default = "-",
+							open = "-",
+							symlink = "≈",
+							symlink_open = "≈",
+						},
+						indicator = {
+							folder_closed = "",
+							folder_open = "",
+							file = "",
+						}
+					}
+				}
+			})
+		end
+	}
 
 	-- ### GIT
 
@@ -168,7 +198,6 @@ local function init()
 
 	-- Colorschemes
 	use { "cocopon/iceberg.vim" }
-
 end
 
 local packages = setmetatable({}, {
