@@ -139,35 +139,7 @@ local function init()
 	use {
 		"dinhhuy258/sfm.nvim",
 		cmd = { "SFMToggle" },
-		config = function()
-			require("sfm").setup({
-				mappings = {
-					custom_only = false,
-					list = {
-						-- user mappings go here
-					}
-				},
-				renderer = {
-					icons = {
-						file = {
-							default = " ",
-							symlink = "~",
-						},
-						folder = {
-							default = "-",
-							open = "-",
-							symlink = "≈",
-							symlink_open = "≈",
-						},
-						indicator = {
-							folder_closed = "",
-							folder_open = "",
-							file = "",
-						}
-					}
-				}
-			})
-		end
+		config = require("packages.sfm")
 	}
 
 	-- ### GIT
