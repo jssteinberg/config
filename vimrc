@@ -60,6 +60,7 @@ nnoremap <leader>s :call FzyCommand("rg --files", ":e")<cr>
 " Git
 nn <leader>gg :packadd vim-fugitive<bar>G<cr>
 nn <leader>gp :packadd vim-fugitive<bar>G pull<cr>
+nn <leader>gP :packadd vim-fugitive<bar>G push<cr>
 " Easymotions
 let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 " map s <Plug>(easymotion-s)
