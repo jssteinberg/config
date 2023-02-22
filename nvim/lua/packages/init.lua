@@ -75,9 +75,6 @@ local function init()
 		require "illuminate".configure({ under_cursor = false })
 	end }
 
-	-- better matching functionality
-	-- use { "andymass/vim-matchup", after = "vim-illuminate" }
-
 	-- Context topbar
 	use {
 		"nvim-treesitter/nvim-treesitter-context",
