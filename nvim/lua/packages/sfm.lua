@@ -9,6 +9,18 @@ return function()
 					action = "edit",
 				},
 				{
+					key = "o",
+					action = "split",
+				},
+				{
+					key = "v",
+					action = "vsplit",
+				},
+				{
+					key = "t",
+					action = "tabnew",
+				},
+				{
 					key = "h",
 					action = "close_entry",
 				},
