@@ -45,8 +45,8 @@ M.config = function()
 			["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
 			["<C-c>"] = cmp.mapping({
 				i = cmp.mapping.abort(),
-				c = cmp.mapping.close(),
 			}),
+			["<C-Space>"] = cmp.mapping.complete(),
 			["<CR>"] = cmp.mapping({
 				i = cmp.mapping.confirm({
 					behavior = cmp.ConfirmBehavior.Replace,
@@ -79,7 +79,7 @@ M.config = function()
 					end
 				end
 			}),
-			["<c-f>"] = cmp.mapping(function(fallback)
+			["<c-f>"] = cmp.mapping(function()
 				if luasnip.expandable() then
 					luasnip.expand()
 				elseif cmp.get_active_entry() then
@@ -89,9 +89,7 @@ M.config = function()
 					cmp.confirm({ select = true })
 				end
 			end, { "i", "s" }),
-			["<c-s>"] = cmp.mapping(function(fallback)
-				-- if luasnip.expand_or_jumpable() then
-				-- 	luasnip.expand_or_jump()
+			["<c-s>"] = cmp.mapping(function()
 				if luasnip.jumpable() then
 					luasnip.jump(1)
 				elseif cmp.get_active_entry() then
