@@ -4,6 +4,9 @@ M.config = function()
 	local cmp = require "cmp"
 	local luasnip = require "luasnip"
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	local t = function(str)
+		return vim.api.nvim_replace_termcodes(str, true, true, true)
+	end
 	local has_words_before = function()
 		unpack = unpack or table.unpack
 		local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -22,6 +25,7 @@ M.config = function()
 			-- {
 			-- 	name = 'nvim_lsp_signature_help', max_item_count = 1
 			-- },
+			{ name = "path" },
 			{ name = "luasnip" },
 			{ name = "nvim_lsp" },
 			{ name = "omni" },
@@ -43,29 +47,38 @@ M.config = function()
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),
 			}),
-			["<CR>"] = cmp.mapping(function(fallback)
-				if cmp.get_active_entry() then
-					cmp.confirm({ select = true })
-				else
-					fallback()
+			["<CR>"] = cmp.mapping({
+				i = cmp.mapping.confirm({
+					behavior = cmp.ConfirmBehavior.Replace,
+					select = false
+				}),
+			}),
+			["<Down>"] = cmp.mapping(cmp.mapping.select_next_item({
+				behavior = cmp.SelectBehavior.Select
+			}), { "i" }),
+			["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item({
+				behavior = cmp.SelectBehavior.Select
+			}), { "i" }),
+			["<C-n>"] = cmp.mapping({
+				i = function(fallback)
+					if cmp.visible() then
+						cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+					elseif has_words_before() then
+						cmp.complete()
+					else
+						fallback()
+					end
 				end
-			end, { "i", "s" }),
-			["<c-n>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_next_item()
-				elseif has_words_before() then
-					cmp.complete()
-				else
-					fallback()
+			}),
+			["<C-p>"] = cmp.mapping({
+				i = function(fallback)
+					if cmp.visible() then
+						cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+					else
+						fallback()
+					end
 				end
-			end, { "i", "s" }),
-			["<c-p>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_prev_item()
-				else
-					fallback()
-				end
-			end, { "i" }),
+			}),
 			["<c-f>"] = cmp.mapping(function(fallback)
 				if luasnip.expandable() then
 					luasnip.expand()
