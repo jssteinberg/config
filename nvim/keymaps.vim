@@ -1,4 +1,9 @@
-nnoremap ds :lua require("s_space_search.forward").search()<cr>
+nmap æ [
+nmap ø ]
+omap æ [
+omap ø ]
+xmap æ [
+xmap ø ]
 
 " Additional esc map
 tnoremap jk <c-\><c-n>
@@ -10,14 +15,15 @@ nnoremap <leader>eh <cmd>Vaffle %:h<cr>
 nnoremap <silent> <leader>ed :SFMToggle<cr>
 
 " Terminal
-nnoremap <silent> <leader><cr> <cmd>wincmd s<cr><cmd>terminal<cr>i
+nn <silent> <leader><cr> <cmd>wincmd s<cr><cmd>call GetMainTerm()<cr>i
 
-" Marks
-nnoremap <leader>ma 'A'"
-nnoremap <leader>ms 'S'"
-nnoremap <leader>md 'D'"
-nnoremap <leader>mf 'F'"
-nnoremap <leader>mc 'C'"
+fu! GetMainTerm()
+	try
+		exe "buffer " . g:main_terminal_bufnr
+	catch
+		exe "terminal" | let g:main_terminal_bufnr=bufnr()
+	endtry
+endf
 
 " No/now (toggle options)
 nnoremap <silent> <leader>nc :call NowColo()<cr>
@@ -25,10 +31,11 @@ nnoremap <silent> <leader>nc :call NowColo()<cr>
 " PACKAGE/PLUGIN MAPPINGS
 
 " Fuzzy finder
-nnoremap <leader>s :FuzzyOpen<cr>
 nnoremap <leader>fb :FzfLua buffers<cr>
 nnoremap <leader>fs :FzfLua live_grep_native<cr>
 nnoremap <leader>ff :FzfLua files<cr>
+nnoremap <leader>s :FzfLua files<cr>
+" nnoremap <leader>s :FuzzyOpen<cr>
 
 " Git
 nnoremap <leader>gb <cmd>BlamerToggle<cr>

@@ -5,7 +5,6 @@
 " e: edit
 " g: git
 " f: find/fuzzy files
-" h: harpoon harpooned/marked project files
 " s: search files
 " t: tab
 " C: tabclose || close all
@@ -14,7 +13,7 @@
 " S: substitute
 
 let g:indent_width=2
-let g:config_scrolloff=15
+let g:config_scrolloff=10
 
 " Core improved keymaps
 vnoremap < <gv
