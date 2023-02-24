@@ -51,8 +51,6 @@ tnoremap jk <c-w>N
 nnoremap <leader>e. <cmd>edit .<cr>
 nnoremap <leader>eh <cmd>edit %:h<cr>
 nnoremap <leader>ec <cmd>tabedit ~/.config/vimrc<cr>:tcd  %:h<cr>
-" Terminal
-nn <leader><cr> <cmd>terminal<cr>
 " Find links
 nn <leader>fl ?\v\S+[:\|.]\S+<cr>
 " Fuzzy find files with Fzy
@@ -103,12 +101,9 @@ aug vim_config
 augroup END
 
 " COLORS
-set background=dark | try | colo clearnight
-catch
-	try | colo lunaperche " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
-	catch | colo slate | endtry
-finally | hi Normal ctermbg=NONE
-endtry
+set background=dark
+try | colo lunaperche " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
+catch | colo slate | endtry
 
 " FZY FUNCTION
 fu! FzyCommand(choice_command, vim_command) abort

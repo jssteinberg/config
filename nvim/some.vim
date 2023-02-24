@@ -70,15 +70,14 @@ vnoremap gr "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
 nnoremap gs "gyiw<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 vnoremap gs "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 
-" Git
-" grep for git merge conflicts
-nnoremap <leader>gm :silent! grep -e "<<<<<<<"<cr>
-
 " Quickfix [next, previous, toggle]
 nnoremap Q :exe "cnext\n setlocal scrolloff=" . g:config_scrolloff<cr>
 nnoremap <leader>q :cprev<cr>
 nnoremap <bs> :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
+
+" Terminal
+nn <silent> <leader><cr> <cmd>call GetMainTerm()<cr>
 
 " No/now (toggle options)
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
@@ -86,6 +85,11 @@ nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent li
 nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
 nnoremap <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
 
+" Git
+" grep for git merge conflicts
+nnoremap <leader>gm :silent! grep -e "<<<<<<<"<cr>
+
+" Space search
 " search with s in normal and visual mode
 nnoremap s <cmd>let g:space_search=1<cr>/
 xnoremap s <cmd>let g:space_search=1<cr>/
@@ -152,17 +156,34 @@ aug some_config | au!
 	au BufEnter * call SetTabWidth(g:indent_width)
 aug END
 
-fu! SetTabWidth(ts_width) abort
+" GLOBAL FUNCTIONS
+
+" Correct local tab type width config
+function! SetTabWidth(ts_width) abort
 	if !(&expandtab) " Hard-tabs uses my tabstop width
 		exe "setlocal tabstop=" . a:ts_width
 		exe "setlocal shiftwidth=" . a:ts_width
-	elseif &sw != &ts " Soft-tabs gets tabstop=shiftwidth for no krøll
+	elseif &sw != &ts " Soft-tabs gets tabstop=shiftwidth for no fuss
 		exe "setlocal tabstop=" . &sw
 	en
-endfun
+endfunction
 
 " Echo highlight groups
-fu! HiGroupNames()
+function! HiGroupNames() abort
 	let l:s = synID(line('.'), col('.'), 1)
 	echo synIDattr(l:s, 'name') . ' › ' . synIDattr(synIDtrans(l:s), 'name')
-endfun
+endfunction
+
+" Open main terminal in insert mode
+function! GetMainTerm() abort
+	try
+		wincmd s
+		exe "buffer " . g:main_term_bufnr
+		call feedkeys("i")
+	catch
+		if !has("nvim") | wincmd q | en
+		exe "terminal"
+		let g:main_term_bufnr=bufnr()
+		if has("nvim") | call feedkeys("i") | en
+	endtry
+endfunction

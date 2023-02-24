@@ -14,17 +14,6 @@ nnoremap <leader>e. <cmd>Vaffle .<cr>
 nnoremap <leader>eh <cmd>Vaffle %:h<cr>
 nnoremap <silent> <leader>ed :SFMToggle<cr>
 
-" Terminal
-nn <silent> <leader><cr> <cmd>wincmd s<cr><cmd>call GetMainTerm()<cr>i
-
-fu! GetMainTerm()
-	try
-		exe "buffer " . g:main_terminal_bufnr
-	catch
-		exe "terminal" | let g:main_terminal_bufnr=bufnr()
-	endtry
-endf
-
 " No/now (toggle options)
 nnoremap <silent> <leader>nc :call NowColo()<cr>
 
