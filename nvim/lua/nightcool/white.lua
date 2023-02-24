@@ -224,6 +224,7 @@ local theme = lush(function(injected_functions)
 		sym("@method") {},
 		sym("@property") {},
 		sym("@tag") { Tag },
+		sym("@text.uri") { fg = color("magenta", 2) },
 
 		htmlArg { sym("@property") },
 		htmlTagName { Tag },

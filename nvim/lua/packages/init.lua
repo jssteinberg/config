@@ -17,6 +17,7 @@ local function init()
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
 	use { "michaeljsmith/vim-indent-object" } -- Keymaps for indents
 	use { "github/copilot.vim" } -- AI code completion
+	use { "samjwill/nvim-unception" } -- Open files in current vim from terminal
 
 	-- Replace netrw
 	use { "cocopon/vaffle.vim" }
@@ -174,6 +175,7 @@ local function init()
 	end }
 
 	-- File tree
+	use { "lambdalisue/fern.vim", cmd = "Fern" }
 	use {
 		"dinhhuy258/sfm.nvim",
 		cmd = { "SFMToggle" },
@@ -205,6 +207,7 @@ local function init()
 	-- Colorscheme creation
 	use { "rktjmp/lush.nvim", opt = true }
 	use { "rktjmp/shipwright.nvim", opt = true }
+	use { "lifepillar/vim-colortemplate", opt = true }
 
 	-- Colorschemes
 	use { "cocopon/iceberg.vim" }

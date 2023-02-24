@@ -16,39 +16,15 @@ let g:colors_name="clearnight"
 " ---
 " violet    #985cbc violet_2   #c39fd8 violet_bg #552c6d
 "
-" Options:
-" - `let g:nightcool_bg=v:true` or v:false for `NONE` (transparent)
-" - `let g:nightcool_comments="darker"` or "bright"
-" - `let g:nightcool_statusline="default"` or "black"
+" Design: High contrast syntax, cool UI
 "
-" Design: Colorscheme of blue tones with cyan and light green foregrounds.
-" Based on a neon illuminated city-park WC...
-"
-" Supports: treesitter, telescope, fugitive, neo-tree, gitsigns, vim-illuminate, treesitter-context, vim-matchup, winbar
-"
-" Util:
-" - Disabled/inacive: black#8
-" - Error: red#1
-" - Info: magenta#5/violet*
-" - Warning: yellow#3
-" - Selection (bg): violet_bg
-
 " GROUP NAMES (:h group-name)
 
 " Normal
-" hi Normal ctermfg=7 guifg=#afc5c7
-hi Normal ctermfg=15 guifg=#e9f5e6
-
-if get(g:, "nightcool_bg", v:true)
-	hi Normal guibg=#0c0a19
-endif
+hi Normal ctermfg=255 guifg=#ffffff
 
 " Comment
-hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
-
-if get(g:, "nightcool_comments", "darker") == "bright"
-	hi Comment cterm=NONE gui=italic ctermfg=9 guifg=#c39fd8
-endif
+hi Comment cterm=italic gui=italic ctermfg=255 guifg=#ffffff
 
 " General groups
 " hi clear Conceal " is this needed?
