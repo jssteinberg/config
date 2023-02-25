@@ -47,10 +47,6 @@ nnoremap Y y$
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 " Additional esc map
 tnoremap jk <c-w>N
-" Edit [CWD, buffer D, tabedit .vimrc]
-nnoremap <leader>e. <cmd>edit .<cr>
-nnoremap <leader>eh <cmd>edit %:h<cr>
-nnoremap <leader>ec <cmd>tabedit ~/.config/vimrc<cr>:tcd  %:h<cr>
 " Find links
 nn <leader>fl ?\v\S+[:\|.]\S+<cr>
 " Fuzzy find files with Fzy
@@ -103,7 +99,8 @@ augroup END
 " COLORS
 set background=dark
 try | colo lunaperche " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
-catch | colo slate | endtry
+catch | colo slate " for older Vim versions
+finally | hi Normal ctermbg=NONE | endtry
 
 " FZY FUNCTION
 fu! FzyCommand(choice_command, vim_command) abort
@@ -137,6 +134,7 @@ fu! PackInit() abort
 	call minpac#add("k-takata/minpac", {"type": "opt"})
 	call minpac#add("tpope/vim-sleuth")
 	call minpac#add("tpope/vim-surround")
+	call minpac#add("subnut/visualstar.vim")
 	call minpac#add("tpope/vim-commentary")
 	call minpac#add("easymotion/vim-easymotion")
 	call minpac#add("jssteinberg/hackline.vim", {"branch": "dev"})

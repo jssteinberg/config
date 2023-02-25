@@ -9,9 +9,6 @@ xmap ø ]
 tnoremap jk <c-\><c-n>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
-nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
-nnoremap <leader>e. <cmd>Vaffle .<cr>
-nnoremap <leader>eh <cmd>Vaffle %:h<cr>
 nnoremap <silent> <leader>ed :SFMToggle<cr>
 
 " No/now (toggle options)

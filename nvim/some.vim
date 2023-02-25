@@ -13,7 +13,7 @@
 " S: substitute
 
 let g:indent_width=2
-let g:config_scrolloff=10
+let g:config_scrolloff=5
 
 " Core improved keymaps
 vnoremap < <gv
@@ -37,18 +37,20 @@ nnoremap <leader><tab> :buffer
 " Write/save file
 nnoremap <silent> <leader>w :w<cr>
 
-" Tabedit buffer
-nnoremap <leader>tb :tabedit %<cr>'"
-
 " Close tab or quit all
 nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 
 " Close window or quit
 nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
 
-" Edit common files
-nnoremap <leader>ep :edit package.json<cr>
-nnoremap <leader>er :edit README.md<cr>
+" Edit/tabedit commonly used
+nnoremap <leader>ep <cmd>edit package.json<cr>
+nnoremap <leader>er <cmd>edit README.md<cr>
+nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
+nnoremap <leader>e. <cmd>edit .<cr>
+" nnoremap <leader>eh <cmd>edit %:h<cr>
+nnoremap <leader>eh <cmd>exe "try\n e %:h\n catch\n e .\n endtry"<cr>
+nnoremap <leader>tb <cmd>tabedit %<cr>'"
 
 " Replace [word, selection]
 nnoremap <leader>R "ryiw:%s/<c-r>r/
@@ -84,6 +86,7 @@ nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
 nnoremap <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
+nnoremap <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'
 
 " Git
 " grep for git merge conflicts
@@ -179,11 +182,11 @@ function! GetMainTerm() abort
 	try
 		wincmd s
 		exe "buffer " . g:main_term_bufnr
-		call feedkeys("i")
+		startinsert
 	catch
 		if !has("nvim") | wincmd q | en
 		exe "terminal"
 		let g:main_term_bufnr=bufnr()
-		if has("nvim") | call feedkeys("i") | en
+		if has("nvim") | startinsert | en
 	endtry
 endfunction
