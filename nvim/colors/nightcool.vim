@@ -20,6 +20,7 @@ let g:colors_name="nightcool"
 " - `let g:nightcool_bg=v:true` or v:false for `NONE` (transparent)
 " - `let g:nightcool_comments="darker"` or "bright"
 " - `let g:nightcool_statusline="default"` or "black"
+" - `let g:nightcool_treesitter=v:true` or v:false
 "
 " Design: Colorscheme of blue tones with cyan and light green foregrounds.
 " Based on a neon illuminated city-park WC...

@@ -18,6 +18,9 @@ let g:colors_name="clearnight"
 "
 " Design: High contrast syntax, cool UI
 "
+" Options:
+" - `let g:clearnight_treesitter=v:true` or v:false
+"
 " GROUP NAMES (:h group-name)
 
 " Normal
@@ -153,24 +156,24 @@ hi! link IlluminatedWordRead IlluminatedWordText
 hi! link IlluminatedWordWrite IlluminatedWordText
 
 " Neovim terminal colors
-" let g:terminal_color_0  = "#1a1636"
-" let g:terminal_color_1  = "#bc675c"
-" let g:terminal_color_2  = "#80bc5c"
-" let g:terminal_color_3  = "#bc985c"
-" let g:terminal_color_4  = "#5c80bc"
-" let g:terminal_color_5  = "#685cbc"
-" let g:terminal_color_6  = "#5cb1bc"
-" let g:terminal_color_7  = "#afc5c7"
-" let g:terminal_color_8  = "#7d78a1"
-" let g:terminal_color_9  = "#d8a69f"
-" let g:terminal_color_10 = "#add89f"
-" let g:terminal_color_11 = "#d0d89f"
-" let g:terminal_color_12 = "#9fb4d8"
-" let g:terminal_color_13 = "#a69fd8"
-" let g:terminal_color_14 = "#9fd1d8"
-" let g:terminal_color_15 = "#e9f5e6"
+let g:terminal_color_0  = "#1a1636"
+let g:terminal_color_1  = "#bc675c"
+let g:terminal_color_2  = "#80bc5c"
+let g:terminal_color_3  = "#bc985c"
+let g:terminal_color_4  = "#5c80bc"
+let g:terminal_color_5  = "#685cbc"
+let g:terminal_color_6  = "#5cb1bc"
+let g:terminal_color_7  = "#afc5c7"
+let g:terminal_color_8  = "#7d78a1"
+let g:terminal_color_9  = "#d8a69f"
+let g:terminal_color_10 = "#add89f"
+let g:terminal_color_11 = "#d0d89f"
+let g:terminal_color_12 = "#9fb4d8"
+let g:terminal_color_13 = "#a69fd8"
+let g:terminal_color_14 = "#9fd1d8"
+let g:terminal_color_15 = "#e9f5e6"
 
 " NEOVIM Treesitter (version 0.8 is new hi syn "@group")
-" if has("nvim-0.8") && get(g:, "nightcool_treesitter", v:true)
-" 	lua require("nightcool.treesitter")
-" endif
+if has("nvim-0.8") && get(g:, "clearnight_treesitter", v:true)
+	lua require("clear.night")
+endif
