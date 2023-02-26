@@ -16,8 +16,8 @@ local function init()
 	use { "tpope/vim-repeat" } -- Extend `.` repeat
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
 	use { "michaeljsmith/vim-indent-object" } -- Keymaps for indents
-	use { "github/copilot.vim" } -- AI code completion
 	use { "samjwill/nvim-unception" } -- Open files in current vim from terminal
+	use { "github/copilot.vim" } -- AI code completion
 
 	-- Replace netrw
 	use { "cocopon/vaffle.vim" }
@@ -161,16 +161,12 @@ local function init()
 
 	-- ### UTIL
 
-	-- Measure startuptime
-	use { "dstein64/vim-startuptime", cmd = "StartupTime" }
-
 	-- Colors
 	use { "chrisbra/Colorizer", cmd = "ColorHighlight" }
 
 	-- Colorscheme creation
 	use { "rktjmp/lush.nvim", opt = true }
 	use { "rktjmp/shipwright.nvim", opt = true }
-	use { "lifepillar/vim-colortemplate", opt = true }
 
 	-- Colorschemes
 	use { "cocopon/iceberg.vim" }
