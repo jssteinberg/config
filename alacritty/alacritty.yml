@@ -1,12 +1,6 @@
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 font:
   size: 14
-  #normal:
-  #  # family: monospace
-  #  family: cousine nerd font mono
-  #italic:
-  #  family: cousine nerd font mono
-  #  style: Italic
 
 # Send ESC (\x1b) before characters when alt is pressed---needed for several non-us keyboards usually
 alt_send_esc: false
@@ -14,10 +8,10 @@ alt_send_esc: false
 window:
   decorations: buttonless
   # Opacity use decimal, e.g. .95
-  opacity: .95
+  opacity: .94
   padding:
     x: 12
-    y: 16 # Keep 10 for y
+    y: 16
 
 selection:
   save_to_clipboard: true
@@ -26,31 +20,6 @@ mouse:
   hide_when_typing: true
 
 draw_bold_text_with_bright_colors: true
-
-# Key bindings
-#
-# Key bindings are specified as a list of objects. For example, this is the
-# default paste binding:
-#
-# `- { key: V, mods: Control|Shift, action: Paste }`
-#
-# Each key binding will specify a:
-#
-# - `key`: Identifier of the key pressed
-#
-#    - A-Z
-#    - F1-F24
-#    - Key0-Key9
-#
-#    A full list with available key codes can be found here:
-#    https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
-#
-#    Instead of using the name of the keys, the `key` field also supports using
-#    the scancode of the desired key. Scancodes have to be specified as a
-#    decimal number. This command will allow you to display the hex scancodes
-#    for certain keys:
-#
-#       `showkey --scancodes`.
 
 # Colors
 # somedarkterm1.
