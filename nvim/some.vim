@@ -106,6 +106,11 @@ augroup space_search | au!
 	au CmdlineLeave * if exists("g:space_search") | unlet g:space_search | en
 augroup END
 
+" Project/session management
+if !isdirectory($HOME.'/.vs') | call mkdir($HOME.'/.vs', '', 0770) | endif
+nnoremap <leader>ps :mksession! ~/.vs/
+nnoremap <leader>po :source ~/.vs/*
+
 " OPTIONS (in order of importance)
 set nofoldenable foldmethod=indent " Toggle fold on indent
 let &scrolloff=g:config_scrolloff " Keep cursor off from top/bottom
@@ -115,7 +120,7 @@ set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git
 let &ts=g:indent_width | let &sw=g:indent_width " indent size
 set hidden " Unsaved files can be 'hidden'
 set noswapfile " No swap files, but undo files (requires `undodir` in Vim)
-set sessionoptions=curdir,folds,tabpages,help
+set sessionoptions=curdir,folds,help
 set signcolumn=yes number " Show signcolumn and numbers
 set cursorline " Highlight cursor line
 set splitright
