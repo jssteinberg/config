@@ -16,7 +16,6 @@ local function init()
 	use { "tpope/vim-repeat" } -- Extend `.` repeat
 	use { "dhruvasagar/vim-open-url" } -- URLs and search
 	use { "michaeljsmith/vim-indent-object" } -- Keymaps for indents
-	use { "samjwill/nvim-unception" } -- Open files in current vim from terminal
 	use { "github/copilot.vim" } -- AI code completion
 
 	-- Replace netrw

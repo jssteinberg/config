@@ -43,6 +43,10 @@ nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 " Close window or quit
 nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
 
+" Resize windows vertically
+nn <leader>+ :vert resize +5<cr>
+nn <leader>- :vert resize -5<cr>
+
 " Edit/tabedit commonly used
 nnoremap <leader>ep <cmd>edit package.json<cr>
 nnoremap <leader>er <cmd>edit README.md<cr>
@@ -108,8 +112,8 @@ augroup END
 
 " Project/session management
 if !isdirectory($HOME.'/.vs') | call mkdir($HOME.'/.vs', '', 0770) | endif
-nnoremap <leader>ps :mksession! ~/.vs/
-nnoremap <leader>po :source ~/.vs/*
+nn <expr> <leader>ps exists("v:this_session") ? ':exe "mks! " .. v:this_session<cr>' : ":mks! ~/.vs/"
+nn <leader>po :source ~/.vs/*
 
 " OPTIONS (in order of importance)
 set nofoldenable foldmethod=indent " Toggle fold on indent
