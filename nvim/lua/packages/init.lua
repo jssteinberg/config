@@ -146,7 +146,7 @@ local function init()
 
 	-- ### GIT
 
-	use { "tpope/vim-fugitive", cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit" } } -- git wrapper
+	use { "tpope/vim-fugitive", cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit", "Flog", "Flogsplit" } } -- git wrapper
 	use {
 		"tyru/open-browser-github.vim",
 		cmd = {
@@ -154,6 +154,7 @@ local function init()
 		},
 		requires = { "tyru/open-browser.vim" },
 	}
+	use { "rbong/vim-flog", after = "vim-fugitive" }
 
 	-- git blame inline
 	use { "APZelos/blamer.nvim", cmd = "BlamerToggle" } -- git blame

@@ -8,7 +8,7 @@ alt_send_esc: false
 window:
   decorations: buttonless
   # Opacity use decimal, e.g. .95
-  opacity: .94
+  opacity: 1
   padding:
     x: 12
     y: 16

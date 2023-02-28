@@ -30,7 +30,7 @@ nnoremap <leader>gd <cmd>tabnew %<cr><cmd>Gvdiffsplit<cr>
 nnoremap <leader>gg <cmd>Git<cr>
 nnoremap <leader>gj /<<<<<<<\\|=======\\|>>>>>>><cr>
 nnoremap <leader>gk ?<<<<<<<\\|=======\\|>>>>>>><cr>
-nnoremap <leader>gl <cmd>Git log<cr>
+nnoremap <leader>gl <cmd>Flog<cr>
 nnoremap <leader>go <cmd>OpenGithubFile<cr>
 nnoremap <leader>gp <cmd>Git pull<cr>
 nnoremap <leader>gP <cmd>Git push<cr>

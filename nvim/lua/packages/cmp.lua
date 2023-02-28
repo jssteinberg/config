@@ -27,7 +27,7 @@ M.config = function()
 			-- },
 			{ name = "path" },
 			{ name = "luasnip" },
-			{ name = "nvim_lsp" },
+			{ name = "nvim_lsp", trigger_characters = { "-" } },
 			{ name = "omni" },
 			{ name = "buffer" },
 		},

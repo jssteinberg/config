@@ -112,7 +112,8 @@ augroup END
 
 " Project/session management
 if !isdirectory($HOME.'/.vs') | call mkdir($HOME.'/.vs', '', 0770) | endif
-nn <expr> <leader>ps exists("v:this_session") ? ':exe "mks! " .. v:this_session<cr>' : ":mks! ~/.vs/"
+nn <expr> <leader>ps exists("v:this_session") && v:this_session != '' ? ':exe "mks! " .. v:this_session<cr>' : ":mks! ~/.vs/"
+" nn <leader>ps :mks! ~/.vs/
 nn <leader>po :source ~/.vs/*
 
 " OPTIONS (in order of importance)
