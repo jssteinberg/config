@@ -167,6 +167,7 @@ local function init()
 	-- Colorscheme creation
 	use { "rktjmp/lush.nvim", opt = true }
 	use { "rktjmp/shipwright.nvim", opt = true }
+	use { "lifepillar/vim-colortemplate", opt = true }
 
 	-- Colorschemes
 	use { "cocopon/iceberg.vim" }
