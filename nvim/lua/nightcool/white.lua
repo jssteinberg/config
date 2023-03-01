@@ -207,7 +207,7 @@ local theme = lush(function(injected_functions)
 		Debug {}, --    debugging statements
 		sym("@function.call") { fg = color("magenta", 2) },
 		sym("@method") {},
-		sym("@property") {},
+		sym("@property") { String },
 		sym("@tag") { Tag },
 		sym("@tag.attribute") { sym("@tag") },
 		sym("@text.uri") { fg = color("magenta", 2) },
