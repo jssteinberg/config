@@ -67,7 +67,6 @@ local theme = lush(function(injected_functions)
 		Error { fg = color("red") }, -- (preferred) any erroneous construct
 		ErrorMsg { Error }, -- error messages on the command line
 		WarningMsg { fg = color("warning") }, -- warning messages
-
 		-- TERMINAL COLORS
 
 		terminal_color_00 { fg = color("black") },
@@ -81,7 +80,6 @@ local theme = lush(function(injected_functions)
 		terminal_color_07 { fg = color("white") },
 		terminal_color_08 { fg = color("black", 2) },
 		terminal_color_15 { fg = color("white", 2) },
-
 		-- UI
 
 		-- necessities
@@ -133,7 +131,6 @@ local theme = lush(function(injected_functions)
 		gitDiff { fg = color("magenta") },
 		diffAdded { DiffAdd },
 		diffRemoved { DiffDelete },
-
 		-- LSP
 		DiagnosticError { Error }, -- used for "Error" diagnostic virtual text
 		DiagnosticWarn { bg = SignColumn.bg, fg = color("magenta") }, -- used for "Warning" diagnostic virtual text
@@ -142,15 +139,12 @@ local theme = lush(function(injected_functions)
 		LspReferenceText {}, -- used for highlighting "text" references
 		LspReferenceRead {}, -- used for highlighting "read" references
 		LspReferenceWrite {}, -- used for highlighting "write" references
-
 		-- Telescope
 		TelescopeNormal { Normal },
-
 		-- Vim Illuminated
 		IlluminatedWordText { bg = color("green", "bg") },
 		IlluminatedWordRead { IlluminatedWordText },
 		IlluminatedWordWrite { IlluminatedWordText },
-
 		--markid
 		markid1 { gui = "bold", fg = color("magenta", 2) },
 		markid2 { gui = "bold", fg = color("blue", 2) },
@@ -159,7 +153,6 @@ local theme = lush(function(injected_functions)
 
 		-- Mini.nvim
 		MiniIndentscopeSymbol { LineNr },
-
 		-- Neo-tree
 		NeoTreeNormal { fg = color("magenta") },
 		NeoTreeDimText { fg = color("white") },
@@ -172,10 +165,8 @@ local theme = lush(function(injected_functions)
 		NeoTreeGitUntracked { fg = color("magenta") },
 		NeoTreeRootName { Directory },
 		NeoTreeTitleBar { StatusLine },
-
 		-- Treesitter context
 		TreesitterContextLineNumber { bg = color("magenta", "bg"), fg = color("magenta", 2) },
-
 		-- Cursor {}, -- character under the cursor
 		-- lCursor {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
 		-- CursorIM {}, -- like Cursor, but used when in IME mode |CursorIM|
@@ -184,15 +175,13 @@ local theme = lush(function(injected_functions)
 		-- NormalNC {}, -- normal text in non-current windows
 
 		Constant {}, -- (preferred) any constant
-		String {}, --   a string constant: "this is a string"
+		String { fg = color("magenta", 2) },
 		Character {}, --  a character constant: 'c', '\n'
 		Number {}, --   a number constant: 234, 0xff
 		Boolean {}, --  a boolean constant: TRUE, false
 		Float {}, --    a floating point constant: 2.3e10
-
 		Identifier {}, -- (preferred) any variable name
 		Function {}, -- function name (also: methods for classes)
-
 		Statement { fg = color("magenta", 2) }, -- (preferred) any statement
 		Conditional { fg = color("blue", 2) }, --  if, then, else, endif, switch, etc.
 		Repeat {}, --   for, do, while, etc.
@@ -201,93 +190,34 @@ local theme = lush(function(injected_functions)
 		Keyword { gui = "bold" }, --  any other keyword
 		-- Keyword { fg = color("blue", 2) }, --  any other keyword
 		Exception {}, --  try, catch, throw
-
 		PreProc { fg = color("blue", 2) }, -- (preferred) generic Preprocessor
 		Include { fg = color("blue", 2) }, --  preprocessor #include
 		Define {}, --   preprocessor #define
 		Macro {}, --    same as Define
 		PreCondit {}, --  preprocessor #if, #else, #endif, etc.
-
 		Type { fg = color("blue", 2), gui = "bold" }, -- (preferred) int, long, char, etc.
 		StorageClass {}, -- static, register, volatile, etc.
 		Structure { fg = color("blue", 2) }, --  struct, union, enum, etc.
 		Typedef {}, --  A typedef
-
 		Special {}, -- (preferred) any special symbol
 		SpecialChar {}, --  special character in a constant
 		Tag { Type }, --    you can use CTRL-] on this
 		Delimiter { Structure }, --  character that needs attention
 		SpecialComment {}, -- special things inside a comment
 		Debug {}, --    debugging statements
-
 		sym("@function.call") { fg = color("magenta", 2) },
 		sym("@method") {},
 		sym("@property") {},
 		sym("@tag") { Tag },
+		sym("@tag.attribute") { sym("@tag") },
 		sym("@text.uri") { fg = color("magenta", 2) },
-
 		htmlArg { sym("@tag.attribute") },
 		htmlTagName { Tag },
 		htmlTag { htmlArg },
 		htmlEndTag { htmlTag },
 		cssTagName { htmlTagName },
-		-- cssAttributeSelector { htmlArg },
-		-- cssClassName { String },
 	}
 end)
-
-local theme_WIP = (function()
-			return {
-				-- ("Ignore", below, may be invisible...)
-				Ignore {}, -- (preferred) left blank, hidden  |hl-Ignore|
-
-				-- These groups are for the neovim tree-sitter highlights.
-				-- As of writing, tree-sitter support is a WIP, group names may change.
-				-- By default, most of these groups link to an appropriate Vim group,
-				-- TSError -> Error for example, so you do not have to define these unless
-				-- you explicitly want to support Treesitter's improved syntax awareness.
-
-				-- TSError              { }, -- For syntax/parser errors.
-				-- TSPunctDelimiter     { }, -- For delimiters ie: `.`
-				-- TSPunctBracket       { }, -- For brackets and parens.
-				-- TSPunctSpecial       { }, -- For special punctutation that does not fall in the catagories before.
-				-- TSConstant           { }, -- For constants
-				-- TSConstBuiltin       { }, -- For constant that are built in the language: `nil` in Lua.
-				-- TSConstMacro         { }, -- For constants that are defined by macros: `NULL` in C.
-				-- TSString             { }, -- For strings.
-				-- TSStringRegex        { }, -- For regexes.
-				-- TSStringEscape       { }, -- For escape characters within a string.
-				-- TSCharacter          { }, -- For characters.
-				-- TSNumber             { }, -- For integers.
-				-- TSBoolean            { }, -- For booleans.
-				-- TSFloat              { }, -- For floats.
-				-- TSFunction           { }, -- For function (calls and definitions).
-				-- TSFuncBuiltin        { }, -- For builtin functions: `table.insert` in Lua.
-				-- TSFuncMacro          { }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-				-- TSParameter          { }, -- For parameters of a function.
-				-- TSParameterReference { }, -- For references to parameters of a function.
-				-- TSField              { }, -- For fields.
-				-- TSConstructor        { }, -- For constructor calls and definitions: `                                                                       { }` in Lua, and Java constructors.
-				-- TSConditional        { }, -- For keywords related to conditionnals.
-				-- TSRepeat             { }, -- For keywords related to loops.
-				-- TSLabel              { }, -- For labels: `label:` in C and `:label:` in Lua.
-				-- TSOperator           { }, -- For any operator: `+`, but also `->` and `*` in C.
-				-- TSKeyword            { }, -- For keywords that don't fall in previous categories.
-				-- TSKeywordFunction    { }, -- For keywords used to define a fuction.
-				-- TSException          { }, -- For exception related keywords.
-				-- TSType               { }, -- For types.
-				-- TSTypeBuiltin        { }, -- For builtin types (you guessed it, right ?).
-				-- TSNamespace          { }, -- For identifiers referring to modules and namespaces.
-				-- TSAnnotation         { }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-				-- TSText               { }, -- For strings considered text in a markup language.
-				-- TSStrong             { }, -- For text to be represented with strong.
-				-- TSEmphasis           { }, -- For text to be represented with emphasis.
-				-- TSUnderline          { }, -- For text to be represented with an underline.
-				-- TSTitle              { }, -- Text that is part of a title.
-				-- TSLiteral            { }, -- Literal text.
-				-- TSURI                { }, -- Any URI like a link or email.
-			}
-		end)
 
 -- Integrating Lush with other tools:
 --
