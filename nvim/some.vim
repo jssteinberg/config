@@ -51,9 +51,9 @@ nn <leader>- :vert resize -5<cr>
 nnoremap <leader>ep <cmd>edit package.json<cr>
 nnoremap <leader>er <cmd>edit README.md<cr>
 nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
-nnoremap <leader>e. <cmd>edit .<cr>
+nnoremap <leader>e. <cmd>edit .<cr><cmd>call search(expand("#:t"))<cr>
 " nnoremap <leader>eh <cmd>edit %:h<cr>
-nnoremap <leader>eh <cmd>exe "try\n e %:h\n catch\n e .\n endtry"<cr>
+nnoremap <leader>eh <cmd>exe "try\n e %:h\n search(expand("#:t"))\n catch\n e .\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>tb <cmd>tabedit %<cr>'"
 
 " Replace [word, selection]
