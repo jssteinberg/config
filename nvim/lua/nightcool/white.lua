@@ -24,14 +24,14 @@ local color = function(color, variant)
 		-- terminal color keys
 		bg      = { hsl("#ffffff") },
 		fg      = { hsl(hue, sa, 100 - li3), hsl("#000000") },
-		black   = { hsl(hue, 17.8, li2), hsl("#000000") }, -- add 2 index color
-		red     = { hsl(6.9, sa, li), hsl(7.5, sa2, li2), hsl(6.9, sa3, li3) }, -- add 2 index color
+		black   = { hsl(hue, 17.8, li2), hsl("#000000") },                          -- add 2 index color
+		red     = { hsl(6.9, sa, li), hsl(7.5, sa2, li2), hsl(6.9, sa3, li3) },     -- add 2 index color
 		green   = { hsl(97.5, sa, li), hsl(105.7, sa2, li2_2), hsl(97.5, sa3, li3) }, -- add 2 index color
-		yellow  = { hsl(37.5, sa, li), hsl(68, sa2, li2_2), hsl(68, sa3, 92.5) }, -- add 2 index color
+		yellow  = { hsl(37.5, sa, li), hsl(68, sa2, li2_2), hsl(68, sa3, 92.5) },   -- add 2 index color
 		blue    = { hsl(217.5, sa, li), hsl(217.5, sa2, li2), hsl(217.5, sa3, li3) }, -- add 2 index color
-		magenta = { hsl(hue, sa, li), hsl(hue, sa2, li2), hsl(hue, sa3, 92.5) }, -- add 2 index color
+		magenta = { hsl(hue, sa, li), hsl(hue, sa2, li2), hsl(hue, sa3, 92.5) },    -- add 2 index color
 		cyan    = { hsl(187.3, sa, li), hsl(187.5, sa2, li2), hsl(187.3, sa3, li3) }, -- add 2 index color
-		white   = { hsl(hue, 17.8, li), hsl(hue, 17.8, li3) }, -- add 2 index color
+		white   = { hsl(hue, 17.8, li), hsl(hue, 17.8, li3) },                      -- add 2 index color
 		-- additional color keys
 		violet  = { hsl(277.5, sa, li), hsl(277.5, sa2, li2), hsl(277.5, sa, li3) },
 	}
@@ -61,12 +61,12 @@ local theme = lush(function(injected_functions)
 		Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
 		Bold { gui = "bold" },
 		Italic { gui = "italic" },
-		Title { fg = color("fg"), gui = "bold" }, -- titles for output from ":set all", ":autocmd" etc.
+		Title { fg = color("fg"), gui = "bold" },      -- titles for output from ":set all", ":autocmd" etc.
 		Comment { fg = color("comment", 2) },
 		Todo { fg = color("comment", 2), gui = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-		Error { fg = color("red") }, -- (preferred) any erroneous construct
-		ErrorMsg { Error }, -- error messages on the command line
-		WarningMsg { fg = color("warning") }, -- warning messages
+		Error { fg = color("red") },                   -- (preferred) any erroneous construct
+		ErrorMsg { Error },                            -- error messages on the command line
+		WarningMsg { fg = color("warning") },          -- warning messages
 		-- TERMINAL COLORS
 
 		terminal_color_00 { fg = color("black") },
@@ -92,53 +92,53 @@ local theme = lush(function(injected_functions)
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		StatusLine { bg = color("magenta", "bg"), fg = color("magenta", 2) },
 		StatusLineNC { StatusLine, fg = color("magenta") },
-		TabLine { bg = color("magenta", "bg"), fg = color("magenta") }, -- tab pages line, not active tab page label
-		TabLineFill { TabLine }, -- tab pages line, where there are no labels
+		TabLine { bg = color("magenta", "bg"), fg = color("magenta") },     -- tab pages line, not active tab page label
+		TabLineFill { TabLine },                                            -- tab pages line, where there are no labels
 		TabLineSel { bg = color("magenta", "bg"), fg = color("magenta", 2) }, -- tab pages line, active tab page label
 		WinBar { TabLineSel },
 		WinBarNC { LineNr },
 		WinSeparator { fg = TabLine.bg },
 		NonText { WinSeparator }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-		SignColumn { LineNr }, -- column where |signs| are displayed
+		SignColumn { LineNr },  -- column where |signs| are displayed
 		Pmenu { bg = color("magenta", "bg"), fg = color("magenta") },
 		PmenuSel { bg = color("magenta", "bg"), fg = color("magenta", 2) },
 		PmenuThumb { bg = Pmenu.fg }, -- Popup menu: Thumb of the scrollbar.
-		PmenuSbar { Pmenu }, -- Popup menu: scrollbar.
-		WildMenu { Pmenu }, -- current match in 'wildmenu' completion
+		PmenuSbar { Pmenu },        -- Popup menu: scrollbar.
+		WildMenu { Pmenu },         -- current match in 'wildmenu' completion
 		Visual { bg = color("red", "bg") },
 		Search { bg = color("blue", "bg") },
 		IncSearch { bg = color("blue", "bg"), gui = "bold" },
 		MatchParen { bg = color("comment", "bg") },
 		Directory { fg = color("blue"), gui = "bold" }, -- directory names (and other special names in listings)
-		Question { Bold }, -- |hit-enter| prompt and yes/no questions
-		SpecialKey { LineNr }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+		Question { Bold },                             -- |hit-enter| prompt and yes/no questions
+		SpecialKey { LineNr },                         -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
 		Folded { Comment, bg = color("magenta", "bg") }, -- line used for closed folds
-		FoldColumn { Comment }, -- 'foldcolumn'
-		MoreMsg { Bold }, -- |more-prompt|
-		Substitute {}, -- |:substitute| replacement text highlighting
-		ModeMsg {}, -- 'showmode' message (e.g., "-- INSERT -- ")
-		MsgArea {}, -- Area for messages and cmdline
-		SpellBad { fg = color("red", 2) }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-		SpellCap { SpellBad }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+		FoldColumn { Comment },                        -- 'foldcolumn'
+		MoreMsg { Bold },                              -- |more-prompt|
+		Substitute {},                                 -- |:substitute| replacement text highlighting
+		ModeMsg {},                                    -- 'showmode' message (e.g., "-- INSERT -- ")
+		MsgArea {},                                    -- Area for messages and cmdline
+		SpellBad { fg = color("red", 2) },             -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+		SpellCap { SpellBad },                         -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
 		-- SpellLocal {}, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		-- SpellRare {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 
 		-- diff
 		DiffAdd { fg = color("green", 2), gui = "bold" }, -- diff mode: Added line |diff.txt|
-		DiffChange { Normal }, -- diff mode: Changed line |diff.txt|
-		DiffDelete { fg = color("red", 2) }, -- diff mode: Deleted line |diff.txt|
-		DiffText { DiffAdd }, -- diff mode: Changed text within a changed line |diff.txt|
+		DiffChange { Normal },                          -- diff mode: Changed line |diff.txt|
+		DiffDelete { fg = color("red", 2) },            -- diff mode: Deleted line |diff.txt|
+		DiffText { DiffAdd },                           -- diff mode: Changed text within a changed line |diff.txt|
 		gitDiff { fg = color("magenta") },
 		diffAdded { DiffAdd },
 		diffRemoved { DiffDelete },
 		-- LSP
-		DiagnosticError { Error }, -- used for "Error" diagnostic virtual text
+		DiagnosticError { Error },                                  -- used for "Error" diagnostic virtual text
 		DiagnosticWarn { bg = SignColumn.bg, fg = color("magenta") }, -- used for "Warning" diagnostic virtual text
 		DiagnosticInfo { bg = SignColumn.bg, fg = color("magenta") }, -- used for "Information" diagnostic virtual text
 		DiagnosticHint { bg = SignColumn.bg, fg = color("magenta") }, -- used for "Hint" diagnostic virtual text
-		LspReferenceText {}, -- used for highlighting "text" references
-		LspReferenceRead {}, -- used for highlighting "read" references
-		LspReferenceWrite {}, -- used for highlighting "write" references
+		LspReferenceText {},                                        -- used for highlighting "text" references
+		LspReferenceRead {},                                        -- used for highlighting "read" references
+		LspReferenceWrite {},                                       -- used for highlighting "write" references
 		-- Telescope
 		TelescopeNormal { Normal },
 		-- Vim Illuminated
@@ -174,39 +174,39 @@ local theme = lush(function(injected_functions)
 		-- TermCursorNC {}, -- cursor in an unfocused terminal
 		-- NormalNC {}, -- normal text in non-current windows
 
-		Constant {}, -- (preferred) any constant
-		String { fg = color("magenta", 2) },
-		Character {}, --  a character constant: 'c', '\n'
-		Number {}, --   a number constant: 234, 0xff
-		Boolean {}, --  a boolean constant: TRUE, false
-		Float {}, --    a floating point constant: 2.3e10
-		Identifier {}, -- (preferred) any variable name
-		Function {}, -- function name (also: methods for classes)
+		Constant {},                          -- (preferred) any constant
+		String {},
+		Character {},                         --  a character constant: 'c', '\n'
+		Number {},                            --   a number constant: 234, 0xff
+		Boolean {},                           --  a boolean constant: TRUE, false
+		Float {},                             --    a floating point constant: 2.3e10
+		Identifier {},                        -- (preferred) any variable name
+		Function {},                          -- function name (also: methods for classes)
 		Statement { fg = color("magenta", 2) }, -- (preferred) any statement
 		Conditional { fg = color("blue", 2) }, --  if, then, else, endif, switch, etc.
-		Repeat {}, --   for, do, while, etc.
-		Label {}, --    case, default, etc.
-		Operator { fg = color("blue", 2) }, -- "sizeof", "+", "*", etc.
-		Keyword { gui = "bold" }, --  any other keyword
-		-- Keyword { fg = color("blue", 2) }, --  any other keyword
-		Exception {}, --  try, catch, throw
-		PreProc { fg = color("blue", 2) }, -- (preferred) generic Preprocessor
-		Include { fg = color("blue", 2) }, --  preprocessor #include
-		Define {}, --   preprocessor #define
-		Macro {}, --    same as Define
-		PreCondit {}, --  preprocessor #if, #else, #endif, etc.
-		Type { fg = color("blue", 2), gui = "bold" }, -- (preferred) int, long, char, etc.
-		StorageClass {}, -- static, register, volatile, etc.
-		Structure { fg = color("blue", 2) }, --  struct, union, enum, etc.
-		Typedef {}, --  A typedef
-		Special {}, -- (preferred) any special symbol
-		SpecialChar {}, --  special character in a constant
-		Tag { Type }, --    you can use CTRL-] on this
-		Delimiter { Structure }, --  character that needs attention
-		SpecialComment {}, -- special things inside a comment
-		Debug {}, --    debugging statements
+		Repeat {},                            --   for, do, while, etc.
+		Label {},                             --    case, default, etc.
+		Operator { fg = color("blue", 2) },   -- "sizeof", "+", "*", etc.
+		Keyword { fg = color("blue", 2) },    --  not Normal fg for vim fugitive commit message
+		Exception {},                         --  try, catch, throw
+		PreProc { fg = color("blue", 2) },    -- (preferred) generic Preprocessor
+		Include { fg = color("cyan", 2) },    --  preprocessor #include
+		Define {},                            --   preprocessor #define
+		Macro {},                             --    same as Define
+		PreCondit {},                         --  preprocessor #if, #else, #endif, etc.
+		Type { fg = color("magenta", 2) },
+		StorageClass {},                      -- static, register, volatile, etc.
+		Structure { fg = color("blue", 2) },  --  struct, union, enum, etc.
+		Typedef {},                           --  A typedef
+		Special {},                           -- (preferred) any special symbol
+		SpecialChar {},                       --  special character in a constant
+		Tag { Type },                         --    you can use CTRL-] on this
+		Delimiter { Structure },              --  character that needs attention
+		SpecialComment {},                    -- special things inside a comment
+		Debug {},                             --    debugging statements
+		sym("@method") { fg = color("magenta", 2) },
+		sym("@variable") { sym("@method") },
 		sym("@function.call") { fg = color("magenta", 2) },
-		sym("@method") {},
 		sym("@property") { String },
 		sym("@tag") { Tag },
 		sym("@tag.attribute") { sym("@tag") },

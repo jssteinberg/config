@@ -3,7 +3,7 @@ setlocal nonumber norelativenumber signcolumn=no
 nmap <buffer> % <Plug>(vaffle-new-file)
 nmap <buffer> <c-n> <Plug>(vaffle-new-file)
 nmap <buffer> d <Plug>(vaffle-mkdir)
-nmap <buffer> <c-m> <Plug>(vaffle-mkdir)
+nmap <buffer> <c-d> <Plug>(vaffle-mkdir)
 nmap <buffer> - <Plug>(vaffle-open-parent)
 nmap <buffer> D <Plug>(vaffle-delete-selected)
 nmap <buffer> <c-l> <c-l><Plug>(vaffle-refresh)
