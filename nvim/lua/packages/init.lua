@@ -11,16 +11,13 @@ local function init()
 	packer.reset()
 
 	use { "wbthomason/packer.nvim", opt = true } -- Package manager
-	use { "tpope/vim-sleuth" } -- Detects indent, also uses .editorconfig
-	use { "tpope/vim-surround" } -- Surround text with quotes, brackets, etc.
-	use { "tpope/vim-repeat" } -- Extend `.` repeat
-	use { "dhruvasagar/vim-open-url" } -- URLs and search
-	use { "michaeljsmith/vim-indent-object" } -- Keymaps for indents
-	use { "github/copilot.vim" } -- AI code completion
-
-	-- Replace netrw
-	use { "cocopon/vaffle.vim" }
-	vim.g.vaffle_force_delete = 1
+	use { "tpope/vim-sleuth" }                  -- Detects indent, also uses .editorconfig
+	use { "tpope/vim-surround" }                -- Surround text with quotes, brackets, etc.
+	use { "tpope/vim-repeat" }                  -- Extend `.` repeat
+	use { "dhruvasagar/vim-open-url" }          -- URLs and search
+	use { "michaeljsmith/vim-indent-object" }   -- Keymaps for indents
+	use { "github/copilot.vim" }                -- AI code completion
+	use { "justinmk/vim-dirvish" }              -- Replace netrw
 
 	-- Treesitter
 	use {
@@ -87,7 +84,7 @@ local function init()
 	-- ### EDIT/MOVE
 
 	use { "tommcdo/vim-lion", keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
-	use { "lambdalisue/suda.vim", cmd = { "SudaRead", "SudaWrite" } } -- sudo save
+	use { "lambdalisue/suda.vim", cmd = { "SudaRead", "SudaWrite" } }                                 -- sudo save
 
 	-- auto pair completion
 	use { "windwp/nvim-autopairs", event = "InsertEnter", config = function()

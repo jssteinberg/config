@@ -83,11 +83,11 @@ local theme = lush(function(injected_functions)
 		-- UI
 
 		-- necessities
-		LineNr { fg = color("white") },
+		LineNr { fg = color("fg").li(75) },
 		LineNrAbove { LineNr, fg = color("magenta") },
 		ColorColumn { bg = color("red").li(90) }, -- used for the columns set with 'colorcolumn'
 		CursorLine { bg = color("yellow", "bg") },
-		CursorLineNr { CursorLine, fg = color("black", 2) },
+		CursorLineNr { fg = color("black"), italic = true },
 		CursorColumn { bg = CursorLine.bg.li(10) },
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		StatusLine { bg = color("magenta", "bg"), fg = color("magenta", 2) },
@@ -190,7 +190,7 @@ local theme = lush(function(injected_functions)
 		Keyword { fg = color("blue", 2) },    --  not Normal fg for vim fugitive commit message
 		Exception {},                         --  try, catch, throw
 		PreProc { fg = color("blue", 2) },    -- (preferred) generic Preprocessor
-		Include { fg = color("cyan", 2) },    --  preprocessor #include
+		Include { fg = color("blue", 2) },    --  preprocessor #include
 		Define {},                            --   preprocessor #define
 		Macro {},                             --    same as Define
 		PreCondit {},                         --  preprocessor #if, #else, #endif, etc.
