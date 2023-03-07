@@ -111,9 +111,11 @@ augroup space_search | au!
 augroup END
 
 " Project/session management
+" create session directory if it doesn't exist
 if !isdirectory($HOME.'/.vs') | call mkdir($HOME.'/.vs', '', 0770) | endif
+" save current session, or prompt for new session name
 nn <expr> <leader>ps exists("v:this_session") && v:this_session != '' ? ':exe "mks! " .. v:this_session<cr>:echo "mks " .. v:this_session<cr>' : ":mks! ~/.vs/"
-" nn <leader>ps :mks! ~/.vs/
+" load session
 nn <leader>po :source ~/.vs/*
 
 " OPTIONS (in order of importance)
