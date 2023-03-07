@@ -75,7 +75,7 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> <leader>lh <plug>(lsp-hover)
 
 	let g:lsp_format_sync_timeout = 1000
-	autocmd! BufWritePre *.rs,*.go call execute("LspDocumentFormatSync")
+	autocmd! BufWritePre *.lua,*.rs,*.go call execute("LspDocumentFormatSync")
 
 	" refer to doc to add more commands
 endfunction

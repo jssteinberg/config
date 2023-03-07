@@ -18,6 +18,11 @@ local function init()
 	use { "michaeljsmith/vim-indent-object" }   -- Keymaps for indents
 	use { "github/copilot.vim" }                -- AI code completion
 
+	-- Track startuptime
+	use { "https://git.sr.ht/~henriquehbr/nvim-startup.lua", config = function()
+		require "nvim-startup".setup()
+	end }
+
 	-- Replace netrw
 	use { "justinmk/vim-dirvish", config = function()
 		vim.cmd([[
@@ -89,8 +94,8 @@ local function init()
 
 	-- ### EDIT/MOVE
 
-	use { "tommcdo/vim-lion", keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
-	use { "lambdalisue/suda.vim", cmd = { "SudaRead", "SudaWrite" } }                                 -- sudo save
+	use { "tommcdo/vim-lion", opt = true }    -- Align text
+	use { "lambdalisue/suda.vim", opt = true } -- sudo save
 
 	-- auto pair completion
 	use { "windwp/nvim-autopairs", event = "InsertEnter", config = function()
@@ -140,12 +145,13 @@ local function init()
 	use { "ibhagwan/fzf-lua", cmd = { "FzfLua" }, config = require("packages.fzf") }
 
 	-- File tree
-	use { "lambdalisue/fern.vim", cmd = "Fern" }
 	use {
 		"dinhhuy258/sfm.nvim",
 		cmd = { "SFMToggle" },
 		config = require("packages.sfm")
 	}
+	-- fern avilable for old habits
+	use { "lambdalisue/fern.vim", opt = true }
 
 	-- ### GIT
 
