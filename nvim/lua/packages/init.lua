@@ -19,7 +19,11 @@ local function init()
 	use { "github/copilot.vim" }                -- AI code completion
 
 	-- Replace netrw
-	use { "justinmk/vim-dirvish" }
+	use { "justinmk/vim-dirvish", config = function()
+		vim.cmd([[
+			let g:dirvish_mode = ':sort ,^.*[\/],'
+		]])
+	end }
 
 	-- Treesitter
 	use {

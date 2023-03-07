@@ -1,5 +1,3 @@
-sort ,^.*[\/],
-
 setlocal nonumber norelativenumber
 
 nmap <buffer> l <cr>
