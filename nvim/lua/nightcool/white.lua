@@ -97,7 +97,7 @@ local theme = lush(function(injected_functions)
 		TabLineSel { bg = color("magenta", "bg"), fg = color("magenta", 2) }, -- tab pages line, active tab page label
 		WinBar { TabLineSel },
 		WinBarNC { LineNr },
-		WinSeparator { fg = TabLine.bg },
+		WinSeparator { fg = LineNr.fg },
 		NonText { WinSeparator }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		SignColumn { LineNr },  -- column where |signs| are displayed
 		Pmenu { bg = color("magenta", "bg"), fg = color("magenta") },
