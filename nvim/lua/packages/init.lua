@@ -20,9 +20,6 @@ local function init()
 
 	-- Replace netrw
 	use { "justinmk/vim-dirvish" }
-	vim.cmd([[
-		let g:dirvish_mode = ':sort ,^.*[\/],'
-	]])
 
 	-- Treesitter
 	use {
