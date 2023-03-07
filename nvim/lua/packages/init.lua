@@ -17,7 +17,12 @@ local function init()
 	use { "dhruvasagar/vim-open-url" }          -- URLs and search
 	use { "michaeljsmith/vim-indent-object" }   -- Keymaps for indents
 	use { "github/copilot.vim" }                -- AI code completion
-	use { "justinmk/vim-dirvish" }              -- Replace netrw
+
+	-- Replace netrw
+	use { "justinmk/vim-dirvish" }
+	vim.cmd([[
+		let g:dirvish_mode = ':sort ,^.*[\/],'
+	]])
 
 	-- Treesitter
 	use {
