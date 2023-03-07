@@ -28,3 +28,5 @@ nvim/lua/packages/.DS_Store
 !nvim/lua/s_space_search/*
 !goneovim/
 !goneovim/*
+!zellij/
+!zellij/*
