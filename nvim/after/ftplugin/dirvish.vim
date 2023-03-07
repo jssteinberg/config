@@ -1,6 +1,7 @@
 setlocal nonumber norelativenumber
 
 nmap <buffer> l <cr>
+nmap <buffer> f xj
 
 " new file/dir
 nn <buffer> % :!touch %
