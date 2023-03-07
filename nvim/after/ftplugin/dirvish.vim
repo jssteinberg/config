@@ -10,4 +10,13 @@ nn <buffer> d :!mkdir %
 nn <buffer> m :!mkdir %
 
 " open
-nn <silent><buffer> <c-t> :call dirvish#open('tabedit', 0)<CR>
+nn <buffer> o :call dirvish#open('split', 0)<CR>
+nn <buffer> v :call dirvish#open('vsplit', 0)<CR>
+nn <buffer> P :call dirvish#open('vsplit', 0)<CR>
+nn <buffer> <c-t> :call dirvish#open('tabedit', 0)<CR>
+
+" reload
+nn <silent><buffer> <c-l> :<C-U>Dirvish<CR>
+
+" Map `gh` to hide dot-prefixed files.  reload to toggle.
+nnoremap <silent><buffer> gh :silent keeppatterns g@\v/\.[^\/]+/?$@d _<cr>:setl cole=3<cr>
