@@ -48,12 +48,12 @@ nn <leader>+ :vert resize +5<cr>
 nn <leader>- :vert resize -5<cr>
 
 " Edit/tabedit commonly used
-nnoremap <leader>ep <cmd>edit package.json<cr>
-nnoremap <leader>er <cmd>edit README.md<cr>
+nnoremap <leader>ep <cmd>e package.json<cr>
+nnoremap <leader>er <cmd>e README.md<cr>
 nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
-nnoremap <leader>e. <cmd>edit .<cr><cmd>call search(expand("#:t"))<cr>
+nnoremap <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
 " nnoremap <leader>eh <cmd>edit %:h<cr>
-nnoremap <leader>eh <cmd>exe "try\n e %:h\n catch\n e .\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
+nnoremap <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>tb <cmd>tabedit %<cr>'"
 
 " Replace [word, selection]

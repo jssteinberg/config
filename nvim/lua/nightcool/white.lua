@@ -61,12 +61,13 @@ local theme = lush(function(injected_functions)
 		Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
 		Bold { gui = "bold" },
 		Italic { gui = "italic" },
-		Title { fg = color("fg"), gui = "bold" },      -- titles for output from ":set all", ":autocmd" etc.
+		Title { fg = color("fg"), gui = "bold" }, -- titles for output from ":set all", ":autocmd" etc.
 		Comment { fg = color("comment", 2) },
-		Todo { fg = color("comment", 2), gui = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-		Error { fg = color("red") },                   -- (preferred) any erroneous construct
-		ErrorMsg { Error },                            -- error messages on the command line
-		WarningMsg { fg = color("warning") },          -- warning messages
+		Todo { fg = color("comment", 2), gui = "bold" },
+		Error { fg = color("red") },        -- (preferred) any erroneous construct
+		ErrorMsg { Error },                 -- error messages on the command line
+		WarningMsg { fg = color("warning") }, -- warning messages
+
 		-- TERMINAL COLORS
 
 		terminal_color_00 { fg = color("black") },
@@ -80,6 +81,7 @@ local theme = lush(function(injected_functions)
 		terminal_color_07 { fg = color("white") },
 		terminal_color_08 { fg = color("black", 2) },
 		terminal_color_15 { fg = color("white", 2) },
+
 		-- UI
 
 		-- necessities
@@ -217,6 +219,12 @@ local theme = lush(function(injected_functions)
 		htmlTag { htmlArg },
 		htmlEndTag { htmlTag },
 		cssTagName { htmlTagName },
+		markdownLinkText { fg = color("blue", 2) },
+		markdownUrl { fg = color("blue", 2) },
+		markdownLinkDelimiter { fg = color("blue", 2) },
+		markdownId { fg = color("blue", 2) },
+		markdownIdDeclaration { markdownId },
+		markdownCode { fg = color("magenta", 2) },
 	}
 end)
 
