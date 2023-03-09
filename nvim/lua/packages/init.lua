@@ -25,9 +25,7 @@ local function init()
 
 	-- Replace netrw
 	use { "justinmk/vim-dirvish", config = function()
-		vim.cmd([[
-			let g:dirvish_mode = ':sort ,^.*[\/],'
-		]])
+		vim.cmd [[let g:dirvish_mode = ':sort ,^.*[\/],']]
 	end }
 
 	-- Treesitter
@@ -94,8 +92,8 @@ local function init()
 
 	-- ### EDIT/MOVE
 
-	use { "tommcdo/vim-lion", opt = true }    -- Align text
-	use { "lambdalisue/suda.vim", opt = true } -- sudo save
+	use { "tommcdo/vim-lion", keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
+	use { "lambdalisue/suda.vim", opt = true }                                                        -- sudo save
 
 	-- auto pair completion
 	use { "windwp/nvim-autopairs", event = "InsertEnter", config = function()
