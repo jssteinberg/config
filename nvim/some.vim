@@ -20,6 +20,8 @@ vnoremap < <gv
 vnoremap > >gv
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
+nnoremap <c-e> $
+xnoremap <c-e> $
 
 " Line motions incbudes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'

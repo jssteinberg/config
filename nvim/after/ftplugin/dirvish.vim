@@ -13,7 +13,7 @@ nn <buffer> m :!mkdir %
 " open
 nn <buffer> o :call dirvish#open('split', 0)<CR>
 nn <buffer> v :call dirvish#open('vsplit', 0)<CR>
-nn <buffer> P :call dirvish#open('vsplit', 0)<CR>
+" nn <buffer> P :call dirvish#open('vsplit', 0)<CR>
 nn <buffer> <c-t> :call dirvish#open('tabedit', 0)<CR>
 
 " reload

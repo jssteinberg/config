@@ -1,0 +1,1 @@
+nmap <buffer> ZZ Z!
