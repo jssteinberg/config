@@ -130,7 +130,7 @@ let &ts=g:indent_width | let &sw=g:indent_width " indent size
 set hidden " Unsaved files can be 'hidden'
 set noswapfile " No swap files, but undo files (requires `undodir` in Vim)
 set sessionoptions=curdir,folds,help
-set signcolumn=yes number " Show signcolumn and numbers
+set signcolumn=yes " Show signcolumn and numbers
 set cursorline " Highlight cursor line
 set splitright
 set showtabline=2 " Always show tabline

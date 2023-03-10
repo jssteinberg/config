@@ -104,7 +104,10 @@ augroup END
 set background=dark
 try | colo lunaperche " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
 catch | colo slate " for older Vim versions
-finally | hi Normal ctermbg=NONE | endtry
+finally
+	hi Normal ctermbg=NONE
+	hi TabLineFill ctermbg=NONE
+endtry
 
 " FZF https://dev.to/pbnj/interactive-fuzzy-finding-in-vim-without-plugins-4kkj
 fu! FuzzyFiles() abort
@@ -125,7 +128,6 @@ fu! PackInit() abort
 	call minpac#add("tpope/vim-surround")
 	call minpac#add("tpope/vim-commentary")
 	call minpac#add("easymotion/vim-easymotion")
-	call minpac#add("jssteinberg/hackline.vim", {"branch": "dev"})
 	call minpac#add("tpope/vim-fugitive", {"type": "opt"})
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")

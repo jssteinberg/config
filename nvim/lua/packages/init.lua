@@ -63,12 +63,10 @@ local function init()
 	-- Statusline
 	use {
 		"jssteinberg/hackline.vim",
-		requires = { "itchyny/vim-gitbranch" },
 		branch = "dev",
 		config = function()
 			vim.g.hackline_cwd            = true
 			vim.g.hackline_normal_px      = 0
-			vim.g.hackline_sep_inner_left = ": "
 		end
 	}
 
