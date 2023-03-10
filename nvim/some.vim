@@ -161,8 +161,6 @@ aug some_config | au!
 				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
 				\ |   exe "normal! g`\""
 				\ | en
-	" Open quickfix window when relevant
-	au QuickFixCmdPost [^l]* cwindow
 	" Set tabstop if noexpandtab
 	au BufEnter * call SetTabWidth(g:indent_width)
 aug END
