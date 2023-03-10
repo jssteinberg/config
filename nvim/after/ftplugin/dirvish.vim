@@ -1,6 +1,7 @@
 setlocal nonumber norelativenumber
 
 nmap <buffer> l <cr>
+nmap <buffer> h -
 nmap <buffer> f xj
 
 " new file/dir
