@@ -1,15 +1,9 @@
-nmap æ [
-nmap ø ]
-omap æ [
-omap ø ]
-xmap æ [
-xmap ø ]
-
 " Additional esc map
 tnoremap jk <c-\><c-n>
 
 " Edit/explore [buffer dir, buffer in new tab, close tab]
 nnoremap <silent> <leader>ed :SFMToggle<cr>
+nnoremap <silent> <leader>et :wincmd v<bar>wincmd H<bar>vertical resize 30<cr>
 
 " No/now (toggle options)
 nnoremap <silent> <leader>nc :call NowColo()<cr>
@@ -28,13 +22,14 @@ nnoremap <leader>gb <cmd>BlamerToggle<cr>
 nnoremap <leader>gc <cmd>Git log -p -50 %<cr>
 nnoremap <leader>gd <cmd>tabnew %<cr><cmd>Gvdiffsplit<cr>
 nnoremap <leader>gg <cmd>Git<cr>
-nnoremap <leader>gj /<<<<<<<\\|=======\\|>>>>>>><cr>
-nnoremap <leader>gk ?<<<<<<<\\|=======\\|>>>>>>><cr>
 nnoremap <leader>gl <cmd>Flog<cr>
 nnoremap <leader>go <cmd>OpenGithubFile<cr>
 nnoremap <leader>gp <cmd>Git pull<cr>
 nnoremap <leader>gP <cmd>Git push<cr>
 nnoremap <leader>gq <cmd>Git mergetool<cr>
+" TODO: replace with search()?
+nnoremap <leader>gj /<<<<<<<\\|=======\\|>>>>>>><cr>
+nnoremap <leader>gk ?<<<<<<<\\|=======\\|>>>>>>><cr>
 
 " Color highlight groups
 nnoremap <leader>hc <cmd>TSHighlightCapturesUnderCursor<cr>
