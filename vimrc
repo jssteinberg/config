@@ -49,8 +49,8 @@ nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 tnoremap jk <c-w>N
 " Find links
 nn <leader>fl ?\v\S+[:\|.]\S+<cr>
-" Fuzzy find files with Fzy
-nnoremap <leader>s :call FzyCommand("rg --files", ":e")<cr>
+" Fuzzy find files
+nnoremap <leader>s :call FuzzyFiles()<cr>
 " Git
 nn <leader>gg :packadd vim-fugitive<bar>G<cr>
 nn <leader>gp :packadd vim-fugitive<bar>G pull<cr>
@@ -87,6 +87,10 @@ set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set list listchars=tab:\·\ 
 set undodir=$HOME/.vimundo undofile
 
+" NETRW OPTIONS
+let g:netrw_banner=0 " Remove top banner
+let g:netrw_preview=1 " Vertical preview
+
 " AUTO COMMANDS
 aug vim_config
 	" FileTypes
@@ -102,30 +106,15 @@ try | colo lunaperche " DUAL lunaperche quiet DARK habamax industry slate LIGHT 
 catch | colo slate " for older Vim versions
 finally | hi Normal ctermbg=NONE | endtry
 
-" FZY FUNCTION
-fu! FzyCommand(choice_command, vim_command) abort
-	try
-		let output = system(a:choice_command . " | fzy ")
-	catch /Vim:Interrupt/ | endtry | redraw!
+" FZF https://dev.to/pbnj/interactive-fuzzy-finding-in-vim-without-plugins-4kkj
+fu! FuzzyFiles() abort
+	let l:tempname = tempname()
 
-	if v:shell_error == 0 && !empty(output)
-		exec a:vim_command . " " . output
-	en
+	execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
+
+	try | execute 'cfile ' . l:tempname | redraw!
+	finally | call delete(l:tempname) | endtry
 endf
-
-" FZF
-" https://dev.to/pbnj/interactive-fuzzy-finding-in-vim-without-plugins-4kkj
-" fu! FZF() abort
-" 	let l:tempname = tempname()
-" 	" fzf | awk '{ print $1":1:0" }' > file
-" 	execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
-" 	try
-" 		execute 'cfile ' . l:tempname
-" 		redraw!
-" 	finally
-" 		call delete(l:tempname)
-" 	endtry
-" endf
 
 " PLUGINS
 fu! PackInit() abort
@@ -134,7 +123,6 @@ fu! PackInit() abort
 	call minpac#add("k-takata/minpac", {"type": "opt"})
 	call minpac#add("tpope/vim-sleuth")
 	call minpac#add("tpope/vim-surround")
-	call minpac#add("subnut/visualstar.vim")
 	call minpac#add("tpope/vim-commentary")
 	call minpac#add("easymotion/vim-easymotion")
 	call minpac#add("jssteinberg/hackline.vim", {"branch": "dev"})

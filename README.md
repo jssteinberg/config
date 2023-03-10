@@ -46,7 +46,7 @@ funcsave ls
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing. Uncomplicated config for dummies hacking (author included).
 
-Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), fzy, fzf, ripgrep, fd, bat, delta, [prettierd](https://github.com/fsouza/prettierd) ... Open nvim and get warning/error messages, run `:PackerSync`, restart nvim, repeat. Then:
+Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), fzf, ripgrep, fd, bat, delta, [prettierd](https://github.com/fsouza/prettierd) ... Open nvim and get warning/error messages, run `:PackerSync`, restart nvim, repeat. Then:
 
 - `:TSInstall all`/`:TSUpdate`
 - `:Mason`

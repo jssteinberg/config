@@ -153,16 +153,10 @@ if executable('rg')
 	set grepformat^=%f:%l:%c:%m grepprg=rg\ --vimgrep
 endif
 
-" NETRW OPTIONS
-let g:netrw_banner=0 " Remove top banner
-let g:netrw_preview=1 " Vertical preview
-
 " AUTO COMMANDS
 aug some_config | au!
 	" When editing a file, always jump to the last known cursor position.
-	" Don't do it when the position is invalid, when inside an event handler
-	" (happens when dropping a file on gvim) and for a commit message (it's
-	" likely a different one than last time).
+	" Don't do it when the position is invalid.
 	au BufReadPost *
 				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
 				\ |   exe "normal! g`\""
@@ -175,9 +169,9 @@ aug END
 
 " GLOBAL FUNCTIONS
 
-" Correct local tab type width config
+" Set/correct buffer local tab type width
 function! SetTabWidth(ts_width) abort
-	if !(&expandtab) " Hard-tabs uses my tabstop width
+	if !(&expandtab) " Hard-tabs uses tabstop width param
 		exe "setlocal tabstop=" . a:ts_width
 		exe "setlocal shiftwidth=" . a:ts_width
 	elseif &sw != &ts " Soft-tabs gets tabstop=shiftwidth for no fuss
@@ -191,16 +185,15 @@ function! HiGroupNames() abort
 	echo synIDattr(l:s, 'name') . ' › ' . synIDattr(synIDtrans(l:s), 'name')
 endfunction
 
-" Open main terminal in insert mode
+" Open main terminal, first time in insert mode
 function! GetMainTerm() abort
 	try
 		wincmd s
 		exe "buffer " . g:main_term_bufnr
-		startinsert
 	catch
 		if !has("nvim") | wincmd q | en
-		exe "terminal"
+		terminal
+		startinsert
 		let g:main_term_bufnr=bufnr()
-		if has("nvim") | startinsert | en
 	endtry
 endfunction

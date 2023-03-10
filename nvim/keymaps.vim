@@ -14,8 +14,7 @@ nnoremap <silent> <leader>nc :call NowColo()<cr>
 nnoremap <leader>fb :FzfLua buffers<cr>
 nnoremap <leader>fs :FzfLua live_grep_native<cr>
 nnoremap <leader>ff :FzfLua files<cr>
-" nnoremap <leader>s :FzfLua files<cr>
-nnoremap <leader>s :FuzzyOpen<cr>
+nnoremap <leader>s :FzfLua files<cr>
 
 " Git
 nnoremap <leader>gb <cmd>BlamerToggle<cr>

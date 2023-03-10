@@ -127,18 +127,10 @@ local function init()
 
 	-- ### SEARCH/EXPLORE
 
-	use { "subnut/visualstar.vim", keys = { { "x", "*" }, { "x", "#" } } }
-
 	-- Quickfix
 	use { "kevinhwang91/nvim-bqf", ft = "qf" }
 
 	-- Fuzzy finder
-	-- fzy
-	use {
-		"cloudhead/neovim-fuzzy",
-		cmd = { "FuzzyOpen" },
-		config = function() vim.g.fuzzy_rootcmds = {} end
-	}
 	-- fzf
 	use { "ibhagwan/fzf-lua", cmd = { "FzfLua" }, config = require("packages.fzf") }
 
