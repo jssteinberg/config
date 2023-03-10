@@ -1,5 +1,8 @@
 setlocal nonumber norelativenumber
 
+" Remove previous arglist
+%argd
+
 " Move/add
 nmap <buffer> l <cr>
 nmap <buffer> h -
@@ -10,11 +13,11 @@ nn <buffer> e :!touch %
 nn <buffer> E :edit %
 nn <buffer> m :!mkdir %
 nn <buffer> M :!mkdir %
-nmap <expr> <buffer> D len(argv()) ? "1.rm -fr<cr>" : "D V.rm -fr<cr>"
+nmap <expr> <buffer> D argc() ? "1.rm -fr<cr>" : "D V.rm -fr<cr>"
 xmap <buffer> D .rm -fr<cr>
-nmap <expr> <buffer> R len(argv()) ? "1.mv <c-e> {}<cr>" : "V.mv<c-e> {}<cr>"
+nmap <expr> <buffer> R argc() ? "1.mv <c-e> {}<cr>" : "V.mv<c-e> {}<cr>"
 xmap <buffer> R .mv<c-e> {}<cr>
-nmap <expr> <buffer> Y len(argv()) ? "1.cp <c-e> {}<cr>" : "V.cp<c-e> {}<cr>"
+nmap <expr> <buffer> Y argc() ? "1.cp <c-e> {}<cr>" : "V.cp<c-e> {}<cr>"
 xmap <buffer> Y .cp<c-e> {}<cr>
 
 " Open path
