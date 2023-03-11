@@ -1,5 +1,3 @@
-" nightcool.vim
-
 hi clear
 set bg=dark
 let g:colors_name="nightcool"
@@ -40,7 +38,7 @@ let g:colors_name="nightcool"
 hi Normal ctermfg=7 guifg=#afc5c7
 
 if get(g:, "nightcool_bg", v:true)
-	hi Normal guibg=#0c0a19
+	hi Normal guibg=#000000
 endif
 
 " Comment
@@ -90,7 +88,7 @@ hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
 hi CursorLineNr cterm=italic gui=italic ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#e9f5e6
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
-hi EndOfBuffer ctermfg=5 guifg=#342c6d
+hi EndOfBuffer ctermfg=0 guifg=#1a1636
 hi LineNr ctermfg=8 guifg=#685cbc
 hi LineNrBelow ctermfg=8 guifg=#7d78a1
 hi MatchParen cterm=italic gui=NONE ctermbg=0 guibg=#342c6d guifg=#a69fd8
@@ -144,7 +142,6 @@ hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#1a1636
 if get(g:, "nightcool_statusline", "default") == "black"
 	hi StatusLine   cterm=NONE gui=bold ctermbg=16 guibg=#000000 guifg=#c39fd8
 	hi StatusLineNC cterm=NONE gui=bold ctermbg=16 guibg=#000000 guifg=#985cbc
-	hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=16 guifg=#000000
 en
 
 " UI LINKED
