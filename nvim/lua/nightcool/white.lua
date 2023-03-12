@@ -168,7 +168,8 @@ local theme = lush(function(injected_functions)
 		NeoTreeRootName { Directory },
 		NeoTreeTitleBar { StatusLine },
 		-- Treesitter context
-		TreesitterContextLineNumber { bg = color("magenta", "bg"), fg = color("magenta", 2) },
+		TreesitterContext { Underlined },
+		TreesitterContextLineNumber { TreesitterContext, gui = "underline" },
 		-- Cursor {}, -- character under the cursor
 		-- lCursor {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
 		-- CursorIM {}, -- like Cursor, but used when in IME mode |CursorIM|
