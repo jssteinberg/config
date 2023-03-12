@@ -13,15 +13,15 @@ nn <buffer> e :!touch %
 nn <buffer> E :edit %
 nn <buffer> m :!mkdir %
 " delete
-nmap <expr> <buffer> D argc() ? "1.rm -fr<cr>" : "D V.rm -fr<cr>"
+nmap <buffer> D V.rm -fr<cr>
 xmap <buffer> D .rm -fr<cr>
 " rename
-nmap <expr> <buffer> R argc() ? "1.mv <c-e> {}<cr>" : "V.mv<c-e> {}<cr>"
+nmap <buffer> R V.mv<c-e> {}<cr>
 xmap <buffer> R .mv<c-e> {}<cr>
-nmap <expr> <buffer> M argc() ? "1.mv <c-e> {}<cr>" : "V.mv<c-e> {}<cr>"
+nmap <buffer> M V.mv<c-e> {}<cr>
 xmap <buffer> M .mv<c-e> {}<cr>
 " copy
-nmap <expr> <buffer> Y argc() ? "1.cp <c-e> {}<cr>" : "V.cp<c-e> {}<cr>"
+nmap <buffer> Y V.cp<c-e> {}<cr>
 xmap <buffer> Y .cp<c-e> {}<cr>
 
 " Open path

@@ -61,7 +61,7 @@ hi! link SpecialKey NonText " ...also for list char in Vim
 
 " GENERAL SYNTAX GROUPS
 
-hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a69fd8
+hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=11 guifg=#d0d89f
 " hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi! link Identifier Constant
