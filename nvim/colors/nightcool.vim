@@ -35,7 +35,7 @@ let g:colors_name="nightcool"
 " GROUP NAMES (:h group-name)
 
 " Normal
-hi Normal ctermfg=7 guifg=#afc5c7
+hi Normal ctermfg=15 guifg=#e9f5e6
 
 if get(g:, "nightcool_bg", v:true)
 	hi Normal guibg=#000000
@@ -54,7 +54,7 @@ hi Bold cterm=bold gui=bold
 hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi Italic cterm=italic gui=italic
 hi NonText gui=NONE ctermfg=5 guifg=#342c6d " keep cterm same as `SpecialKey`
-hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#e9f5e6
+hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#ffffff
 hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#c39fd8
 hi! link Underlined Title
 hi! link SpecialKey NonText " ...also for list char in Vim
@@ -65,7 +65,7 @@ hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=6 guifg=#5cb1b
 hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=11 guifg=#d0d89f
 " hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi! link Identifier Constant
-hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
 hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
@@ -86,7 +86,7 @@ hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
-hi CursorLineNr cterm=NONE gui=italic ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#e9f5e6
+hi CursorLineNr cterm=NONE gui=italic ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#ffffff
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
 hi LineNr ctermfg=8 guifg=#685cbc
@@ -102,7 +102,7 @@ hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afc5c
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=NONE gui=italic ctermfg=13 guifg=#a69fd8
-hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#e9f5e6
+hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#ffffff
 
 hi DiagnosticError ctermfg=1 guifg=#bc675c
 hi DiagnosticHint ctermfg=8 guifg=#5c80bc
@@ -121,7 +121,7 @@ hi SpellLocal cterm=underline gui=undercurl ctermbg=NONE guisp=#5cb1bc
 
 " Diffs
 " `hi`s in context of normal syntax, so can't use green/red---distinguish another way
-hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
 hi DiffDelete cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi DiffChange cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=2 guifg=#80bc5c
 hi! link DiffText DiffAdd
@@ -131,11 +131,11 @@ hi diffAdded cterm=NONE gui=NONE ctermfg=2 guifg=#80bc5c
 hi! link diffRemoved DiffDelete
 
 " Search
-hi IncSearch cterm=bold,underline gui=NONE ctermbg=240 guibg=#646d2c ctermfg=NONE guifg=#e9f5e6
+hi IncSearch cterm=bold,underline gui=NONE ctermbg=240 guibg=#646d2c ctermfg=NONE guifg=#ffffff
 hi Search cterm=NONE gui=NONE ctermbg=238 guibg=#2c446d ctermfg=NONE guifg=NONE
 
 " StatusLine and WinSeparator
-hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#e9f5e6
+hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#ffffff
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#1a1636
 
