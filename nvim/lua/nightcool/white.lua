@@ -97,8 +97,8 @@ local theme = lush(function(injected_functions)
 		TabLine { fg = color("magenta") },                                  -- tab pages line, not active tab page label
 		TabLineFill { TabLine },                                            -- tab pages line, where there are no labels
 		TabLineSel { bg = color("magenta", "bg"), fg = color("magenta", 2) }, -- tab pages line, active tab page label
-		WinBar { TabLineSel },
-		WinBarNC { LineNr },
+		WinBar { Bold },
+		WinBarNC { TabLine },
 		WinSeparator { fg = LineNr.fg },
 		NonText { WinSeparator }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		SignColumn { LineNr },  -- column where |signs| are displayed
