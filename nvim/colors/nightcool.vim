@@ -45,7 +45,7 @@ endif
 hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
 
 if get(g:, "nightcool_comments", "darker") == "bright"
-	hi Comment cterm=NONE gui=italic ctermfg=9 guifg=#c39fd8
+	hi Comment cterm=bold gui=bold
 endif
 
 " General groups
@@ -61,11 +61,11 @@ hi! link SpecialKey NonText " ...also for list char in Vim
 
 " GENERAL SYNTAX GROUPS
 
-hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=6 guifg=#5cb1bc
+hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a69fd8
 hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=11 guifg=#d0d89f
 " hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi! link Identifier Constant
-hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
+hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a69fd8
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
 hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
@@ -86,7 +86,7 @@ hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
-hi CursorLineNr cterm=NONE gui=italic ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#ffffff
+hi CursorLineNr cterm=NONE gui=bold ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a69fd8
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
 hi LineNr ctermfg=8 guifg=#685cbc
@@ -140,8 +140,8 @@ hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d7
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#1a1636
 
 if get(g:, "nightcool_statusline", "default") == "black"
-	hi StatusLine   cterm=NONE gui=bold ctermbg=16 guibg=#000000 guifg=#c39fd8
-	hi StatusLineNC cterm=NONE gui=bold ctermbg=16 guibg=#000000 guifg=#985cbc
+	hi StatusLine   gui=bold guibg=#000000 guifg=#afc5c7
+	hi StatusLineNC gui=bold guibg=#000000 guifg=#7d78a1
 en
 
 " UI LINKED
