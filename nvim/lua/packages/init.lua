@@ -61,14 +61,7 @@ local function init()
 	}
 
 	-- Statusline
-	use {
-		"jssteinberg/hackline.vim",
-		branch = "dev",
-		config = function()
-			vim.g.hackline_cwd            = true
-			vim.g.hackline_normal_px      = 0
-		end
-	}
+	use { "jssteinberg/hackline.vim", branch = "dev" }
 
 	-- LAZY LOADED
 	-- -----------

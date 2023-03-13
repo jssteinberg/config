@@ -92,14 +92,14 @@ local theme = lush(function(injected_functions)
 		CursorLineNr { fg = color("black"), italic = true },
 		CursorColumn { bg = CursorLine.bg.li(10) },
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
-		StatusLine { bg = color("magenta", "bg"), fg = color("magenta", 2) },
+		StatusLine { bold = true, fg = color("magenta", 2) },
 		StatusLineNC { StatusLine, fg = color("magenta") },
 		TabLine { fg = color("magenta") },                                  -- tab pages line, not active tab page label
 		TabLineFill { TabLine },                                            -- tab pages line, where there are no labels
 		TabLineSel { bg = color("magenta", "bg"), fg = color("magenta", 2) }, -- tab pages line, active tab page label
 		WinBar { Bold },
 		WinBarNC { TabLine },
-		WinSeparator { fg = LineNr.fg },
+		WinSeparator { fg = TabLineSel.bg },
 		NonText { WinSeparator }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		SignColumn { LineNr },  -- column where |signs| are displayed
 		Pmenu { bg = color("magenta", "bg"), fg = color("magenta") },
