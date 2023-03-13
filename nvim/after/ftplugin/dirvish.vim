@@ -2,32 +2,31 @@ setlocal nonumber norelativenumber
 
 " Empty local arglist if new divirsh buffer alone in current tab
 if winnr('$') == 1
-	echo "Emptying arglist for winnr " . winnr("$")
 	%argd
+	echo "Empty arglist"
 endif
-
-" %argd
 
 " Move/add
 nmap <buffer> l <cr>
 nmap <buffer> h -
 nmap <buffer> f xj
 
-" Manipulate
+" Make
 nn <buffer> e :!touch %
 nn <buffer> E :edit %
 nn <buffer> m :!mkdir %
-" delete
-nmap <buffer> D V.rm -fr<cr>
+" Delete
+nmap <expr> <buffer> D argc() ? "1.rm -fr<cr>" : "D V.rm -fr<cr>"
 xmap <buffer> D .rm -fr<cr>
-" rename
-nmap <buffer> R V.mv<c-e> {}<cr>
+" Rename
+nmap <buffer> R .mv<c-e> ./
 xmap <buffer> R .mv<c-e> {}<cr>
-nmap <buffer> M V.mv<c-e> {}<cr>
+" Move
+nmap <expr> <buffer> M argc() ? "1.mv <c-e> %{}<cr>" : "V.mv<c-e> %{}<cr>"
 xmap <buffer> M .mv<c-e> {}<cr>
-" copy
-nmap <buffer> Y V.cp<c-e> {}<cr>
-xmap <buffer> Y .cp<c-e> {}<cr>
+" Copy
+nmap <expr> <buffer> C argc() ? "1.cp <c-e> %{}<cr>" : "V.cp<c-e> %{}<cr>"
+xmap <buffer> C .cp<c-e> {}<cr>
 
 " Open path
 nn <buffer> o :call dirvish#open('split', 0)<CR>
