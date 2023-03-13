@@ -1,7 +1,12 @@
 setlocal nonumber norelativenumber
 
-" Remove previous arglist
-%argd
+" Empty local arglist if new divirsh buffer alone in current tab
+if winnr('$') == 1
+	echo "Winnr " . winnr("$") ". Emptying arglist."
+	%argd
+endif
+
+" %argd
 
 " Move/add
 nmap <buffer> l <cr>
