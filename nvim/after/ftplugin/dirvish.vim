@@ -2,7 +2,7 @@ setlocal nonumber norelativenumber
 
 " Empty local arglist if new divirsh buffer alone in current tab
 if winnr('$') == 1
-	echo "Winnr " . winnr("$") ". Emptying arglist."
+	echo "Emptying arglist for winnr " . winnr("$")
 	%argd
 endif
 
