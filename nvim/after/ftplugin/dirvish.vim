@@ -22,10 +22,10 @@ xmap <buffer> D .rm -fr<cr>
 nmap <buffer> R .mv<c-e> ./
 xmap <buffer> R .mv<c-e> {}<cr>
 " Move
-nmap <expr> <buffer> M argc() ? "1.mv <c-e> %{}<cr>" : "V.mv<c-e> %{}<cr>"
+nmap <expr> <buffer> M argc() ? "1.mv <c-e> {}<cr>" : ".mv<c-e> "
 xmap <buffer> M .mv<c-e> {}<cr>
 " Copy
-nmap <expr> <buffer> C argc() ? "1.cp <c-e> %{}<cr>" : "V.cp<c-e> %{}<cr>"
+nmap <expr> <buffer> C argc() ? "1.cp <c-e> {}<cr>" : "V.cp<c-e> {}<cr>"
 xmap <buffer> C .cp<c-e> {}<cr>
 
 " Open path
