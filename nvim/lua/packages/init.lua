@@ -136,6 +136,7 @@ local function init()
 	use {
 		"theblob42/drex.nvim",
 		cmd = { "Drex", "DrexDrawerOpen" },
+		config = require("packages.drex")
 	}
 	-- fern avilable for old habits
 	use { "lambdalisue/fern.vim", cmd = { "Fern" } }
