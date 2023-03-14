@@ -128,13 +128,17 @@ local function init()
 	use { "ibhagwan/fzf-lua", cmd = { "FzfLua" }, config = require("packages.fzf") }
 
 	-- File tree
+	-- use {
+	-- 	"dinhhuy258/sfm.nvim",
+	-- 	cmd = { "SFMToggle" },
+	-- 	config = require("packages.sfm")
+	-- }
 	use {
-		"dinhhuy258/sfm.nvim",
-		cmd = { "SFMToggle" },
-		config = require("packages.sfm")
+		"theblob42/drex.nvim",
+		cmd = { "Drex", "DrexDrawerOpen" },
 	}
 	-- fern avilable for old habits
-	use { "lambdalisue/fern.vim", opt = true }
+	use { "lambdalisue/fern.vim", cmd = { "Fern" } }
 
 	-- ### GIT
 

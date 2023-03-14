@@ -2,18 +2,6 @@ hi clear
 set bg=dark
 let g:colors_name="nightcool"
 
-" bg #0c0a19 fg #afc5c7
-" black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d
-" red#1     #bc675c red#9      #d8a69f dark_red_bg #361a16
-" green#2   #80bc5c green#10   #add89f
-" yellow#3  #bc985c yellow#11  #d0d89f yellow_bg #646d2c
-" blue#4    #5c80bc blue#12    #9fb4d8 blue_bg   #2c446d
-" magenta#5 #685cbc magenta#13 #a69fd8
-" cyan#6    #5cb1bc cyan#14    #9fd1d8
-" white#7   #afc5c7 white#15   #e9f5e6
-" ---
-" violet    #985cbc violet_2   #c39fd8 violet_bg #552c6d
-"
 " Options:
 " - `let g:nightcool_bg=v:true` or v:false for `NONE` (transparent)
 " - `let g:nightcool_comments="darker"` or "bright"
@@ -24,13 +12,6 @@ let g:colors_name="nightcool"
 " Based on a neon illuminated city-park WC...
 "
 " Supports: treesitter, telescope, fugitive, neo-tree, gitsigns, vim-illuminate, treesitter-context, vim-matchup, winbar
-"
-" Util:
-" - Disabled/inacive: black#8
-" - Error: red#1
-" - Info: magenta#5/violet*
-" - Warning: yellow#3
-" - Selection (bg): violet_bg
 
 " GROUP NAMES (:h group-name)
 
@@ -53,8 +34,8 @@ endif
 hi Bold cterm=bold gui=bold
 hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi Italic cterm=italic gui=italic
-hi NonText gui=NONE ctermfg=5 guifg=#342c6d " keep cterm same as `SpecialKey`
-hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#ffffff
+hi NonText gui=NONE ctermfg=235 guifg=#342c6d " keep cterm same as `SpecialKey`
+hi Title cterm=bold gui=bold ctermfg=10 guifg=#add89f
 hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#c39fd8
 hi! link Underlined Title
 hi! link SpecialKey NonText " ...also for list char in Vim
@@ -68,7 +49,8 @@ hi! link Identifier Constant
 hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a69fd8
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
-hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
+" hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
+hi! link Special Type
 
 " SPECIFIC SYNTAX GROUPS
 
@@ -98,6 +80,7 @@ hi Pmenu ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1 " Pmenu affects some fl
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8
 hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
+hi TabLineFill cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1 " link breaks in Vim 9.0
 hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afc5c7
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
@@ -131,7 +114,7 @@ hi diffAdded cterm=NONE gui=NONE ctermfg=2 guifg=#80bc5c
 hi! link diffRemoved DiffDelete
 
 " Search
-hi IncSearch cterm=bold,underline gui=NONE ctermbg=240 guibg=#646d2c ctermfg=NONE guifg=#ffffff
+hi IncSearch cterm=bold,underline gui=NONE ctermbg=241 guibg=#646d2c ctermfg=NONE guifg=#ffffff
 hi Search cterm=NONE gui=NONE ctermbg=238 guibg=#2c446d ctermfg=NONE guifg=NONE
 
 " StatusLine and WinSeparator
@@ -158,7 +141,6 @@ hi! link Question Bold
 hi! link QuickFixLine Visual
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
-hi! link TabLineFill TabLine
 hi! link VertSplit WinSeparator
 hi! link WinBarNC LineNr
 
@@ -195,3 +177,22 @@ let g:terminal_color_15 = "#e9f5e6"
 if has("nvim-0.8") && get(g:, "nightcool_treesitter", v:true)
 	lua require("nightcool.treesitter")
 endif
+
+" bg #0c0a19 fg #afc5c7
+" black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d
+" red#1     #bc675c red#9      #d8a69f dark_red_bg #361a16
+" green#2   #80bc5c green#10   #add89f
+" yellow#3  #bc985c yellow#11  #d0d89f yellow_bg #646d2c
+" blue#4    #5c80bc blue#12    #9fb4d8 blue_bg   #2c446d
+" magenta#5 #685cbc magenta#13 #a69fd8
+" cyan#6    #5cb1bc cyan#14    #9fd1d8
+" white#7   #afc5c7 white#15   #e9f5e6
+" ---
+" violet    #985cbc violet_2   #c39fd8 violet_bg #552c6d
+"
+" Util:
+" - Disabled/inacive: black#8
+" - Error: red#1
+" - Info: magenta#5/violet*
+" - Warning: yellow#3
+" - Selection (bg): violet_bg

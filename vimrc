@@ -102,7 +102,7 @@ augroup END
 
 " COLORS
 set background=dark
-try | colo lunaperche " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
+try | colo nightcool " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
 catch | colo slate " for older Vim versions
 finally
 	hi Normal ctermbg=NONE
