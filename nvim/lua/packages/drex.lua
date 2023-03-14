@@ -8,19 +8,6 @@ return function()
 			others = "·",
 		},
 		hide_cursor = false,
-		sorting = function(a, b)
-			local aname, atype = a[1], a[2]
-			local bname, btype = b[1], b[2]
-
-			local aisdir = atype == "directory"
-			local bisdir = btype == "directory"
-
-			if aisdir ~= bisdir then
-				return aisdir
-			end
-
-			return aname < bname
-		end,
 		drawer = {
 			default_width = 30,
 			window_picker = {

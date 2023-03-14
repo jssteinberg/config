@@ -51,7 +51,7 @@ function! Hackline(status) abort
 	" Git
 	if l:active
 		" built in
-		let l:line .= hackline#ui#git#info()
+		let l:line .= hackline#ui#git#info(" *")
 	endif
 	" Nvim LSP
 	if l:active && has("nvim")

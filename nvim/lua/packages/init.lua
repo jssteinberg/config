@@ -24,9 +24,7 @@ local function init()
 	end }
 
 	-- Replace netrw
-	use { "justinmk/vim-dirvish", config = function()
-		vim.cmd [[let g:dirvish_mode = ':sort ,^.*[\/],']]
-	end }
+	use { "elihunter173/dirbuf.nvim" }
 
 	-- Treesitter
 	use {

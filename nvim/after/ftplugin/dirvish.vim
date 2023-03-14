@@ -1,10 +1,10 @@
 setlocal nonumber norelativenumber
 
 " Empty local arglist if new divirsh buffer alone in current tab
-if winnr('$') == 1
-	%argd
-	echo "Empty arglist"
-endif
+" if winnr('$') == 1
+" 	%argd
+" 	echo "Empty arglist"
+" endif
 
 " Move/add
 nmap <buffer> l <cr>

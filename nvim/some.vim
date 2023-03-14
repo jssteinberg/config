@@ -163,7 +163,7 @@ aug some_config | au!
 				\ |   exe "normal! g`\""
 				\ | en
 	" Set tabstop if noexpandtab
-	au BufEnter * call SetTabWidth(g:indent_width)
+	au BufEnter *.html,*.css,*.js,*.ts,*.svelte call SetTabWidth(g:indent_width)
 aug END
 
 " GLOBAL FUNCTIONS
