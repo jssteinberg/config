@@ -94,8 +94,8 @@ local theme = lush(function(injected_functions)
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		StatusLine { bold = true, fg = color("magenta", 2) },
 		StatusLineNC { StatusLine, fg = color("magenta") },
-		TabLine { fg = color("magenta") },                                  -- tab pages line, not active tab page label
-		TabLineFill { TabLine },                                            -- tab pages line, where there are no labels
+		TabLine { bg = color("magenta", "bg"), fg = color("magenta") },     -- tab pages line, not active tab page label
+		TabLineFill { fg = TabLine.fg },                                    -- tab pages line, where there are no labels
 		TabLineSel { bg = color("magenta", "bg"), fg = color("magenta", 2) }, -- tab pages line, active tab page label
 		WinBar { Bold },
 		WinBarNC { TabLine },

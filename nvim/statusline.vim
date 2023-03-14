@@ -46,21 +46,20 @@ function! Hackline(status) abort
 	endif
 	" CWD
 	if l:active && len(getcwd()) > 1
-		let l:line .= "%(CD %{split(getcwd(), '/')[-1]}%)"
+		let l:line .= "%(CD “%{split(getcwd(), '/')[-1]}”%)"
 	endif
 	" Git
-	if l:active && hackline#config#git_info() == 1
+	if l:active
 		" built in
 		let l:line .= hackline#ui#git#info()
 	endif
-	let l:line .= l:sep.l
 	" Nvim LSP
-	if l:active && hackline#config#nvim_lsp()
-		let l:line .= hackline#ui#nvim_lsp#info("")
+	if l:active && has("nvim")
+		let l:line .= hackline#ui#nvim_lsp#info(l:sep.l, "")
 	endif
 	" Vim LSP
-	if l:active && hackline#config#vim_lsp()
-		let l:line .= 'LSP'
+	if get(b:, "hackline_use_vim_lsp", "0") &&  l:active
+		let l:line .= l:sep.l . 'LSP'
 	endif
 
 	" Statusline Right Side
@@ -68,15 +67,14 @@ function! Hackline(status) abort
 
 	let l:line .= l:len_i . "%="
 	" file path
-	let l:line .= '%(File %{hackline#ui#dir#info("xl")}%t%)'
+	let l:line .= '%(“%{hackline#ui#dir#info("xl")}%t”%)'
 	" modified flag
 	let l:line .= '%( %m%)'
 	" Cursor position
-	let l:line .= l:sep.r
 	if hackline#util#has_winwidth("md")
-		let l:line .= "Line %l/%L Col %c"
+		let l:line .= l:sep_i . "line %l/%L col %c"
 	else
-		let l:line .= "Line %l/%L"
+		let l:line .= l:sep_i . "line %l/%L"
 	endif
 	" End spacing
 	let l:line .= mode() == "n" ? l:normal_px : l:len_i
