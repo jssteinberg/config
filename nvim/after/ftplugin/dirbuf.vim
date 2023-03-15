@@ -11,4 +11,4 @@ nn <buffer> <c-h> <Plug>(dirbuf_up)
 nn <silent> <buffer> <c-s> :lua require("dirbuf").enter("split")<cr>
 nn <silent> <buffer> <c-p> :lua require("dirbuf").enter("vsplit")<cr>
 nn <silent> <buffer> <c-t> :lua require("dirbuf").enter("tabedit")<cr>
-nn <silent> <buffer> cd :cd %<cr>
+nn <silent> <buffer> cd :tcd %<cr>
