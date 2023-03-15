@@ -50,10 +50,10 @@ nn <leader>+ :vert resize +5<cr>
 nn <leader>- :vert resize -5<cr>
 
 " Edit/tabedit commonly used
-nnoremap - <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>ep <cmd>e package.json<cr>
 nnoremap <leader>er <cmd>e README.md<cr>
 nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
+nnoremap <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>ew :e **/
 nnoremap <leader>tb <cmd>tabedit %<cr>'"
@@ -85,7 +85,7 @@ nnoremap <bs> :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Terminal
-nn <silent> <leader><cr> <cmd>call GetMainTerm()<cr>
+nn <silent> <leader><cr> <cmd>call GetCwdMainTerm()<cr>
 
 " No/now (toggle options)
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
@@ -118,7 +118,7 @@ nn <expr> <leader>ps exists("v:this_session") && v:this_session != '' ? ':exe "m
 " load session
 nn <leader>po :source ~/.vs/*
 
-" OPTIONS (in order of importance)
+" OPTIONS (in order of importance…)
 set nofoldenable foldmethod=indent " Toggle fold on indent
 let &scrolloff=g:config_scrolloff " Keep cursor off from top/bottom
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
@@ -175,15 +175,18 @@ function! HiGroupNames() abort
 	echo synIDattr(l:s, 'name') . ' › ' . synIDattr(synIDtrans(l:s), 'name')
 endfunction
 
-" Open main terminal, first time in insert mode
-function! GetMainTerm() abort
+" Open main terminal for PWD, first time in insert mode
+function! GetCwdMainTerm(cwd = getcwd()) abort
 	try
 		wincmd s
-		exe "buffer " . g:main_term_bufnr
+		exe "buffer " . g:main_term_bufnr[a:cwd]
+		echo "buffer " . g:main_term_bufnr[a:cwd]
 	catch
 		if !has("nvim") | wincmd q | en
 		terminal
-		startinsert
-		let g:main_term_bufnr=bufnr()
+		startinsert " for consistency between Vim and Neovim
+		" Store buffer number with cwd as key
+		if !exists("g:main_term_bufnr") | let g:main_term_bufnr = {} | en
+		let g:main_term_bufnr[a:cwd] = bufnr()
 	endtry
 endfunction
