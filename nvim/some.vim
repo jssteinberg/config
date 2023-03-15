@@ -90,8 +90,6 @@ nn <silent> <leader><cr> <cmd>call GetMainTerm()<cr>
 " No/now (toggle options)
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
-nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
-nnoremap <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
 nnoremap <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'
 
 " Git
