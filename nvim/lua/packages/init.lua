@@ -16,15 +16,15 @@ local function init()
 	use { "tpope/vim-repeat" }                  -- Extend `.` repeat
 	use { "dhruvasagar/vim-open-url" }          -- URLs and search
 	use { "michaeljsmith/vim-indent-object" }   -- Keymaps for indents
-	use { "github/copilot.vim" }                -- AI code completion
+	use { "elihunter173/dirbuf.nvim" }          -- Replace netrw
+	use { "tweekmonster/startuptime.vim" }
 
-	-- Track startuptime
-	use { "https://git.sr.ht/~henriquehbr/nvim-startup.lua", config = function()
-		require "nvim-startup".setup()
-	end }
-
-	-- Replace netrw
-	use { "elihunter173/dirbuf.nvim" }
+	use { "github/copilot.vim", config = function()
+		vim.cmd([[
+			imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
+			let g:copilot_no_tab_map = v:true
+		]])
+	end } -- AI code completion
 
 	-- Treesitter
 	use {

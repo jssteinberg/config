@@ -31,7 +31,7 @@ noremap <expr> k v:count ? 'k' : 'gk'
 inoremap jk <esc>
 
 " Alternate buffer
-nnoremap <leader>b :buffer#<cr>
+nnoremap <silent> <leader>b :buffer#<cr>
 
 " Buffer switcher
 nnoremap <leader><tab> :buffer 
@@ -50,13 +50,12 @@ nn <leader>+ :vert resize +5<cr>
 nn <leader>- :vert resize -5<cr>
 
 " Edit/tabedit commonly used
+nnoremap - <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>ep <cmd>e package.json<cr>
 nnoremap <leader>er <cmd>e README.md<cr>
 nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
 nnoremap <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>ew :e **/
-" nnoremap <leader>eh <cmd>edit %:h<cr>
-nnoremap <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>tb <cmd>tabedit %<cr>'"
 
 " Replace [word, selection]
@@ -156,12 +155,6 @@ endif
 
 " AUTO COMMANDS
 aug some_config | au!
-	" When editing a file, always jump to the last known cursor position.
-	" Don't do it when the position is invalid.
-	au BufReadPost *
-				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-				\ |   exe "normal! g`\""
-				\ | en
 	" Set tabstop if noexpandtab
 	au BufEnter * call SetTabWidth(g:indent_width)
 aug END

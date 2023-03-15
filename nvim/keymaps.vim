@@ -26,9 +26,6 @@ nnoremap <leader>go <cmd>OpenGithubFile<cr>
 nnoremap <leader>gp <cmd>Git pull<cr>
 nnoremap <leader>gP <cmd>Git push<cr>
 nnoremap <leader>gq <cmd>Git mergetool<cr>
-" TODO: replace with search()?
-nnoremap <leader>gj /<<<<<<<\\|=======\\|>>>>>>><cr>
-nnoremap <leader>gk ?<<<<<<<\\|=======\\|>>>>>>><cr>
 
 " Color highlight groups
 nnoremap <leader>hc <cmd>TSHighlightCapturesUnderCursor<cr>

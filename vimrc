@@ -58,8 +58,8 @@ nn <leader>gP :packadd vim-fugitive<bar>G push<cr>
 " Easymotions
 let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 " map s <Plug>(easymotion-s)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+map <Leader>j :packadd vim-easymotion<cr><Plug>(easymotion-j)
+map <Leader>k :packadd vim-easymotion<cr><Plug>(easymotion-k)
 
 function! s:on_lsp_buffer_enabled() abort
 	setlocal omnifunc=lsp#complete
@@ -100,13 +100,9 @@ aug vim_config
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-" COLORS
-set background=dark
-try | colo nightcool " DUAL lunaperche quiet DARK habamax industry slate LIGHT zellner
+" COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
+try | set background=dark | colo nightcool
 catch | colo slate " for older Vim versions
-finally
-	hi Normal ctermbg=NONE
-	hi TabLineFill ctermbg=NONE
 endtry
 
 " FZF https://dev.to/pbnj/interactive-fuzzy-finding-in-vim-without-plugins-4kkj
@@ -114,7 +110,6 @@ fu! FuzzyFiles() abort
 	let l:tempname = tempname()
 
 	execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
-
 	try | execute 'cfile ' . l:tempname | redraw!
 	finally | call delete(l:tempname) | endtry
 endf
@@ -127,14 +122,14 @@ fu! PackInit() abort
 	call minpac#add("tpope/vim-sleuth")
 	call minpac#add("tpope/vim-surround")
 	call minpac#add("tpope/vim-commentary")
-	call minpac#add("easymotion/vim-easymotion")
+	call minpac#add("easymotion/vim-easymotion", {"type": "opt"})
 	call minpac#add("tpope/vim-fugitive", {"type": "opt"})
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")
 	call minpac#add("prabirshrestha/asyncomplete.vim")
 	call minpac#add("prabirshrestha/asyncomplete-lsp.vim")
 	call minpac#add("yami-beta/asyncomplete-omni.vim")
-	call minpac#add("Exafunction/codeium.vim")
+	call minpac#add("tweekmonster/startuptime.vim")
 	" Filetypes
 	call minpac#add("othree/html5.vim")
 	call minpac#add("pangloss/vim-javascript")

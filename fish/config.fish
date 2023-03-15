@@ -5,7 +5,7 @@ if status is-interactive
 end
 
 # alias vi "nvim"
-alias vi='nvim --startuptime /tmp/nvim-startuptime'
+alias vi='nvim'
 
 # Git aliases
 alias co "git checkout"
