@@ -58,11 +58,6 @@ local function init()
 		end
 	}
 
-	-- Statusline
-	use { "jssteinberg/hackline.vim", branch = "v4.0.0-0", config = function()
-		vim.g.hackline_normal_px = 0
-	end }
-
 	-- LAZY LOADED
 	-- -----------
 

@@ -40,13 +40,9 @@ function! Hackline(status) abort
 	" tabs/spaces
 	let l:line .= '%(' . l:sep_i . '%{hackline#ui#tab#info()}%)'
 	let l:line .= l:sep.l
-	" Arglist length
-	if l:active && argc() && hackline#util#has_winwidth("md")
-		let l:line .= "Argc %{argc()}" .. l:sep.l
-	endif
 	" CWD
-	if l:active && len(getcwd()) > 1
-		let l:line .= "%(CD “%{split(getcwd(), '/')[-1]}”%)"
+	if len(getcwd(0)) > 1
+		let l:line .= "%(CD “%{split(getcwd(0), '/')[-1]}”%)"
 	endif
 	" Git
 	if l:active
