@@ -28,8 +28,9 @@ set -Ux RIPGREP_CONFIG_PATH ~/.config/ripgreprc
 	- and for fish: https://github.com/jethrokuan/fzf or https://github.com/PatrickF1/fzf.fish 
 - [np](https://github.com/sindresorhus/np) for easy NPM package publication.
 - [fnm](https://github.com/Schniz/fnm) for fast Node.js version managing. *Previously used [nvm](https://github.com/nvm-sh/nvm), and for fish [fish-nvm](https://github.com/FabioAntunes/fish-nvm).*
-- multiplexer: tmux, (keep an eye on [tab-rs](https://github.com/austinjones/tab-rs)).
+- multiplexer: zellij, tmux, (keep an eye on [tab-rs](https://github.com/austinjones/tab-rs)).
 - exa, `ls` replacement.
+- neovim GUI: neovide, goneovim
 
 ### *Tips*
 
