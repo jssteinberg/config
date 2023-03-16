@@ -86,6 +86,7 @@ nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':cope
 
 " Terminal
 nn <silent> <leader><cr> <cmd>call GetCwdTerm()<cr>
+nn <silent> <leader>1 <cmd>call GetCwdTerm(1, "")<cr>
 
 " No/now (toggle options)
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
@@ -176,7 +177,7 @@ function! HiGroupNames() abort
 endfunction
 
 " Open main terminal for PWD, first time in insert mode
-function! GetCwdTerm(number = 0, cwd = getcwd()) abort
+function! GetCwdTerm(number = 0, cwd = getcwd(0)) abort
 	try
 		wincmd s
 		exe "buffer " . g:main_term_bufnr[a:cwd .. string(a:number)]
