@@ -85,7 +85,7 @@ nnoremap <bs> :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Terminal
-nn <silent> <leader><cr> <cmd>call GetCwdMainTerm()<cr>
+nn <silent> <leader><cr> <cmd>call GetCwdTerm()<cr>
 
 " No/now (toggle options)
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
@@ -176,17 +176,16 @@ function! HiGroupNames() abort
 endfunction
 
 " Open main terminal for PWD, first time in insert mode
-function! GetCwdMainTerm(cwd = getcwd()) abort
+function! GetCwdTerm(number = 0, cwd = getcwd()) abort
 	try
 		wincmd s
-		exe "buffer " . g:main_term_bufnr[a:cwd]
-		echo "buffer " . g:main_term_bufnr[a:cwd]
+		exe "buffer " . g:main_term_bufnr[a:cwd .. string(a:number)]
 	catch
 		if !has("nvim") | wincmd q | en
 		terminal
 		startinsert " for consistency between Vim and Neovim
 		" Store buffer number with cwd as key
 		if !exists("g:main_term_bufnr") | let g:main_term_bufnr = {} | en
-		let g:main_term_bufnr[a:cwd] = bufnr()
+		let g:main_term_bufnr[a:cwd .. string(a:number)] = bufnr()
 	endtry
 endfunction
