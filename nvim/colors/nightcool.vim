@@ -4,7 +4,7 @@ let g:colors_name="nightcool"
 
 " Options:
 " - `let g:nightcool_bg=v:true` or v:false for `NONE` (transparent)
-" - `let g:nightcool_comments="darker"` or "bright"
+" - `let g:nightcool_comments="bold"` or "normal"
 " - `let g:nightcool_statusline="default"` or "black"
 " - `let g:nightcool_treesitter=v:true` or v:false
 "
@@ -23,10 +23,10 @@ if get(g:, "nightcool_bg", v:true)
 endif
 
 " Comment
-hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
+hi Comment cterm=bold gui=bold ctermfg=8 guifg=#985cbc
 
-if get(g:, "nightcool_comments", "darker") == "bright"
-	hi Comment cterm=bold gui=bold
+if get(g:, "nightcool_comments", "bold") == "normal"
+	hi Comment cterm=NONE gui=NONE
 endif
 
 " General groups
