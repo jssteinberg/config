@@ -41,7 +41,13 @@ M.config = function()
 			["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
 			["<C-c>"] = cmp.mapping.abort(),
 			["<C-Space>"] = cmp.mapping.complete(),
-			["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+			["<CR>"] = function(fallback)
+				if cmp.visible() then
+					cmp.confirm({ select = false }) -- `false` to not automatically select the first item
+				else
+					fallback()
+				end
+			end,
 			["<c-s>"] = cmp.mapping(function()
 				if luasnip.jumpable() then
 					luasnip.jump(1)
