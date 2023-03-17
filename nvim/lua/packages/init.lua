@@ -10,14 +10,14 @@ local function init()
 
 	packer.reset()
 
-	use { "wbthomason/packer.nvim", opt = true } -- Package manager
-	use { "tpope/vim-sleuth" }                  -- Detects indent, also uses .editorconfig
-	use { "tpope/vim-surround" }                -- Surround text with quotes, brackets, etc.
-	use { "tpope/vim-repeat" }                  -- Extend `.` repeat
-	use { "dhruvasagar/vim-open-url" }          -- URLs and search
-	use { "michaeljsmith/vim-indent-object" }   -- Keymaps for indents
-	use { "elihunter173/dirbuf.nvim" }          -- Replace netrw
-	use { "tweekmonster/startuptime.vim" }
+	use { "wbthomason/packer.nvim", opt = true }                 -- Package manager
+	use { "tpope/vim-sleuth" }                                   -- Tabs and editorconfig
+	use { "tpope/vim-surround" }                                 -- Surround characters
+	use { "tpope/vim-repeat" }                                   -- Extend `.` repeat
+	use { "dhruvasagar/vim-open-url" }                           -- URLs and search
+	use { "michaeljsmith/vim-indent-object" }                    -- Keymaps for indents
+	use { "tweekmonster/startuptime.vim" }                       -- Measure startup time
+	use { "stevearc/oil.nvim", config = require("packages.oil") } -- netrw replacement
 
 	use { "github/copilot.vim", config = function()
 		vim.cmd([[
@@ -153,9 +153,6 @@ local function init()
 	use { "rktjmp/lush.nvim", opt = true }
 	use { "rktjmp/shipwright.nvim", opt = true }
 	use { "lifepillar/vim-colortemplate", opt = true }
-
-	-- Colorschemes
-	use { "cocopon/iceberg.vim" }
 end
 
 local packages = setmetatable({}, {
