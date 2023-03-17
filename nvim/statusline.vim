@@ -2,7 +2,10 @@ function! Hackline(status) abort
 	let l:active = a:status
 	let l:hi = hackline#config#highlight_groups()
 	" separator sections
-	let l:sep = hackline#config#separators()
+	let l:sep = #{
+				\l: '  –  ',
+				\r: '  \  ',
+				\}
 	" separator items
 	let l:sep_i = get(g:, "hackline_sep_items", "  ")
 	" length in spaces for item separator
@@ -28,8 +31,8 @@ function! Hackline(status) abort
 	if len(getcwd(0)) > 1
 		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
 		" Git
-		let l:line .= hackline#ui#git#info(" *")
-		let l:line .=	l:sep.l
+		let l:line .= hackline#ui#git#info("*")
+		let l:line .=	"/  "
 	endif
 	" buffern number
 	let l:line .= '%(#%{bufnr()}%)'
@@ -46,26 +49,26 @@ function! Hackline(status) abort
 	" tabs/spaces
 	let l:line .= '%(' . l:sep_i . '%{hackline#ui#tab#info()}%)'
 	let l:line .= l:sep.l
-	" Nvim LSP
-	if l:active && has("nvim")
-		let l:line .= hackline#ui#nvim_lsp#info("", "")
-	endif
-	" Vim LSP
-	if get(b:, "hackline_use_vim_lsp", "0") &&  l:active
-		let l:line .= 'LSP'
-	endif
+	" file path
+	let l:line .= '%("%{hackline#ui#dir#info("xl")}%t"%)'
+	" modified flag
+	let l:line .= '%( %m%)'
 
 	" Statusline Right Side
 	" ---------------------
 
 	let l:line .= l:len_i . "%="
-	" file path
-	let l:line .= '%(“%{hackline#ui#dir#info("xl")}%t”%)'
-	" modified flag
-	let l:line .= '%( %m%)'
+	" Nvim LSP
+	if l:active && has("nvim")
+		let l:line .= hackline#ui#nvim_lsp#info("", l:sep_i)
+	endif
+	" Vim LSP
+	if get(b:, "hackline_use_vim_lsp", "0") &&  l:active
+		let l:line .= 'LSP' . l:sep_i
+	endif
 	" Cursor position
 	if hackline#util#has_winwidth("md")
-		let l:line .= l:sep_i . "line %l/%L col %c"
+		let l:line .= "\\_%l/%L co\\_%c"
 	else
 		let l:line .= l:sep_i . "line %l/%L"
 	endif
