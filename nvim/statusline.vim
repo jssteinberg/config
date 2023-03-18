@@ -34,7 +34,7 @@ function! Hackline(status) abort
 		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
 		" Git
 		let l:line .= hackline#ui#git#info("*")
-		let l:line .=	"/  "
+		let l:line .=	" /  "
 	endif
 	" buffern number
 	let l:line .= '%(#%{bufnr()}%)'
@@ -70,7 +70,7 @@ function! Hackline(status) abort
 	endif
 	" Cursor position
 	if hackline#util#has_winwidth("md")
-		let l:line .= "\\_%l/%L co\\_%c"
+		let l:line .= "\\ %l/%L co\\ %c"
 	else
 		let l:line .= l:sep_i . "line %l/%L"
 	endif
