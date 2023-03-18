@@ -1,3 +1,13 @@
+function! s:ShowMode(sep_l = "", sep_r = "") abort
+	if mode() == "i"     | return "%#IncSearch#" . a:sep_l . "I" . a:sep_r
+	elseif mode() == "c" | return "%#IncSearch#" . a:sep_l . "C" . a:sep_r
+	elseif mode() == "t" | return "%#IncSearch#" . a:sep_l . "T" . a:sep_r
+	elseif mode() == "r" | return "%#IncSearch#" . a:sep_l . "R" . a:sep_r
+	elseif mode() == "s" | return "%#IncSearch#" . a:sep_l . "S" . a:sep_r
+	else                 | return "%#IncSearch#" . a:sep_l . "V" . a:sep_r
+	endif
+endfunction
+
 function! Hackline(status) abort
 	let l:active = a:status
 	let l:hi = hackline#config#highlight_groups()
@@ -19,10 +29,9 @@ function! Hackline(status) abort
 	" --------------------
 
 	if l:active && hackline#config#mode() && mode() != 'n'
-		" mode not normal
-		let l:line .= hackline#ui#mode#info(" ")
+		let l:line .= s:ShowMode(" —", "—")
 		" sep
-		let l:line .= l:sep.l
+		let l:line .=	"  / "
 	else
 		" ...or only inline padding
 		let l:line .= " "
@@ -50,7 +59,7 @@ function! Hackline(status) abort
 	let l:line .= '%(' . l:sep_i . '%{hackline#ui#tab#info()}%)'
 	let l:line .= l:sep.l
 	" file path
-	let l:line .= '%("%{hackline#ui#dir#info("xl")}%t"%)'
+	let l:line .= '%(%{hackline#ui#dir#info("xl")}%t%)'
 	" modified flag
 	let l:line .= '%( %m%)'
 
