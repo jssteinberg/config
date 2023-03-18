@@ -1,16 +1,15 @@
 function! s:ShowMode(sep_l = "", sep_r = "") abort
-	if mode() == "i"     | return "%#IncSearch#" . a:sep_l . "I" . a:sep_r
-	elseif mode() == "c" | return "%#IncSearch#" . a:sep_l . "C" . a:sep_r
-	elseif mode() == "t" | return "%#IncSearch#" . a:sep_l . "T" . a:sep_r
-	elseif mode() == "r" | return "%#IncSearch#" . a:sep_l . "R" . a:sep_r
-	elseif mode() == "s" | return "%#IncSearch#" . a:sep_l . "S" . a:sep_r
-	else                 | return "%#IncSearch#" . a:sep_l . "V" . a:sep_r
+	if mode() == "i"     | return "%#IncSearch#"
+	elseif mode() == "c" | return "%#IncSearch#"
+	elseif mode() == "t" | return "%#IncSearch#"
+	elseif mode() == "r" | return "%#IncSearch#"
+	elseif mode() == "s" | return "%#IncSearch#"
+	else                 | return "%#IncSearch#"
 	endif
 endfunction
 
 function! Hackline(status) abort
 	let l:active = a:status
-	let l:hi = hackline#config#highlight_groups()
 	" separator sections
 	let l:sep = #{
 				\l: '  –  ',
@@ -20,22 +19,16 @@ function! Hackline(status) abort
 	let l:sep_i = get(g:, "hackline_sep_items", "  ")
 	" length in spaces for item separator
 	let l:len_i = repeat(' ', strlen(l:sep_i))
-	" inline padding
-	" set initial highlight group (color)
 	let l:line = ''
-	let l:line .= l:active ? l:hi.start : l:hi.inactive
 
 	" Statusline Left Side
 	" --------------------
 
+	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
 	if l:active && hackline#config#mode() && mode() != 'n'
-		let l:line .= s:ShowMode(" —", "—")
-		" sep
-		let l:line .=	"  / "
-	else
-		" ...or only inline padding
-		let l:line .= " "
+		let l:line .= s:ShowMode()
 	endif
+	let l:line .= " "
 	" CWD
 	if len(getcwd(0)) > 1
 		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
