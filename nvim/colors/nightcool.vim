@@ -54,6 +54,7 @@ hi! link Special Type
 
 " SPECIFIC SYNTAX GROUPS
 
+hi! link markdownLinkDelimiter Statement
 " HTML elements like Type since CSS treesitter uses that for elements
 hi! link htmlTagName Type
 hi! link cssTagName htmlTagName

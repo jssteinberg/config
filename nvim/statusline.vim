@@ -11,12 +11,9 @@ endfunction
 function! Hackline(status) abort
 	let l:active = a:status
 	" separator sections
-	let l:sep = #{
-				\l: '  –  ',
-				\r: '  \  ',
-				\}
+	let l:sep = #{l: '  '}
 	" separator items
-	let l:sep_i = get(g:, "hackline_sep_items", "  ")
+	let l:sep_i = " · "
 	" length in spaces for item separator
 	let l:len_i = repeat(' ', strlen(l:sep_i))
 	let l:line = ''
@@ -62,11 +59,11 @@ function! Hackline(status) abort
 	let l:line .= l:len_i . "%="
 	" Nvim LSP
 	if l:active && has("nvim")
-		let l:line .= hackline#ui#nvim_lsp#info("", l:sep_i)
+		let l:line .= hackline#ui#nvim_lsp#info("", "  ")
 	endif
 	" Vim LSP
 	if get(b:, "hackline_use_vim_lsp", "0") &&  l:active
-		let l:line .= 'LSP' . l:sep_i
+		let l:line .= 'LSP  '
 	endif
 	" Cursor position
 	if hackline#util#has_winwidth("md")
