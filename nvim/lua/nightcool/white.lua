@@ -93,7 +93,7 @@ local theme = lush(function(injected_functions)
 		CursorColumn { bg = CursorLine.bg.li(10) },
 		Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		StatusLine { bold = true, fg = color("magenta", 2) },
-		StatusLineNC { StatusLine, fg = color("magenta") },
+		StatusLineNC { bg = color("magenta", "bg"), fg = color("magenta") },
 		TabLine { bg = color("magenta", "bg"), fg = color("magenta") },     -- tab pages line, not active tab page label
 		TabLineFill { fg = TabLine.fg },                                    -- tab pages line, where there are no labels
 		TabLineSel { bg = color("magenta", "bg"), fg = color("magenta", 2) }, -- tab pages line, active tab page label
@@ -103,7 +103,7 @@ local theme = lush(function(injected_functions)
 		NonText { WinSeparator }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		SignColumn { LineNr },  -- column where |signs| are displayed
 		Pmenu { bg = color("magenta", "bg"), fg = color("magenta") },
-		PmenuSel { bg = color("magenta", "bg"), fg = color("magenta", 2) },
+		PmenuSel { bg = color("magenta", "bg"), fg = color("magenta", 2), bold = true },
 		PmenuThumb { bg = Pmenu.fg }, -- Popup menu: Thumb of the scrollbar.
 		PmenuSbar { Pmenu },        -- Popup menu: scrollbar.
 		WildMenu { Pmenu },         -- current match in 'wildmenu' completion
