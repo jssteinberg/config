@@ -51,7 +51,7 @@ function! Hackline(status) abort
 	" file path
 	let l:line .= '%(%{hackline#ui#dir#info("xl")}%t%)'
 	" modified flag
-	let l:line .= '%( %m%)'
+	let l:line .= '%(%m%)'
 
 	" Statusline Right Side
 	" ---------------------
