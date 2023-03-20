@@ -124,7 +124,7 @@ hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d7
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#1a1636
 
 if get(g:, "nightcool_statusline", "default") == "black"
-	hi StatusLine   gui=bold guibg=#000000 guifg=#afc5c7
+	hi StatusLine   gui=bold guibg=#000000 guifg=#d0d89f
 	hi StatusLineNC gui=bold guibg=#000000 guifg=#7d78a1
 en
 
