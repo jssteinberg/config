@@ -66,11 +66,7 @@ function! Hackline(status) abort
 		let l:line .= 'LSP  '
 	endif
 	" Cursor position
-	if hackline#util#has_winwidth("md")
-		let l:line .= "\\ %l/%L co\\ %c"
-	else
-		let l:line .= l:sep_i . "line %l/%L"
-	endif
+	let l:line .= "\\ %l/%L co\\ %c"
 	" End spacing
 	let l:line .= " "
 
