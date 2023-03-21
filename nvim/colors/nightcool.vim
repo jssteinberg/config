@@ -69,7 +69,7 @@ hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
-hi CursorLineNr cterm=NONE gui=bold ctermbg=0 guibg=#1a1636 ctermfg=13 guifg=#a69fd8
+hi CursorLineNr cterm=NONE gui=bold ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a69fd8
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
 hi LineNr ctermfg=8 guifg=#685cbc
@@ -124,8 +124,8 @@ hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d7
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#1a1636
 
 if get(g:, "nightcool_statusline", "default") == "black"
-	hi StatusLine   gui=bold guibg=#000000 guifg=#d0d89f
-	hi StatusLineNC gui=bold guibg=#000000 guifg=#7d78a1
+	hi StatusLine   gui=NONE guibg=#000000 guifg=#ffffff
+	hi StatusLineNC gui=NONE guibg=#000000 guifg=#7d78a1
 en
 
 " UI LINKED
@@ -136,7 +136,7 @@ hi! link DiagnosticUnderlineInfo DiagnosticUnderlineHint
 hi! link ErrorMsg Error
 hi! link ModeMsg Title
 hi! link MoreMsg Bold
-hi! link PmenuSel CursorLineNr " Pmenu affects some floating windows
+hi! link PmenuSel TabLineSel " Pmenu affects some floating windows
 hi! link PmenuSbar Pmenu " Pmenu affects some floating windows
 hi! link Question Bold
 hi! link QuickFixLine Visual

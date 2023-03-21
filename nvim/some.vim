@@ -92,6 +92,8 @@ nn <silent> <leader>1 <cmd>call termcwd#spGet(0, "")<cr>
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 nnoremap <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'
+nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
+nnoremap <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
 
 " Git
 " grep for git merge conflicts
@@ -129,7 +131,7 @@ let &ts=g:indent_width | let &sw=g:indent_width " indent size
 set hidden " Unsaved files can be 'hidden'
 set noswapfile " No swap files, but undo files (requires `undodir` in Vim)
 set sessionoptions=curdir,folds,help
-set signcolumn=yes " Show signcolumn and numbers
+set relativenumber
 set cursorline " Highlight cursor line
 set splitright
 set showtabline=2 " Always show tabline

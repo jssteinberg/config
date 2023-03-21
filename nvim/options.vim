@@ -4,6 +4,7 @@ set copyindent
 set list listchars=tab:\·\ ,trail:\~,extends:… " Show tabs, consistent char
 set undofile
 set packpath+=~/.vim/pack/mypac
+set numberwidth=2 signcolumn=number
 
 " ALIAS GREP
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
