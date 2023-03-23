@@ -85,8 +85,8 @@ local theme = lush(function(injected_functions)
 		-- UI
 
 		-- necessities
-		LineNr { fg = color("fg").li(75) },
-		LineNrAbove { LineNr, fg = color("magenta") },
+		LineNr { fg = color("magenta").li(50) },
+		LineNrAbove { LineNr, fg = color("blue").li(50) },
 		ColorColumn { bg = color("red").li(90) }, -- used for the columns set with 'colorcolumn'
 		CursorLine { bg = color("yellow", "bg") },
 		CursorLineNr { fg = color("black"), italic = true },
