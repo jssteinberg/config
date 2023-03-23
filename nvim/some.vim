@@ -22,6 +22,8 @@ cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 nnoremap <c-e> $
 xnoremap <c-e> $
+nnoremap * /<c-r><c-w><cr>
+nnoremap # ?<c-r><c-w><cr>
 
 " Line motions incbudes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
