@@ -159,7 +159,7 @@ endif
 " AUTO COMMANDS
 aug some_config | au!
 	" Set tabstop if noexpandtab
-	au BufEnter * call SetTabWidth(g:indent_width)
+	au BufWinEnter * call SetTabWidth(g:indent_width)
 aug END
 
 " GLOBAL FUNCTIONS
