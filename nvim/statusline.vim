@@ -11,9 +11,9 @@ endfunction
 function! Hackline(status) abort
 	let l:active = a:status
 	" separator sections
-	let l:sep = #{l: '  '}
+	let l:sep = #{l: ' · '}
 	" separator items
-	let l:sep_i = " · "
+	let l:sep_i = " "
 	" length in spaces for item separator
 	let l:len_i = repeat(' ', strlen(l:sep_i))
 	let l:line = ''
