@@ -109,7 +109,6 @@ endtry
 " FZF https://dev.to/pbnj/interactive-fuzzy-finding-in-vim-without-plugins-4kkj
 fu! FuzzyFiles() abort
 	let l:tempname = tempname()
-
 	execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
 	try | execute 'cfile ' . l:tempname | redraw!
 	finally | call delete(l:tempname) | endtry
