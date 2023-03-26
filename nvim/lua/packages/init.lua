@@ -144,6 +144,9 @@ local function init()
 	-- git blame inline
 	use { "APZelos/blamer.nvim", cmd = "BlamerToggle" } -- git blame
 
+	-- undo tree
+	use { "mbbill/undotree", cmd = "UndotreeToggle" }
+
 	-- ### UTIL
 
 	-- Colors
