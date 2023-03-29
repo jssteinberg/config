@@ -30,3 +30,4 @@ nvim/lua/packages/.DS_Store
 !goneovim/*
 !zellij/
 !zellij/*
+!viebrc

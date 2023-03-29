@@ -1,0 +1,2 @@
+nn s <toSearchMode>
+nn <c-t> :tabnew<cr>

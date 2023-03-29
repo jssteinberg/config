@@ -12,6 +12,7 @@ Requires: git
 ```sh
 ln -s .config/vimrc .vimrc
 set -Ux RIPGREP_CONFIG_PATH ~/.config/ripgreprc
+ln -s .config/viebrc .viebrc
 ```
 
 ## Terminal tools
