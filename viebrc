@@ -1,2 +1,4 @@
+inoremap jk <toNormalMode>
+nn <space> j
 nn s <toSearchMode>
 nn <c-t> :tabnew<cr>
