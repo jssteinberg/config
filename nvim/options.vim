@@ -2,7 +2,7 @@
 set clipboard+=unnamedplus
 set copyindent
 set list listchars=tab:\·\ ,trail:\~,extends:… " Show tabs, consistent char
-set signcolumn=number
+" set signcolumn=number
 set undofile
 set packpath+=~/.vim/pack/mypac
 " to use fzf in Vim, add the following
