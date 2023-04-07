@@ -7,5 +7,5 @@ nmap T E
 nn s <toSearchMode>
 nn <c-t> :tabnew<cr>
 
-set guinavbar=oninput
 set guitabbar=onupdate
+set search=https://search.brave.com/search?q=%s
