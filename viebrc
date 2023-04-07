@@ -1,6 +1,7 @@
 inoremap jk <toNormalMode>
+cnoremap jk <toNormalMode>
 nmap <space> <c-d>
-nmap <shift><space> <c-u>
+nmap <s-space> <c-b>
 nmap T E
 nn s <toSearchMode>
 nn <c-t> :tabnew<cr>
