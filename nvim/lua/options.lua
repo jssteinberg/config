@@ -23,6 +23,10 @@ M.add_filetypes = function()
 			mdx = "markdown",
 			postcss = "css",
 		},
+		filename = {
+			viebrc = "vim",
+			[".viebrc"] = "vim",
+		}
 	})
 end
 

@@ -1,6 +1,3 @@
-enoremap jk <toNormalMode>
-inoremap jk <toNormalMode>
-cnoremap jk <toNormalMode>
 nmap <space> <c-d>
 nmap <s-space> <c-b>
 nmap t E
@@ -9,5 +6,18 @@ nmap O E
 nn s <toSearchMode>
 nn <c-t> :tabnew<cr>
 
-set guitabbar=onupdate
 set search=https://search.brave.com/search?q=%s
+
+" Esc keys
+vnoremap <c-c> <toNormalMode>
+pnoremap <c-c> <toNormalMode>
+snoremap <c-c> <toNormalMode>
+enoremap <c-c> <toNormalMode>
+inoremap <c-c> <toNormalMode>
+cnoremap <c-c> <toNormalMode>
+vnoremap jk <toNormalMode>
+pnoremap jk <toNormalMode>
+snoremap jk <toNormalMode>
+enoremap jk <toNormalMode>
+inoremap jk <toNormalMode>
+cnoremap jk <toNormalMode>
