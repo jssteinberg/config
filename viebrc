@@ -3,7 +3,9 @@ inoremap jk <toNormalMode>
 cnoremap jk <toNormalMode>
 nmap <space> <c-d>
 nmap <s-space> <c-b>
-nmap T E
+nmap t E
+nmap o e
+nmap O E
 nn s <toSearchMode>
 nn <c-t> :tabnew<cr>
 
