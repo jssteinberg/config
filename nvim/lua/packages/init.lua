@@ -19,6 +19,12 @@ local function init()
 	use { "tweekmonster/startuptime.vim" }                       -- Measure startup time
 	use { "stevearc/oil.nvim", config = require("packages.oil") } -- netrw replacement
 
+	use {
+		"utilyre/sentiment.nvim",
+		tag = "*",
+		config = function() require("sentiment").setup() end,
+	}
+
 	use { "github/copilot.vim", config = function()
 		vim.cmd([[
 			imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
