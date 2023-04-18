@@ -119,6 +119,9 @@ local function init()
 
 	-- ### SEARCH/EXPLORE
 
+	use { "pechorin/any-jump.vim", cmd = { "AnyJump" } } -- Reference under cursor
+	vim.g.any_jump_disable_default_keybindings = true
+
 	-- Quickfix
 	use { "kevinhwang91/nvim-bqf", ft = "qf" }
 
