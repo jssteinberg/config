@@ -1,3 +1,5 @@
+colorscheme compact
+
 nmap <space> <c-d>
 nmap <s-space> <c-b>
 nmap t E
