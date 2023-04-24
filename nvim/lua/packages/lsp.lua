@@ -15,7 +15,7 @@ M.register_keymaps = function(client, bufnr)
 	vim.keymap.set("n", "<cr>", vim.diagnostic.open_float, bufopts)
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	-- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 	vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, bufopts)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 	vim.keymap.set("n", "<c-k>", vim.lsp.buf.signature_help, bufopts)
@@ -26,7 +26,8 @@ M.register_keymaps = function(client, bufnr)
 	end, bufopts)
 	vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, bufopts)
-	-- vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references, bufopts)
 	-- vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 
 	-- vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, bufopts)
@@ -62,7 +63,8 @@ M.config = function()
 				on_attach = function(client, bufnr)
 					vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 				end,
-				filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "vue", "astro" },
+				filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte",
+					"vue", "astro" },
 			}
 		end,
 		["astro"] = function()
