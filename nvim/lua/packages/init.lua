@@ -19,18 +19,13 @@ local function init()
 	use { "tweekmonster/startuptime.vim" }                       -- Measure startup time
 	use { "stevearc/oil.nvim", config = require("packages.oil") } -- netrw replacement
 
-	use {
-		"utilyre/sentiment.nvim",
-		tag = "*",
-		config = function() require("sentiment").setup() end,
-	}
-
+	-- AI code completion
 	use { "github/copilot.vim", config = function()
 		vim.cmd([[
 			imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
 			let g:copilot_no_tab_map = v:true
 		]])
-	end } -- AI code completion
+	end }
 
 	-- Treesitter
 	use {
@@ -69,8 +64,16 @@ local function init()
 
 	-- ### ON CURSOR HOLD
 
+	-- matchparen
+	use {
+		"utilyre/sentiment.nvim",
+		tag = "*",
+		config = function() require("sentiment").setup() end,
+		event = "cursorhold",
+	}
+
 	-- Illuminate cursor word
-	use { "RRethy/vim-illuminate", event = "CursorHold", config = function()
+	use { "RRethy/vim-illuminate", event = "cursorhold", config = function()
 		require "illuminate".configure({ under_cursor = false })
 	end }
 
@@ -120,7 +123,7 @@ local function init()
 	-- ### SEARCH/EXPLORE
 
 	use { "pechorin/any-jump.vim", cmd = { "AnyJump" } } -- Reference under cursor
-	vim.g.any_jump_disable_default_keybindings = 1
+	vim.cmd [[let g:any_jump_disable_default_keybindings = 1]]
 
 	-- Quickfix
 	use { "kevinhwang91/nvim-bqf", ft = "qf" }
@@ -130,11 +133,6 @@ local function init()
 	use { "ibhagwan/fzf-lua", cmd = { "FzfLua" }, config = require("packages.fzf") }
 
 	-- File tree
-	-- use {
-	-- 	"dinhhuy258/sfm.nvim",
-	-- 	cmd = { "SFMToggle" },
-	-- 	config = require("packages.sfm")
-	-- }
 	-- fern avilable for old habits
 	use { "lambdalisue/fern.vim", cmd = { "Fern" } }
 
