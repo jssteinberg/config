@@ -24,7 +24,7 @@ keybinds {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
-        unbind "Ctrl g" "Ctrl p" "Ctrl t" "Ctrl n" "Ctrl h" "Ctrl s" "Ctrl o" "Ctrl q"
+        unbind "Ctrl b" "Ctrl g" "Ctrl p" "Ctrl t" "Ctrl n" "Ctrl h" "Ctrl s" "Ctrl o" "Ctrl q"
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
