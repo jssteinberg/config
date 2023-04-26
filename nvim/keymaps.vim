@@ -1,10 +1,6 @@
 " Additional esc map
 tnoremap jk <c-\><c-n>
 
-" Edit/explore [buffer dir, buffer in new tab, close tab]
-nnoremap <silent> <leader>ed :SFMToggle<cr>
-nnoremap <silent> <leader>et :wincmd v<bar>wincmd H<bar>vertical resize 30<cr>
-
 " No/now (toggle options)
 nnoremap <silent> <leader>nc :call NowColo()<cr>
 

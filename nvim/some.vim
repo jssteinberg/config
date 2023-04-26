@@ -36,7 +36,7 @@ inoremap jk <esc>
 nnoremap <silent> <leader>b :buffer#<cr>
 
 " Buffer switcher
-nnoremap <leader><tab> :buffer 
+nnoremap <leader><tab> :buffer
 
 " Write/save file
 nnoremap <silent> <leader>w :w<cr>
@@ -52,13 +52,14 @@ nn <leader>+ :vert resize +5<cr>
 nn <leader>- :vert resize -5<cr>
 
 " Edit/tabedit commonly used
+nnoremap <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
+nnoremap <leader>ed <cmd>wincmd v<bar>wincmd H<bar>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
+nnoremap <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
+nnoremap <leader>tb <cmd>tabedit %<cr>'"
+nnoremap <leader>ew :e **/
+nnoremap <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>
 nnoremap <leader>ep <cmd>e package.json<cr>
 nnoremap <leader>er <cmd>e README.md<cr>
-nnoremap <leader>ec <cmd>tabedit ~/.config/README.md<cr><cmd>tcd %:h<cr>
-nnoremap <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
-nnoremap <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
-nnoremap <leader>ew :e **/
-nnoremap <leader>tb <cmd>tabedit %<cr>'"
 
 " Replace [word, selection]
 nnoremap <leader>R "ryiw:%s/<c-r>r/
@@ -69,7 +70,7 @@ nnoremap <leader>S :%s/
 vnoremap <leader>S :s/
 
 " Grep [args, selection]
-nnoremap <leader>G :silent grep 
+nnoremap <leader>G :silent grep
 vnoremap <leader>G "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
 
 " Grep reference [word, selection]
