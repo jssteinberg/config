@@ -39,10 +39,10 @@ M.config = function()
 	local mason_lspconfig = require("mason-lspconfig")
 	local lsp_format = require("lsp-format")
 	local on_attach_general = function(client, bufnr)
+		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	end
 	local max_client = function(client, bufnr)
 		M.register_keymaps(client, bufnr)
-		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 		lsp_format.on_attach(client, bufnr)
 	end
 
@@ -60,9 +60,9 @@ M.config = function()
 		end,
 		["unocss"] = function()
 			lspconfig.unocss.setup {
-				on_attach = function(client, bufnr)
-					vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-				end,
+				-- on_attach = function(client, bufnr)
+				-- 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+				-- end,
 				filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte",
 					"vue", "astro" },
 			}
