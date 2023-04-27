@@ -1,3 +1,5 @@
+let g:any_jump_disable_default_keybindings = 1
+
 " OPTIONS
 set clipboard+=unnamedplus
 set copyindent

@@ -123,7 +123,6 @@ local function init()
 	-- ### SEARCH/EXPLORE
 
 	use { "pechorin/any-jump.vim", cmd = { "AnyJump" } } -- Reference under cursor
-	vim.cmd [[let g:any_jump_disable_default_keybindings = 1]]
 
 	-- Quickfix
 	use { "kevinhwang91/nvim-bqf", ft = "qf" }
