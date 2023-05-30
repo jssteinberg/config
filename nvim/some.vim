@@ -92,7 +92,7 @@ nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
 nn <silent> <leader>1 <cmd>call termcwd#spGet(0, "")<cr>
 
 " No/now (toggle options)
-nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell | set spelllang=en_us<cr>'
+nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<bar>set spelllang=en_us<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 nnoremap <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'
 nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
