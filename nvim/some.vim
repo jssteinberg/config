@@ -36,7 +36,7 @@ inoremap jk <esc>
 nnoremap <silent> <leader>b :buffer#<cr>
 
 " Buffer switcher
-nnoremap <leader><tab> :buffer 
+nnoremap <leader><tab> :buffer
 
 " Write/save file
 nnoremap <silent> <leader>w :w<cr>
@@ -70,7 +70,7 @@ nnoremap <leader>S :%s/
 vnoremap <leader>S :s/
 
 " Grep [args, selection]
-nnoremap <leader>G :silent grep 
+nnoremap <leader>G :silent grep
 vnoremap <leader>G "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
 
 " Grep reference [word, selection]
@@ -92,7 +92,7 @@ nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
 nn <silent> <leader>1 <cmd>call termcwd#spGet(0, "")<cr>
 
 " No/now (toggle options)
-nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
+nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell | set spelllang=en_us<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 nnoremap <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'
 nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
