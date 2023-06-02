@@ -35,9 +35,6 @@ inoremap jk <esc>
 " Alternate buffer
 nnoremap <silent> <leader>b :buffer#<cr>
 
-" Buffer switcher
-nnoremap <leader><tab> :buffer 
-
 " Write/save file
 nnoremap <silent> <leader>w :w<cr>
 
@@ -70,7 +67,7 @@ nnoremap <leader>S :%s/
 vnoremap <leader>S :s/
 
 " Grep [args, selection]
-nnoremap <leader>G :silent grep 
+nnoremap <leader>G :silent grep
 vnoremap <leader>G "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
 
 " Grep reference [word, selection]
@@ -92,7 +89,7 @@ nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
 nn <silent> <leader>1 <cmd>call termcwd#spGet(0, "")<cr>
 
 " No/now (toggle options)
-nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<cr>'
+nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<bar>set spelllang=en_us<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 nnoremap <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'
 nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
@@ -102,20 +99,6 @@ nnoremap <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set
 " grep for git merge conflicts
 nnoremap <leader>gm :silent! grep -e "<<<<<<<"<cr>
 
-" Space search
-" search with s in normal and visual mode
-nnoremap s <cmd>let g:space_search=1<cr>/
-xnoremap s <cmd>let g:space_search=1<cr>/
-" backwards search with S in normal mode
-nnoremap S <cmd>let g:space_search=1<cr>?
-" in command mode, if space_search then <space> is <cr>
-cnoremap <expr> <space> exists("g:space_search")
-			\ ? "<cr>" : " "
-" autocmd to unlet variable so space_search is deactivated
-augroup space_search | au!
-	au CmdlineLeave * if exists("g:space_search") | unlet g:space_search | en
-augroup END
-
 " Project/session management
 " create session directory if it doesn't exist
 if !isdirectory($HOME.'/.vs') | call mkdir($HOME.'/.vs', '', 0770) | endif
@@ -124,7 +107,27 @@ nn <leader>ps :mks! ~/.vs/
 " load session
 nn <leader>po :source ~/.vs/*
 
-" OPTIONS (in order of importance…)
+" SPACE CONFIRMS - maps to cmdline that are confirmed with <space>
+
+" Setup:
+" <space> is enter key in command mode if space_confirms
+cno <expr> <space> exists("g:space_confirms") ? "<cr>" : " "
+" space_confirms is unlet by autocmd so it's deactivated
+augroup space_confirms | au!
+	au CmdlineLeave * if exists("g:space_confirms") | unlet g:space_confirms | en
+augroup end
+
+" Mappings:
+" search in normal and visual mode
+nn s <cmd>let g:space_confirms=1<cr>/
+xn s <cmd>let g:space_confirms=1<cr>/
+" backward search in normal mode
+nn S <cmd>let g:space_confirms=1<cr>?
+" switch buffer in normal mode
+nn <leader><tab> <cmd>let g:space_confirms=1<cr>:buffer <c-z>
+
+" OPTIONS - in approx. order of importance
+
 set nofoldenable foldmethod=indent " Toggle fold on indent
 let &scrolloff=g:config_scrolloff " Keep cursor off from top/bottom
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`

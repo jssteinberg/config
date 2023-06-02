@@ -1,5 +1,5 @@
-" from $VIMRUNTIME/defaults.vim
 set nocompatible
+set wildcharm=<c-z> " Enable usage in map target
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
 set showcmd " display incomplete commands
 set wildmenu " display completion matches in a status line
@@ -10,7 +10,6 @@ set incsearch
 map Q <esc>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
-" Revert with ":iunmap <C-U>".
 inoremap <C-U> <C-G>u<C-U>
 " Enable file type detection.
 " Use the default filetype settings, so that mail gets 'tw' set to 72,

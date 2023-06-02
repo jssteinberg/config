@@ -62,11 +62,15 @@ function! Hackline(status) abort
 		let l:line .= hackline#ui#nvim_lsp#info("", "  ")
 	endif
 	" Vim LSP
-	if get(b:, "hackline_use_vim_lsp", "0") &&  l:active
+	if l:active && get(b:, "hackline_use_vim_lsp", "0")
 		let l:line .= 'LSP  '
 	endif
+	" Lang
+	if l:active && &spell == 1
+		let l:line .= '%(\ %{&spelllang}  %)'
+	endif
 	" Cursor position
-	let l:line .= "\\ %l/%L co\\ %c"
+	let l:line .= "\\ %l/%L:%c"
 	" End spacing
 	let l:line .= " "
 

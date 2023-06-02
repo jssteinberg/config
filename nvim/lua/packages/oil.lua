@@ -16,8 +16,8 @@ return function()
 			["cd"] = "actions.tcd",
 			["g."] = "actions.open_cwd",
 			["gh"] = "actions.toggle_hidden",
-			["g:"] = "open_cmdline",
-			["gc"] = "open_terminal",
+			["."] = "actions.open_cmdline",
+			["gc"] = "actions.open_terminal",
 		},
 	})
 end
