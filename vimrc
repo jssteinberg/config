@@ -101,7 +101,7 @@ aug vim_config
 augroup END
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
-try | set background=dark | colo nightcool
+try | set background=dark | colo lunaperche
 catch | colo slate " for older Vim versions
 endtry
 
@@ -128,6 +128,7 @@ fu! PackInit() abort
 	call minpac#add("prabirshrestha/asyncomplete.vim")
 	call minpac#add("prabirshrestha/asyncomplete-lsp.vim")
 	call minpac#add("yami-beta/asyncomplete-omni.vim")
+	call minpac#add("tpope/vim-vinegar")
 	call minpac#add("tweekmonster/startuptime.vim")
 	" Filetypes
 	call minpac#add("othree/html5.vim")
