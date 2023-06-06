@@ -60,6 +60,13 @@ let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 map <Leader>j :packadd vim-easymotion<cr><Plug>(easymotion-j)
 map <Leader>k :packadd vim-easymotion<cr><Plug>(easymotion-k)
 
+" NETRW KEYMAPS
+function! SetNetrwKeymaps() abort
+	nn <buffer> s /
+	nmap <buffer> <c-j> <cr>
+endfunction
+
+" LSP KEYMAPS
 function! s:on_lsp_buffer_enabled() abort
 	setlocal omnifunc=lsp#complete
 	setlocal signcolumn=yes
@@ -92,12 +99,14 @@ let g:netrw_banner=0 " Remove top banner
 let g:netrw_preview=1 " Vertical preview
 
 " AUTO COMMANDS
-aug vim_config
+aug vim_config | au!
 	" FileTypes
 	au BufNewFile,BufRead *.mdx set ft=markdown
 	au TerminalWinOpen * setlocal bufhidden=hide
 	" call s:on_lsp_buffer_enabled only for languages that has the server registered.
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+	" Set netrw maps
+	autocmd filetype netrw call SetNetrwKeymaps()
 augroup END
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
