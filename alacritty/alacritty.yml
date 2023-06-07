@@ -2,6 +2,9 @@
 font:
   size: 14
 
+# Send ESC (\x1b) before characters when alt is pressed---needed for several non-us keyboards usually
+alt_send_esc: false
+
 window:
   decorations: buttonless
   # Opacity use decimal, e.g. .95
