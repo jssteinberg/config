@@ -49,7 +49,7 @@ tnoremap jk <c-w>N
 " Find links
 nn <leader>fl ?\v\S+[:\|.]\S+<cr>
 " Fuzzy find files
-nnoremap <leader>s :call FuzzyFiles()<cr>
+nn <leader>s :call FuzzyFiles("rg --files", ":e")<cr>
 " Git
 nn <leader>gg :packadd vim-fugitive<bar>G<cr>
 nn <leader>gp :packadd vim-fugitive<bar>G pull<cr>
@@ -114,12 +114,14 @@ try | set background=dark | colo lunaperche
 catch | colo slate " for older Vim versions
 endtry
 
-" FZF https://dev.to/pbnj/interactive-fuzzy-finding-in-vim-without-plugins-4kkj
-fu! FuzzyFiles() abort
-	let l:tempname = tempname()
-	execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
-	try | execute 'cfile ' . l:tempname | redraw!
-	finally | call delete(l:tempname) | endtry
+" FUZZY EDIT W/FZY
+fu! FuzzyFiles(choice_command, vim_command) abort
+	try | let output = system(a:choice_command . " | fzy ")
+	catch /Vim:Interrupt/ | endtry | redraw!
+
+	if v:shell_error == 0 && !empty(output)
+		exec a:vim_command . " " . output
+	en
 endf
 
 " PLUGINS
