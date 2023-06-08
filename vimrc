@@ -49,7 +49,7 @@ tnoremap jk <c-w>N
 " Find links
 nn <leader>fl ?\v\S+[:\|.]\S+<cr>
 " Fuzzy find files
-nnoremap <leader>s :call FuzzyFiles()<cr>
+nn <leader>s :call FuzzyFiles("rg --files", ":e")<cr>
 " Git
 nn <leader>gg :packadd vim-fugitive<bar>G<cr>
 nn <leader>gp :packadd vim-fugitive<bar>G pull<cr>
@@ -60,6 +60,13 @@ let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 map <Leader>j :packadd vim-easymotion<cr><Plug>(easymotion-j)
 map <Leader>k :packadd vim-easymotion<cr><Plug>(easymotion-k)
 
+" NETRW KEYMAPS
+function! SetNetrwKeymaps() abort
+	nn <buffer> s /
+	nmap <buffer> <c-j> <cr>
+endfunction
+
+" LSP KEYMAPS
 function! s:on_lsp_buffer_enabled() abort
 	setlocal omnifunc=lsp#complete
 	setlocal signcolumn=yes
@@ -92,25 +99,29 @@ let g:netrw_banner=0 " Remove top banner
 let g:netrw_preview=1 " Vertical preview
 
 " AUTO COMMANDS
-aug vim_config
+aug vim_config | au!
 	" FileTypes
 	au BufNewFile,BufRead *.mdx set ft=markdown
 	au TerminalWinOpen * setlocal bufhidden=hide
 	" call s:on_lsp_buffer_enabled only for languages that has the server registered.
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+	" Set netrw maps
+	autocmd filetype netrw call SetNetrwKeymaps()
 augroup END
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
-try | set background=dark | colo nightcool
+try | set background=dark | colo lunaperche
 catch | colo slate " for older Vim versions
 endtry
 
-" FZF https://dev.to/pbnj/interactive-fuzzy-finding-in-vim-without-plugins-4kkj
-fu! FuzzyFiles() abort
-	let l:tempname = tempname()
-	execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
-	try | execute 'cfile ' . l:tempname | redraw!
-	finally | call delete(l:tempname) | endtry
+" FUZZY EDIT W/FZY
+fu! FuzzyFiles(choice_command, vim_command) abort
+	try | let output = system(a:choice_command . " | fzy ")
+	catch /Vim:Interrupt/ | endtry | redraw!
+
+	if v:shell_error == 0 && !empty(output)
+		exec a:vim_command . " " . output
+	en
 endf
 
 " PLUGINS
@@ -128,6 +139,7 @@ fu! PackInit() abort
 	call minpac#add("prabirshrestha/asyncomplete.vim")
 	call minpac#add("prabirshrestha/asyncomplete-lsp.vim")
 	call minpac#add("yami-beta/asyncomplete-omni.vim")
+	call minpac#add("tpope/vim-vinegar")
 	call minpac#add("tweekmonster/startuptime.vim")
 	" Filetypes
 	call minpac#add("othree/html5.vim")
