@@ -8,7 +8,7 @@ nmap O E
 nn s <toSearchMode>
 nn <c-t> :tabnew<cr>
 
-set search=https://search.brave.com/search?q=%s
+set searchengine=https://search.brave.com/search?q=%s
 
 " Esc keys
 vnoremap <c-c> <toNormalMode>
