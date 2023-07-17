@@ -110,7 +110,7 @@ aug vim_config | au!
 augroup END
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
-try | set background=dark | colo lunaperche
+try | set background=dark | colo quiet
 catch | colo slate " for older Vim versions
 endtry
 
