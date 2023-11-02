@@ -17,7 +17,8 @@ ln -s .config/viebrc .viebrc
 
 ## Terminal tools
 
-- fish---shell with modern, usable defaults (and keep an eye on nu shell).
+- [homebrew](https://brew.sh/) for Macos
+- fish---shell with modern usable defaults (and keep an eye on nu shell).
 	- [fisher](https://github.com/jorgebucaran/fisher), fish plugin manager.
 - ripgrep.
 - [fd](https://github.com/sharkdp/fd), find replacement.
@@ -50,14 +51,9 @@ Install neovim >= 0.7, [packer](https://github.com/wbthomason/packer.nvim), fzf,
 - `:TSInstall all`/`:TSUpdate`
 - `:Mason`
 
-### Improve
-
-- snippet `<`: `<$1>$2</$1>$3`
-- snippet `const()`: `const $1 = ($2) => $3`
-
 ## Vim 8 +lua
 
-A simple Vim config in a single vimrc. It can be used as a boilerplate and works without plugins. It gives no errors on missing plugins unless keymaps/commands requiring plugins are used. Requries:
+A simple Vim config---could be a single vimrc. It can be used as a boilerplate and works without plugins. It gives no errors on missing plugins unless keymaps/commands requiring plugins are used. Requries:
 
 - Vim >= version 8 +lua.
 - Package managing with [minpac](https://github.com/k-takata/minpac)
@@ -73,7 +69,7 @@ npm -g update
 npm -g outdate
 ```
 
-- Explicitly install outdated global NPM packages not automatically updated.
+Explicitly install outdated global NPM packages not automatically updated.
 
 Neovim:
 
