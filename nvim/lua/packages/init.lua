@@ -64,7 +64,7 @@ local function init()
 
 	-- ### ON CURSOR HOLD
 
-	-- matchparen
+	-- Matchparen
 	use {
 		"utilyre/sentiment.nvim",
 		tag = "*",
@@ -87,10 +87,13 @@ local function init()
 
 	-- ### EDIT/MOVE
 
-	use { "tommcdo/vim-lion", keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } } -- Align text
-	use { "lambdalisue/suda.vim", opt = true }                                                        -- sudo save
+	-- Align text
+	use { "tommcdo/vim-lion", keys = { { "n", "gl" }, { "n", "gL" }, { "x", "gl" }, { "x", "gL" }, } }
 
-	-- auto pair completion
+	-- Sudo save
+	use { "lambdalisue/suda.vim", opt = true }
+
+	-- Auto pair completion
 	use { "windwp/nvim-autopairs", event = "InsertEnter", config = function()
 		require("nvim-autopairs").setup {}
 	end }
