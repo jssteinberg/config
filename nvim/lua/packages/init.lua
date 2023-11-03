@@ -59,6 +59,13 @@ local function init()
 		end
 	}
 
+	-- Matchparen
+	use {
+		"utilyre/sentiment.nvim",
+		tag = "*",
+		config = function() require("sentiment").setup() end,
+	}
+
 	-- Illuminate cursor word
 	use { "RRethy/vim-illuminate", config = function()
 		require "illuminate".configure({
@@ -80,19 +87,11 @@ local function init()
 
 	-- ### ON CURSOR HOLD
 
-	-- Matchparen
-	use {
-		"utilyre/sentiment.nvim",
-		tag = "*",
-		config = function() require("sentiment").setup() end,
-		event = "cursorhold",
-	}
-
 	-- Context topbar
 	use {
 		"nvim-treesitter/nvim-treesitter-context",
 		requires = { "nvim-treesitter/nvim-treesitter" },
-		after = "vim-illuminate",
+		event = "cursorhold",
 		config = function() require "treesitter-context".setup {} end
 	}
 
