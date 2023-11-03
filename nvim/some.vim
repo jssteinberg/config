@@ -67,7 +67,7 @@ nnoremap <leader>S :%s/
 vnoremap <leader>S :s/
 
 " Grep [args, selection]
-nnoremap <leader>G :silent grep
+nnoremap <leader>G :silent grep <c-r>=expand("<cword>")<cr>
 vnoremap <leader>G "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
 
 " Grep reference [word, selection]

@@ -12,12 +12,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{ "jssteinberg/hackline.vim", branch = "v4.0.0-0" },
 	-- Tabs and editorconfig
 	{ "tpope/vim-sleuth" },
 	-- Extend `.` repeat
 	{ "tpope/vim-repeat" },
 	-- Measure startup time
 	{ "tweekmonster/startuptime.vim", cmd = "StartupTime" },
+	-- Colorscheme util
+	{ "rktjmp/lush.nvim", lazy = false },
 
 	-- SEARCH/EXPLORE
 
@@ -121,7 +124,6 @@ require("lazy").setup({
 	-- Matchparen
 	{
 		"utilyre/sentiment.nvim",
-		tag = "*",
 		config = function() require("sentiment").setup() end,
 		event = "CursorHold",
 	},
