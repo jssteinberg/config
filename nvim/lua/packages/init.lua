@@ -59,6 +59,22 @@ local function init()
 		end
 	}
 
+	-- Illuminate cursor word
+	use { "RRethy/vim-illuminate", config = function()
+		require "illuminate".configure({
+			delay = 200,
+			large_file_cutoff = 2000,
+			large_file_overrides = {
+				providers = { "lsp" },
+			},
+			filetype_overrides = {
+				vim = {
+					providers = { "lsp", "regex" }
+				}
+			},
+		})
+	end }
+
 	-- LAZY LOADED
 	-- -----------
 
@@ -71,11 +87,6 @@ local function init()
 		config = function() require("sentiment").setup() end,
 		event = "cursorhold",
 	}
-
-	-- Illuminate cursor word
-	use { "RRethy/vim-illuminate", event = "cursorhold", config = function()
-		require "illuminate".configure({ under_cursor = false })
-	end }
 
 	-- Context topbar
 	use {
