@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- Handle statusline
 	{ "jssteinberg/hackline.vim", branch = "v4.0.0-0" },
 	-- Tabs and editorconfig
 	{ "tpope/vim-sleuth" },
@@ -21,6 +22,14 @@ require("lazy").setup({
 	{ "tweekmonster/startuptime.vim", cmd = "StartupTime" },
 	-- Colorscheme util
 	{ "rktjmp/lush.nvim", lazy = false },
+
+	-- AI code completion
+	{ "github/copilot.vim", config = function()
+		vim.cmd([[
+			imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
+			let g:copilot_no_tab_map = v:true
+		]])
+	end },
 
 	-- SEARCH/EXPLORE
 
@@ -75,6 +84,22 @@ require("lazy").setup({
 			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
 		config = function() require "pack.treesitter".config() end
+	},
+
+	-- FORMAT
+	{
+		'stevearc/conform.nvim',
+		config = function()
+			require("conform").setup({
+				formatters_by_ft = {
+					lua = { "stylua" },
+					-- Conform will run multiple formatters sequentially
+					python = { "isort", "black" },
+					-- Use a sub-list to run only the first available formatter
+					javascript = { { "prettierd", "prettier" } },
+				},
+			})
+		end
 	},
 
 	-- EDIT/MOVE
