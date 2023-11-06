@@ -21,33 +21,35 @@ function! Hackline(status) abort
 	" Statusline Left Side
 	" --------------------
 
+	" set statusline default color
 	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
+	" set mode style
 	if l:active && hackline#config#mode() && mode() != 'n'
 		let l:line .= s:ShowMode()
 	endif
 	let l:line .= " "
-	" CWD
-	if len(getcwd(0)) > 1
-		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
-		" Git
-		let l:line .= hackline#ui#git#info("*")
-		let l:line .=	" /  "
-	endif
 	" buffern number
 	let l:line .= '%(#%{bufnr()}%)'
 	" filetype
 	let l:line .= '%( %{&filetype}%)'
-	" sep
-	let l:line .= l:sep.l
 	" truncation point
 	let l:line .= '%<'
+	" sep
+	let l:line .= l:sep.l
 	" encoding
 	let l:line .= '%(%{hackline#fileencoding#info()}%)'
 	" format
 	let l:line .= '%(' . l:sep_i . '%{&fileformat}%)'
 	" tabs/spaces
-	let l:line .= '%(' . l:sep_i . '%{hackline#ui#tab#info()}%)'
-	let l:line .= l:sep.l
+	let l:line .= '%(' . l:sep_i . '%{hackline#ui#tab#info("min")}%)'
+	let l:line .=	" /  "
+	" CWD
+	if len(getcwd(0)) > 1
+		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
+		" Git
+		let l:line .= hackline#ui#git#info("*")
+		let l:line .= l:sep.l
+	endif
 	" file path
 	let l:line .= '%(%{hackline#ui#dir#info("xl")}%t%)'
 	" modified flag
