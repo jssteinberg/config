@@ -51,7 +51,7 @@ nn <leader>- :vert resize -5<cr>
 " Edit/tabedit commonly used
 nnoremap <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>ed <cmd>wincmd v<bar>wincmd H<bar>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
-nnoremap - <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
+nnoremap <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>tb <cmd>tabedit %<cr>'"
 nnoremap <leader>ew :e **/
 nnoremap <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>

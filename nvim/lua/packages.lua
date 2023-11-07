@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- Handle statusline
-	-- { "jssteinberg/hackline.vim", branch = "v4.0.0-0" },
+	{ "jssteinberg/hackline.vim", branch = "v4.0.0-0" },
 	-- Tabs and editorconfig
 	{ "tpope/vim-sleuth" },
 	-- Extend `.` repeat

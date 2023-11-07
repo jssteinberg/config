@@ -5,7 +5,8 @@ vim.cmd [[
 ]]
 vim.g.colors_name = "lushwhitecool"
 vim.o.background = "light"
-require("whitecool")
+
+-require("lush")(require("nightcool.white"))
 
 vim.g.terminal_color_0 = "#1a1636"
 vim.g.terminal_color_1 = "#bc675c"
