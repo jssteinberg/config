@@ -44,6 +44,8 @@ source $HOME/.config/nvim/some.vim
 " Core improve
 nnoremap Y y$
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Additional esc map
 tnoremap jk <c-w>N
 " Find links
@@ -137,6 +139,7 @@ fu! PackInit() abort
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")
 	call minpac#add("prabirshrestha/asyncomplete.vim")
+	call minpac#add("prabirshrestha/asyncomplete-buffer.vim")
 	call minpac#add("prabirshrestha/asyncomplete-lsp.vim")
 	call minpac#add("yami-beta/asyncomplete-omni.vim")
 	call minpac#add("tpope/vim-vinegar")
