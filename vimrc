@@ -44,6 +44,8 @@ source $HOME/.config/nvim/some.vim
 " Core improve
 nnoremap Y y$
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Additional esc map
 tnoremap jk <c-w>N
 " Find links
