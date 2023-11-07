@@ -20,8 +20,8 @@ nvim/.DS_Store
 !nvim/colors/*
 !nvim/lua/*
 nvim/lua/.DS_Store
-!nvim/lua/packages/*
-nvim/lua/packages/.DS_Store
+!nvim/lua/pack/*
+nvim/lua/pack/.DS_Store
 !nvim/lua/utils/*
 !nvim/lua/wip/*
 !nvim/lua/nightcool/*
