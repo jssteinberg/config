@@ -1,4 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
+-- Install lazy.nvim if not already installed
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -9,11 +11,13 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
+
+-- Add lazy.nvim to runtimepath
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- Handle statusline
-	{ "jssteinberg/hackline.vim", branch = "v4.0.0-0" },
+	-- { "jssteinberg/hackline.vim", branch = "v4.0.0-0" },
 	-- Tabs and editorconfig
 	{ "tpope/vim-sleuth" },
 	-- Extend `.` repeat
