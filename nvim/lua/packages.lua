@@ -25,7 +25,9 @@ require("lazy").setup({
 	-- Measure startup time
 	{ "tweekmonster/startuptime.vim", cmd = "StartupTime" },
 	-- Colorscheme util
-	{ "rktjmp/lush.nvim", lazy = false },
+	-- { "rktjmp/lush.nvim", lazy = false },
+	{ 'echasnovski/mini.colors', version = '*' },
+	{ 'echasnovski/mini.hues', version = '*' },
 
 	-- AI code completion
 	{ "github/copilot.vim", config = function()

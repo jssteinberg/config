@@ -1,6 +1,5 @@
 let s:d = "set bg=dark termguicolors t_Co=256"
 			\." | let g:nightcool_bg=v:false"
-			\." | let g:nightcool_statusline='black'"
 			\." | colo nightcool"
 
 let s:l = "set bg=light termguicolors t_Co=256"
@@ -13,9 +12,9 @@ endfunction
 function! NowColo()
 	if &bg == 'dark'
 		exe(s:l)
-		" set listchars=tab:\│\ 
+		" set listchars=tab:\│\
 	else
 		exe(s:d)
-		set listchars+=tab:\·\ 
+		set listchars+=tab:\·\
 	endif
 endfunction

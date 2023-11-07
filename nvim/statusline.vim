@@ -11,7 +11,7 @@ endfunction
 function! Hackline(status) abort
 	let l:active = a:status
 	" separator sections
-	let l:sep = #{l: ' · '}
+	let l:sep = #{l: ' · ', r: ' · '}
 	" separator items
 	let l:sep_i = " "
 	" length in spaces for item separator
@@ -42,13 +42,14 @@ function! Hackline(status) abort
 	let l:line .= '%(' . l:sep_i . '%{&fileformat}%)'
 	" tabs/spaces
 	let l:line .= '%(' . l:sep_i . '%{hackline#ui#tab#info("min")}%)'
-	let l:line .=	" /  "
+	" sep
+	let l:line .= l:sep.l
 	" CWD
 	if len(getcwd(0)) > 1
 		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
 		" Git
 		let l:line .= hackline#ui#git#info("*")
-		let l:line .= l:sep.l
+		let l:line .= "/"
 	endif
 	" file path
 	let l:line .= '%(%{hackline#ui#dir#info("xl")}%t%)'
@@ -61,18 +62,18 @@ function! Hackline(status) abort
 	let l:line .= l:len_i . "%="
 	" Nvim LSP
 	if l:active && has("nvim")
-		let l:line .= hackline#ui#nvim_lsp#info("", "  ")
+		let l:line .= hackline#ui#nvim_lsp#info("", l:sep.r)
 	endif
 	" Vim LSP
 	if l:active && get(b:, "hackline_use_vim_lsp", "0")
-		let l:line .= 'LSP  '
+		let l:line .= "LSP "
 	endif
 	" Lang
 	if l:active && &spell == 1
-		let l:line .= '%(\ %{&spelllang}  %)'
+		let l:line .= "%(" . l:sep.r . "%{&spelllang}" . l:sep_i . "%)"
 	endif
 	" Cursor position
-	let l:line .= "\\ %l/%L:%c"
+	let l:line .= "%l/%L:%c"
 	" End spacing
 	let l:line .= " "
 
