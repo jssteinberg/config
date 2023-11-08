@@ -3,7 +3,7 @@ let s:d = "set bg=dark termguicolors t_Co=256"
 			\." | colo nightcool"
 
 let s:l = "set bg=light termguicolors t_Co=256"
-			\." | colo lushwhitecool"
+			\." | colo lunaperche"
 
 function! InitColo()
 	exe(s:d)

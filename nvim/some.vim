@@ -85,8 +85,8 @@ nnoremap <bs> :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Terminal
-nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
-nn <silent> <leader>1 <cmd>call termcwd#spGet(0, "")<cr>
+nn <silent> <leader><cr> :exe "try\n call termcwd#spGet()\n catch\n terminal\n endtry"<cr>
+nn <silent> <leader>1 :exe "try\n call termcwd#spGet(0,'')\n catch\n terminal\n endtry"<cr>
 
 " No/now (toggle options)
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<bar>set spelllang=en_us<cr>'

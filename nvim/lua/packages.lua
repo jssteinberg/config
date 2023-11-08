@@ -22,6 +22,8 @@ require("lazy").setup({
 	{ "tpope/vim-sleuth" },
 	-- Extend `.` repeat
 	{ "tpope/vim-repeat" },
+	-- Keymaps for indents
+	{ "michaeljsmith/vim-indent-object" },
 	-- Measure startup time
 	{ "tweekmonster/startuptime.vim", cmd = "StartupTime" },
 	-- Colorscheme util
