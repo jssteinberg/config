@@ -92,7 +92,6 @@ endfunction
 set clipboard=unnamed " Sync system clioboard
 set hlsearch " Highlight search matches
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
-set list listchars=tab:\·\ 
 set signcolumn=yes
 set undodir=$HOME/.vimundo undofile
 
