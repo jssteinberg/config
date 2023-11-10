@@ -7,10 +7,10 @@ nnoremap <silent> <leader>nc :call NowColo()<cr>
 " PACKAGE/PLUGIN MAPPINGS
 
 " Fuzzy finder
-nnoremap <leader>fb :FzfLua buffers<cr>
 nnoremap <leader>fs :FzfLua live_grep_native<cr>
 nnoremap <leader>ff :FzfLua files<cr>
-nnoremap <leader>s :FzfLua files<cr>
+nnoremap <leader>fb :CtrlPBuffer<cr>
+nnoremap <leader>s :CtrlP .<cr>
 
 " Git
 nnoremap <leader>gb <cmd>BlamerToggle<cr>

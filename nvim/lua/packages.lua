@@ -39,6 +39,8 @@ require("lazy").setup({
 	{ "jssteinberg/termcwd" },
 	-- Fuzzy finder fzf
 	{ "ibhagwan/fzf-lua", cmd = { "FzfLua" }, config = require("pack.fzf") },
+	-- Simple UI fuzzy finder
+	{ "ctrlpvim/ctrlp.vim", cmd = { "CtrlP", "CtrlPBuffer" } },
 
 	-- CODE ANALYZES/COMPLETION
 
