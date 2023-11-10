@@ -1,3 +1,5 @@
+let g:CommandTPreferredImplementation='lua'
+
 " OPTIONS
 set clipboard+=unnamedplus
 set copyindent

@@ -33,9 +33,9 @@ function! Hackline(status) abort
 	" filetype
 	let l:line .= '%( %{&filetype}%)'
 	" truncation point
-	let l:line .= '%<'
+	let l:line .= ' %<· '
 	" sep
-	let l:line .= l:sep.l
+	" let l:line .= l:sep.l
 	" encoding
 	let l:line .= '%(%{hackline#fileencoding#info()}%)'
 	" format
