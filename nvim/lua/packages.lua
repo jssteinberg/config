@@ -41,6 +41,8 @@ require("lazy").setup({
 	{ "ibhagwan/fzf-lua", cmd = { "FzfLua" }, config = require("pack.fzf") },
 	-- Simple UI fuzzy finder
 	{ "ctrlpvim/ctrlp.vim", cmd = { "CtrlP", "CtrlPBuffer" } },
+	-- Fastest fuzzy finder (requires `make`)
+	{ "wincent/command-t", cmd = { "CommandT" } },
 
 	-- CODE ANALYZES/COMPLETION
 
@@ -179,6 +181,7 @@ require("lazy").setup({
 	-- Illuminate cursor word
 	{ "RRethy/vim-illuminate", event = "CursorHold", config = function()
 		require "illuminate".configure({
+			under_cursor = false,
 			delay = 200,
 			large_file_cutoff = 2000,
 			large_file_overrides = {
