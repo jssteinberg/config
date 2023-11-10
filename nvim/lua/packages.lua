@@ -22,7 +22,7 @@ require("lazy").setup({
 	{ "tpope/vim-sleuth" },
 	-- Extend `.` repeat
 	{ "tpope/vim-repeat" },
-	-- Keymaps for indents
+	-- Indent keymap motions
 	{ "michaeljsmith/vim-indent-object" },
 	-- Measure startup time
 	{ "tweekmonster/startuptime.vim", cmd = "StartupTime" },
@@ -31,27 +31,18 @@ require("lazy").setup({
 	{ 'echasnovski/mini.colors', version = '*' },
 	{ 'echasnovski/mini.hues', version = '*' },
 
-	-- AI code completion
-	{ "github/copilot.vim", config = function()
-		vim.cmd([[
-			imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
-			let g:copilot_no_tab_map = v:true
-		]])
-	end },
-
 	-- SEARCH/EXPLORE
 
 	-- netrw replacement
 	{ "stevearc/oil.nvim", config = require("pack.oil") },
-
+	-- Terminal handling
+	{ "jssteinberg/termcwd" },
 	-- Fuzzy finder fzf
 	{ "ibhagwan/fzf-lua", cmd = { "FzfLua" }, config = require("pack.fzf") },
 
-	-- Terminal handling
-	{ "jssteinberg/termcwd" },
+	-- CODE ANALYZES/COMPLETION
 
 	-- LSP
-
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -84,7 +75,7 @@ require("lazy").setup({
 		end,
 	},
 
-	-- TREESITTER
+	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
@@ -93,6 +84,14 @@ require("lazy").setup({
 		},
 		config = function() require "pack.treesitter".config() end
 	},
+
+	-- AI code completion
+	{ "github/copilot.vim", config = function()
+		vim.cmd([[
+			imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
+			let g:copilot_no_tab_map = v:true
+		]])
+	end },
 
 	-- FORMAT
 	{
@@ -105,8 +104,22 @@ require("lazy").setup({
 					python = { "isort", "black" },
 					-- Use a sub-list to run only the first available formatter
 					javascript = { { "prettierd", "prettier" } },
+					typescript = { { "prettierd", "prettier" } },
+					svelte = { { "prettierd", "prettier" } },
 				},
 			})
+
+			vim.api.nvim_create_user_command("Format", function(args)
+				local range = nil
+				if args.count ~= -1 then
+					local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+					range = {
+						start = { args.line1, 0 },
+						["end"] = { args.line2, end_line:len() },
+					}
+				end
+				require("conform").format({ async = true, lsp_fallback = true, range = range })
+			end, { range = true })
 		end
 	},
 
