@@ -41,8 +41,6 @@ require("lazy").setup({
 	{ "ibhagwan/fzf-lua", cmd = { "FzfLua" }, config = require("pack.fzf") },
 	-- Simple UI fuzzy finder
 	{ "ctrlpvim/ctrlp.vim", cmd = { "CtrlP", "CtrlPBuffer" } },
-	-- Fastest fuzzy finder (requires `make`)
-	{ "wincent/command-t", cmd = { "CommandT" } },
 
 	-- CODE ANALYZES/COMPLETION
 
