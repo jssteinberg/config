@@ -11,7 +11,7 @@ endfunction
 function! Hackline(status) abort
 	let l:active = a:status
 	" separator sections
-	let l:sep = #{l: ' / ', r: ' – '}
+	let l:sep = #{l: ' \ ', r: ' / '}
 	" separator items
 	let l:sep_i = " "
 	" length in spaces for item separator
@@ -46,20 +46,20 @@ function! Hackline(status) abort
 	let l:line .= '%(' . l:sep_i . '%{&fileformat}%)'
 	" tabs/spaces
 	let l:line .= '%(' . l:sep_i . '%{hackline#ui#tab#info("min")}%)'
-
+	" sep l
+	let l:line .= l:sep.l
 	" Nvim LSP
 	if l:active && has("nvim")
-		let l:line .= hackline#ui#nvim_lsp#info(l:sep.l, "")
+		let l:line .= hackline#ui#nvim_lsp#info("", "")
 	endif
 	" Vim LSP
 	if l:active && get(b:, "hackline_use_vim_lsp", "0")
-		let l:line .= l:sep.l . "LSP"
+		let l:line .= "LSP"
 	endif
-
-	let l:line .= l:len_i . "%=" . l:sep.l
 
 	" Statusline Right Side
 	" ---------------------
+	let l:line .= l:len_i . "%=" . l:sep.r
 
 	" CWD
 	if len(getcwd(0)) > 1
@@ -71,7 +71,7 @@ function! Hackline(status) abort
 	" file path
 	let l:line .= '%(“%{hackline#ui#dir#info("xl")}%t”%)'
 	" sep
-	let l:line .= l:sep.r
+	let l:line .= " – "
 	" Cursor position
 	let l:line .= "%l/%L:%c"
 	" End spacing
