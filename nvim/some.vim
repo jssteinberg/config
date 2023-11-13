@@ -110,7 +110,7 @@ nn <leader>po :source ~/.vs/*
 " SPACE CONFIRMS - maps to cmdline that are confirmed with <space>
 
 " Setup:
-" <space> is enter key in command mode if space_confirms
+" <space> is enter key in command mode if `space_confirms`
 cno <expr> <space> exists("g:space_confirms") ? "<cr>" : " "
 " space_confirms is unlet by autocmd so it's deactivated
 augroup space_confirms | au!
