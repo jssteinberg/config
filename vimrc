@@ -75,8 +75,8 @@ function! s:on_lsp_buffer_enabled() abort
 	if exists("+tagfunc") | setlocal tagfunc=lsp#tagfunc | endif
 	nmap <buffer> gd <plug>(lsp-definition)
 	nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-	nmap <buffer> gr <plug>(lsp-references)
 	nmap <buffer> gi <plug>(lsp-implementation)
+	nmap <buffer> <leader>lr <plug>(lsp-references)
 	nmap <buffer> <leader>lt <plug>(lsp-type-definition)
 	nmap <buffer> <c-k> <plug>(lsp-previous-diagnostic)
 	nmap <buffer> <c-j> <plug>(lsp-next-diagnostic)
@@ -106,7 +106,7 @@ aug vim_config | au!
 augroup END
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
-try | set background=dark | colo quiet
+try | set background=dark | colo lunaperche
 catch | colo slate " for older Vim versions
 endtry
 
@@ -132,10 +132,10 @@ fu! PackInit() abort
 	call minpac#add("tpope/vim-fugitive", {"type": "opt"})
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")
-	call minpac#add("prabirshrestha/asyncomplete.vim")
-	call minpac#add("prabirshrestha/asyncomplete-buffer.vim")
-	call minpac#add("prabirshrestha/asyncomplete-lsp.vim")
-	call minpac#add("yami-beta/asyncomplete-omni.vim")
+	" call minpac#add("prabirshrestha/asyncomplete.vim")
+	" call minpac#add("prabirshrestha/asyncomplete-buffer.vim")
+	" call minpac#add("prabirshrestha/asyncomplete-lsp.vim")
+	" call minpac#add("yami-beta/asyncomplete-omni.vim")
 	call minpac#add("tpope/vim-vinegar")
 	call minpac#add("tweekmonster/startuptime.vim")
 	" Filetypes
@@ -153,3 +153,5 @@ let g:javascript_plugin_jsdoc = 1
 " Svelte
 let g:svelte_preprocessors=[
 			\"postcss"] " "sass", "typescript"
+" Astro
+let g:astro_typescript = "enable"
