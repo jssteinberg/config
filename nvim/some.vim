@@ -25,7 +25,7 @@ xnoremap <c-e> $
 nnoremap * /<c-r><c-w><cr>
 nnoremap # ?<c-r><c-w><cr>
 
-" Line motions incbudes wrapped lines
+" Line motions includes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
 
@@ -33,10 +33,10 @@ noremap <expr> k v:count ? 'k' : 'gk'
 inoremap jk <esc>
 
 " Alternate buffer
-nnoremap <silent> <leader>b :buffer#<cr>
+nnoremap <silent> <leader>b <cmd>buffer#<cr>
 
 " Write/save file
-nnoremap <silent> <leader>w :w<cr>
+nnoremap <silent> <leader>w <cmd>write<cr>
 
 " Close tab or quit all
 nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>

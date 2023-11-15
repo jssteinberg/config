@@ -56,6 +56,10 @@ require("lazy").setup({
 			require "pack.lsp".config()
 		end
 	},
+	{
+		"hinell/lsp-timeout.nvim",
+		dependencies = { "neovim/nvim-lspconfig" }
+	},
 
 	-- LSP and other autocompletion
 	{
