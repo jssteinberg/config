@@ -38,16 +38,6 @@ nnoremap <silent> <leader>b <cmd>buffer#<cr>
 " Write/save file
 nnoremap <silent> <leader>w <cmd>write<cr>
 
-" Close tab or quit all
-nnoremap <silent> <leader>C :exe "try\n tabclose\n catch\n qa\n endtry"<cr>
-
-" Close window or quit
-nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
-
-" Resize windows vertically
-nn <leader>+ :vert resize +5<cr>
-nn <leader>- :vert resize -5<cr>
-
 " Edit/tabedit commonly used
 nnoremap <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>ed <cmd>wincmd v<bar>wincmd H<bar>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
@@ -57,6 +47,20 @@ nnoremap <leader>ew :e **/
 nnoremap <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>
 nnoremap <leader>ep <cmd>e package.json<cr>
 nnoremap <leader>er <cmd>e README.md<cr>
+
+" Go to last used tab
+nn gl <cmd>exe "try\n exe 'tabn'.g:last_t\n catch\n tabp\n endtry"<cr>
+aug last_tab | au! | au TabLeave * let g:last_t = tabpagenr() | aug end
+
+" Close tab or quit all
+nn <silent> <leader>C <cmd>exe "try\n tabclose\n catch\n qa\n endtry"<cr>
+
+" Close window or quit
+nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
+
+" Resize windows vertically
+nn <leader>+ :vert resize +5<cr>
+nn <leader>- :vert resize -5<cr>
 
 " Replace [word, selection]
 nnoremap <leader>R "ryiw:%s/<c-r>r/
@@ -108,7 +112,6 @@ nn <leader>ps :mks! ~/.vs/
 nn <leader>po :source ~/.vs/*
 
 " SPACE CONFIRMS - maps to cmdline that are confirmed with <space>
-
 " Setup:
 " <space> is enter key in command mode if `space_confirms`
 cno <expr> <space> exists("g:space_confirms") ? "<cr>" : " "
@@ -116,7 +119,6 @@ cno <expr> <space> exists("g:space_confirms") ? "<cr>" : " "
 augroup space_confirms | au!
 	au CmdlineLeave * if exists("g:space_confirms") | unlet g:space_confirms | en
 augroup end
-
 " Mappings:
 " search in normal and visual mode
 nn s <cmd>let g:space_confirms=1<cr>/
@@ -135,7 +137,7 @@ set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git/**
 let &ts=g:indent_width | let &sw=g:indent_width " indent size
 set hidden " Unsaved files can be 'hidden'
-set list listchars=tab:\·\ ,trail:\~,extends:… " Show tabs & improve symbols
+set list " Show tab characters
 set noswapfile " No swap files, but undo files (requires `undodir` in Vim)
 set sessionoptions=curdir,folds,help,tabpages
 set signcolumn=yes
@@ -164,6 +166,8 @@ endif
 aug some_config | au!
 	" Set tabstop if noexpandtab
 	au BufWinEnter,FocusGained * call SetTabWidth(g:indent_width)
+	" After packages are loaded set listchars
+	au VimEnter * set listchars=tab:\·\ ,trail:\~,extends:…,precedes:…
 aug END
 
 " GLOBAL FUNCTIONS

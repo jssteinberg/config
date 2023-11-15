@@ -151,6 +151,9 @@ hi! link FoldColumn Folded
 
 " (N)VIM PLUGINS
 
+# mini.pick
+hi! link MiniPickNormal Normal
+
 " illuminate.vim
 hi IlluminatedWordText cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi! link IlluminatedWordRead IlluminatedWordText

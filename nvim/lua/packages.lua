@@ -40,7 +40,23 @@ require("lazy").setup({
 	-- Fuzzy finder fzf
 	{ "ibhagwan/fzf-lua", cmd = { "FzfLua" }, config = require("pack.fzf") },
 	-- Simple UI fuzzy finder
-	{ "ctrlpvim/ctrlp.vim", cmd = { "CtrlP", "CtrlPBuffer" } },
+	-- { "ctrlpvim/ctrlp.vim", cmd = { "CtrlP", "CtrlPBuffer" } },
+	{
+		'echasnovski/mini.pick',
+		version = false,
+		cmd = "Pick",
+		config = function()
+			local pick = require('mini.pick')
+			pick.setup({
+				source = { show = pick.default_show },
+				mappings = {
+					toggle_preview = '<C-p>',
+					move_down      = '<C-j>',
+					move_up        = '<C-k>',
+				},
+			})
+		end
+	},
 
 	-- CODE ANALYZES/COMPLETION
 
@@ -81,6 +97,14 @@ require("lazy").setup({
 		end,
 	},
 
+	-- LSP signature
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
+		opts = {},
+		config = function(_, opts) require'lsp_signature'.setup(opts) end
+	},
+
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -92,12 +116,16 @@ require("lazy").setup({
 	},
 
 	-- AI code completion
-	{ "github/copilot.vim", config = function()
-		vim.cmd([[
-			imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
-			let g:copilot_no_tab_map = v:true
-		]])
-	end },
+	{
+		"github/copilot.vim",
+		event = "InsertEnter",
+		config = function()
+			vim.cmd([[
+				imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
+				let g:copilot_no_tab_map = v:true
+			]])
+		end
+	},
 
 	-- FORMAT
 	{
@@ -166,6 +194,10 @@ require("lazy").setup({
 			"gc", "gb",
 			{ "gc", mode = "v" }, { "gb", mode = "v" },
 		},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
 		config = function()
 			require("Comment").setup {
 				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
@@ -175,9 +207,10 @@ require("lazy").setup({
 
 	-- Matchparen
 	{
-		"utilyre/sentiment.nvim",
-		config = function() require("sentiment").setup() end,
+		"andymass/vim-matchup",
 		event = "CursorHold",
+		-- "putilyre/sentiment.nvim",
+		-- config = function() require("sentiment").setup() end,
 	},
 
 	-- Illuminate cursor word
