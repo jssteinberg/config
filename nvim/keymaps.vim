@@ -7,9 +7,9 @@ nnoremap <silent> <leader>nc :call NowColo()<cr>
 " PACKAGE/PLUGIN MAPPINGS
 
 " Fuzzy finder
-nnoremap <leader>fs :FzfLua live_grep_native<cr>
-nnoremap <leader>ff :FzfLua files<cr>
-nnoremap <leader>fb :FzfLua buffers<cr>
+nnoremap <leader>ff :Pick files<cr>
+nnoremap <leader>fb :Pick buffers<cr>
+nnoremap <leader>fs :Pick grep_live<cr>
 nnoremap <leader>s :Pick files<cr>
 
 " Git

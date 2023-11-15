@@ -37,10 +37,7 @@ require("lazy").setup({
 	{ "stevearc/oil.nvim", config = require("pack.oil") },
 	-- Terminal handling
 	{ "jssteinberg/termcwd" },
-	-- Fuzzy finder fzf
-	{ "ibhagwan/fzf-lua", cmd = { "FzfLua" }, config = require("pack.fzf") },
-	-- Simple UI fuzzy finder
-	-- { "ctrlpvim/ctrlp.vim", cmd = { "CtrlP", "CtrlPBuffer" } },
+	-- Fuzzy finder
 	{
 		'echasnovski/mini.pick',
 		version = false,
