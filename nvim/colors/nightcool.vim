@@ -151,7 +151,7 @@ hi! link FoldColumn Folded
 
 " (N)VIM PLUGINS
 
-# mini.pick
+" mini.pick
 hi! link MiniPickNormal Normal
 
 " illuminate.vim
