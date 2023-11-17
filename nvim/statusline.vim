@@ -11,9 +11,9 @@ endfunction
 function! Hackline(status) abort
 	let l:active = a:status
 	" separator sections
-	let l:sep = #{l: "  \\  ", r: "  /  "}
+	let l:sep = #{l: " · ", r: " · "}
 	" separator items
-	let l:sep_i = " "
+	let l:sep_i = "/"
 	" length in spaces for item separator
 	let l:len_i = repeat(" ", strlen(l:sep_i))
 	let l:line = ""
@@ -30,12 +30,10 @@ function! Hackline(status) abort
 	let l:line .= " "
 	" buffern number
 	let l:line .= "%(#%{bufnr()}%)"
-	" sep l
-	let l:line .= l:sep.l
 	" filetype
-	let l:line .= "%(%{&filetype}%)"
+	let l:line .= "%(" . l:sep_i . "%{&filetype}%)"
 	" filename
-	let l:line .= "%(" . l:sep_i . "%t%)"
+	let l:line .= "%(" . l:sep.l . "%t%)"
 	" modified flag
 	let l:line .= "%(%m%)"
 	" truncation point
@@ -71,7 +69,7 @@ function! Hackline(status) abort
 
 	" Statusline Right Side
 	" ---------------------
-	let l:line .= "%=" . l:sep.r
+	let l:line .= "%=" . l:len_i
 
 	" Cursor position
 	let l:line .= "%l/%L:%c"
