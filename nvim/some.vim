@@ -169,7 +169,7 @@ aug some_config | au!
 	" Set tabstop if noexpandtab
 	au BufWinEnter,FocusGained * call SetTabWidth(g:indent_width)
 	" After packages are loaded set listchars
-	au VimEnter * set listchars=tab:\·\ ,trail:\~,extends:…,precedes:…
+	au BufEnter * set listchars=tab:\·\ ,trail:\~,extends:…,precedes:…
 aug END
 
 " GLOBAL FUNCTIONS
