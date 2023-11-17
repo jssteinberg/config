@@ -1,3 +1,5 @@
+" some.vim for (Neo)vim
+
 " KEYMAPS
 " <leader>
 " b: buffer alternate
