@@ -44,7 +44,7 @@ function! Hackline(status) abort
 		" Git
 		let l:line .= hackline#ui#git#info("*")
 		" file path
-		let l:line .= "%(/%{hackline#ui#dir#info('xl')}%)"
+		let l:line .= "%( %{hackline#ui#dir#info('xl')}%)"
 	endif
 	" sep l
 	let l:line .= l:sep.l
