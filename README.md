@@ -51,6 +51,10 @@ Install Neovim >= 0.8.0 (needs to be built with LuaJIT), fzf, ripgrep, fd, bat, 
 - `:TSInstall all`/`:TSUpdate`
 - `:Mason` to install LSPs
 
+### TODO
+
+- format files async on save, but not if their too big, or min...
+
 ## Vim 8 +lua
 
 A simple Vim config---could be a single vimrc. It can be used as a boilerplate and works without plugins. It gives no errors on missing plugins unless keymaps/commands requiring plugins are used. Requries:
