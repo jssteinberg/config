@@ -13,6 +13,8 @@ M.register_keymaps = function(client, bufnr)
 	-- end
 
 	vim.keymap.set("n", "<cr>", vim.diagnostic.open_float, bufopts)
+	vim.keymap.set('n', '<leader>lp', vim.diagnostic.goto_prev)
+	vim.keymap.set('n', '<leader>ln', vim.diagnostic.goto_next)
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)

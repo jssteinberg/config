@@ -107,7 +107,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
 			"nvim-treesitter/playground",
-			"JoosepAlviste/nvim-ts-context-commentstring",
+			-- "JoosepAlviste/nvim-ts-context-commentstring",
 		},
 		config = function() require "pack.treesitter".config() end
 	},
