@@ -87,7 +87,6 @@ vnoremap gs "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:c
 " Quickfix [next, previous, toggle]
 nnoremap Q :exe "cnext\n setlocal scrolloff=" . g:config_scrolloff<cr>
 nnoremap <leader>q :cprev<cr>
-nnoremap <bs> :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " Terminal
