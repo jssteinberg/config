@@ -11,7 +11,7 @@ endfunction
 function! Hackline(status) abort
 	let l:active = a:status
 	" separator sections
-	let l:sep = #{l: " · ", r: " · "}
+	let l:sep = #{l: "  ", r: "  "}
 	" separator items
 	let l:sep_i = "/"
 	" length in spaces for item separator
@@ -28,14 +28,14 @@ function! Hackline(status) abort
 		let l:line .= s:ShowMode()
 	endif
 	let l:line .= " "
+	" modified flag
+	let l:line .= "%(%m" . l:sep.l . "%)"
 	" buffern number
 	let l:line .= "%(#%{bufnr()}%)"
 	" filetype
 	let l:line .= "%(" . l:sep_i . "%{&filetype}%)"
 	" filename
 	let l:line .= "%(" . l:sep.l . "%t%)"
-	" modified flag
-	let l:line .= "%(%m%)"
 	" truncation point
 	let l:line .= l:sep.l . "%<"
 	" CWD

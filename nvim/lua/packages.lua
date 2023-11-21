@@ -100,7 +100,11 @@ require("lazy").setup({
 	{
 		"ray-x/lsp_signature.nvim",
 		event = "VeryLazy",
-		opts = {},
+		opts = {
+			cfg = {
+				time_interval = 1000,
+			}
+		},
 		config = function(_, opts) require'lsp_signature'.setup(opts) end
 	},
 
@@ -109,7 +113,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
 			"nvim-treesitter/playground",
-			"JoosepAlviste/nvim-ts-context-commentstring",
+			-- "JoosepAlviste/nvim-ts-context-commentstring",
 		},
 		config = function() require "pack.treesitter".config() end
 	},
