@@ -54,8 +54,6 @@ require("lazy").setup({
 			})
 		end
 	},
-	-- Grep
-	{ "mangelozzi/nvim-rgflow.lua" },
 
 	-- CODE ANALYZES/COMPLETION
 
