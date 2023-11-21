@@ -98,7 +98,11 @@ require("lazy").setup({
 	{
 		"ray-x/lsp_signature.nvim",
 		event = "VeryLazy",
-		opts = {},
+		opts = {
+			cfg = {
+				time_interval = 1000,
+			}
+		},
 		config = function(_, opts) require'lsp_signature'.setup(opts) end
 	},
 
