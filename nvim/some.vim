@@ -73,16 +73,16 @@ nnoremap <leader>S :%s/
 vnoremap <leader>S :s/
 
 " Grep [args, selection]
-nnoremap <leader>G :silent grep <c-r>=expand("<cword>")<cr>
-vnoremap <leader>G "gy<cr>:silent grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
+nnoremap <leader>G :silent! grep!<space>
+vnoremap <leader>G "gy<cr>:silent! grep! -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
 
 " Grep reference [word, selection]
-nnoremap gr "gyiw<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
-vnoremap gr "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
+nnoremap gr "gyiw<cr>:silent! grep! -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
+vnoremap gr "gy<cr>:silent! grep! -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
 
 " Grep substitute [word, selection]
-nnoremap gs "gyiw<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
-vnoremap gs "gy<cr>:silent! grep -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
+nnoremap gs "gyiw<cr>:silent! grep! -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
+vnoremap gs "gy<cr>:silent! grep! -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 
 " Quickfix [next, previous, toggle]
 nnoremap Q :exe "cnext\n setlocal scrolloff=" . g:config_scrolloff<cr>
@@ -102,7 +102,7 @@ nnoremap <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set
 
 " Git
 " grep for git merge conflicts
-nnoremap <leader>gm :silent! grep -e "<<<<<<<"<cr>
+nnoremap <leader>gm :silent! grep! -e "<<<<<<<"<cr>
 
 " Project/session management
 " create session directory if it doesn't exist
@@ -159,8 +159,7 @@ set formatoptions=cjlnpq
 " GREP OPTIONS
 " (Rip)grep
 if executable('rg')
-	" set grepformat^=%f:%l:%c:%m grepprg=rg\ --line-number\ --column
-	set grepformat^=%f:%l:%c:%m grepprg=rg\ --vimgrep
+	set grepprg=rg\ --vimgrep grepformat^=%f:%l:%c:%m
 endif
 
 " AUTO COMMANDS
