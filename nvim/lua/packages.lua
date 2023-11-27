@@ -33,6 +33,8 @@ require("lazy").setup({
 
 	-- SEARCH/EXPLORE
 
+	-- Improve quickfix window
+	{ "kevinhwang91/nvim-bqf", ft = "qf" },
 	-- netrw replacement
 	{ "stevearc/oil.nvim", config = require("pack.oil") },
 	-- Terminal handling
