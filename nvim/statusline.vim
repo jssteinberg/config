@@ -28,10 +28,10 @@ function! Hackline(status) abort
 		let l:line .= s:ShowMode()
 	endif
 	let l:line .= " "
-	" modified flag
-	let l:line .= "%(%m" . l:sep.l . "%)"
 	" buffern number
 	let l:line .= "%(#%{bufnr()}%)"
+	" modified flag
+	let l:line .= "%(" . l:sep_i . "%m%)"
 	" filetype
 	let l:line .= "%(" . l:sep_i . "%{&filetype}%)"
 	" filename
