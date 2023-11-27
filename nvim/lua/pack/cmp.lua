@@ -4,9 +4,6 @@ M.config = function()
 	local cmp = require "cmp"
 	local luasnip = require "luasnip"
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	local t = function(str)
-		return vim.api.nvim_replace_termcodes(str, true, true, true)
-	end
 	local has_words_before = function()
 		unpack = unpack or table.unpack
 		local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -27,6 +24,7 @@ M.config = function()
 			{ name = "nvim_lsp", trigger_characters = { "-" } },
 			{ name = "omni" },
 			{ name = "buffer" },
+			{ name = 'nvim_lsp_signature_help' }
 		},
 		experimental = {
 			ghost_text = false -- this feature conflict with copilot's preview
