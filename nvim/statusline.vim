@@ -1,13 +1,3 @@
-function! s:ShowMode(sep_l = "", sep_r = "") abort
-	if mode() == "i"     | return "%#IncSearch#"
-	elseif mode() == "c" | return "%#IncSearch#"
-	elseif mode() == "t" | return "%#IncSearch#"
-	elseif mode() == "r" | return "%#IncSearch#"
-	elseif mode() == "s" | return "%#IncSearch#"
-	else                 | return "%#IncSearch#"
-	endif
-endfunction
-
 function! Hackline(status) abort
 	let l:active = a:status
 	" separator sections
@@ -24,7 +14,7 @@ function! Hackline(status) abort
 	" set statusline default color
 	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
 	" set mode style
-	if l:active && hackline#config#mode() && mode() != "n"
+	if l:active && mode() != "n"
 		let l:line .= s:ShowMode()
 	endif
 	let l:line .= " "
@@ -77,4 +67,14 @@ function! Hackline(status) abort
 	let l:line .= " "
 
 	return l:line
+endfunction
+
+function! s:ShowMode(sep_l = "", sep_r = "") abort
+	if mode() == "i"     | return "%#IncSearch#"
+	elseif mode() == "c" | return "%#IncSearch#"
+	elseif mode() == "t" | return "%#IncSearch#"
+	elseif mode() == "r" | return "%#IncSearch#"
+	elseif mode() == "s" | return "%#IncSearch#"
+	else                 | return "%#IncSearch#"
+	endif
 endfunction
