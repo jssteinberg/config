@@ -4,9 +4,6 @@ M.config = function()
 	local cmp = require "cmp"
 	local luasnip = require "luasnip"
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	local t = function(str)
-		return vim.api.nvim_replace_termcodes(str, true, true, true)
-	end
 	local has_words_before = function()
 		unpack = unpack or table.unpack
 		local line, col = unpack(vim.api.nvim_win_get_cursor(0))

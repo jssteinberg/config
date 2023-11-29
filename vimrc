@@ -120,6 +120,13 @@ fu! FuzzyFiles(choice_command, vim_command) abort
 	en
 endf
 
+" CODIUM
+let g:codeium_disable_bindings = 1
+imap <script><silent><nowait><expr> <C-f> codeium#Accept()
+imap <C-j>   <Cmd>call codeium#CycleCompletions(1)<CR>
+imap <C-k>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+imap <C-x>   <Cmd>call codeium#Clear()<CR>
+
 " PLUGINS
 fu! PackInit() abort
 	packadd minpac
@@ -137,6 +144,7 @@ fu! PackInit() abort
 	" call minpac#add("prabirshrestha/asyncomplete-lsp.vim")
 	" call minpac#add("yami-beta/asyncomplete-omni.vim")
 	call minpac#add("tpope/vim-vinegar")
+	call minpac#add("Exafunction/codeium.vim")
 	call minpac#add("tweekmonster/startuptime.vim")
 	" Filetypes
 	call minpac#add("othree/html5.vim")
