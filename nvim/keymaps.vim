@@ -17,7 +17,7 @@ nnoremap <leader>gb <cmd>BlamerToggle<cr>
 nnoremap <leader>gc <cmd>Git log -p -50 %<cr>
 nnoremap <leader>gd <cmd>tabnew %<cr><cmd>Gvdiffsplit<cr>
 nnoremap <leader>gg <cmd>Git<cr>
-nnoremap <leader>gl <cmd>Flog<cr>
+nnoremap <silent> <leader>gl <cmd>Flog<cr>
 nnoremap <leader>go <cmd>OpenGithubFile<cr>
 nnoremap <leader>gp <cmd>Git pull<cr>
 nnoremap <leader>gP <cmd>Git push<cr>
