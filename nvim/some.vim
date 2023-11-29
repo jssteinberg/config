@@ -39,6 +39,7 @@ nnoremap <silent> <leader>b <cmd>buffer#<cr>
 
 " Write/save file
 nnoremap <silent> <leader>w <cmd>write<cr>
+nnoremap <silent> <leader>W <cmd>write!<cr>
 
 " Edit/tabedit commonly used
 nnoremap <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
