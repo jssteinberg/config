@@ -27,6 +27,7 @@ M.config = function()
 			{ name = "nvim_lsp", trigger_characters = { "-" } },
 			{ name = "omni" },
 			{ name = "buffer" },
+			{ name = "nvim_lsp_signature_help" }
 		},
 		experimental = {
 			ghost_text = false -- this feature conflict with copilot's preview

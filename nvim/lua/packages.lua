@@ -89,6 +89,7 @@ require("lazy").setup({
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 		},
 		config = function()
 			require "pack.cmp".config()
@@ -97,16 +98,16 @@ require("lazy").setup({
 	},
 
 	-- LSP signature
-	{
-		"ray-x/lsp_signature.nvim",
-		event = "VeryLazy",
-		opts = {
-			cfg = {
-				time_interval = 1000,
-			}
-		},
-		config = function(_, opts) require'lsp_signature'.setup(opts) end
-	},
+	-- {
+	-- 	"ray-x/lsp_signature.nvim",
+	-- 	event = "VeryLazy",
+	-- 	opts = {
+	-- 		cfg = {
+	-- 			time_interval = 1000,
+	-- 		}
+	-- 	},
+	-- 	config = function(_, opts) require'lsp_signature'.setup(opts) end
+	-- },
 
 	-- Treesitter
 	{
