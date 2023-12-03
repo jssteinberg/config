@@ -1,7 +1,7 @@
 function! Hackline(status) abort
 	let l:active = a:status
 	" separator sections
-	let l:sep = #{l: "--", r: "--"}
+	let l:sep = #{l: " ", r: "--"}
 	" separator items
 	let l:sep_i = "/"
 	" length in spaces for separators
@@ -22,14 +22,17 @@ function! Hackline(status) abort
 	" modified flag
 	let l:line .= "%(%M" . l:sep_i . "%)"
 	" buffern number
-	let l:line .= "%(b%{bufnr()}%)"
-	" filetype
-	let l:line .= "%(" . l:sep_i . "%{&filetype}%)"
+	let l:line .= "%(#%{bufnr()}" . l:sep.l . "%)"
 
+	" file path
+	let l:line .= "%(%{hackline#ui#dir#info('xl')}/%)"
 	" filename
-	let l:line .= "%(" . l:sep_i . "%t%)"
+	let l:line .= "%(%t" . l:sep.l . "%)"
+
+	" filetype
+	let l:line .= "%(%{&filetype}" . l:sep_i . "%)"
 	" truncation point
-	let l:line .= " " . l:sep.l . " %<"
+	let l:line .= "%<"
 	" spelllang
 	if l:active && &spell == 1
 		let l:line .= "%(%{&spelllang}" . l:sep_i . "%)"
@@ -59,8 +62,6 @@ function! Hackline(status) abort
 		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
 		" Git
 		let l:line .= hackline#ui#git#info("*")
-		" file path
-		let l:line .= "%(, %{hackline#ui#dir#info('xl')}%)"
 		let l:line .= " " . l:sep.r . " "
 	endif
 	" Cursor position
