@@ -40,6 +40,21 @@ let mapleader=" "
 " Source common vim/nvim config
 source $HOME/.config/nvim/some.vim
 
+" OPTIONS
+set clipboard=unnamed " Sync system clioboard
+set hlsearch " Highlight search matches
+set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
+set undodir=$HOME/.vimundo undofile
+
+" NETRW OPTIONS
+let g:netrw_banner=0 " Remove top banner
+let g:netrw_preview=1 " Vertical preview
+
+" COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
+try | set background=dark | colo lunaperche
+catch | colo slate " for older Vim versions
+endtry
+
 " KEYMAPS
 " Core improve
 nnoremap Y y$
@@ -58,9 +73,15 @@ nn <silent> <leader>gp :packadd vim-fugitive<bar>G pull<cr>
 nn <silent> <leader>gP :packadd vim-fugitive<bar>G push<cr>
 " Easymotions
 let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
-" map s <Plug>(easymotion-s)
 map <Leader>j :packadd vim-easymotion<cr><Plug>(easymotion-j)
 map <Leader>k :packadd vim-easymotion<cr><Plug>(easymotion-k)
+" Codium
+let g:codeium_disable_bindings = 1
+imap <script><silent><nowait><expr> <tab> codeium#Accept()
+imap <script><silent><nowait><expr> <c-f> codeium#Accept()
+imap <c-j>   <cmd>call codeium#CycleCompletions(1)<cr>
+imap <c-k>   <cmd>call codeium#CycleCompletions(-1)<cr>
+imap <c-x>   <cmd>call codeium#Clear()<cr>
 
 " NETRW KEYMAPS
 function! SetNetrwKeymaps() abort
@@ -71,7 +92,6 @@ endfunction
 " LSP KEYMAPS
 function! s:on_lsp_buffer_enabled() abort
 	setlocal omnifunc=lsp#complete
-	setlocal signcolumn=yes
 	if exists("+tagfunc") | setlocal tagfunc=lsp#tagfunc | endif
 	nmap <buffer> gd <plug>(lsp-definition)
 	nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
@@ -82,17 +102,6 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> <c-j> <plug>(lsp-next-diagnostic)
 	nmap <buffer> <leader>lh <plug>(lsp-hover)
 endfunction
-
-" OPTIONS
-set clipboard=unnamed " Sync system clioboard
-set hlsearch " Highlight search matches
-set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
-set signcolumn=yes
-set undodir=$HOME/.vimundo undofile
-
-" NETRW OPTIONS
-let g:netrw_banner=0 " Remove top banner
-let g:netrw_preview=1 " Vertical preview
 
 " AUTO COMMANDS
 aug vim_config | au!
@@ -105,11 +114,6 @@ aug vim_config | au!
 	autocmd filetype netrw call SetNetrwKeymaps()
 augroup END
 
-" COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
-try | set background=dark | colo lunaperche
-catch | colo slate " for older Vim versions
-endtry
-
 " FUZZY EDIT W/FZY
 fu! FuzzyFiles(choice_command, vim_command) abort
 	try | let output = system(a:choice_command . " | fzy ")
@@ -119,13 +123,6 @@ fu! FuzzyFiles(choice_command, vim_command) abort
 		exec a:vim_command . " " . output
 	en
 endf
-
-" CODIUM
-let g:codeium_disable_bindings = 1
-imap <script><silent><nowait><expr> <C-f> codeium#Accept()
-imap <C-j>   <Cmd>call codeium#CycleCompletions(1)<CR>
-imap <C-k>   <Cmd>call codeium#CycleCompletions(-1)<CR>
-imap <C-x>   <Cmd>call codeium#Clear()<CR>
 
 " PLUGINS
 fu! PackInit() abort
