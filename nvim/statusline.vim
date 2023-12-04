@@ -77,7 +77,7 @@ function! Hackline(status) abort
 		let l:line .= l:sep.r
 		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
 		" Git
-		let l:line .= hackline#ui#git#info("*")
+		let l:line .= hackline#ui#git#info(" *")
 	endif
 
 	" End spacing
