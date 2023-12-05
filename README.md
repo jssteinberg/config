@@ -38,9 +38,15 @@ More global fish config from the shell:
 ```fish
 set -Ux FZF_DEFAULT_COMMAND rg --files --hidden --follow
 set -Ux EDITOR "vim"
+# create and save alias
 alias ls "exa"
 funcsave ls
+# to remove
+functions --erase ls
+functions -n
 ```
+
+*You can also use file: .config/fish/config.fish*
 
 ## Neovim >= 0.7
 

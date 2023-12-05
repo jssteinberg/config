@@ -8,9 +8,6 @@ let g:colors_name="nightcool"
 " - `let g:nightcool_statusline="default"` or "black"
 " - `let g:nightcool_treesitter=v:true` or v:false
 "
-" Design: Colorscheme of blue tones with cyan and light green foregrounds.
-" Based on a neon illuminated city-park WC...
-"
 " Supports: treesitter, telescope, fugitive, neo-tree, gitsigns, vim-illuminate, treesitter-context, vim-matchup, winbar
 
 " GROUP NAMES (:h group-name)
@@ -124,8 +121,8 @@ hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d7
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#1a1636
 
 if get(g:, "nightcool_statusline", "default") == "black"
-	hi StatusLine   gui=NONE guibg=#000000 guifg=#ffffff
-	hi StatusLineNC gui=NONE guibg=#000000 guifg=#7d78a1
+	hi StatusLine   gui=underline guibg=#000000 guifg=#ffffff
+	hi StatusLineNC gui=underline guibg=#000000 guifg=#7d78a1
 en
 
 " UI LINKED

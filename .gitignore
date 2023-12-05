@@ -30,3 +30,5 @@ nvim/lua/pack/.DS_Store
 !zellij/
 !zellij/*
 !viebrc
+!wezterm/
+!wezterm/*
