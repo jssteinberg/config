@@ -31,7 +31,12 @@ function! Hackline(status) abort
 	let l:line .= l:sep_i.l
 
 	" buffern number
-	let l:line .= "%(:b%{bufnr()}" . l:sep.l . "%)"
+	let l:line .= "%(:b%{bufnr()}%)"
+
+	" filetype
+	let l:line .= "%(" . l:sep_i.l . "%{&filetype}%)"
+
+	let l:line .= l:sep.l
 
 	" file path
 	let l:line .= "%(%{hackline#ui#dir#info('xl')}/%)"
@@ -59,8 +64,6 @@ function! Hackline(status) abort
 		let l:line .= hackline#ui#nvim_lsp#info("", "LSP", l:sep_l, l:sep_i.r, l:sep.r)
 	endif
 
-	" filetype
-	let l:line .= "&ft=%(%{&filetype}%)" . l:sep_i.r
 	" spelllang
 	if l:active && &spell == 1
 		let l:line .= "%(&spl=%{&spelllang}" . l:sep_i.r . "%)"
