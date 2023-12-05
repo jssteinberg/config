@@ -21,14 +21,11 @@ function! Hackline(status) abort
 	endif
 
 	" Start spacing
-	let l:line .= "  "
-
-	" modified flag
-	let l:line .= "%(%M" . l:sep_i.l . "%)"
-	" commercial
-	let l:line .= has("nvim") ? "Neo" : "Vim"
-
-	let l:line .= l:sep_i.l
+	let l:line .= " "
+	" modified flag, fixed width 1
+	let l:line .= "%1(%M%)"
+	" spacing
+	let l:line .= " "
 
 	" buffern number
 	let l:line .= "%(:b%{bufnr()}%)"
@@ -84,7 +81,7 @@ function! Hackline(status) abort
 	endif
 
 	" End spacing
-	let l:line .= "  "
+	let l:line .= "   "
 
 	return l:line
 endfunction
