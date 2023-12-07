@@ -32,3 +32,5 @@ nvim/lua/pack/.DS_Store
 !viebrc
 !wezterm/
 !wezterm/*
+!alacritty/
+!alacritty/*
