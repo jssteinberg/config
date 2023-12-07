@@ -2,6 +2,7 @@
 set clipboard+=unnamedplus
 set copyindent
 set undofile
+set cursorcolumn
 
 " ALIAS GREP
 " cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'

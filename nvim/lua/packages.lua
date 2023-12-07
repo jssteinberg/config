@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- Handle statusline
-	{ "jssteinberg/hackline.vim", branch = "v4.0.0-0", dependencies = "itchyny/vim-gitbranch" },
+	{ "jssteinberg/hackline.vim",       branch = "v4.0.0-0",         dependencies = "itchyny/vim-gitbranch" },
 	-- Tabs and editorconfig
 	{ "tpope/vim-sleuth" },
 	-- Extend `.` repeat
@@ -25,33 +25,33 @@ require("lazy").setup({
 	-- Indent keymap motions
 	{ "michaeljsmith/vim-indent-object" },
 	-- Measure startup time
-	{ "tweekmonster/startuptime.vim", cmd = "StartupTime" },
+	{ "tweekmonster/startuptime.vim",   cmd = "StartupTime" },
 	-- Colorscheme util
 	-- { "rktjmp/lush.nvim", lazy = false },
-	{ 'echasnovski/mini.colors', version = '*' },
-	{ 'echasnovski/mini.hues', version = '*' },
+	{ "echasnovski/mini.colors",        version = "*" },
+	{ "echasnovski/mini.hues",          version = "*" },
 
 	-- SEARCH/EXPLORE
 
 	-- Improve quickfix window
-	{ "kevinhwang91/nvim-bqf", ft = "qf" },
+	{ "kevinhwang91/nvim-bqf",          ft = "qf" },
 	-- netrw replacement
-	{ "stevearc/oil.nvim", config = require("pack.oil") },
+	{ "stevearc/oil.nvim",              config = require("pack.oil") },
 	-- Terminal handling
 	{ "jssteinberg/termcwd" },
 	-- Fuzzy finder
 	{
-		'echasnovski/mini.pick',
+		"echasnovski/mini.pick",
 		version = false,
 		cmd = "Pick",
 		config = function()
-			local pick = require('mini.pick')
+			local pick = require("mini.pick")
 			pick.setup({
 				source = { show = pick.default_show },
 				mappings = {
-					toggle_preview = '<C-p>',
-					move_down      = '<C-j>',
-					move_up        = '<C-k>',
+					toggle_preview = "<C-p>",
+					move_down      = "<C-j>",
+					move_up        = "<C-k>",
 				},
 			})
 		end
@@ -124,17 +124,18 @@ require("lazy").setup({
 		"github/copilot.vim",
 		event = "InsertEnter",
 		config = function()
+			vim.g.copilot_no_tab_map = true
 			vim.cmd([[
 				imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
-				let g:copilot_no_tab_map = v:true
 			]])
+			-- imap <tab> <Plug>(copilot-accept-word)
 		end
 	},
 
 	-- FORMAT
 	{
-		'stevearc/conform.nvim',
-		cmd = 'Format',
+		"stevearc/conform.nvim",
+		cmd = "Format",
 		config = function()
 			require("conform").setup({
 				formatters_by_ft = {
@@ -219,34 +220,38 @@ require("lazy").setup({
 	},
 
 	-- Illuminate cursor word
-	{ "RRethy/vim-illuminate", event = "CursorHold", config = function()
-		require "illuminate".configure({
-			under_cursor = false,
-			delay = 200,
-			large_file_cutoff = 2000,
-			large_file_overrides = {
-				providers = { "lsp" },
-			},
-			filetype_overrides = {
-				vim = {
-					providers = { "lsp", "regex" }
-				}
-			},
-		})
-	end },
+	{
+		"RRethy/vim-illuminate",
+		event = "CursorHold",
+		config = function()
+			require "illuminate".configure({
+				under_cursor = false,
+				delay = 200,
+				large_file_cutoff = 2000,
+				large_file_overrides = {
+					providers = { "lsp" },
+				},
+				filetype_overrides = {
+					vim = {
+						providers = { "lsp", "regex" }
+					}
+				},
+			})
+		end
+	},
 
 	-- GIT
 
 	-- git wrapper
-	{ "tpope/vim-fugitive", cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit", "Flog", "Flogsplit" } },
+	{ "tpope/vim-fugitive",  cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit", "Flog", "Flogsplit" } },
 
 	-- git log
-	{ "rbong/vim-flog", dependencies = { "tpope/vim-fugitive" }, cmd = "Flog" },
+	{ "rbong/vim-flog",      dependencies = { "tpope/vim-fugitive" },                               cmd = "Flog" },
 
 	-- git blame inline
 	{ "APZelos/blamer.nvim", cmd = "BlamerToggle" }, -- git blame
 
 	-- undo tree
-	{ "mbbill/undotree", cmd = "UndotreeToggle" },
+	{ "mbbill/undotree",     cmd = "UndotreeToggle" },
 
 })
