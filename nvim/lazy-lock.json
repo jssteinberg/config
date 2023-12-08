@@ -1,7 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LuaSnip": { "branch": "master", "commit": "954c81b53989097faaff0fabc11c29575288c3e1" },
-  "alabaster.nvim": { "branch": "main", "commit": "91ef7a3aacd30864d5e0ab1a6a4bcc556c4139d1" },
+  "alabaster.nvim": { "branch": "main", "commit": "ab61b9d3b7398e6c8ebd5207f609c24ebb37ebeb" },
   "blamer.nvim": { "branch": "master", "commit": "e0d43c11697300eb68f00d69df8b87deb0bf52dc" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
@@ -30,7 +30,7 @@
   "oil.nvim": { "branch": "master", "commit": "a173b5776c66a31ce08552677c1eae7ab015835f" },
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "startuptime.vim": { "branch": "master", "commit": "dfa57f522d6f61793fe5fea65bca7484751b8ca2" },
-  "termcwd": { "branch": "main", "commit": "293649fcf5457c6e6208b653619479d7f91898d8" },
+  "termcwd": { "branch": "main", "commit": "981df81c5968beb2e37b045b6d13af533c9c0c3e" },
   "undotree": { "branch": "master", "commit": "36ff7abb6b60980338344982ad4cdf03f7961ecd" },
   "vim-flog": { "branch": "master", "commit": "b6aa1cadbad4ac88f740d1d435aeec754ab3a9c7" },
   "vim-fugitive": { "branch": "master", "commit": "46eaf8918b347906789df296143117774e827616" },
