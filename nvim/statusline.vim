@@ -38,7 +38,10 @@ function! Hackline(status) abort
 	" file path
 	let l:line .= "%(%{hackline#ui#dir#info('xl')}/%)"
 	" filename
-	let l:line .= "%(%t" . l:sep.l . "%)"
+	let l:line .= "%(%t%)"
+
+	let l:line .= l:sep.l
+
 	" Cursor position
 	let l:line .= "%l/%LG-%c"
 
