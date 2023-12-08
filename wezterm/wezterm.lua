@@ -22,8 +22,11 @@ config.send_composed_key_when_left_alt_is_pressed = true
 config.keys = {
 	{ key = 'C', mods = 'SHIFT|CTRL', action = act.CopyTo 'ClipboardAndPrimarySelection' },
 	{ key = 'V', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
+	{ key = 'f', mods = 'SHIFT|CTRL', action = wezterm.action.ToggleFullScreen },
+	{ key = 'v', mods = 'SHIFT|CTRL', action = wezterm.action.SplitPane { direction = 'Right' } },
+	{ key = 'h', mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Left', },
+	{ key = 'l', mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Right', },
 }
-
 return config
 
 -- # Alabaster

@@ -59,7 +59,7 @@ aug last_tab | au! | au TabLeave * let g:last_t = tabpagenr() | aug end
 nn <silent> <leader>C <cmd>exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 
 " Close window or quit
-nnoremap <silent> <leader>c :exe "try\n wincmd q\n catch\n q\n endtry"<cr>
+nnoremap <silent> <leader>c :exe "try\n hide\n catch\n q\n endtry"<cr>
 
 " Resize windows vertically
 nn <leader>+ :vert resize +5<cr>
