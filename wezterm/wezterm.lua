@@ -12,7 +12,7 @@ end
 -- This is where you actually apply your config choices
 -- config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
-config.window_background_opacity = .925
+config.window_background_opacity = .95
 config.font_size = 14
 config.use_dead_keys = false
 config.window_decorations = "RESIZE"
