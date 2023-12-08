@@ -5,7 +5,7 @@ let g:colors_name="nightcool"
 " Options:
 " - `let g:nightcool_bg=v:true` or v:false for `NONE` (transparent)
 " - `let g:nightcool_comments="bold"` or "normal"
-" - `let g:nightcool_statusline="default"` or "black"
+" - `let g:nightcool_statusline="default"` or "underline"
 " - `let g:nightcool_treesitter=v:true` or v:false
 "
 " Supports: treesitter, telescope, fugitive, neo-tree, gitsigns, vim-illuminate, treesitter-context, vim-matchup, winbar
@@ -120,9 +120,9 @@ hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#ff
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1
 hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#1a1636
 
-if get(g:, "nightcool_statusline", "default") == "black"
-	hi StatusLine   gui=underline guibg=#000000 guifg=#ffffff
-	hi StatusLineNC gui=underline guibg=#000000 guifg=#7d78a1
+if get(g:, "nightcool_statusline", "default") == "underline"
+	hi StatusLine   gui=underline guibg=NONE guifg=#ffffff
+	hi StatusLineNC gui=underline guibg=NONE guifg=#7d78a1
 en
 
 " UI LINKED

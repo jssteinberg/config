@@ -30,6 +30,7 @@ require("lazy").setup({
 	-- { "rktjmp/lush.nvim", lazy = false },
 	{ "echasnovski/mini.colors",        version = "*" },
 	{ "echasnovski/mini.hues",          version = "*" },
+	{ "p00f/alabaster.nvim" },
 
 	-- SEARCH/EXPLORE
 
