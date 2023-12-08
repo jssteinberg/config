@@ -1,0 +1,53 @@
+# https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+font:
+  size: 14
+
+# Send ESC (\x1b) before characters when alt is pressed---needed for several non-us keyboards usually
+alt_send_esc: false
+
+window:
+  decorations: buttonless
+  # Opacity use decimal, e.g. .95
+  opacity: 1
+  padding:
+    x: 12
+    y: 16
+
+selection:
+  save_to_clipboard: true
+
+# mouse:
+#   hide_when_typing: true
+
+draw_bold_text_with_bright_colors: true
+
+# Colors
+# somedarkterm1.
+colors:
+  # Default colors
+  primary:
+    # background: '0x0c0a19'
+    background: '0x000000'
+    foreground: '0xe9f5e6'
+
+  # Normal colors
+  normal:
+    black:   '0x1a1636'
+    red:     '0xbc675c'
+    green:   '0x80bc5c'
+    yellow:  '0xbc985c'
+    blue:    '0x5c80bc'
+    magenta: '0x685cbc'
+    cyan:    '0x5cb1bc'
+    white:   '0xafc5c7'
+
+  # Bright colors
+  bright:
+    black:   '0x7d78a1'
+    red:     '0xd8a69f'
+    green:   '0xadd89f'
+    yellow:  '0xd0d89f'
+    blue:    '0x9fb4d8'
+    magenta: '0xa69fd8'
+    cyan:    '0x9fd1d8'
+    white:   '0xe9f5e6'
