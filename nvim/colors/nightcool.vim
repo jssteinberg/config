@@ -168,6 +168,9 @@ hi IlluminatedWordText cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi! link IlluminatedWordRead IlluminatedWordText
 hi! link IlluminatedWordWrite IlluminatedWordText
 
+" copilot.vim
+hi CopilotSuggestion ctermfg=5 guifg=#685cbc
+
 " Neovim terminal colors
 let g:terminal_color_0  = "#1a1636"
 let g:terminal_color_1  = "#bc675c"
