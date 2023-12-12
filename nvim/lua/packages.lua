@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- Handle statusline
-	{ "jssteinberg/hackline.vim",       branch = "v4.0.0-0",         dependencies = "itchyny/vim-gitbranch" },
+	{ "jssteinberg/hackline.vim", branch = "v4.0.0-0", dependencies = "itchyny/vim-gitbranch" },
 	-- Tabs and editorconfig
 	{ "tpope/vim-sleuth" },
 	-- Extend `.` repeat
@@ -25,11 +25,11 @@ require("lazy").setup({
 	-- Indent keymap motions
 	{ "michaeljsmith/vim-indent-object" },
 	-- Measure startup time
-	{ "tweekmonster/startuptime.vim",   cmd = "StartupTime" },
+	{ "tweekmonster/startuptime.vim", cmd = "StartupTime" },
 	-- Colorscheme util
 	-- { "rktjmp/lush.nvim", lazy = false },
-	{ "echasnovski/mini.colors",        version = "*" },
-	{ "echasnovski/mini.hues",          version = "*" },
+	{ "echasnovski/mini.colors", version = "*" },
+	{ "echasnovski/mini.hues", version = "*" },
 	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
 	{ "folke/tokyonight.nvim" },
@@ -37,9 +37,9 @@ require("lazy").setup({
 	-- SEARCH/EXPLORE
 
 	-- Improve quickfix window
-	{ "kevinhwang91/nvim-bqf",          ft = "qf" },
+	{ "kevinhwang91/nvim-bqf", ft = "qf" },
 	-- netrw replacement
-	{ "stevearc/oil.nvim",              config = require("pack.oil") },
+	{ "stevearc/oil.nvim", config = require("pack.oil") },
 	-- Terminal handling
 	{ "jssteinberg/termcwd" },
 	-- Fuzzy finder

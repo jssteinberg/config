@@ -1,5 +1,4 @@
 local wezterm = require "wezterm"
--- require("wezterm.tab_bar_powerline")
 
 local act = wezterm.action
 local config = {}
@@ -49,8 +48,8 @@ config.colors = {
 	},
 
   foreground = '#e9f5e6',
-  -- background = '#0c0a19',
-  background = 'black',
+  background = '#0c0a19',
+  -- background = 'black',
 
   -- Overrides the cell background color when the current cell is occupied by the
   -- cursor and the cursor style is set to Block

@@ -17,4 +17,14 @@ augroup nvim_init
 	autocmd FocusGained,BufEnter * :checktime
 	" Open quickfix window when relevant
 	au QuickFixCmdPost [^l]* cwindow
+	" When new window is opened or close, or when tab is changed
+	autocmd WinEnter * :call s:StatuslineStyle()
 augroup END
+
+function! s:StatuslineStyle() abort
+	let g:nightcool_statusline=winnr('$') == 1 ? "" : "underline"
+
+	if g:colors_name == "nightcool"
+		colo nightcool
+	endif
+endfunction

@@ -3,9 +3,9 @@ set bg=dark
 let g:colors_name="nightcool"
 
 " Options:
-" - `let g:nightcool_bg=v:true` or "black" or v:false for `NONE` (transparent)
-" - `let g:nightcool_comments="bold"` or "normal"
-" - `let g:nightcool_statusline="default"` or "underline" or v:false for `NONE` (transparent)
+" - `let g:nightcool_bg="default" ` or "black" or "" for `NONE` (transparent)
+" - `let g:nightcool_comments="bold"` or "normal" or "dark"
+" - `let g:nightcool_statusline="default"` or "underline" or "" for `NONE` (transparent)
 " - `let g:nightcool_treesitter=v:true` or v:false
 "
 " Supports: treesitter, telescope, fugitive, neo-tree, gitsigns, vim-illuminate, treesitter-context, vim-matchup, winbar
@@ -15,17 +15,19 @@ let g:colors_name="nightcool"
 " Normal
 hi Normal ctermfg=15 guifg=#e9f5e6
 
-if get(g:, "nightcool_bg", v:true) == "black"
+if get(g:, "nightcool_bg", "default") == "black"
 	hi Normal guibg=#000000
-elseif get(g:, "nightcool_bg", v:true)
+elseif get(g:, "nightcool_bg", "default") == "default"
 	hi Normal guibg=#0c0a19
 endif
 
 " Comment
-hi Comment cterm=bold gui=bold ctermfg=8 guifg=#985cbc
+hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
 
-if get(g:, "nightcool_comments", "bold") == "normal"
-	hi Comment cterm=NONE gui=NONE
+if get(g:, "nightcool_comments", "normal") == "bold"
+	hi Comment cterm=bold gui=bold
+elseif get(g:, "nightcool_comments", "normal") == "dark"
+	hi Comment ctermfg=235 guifg=#552c6d
 endif
 
 " General groups
@@ -61,6 +63,10 @@ hi! link cssAttrRegion htmlTagName " to fix selector withing media
 hi! link jsModuleKeyword htmlTagName
 " CSS class like string since classes are string in tags
 hi! link cssClassName String
+" Vim
+hi! link vimCommentTitle Todo
+hi! link vimCommentString Todo
+
 
 " UI
 
@@ -68,10 +74,10 @@ hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
-hi CursorLineNr cterm=NONE gui=bold ctermbg=NONE guibg=#1a1636 ctermfg=13 guifg=#a69fd8
+hi CursorLineNr cterm=NONE gui=bold ctermbg=NONE guibg=#1a1636 ctermfg=13 guifg=#985cbc
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
-hi LineNr ctermfg=8 guifg=#685cbc
+hi LineNr ctermfg=8 guifg=#552c6d
 hi MatchParen cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d guifg=#a69fd8
 hi MatchWord cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
@@ -117,16 +123,18 @@ hi IncSearch cterm=bold,underline gui=NONE ctermbg=241 guibg=#646d2c ctermfg=NON
 hi Search cterm=NONE gui=NONE ctermbg=238 guibg=#2c446d ctermfg=NONE guifg=NONE
 
 " StatusLine and WinSeparator
-hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#ffffff
-hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=8 guifg=#7d78a1
-hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#342c6d
-
-if get(g:, "nightcool_statusline", "default") == "underline"
-	hi StatusLine   gui=underline guibg=NONE guifg=#a69fd8
-	hi StatusLineNC gui=underline guibg=NONE guifg=#685cbc
-elseif get(g:, "nightcool_statusline", "default") == v:false
-	hi StatusLine   guibg=#000000
-	hi StatusLineNC gui=underline guibg=NONE guifg=#685cbc
+hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff
+hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=8 guifg=#7d78a1
+hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#552c6d
+" Statusline "underline"
+if get(g:, "nightcool_statusline", "default") != "default"
+	hi StatusLine   gui=underline guibg=NONE guifg=#985cbc
+	hi StatusLineNC gui=underline guibg=NONE guifg=#552c6d
+en
+" Statusline "" undecorated
+if get(g:, "nightcool_statusline", "default") == ""
+	hi StatusLine   gui=bold
+	hi StatusLineNC gui=NONE
 en
 
 " UI LINKED
