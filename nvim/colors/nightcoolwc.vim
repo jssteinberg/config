@@ -25,7 +25,7 @@ let g:colors_name="nightcoolwc"
 " Based on a neon illuminated city-park WC... `Comment` should be readable
 " (no dimmed grey).
 "
-" Supports: treesitter, telescope, fugitive, neo-tree, gitsigns, vim-illuminate, treesitter-context, vim-matchup, winbar
+" Supports: treesitter, fugitive, vim-illuminate, treesitter-context, vim-matchup, winbar
 "
 " Util:
 " - Disabled/inacive: black#8
@@ -59,13 +59,14 @@ if has("nvim")
 endif
 
 hi Normal ctermfg=7 guifg=#afc5c7
-hi Bold cterm=bold gui=bold
-hi Italic cterm=italic gui=italic
-hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#e9f5e6
 
 if get(g:, "nightcoolwc_bg", v:true)
 	hi Normal guibg=#0c0a19
 endif
+
+hi Bold cterm=bold gui=bold
+hi Italic cterm=italic gui=italic
+hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#e9f5e6
 
 hi clear Conceal
 hi! link Constant Normal

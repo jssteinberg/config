@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
-config.window_background_opacity = .95
+config.window_background_opacity = .9625
 config.font_size = 14.25
 config.use_dead_keys = false
 config.window_decorations = "RESIZE"
@@ -22,6 +22,7 @@ config.use_fancy_tab_bar = false
 -- fix non-US Mac keyboard layout
 config.send_composed_key_when_left_alt_is_pressed = true
 
+config.leader = { key = 'z', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
 	{ key = 'C', mods = 'SHIFT|CTRL', action = act.CopyTo 'ClipboardAndPrimarySelection' },
 	{ key = 'V', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
@@ -31,13 +32,25 @@ config.keys = {
 	{ key = 'l', mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Right', },
 	{ key = '-', mods = 'CTRL', action = wezterm.action.DecreaseFontSize },
 	{ key = '+', mods = 'CTRL', action = wezterm.action.IncreaseFontSize },
+	-- CTRL-a, followed by CTRL-o will switch back to the last active tab
+	{
+		key = 'l',
+		mods = 'LEADER|CTRL',
+		action = wezterm.action.ActivateLastTab,
+	},
 }
 
 config.colors = {
-  -- The default text color
+	tab_bar = {
+		background = 'black',
+		active_tab = { bg_color = 'black', fg_color = '#e9f5e6', },
+		inactive_tab = { bg_color = 'black', fg_color = '#7d78a1', },
+		new_tab = { bg_color = 'black', fg_color = '#e9f5e6', },
+	},
+
   foreground = '#e9f5e6',
-  -- The default background color
-  background = '#0c0a19',
+  -- background = '#0c0a19',
+  background = 'black',
 
   -- Overrides the cell background color when the current cell is occupied by the
   -- cursor and the cursor style is set to Block
@@ -108,32 +121,6 @@ config.colors = {
   quick_select_label_fg = { Color = '#ffffff' },
   quick_select_match_bg = { AnsiColor = 'Navy' },
   quick_select_match_fg = { Color = '#ffffff' },
-}
-
-config.colors = {
-  tab_bar = {
-    -- The color of the strip that goes along the top of the window
-    -- (does not apply when fancy tab bar is in use)
-    background = 'black',
-
-    -- The active tab is the one that has focus in the window
-    active_tab = {
-      -- The color of the background area for the tab
-      bg_color = '#1a1636',
-      -- The color of the text for the tab
-      fg_color = '#e9f5e6',
-    },
-
-    inactive_tab = {
-      bg_color = 'black',
-      fg_color = '#afc5c7',
-    },
-
-    new_tab = {
-      bg_color = 'black',
-      fg_color = '#e9f5e6',
-    },
-  },
 }
 
 return config

@@ -26,6 +26,8 @@ nnoremap <c-e> $
 xnoremap <c-e> $
 nnoremap * /<c-r><c-w><cr>
 nnoremap # ?<c-r><c-w><cr>
+nn n nzz
+nn N Nzz
 
 " Line motions includes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
@@ -45,6 +47,7 @@ nnoremap <silent> <leader>W <cmd>write!<cr>
 nnoremap <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>ed <cmd>wincmd v<bar>wincmd H<bar>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
+nnoremap <leader>et <cmd>wincmd v<bar>wincmd H<bar>e.<cr><cmd>call search(expand("#:t"))<cr>
 nnoremap <leader>tb <cmd>tabedit %<cr>'"
 nnoremap <leader>ew :e **/
 nnoremap <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>
@@ -92,6 +95,7 @@ nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':cope
 
 " Terminal
 nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
+nn <silent> <leader>t<cr> <cmd>call termcwd#tabGet()<cr>
 nn <silent> <leader>1 <cmd>call termcwd#spGet(0,'')<cr>
 
 " No/now (toggle options)

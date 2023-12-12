@@ -30,7 +30,9 @@ require("lazy").setup({
 	-- { "rktjmp/lush.nvim", lazy = false },
 	{ "echasnovski/mini.colors",        version = "*" },
 	{ "echasnovski/mini.hues",          version = "*" },
+	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
+	{ "folke/tokyonight.nvim" },
 
 	-- SEARCH/EXPLORE
 
@@ -72,10 +74,10 @@ require("lazy").setup({
 			require "pack.lsp".config()
 		end
 	},
-	{
-		"hinell/lsp-timeout.nvim",
-		dependencies = { "neovim/nvim-lspconfig" }
-	},
+	-- {
+	-- 	"hinell/lsp-timeout.nvim",
+	-- 	dependencies = { "neovim/nvim-lspconfig" }
+	-- },
 
 	-- LSP and other autocompletion
 	{
@@ -98,18 +100,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- LSP signature
-	-- {
-	-- 	"ray-x/lsp_signature.nvim",
-	-- 	event = "VeryLazy",
-	-- 	opts = {
-	-- 		cfg = {
-	-- 			time_interval = 1000,
-	-- 		}
-	-- 	},
-	-- 	config = function(_, opts) require'lsp_signature'.setup(opts) end
-	-- },
-
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -118,6 +108,14 @@ require("lazy").setup({
 			-- "JoosepAlviste/nvim-ts-context-commentstring",
 		},
 		config = function() require "pack.treesitter".config() end
+	},
+
+	-- Context topbar
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		event = "cursorhold",
+		config = function() require "treesitter-context".setup {} end
 	},
 
 	-- AI code completion

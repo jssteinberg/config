@@ -3,9 +3,9 @@ set bg=dark
 let g:colors_name="nightcool"
 
 " Options:
-" - `let g:nightcool_bg=v:true` or v:false for `NONE` (transparent)
+" - `let g:nightcool_bg=v:true` or "black" or v:false for `NONE` (transparent)
 " - `let g:nightcool_comments="bold"` or "normal"
-" - `let g:nightcool_statusline="default"` or "underline"
+" - `let g:nightcool_statusline="default"` or "underline" or v:false for `NONE` (transparent)
 " - `let g:nightcool_treesitter=v:true` or v:false
 "
 " Supports: treesitter, telescope, fugitive, neo-tree, gitsigns, vim-illuminate, treesitter-context, vim-matchup, winbar
@@ -15,8 +15,10 @@ let g:colors_name="nightcool"
 " Normal
 hi Normal ctermfg=15 guifg=#e9f5e6
 
-if get(g:, "nightcool_bg", v:true)
+if get(g:, "nightcool_bg", v:true) == "black"
 	hi Normal guibg=#000000
+elseif get(g:, "nightcool_bg", v:true)
+	hi Normal guibg=#0c0a19
 endif
 
 " Comment
@@ -27,7 +29,7 @@ if get(g:, "nightcool_comments", "bold") == "normal"
 endif
 
 " General groups
-" hi clear Conceal " is this needed?
+hi clear Conceal
 hi Bold cterm=bold gui=bold
 hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi Italic cterm=italic gui=italic
@@ -52,7 +54,7 @@ hi! link Special Type
 " SPECIFIC SYNTAX GROUPS
 
 hi! link markdownLinkDelimiter Statement
-" HTML elements like Type since CSS treesitter uses that for elements
+" HTML elements like Type since CSS treesitter uses (still?) that for elements
 hi! link htmlTagName Type
 hi! link cssTagName htmlTagName
 hi! link cssAttrRegion htmlTagName " to fix selector withing media
@@ -66,11 +68,10 @@ hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
-hi CursorLineNr cterm=NONE gui=bold ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a69fd8
+hi CursorLineNr cterm=NONE gui=bold ctermbg=NONE guibg=#1a1636 ctermfg=13 guifg=#a69fd8
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
 hi LineNr ctermfg=8 guifg=#685cbc
-hi LineNrBelow ctermfg=8 guifg=#7d78a1
 hi MatchParen cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d guifg=#a69fd8
 hi MatchWord cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
@@ -116,13 +117,16 @@ hi IncSearch cterm=bold,underline gui=NONE ctermbg=241 guibg=#646d2c ctermfg=NON
 hi Search cterm=NONE gui=NONE ctermbg=238 guibg=#2c446d ctermfg=NONE guifg=NONE
 
 " StatusLine and WinSeparator
-hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#ffffff
-hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1
-hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#1a1636
+hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#ffffff
+hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d ctermfg=8 guifg=#7d78a1
+hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#342c6d
 
 if get(g:, "nightcool_statusline", "default") == "underline"
-	hi StatusLine   gui=underline guibg=NONE guifg=#ffffff
-	hi StatusLineNC gui=underline guibg=NONE guifg=#7d78a1
+	hi StatusLine   gui=underline guibg=NONE guifg=#a69fd8
+	hi StatusLineNC gui=underline guibg=NONE guifg=#685cbc
+elseif get(g:, "nightcool_statusline", "default") == v:false
+	hi StatusLine   guibg=#000000
+	hi StatusLineNC gui=underline guibg=NONE guifg=#685cbc
 en
 
 " UI LINKED
@@ -180,14 +184,14 @@ if has("nvim-0.8") && get(g:, "nightcool_treesitter", v:true)
 endif
 
 " bg #0c0a19 fg #afc5c7
-" black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d
+" black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d black #000000
 " red#1     #bc675c red#9      #d8a69f dark_red_bg #361a16
 " green#2   #80bc5c green#10   #add89f
 " yellow#3  #bc985c yellow#11  #d0d89f yellow_bg #646d2c
 " blue#4    #5c80bc blue#12    #9fb4d8 blue_bg   #2c446d
 " magenta#5 #685cbc magenta#13 #a69fd8
 " cyan#6    #5cb1bc cyan#14    #9fd1d8
-" white#7   #afc5c7 white#15   #e9f5e6
+" white#7   #afc5c7 white#15   #e9f5e6 white #ffffff
 " ---
 " violet    #985cbc violet_2   #c39fd8 violet_bg #552c6d
 "
