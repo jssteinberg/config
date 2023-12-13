@@ -36,9 +36,21 @@ require("lazy").setup({
 
 	-- SEARCH/EXPLORE
 
-	-- Improve quickfix window
+	-- Tree viewer
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+		},
+		cmd = "Neotree",
+		config = require("pack.neo-tree"),
+	},
+	-- Quickfix window improvements
 	{ "kevinhwang91/nvim-bqf", ft = "qf" },
-	-- netrw replacement
+	-- Netrw replacement
 	{ "stevearc/oil.nvim", config = require("pack.oil") },
 	-- Terminal handling
 	{ "jssteinberg/termcwd" },
@@ -121,7 +133,7 @@ require("lazy").setup({
 	-- AI code completion
 	{
 		"github/copilot.vim",
-		event = "InsertEnter",
+		event = "VimEnter",
 		config = function()
 			vim.g.copilot_no_tab_map = true
 			vim.cmd([[

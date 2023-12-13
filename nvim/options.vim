@@ -22,7 +22,9 @@ augroup nvim_init
 augroup END
 
 function! s:StatuslineStyle() abort
-	let g:nightcool_statusline=winnr('$') == 1 ? "" : "underline"
+	let g:nightcool_statusline = winnr('$') != 1 && &laststatus != 3
+				\ ? "underline"
+				\ : ""
 
 	if g:colors_name == "nightcool"
 		colo nightcool

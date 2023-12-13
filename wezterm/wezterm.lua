@@ -11,7 +11,8 @@ end
 
 -- This is where you actually apply your config choices
 config.window_background_opacity = .9625
-config.font_size = 14.25
+config.font_size = 14
+config.line_height = 1.1
 config.use_dead_keys = false
 config.window_decorations = "RESIZE"
 -- tab bar
@@ -48,8 +49,8 @@ config.colors = {
 	},
 
   foreground = '#e9f5e6',
-  background = '#0c0a19',
-  -- background = 'black',
+  -- background = '#0c0a19',
+  background = 'black',
 
   -- Overrides the cell background color when the current cell is occupied by the
   -- cursor and the cursor style is set to Block
