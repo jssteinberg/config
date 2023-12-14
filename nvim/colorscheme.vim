@@ -1,7 +1,8 @@
 let s:d = "set bg=dark termguicolors t_Co=256"
 			\." | let g:nightcool_bg=''"
-			\." | let g:nightcool_statusline=''"
+			\." | let g:nightcool_statusline='underline'"
 			\." | colo nightcool"
+			\." | hi CursorColumn ctermbg=0 guibg=#0c0a19"
 
 let s:l = "set bg=light termguicolors t_Co=256"
 			\." | colo lunaperche"

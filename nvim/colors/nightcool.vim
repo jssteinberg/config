@@ -31,7 +31,7 @@ elseif get(g:, "nightcool_comments", "normal") == "dark"
 endif
 
 " General groups
-" hi clear Conceal
+" hi clear Conceal " seems to break stuff when set
 hi Bold cterm=bold gui=bold
 hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi Italic cterm=italic gui=italic

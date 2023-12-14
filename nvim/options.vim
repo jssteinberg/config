@@ -18,7 +18,7 @@ augroup nvim_init
 	" Open quickfix window when relevant
 	au QuickFixCmdPost [^l]* cwindow
 	" When new window is opened or close, or when tab is changed
-	autocmd WinEnter * :call s:StatuslineStyle()
+	" autocmd WinEnter * :call s:StatuslineStyle()
 augroup END
 
 function! s:StatuslineStyle() abort

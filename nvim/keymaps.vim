@@ -6,6 +6,8 @@ nnoremap <silent> <leader>nc :call NowColo()<cr>
 
 " PACKAGE/PLUGIN MAPPINGS
 
+nn <leader>et :Neotree<cr>
+
 " Fuzzy finder
 nnoremap <leader>ff :Pick files<cr>
 nnoremap <leader>fb :Pick buffers<cr>
@@ -32,7 +34,6 @@ nn gx <cmd>OpenURLFind<cr>
 vn gx y:OpenSearchURL duckduckgo <c-r>"<cr>
 
 " Hop
-" noremap s <cmd>HopChar1<cr>
 noremap <leader>j <cmd>HopVertical<cr>
 noremap <leader>k <cmd>HopVertical<cr>
 

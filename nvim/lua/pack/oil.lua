@@ -8,20 +8,27 @@ return function()
 		require("oil").open()
 		vim.cmd("call search('" .. vim.fn.expand("#:t") .. "')")
 	end, { desc = "Vertical split open parent dir" })
-	vim.keymap.set("n", "<leader>et", function()
-		vim.cmd[[
-			wincmd v
-			wincmd H
-		]]
-		require("oil").open(".")
-		vim.cmd("call search('" .. vim.fn.expand("#:t") .. "')")
-	end, { desc = "Vertical split open CWD" })
+	-- vim.keymap.set("n", "<leader>et", function()
+	-- 	vim.cmd[[
+	-- 		wincmd v
+	-- 		wincmd H
+	-- 	]]
+	-- 	require("oil").open(".")
+	-- 	vim.cmd("call search('" .. vim.fn.expand("#:t") .. "')")
+	-- end, { desc = "Vertical split open CWD" })
 
 	require "oil".setup({
 		use_default_keymaps = false,
 		view_options = {
-			-- Show files and directories that start with "."
 			show_hidden = true,
+			is_always_hidden = function(name, bufnr)
+				return vim.startswith(name, ".DS_Store")
+			end,
+		},
+		columns = {
+			-- "permissions",
+			"size",
+			"mtime",
 		},
 		keymaps = {
 			["g?"] = "actions.show_help",
