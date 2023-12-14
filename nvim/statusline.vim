@@ -15,15 +15,17 @@ function! Hackline(status) abort
 
 	" set statusline default color
 	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
-	" set mode style
-	if l:active && mode() != "n"
-		let l:line .= s:ShowMode()
-	endif
 
 	" Start spacing
 	let l:line .= " "
-	" modified flag, fixed width 1
-	let l:line .= "%1(%M%)"
+
+	if l:active && mode() != "n"
+		let l:line .= "%1(%{StatuslineModeLabels()}%)"
+	else
+		" modified flag, fixed width 1
+		let l:line .= "%1(%M%)"
+	endif
+
 	" spacing
 	let l:line .= " "
 
@@ -87,7 +89,17 @@ function! Hackline(status) abort
 	return l:line
 endfunction
 
-function! s:ShowMode(sep_l = "", sep_r = "") abort
+function! StatuslineModeLabels(sep_l = "", sep_r = "") abort
+	if mode() == "i"     | return "I"
+	elseif mode() == "c" | return "C"
+	elseif mode() == "t" | return "T"
+	elseif mode() == "r" | return "R"
+	elseif mode() == "s" | return "S"
+	else                 | return "V"
+	endif
+endfunction
+
+function! s:ModeHis(sep_l = "", sep_r = "") abort
 	if mode() == "i"     | return "%#IncSearch#"
 	elseif mode() == "c" | return "%#IncSearch#"
 	elseif mode() == "t" | return "%#IncSearch#"

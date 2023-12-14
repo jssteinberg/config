@@ -12,7 +12,7 @@ runtime some.vim
 runtime options.vim
 runtime keymaps.vim
 runtime colorscheme.vim
-" runtime statusline.vim
+runtime statusline.vim
 
 if exists("g:neovide")
 	runtime neovide.vim
