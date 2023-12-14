@@ -71,7 +71,8 @@ hi! link vimCommentString Todo
 
 hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
-hi CursorColumn ctermbg=0 guibg=#1a1636
+" hi CursorColumn ctermbg=0 guibg=#1a1636
+hi CursorColumn ctermbg=0 guibg=#0c0a19"
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
 hi CursorLineNr cterm=NONE gui=bold ctermbg=NONE guibg=#1a1636 ctermfg=13 guifg=#985cbc
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
@@ -171,8 +172,6 @@ hi! link IlluminatedWordWrite IlluminatedWordText
 hi CopilotSuggestion ctermfg=5 guifg=#685cbc
 
 " neo-tree
-hi NeoTreeNormal guibg=#0c0a19
-hi! link NeoTreeNormalNC NeoTreeNormal
 hi NeoTreeDotfile guifg=#7d78a1
 hi! link NeoTreeGitAdded diffAdded
 hi! link NeoTreeGitModified WarningMsg
