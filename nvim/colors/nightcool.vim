@@ -83,10 +83,11 @@ hi MatchWord cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
 hi Pmenu ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
+hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afc5c7
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8
 hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#552c6d
 hi TabLineFill cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1 " link breaks in Vim 9.0
-hi TabLineSel cterm=NONE gui=underline ctermbg=0 guibg=NONE ctermfg=7 guifg=#985cbc
+hi TabLineSel cterm=NONE gui=bold ctermbg=0 guibg=NONE ctermfg=7 guifg=#985cbc
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=NONE gui=bold ctermfg=13 guifg=#985cbc
@@ -146,7 +147,6 @@ hi! link DiagnosticUnderlineInfo DiagnosticUnderlineHint
 hi! link ErrorMsg Error
 hi! link ModeMsg Title
 hi! link MoreMsg Bold
-hi! link PmenuSel TabLineSel " Pmenu affects some floating windows
 hi! link PmenuSbar Pmenu " Pmenu affects some floating windows
 hi! link Question Bold
 hi! link QuickFixLine Visual
