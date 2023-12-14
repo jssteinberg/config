@@ -5,16 +5,16 @@ return function()
 	require("neo-tree").setup({
 		default_component_configs = {
 			indent = {
-				-- indent guides
+				expander_collapsed = "·",
+				expander_expanded = " ",
+				-- Indent guides
 				with_markers = true,
 				-- indent_marker = "·",
 				-- last_indent_marker = "·",
-				expander_collapsed = "·",
-				expander_expanded = " ",
 			},
 			icon = {
 				folder_closed = "·",
-				folder_open = " ",
+				folder_open = "-",
 				folder_empty = " ",
 				default = " ",
 			},
@@ -39,38 +39,38 @@ return function()
 				["s"] = "none",
 				["S"] = "none",
 				["<bs>"] = "none",
-				["m"] = "none",
 				["<space>"] = "none",
-
 				["<2-LeftMouse>"] = "open",
-				["<cr>"] = "open",
 				["l"] = "open",
-				["o"] = "open_split",
+				["<c-s>"] = "open_split",
 				["v"] = "open_vsplit",
-				["P"] = "vsplit_with_window_picker",
-				["p"] = { "toggle_preview", config = { use_float = false } },
+				["<c-p>"] = { "toggle_preview", config = { use_float = false } },
 				["h"] = "close_node",
 				["-"] = "navigate_up",
-				["cd"] = "set_root",
+				["<cr>"] = "set_root",
 				["gh"] = "toggle_hidden",
 				["<c-l>"] = "refresh",
-				["f"] = "fuzzy_finder",
+				["ff"] = "fuzzy_finder",
 				["<c-x>"] = "clear_filter",
-				["%"] = "add",
-				["d"] = "add",
+				["o"] = "add",
+				["O"] = "add",
 				["D"] = "delete",
 				["R"] = "rename",
-				["mc"] = "copy_to_clipboard",
-				["mm"] = "cut_to_clipboard",
-				["mt"] = "paste_from_clipboard",
+				["yy"] = "copy_to_clipboard",
+				["dd"] = "cut_to_clipboard",
+				["p"] = "paste_from_clipboard",
 				["q"] = "close_window",
-
-				["Y"] = "copy",
+				["m"] = "copy",
+				['e'] = function() vim.api.nvim_exec('Neotree focus filesystem left', true) end,
+				['b'] = function() vim.api.nvim_exec('Neotree focus buffers left', true) end,
+				['g'] = function() vim.api.nvim_exec('Neotree focus git_status left', true) end,
 			}
 		},
 		filesystem = {
 			bind_to_cwd = false, -- true creates a 2-way binding between vim's cwd and neo-tree's root
-			follow_current_file = true,
+			follow_current_file = {
+				enabled = true,
+			},
 			filtered_items = {
 				hide_dotfiles = false,
 				hide_gitignored = false,

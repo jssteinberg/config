@@ -3,7 +3,7 @@ set bg=dark
 let g:colors_name="nightcool"
 
 " Options:
-" - `let g:nightcool_bg="default" ` or "black" or "" for `NONE` (transparent)
+" - `let g:nightcool_bg="default" ` or "" for `NONE` (transparent)
 " - `let g:nightcool_comments="bold"` or "normal" or "dark"
 " - `let g:nightcool_statusline="default"` or "underline" or "" for `NONE` (transparent)
 " - `let g:nightcool_treesitter=v:true` or v:false
@@ -13,12 +13,11 @@ let g:colors_name="nightcool"
 " GROUP NAMES (:h group-name)
 
 " Normal
-hi Normal ctermfg=15 guifg=#e9f5e6
+hi Normal ctermfg=15 guibg=#000000 guifg=#e9f5e6
+" hi Normal guibg=#0c0a19
 
-if get(g:, "nightcool_bg", "default") == "black"
-	hi Normal guibg=#000000
-elseif get(g:, "nightcool_bg", "default") == "default"
-	hi Normal guibg=#0c0a19
+if get(g:, "nightcool_bg", "default") == ""
+	hi Normal guibg=NONE
 endif
 
 " Comment
@@ -125,7 +124,7 @@ hi Search cterm=NONE gui=NONE ctermbg=238 guibg=#2c446d ctermfg=NONE guifg=NONE
 " StatusLine and WinSeparator
 hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=8 guifg=#7d78a1
-hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#552c6d
+hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#342c6d
 " Statusline "underline"
 if get(g:, "nightcool_statusline", "default") != "default"
 	hi StatusLine   gui=underline guibg=NONE guifg=#985cbc
@@ -171,6 +170,13 @@ hi! link IlluminatedWordWrite IlluminatedWordText
 " copilot.vim
 hi CopilotSuggestion ctermfg=5 guifg=#685cbc
 
+" neo-tree
+hi NeoTreeNormal guibg=#0c0a19
+hi! link NeoTreeNormalNC NeoTreeNormal
+hi NeoTreeDotfile guifg=#7d78a1
+hi! link NeoTreeGitAdded diffAdded
+hi! link NeoTreeGitModified WarningMsg
+
 " Neovim terminal colors
 let g:terminal_color_0  = "#1a1636"
 let g:terminal_color_1  = "#bc675c"
@@ -194,7 +200,7 @@ if has("nvim-0.8") && get(g:, "nightcool_treesitter", v:true)
 	lua require("nightcool.treesitter")
 endif
 
-" bg #0c0a19 fg #afc5c7
+" bg #000000 fg #e9f5e6 bg_2 #0c0a19
 " black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d black #000000
 " red#1     #bc675c red#9      #d8a69f dark_red_bg #361a16
 " green#2   #80bc5c green#10   #add89f

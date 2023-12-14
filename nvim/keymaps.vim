@@ -7,6 +7,8 @@ nnoremap <silent> <leader>nc :call NowColo()<cr>
 " PACKAGE/PLUGIN MAPPINGS
 
 nn <leader>et :Neotree<cr>
+nn <leader><leader> :Neotree action=show toggle=true<cr>
+nn <leader>e. :Neotree position=current reveal<cr>
 
 " Fuzzy finder
 nnoremap <leader>ff :Pick files<cr>
