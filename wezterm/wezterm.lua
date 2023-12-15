@@ -1,16 +1,11 @@
 local wezterm = require "wezterm"
-
 local act = wezterm.action
 local config = {}
+if wezterm.config_builder then config = wezterm.config_builder() end
 
--- In newer versions of wezterm, use the config_builder which will
--- help provide clearer error messages
-if wezterm.config_builder then
-	config = wezterm.config_builder()
-end
+-- CONFIG OPTIONS
 
--- This is where you actually apply your config choices
-config.window_background_opacity = .9625
+-- config.window_background_opacity = .9625
 config.font_size = 14
 config.line_height = 1.1
 config.use_dead_keys = false
