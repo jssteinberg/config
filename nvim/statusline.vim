@@ -90,12 +90,12 @@ function! Hackline(status) abort
 endfunction
 
 function! StatuslineModeLabels(sep_l = "", sep_r = "") abort
-	if mode() == "i"     | return "I"
-	elseif mode() == "c" | return "C"
-	elseif mode() == "t" | return "T"
-	elseif mode() == "r" | return "R"
-	elseif mode() == "s" | return "S"
-	else                 | return "V"
+	if mode() == "i"     | return "i"
+	elseif mode() == "c" | return "c"
+	elseif mode() == "t" | return "t"
+	elseif mode() == "r" | return "r"
+	elseif mode() == "s" | return "s"
+	else                 | return "v"
 	endif
 endfunction
 

@@ -74,6 +74,8 @@ require("lazy").setup({
 
 	-- CODE ANALYZES/COMPLETION
 
+	{ "pechorin/any-jump.vim", cmd = { "AnyJump", "AnyJumpVisual" } },
+
 	-- LSP
 	{
 		"neovim/nvim-lspconfig",
