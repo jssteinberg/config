@@ -54,9 +54,17 @@ nnoremap <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>
 nnoremap <leader>ep <cmd>e package.json<cr>
 nnoremap <leader>er <cmd>e README.md<cr>
 
-" Go to last used tab
-nn gl <cmd>exe "try\n exe 'tabn'.g:last_t\n catch\n tabp\n endtry"<cr>
-aug last_tab | au! | au TabLeave * let g:last_t = tabpagenr() | aug end
+" Go to tab B
+nn gl <cmd>call GoToTabB()<cr>
+" store tabB
+aug tabB | au! | au TabLeave * let g:tabB = tabpagenr() | aug end
+" fn go to g:last_t if an existing tab, else go to prev tab
+function! GoToTabB() abort
+	try | if g:tabB != tabpagenr()
+		exe "tabn" . g:tabB | return
+	end | catch | endtry
+	exe "tabp"
+endfunction
 
 " Close tab or quit all
 nn <silent> <leader>C <cmd>exe "try\n tabclose\n catch\n qa\n endtry"<cr>
