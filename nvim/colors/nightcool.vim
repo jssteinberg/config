@@ -174,6 +174,7 @@ hi! link IlluminatedWordWrite IlluminatedWordText
 hi CopilotSuggestion ctermfg=5 guifg=#685cbc
 
 " neo-tree
+hi NeoTreeDimText guifg=#685cbc
 hi NeoTreeDotfile guifg=#7d78a1
 hi! link NeoTreeGitAdded diffAdded
 hi! link NeoTreeGitModified WarningMsg
