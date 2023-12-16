@@ -33,8 +33,6 @@ require("lazy").setup({
 	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
 	{ "folke/tokyonight.nvim" },
-	-- Filetypes
-	{ "wuelnerdotexe/vim-astro" },
 
 	-- SEARCH/EXPLORE
 
