@@ -66,7 +66,7 @@ function! Hackline(status) abort
 
 	" spelllang
 	if l:active && &spell == 1
-		let l:line .= "%(&spl=%{&spelllang}" . l:sep_i.r . "%)"
+		let l:line .= "%(spl=%{&spelllang}" . l:sep_i.r . "%)"
 	endif
 	" tabs/spaces
 	let l:line .= "%(%{hackline#ui#tab#info('min')}" . l:sep_i.r . "%)"
