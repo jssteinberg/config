@@ -50,7 +50,7 @@ functions -n
 
 *You can also use file: .config/fish/config.fish*
 
-## Neovim >= 0.7
+## Neovim
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing. Uncomplicated config for dummies hacking (author included).
 
@@ -65,7 +65,7 @@ Install Neovim >= 0.8.0 (needs to be built with LuaJIT), fzf, ripgrep, fd, bat, 
 
 ## Vim 8 +lua
 
-A simple Vim config---could be a single vimrc. It can be used as a boilerplate and works without plugins. It gives no errors on missing plugins unless keymaps/commands requiring plugins are used. Requries:
+A Vim config that works without plugins. It gives no errors on missing plugins unless keymaps/commands requiring plugins are used. Requries:
 
 - Vim >= version 8 +lua.
 - Package managing with [minpac](https://github.com/k-takata/minpac)
@@ -79,6 +79,7 @@ brew update && brew upgrade
 fisher update
 npm -g update
 npm -g outdate
+npm -g i …@latest
 ```
 
 Explicitly install outdated global NPM packages not automatically updated.
@@ -86,7 +87,8 @@ Explicitly install outdated global NPM packages not automatically updated.
 Neovim:
 
 ```
-:PackerSync<cr>
+:Lazy<cr>
+S
 :TSUpdate<cr>
 :Mason<cr>
 U
@@ -100,11 +102,7 @@ U
 	set -gx  LC_ALL en_US.UTF-8
 	```
 
-- Neovim packer errors on launch:
-
-	1. (Re)launch Neovim, `nvim`
-	2. `:PackerSync`.
-	3. Restart neovim, repeat.
+- Neovim: restart, see Maintenance. `:checkhealth<cr>`
 
 - Neovim Treesitter "missing xcrun" for Macos: `xcode-select --install`
 
