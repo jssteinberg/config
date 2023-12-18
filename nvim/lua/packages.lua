@@ -259,7 +259,7 @@ require("lazy").setup({
 	{ "tpope/vim-fugitive",  cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit", "Flog", "Flogsplit" } },
 
 	-- git log
-	{ "rbong/vim-flog",      dependencies = { "tpope/vim-fugitive" },                               cmd = "Flog" },
+	{ "rbong/vim-flog", dependencies = { "tpope/vim-fugitive" }, cmd = "Flog" },
 
 	-- git blame inline
 	{ "APZelos/blamer.nvim", cmd = "BlamerToggle" }, -- git blame
