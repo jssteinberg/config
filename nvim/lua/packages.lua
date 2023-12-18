@@ -67,6 +67,8 @@ require("lazy").setup({
 					toggle_preview = "<C-p>",
 					move_down      = "<C-j>",
 					move_up        = "<C-k>",
+					mark_all       = "<C-a>",
+					choose_marked  = "<C-q>",
 				},
 			})
 		end

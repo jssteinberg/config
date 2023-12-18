@@ -164,6 +164,7 @@ hi! link FoldColumn Folded
 
 " mini.pick
 hi! link MiniPickNormal Normal
+hi! link MiniPickMatchCurrent PmenuSel
 
 " illuminate.vim
 hi IlluminatedWordText cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
