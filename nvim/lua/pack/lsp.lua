@@ -38,20 +38,20 @@ end
 M.config = function()
 	local lspconfig = require("lspconfig")
 	local mason_lspconfig = require("mason-lspconfig")
-	-- local lsp_format = require("lsp-format")
+	local lsp_format = require("lsp-format")
 	local on_attach_general = function(client, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	end
 	local max_client = function(client, bufnr)
 		M.register_keymaps(client, bufnr)
-		-- lsp_format.on_attach(client, bufnr)
+		lsp_format.on_attach(client, bufnr)
 	end
 
 	require("mason").setup({})
 
 	mason_lspconfig.setup({})
 
-	-- lsp_format.setup({})
+	lsp_format.setup({})
 
 	mason_lspconfig.setup_handlers {
 		function(server_name) -- default handler (optional)
@@ -61,9 +61,6 @@ M.config = function()
 		end,
 		["unocss"] = function()
 			lspconfig.unocss.setup {
-				-- on_attach = function(client, bufnr)
-				-- 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-				-- end,
 				filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte",
 					"vue", "astro" },
 			}
@@ -106,7 +103,11 @@ M.config = function()
 		end,
 		["lua_ls"] = function()
 			lspconfig.lua_ls.setup {
-				on_attach = max_client,
+				-- on_attach = max_client,
+				on_attach = function(client, bufnr)
+					M.register_keymaps(client, bufnr)
+					vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+				end,
 				settings = {
 					Lua = {
 						diagnostics = {

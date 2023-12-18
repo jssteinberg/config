@@ -84,16 +84,12 @@ require("lazy").setup({
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			-- "lukas-reineke/lsp-format.nvim",
+			"lukas-reineke/lsp-format.nvim",
 		},
 		config = function()
 			require "pack.lsp".config()
 		end
 	},
-	-- {
-	-- 	"hinell/lsp-timeout.nvim",
-	-- 	dependencies = { "neovim/nvim-lspconfig" }
-	-- },
 
 	-- LSP and other autocompletion
 	{
@@ -144,37 +140,6 @@ require("lazy").setup({
 				imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
 			]])
 			-- imap <tab> <Plug>(copilot-accept-word)
-		end
-	},
-
-	-- FORMAT
-	{
-		"stevearc/conform.nvim",
-		cmd = "Format",
-		config = function()
-			require("conform").setup({
-				formatters_by_ft = {
-					lua = { "stylua" },
-					-- Conform will run multiple formatters sequentially
-					python = { "isort", "black" },
-					-- Use a sub-list to run only the first available formatter
-					javascript = { { "prettierd", "prettier" } },
-					typescript = { { "prettierd", "prettier" } },
-					svelte = { { "prettierd", "prettier" } },
-				},
-			})
-
-			vim.api.nvim_create_user_command("Format", function(args)
-				local range = nil
-				if args.count ~= -1 then
-					local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-					range = {
-						start = { args.line1, 0 },
-						["end"] = { args.line2, end_line:len() },
-					}
-				end
-				require("conform").format({ async = true, lsp_fallback = true, range = range })
-			end, { range = true })
 		end
 	},
 
