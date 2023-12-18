@@ -23,14 +23,15 @@ config.keys = {
 	{ key = 'V', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
 	{ key = 'f', mods = 'SHIFT|CTRL', action = wezterm.action.ToggleFullScreen },
 	{ key = 'v', mods = 'SHIFT|CTRL', action = wezterm.action.SplitPane { direction = 'Right' } },
-	{ key = 'h', mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Left', },
-	{ key = 'l', mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Right', },
+	{ key = 's', mods = 'SHIFT|CTRL', action = wezterm.action.SplitPane { direction = 'Down' } },
+	{ key = 'h', mods = 'LEADER|CTRL', action = act.ActivatePaneDirection 'Left', },
+	{ key = 'l', mods = 'LEADER|CTRL', action = act.ActivatePaneDirection 'Right', },
 	{ key = '-', mods = 'CTRL', action = wezterm.action.DecreaseFontSize },
 	{ key = '+', mods = 'CTRL', action = wezterm.action.IncreaseFontSize },
 	-- CTRL-a, followed by CTRL-o will switch back to the last active tab
 	{
 		key = 'l',
-		mods = 'LEADER|CTRL',
+		mods = 'SHIFT|CTRL',
 		action = wezterm.action.ActivateLastTab,
 	},
 }
