@@ -54,18 +54,6 @@ nnoremap <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>
 nnoremap <leader>ep <cmd>e package.json<cr>
 nnoremap <leader>er <cmd>e README.md<cr>
 
-" Go to tab B
-nn gl <cmd>call GoToTabB()<cr>
-" store tabB
-aug tabB | au! | au TabLeave * let g:tabB = tabpagenr() | aug end
-" fn go to g:last_t if an existing tab, else go to prev tab
-function! GoToTabB() abort
-	try | if g:tabB != tabpagenr()
-		exe "tabn" . g:tabB | return
-	end | catch | endtry
-	exe "tabp"
-endfunction
-
 " Close tab or quit all
 nn <silent> <leader>C <cmd>exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 
@@ -83,18 +71,6 @@ vnoremap <leader>R "ry:%s/<c-r>r/
 " Substitute in [buffer, selection]
 nnoremap <leader>S :%s/
 vnoremap <leader>S :s/
-
-" Grep [args, selection]
-nnoremap <leader>G :silent! grep!<space>
-vnoremap <leader>G "gy<cr>:silent! grep! -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
-
-" Grep reference [word, selection]
-nnoremap gr "gyiw<cr>:silent! grep! -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
-vnoremap gr "gy<cr>:silent! grep! -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>
-
-" Grep substitute [word, selection]
-nnoremap gs "gyiw<cr>:silent! grep! -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
-vnoremap gs "gy<cr>:silent! grep! -e "<c-r>=escape('<c-r>g', '#')<cr>"<cr><c-l>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 
 " Quickfix [next, previous, toggle]
 nnoremap Q :exe "cnext\n setlocal scrolloff=" . g:config_scrolloff<cr>
@@ -126,6 +102,18 @@ nn <leader>ps :mks! ~/.vs/
 " load session
 nn <leader>po :source ~/.vs/*
 
+" Go to tab B
+nn gl <cmd>call GoToTabB()<cr>
+" store tabB
+aug tabB | au! | au TabLeave * let g:tabB = tabpagenr() | aug end
+" fn go to g:last_t if an existing tab, else go to prev tab
+function! GoToTabB() abort
+	try | if g:tabB != tabpagenr()
+		exe "tabn" . g:tabB | return
+	end | catch | endtry
+	exe "tabp"
+endfunction
+
 " SPACE CONFIRMS - maps to cmdline that are confirmed with <space>
 " Setup:
 " <space> is enter key in command mode if `space_confirms`
@@ -142,6 +130,35 @@ xn s <cmd>let g:space_confirms=1<cr>/
 nn S <cmd>let g:space_confirms=1<cr>?
 " switch buffer in normal mode
 nn <leader><tab> <cmd>let g:space_confirms=1<cr>:buffer <c-z>
+
+" Grep [args, selection]
+nnoremap <leader>G :silent grep -e ""<left>
+vnoremap <leader>G <cmd>call RgVisual()<cr>
+
+" Grep reference [word, selection]
+nnoremap gr <cmd>call Rg()<cr>
+vmap gr <leader>G
+
+" Grep substitute [word, selection]
+nnoremap gs :call Rg()<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
+vnoremap gs :call RgVisual()<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
+
+function! Rg() abort
+	normal! "gyiw
+	call s:RgG()
+endfunction
+
+function! RgVisual() abort
+	normal! "gy
+	call s:RgG()
+endfunction
+
+function! s:RgG() abort
+	let l:q = escape(@g, "'")
+	exe "silent grep -e '" . l:q . "'"
+	redraw!
+	echo l:q
+endfunction
 
 " OPTIONS - in approx. order of importance
 

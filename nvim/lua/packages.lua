@@ -16,8 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- Handle statusline
-	{ "jssteinberg/hackline.vim",       branch = "v4.0.0-0", dependencies = "itchyny/vim-gitbranch" },
 	-- Tabs and editorconfig
 	{ "tpope/vim-sleuth" },
 	-- Extend `.` repeat
@@ -32,7 +30,13 @@ require("lazy").setup({
 	{ "echasnovski/mini.hues",          version = "*" },
 	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
-	{ "folke/tokyonight.nvim" },
+
+	-- Handle statusline
+	{
+		"jssteinberg/hackline.vim",
+		branch = "v4.0.0-0",
+		dependencies = "itchyny/vim-gitbranch"
+	},
 
 	-- SEARCH/EXPLORE
 
