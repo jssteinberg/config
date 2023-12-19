@@ -107,6 +107,7 @@ nn <silent> <leader>t<cr> <cmd>call termcwd#tabGet()<cr>
 nn <silent> <leader>1 <cmd>call termcwd#spGet(0,'')<cr>
 
 " No/now (toggle options)
+" TODO: handle other spelllang like nb
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<bar>set spelllang=en_us<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 nnoremap <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'

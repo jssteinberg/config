@@ -124,6 +124,9 @@ fu! FuzzyFiles(choice_command, vim_command) abort
 	en
 endf
 
+" TERMINAL
+let g:termcwd_split_full_bottom = v:true
+
 " PLUGINS
 fu! PackInit() abort
 	packadd minpac
