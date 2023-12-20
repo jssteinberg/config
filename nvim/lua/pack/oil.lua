@@ -1,35 +1,16 @@
 return function()
 	vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 	vim.keymap.set("n", "<leader>ed", function()
-		vim.cmd[[
+		vim.cmd [[
 			wincmd v
 			wincmd H
 		]]
 		require("oil").open()
 		vim.cmd("call search('" .. vim.fn.expand("#:t") .. "')")
 	end, { desc = "Vertical split open parent dir" })
-	-- vim.keymap.set("n", "<leader>et", function()
-	-- 	vim.cmd[[
-	-- 		wincmd v
-	-- 		wincmd H
-	-- 	]]
-	-- 	require("oil").open(".")
-	-- 	vim.cmd("call search('" .. vim.fn.expand("#:t") .. "')")
-	-- end, { desc = "Vertical split open CWD" })
 
 	require "oil".setup({
 		use_default_keymaps = false,
-		view_options = {
-			show_hidden = true,
-			is_always_hidden = function(name, bufnr)
-				return vim.startswith(name, ".DS_Store")
-			end,
-		},
-		columns = {
-			-- "permissions",
-			"size",
-			"mtime",
-		},
 		keymaps = {
 			["g?"] = "actions.show_help",
 			["-"] = "actions.parent",
@@ -45,6 +26,17 @@ return function()
 			["gh"] = "actions.toggle_hidden",
 			["."] = "actions.open_cmdline",
 			["gc"] = "actions.open_terminal",
+		},
+		view_options = {
+			show_hidden = true,
+			is_always_hidden = function(name)
+				return vim.startswith(name, ".DS_Store") or (name == "..")
+			end,
+		},
+		columns = {
+			-- "permissions",
+			"size",
+			"mtime",
 		},
 	})
 end

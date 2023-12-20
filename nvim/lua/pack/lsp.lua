@@ -2,19 +2,14 @@ local M = {}
 
 -- Register keymaps per buffer
 M.register_keymaps = function(client, bufnr)
-	-- local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	local bufopts = { noremap = true, silent = true }
 
-	-- vim.keymap.set("n", "<leader>lf", vim.lsp.buf.formatting_sync, bufopts)
-	-- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, bufopts)
-
-	-- if client.supports_method("textDocument/formatting") then
-	-- 	vim.keymap.set("n", "gq", vim.lsp.buf.formatting_sync, bufopts)
-	-- end
-
+	-- vim.keymap.set("n", "<space>lf", function()
+	-- 	vim.lsp.buf.format { async = true }
+	-- end, { buffer = bufopts })
 	vim.keymap.set("n", "<cr>", vim.diagnostic.open_float, bufopts)
-	vim.keymap.set('n', '<leader>lp', vim.diagnostic.goto_prev)
-	vim.keymap.set('n', '<leader>ln', vim.diagnostic.goto_next)
+	vim.keymap.set("n", "<leader>lp", vim.diagnostic.goto_prev)
+	vim.keymap.set("n", "<leader>ln", vim.diagnostic.goto_next)
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
@@ -30,9 +25,6 @@ M.register_keymaps = function(client, bufnr)
 	vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references, bufopts)
-
-	-- vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, bufopts)
-	-- vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, bufopts)
 end
 
 M.config = function()
@@ -67,10 +59,7 @@ M.config = function()
 		end,
 		["astro"] = function()
 			lspconfig.astro.setup {
-				on_attach = function(client, bufnr)
-					M.register_keymaps(client, bufnr)
-					vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-				end
+				on_attach = max_client,
 			}
 		end,
 		["svelte"] = function()
@@ -103,11 +92,10 @@ M.config = function()
 		end,
 		["lua_ls"] = function()
 			lspconfig.lua_ls.setup {
-				-- on_attach = max_client,
-				on_attach = function(client, bufnr)
-					M.register_keymaps(client, bufnr)
-					vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-				end,
+				on_attach = max_client,
+				-- on_attach = function(client, bufnr)
+				-- 	M.register_keymaps(client, bufnr)
+				-- end,
 				settings = {
 					Lua = {
 						diagnostics = {
