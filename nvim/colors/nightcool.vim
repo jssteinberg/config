@@ -162,6 +162,9 @@ hi! link FoldColumn Folded
 
 " (N)VIM PLUGINS
 
+" oil.nvim
+hi! link OilFile WinBar
+
 " mini.pick
 hi! link MiniPickNormal Normal
 hi! link MiniPickMatchCurrent PmenuSel
