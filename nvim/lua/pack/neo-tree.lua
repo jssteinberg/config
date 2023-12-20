@@ -44,14 +44,14 @@ return function()
 				["l"] = "open",
 				["<c-j>"] = "open",
 				["<c-s>"] = "open_split",
-				["<c-v>"] = "open_vsplit",
+				["<c-k>"] = "open_vsplit",
 				["<c-p>"] = { "toggle_preview", config = { use_float = false } },
 				["h"] = "close_node",
 				["-"] = "navigate_up",
 				["<cr>"] = "set_root",
 				["gh"] = "toggle_hidden",
 				["<c-l>"] = "refresh",
-				["ff"] = "fuzzy_finder",
+				["<leader>s"] = "fuzzy_sorter",
 				["<c-c>"] = "clear_filter",
 				["o"] = "add",
 				["O"] = "add",
@@ -65,6 +65,10 @@ return function()
 				["e"] = function() vim.api.nvim_exec("Neotree focus filesystem left", true) end,
 				["b"] = function() vim.api.nvim_exec("Neotree focus buffers left", true) end,
 				["v"] = function() vim.api.nvim_exec("Neotree focus git_status left", true) end,
+			},
+			fuzzy_finder_mappings = {
+				["<C-j>"] = "move_cursor_down",
+				["<C-k>"] = "move_cursor_up",
 			}
 		},
 		filesystem = {
