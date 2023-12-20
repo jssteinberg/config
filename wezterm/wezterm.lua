@@ -66,7 +66,7 @@ config.colors = {
 	scrollbar_thumb = "#afc5c7",
 
 	-- The color of the split lines between panes
-	split = "#1a1636",
+	split = "#342c6d",
 
 	ansi = {
 		"#1a1636",

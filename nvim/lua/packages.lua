@@ -31,11 +31,22 @@ require("lazy").setup({
 	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
 
-	-- Handle statusline
+	-- Statusline
 	{
 		"jssteinberg/hackline.vim",
 		branch = "v4.0.0-0",
 		dependencies = "itchyny/vim-gitbranch"
+	},
+
+	-- Terminals
+	{
+		"jssteinberg/termcwd",
+		config = function()
+			vim.g.termcwd_split_full_bottom = true
+			vim.keymap.set("n", "<leader><cr>", require("shwd").sp(), { desc = "Terminal (CWD)" })
+			vim.keymap.set("n", "<leader>t<cr>", require("shwd").tab(), { desc = "Terminal tab (CWD)" })
+			vim.keymap.set("n", "<leader>1", require("shwd").sp("glob", ""), { desc = "Terminal" })
+		end
 	},
 
 	-- SEARCH/EXPLORE
@@ -53,21 +64,6 @@ require("lazy").setup({
 		},
 		cmd = "Neotree",
 		config = require("pack.neo-tree"),
-	},
-	-- Terminal handling
-	{
-		"jssteinberg/termcwd",
-		config = function()
-			vim.keymap.set("n", "<leader><cr>", function()
-				vim.fn["termcwd#splitGet"]()
-			end, { desc = "Terminal (CWD)" })
-			vim.keymap.set("n", "<leader>t<cr>", function()
-				vim.fn["termcwd#tabGet"]()
-			end, { desc = "Terminal tab (CWD)" })
-			vim.keymap.set("n", "<leader>1", function()
-				vim.fn["termcwd#splitGet"]("global", "")
-			end, { desc = "Terminal" })
-		end
 	},
 	-- Fuzzy finder
 	{
