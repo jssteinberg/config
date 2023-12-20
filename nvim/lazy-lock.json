@@ -33,7 +33,7 @@
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
   "startuptime.vim": { "branch": "master", "commit": "dfa57f522d6f61793fe5fea65bca7484751b8ca2" },
-  "termcwd": { "branch": "main", "commit": "77fbb73ac64b3af9d6fbf3dff29475eb62814947" },
+  "termcwd": { "branch": "main", "commit": "79e9ac56d0259706a14ef1a5ee8c3d64bc417c0f" },
   "undotree": { "branch": "master", "commit": "36ff7abb6b60980338344982ad4cdf03f7961ecd" },
   "vim-flog": { "branch": "master", "commit": "b6aa1cadbad4ac88f740d1d435aeec754ab3a9c7" },
   "vim-fugitive": { "branch": "master", "commit": "59659093581aad2afacedc81f009ed6a4bfad275" },
