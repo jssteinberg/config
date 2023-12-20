@@ -42,6 +42,7 @@ return function()
 				["<space>"] = "none",
 				["<2-LeftMouse>"] = "open",
 				["l"] = "open",
+				["<c-j>"] = "open",
 				["<c-s>"] = "open_split",
 				["<c-v>"] = "open_vsplit",
 				["<c-p>"] = { "toggle_preview", config = { use_float = false } },
@@ -61,9 +62,9 @@ return function()
 				["p"] = "paste_from_clipboard",
 				["q"] = "close_window",
 				["m"] = "copy",
-				['e'] = function() vim.api.nvim_exec('Neotree focus filesystem left', true) end,
-				['b'] = function() vim.api.nvim_exec('Neotree focus buffers left', true) end,
-				['v'] = function() vim.api.nvim_exec('Neotree focus git_status left', true) end,
+				["e"] = function() vim.api.nvim_exec("Neotree focus filesystem left", true) end,
+				["b"] = function() vim.api.nvim_exec("Neotree focus buffers left", true) end,
+				["v"] = function() vim.api.nvim_exec("Neotree focus git_status left", true) end,
 			}
 		},
 		filesystem = {

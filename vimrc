@@ -59,8 +59,6 @@ endtry
 " Core improve
 nnoremap Y y$
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Additional esc map
 tnoremap jk <c-w>N
 " Find links
@@ -83,11 +81,11 @@ imap <c-j>   <cmd>call codeium#CycleCompletions(1)<cr>
 imap <c-k>   <cmd>call codeium#CycleCompletions(-1)<cr>
 imap <c-x>   <cmd>call codeium#Clear()<cr>
 
-" NETRW KEYMAPS
-function! SetNetrwKeymaps() abort
-	nn <buffer> s /
-	nmap <buffer> <c-j> <cr>
-endfunction
+" TERMINAL
+nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
+nn <silent> <leader>t<cr> <cmd>call termcwd#tabGet()<cr>
+nn <silent> <leader>1 <cmd>call termcwd#spGet(0,'')<cr>
+let g:termcwd_split_full_bottom = v:true
 
 " LSP KEYMAPS
 function! s:on_lsp_buffer_enabled() abort
@@ -101,6 +99,12 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> <c-k> <plug>(lsp-previous-diagnostic)
 	nmap <buffer> <c-j> <plug>(lsp-next-diagnostic)
 	nmap <buffer> <leader>lh <plug>(lsp-hover)
+endfunction
+
+" NETRW KEYMAPS
+function! SetNetrwKeymaps() abort
+	nn <buffer> s /
+	nmap <buffer> <c-j> <cr>
 endfunction
 
 " AUTO COMMANDS
@@ -123,9 +127,6 @@ fu! FuzzyFiles(choice_command, vim_command) abort
 		exec a:vim_command . " " . output
 	en
 endf
-
-" TERMINAL
-let g:termcwd_split_full_bottom = v:true
 
 " PLUGINS
 fu! PackInit() abort

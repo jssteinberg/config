@@ -40,6 +40,8 @@ require("lazy").setup({
 
 	-- SEARCH/EXPLORE
 
+	-- Netrw replacement
+	{ "stevearc/oil.nvim",     config = require("pack.oil") },
 	-- Tree viewer
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -52,12 +54,21 @@ require("lazy").setup({
 		cmd = "Neotree",
 		config = require("pack.neo-tree"),
 	},
-	-- Quickfix window improvements
-	{ "kevinhwang91/nvim-bqf", ft = "qf" },
-	-- Netrw replacement
-	{ "stevearc/oil.nvim",     config = require("pack.oil") },
 	-- Terminal handling
-	{ "jssteinberg/termcwd" },
+	{
+		"jssteinberg/termcwd",
+		config = function()
+			vim.keymap.set("n", "<leader><cr>", function()
+				vim.fn["termcwd#splitGet"]()
+			end, { desc = "Terminal (CWD)" })
+			vim.keymap.set("n", "<leader>t<cr>", function()
+				vim.fn["termcwd#tabGet"]()
+			end, { desc = "Terminal tab (CWD)" })
+			vim.keymap.set("n", "<leader>1", function()
+				vim.fn["termcwd#splitGet"]("global", "")
+			end, { desc = "Terminal" })
+		end
+	},
 	-- Fuzzy finder
 	{
 		"echasnovski/mini.pick",

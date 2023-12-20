@@ -77,11 +77,6 @@ nnoremap Q :exe "cnext\n setlocal scrolloff=" . g:config_scrolloff<cr>
 nnoremap <leader>q :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
-" Terminal
-nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
-nn <silent> <leader>t<cr> <cmd>call termcwd#tabGet()<cr>
-nn <silent> <leader>1 <cmd>call termcwd#spGet(0,'')<cr>
-
 " No/now (toggle options)
 " TODO: handle other spelllang like nb
 nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<bar>set spelllang=en_us<cr>'
@@ -154,7 +149,7 @@ function! RgVisual() abort
 endfunction
 
 function! s:RgG() abort
-	let l:q = escape(@g, "'")
+	let l:q = escape(@g, "'()")
 	exe "silent grep -e '" . l:q . "'"
 	redraw!
 	echo l:q
