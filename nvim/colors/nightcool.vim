@@ -127,7 +127,7 @@ hi Search cterm=NONE gui=NONE ctermbg=238 guibg=#2c446d ctermfg=NONE guifg=NONE
 " StatusLine and WinSeparator
 hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff
 hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=8 guifg=#7d78a1
-hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#342c6d
+hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#552c6d
 " Statusline "underline"
 if get(g:, "nightcool_statusline", "default") != "default"
 	hi StatusLine   gui=underline guibg=NONE guifg=#985cbc
