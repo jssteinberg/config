@@ -1,5 +1,5 @@
 set laststatus=3
-set winbar=%f
+set winbar=%M%f
 
 function! Hackline(status) abort
 	let l:active = a:status
