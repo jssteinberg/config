@@ -56,6 +56,7 @@ return function()
 				["o"] = "add",
 				["O"] = "add",
 				["D"] = "delete",
+				["cw"] = "rename",
 				["R"] = "rename",
 				["yy"] = "copy_to_clipboard",
 				["dd"] = "cut_to_clipboard",

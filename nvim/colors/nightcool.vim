@@ -166,7 +166,7 @@ hi! link FoldColumn Folded
 hi! link OilFile WinBar
 
 " mini.pick
-hi! link MiniPickNormal Normal
+hi! link MiniPickNormal Pmenu
 hi! link MiniPickMatchCurrent PmenuSel
 
 " illuminate.vim
@@ -178,8 +178,8 @@ hi! link IlluminatedWordWrite IlluminatedWordText
 hi CopilotSuggestion ctermfg=5 guifg=#685cbc
 
 " neo-tree
-hi NeoTreeDimText guifg=#685cbc
-hi NeoTreeDotfile guifg=#7d78a1
+hi NeoTreeDimText ctermfg=5 guifg=#342c6d
+hi NeoTreeDotfile ctermfg=8 guifg=#7d78a1
 hi! link NeoTreeGitAdded diffAdded
 hi! link NeoTreeGitModified WarningMsg
 

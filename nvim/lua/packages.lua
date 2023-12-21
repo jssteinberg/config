@@ -26,8 +26,9 @@ require("lazy").setup({
 	{ "tweekmonster/startuptime.vim",   cmd = "StartupTime" },
 	-- Colorscheme util
 	-- { "rktjmp/lush.nvim", lazy = false },
-	{ "echasnovski/mini.colors",        version = "*" },
-	{ "echasnovski/mini.hues",          version = "*" },
+	-- { "echasnovski/mini.colors",        version = "*" },
+	-- { "echasnovski/mini.hues",          version = "*" },
+	{ "uga-rosa/ccc.nvim" },
 	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
 
