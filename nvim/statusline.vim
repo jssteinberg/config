@@ -1,3 +1,6 @@
+set laststatus=3
+set winbar=%f
+
 function! Hackline(status) abort
 	let l:active = a:status
 	" separator label

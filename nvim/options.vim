@@ -5,7 +5,6 @@ set undofile
 set cursorcolumn
 set number
 set signcolumn=number
-set winbar=%f
 
 " ALIAS GREP
 " cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'

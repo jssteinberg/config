@@ -165,6 +165,7 @@ set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git
 let &ts=g:indent_width | let &sw=g:indent_width " indent size
 set hidden " Unsaved files can be 'hidden'
 set list " Show tab characters
+set listchars=tab:\·\ ,trail:\~,extends:…,precedes:…
 set noswapfile " No swap files, but undo files (requires `undodir` in Vim)
 set sessionoptions=curdir,folds,help,tabpages,folds
 set signcolumn=yes
@@ -192,8 +193,6 @@ endif
 aug some_config | au!
 	" Set tabstop if noexpandtab
 	au BufWinEnter,FocusGained * call SetTabWidth(g:indent_width)
-	" After packages are loaded set listchars
-	au BufEnter * set listchars=tab:\·\ ,trail:\~,extends:…,precedes:…
 aug END
 
 " GLOBAL FUNCTIONS
