@@ -5,7 +5,8 @@ let g:colors_name="nightcool"
 " Options:
 " - `let g:nightcool_bg="default" ` or "" for `NONE` (transparent)
 " - `let g:nightcool_comments="bold"` or "normal" or "dark"
-" - `let g:nightcool_statusline="default"` or "underline" or "" for `NONE` (transparent)
+" - `let g:nightcool_statusline="default"` or "underline" or "bold" or
+"   "black""
 " - `let g:nightcool_treesitter=v:true` or v:false
 "
 " Supports: treesitter, telescope, fugitive, neo-tree, gitsigns, vim-illuminate, treesitter-context, vim-matchup, winbar
@@ -85,8 +86,8 @@ hi Pmenu ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1 " Pmenu affects some fl
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 " hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afc5c7
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8
-hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#552c6d
 hi TabLineFill cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1 " link breaks in Vim 9.0
+hi TabLine cterm=underline gui=underline ctermbg=NONE guibg=NONE ctermfg=8 guifg=#552c6d
 hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
@@ -133,10 +134,15 @@ if get(g:, "nightcool_statusline", "default") != "default"
 	hi StatusLine   gui=underline guibg=NONE guifg=#985cbc
 	hi StatusLineNC gui=underline guibg=NONE guifg=#552c6d
 en
-" Statusline "" undecorated
-if get(g:, "nightcool_statusline", "default") == ""
-	hi StatusLine   gui=bold
+" Statusline "bold"
+if get(g:, "nightcool_statusline", "default") == "bold"
+	hi StatusLine   gui=bold guifg=#c39fd8
 	hi StatusLineNC gui=NONE
+en
+" Statusline "black"
+if get(g:, "nightcool_statusline", "default") == "black"
+	hi StatusLine   gui=bold guibg=#000000 guifg=#c39fd8
+	hi StatusLineNC gui=NONE guibg=#000000
 en
 
 " UI LINKED
@@ -206,8 +212,8 @@ if has("nvim-0.8") && get(g:, "nightcool_treesitter", v:true)
 	lua require("nightcool.treesitter")
 endif
 
-" bg #000000 fg #e9f5e6 bg_2 #0c0a19
-" black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d black #000000
+" bg #000000 fg #e9f5e6 bg_2 #0c0a19 fg_2 #ffffff
+" black#0   #1a1636 black#8    #7d78a1 black_2   #342c6d
 " red#1     #bc675c red#9      #d8a69f dark_red_bg #361a16
 " green#2   #80bc5c green#10   #add89f
 " yellow#3  #bc985c yellow#11  #d0d89f yellow_bg #646d2c

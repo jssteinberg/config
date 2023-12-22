@@ -5,7 +5,7 @@ if wezterm.config_builder then config = wezterm.config_builder() end
 
 -- CONFIG OPTIONS
 
--- config.window_background_opacity = .9625
+config.window_background_opacity = .975
 config.font_size = 14
 config.line_height = 1.1
 config.use_dead_keys = false
@@ -37,36 +37,26 @@ config.keys = {
 
 config.colors = {
 	tab_bar = {
-		background = "#0c0a19",
-		active_tab = { bg_color = "#0c0a19", fg_color = "#e9f5e6", },
-		inactive_tab = { bg_color = "#0c0a19", fg_color = "#7d78a1", },
-		new_tab = { bg_color = "#0c0a19", fg_color = "#afc5c7", },
+		background = "#552c6d",
+		active_tab = { bg_color = "#552c6d", fg_color = "#ffffff", },
+		inactive_tab = { bg_color = "#552c6d", fg_color = "#a69fd8", },
+		new_tab = { bg_color = "#552c6d", fg_color = "#afc5c7", },
 	},
 
 	foreground = "#e9f5e6",
-	-- background = '#0c0a19',
+	-- background = "#0c0a19",
 	background = "black",
-
-	-- Overrides the cell background color when the current cell is occupied by the
-	-- cursor and the cursor style is set to Block
+	split = "#342c6d",
 	cursor_bg = "#80bc5c",
-	-- Overrides the text color when the current cell is occupied by the cursor
-	cursor_fg = "#0c0a19",
+	cursor_fg = "#000000",
+	selection_fg = "#ffffff",
+	selection_bg = "#985cbc",
 	-- Specifies the border color of the cursor when the cursor style is set to Block,
 	-- or the color of the vertical or horizontal bar when the cursor style is set to
 	-- Bar or Underline.
-	cursor_border = "#77e138",
-
-	-- the foreground color of selected text
-	selection_fg = "#552c6d",
-	-- the background color of selected text
-	selection_bg = "#e9f5e6",
-
+	cursor_border = "#add89f",
 	-- The color of the scrollbar "thumb"; the portion that represents the current viewport
 	scrollbar_thumb = "#afc5c7",
-
-	-- The color of the split lines between panes
-	split = "#342c6d",
 
 	ansi = {
 		"#1a1636",

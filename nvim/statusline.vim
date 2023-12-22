@@ -1,5 +1,41 @@
-set laststatus=3
-set winbar=%M%f
+set tabline=%!Hacktabs()  " custom tab pages line
+
+function! MyTabLabel(n) abort
+	let buflist = tabpagebuflist(a:n)
+	let winnr = tabpagewinnr(a:n)
+	let wins = tabpagewinnr(a:n, "$")
+	let dirty = 0 | for b in buflist | if getbufvar(b, "&mod") | let dirty = 1 | endif | endfor
+	let label = wins .. (dirty ? "+" : "")
+
+	if tabpagenr() == a:n
+		let bufname = bufname(buflist[winnr - 1])
+		return label .. (bufname != "" ? " " . fnamemodify(bufname, ":p:.") : "-")
+	else
+		return label
+	endif
+endfunction
+
+function! Hacktabs() abort
+	let s = '' | for i in range(tabpagenr('$'))
+		let s ..= i + 1 == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
+		" set the tab page number (for mouse clicks)
+		let s ..= '%' .. (i + 1) .. 'T'
+		" the label is made by MyTabLabel()
+		let s ..= ' %{MyTabLabel(' .. (i + 1) .. ')} '
+	endfor
+	" after the last tab fill with TabLineFill and reset tab page nr
+	return s .. '%#TabLineFill#%T'
+endfunction
+
+function! StatuslineModeLabels(sep_l = "", sep_r = "") abort
+	if mode() == "i"     | return "i"
+	elseif mode() == "c" | return "c"
+	elseif mode() == "t" | return "t"
+	elseif mode() == "r" | return "r"
+	elseif mode() == "s" | return "s"
+	else                 | return "v"
+	endif
+endfunction
 
 function! Hackline(status) abort
 	let l:active = a:status
@@ -19,12 +55,13 @@ function! Hackline(status) abort
 	" set statusline default color
 	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
 
-	" Start spacing
-	let l:line .= " "
-
 	if l:active && mode() != "n"
+		" Start spacing
+		let l:line .= " "
 		let l:line .= "%1(%{StatuslineModeLabels()}%)"
 	else
+		" Start spacing
+		let l:line .= " "
 		" modified flag, fixed width 1
 		let l:line .= "%1(%M%)"
 	endif
@@ -41,14 +78,14 @@ function! Hackline(status) abort
 	let l:line .= l:sep.l
 
 	" file path
-	let l:line .= "%(%{hackline#ui#dir#info('xl')}/%)"
+	let l:line .= "%(%{hackline#ui#dir#info('lg')}/%)"
 	" filename
 	let l:line .= "%(%t%)"
 
 	let l:line .= l:sep.l
 
 	" Cursor position
-	let l:line .= "%l/%LG-%c"
+	let l:line .= "l-%l/%L c-%c"
 
 	" Statusline END
 	" --------------
@@ -90,24 +127,4 @@ function! Hackline(status) abort
 	let l:line .= "   "
 
 	return l:line
-endfunction
-
-function! StatuslineModeLabels(sep_l = "", sep_r = "") abort
-	if mode() == "i"     | return "i"
-	elseif mode() == "c" | return "c"
-	elseif mode() == "t" | return "t"
-	elseif mode() == "r" | return "r"
-	elseif mode() == "s" | return "s"
-	else                 | return "v"
-	endif
-endfunction
-
-function! s:ModeHis(sep_l = "", sep_r = "") abort
-	if mode() == "i"     | return "%#IncSearch#"
-	elseif mode() == "c" | return "%#IncSearch#"
-	elseif mode() == "t" | return "%#IncSearch#"
-	elseif mode() == "r" | return "%#IncSearch#"
-	elseif mode() == "s" | return "%#IncSearch#"
-	else                 | return "%#IncSearch#"
-	endif
 endfunction
