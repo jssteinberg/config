@@ -5,7 +5,7 @@ function! MyTabLabel(n) abort
 	let winnr = tabpagewinnr(a:n)
 	let wins = tabpagewinnr(a:n, "$")
 	let dirty = 0 | for b in buflist | if getbufvar(b, "&mod") | let dirty = 1 | endif | endfor
-	let label = wins .. (dirty ? "+" : "")
+	let label = (dirty ? "+" : "") .. a:n . "-" . wins
 
 	if tabpagenr() == a:n
 		let bufname = bufname(buflist[winnr - 1])
