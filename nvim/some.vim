@@ -73,7 +73,7 @@ nnoremap <leader>S :%s/
 vnoremap <leader>S :s/
 
 " Quickfix [next, previous, toggle]
-nnoremap Q :exe "cnext\n setlocal scrolloff=" . g:config_scrolloff<cr>
+nnoremap <silent> Q :exe "cnext\n setlocal scrolloff=" . g:config_scrolloff<cr>
 nnoremap <leader>q :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
@@ -149,7 +149,7 @@ function! RgVisual() abort
 endfunction
 
 function! s:RgG() abort
-	let l:q = escape(@g, "'()")
+	let l:q = escape(@g, "'()#")
 	exe "silent grep -e '" . l:q . "'"
 	redraw!
 	echo l:q

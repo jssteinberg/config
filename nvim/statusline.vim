@@ -1,3 +1,4 @@
+set showtabline=2
 set tabline=%!Hacktabs()  " custom tab pages line
 
 function! MyTabLabel(n) abort
@@ -28,13 +29,8 @@ function! Hacktabs() abort
 endfunction
 
 function! StatuslineModeLabels(sep_l = "", sep_r = "") abort
-	if mode() == "i"     | return "I"
-	elseif mode() == "c" | return "C"
-	elseif mode() == "t" | return "T"
-	elseif mode() == "r" | return "R"
-	elseif mode() == "s" | return "S"
-	else                 | return "V"
-	endif
+	return matchstr(mode(), "[nictrs]") != ""
+				\ ? mode() : "v"
 endfunction
 
 function! Hackline(status) abort
@@ -79,7 +75,7 @@ function! Hackline(status) abort
 	let l:line .= l:sep.l
 
 	" file path
-	let l:line .= "%(%{hackline#ui#dir#info('lg')}/%)"
+	let l:line .= "%(%{hackline#ui#dir#info('md')}/%)"
 	" filename
 	let l:line .= "%(%t%)"
 
