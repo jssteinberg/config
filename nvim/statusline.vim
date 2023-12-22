@@ -28,12 +28,12 @@ function! Hacktabs() abort
 endfunction
 
 function! StatuslineModeLabels(sep_l = "", sep_r = "") abort
-	if mode() == "i"     | return "i"
-	elseif mode() == "c" | return "c"
-	elseif mode() == "t" | return "t"
-	elseif mode() == "r" | return "r"
-	elseif mode() == "s" | return "s"
-	else                 | return "v"
+	if mode() == "i"     | return "I"
+	elseif mode() == "c" | return "C"
+	elseif mode() == "t" | return "T"
+	elseif mode() == "r" | return "R"
+	elseif mode() == "s" | return "S"
+	else                 | return "V"
 	endif
 endfunction
 
@@ -54,14 +54,15 @@ function! Hackline(status) abort
 
 	" set statusline default color
 	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
+	" set some mode colors
+	let l:line .= l:active && matchstr(mode(), "[itr]") != "" ? "%#IncSearch#" : ""
+	" Start spacing
+	let l:line .= " "
 
-	if l:active && mode() != "n"
-		" Start spacing
-		let l:line .= " "
+	if l:active && matchstr(mode(), "[nc]") == ""
+		" (not normal or command mode)
 		let l:line .= "%1(%{StatuslineModeLabels()}%)"
 	else
-		" Start spacing
-		let l:line .= " "
 		" modified flag, fixed width 1
 		let l:line .= "%1(%M%)"
 	endif
