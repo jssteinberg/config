@@ -166,7 +166,7 @@ hi! link FoldColumn Folded
 hi! link OilFile WinBar
 
 " mini.pick
-hi! link MiniPickNormal Pmenu
+hi! link MiniPickNormal Normal
 hi! link MiniPickMatchCurrent PmenuSel
 
 " illuminate.vim
