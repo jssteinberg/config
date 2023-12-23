@@ -1,7 +1,8 @@
+set noshowmode
 set showtabline=2
 set tabline=%!Hacktabs()  " custom tab pages line
 
-function! MyTabLabel(n) abort
+function! Hacktab(n) abort
 	let buflist = tabpagebuflist(a:n)
 	let winnr = tabpagewinnr(a:n)
 	let wins = tabpagewinnr(a:n, "$")
@@ -10,7 +11,7 @@ function! MyTabLabel(n) abort
 
 	if tabpagenr() == a:n
 		let bufname = bufname(buflist[winnr - 1])
-		return label .. (bufname != "" ? " " . fnamemodify(bufname, ":p:.") : "-")
+		return label .. (bufname != "" ? " " . fnamemodify(bufname, ":p:.") : " …")
 	else
 		return label
 	endif
@@ -21,8 +22,8 @@ function! Hacktabs() abort
 		let s ..= i + 1 == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
 		" set the tab page number (for mouse clicks)
 		let s ..= '%' .. (i + 1) .. 'T'
-		" the label is made by MyTabLabel()
-		let s ..= ' %{MyTabLabel(' .. (i + 1) .. ')} '
+		" the label is made by Hacktab()
+		let s ..= ' %{Hacktab(' .. (i + 1) .. ')} '
 	endfor
 	" after the last tab fill with TabLineFill and reset tab page nr
 	return s .. '%#TabLineFill#%T'
