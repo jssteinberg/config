@@ -35,7 +35,7 @@ ln -s .config/viebrc .viebrc
 
 More global fish config from the shell:
 
-```fish
+```sh
 set -Ux FZF_DEFAULT_COMMAND rg --files --hidden --follow
 set -Ux EDITOR "vim"
 
@@ -63,12 +63,16 @@ Install Neovim >= 0.8.0 (needs to be built with LuaJIT), fzf, ripgrep, fd, bat, 
 
 - format files async on save, but not if their too big, or min...
 
+### Resources
+
+- [Vim Script for the JavaScripter](//w0rp.com/blog/post/vim-script-for-the-javascripter)
+
 ## Vim 8 +lua
 
 A Vim config that works without plugins. It gives no errors on missing plugins unless keymaps/commands requiring plugins are used. Requries:
 
 - Vim >= version 8 +lua.
-- Package managing with [minpac](https://github.com/k-takata/minpac)
+- Package managing with [minpac](//github.com/k-takata/minpac)
 
 ## Maintenance
 
