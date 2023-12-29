@@ -43,13 +43,12 @@ hi! link SpecialKey NonText " ...also for list char in Vim
 
 " GENERAL SYNTAX GROUPS
 
-hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
-hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=11 guifg=#d0d89f
-hi! link Identifier Constant
-hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a69fd8
+hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=11 guifg=#d0d89f
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
-" hi Type       cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
+hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
+hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a69fd8
 hi Type       cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
+hi! link Identifier Constant
 hi! link Special Type
 
 " SPECIFIC SYNTAX GROUPS
@@ -66,7 +65,6 @@ hi! link cssClassName String
 " Vim
 hi! link vimCommentTitle Todo
 hi! link vimCommentString Todo
-
 
 " UI
 
