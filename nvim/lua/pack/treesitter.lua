@@ -1,8 +1,8 @@
 local M = {}
 
 M.config = function()
-	local ignore_ts = { "markdown", "markdown_inline", "lua", "vim", "help" }
-	local disable_ts_ft = { "markdown", "lua", "vim", "help" }
+	local ignore_ts = { "markdown", "markdown_inline", "lua" }
+	local disable_ts_ft = { "markdown", "lua" }
 
 	require("nvim-treesitter.configs").setup({
 		ignore_install = ignore_ts,
@@ -12,7 +12,7 @@ M.config = function()
 		},
 		playground = {
 			enable = true,
-			updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+			updatetime = 25,      -- Debounced time for highlighting nodes in the playground from source code
 			persist_queries = false, -- Whether the query persists across vim sessions
 			keybindings = {
 				toggle_query_editor = "o",
@@ -28,11 +28,6 @@ M.config = function()
 			},
 		},
 		autotag = { enable = true },
-		-- For JoosepAlviste/nvim-ts-context-commentstring
-		-- context_commentstring = {
-		-- 	enable = true,
-		-- 	enable_autocmd = false,
-		-- },
 	})
 end
 

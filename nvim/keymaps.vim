@@ -28,7 +28,7 @@ nnoremap <leader>gP <cmd>Git push<cr>
 nnoremap <leader>gq <cmd>Git mergetool<cr>
 
 " Color highlight groups
-nnoremap <leader>hc <cmd>TSHighlightCapturesUnderCursor<cr>
+nnoremap <leader>hc <cmd>Inspect<cr>
 nn <leader>ht <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
 
 " URL

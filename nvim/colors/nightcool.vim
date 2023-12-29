@@ -45,17 +45,17 @@ hi! link SpecialKey NonText " ...also for list char in Vim
 
 hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=11 guifg=#d0d89f
-" hi Identifier cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi! link Identifier Constant
 hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a69fd8
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
-hi Type       cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
-" hi Special    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
+" hi Type       cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
+hi Type       cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
 hi! link Special Type
 
 " SPECIFIC SYNTAX GROUPS
 
 hi! link markdownLinkDelimiter Statement
+hi! link htmlTag Statement
 " HTML elements like Type since CSS treesitter uses (still?) that for elements
 hi! link htmlTagName Type
 hi! link cssTagName htmlTagName
@@ -87,7 +87,7 @@ hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 " hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afc5c7
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8
 hi TabLineFill cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1 " link breaks in Vim 9.0
-hi TabLine cterm=underline gui=underline ctermbg=NONE guibg=NONE ctermfg=8 guifg=#552c6d
+hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#552c6d
 hi TabLineSel cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
@@ -169,7 +169,7 @@ hi! link FoldColumn Folded
 " (N)VIM PLUGINS
 
 " oil.nvim
-hi! link OilFile WinBar
+hi! link OilFile Title
 
 " mini.pick
 hi! link MiniPickNormal Normal
@@ -184,6 +184,9 @@ hi! link IlluminatedWordWrite IlluminatedWordText
 hi CopilotSuggestion ctermfg=5 guifg=#685cbc
 
 " neo-tree
+hi! link NeoTreeNormal Title
+hi! link NeoTreeNormalNC NeoTreeNormal
+hi! link NeoTreeRootName NeoTreeDirectoryName
 hi NeoTreeDimText ctermfg=5 guifg=#342c6d
 hi NeoTreeDotfile ctermfg=8 guifg=#7d78a1
 hi! link NeoTreeGitAdded diffAdded

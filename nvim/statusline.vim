@@ -4,29 +4,26 @@ set tabline=%!Hacktabs()  " custom tab pages line
 
 function! Hacktab(n) abort
 	let buflist = tabpagebuflist(a:n)
-	let winnr = tabpagewinnr(a:n)
-	let wins = tabpagewinnr(a:n, "$")
-	let dirty = 0 | for b in buflist | if getbufvar(b, "&mod") | let dirty = 1 | endif | endfor
-	let label = (dirty ? "+" : "") .. a:n . "-" . wins
-
-	if tabpagenr() == a:n
-		let bufname = bufname(buflist[winnr - 1])
-		return label .. (bufname != "" ? " " . fnamemodify(bufname, ":p:.") : " …")
-	else
-		return label
-	endif
+	let winnrs = tabpagewinnr(a:n, "$")
+	for b in buflist | if getbufvar(b, "&mod") | let l:m = 1 | endif | endfor
+	let bufname = bufname(buflist[tabpagewinnr(a:n) - 1])
+	let f = fnamemodify(bufname, ":p:.")
+	return (get(l:, "m", 0) ? "+" : "") .. a:n . "-" . winnrs
+				\..(bufname == "" ? ""
+				\	: " "
+				\		.(tabpagenr() == a:n ? f : fnamemodify(bufname, ":t"))
+				\)
 endfunction
 
 function! Hacktabs() abort
-	let s = '' | for i in range(tabpagenr('$'))
-		let s ..= i + 1 == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
-		" set the tab page number (for mouse clicks)
-		let s ..= '%' .. (i + 1) .. 'T'
-		" the label is made by Hacktab()
-		let s ..= ' %{Hacktab(' .. (i + 1) .. ')} '
+	let line = "" | for i in range(tabpagenr('$'))
+		let highlight = i + 1 == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
+		let tabpagenrForMouseClick = '%' .. (i + 1) .. 'T'
+		let tablabel = " %{Hacktab(" .. (i + 1) .. ")} "
+		let line .= highlight .. tabpagenrForMouseClick .. tablabel
 	endfor
-	" after the last tab fill with TabLineFill and reset tab page nr
-	return s .. '%#TabLineFill#%T'
+	" after last tab, fill with TabLineFill and reset tab page nr
+	return line .. '%#TabLineFill#%T'
 endfunction
 
 function! StatuslineModeLabels(sep_l = "", sep_r = "") abort

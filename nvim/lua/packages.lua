@@ -39,14 +39,14 @@ require("lazy").setup({
 		dependencies = "itchyny/vim-gitbranch"
 	},
 
-	-- Terminals
+	-- Terminal
 	{
 		"jssteinberg/termcwd",
 		config = function()
-			vim.g.termcwd_split_full_bottom = true
-			vim.keymap.set("n", "<leader><cr>", require("shwd").sp(), { desc = "Terminal (CWD)" })
-			vim.keymap.set("n", "<leader>t<cr>", require("shwd").tab(), { desc = "Terminal tab (CWD)" })
-			vim.keymap.set("n", "<leader>1", require("shwd").sp("glob", ""), { desc = "Terminal" })
+			vim.g.termcwd_split_full_top = true
+			vim.keymap.set("n", "<leader><cr>", require("shwd").sp(), { desc = "Shell (CWD)" })
+			vim.keymap.set("n", "<leader>t<cr>", require("shwd").tab(), { desc = "Tabshell (CWD)" })
+			vim.keymap.set("n", "<leader>1", require("shwd").sp(1, ""), { desc = "Shell" })
 		end
 	},
 
@@ -127,10 +127,7 @@ require("lazy").setup({
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
-		dependencies = {
-			"nvim-treesitter/playground",
-			-- "JoosepAlviste/nvim-ts-context-commentstring",
-		},
+		dependencies = { "windwp/nvim-ts-autotag" },
 		config = function() require "pack.treesitter".config() end
 	},
 
