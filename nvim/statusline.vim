@@ -20,7 +20,7 @@ function! Hacktabs() abort
 		let highlight = i + 1 == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
 		let tabpagenrForMouseClick = '%' .. (i + 1) .. 'T'
 		let tablabel = " %{Hacktab(" .. (i + 1) .. ")} "
-		let line .= highlight .. tabpagenrForMouseClick .. tablabel
+		let line .= highlight .. tabpagenrForMouseClick . "%=" . tablabel . "%="
 	endfor
 	" after last tab, fill with TabLineFill and reset tab page nr
 	return line .. '%#TabLineFill#%T'
