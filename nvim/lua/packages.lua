@@ -28,7 +28,7 @@ require("lazy").setup({
 	-- { "rktjmp/lush.nvim", lazy = false },
 	-- { "echasnovski/mini.colors",        version = "*" },
 	-- { "echasnovski/mini.hues",          version = "*" },
-	{ "uga-rosa/ccc.nvim" },
+	{ "uga-rosa/ccc.nvim",              cmd = { "CccHighlighterToggle" } },
 	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
 
