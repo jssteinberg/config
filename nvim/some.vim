@@ -155,24 +155,26 @@ function! s:RgG() abort
 	echo l:q
 endfunction
 
-" OPTIONS - in approx. order of importance
+" OPTIONS
 
+set hidden " Unsaved files can be 'hidden'
+set sessionoptions=curdir,folds,help,tabpages,folds
+set noswapfile " No swap files, but undo files (requires `undodir` in Vim)
 set nofoldenable foldmethod=indent " Toggle fold on indent
-let &scrolloff=g:config_scrolloff " Keep cursor off from top/bottom
 set wrap breakindent linebreak " Wrapped lines inherits indent, break line at `breakat`
 set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git/**
-let &ts=g:indent_width | let &sw=g:indent_width " indent size
-set hidden " Unsaved files can be 'hidden'
 set list " Show tab characters
 set listchars=tab:\·\ ,trail:\~,extends:…,precedes:…
-set noswapfile " No swap files, but undo files (requires `undodir` in Vim)
-set sessionoptions=curdir,folds,help,tabpages,folds
-set signcolumn=yes
+set signcolumn=number number
 set cursorline " Highlight cursor line
 set splitright
 set timeoutlen=750 " Timeout for keymaps
 set updatetime=100
+set copyindent
+
+let &ts=g:indent_width | let &sw=g:indent_width " indent size
+let &scrolloff=g:config_scrolloff " Keep cursor off from top/bottom
 
 " FORMAT OPTIONS
 " (c) auto hard wrap comments

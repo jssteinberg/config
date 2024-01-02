@@ -53,7 +53,7 @@ require("lazy").setup({
 	-- SEARCH/EXPLORE
 
 	-- Netrw replacement
-	{ "stevearc/oil.nvim",     config = require("pack.oil") },
+	{ "stevearc/oil.nvim", config = require("pack.oil") },
 	-- Tree viewer
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -88,7 +88,13 @@ require("lazy").setup({
 
 	-- CODE ANALYZES/COMPLETION
 
-	{ "pechorin/any-jump.vim", cmd = { "AnyJump", "AnyJumpVisual" } },
+	{
+		"pechorin/any-jump.vim",
+		cmd = { "AnyJump", "AnyJumpVisual" },
+		config = function()
+			vim.g.any_jump_disable_default_keybindings = 1
+		end,
+	},
 
 	-- LSP
 	{

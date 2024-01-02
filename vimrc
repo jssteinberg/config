@@ -51,7 +51,7 @@ let g:netrw_banner=0 " Remove top banner
 let g:netrw_preview=1 " Vertical preview
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
-try | set background=dark | colo lunaperche
+try | set background=dark | colo nightcool
 catch | colo slate " for older Vim versions
 endtry
 
