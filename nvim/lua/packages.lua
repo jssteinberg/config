@@ -44,9 +44,9 @@ require("lazy").setup({
 		"jssteinberg/termcwd",
 		config = function()
 			vim.g.termcwd_split_full_top = true
-			vim.keymap.set("n", "<leader><cr>", require("shwd").sp(), { desc = "Shell (CWD)" })
-			vim.keymap.set("n", "<leader>t<cr>", require("shwd").tab(), { desc = "Tabshell (CWD)" })
-			vim.keymap.set("n", "<leader>1", require("shwd").sp(1, ""), { desc = "Shell" })
+			vim.keymap.set("n", "<leader><cr>", require("termcwd").sp(), { desc = "Shell (CWD)" })
+			vim.keymap.set("n", "<leader>t<cr>", require("termcwd").tab(), { desc = "Tabshell (CWD)" })
+			vim.keymap.set("n", "<leader>1", require("termcwd").sp(1, ""), { desc = "Shell" })
 		end
 	},
 
