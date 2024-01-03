@@ -37,10 +37,10 @@ config.keys = {
 
 config.colors = {
 	tab_bar = {
-		background = "#552c6d",
-		active_tab = { bg_color = "#552c6d", fg_color = "#ffffff", },
-		inactive_tab = { bg_color = "#552c6d", fg_color = "#a69fd8", },
-		new_tab = { bg_color = "#552c6d", fg_color = "#afc5c7", },
+		background = "#0c0a19",
+		active_tab = { bg_color = "#0c0a19", fg_color = "#ffffff", intensity = "Bold" },
+		inactive_tab = { bg_color = "#0c0a19", fg_color = "#7d78a1", },
+		new_tab = { bg_color = "#0c0a19", fg_color = "#7d78a1", },
 	},
 
 	foreground = "#e9f5e6",

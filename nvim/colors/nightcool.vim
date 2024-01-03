@@ -4,30 +4,22 @@ let g:colors_name="nightcool"
 
 " Options:
 " - `let g:nightcool_bg="default" ` or "" for `NONE` (transparent)
-" - `let g:nightcool_comments="bold"` or "normal" or "dark"
-" - `let g:nightcool_statusline="default"` or "underline" or "bold" or
-"   "black""
-" - `let g:nightcool_treesitter=v:true` or v:false
+" - `let g:nightcool_comments="default" or "gray"
 "
-" Supports: treesitter, telescope, fugitive, neo-tree, gitsigns, vim-illuminate, treesitter-context, vim-matchup, winbar
+" Supports: treesitter, winbar, vim-matchup, fugitive, neo-tree, vim-illuminate, treesitter-context
 
 " GROUP NAMES (:h group-name)
 
 " Normal
 hi Normal ctermfg=15 guibg=#000000 guifg=#e9f5e6
-" hi Normal guibg=#0c0a19
-
 if get(g:, "nightcool_bg", "default") == ""
 	hi Normal guibg=NONE
 endif
 
 " Comment
-hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
-
-if get(g:, "nightcool_comments", "normal") == "bold"
-	hi Comment cterm=bold gui=bold
-elseif get(g:, "nightcool_comments", "normal") == "dark"
-	hi Comment ctermfg=235 guifg=#552c6d
+hi Comment cterm=NONE gui=italic ctermfg=8 guifg=#c39fd8
+if get(g:, "nightcool_comments", "normal") == "gray"
+	hi Comment gui=NONE guifg=#7d78a1
 endif
 
 " General groups
@@ -37,7 +29,7 @@ hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi Italic cterm=italic gui=italic
 hi NonText gui=NONE ctermfg=235 guifg=#342c6d " keep cterm same as `SpecialKey`
 hi Title cterm=bold gui=bold ctermfg=10 guifg=#add89f
-hi Todo cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=9 guifg=#c39fd8
+hi Todo cterm=bold gui=NONE ctermbg=NONE guibg=#552c6d ctermfg=7 guifg=#ffffff
 hi! link Underlined Title
 hi! link SpecialKey NonText " ...also for list char in Vim
 
@@ -45,7 +37,6 @@ hi! link SpecialKey NonText " ...also for list char in Vim
 
 hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=11 guifg=#d0d89f
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
-" hi Statement  cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a69fd8
 hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
 hi Type       cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
 hi! link Identifier Constant
@@ -71,28 +62,25 @@ hi! link vimCommentString Todo
 
 hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
-" hi CursorColumn ctermbg=0 guibg=#1a1636
 hi CursorColumn ctermbg=0 guibg=#0c0a19"
 hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
-hi CursorLineNr cterm=NONE gui=bold ctermbg=NONE guibg=#1a1636 ctermfg=13 guifg=#985cbc
+hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#7d78a1
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
-hi LineNr ctermfg=8 guifg=#552c6d
+hi LineNr ctermfg=8 guifg=#342c6d
 hi MatchParen cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d guifg=#a69fd8
 hi MatchWord cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
 hi Pmenu ctermbg=0 guibg=#1a1636 ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
-" hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afc5c7
 hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff  " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8
 hi TabLineFill cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1 " link breaks in Vim 9.0
-hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=#0c0a19 ctermfg=8 guifg=#7d78a1
-hi TabLineSel cterm=bold gui=bold ctermbg=0 guibg=NONE ctermfg=15 guifg=#ffffff
+hi TabLine cterm=NONE gui=NONE ctermbg=0 guibg=#0c0a19 ctermfg=8 guifg=#7d78a1
+hi TabLineSel cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
-hi WinBar cterm=NONE gui=bold ctermfg=13 guifg=#985cbc
-hi WinBarNC cterm=italic gui=italic ctermfg=7 guifg=#552c6d
+hi WinBar cterm=bold gui=bold ctermfg=7 guifg=#7d78a1
 hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#ffffff
 
 hi DiagnosticError ctermfg=1 guifg=#bc675c
@@ -126,24 +114,9 @@ hi IncSearch cterm=bold,underline gui=NONE ctermbg=241 guibg=#646d2c ctermfg=NON
 hi Search cterm=NONE gui=NONE ctermbg=238 guibg=#2c446d ctermfg=NONE guifg=NONE
 
 " StatusLine and WinSeparator
-hi StatusLine   cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff
-hi StatusLineNC cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=8 guifg=#7d78a1
-hi WinSeparator ctermbg=NONE guibg=NONE ctermfg=0 guifg=#552c6d
-" Statusline "underline"
-if get(g:, "nightcool_statusline", "default") != "default"
-	hi StatusLine   gui=underline guibg=NONE guifg=#985cbc
-	hi StatusLineNC gui=underline guibg=NONE guifg=#552c6d
-en
-" Statusline "bold"
-if get(g:, "nightcool_statusline", "default") == "bold"
-	hi StatusLine   gui=bold guifg=#c39fd8
-	hi StatusLineNC gui=NONE
-en
-" Statusline "black"
-if get(g:, "nightcool_statusline", "default") == "black"
-	hi StatusLine   gui=bold guibg=#000000 guifg=#c39fd8
-	hi StatusLineNC gui=NONE guibg=#000000
-en
+hi StatusLine cterm=underline ctermbg=NONE ctermfg=7 guibg=#342c6d gui=NONE guifg=#ffffff
+hi StatusLineNC cterm=underline ctermbg=NONE ctermfg=8 gui=NONE guibg=#342c6d guifg=#7d78a1
+hi WinSeparator ctermbg=NONE ctermfg=0 guibg=NONE guifg=#342c6d
 
 " UI LINKED
 
@@ -210,7 +183,7 @@ let g:terminal_color_14 = "#9fd1d8"
 let g:terminal_color_15 = "#e9f5e6"
 
 " NEOVIM Treesitter (version 0.8 is new hi syn "@group")
-if has("nvim-0.8") && get(g:, "nightcool_treesitter", v:true)
+if has("nvim-0.8")
 	lua require("nightcool.treesitter")
 endif
 
