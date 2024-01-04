@@ -21,7 +21,7 @@ M.config = function()
 		sources = {
 			{ name = "path" },
 			{ name = "luasnip" },
-			{ name = "nvim_lsp", trigger_characters = { "-" } },
+			{ name = "nvim_lsp",               trigger_characters = { "-" } },
 			{ name = "omni" },
 			{ name = "buffer" },
 			{ name = "nvim_lsp_signature_help" }
@@ -46,13 +46,6 @@ M.config = function()
 					fallback()
 				end
 			end,
-			--			["<CR>"] = cmp.mapping(function(fallback)
-			--				if cmp.get_active_entry() then
-			--					cmp.confirm({ select = true })
-			--				else
-			--					fallback()
-			--				end
-			--			end, { "i", "s" }),
 			["<c-s>"] = cmp.mapping(function()
 				if luasnip.jumpable() then
 					luasnip.jump(1)
@@ -75,10 +68,10 @@ M.config = function()
 					cmp.select_next_item()
 					-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
 					-- they way you will only jump inside the snippet region
-				elseif luasnip.expand_or_jumpable() then
-					luasnip.expand_or_jump()
-				elseif has_words_before() then
-					cmp.complete()
+					--elseif luasnip.expand_or_jumpable() then
+					--	luasnip.expand_or_jump()
+					--elseif has_words_before() then
+					--	cmp.complete()
 				else
 					fallback()
 				end

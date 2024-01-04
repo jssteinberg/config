@@ -1,17 +1,21 @@
 set noshowmode
 set showtabline=2
-set tabline=%!Hacktabs()  " custom tab pages line
+set tabline=%!Hacktabs()  " custom tabline
 
 function! Hacktab(n) abort
 	let buflist = tabpagebuflist(a:n)
 	let winnrs = tabpagewinnr(a:n, "$")
-	for b in buflist | if getbufvar(b, "&mod") | let l:m = 1 | endif | endfor
 	let bufname = bufname(buflist[tabpagewinnr(a:n) - 1])
-	let f = fnamemodify(bufname, ":p:.")
-	return (get(l:, "m", 0) ? "+" : "") .. a:n . "-" . winnrs
-				\..(bufname == "" ? ""
-				\	: " "
-				\		.(tabpagenr() == a:n ? f : fnamemodify(bufname, ":t"))
+	let filePath = fnamemodify(bufname, ":p:.")
+	" store if any buffer is modified
+	for b in buflist | if getbufvar(b, "&mod") | let l:m = 1 | endif | endfor
+	" return tab label
+	return (get(l:, "m", 0) ? "+" : "")
+				\..a:n . "gt"
+				\..(winnrs > 1 ? "/" . winnrs : "")
+				\..(bufname == ""
+				\	? ""
+				\	: " – " . (tabpagenr() == a:n ? filePath : fnamemodify(bufname, ":t"))
 				\)
 endfunction
 
