@@ -47,6 +47,7 @@ return function()
 				["<c-j>"] = "open",
 				["<c-s>"] = "open_split",
 				["<c-k>"] = "open_vsplit",
+				["<c-v>"] = "open_vsplit",
 				["<c-p>"] = { "toggle_preview", config = { use_float = false } },
 				["h"] = "close_node",
 				["-"] = "navigate_up",
@@ -68,7 +69,7 @@ return function()
 				["q"] = "close_window",
 				["e"] = function() vim.api.nvim_exec("Neotree focus filesystem left", true) end,
 				["b"] = function() vim.api.nvim_exec("Neotree focus buffers left", true) end,
-				["v"] = function() vim.api.nvim_exec("Neotree focus git_status left", true) end,
+				["g"] = function() vim.api.nvim_exec("Neotree focus git_status left", true) end,
 			},
 			fuzzy_finder_mappings = {
 				["<C-j>"] = "move_cursor_down",
