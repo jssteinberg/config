@@ -31,6 +31,7 @@ require("lazy").setup({
 	{ "uga-rosa/ccc.nvim",              cmd = { "CccHighlighterToggle" } },
 	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
+	{ "olimorris/onedarkpro.nvim" },
 
 	-- Statusline
 	{
