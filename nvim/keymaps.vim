@@ -22,10 +22,11 @@ nnoremap <leader>gc <cmd>Git log -p -50 %<cr>
 nnoremap <leader>gd <cmd>tabnew %<cr><cmd>Gvdiffsplit<cr>
 nnoremap <leader>gg <cmd>Git<cr>
 nnoremap <silent> <leader>gl <cmd>Flog<cr>
-nnoremap <leader>go <cmd>OpenGithubFile<cr>
 nnoremap <leader>gp <cmd>Git pull<cr>
 nnoremap <leader>gP <cmd>Git push<cr>
 nnoremap <leader>gq <cmd>Git mergetool<cr>
+nnoremap <leader>go <cmd>RepoLink!<cr>
+vnoremap <leader>go  <cmd>RepoLink!<cr>
 
 " Color highlight groups
 nnoremap <leader>hc <cmd>Inspect<cr>
