@@ -3,8 +3,8 @@ set bg=dark
 let g:colors_name="nightcool"
 
 " Options:
-" - `let g:nightcool_bg="default" ` or "" for `NONE` (transparent)
-" - `let g:nightcool_comments="default" or "gray"
+" - `let g:nightcool_bg="default" ` or "transparent"
+" - `let g:nightcool_comments="default", "bright" or "gray"
 "
 " Supports: treesitter, winbar, vim-matchup, fugitive, neo-tree, vim-illuminate, treesitter-context
 
@@ -12,18 +12,20 @@ let g:colors_name="nightcool"
 
 " Normal
 hi Normal ctermfg=15 guibg=#000000 guifg=#e9f5e6
-if get(g:, "nightcool_bg", "default") == ""
+if get(g:, "nightcool_bg", "default") == "transparent"
 	hi Normal guibg=NONE
 endif
 
 " Comment
-hi Comment cterm=NONE gui=italic ctermfg=8 guifg=#c39fd8
-if get(g:, "nightcool_comments", "normal") == "gray"
+hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
+if get(g:, "nightcool_comments", "normal") == "bright"
+	hi Comment gui=italic guifg=#c39fd8
+elseif get(g:, "nightcool_comments", "normal") == "gray"
 	hi Comment gui=NONE guifg=#7d78a1
 endif
 
 " General groups
-" hi clear Conceal " seems to break stuff when set
+hi Conceal cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi Bold cterm=bold gui=bold
 hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi Italic cterm=italic gui=italic

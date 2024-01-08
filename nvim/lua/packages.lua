@@ -34,6 +34,7 @@ require("lazy").setup({
 	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
 	{ "olimorris/onedarkpro.nvim" },
+	{ "marko-cerovac/material.nvim" },
 
 	-- gx
 	{
