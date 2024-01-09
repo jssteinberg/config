@@ -41,10 +41,11 @@ require("lazy").setup({
 		"tyru/open-browser.vim",
 		keys = { "gx", { "gx", mode = "v" } },
 		config = function()
+			vim.g.openbrowser_default_search = "duckduckgo"
 			vim.cmd [[
-			nmap gx <Plug>(openbrowser-smart-search)
-			vmap gx <Plug>(openbrowser-smart-search)
-		]]
+				nmap gx <Plug>(openbrowser-open)
+				vmap gx <Plug>(openbrowser-smart-search)
+			]]
 		end
 	},
 
