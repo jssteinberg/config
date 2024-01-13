@@ -1,5 +1,5 @@
 let s:d = "set bg=dark termguicolors t_Co=256"
-			\." | let g:nightcool_bg=''"
+			\." | let g:nightcool_bg='transparent'"
 			\." | colo nightcool"
 
 let s:l = "set bg=light termguicolors t_Co=256"

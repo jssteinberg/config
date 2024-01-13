@@ -38,7 +38,6 @@ return function()
 			mappings = {
 				["c"] = "none",
 				["m"] = "none",
-				["s"] = "none",
 				["S"] = "none",
 				["<bs>"] = "none",
 				["<space>"] = "none",
@@ -69,7 +68,7 @@ return function()
 				["q"] = "close_window",
 				["e"] = function() vim.api.nvim_exec("Neotree focus filesystem left", true) end,
 				["b"] = function() vim.api.nvim_exec("Neotree focus buffers left", true) end,
-				["g"] = function() vim.api.nvim_exec("Neotree focus git_status left", true) end,
+				["s"] = function() vim.api.nvim_exec("Neotree focus git_status left", true) end,
 			},
 			fuzzy_finder_mappings = {
 				["<C-j>"] = "move_cursor_down",

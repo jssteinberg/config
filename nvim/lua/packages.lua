@@ -24,6 +24,8 @@ require("lazy").setup({
 	{ "michaeljsmith/vim-indent-object" },
 	-- Measure startup time
 	{ "tweekmonster/startuptime.vim",   cmd = "StartupTime" },
+	-- Visual undo tree
+	{ "mbbill/undotree",                cmd = "UndotreeToggle" },
 	-- Colorscheme util
 	-- { "rktjmp/lush.nvim", lazy = false },
 	-- { "echasnovski/mini.colors",        version = "*" },
@@ -32,6 +34,20 @@ require("lazy").setup({
 	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
 	{ "olimorris/onedarkpro.nvim" },
+	{ "marko-cerovac/material.nvim" },
+
+	-- gx
+	{
+		"tyru/open-browser.vim",
+		keys = { "gx", { "gx", mode = "v" } },
+		config = function()
+			vim.g.openbrowser_default_search = "duckduckgo"
+			vim.cmd [[
+				nmap gx <Plug>(openbrowser-open)
+				vmap gx <Plug>(openbrowser-smart-search)
+			]]
+		end
+	},
 
 	-- Statusline
 	{
@@ -247,7 +263,12 @@ require("lazy").setup({
 	-- git blame inline
 	{ "APZelos/blamer.nvim", cmd = "BlamerToggle" }, -- git blame
 
-	-- undo tree
-	{ "mbbill/undotree",     cmd = "UndotreeToggle" },
+	-- git link
+	{
+		"9seconds/repolink.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		cmd = { "RepoLink" },
+		opts = {},
+	}
 
 })

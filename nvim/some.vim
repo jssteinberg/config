@@ -140,16 +140,16 @@ vnoremap gs :call RgVisual()<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 
 function! Rg() abort
 	normal! "gyiw
-	call s:RgG()
+	call s:rgG()
 endfunction
 
 function! RgVisual() abort
 	normal! "gy
-	call s:RgG()
+	call s:rgG()
 endfunction
 
-function! s:RgG() abort
-	let l:q = escape(@g, "'()#")
+function! s:rgG() abort
+	let l:q = escape(@g, "'()#<")
 	exe "silent grep -e '" . l:q . "'"
 	redraw!
 	echo l:q

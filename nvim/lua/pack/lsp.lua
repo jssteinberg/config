@@ -72,20 +72,12 @@ M.config = function()
 				on_attach = max_client,
 				settings = {
 					javascript = {
-						format = {
-							semicolons = "insert"
-						},
-						preferences = {
-							quoteStyle = "double"
-						}
+						format = { semicolons = "insert" },
+						preferences = { quoteStyle = "double" }
 					},
 					typescript = {
-						format = {
-							semicolons = "insert"
-						},
-						preferences = {
-							quoteStyle = "double"
-						}
+						format = { semicolons = "insert" },
+						preferences = { quoteStyle = "double" }
 					}
 				}
 			}
