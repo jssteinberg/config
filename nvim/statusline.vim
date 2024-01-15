@@ -31,8 +31,11 @@ function! Hacktabs() abort
 endfunction
 
 function! StatuslineModeLabels(sep_l = "", sep_r = "") abort
-	return matchstr(mode(), "[nictrs]") != ""
+	let l:flag = matchstr(mode(), "[nictrs]") != ""
 				\ ? mode() : "v"
+	try | return luaeval("string.upper(" . l:flag . "))")
+	catch | return l:flag
+	endtry
 endfunction
 
 function! Hackline(status) abort
