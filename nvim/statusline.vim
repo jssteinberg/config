@@ -31,11 +31,8 @@ function! Hacktabs() abort
 endfunction
 
 function! StatuslineModeLabels(sep_l = "", sep_r = "") abort
-	let l:flag = matchstr(mode(), "[nictrs]") != ""
-				\ ? mode() : "v"
-	try | return luaeval("string.upper(" . l:flag . "))")
-	catch | return l:flag
-	endtry
+	return matchstr(mode(), "[nictrsv]") != ""
+				\ ? mode() : "V"
 endfunction
 
 function! Hackline(status) abort
@@ -56,7 +53,7 @@ function! Hackline(status) abort
 	" set statusline default color
 	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
 	" set some mode colors
-	let l:line .= l:active && matchstr(mode(), "[itr]") != "" ? "%#IncSearch#" : ""
+	let l:line .= l:active && mode() != "n" ? "%#IncSearch#" : ""
 	" Start spacing
 	let l:line .= " "
 
