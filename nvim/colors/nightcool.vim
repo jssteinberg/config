@@ -142,6 +142,9 @@ hi! link FoldColumn Folded
 
 " (N)VIM PLUGINS
 
+" lazy.nvim
+hi! link LazyButtonActive StatusLine
+
 " oil.nvim
 hi! link OilFile Title
 
