@@ -53,6 +53,7 @@ nnoremap <leader>ew :e **/
 nnoremap <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>
 nnoremap <leader>ep <cmd>e package.json<cr>
 nnoremap <leader>er <cmd>e README.md<cr>
+nnoremap <leader>ee <cmd>e .env<cr>
 
 " Close tab or quit all
 nn <silent> <leader>C <cmd>exe "try\n tabclose\n catch\n qa\n endtry"<cr>
