@@ -36,6 +36,7 @@ require("lazy").setup({
 	{ "olimorris/onedarkpro.nvim" },
 	{ "marko-cerovac/material.nvim" },
 	{ "oxfist/night-owl.nvim" },
+	{ "ajgrf/parchment" },
 
 	-- gx
 	{
