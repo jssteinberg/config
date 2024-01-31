@@ -5,7 +5,7 @@ if wezterm.config_builder then config = wezterm.config_builder() end
 
 -- CONFIG OPTIONS
 
-config.window_background_opacity = .975
+config.window_background_opacity = .75
 config.font_size = 14
 config.line_height = 1.1
 config.use_dead_keys = false
@@ -20,17 +20,17 @@ config.send_composed_key_when_left_alt_is_pressed = true
 config.leader = { key = "z", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
 	{ key = "C", mods = "SHIFT|CTRL",  action = act.CopyTo "ClipboardAndPrimarySelection" },
-	{ key = "V", mods = "SHIFT|CTRL",  action = act.PasteFrom "Clipboard" },
+	{ key = "V", mods = "SUPER",       action = act.PasteFrom "Clipboard" },
 	{ key = "f", mods = "SUPER|CTRL",  action = wezterm.action.ToggleFullScreen },
-	{ key = "v", mods = "SHIFT|CTRL",  action = wezterm.action.SplitPane { direction = "Right" } },
-	{ key = "s", mods = "SHIFT|CTRL",  action = wezterm.action.SplitPane { direction = "Down" } },
+	{ key = "v", mods = "LEADER|CTRL", action = wezterm.action.SplitPane { direction = "Right" } },
+	{ key = "s", mods = "LEADER|CTRL", action = wezterm.action.SplitPane { direction = "Down" } },
 	{ key = "h", mods = "LEADER|CTRL", action = act.ActivatePaneDirection "Left", },
 	{ key = "l", mods = "LEADER|CTRL", action = act.ActivatePaneDirection "Right", },
 	{ key = "-", mods = "SUPER",       action = wezterm.action.DecreaseFontSize },
 	{ key = "+", mods = "SUPER",       action = wezterm.action.IncreaseFontSize },
 	{
 		key = "l",
-		mods = "SHIFT|CTRL",
+		mods = "SUPER",
 		action = wezterm.action.ActivateLastTab,
 	},
 }

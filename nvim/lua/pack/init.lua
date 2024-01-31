@@ -10,13 +10,13 @@ local function init()
 
 	packer.reset()
 
-	use { "wbthomason/packer.nvim", opt = true }                 -- Package manager
-	use { "tpope/vim-sleuth" }                                   -- Tabs and editorconfig
-	use { "tpope/vim-surround" }                                 -- Surround characters
-	use { "tpope/vim-repeat" }                                   -- Extend `.` repeat
-	use { "dhruvasagar/vim-open-url" }                           -- URLs and search
-	use { "michaeljsmith/vim-indent-object" }                    -- Keymaps for indents
-	use { "tweekmonster/startuptime.vim" }                       -- Measure startup time
+	use { "wbthomason/packer.nvim", opt = true }             -- Package manager
+	use { "tpope/vim-sleuth" }                               -- Tabs and editorconfig
+	use { "tpope/vim-surround" }                             -- Surround characters
+	use { "tpope/vim-repeat" }                               -- Extend `.` repeat
+	use { "dhruvasagar/vim-open-url" }                       -- URLs and search
+	use { "michaeljsmith/vim-indent-object" }                -- Keymaps for indents
+	use { "tweekmonster/startuptime.vim" }                   -- Measure startup time
 	use { "stevearc/oil.nvim", config = require("pack.oil") } -- netrw replacement
 
 	-- AI code completion
@@ -134,8 +134,6 @@ local function init()
 	}
 
 	-- ### SEARCH/EXPLORE
-
-	use { "pechorin/any-jump.vim", cmd = { "AnyJump" } } -- Reference under cursor
 
 	-- Quickfix
 	use { "kevinhwang91/nvim-bqf", ft = "qf" }
