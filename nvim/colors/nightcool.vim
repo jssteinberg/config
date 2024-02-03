@@ -79,7 +79,7 @@ hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8
 hi TabLineFill cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi TabLine cterm=NONE gui=NONE ctermbg=0 guibg=#0c0a19 ctermfg=8 guifg=#7d78a1
-hi TabLineSel cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
+hi TabLineSel cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=bold gui=bold ctermfg=7 guifg=#7d78a1
