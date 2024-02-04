@@ -40,7 +40,7 @@ function! Hackline(status) abort
 	" separator label
 	let l:sep_l = " "
 	" separator sections
-	let l:sep = #{l: "  --  ", r: "  /  "}
+	let l:sep = #{l: "  /  ", r: "  /  "}
 	" seperator secondary
 	let l:sep_s = #{l: "  " , r: " "}
 	" separator items
@@ -81,10 +81,12 @@ function! Hackline(status) abort
 	" filename
 	let l:line .= "%(%t%)"
 
-	let l:line .= l:sep.l
-
+	" Statusline MIDDLE
+	" --------------
+	let l:line .= "%=  –  "
 	" Cursor position
 	let l:line .= "l-%l/%L c-%c"
+	let l:line .= "  –  "
 
 	" Statusline END
 	" --------------

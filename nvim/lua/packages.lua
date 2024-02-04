@@ -36,6 +36,7 @@ require("lazy").setup({
 	{ "olimorris/onedarkpro.nvim" },
 	{ "marko-cerovac/material.nvim" },
 	{ "oxfist/night-owl.nvim" },
+	{ "ajgrf/parchment" },
 
 	-- gx
 	{
@@ -102,16 +103,6 @@ require("lazy").setup({
 				},
 			})
 		end
-	},
-
-	-- CODE ANALYZES/COMPLETION
-
-	{
-		"pechorin/any-jump.vim",
-		cmd = { "AnyJump", "AnyJumpVisual" },
-		config = function()
-			vim.g.any_jump_disable_default_keybindings = 1
-		end,
 	},
 
 	-- LSP

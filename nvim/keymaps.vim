@@ -44,9 +44,5 @@ noremap <leader>k <cmd>HopVertical<cr>
 imap <c-e><c-e> <plug>(emmet-expand-abbr)
 vmap <c-e><c-e> <plug>(emmet-expand-abbr)
 
-" Any jump
-nnoremap <leader>A :AnyJump<CR>
-xnoremap <leader>A :AnyJumpVisual<CR>
-
 " LSP
 nn <leader>lR <cmd>LspRestart<cr>
