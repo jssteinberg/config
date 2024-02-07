@@ -33,10 +33,9 @@ require("lazy").setup({
 	{ "uga-rosa/ccc.nvim",              cmd = { "CccHighlighterToggle" } },
 	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
-	{ "olimorris/onedarkpro.nvim" },
-	{ "marko-cerovac/material.nvim" },
 	{ "oxfist/night-owl.nvim" },
 	{ "ajgrf/parchment" },
+	{ "lunacookies/vim-colors-xcode" },
 
 	-- gx
 	{
@@ -62,7 +61,7 @@ require("lazy").setup({
 	{
 		"jssteinberg/termcwd",
 		config = function()
-			vim.g.termcwd_split_full_top = true
+			vim.g.termcwd_split_full_bottom = true
 			vim.keymap.set("n", "<leader><cr>", require("termcwd").sp(), { desc = "Shell (CWD)" })
 			vim.keymap.set("n", "<leader>t<cr>", require("termcwd").tab(), { desc = "Tabshell (CWD)" })
 			vim.keymap.set("n", "<leader>1", require("termcwd").sp(1, ""), { desc = "Shell" })
