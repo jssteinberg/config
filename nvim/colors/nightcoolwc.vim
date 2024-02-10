@@ -39,36 +39,17 @@ let g:colors_name="nightcoolwc"
 
 " GROUP NAMES (:h group-name)
 
-if has("nvim")
-	let g:terminal_color_0="#1a1636"
-	let g:terminal_color_1="#bc675c"
-	let g:terminal_color_2="#80bc5c"
-	let g:terminal_color_3="#bc985c"
-	let g:terminal_color_4="#5c80bc"
-	let g:terminal_color_5="#685cbc"
-	let g:terminal_color_6="#5cb1bc"
-	let g:terminal_color_7="#afc5c7"
-	let g:terminal_color_8="#7d78a1"
-	let g:terminal_color_9="#d8a69f"
-	let g:terminal_color_10="#add89f"
-	let g:terminal_color_11="#d0d89f"
-	let g:terminal_color_12="#9fb4d8"
-	let g:terminal_color_13="#a69fd8"
-	let g:terminal_color_14="#9fd1d8"
-	let g:terminal_color_15="#e9f5e6"
-endif
-
 hi Normal ctermfg=7 guifg=#afc5c7
 
 if get(g:, "nightcoolwc_bg", v:true)
 	hi Normal guibg=#0c0a19
 endif
 
+hi Conceal cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi Bold cterm=bold gui=bold
 hi Italic cterm=italic gui=italic
 hi Title cterm=NONE gui=NONE ctermfg=15 guifg=#e9f5e6
 
-hi clear Conceal
 hi! link Constant Normal
 hi! link TSParameter Normal
 
@@ -272,3 +253,22 @@ hi! link TelescopePromptCounter Comment
 " Treesitter context
 hi! link TreesitterContext CursorLine
 hi! link TreesitterContextLineNumber WildMenu
+
+" Neovim terminal colors
+let g:terminal_color_0="#1a1636"
+let g:terminal_color_1="#bc675c"
+let g:terminal_color_2="#80bc5c"
+let g:terminal_color_3="#bc985c"
+let g:terminal_color_4="#5c80bc"
+let g:terminal_color_5="#685cbc"
+let g:terminal_color_6="#5cb1bc"
+let g:terminal_color_7="#afc5c7"
+let g:terminal_color_8="#7d78a1"
+let g:terminal_color_9="#d8a69f"
+let g:terminal_color_10="#add89f"
+let g:terminal_color_11="#d0d89f"
+let g:terminal_color_12="#9fb4d8"
+let g:terminal_color_13="#a69fd8"
+let g:terminal_color_14="#9fd1d8"
+let g:terminal_color_15="#e9f5e6"
+
