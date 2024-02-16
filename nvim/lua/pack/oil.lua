@@ -36,7 +36,7 @@ return function()
 		columns = {
 			-- "permissions",
 			"size",
-			"mtime",
+			-- "mtime",
 		},
 	})
 end

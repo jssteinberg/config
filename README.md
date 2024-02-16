@@ -1,6 +1,6 @@
 # .config
 
-Config for Wezterm/Kitty, Fish, Neovim, Vim and Ripgrep. *Not tested for Windows.*
+Config for Wezterm, Fish, Neovim, Vim and Ripgrep. *Not tested for Windows.*
 
 ## Get started
 
