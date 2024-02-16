@@ -36,6 +36,7 @@ require("lazy").setup({
 	{ "oxfist/night-owl.nvim" },
 	{ "ajgrf/parchment" },
 	{ "lunacookies/vim-colors-xcode" },
+	{ "embark-theme/vim",               as = "embark" },
 
 	-- gx
 	{

@@ -10,6 +10,7 @@ config.font_size = 14
 config.line_height = 1.1
 config.use_dead_keys = false
 config.window_decorations = "RESIZE"
+config.window_padding = { left = 1, right = 1, top = 14, bottom = 0 }
 -- tab bar
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
