@@ -64,8 +64,8 @@ hi! link vimCommentString Todo
 
 hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
-hi CursorColumn ctermbg=0 guibg=#0c0a19"
-hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
+hi CursorColumn ctermbg=0 guibg=#0c0a19
+hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#0c0a19
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#7d78a1
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
@@ -141,25 +141,22 @@ hi! link Folded Todo
 hi! link FoldColumn Folded
 
 " (N)VIM PLUGINS
-
 " lazy.nvim
 hi! link LazyButtonActive StatusLine
-
 " oil.nvim
 hi! link OilFile Title
-
 " mini.pick
 hi! link MiniPickNormal Normal
 hi! link MiniPickMatchCurrent PmenuSel
-
 " illuminate.vim
 hi IlluminatedWordText cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi! link IlluminatedWordRead IlluminatedWordText
 hi! link IlluminatedWordWrite IlluminatedWordText
-
 " copilot.vim
 hi CopilotSuggestion ctermfg=5 guifg=#685cbc
-
+" treesitter-context
+hi TreesitterContext ctermbg=0 guibg=#1a1636
+hi! link TreesitterContextLineNumber CursorLineNr
 " neo-tree
 hi! link NeoTreeNormal Title
 hi! link NeoTreeNormalNC NeoTreeNormal
