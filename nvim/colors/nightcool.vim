@@ -65,7 +65,7 @@ hi! link vimCommentString Todo
 hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#0c0a19
-hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#0c0a19
+hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#7d78a1
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
