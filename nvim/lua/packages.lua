@@ -26,6 +26,8 @@ require("lazy").setup({
 	{ "tweekmonster/startuptime.vim",   cmd = "StartupTime" },
 	-- Visual undo tree
 	{ "mbbill/undotree",                cmd = "UndotreeToggle" },
+	-- Center buffer
+	{ "shortcuts/no-neck-pain.nvim",    cmd = "NoNeckPain" },
 	-- Colorscheme util
 	-- { "rktjmp/lush.nvim", lazy = false },
 	-- { "echasnovski/mini.colors",        version = "*" },
