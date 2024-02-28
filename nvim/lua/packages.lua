@@ -26,8 +26,6 @@ require("lazy").setup({
 	{ "tweekmonster/startuptime.vim",   cmd = "StartupTime" },
 	-- Visual undo tree
 	{ "mbbill/undotree",                cmd = "UndotreeToggle" },
-	-- Center buffer
-	{ "shortcuts/no-neck-pain.nvim",    cmd = "NoNeckPain" },
 	-- Colorscheme util
 	-- { "rktjmp/lush.nvim", lazy = false },
 	-- { "echasnovski/mini.colors",        version = "*" },
@@ -39,6 +37,12 @@ require("lazy").setup({
 	{ "ajgrf/parchment" },
 	{ "lunacookies/vim-colors-xcode" },
 	{ "embark-theme/vim",               as = "embark" },
+
+	-- Statusline
+	{
+		"jssteinberg/hackline.vim",
+		dependencies = "itchyny/vim-gitbranch"
+	},
 
 	-- gx
 	{
@@ -53,12 +57,6 @@ require("lazy").setup({
 		end
 	},
 
-	-- Statusline
-	{
-		"jssteinberg/hackline.vim",
-		dependencies = "itchyny/vim-gitbranch"
-	},
-
 	-- Terminal
 	{
 		"jssteinberg/termcwd",
@@ -68,6 +66,15 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>t<cr>", require("termcwd").tab(), { desc = "Tabshell (CWD)" })
 			vim.keymap.set("n", "<leader>1", require("termcwd").sp(1, ""), { desc = "Shell" })
 		end
+	},
+
+	-- Center buffer
+	{
+		"pocco81/true-zen.nvim",
+		config = function()
+			vim.api.nvim_set_keymap("n", "<leader>F", ":TZAtaraxis<CR>", {})
+			vim.api.nvim_set_keymap("n", "<leader>Z", ":TZAtaraxis<CR>", {})
+		end,
 	},
 
 	-- SEARCH/EXPLORE
