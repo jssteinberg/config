@@ -37,6 +37,7 @@ require("lazy").setup({
 	{ "ajgrf/parchment" },
 	{ "lunacookies/vim-colors-xcode" },
 	{ "embark-theme/vim",               as = "embark" },
+	{ "wolandark/NotePad-Vim" },
 
 	-- Statusline
 	{
@@ -68,7 +69,7 @@ require("lazy").setup({
 		end
 	},
 
-	-- Center buffer
+	-- Focus buffer
 	{
 		"pocco81/true-zen.nvim",
 		config = function()
@@ -143,7 +144,8 @@ require("lazy").setup({
 		},
 		config = function()
 			require "pack.cmp".config()
-			require "snippets"
+			require("luasnip.loaders.from_snipmate").lazy_load()
+			-- require "snippets"
 		end,
 	},
 

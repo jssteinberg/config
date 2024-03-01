@@ -27,6 +27,8 @@ config.keys = {
 	{ key = "s", mods = "LEADER|CTRL", action = wezterm.action.SplitPane { direction = "Down" } },
 	{ key = "h", mods = "LEADER|CTRL", action = act.ActivatePaneDirection "Left", },
 	{ key = "l", mods = "LEADER|CTRL", action = act.ActivatePaneDirection "Right", },
+	{ key = "j", mods = "LEADER|CTRL", action = act.ActivatePaneDirection "Up", },
+	{ key = "k", mods = "LEADER|CTRL", action = act.ActivatePaneDirection "Down", },
 	{ key = "-", mods = "SUPER",       action = wezterm.action.DecreaseFontSize },
 	{ key = "+", mods = "SUPER",       action = wezterm.action.IncreaseFontSize },
 	{

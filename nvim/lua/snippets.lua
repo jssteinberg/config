@@ -34,7 +34,7 @@ end
 ls.add_snippets(nil, {
 	all = {
 		s({
-			trig = "yyyy-mm-dd",
+			trig = "date",
 			namr = "Date",
 			dscr = "Date in the form of YYYY-MM-DD",
 		}, {

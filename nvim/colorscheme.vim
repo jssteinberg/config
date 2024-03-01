@@ -3,9 +3,10 @@ let s:d = "set bg=dark termguicolors t_Co=256"
 			\." | colo nightcool"
 
 let s:l = "set bg=light termguicolors t_Co=256"
-			\." | colo lunaperche"
-			\." | hi! link VertSplit TabLineSel"
-			\." | hi! link StatusLine TabLine"
+			\." | colo alabaster"
+			" \." | colo lunaperche"
+			" \." | hi! link VertSplit TabLineSel"
+			" \." | hi! link StatusLine TabLine"
 
 function! InitColo()
 	exe(s:d)
