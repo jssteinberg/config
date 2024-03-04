@@ -38,6 +38,7 @@ require("lazy").setup({
 	{ "lunacookies/vim-colors-xcode" },
 	{ "embark-theme/vim",               as = "embark" },
 	{ "wolandark/NotePad-Vim" },
+	{ "xero/miasma.nvim" },
 
 	-- Statusline
 	{
