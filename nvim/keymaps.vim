@@ -46,3 +46,27 @@ vmap <c-e><c-e> <plug>(emmet-expand-abbr)
 
 " LSP
 nn <leader>lR <cmd>LspRestart<cr>
+
+" Zen mode mapping that
+" - open current buffer in a new tab
+" - create scratch buffers on both vertical sides
+" - focuses the center buffer
+nnoremap <leader>Z :call ZenMode()<cr>
+
+function! ZenMode() abort
+	let l:buf = bufnr('%')
+	tabnew
+	let l:w = winwidth(0)
+	vnew
+	vnew
+	execute '2wincmd w'
+	execute 'buffer' l:buf
+	execute 'vert resize 100'
+	execute '1wincmd w'
+	setlocal nonumber norelativenumber signcolumn=no foldcolumn=0 nocursorline nocursorcolumn
+	execute 'vert resize ' . (l:w - 100) / 2
+	execute '3wincmd w'
+	setlocal nonumber norelativenumber signcolumn=no foldcolumn=0 nocursorline nocursorcolumn
+	execute 'vert resize ' . (l:w - 100) / 2
+	execute '2wincmd w'
+endfunction

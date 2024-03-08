@@ -70,15 +70,6 @@ require("lazy").setup({
 		end
 	},
 
-	-- Focus buffer
-	{
-		"pocco81/true-zen.nvim",
-		config = function()
-			vim.api.nvim_set_keymap("n", "<leader>F", ":TZAtaraxis<CR>", {})
-			vim.api.nvim_set_keymap("n", "<leader>Z", ":TZAtaraxis<CR>", {})
-		end,
-	},
-
 	-- SEARCH/EXPLORE
 
 	-- Netrw replacement

@@ -1,11 +1,6 @@
 " OPTIONS
 set clipboard+=unnamedplus
 set undofile
-" set cursorcolumn
-
-" ALIAS GREP
-" cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
-" cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
 " AUTO COMMANDS
 augroup nvim_init
