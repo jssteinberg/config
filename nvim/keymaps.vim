@@ -51,22 +51,24 @@ nn <leader>lR <cmd>LspRestart<cr>
 " - open current buffer in a new tab
 " - create scratch buffers on both vertical sides
 " - focuses the center buffer
-nnoremap <leader>Z :call ZenMode()<cr>
+nnoremap <leader>Z :call ZenModeFloat()<cr>
 
-function! ZenMode() abort
-	let l:buf = bufnr('%')
+function! ZenModeFloat() abort
+	let g:zen_buffer = bufnr('%')
 	tabnew
+	" store current window handle in a global variable
+	let b:zen_window_wrapper = win_getid()
+	setlocal nonumber norelativenumber signcolumn=no foldcolumn=0 nocursorline nocursorcolumn
 	let l:w = winwidth(0)
-	vnew
-	vnew
-	execute '2wincmd w'
-	execute 'buffer' l:buf
-	execute 'vert resize 100'
-	execute '1wincmd w'
-	setlocal nonumber norelativenumber signcolumn=no foldcolumn=0 nocursorline nocursorcolumn
-	execute 'vert resize ' . (l:w - 100) / 2
-	execute '3wincmd w'
-	setlocal nonumber norelativenumber signcolumn=no foldcolumn=0 nocursorline nocursorcolumn
-	execute 'vert resize ' . (l:w - 100) / 2
-	execute '2wincmd w'
+	let l:h = winheight(0)
+	let l:opts = { "relative": "win", "width": 100, "height": l:h, "row": 0, "col": (l:w - 100) / 2 }
+	let g:zen_window = nvim_open_win(g:zen_buffer, 1, opts)
 endfunction
+
+augroup zen_window
+	autocmd!
+	" close window before entering another window
+	autocmd WinEnter * if exists('g:zen_window') | call nvim_win_close(g:zen_window, 1) | unlet g:zen_window | endif
+	" if wrapper is entered and there's an empty buffer, load the zen buffer
+	autocmd WinEnter * if exists('b:zen_window_wrapper') | execute 'buffer' g:zen_buffer | endif
+augroup END
