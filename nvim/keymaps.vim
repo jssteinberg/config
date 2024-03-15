@@ -58,7 +58,11 @@ function! ZenModeFloat() abort
 	let l:w = winwidth(0)
 	let l:h = winheight(0)
 	bd
-	let l:opts = { "relative": "editor", "width": 100, "height": l:h, "row": 0, "col": (l:w - 100) / 2 }
+	" add 1 to l:h if statusline shows
+	let l:h = &laststatus > 1 ? l:h + 1 : l:h
+	" let l:r to 1 if tabline shows
+	let l:r = &showtabline ? 1 : 0
+	let l:opts = { "relative": "editor", "width": 100, "height": l:h, "row": l:r, "col": (l:w - 100) / 2 }
 	let g:zen_window = nvim_open_win(0, 1, opts)
 endfunction
 
