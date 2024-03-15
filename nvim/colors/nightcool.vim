@@ -12,6 +12,7 @@ let g:colors_name="nightcool"
 
 " Normal
 hi Normal ctermfg=15 guibg=#000000 guifg=#e9f5e6
+hi NormalFloat ctermbg=0 guibg=#0c0a19 ctermfg=15 guifg=#e9f5e6
 if get(g:, "nightcool_bg", "default") == "transparent"
 	hi Normal guibg=NONE
 endif

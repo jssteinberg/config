@@ -47,10 +47,7 @@ vmap <c-e><c-e> <plug>(emmet-expand-abbr)
 " LSP
 nn <leader>lR <cmd>LspRestart<cr>
 
-" Zen mode mapping that
-" - open current buffer in a new tab
-" - create scratch buffers on both vertical sides
-" - focuses the center buffer
+" Zen mode
 nnoremap <leader>Z :call ZenModeFloat()<cr>
 
 function! ZenModeFloat() abort
@@ -58,16 +55,13 @@ function! ZenModeFloat() abort
 	let l:w = winwidth(0)
 	let l:h = winheight(0)
 	bd
-	" add 1 to l:h if statusline shows
-	let l:h = &laststatus > 1 ? l:h + 1 : l:h
 	" let l:r to 1 if tabline shows
 	let l:r = &showtabline ? 1 : 0
-	let l:opts = { "relative": "editor", "width": 100, "height": l:h, "row": l:r, "col": (l:w - 100) / 2 }
-	let g:zen_window = nvim_open_win(0, 1, opts)
+	let g:zenW = nvim_open_win(0, 1, { "relative": "editor", "width": 100, "height": l:h, "row": l:r, "col": (l:w - 100) / 2 })
 endfunction
 
-augroup zen_window
+augroup zenW
 	autocmd!
 	" close window before entering another window, in try catch
-	autocmd WinEnter * if exists('g:zen_window') | silent! execute g:zen_window . 'close' | unlet g:zen_window | endif
+	autocmd WinEnter * if exists('g:zenW') | silent! exe g:zenW . 'clo' | unlet g:zenW | endif
 augroup END
