@@ -54,13 +54,12 @@ nn <leader>lR <cmd>LspRestart<cr>
 nnoremap <leader>Z :call ZenModeFloat()<cr>
 
 function! ZenModeFloat() abort
-	let g:zen_buffer = bufnr('%')
 	tabnew
 	let l:w = winwidth(0)
 	let l:h = winheight(0)
 	bd
 	let l:opts = { "relative": "editor", "width": 100, "height": l:h, "row": 0, "col": (l:w - 100) / 2 }
-	let g:zen_window = nvim_open_win(g:zen_buffer, 1, opts)
+	let g:zen_window = nvim_open_win(0, 1, opts)
 endfunction
 
 augroup zen_window
