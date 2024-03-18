@@ -74,7 +74,7 @@ hi LineNr ctermfg=8 guifg=#342c6d
 hi MatchParen cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d guifg=#a69fd8
 hi MatchWord cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
-hi Pmenu ctermbg=0 guibg=#0c0a19 ctermfg=8 guifg=#7d78a1 " Pmenu affects some floating windows
+hi Pmenu ctermbg=0 guibg=#0c0a19 ctermfg=8 guifg=#7d78a1
 hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff  " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8

@@ -51,17 +51,29 @@ nn <leader>lR <cmd>LspRestart<cr>
 nnoremap <leader>Z :call ZenModeFloat()<cr>
 
 function! ZenModeFloat() abort
+	let s:zen_prev_win = nvim_get_current_win()
+	let l:b = bufnr('%')
 	tabnew
 	let l:w = winwidth(0)
 	let l:h = winheight(0)
 	bd
-	" let l:r to 1 if tabline shows
 	let l:r = &showtabline ? 1 : 0
-	let g:zenW = nvim_open_win(0, 1, { "relative": "editor", "width": 100, "height": l:h, "row": l:r, "col": (l:w - 100) / 2 })
+	let l:empty_buf = nvim_create_buf(0, 1)
+	let s:zen_container = nvim_open_win(l:empty_buf, 1, { "relative": "editor", "width": l:w, "height": l:h, "row": l:r, "col": 0, "style": "minimal" })
+	let s:zen_win = nvim_open_win(l:b, 1, { "relative": "editor", "width": 100, "height": l:h, "row": l:r, "col": (l:w - 100) / 2 })
+	" call nvim_win_set_option(s:zen_win, 'winhl', 'Normal:Normal')
 endfunction
 
-augroup zenW
+function! s:close_zen() abort
+	try | if exists('s:zen_win')
+		call nvim_win_close(s:zen_win, 0)
+		call nvim_win_close(s:zen_container, 1)
+		unlet s:zen_win
+		call nvim_set_current_win(s:zen_prev_win)
+	endif | catch | endtry
+endfunction
+
+augroup zen_win
 	autocmd!
-	" close window before entering another window, in try catch
-	autocmd WinEnter * if exists('g:zenW') | silent! exe g:zenW . 'clo' | unlet g:zenW | endif
+	autocmd WinLeave * call s:close_zen()
 augroup END
