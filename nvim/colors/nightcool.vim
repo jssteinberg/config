@@ -33,6 +33,7 @@ hi Italic cterm=italic gui=italic
 hi NonText gui=NONE ctermfg=235 guifg=#342c6d " keep cterm same as `SpecialKey`
 hi Title cterm=bold gui=bold ctermfg=10 guifg=#add89f
 hi Todo cterm=bold gui=NONE ctermbg=NONE guibg=#552c6d ctermfg=7 guifg=#ffffff
+hi! link NvimInternalError Error
 hi! link Underlined Title
 hi! link SpecialKey NonText " ...also for list char in Vim
 

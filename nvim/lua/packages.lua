@@ -39,6 +39,7 @@ require("lazy").setup({
 	{ "embark-theme/vim",               as = "embark" },
 	{ "wolandark/NotePad-Vim" },
 	{ "xero/miasma.nvim" },
+	{ "Verf/deepwhite.nvim" },
 
 	-- Statusline
 	{
