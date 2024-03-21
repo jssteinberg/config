@@ -59,7 +59,7 @@ function! ZenModeFloat() abort
 	let l:h = winheight(0)
 	bd
 	" let l:h = &laststatus || len(nvim_list_wins()) > 1 ? l:h + 1 : l:h
-	let l:h = !&laststatus || (&laststatus && len(nvim_list_wins())) ? l:h : l:h + 1
+	let l:h = !&laststatus || (&laststatus == 1 && len(nvim_list_wins())) ? l:h : l:h + 1
 	let l:r = &showtabline == 2 || &showtabline && len(nvim_list_tabpages()) > 1 ? 1 : 0
 	let l:empty_buf = nvim_create_buf(0, 1)
 	let s:zen_container = nvim_open_win(l:empty_buf, 1, { "relative": "editor", "width": l:w, "height": l:h, "row": l:r, "col": 0, "style": "minimal" })
