@@ -1,24 +1,13 @@
-" OPTIONS
+" NEOVIM OPTIONS
+
 set clipboard+=unnamedplus
 set undofile
 
-" AUTO COMMANDS
+" Auto commands
 augroup nvim_init
 	au!
 	" Check if file has been updated
 	autocmd FocusGained,BufEnter * :checktime
 	" Open quickfix window when relevant
 	au QuickFixCmdPost [^l]* cwindow
-	" When new window is opened or close, or when tab is changed
-	" autocmd WinEnter * :call s:StatuslineStyle()
 augroup END
-
-function! s:StatuslineStyle() abort
-	let g:nightcool_statusline = winnr('$') != 1 && &laststatus != 3
-				\ ? "underline"
-				\ : ""
-
-	if g:colors_name == "nightcool"
-		colo nightcool
-	endif
-endfunction
