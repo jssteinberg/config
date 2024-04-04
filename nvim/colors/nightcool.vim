@@ -146,7 +146,7 @@ hi! link FoldColumn Folded
 " lazy.nvim
 hi! link LazyButtonActive StatusLine
 " oil.nvim
-hi! link OilFile Title
+hi! link OilFile String
 " mini.pick
 hi! link MiniPickNormal Normal
 hi! link MiniPickMatchCurrent PmenuSel
@@ -160,7 +160,7 @@ hi CopilotSuggestion ctermfg=5 guifg=#685cbc
 hi TreesitterContext ctermbg=0 guibg=#1a1636
 hi! link TreesitterContextLineNumber CursorLineNr
 " neo-tree
-hi! link NeoTreeNormal Title
+hi! link NeoTreeNormal String
 hi! link NeoTreeNormalNC NeoTreeNormal
 hi! link NeoTreeRootName NeoTreeDirectoryName
 hi NeoTreeDimText ctermfg=5 guifg=#342c6d
@@ -185,6 +185,17 @@ let g:terminal_color_12 = "#9fb4d8"
 let g:terminal_color_13 = "#a69fd8"
 let g:terminal_color_14 = "#9fd1d8"
 let g:terminal_color_15 = "#e9f5e6"
+
+if get(g:, "nightcool_bgs", 0)
+	hi WinSeparator guibg=#0c0a19 guifg=#000000
+	hi NeoTreeNormal cterm=NONE gui=NONE ctermbg=NONE guibg=#0c0a19 ctermfg=10 guifg=#add89f
+	" Expan separator area
+	hi LineNr guibg=#0c0a19
+	hi SignColumn guibg=#0c0a19
+	hi DiagnosticError guibg=#361a16 guifg=#d8a69f
+	hi DiagnosticHint guibg=#0c0a19 guifg=#9fd1d8
+	hi DiagnosticWarn guibg=#0c0a19
+endif
 
 " NEOVIM Treesitter (version 0.8 is new hi syn "@group")
 if has("nvim-0.8")
