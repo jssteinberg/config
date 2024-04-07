@@ -137,7 +137,7 @@ hi! link StatusLineTermNC StatusLineNC
 hi! link WinSeparator FloatBorder
 hi! link VertSplit WinSeparator
 hi! link WinBar CursorLineNr
-hi! link WinBarNC TabLine
+hi! link WinBarNC LineNr
 
 " Folds
 hi! link Folded Todo
