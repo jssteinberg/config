@@ -71,7 +71,7 @@ hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
 hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#7d78a1
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
-hi LineNr ctermfg=8 guifg=#342c6d
+hi LineNr ctermfg=8 guifg=#2c446d
 hi MatchParen cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d guifg=#a69fd8
 hi MatchWord cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
@@ -87,7 +87,7 @@ hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WinBar cterm=bold gui=bold ctermfg=7 guifg=#7d78a1
 hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#ffffff
 
-hi DiagnosticError ctermfg=1 guifg=#bc675c
+hi DiagnosticError cterm=italic gui= italic ctermfg=1 guifg=#bc675c
 hi DiagnosticHint ctermfg=8 guifg=#5c80bc
 hi DiagnosticWarn ctermfg=4 guifg=#7d78a1
 hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#bc675c
@@ -117,10 +117,10 @@ hi! link diffRemoved DiffDelete
 hi IncSearch cterm=bold,underline gui=NONE ctermbg=241 guibg=#646d2c ctermfg=NONE guifg=#ffffff
 hi Search cterm=NONE gui=NONE ctermbg=238 guibg=#2c446d ctermfg=NONE guifg=NONE
 
-" StatusLine and WinSeparator
+" StatusLine and borders
 hi StatusLine cterm=underline ctermbg=NONE ctermfg=7 guibg=#342c6d gui=NONE guifg=#ffffff
 hi StatusLineNC cterm=underline ctermbg=NONE ctermfg=8 gui=NONE guibg=#342c6d guifg=#7d78a1
-hi WinSeparator ctermbg=NONE ctermfg=0 guibg=NONE guifg=#342c6d
+hi FloatBorder ctermbg=NONE ctermfg=0 guibg=NONE guifg=#342c6d
 
 " UI LINKED
 
@@ -135,6 +135,7 @@ hi! link Question Bold
 hi! link QuickFixLine Visual
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
+hi! link WinSeparator FloatBorder
 hi! link VertSplit WinSeparator
 hi! link WinBarNC LineNr
 
@@ -192,7 +193,8 @@ if get(g:, "nightcool_bgs", 0)
 	" Expan separator area
 	hi LineNr guibg=#0c0a19
 	hi SignColumn guibg=#0c0a19
-	hi DiagnosticError guibg=#361a16 guifg=#d8a69f
+	hi NormalFloat guibg=#1a1636
+	hi DiagnosticError guibg=#1a1636 guifg=#d8a69f
 	hi DiagnosticHint guibg=#0c0a19 guifg=#9fd1d8
 	hi DiagnosticWarn guibg=#0c0a19
 	hi TabLineSel guibg=#1a1636

@@ -30,7 +30,6 @@ require("lazy").setup({
 	-- { "rktjmp/lush.nvim", lazy = false },
 	-- { "echasnovski/mini.colors",        version = "*" },
 	-- { "echasnovski/mini.hues",          version = "*" },
-	{ "uga-rosa/ccc.nvim",              cmd = { "CccHighlighterToggle" } },
 	-- Colorschemes
 	{ "p00f/alabaster.nvim" },
 	{ "oxfist/night-owl.nvim" },
@@ -39,6 +38,21 @@ require("lazy").setup({
 	{ "embark-theme/vim",               as = "embark" },
 	{ "wolandark/NotePad-Vim" },
 	{ "Verf/deepwhite.nvim" },
+
+	--- Colors highlight
+	{
+		"uga-rosa/ccc.nvim",
+		config = function()
+			require("ccc").setup({
+				-- Your preferred settings
+				-- Example: enable highlighter
+				highlighter = {
+					auto_enable = true,
+					lsp = true,
+				},
+			})
+		end
+	},
 
 	-- Statusline
 	{
