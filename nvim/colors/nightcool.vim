@@ -81,15 +81,14 @@ hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8
 hi TabLineFill cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi TabLine cterm=NONE gui=NONE ctermbg=0 guibg=#0c0a19 ctermfg=8 guifg=#7d78a1
-hi TabLineSel cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
+hi TabLineSel cterm=bold gui=bold ctermbg=NONE guibg=#1a1636 ctermfg=15 guifg=#ffffff
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
-hi WinBar cterm=bold gui=bold ctermfg=7 guifg=#7d78a1
 hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#ffffff
 
-hi DiagnosticError cterm=italic gui= italic ctermfg=1 guifg=#bc675c
-hi DiagnosticHint ctermfg=8 guifg=#5c80bc
-hi DiagnosticWarn ctermfg=4 guifg=#7d78a1
+hi DiagnosticError cterm=italic gui=italic ctermfg=1 guifg=#bc675c
+hi DiagnosticHint cterm=italic gui=italic ctermfg=8 guifg=#5c80bc
+hi DiagnosticWarn cterm=italic gui=italic ctermfg=4 guifg=#7d78a1
 hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#bc675c
 hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#2c446d
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
@@ -137,7 +136,8 @@ hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
 hi! link WinSeparator FloatBorder
 hi! link VertSplit WinSeparator
-hi! link WinBarNC LineNr
+hi! link WinBar CursorLineNr
+hi! link WinBarNC TabLine
 
 " Folds
 hi! link Folded Todo
@@ -197,7 +197,6 @@ if get(g:, "nightcool_bgs", 0)
 	hi DiagnosticError guibg=#1a1636 guifg=#d8a69f
 	hi DiagnosticHint guibg=#0c0a19 guifg=#9fd1d8
 	hi DiagnosticWarn guibg=#0c0a19
-	hi TabLineSel guibg=#1a1636
 endif
 
 " NEOVIM Treesitter (version 0.8 is new hi syn "@group")
