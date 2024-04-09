@@ -3,12 +3,12 @@ BorderlessWindow = true
 HideTitlebar = true
 
 ## Editor minimum window width (>= 400)
-Width = 800
+Width = 1000
 ## Editor minimum window height (>= 300)
-Height = 600
+Height = 800
 ## Margin adds a margin between the window and the drawn content.
 ## This value is 0 by default for Linux and 2 by default for MacOS and Windows.
-Margin = 7
+Margin = 1
 ## Gap create a gap on the left and right sides of the application window.
 # Gap = 0
 
@@ -61,11 +61,8 @@ FontSize = 14
 ## The default is 400.
 # CacheSize = 400
 
-## Disables font ligatures.
-# DisableLigatures = true
-
 ## Copy yanked text to clipboard
-# Clipboard = true
+Clipboard = true
 
 ## This setting is equivalent to Macmeta in MacVim.
 # Macmeta = false
