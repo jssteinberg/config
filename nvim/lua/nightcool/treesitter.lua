@@ -1,3 +1,5 @@
+vim.api.nvim_set_hl(0, "@variable", { ctermfg = 13, fg = "#a69fd8" })
+vim.api.nvim_set_hl(0, "@variable.object", { link = "Constant" })
 vim.api.nvim_set_hl(0, "@constructor", { link = "@tag" }) -- keep like tag since often custom HTML element from ES import
 vim.api.nvim_set_hl(0, "@function", { link = "@variable" })
 vim.api.nvim_set_hl(0, "@lsp.type.function", { link = "@variable" })
@@ -12,7 +14,6 @@ vim.api.nvim_set_hl(0, "@property.vim", { link = "Normal" })
 vim.api.nvim_set_hl(0, "@punctuation", { fg = "#5c80bc" })
 vim.api.nvim_set_hl(0, "@tag", { link = "htmlTagName" }) -- keep like Type since CSS els are @type
 vim.api.nvim_set_hl(0, "@tag.delimiter", { link = "htmlTag" })
-vim.api.nvim_set_hl(0, "@variable", { ctermfg = 13, fg = "#a69fd8" })
 
 -- nvim_set_hl({ns_id}, {name}, {*val})                           *nvim_set_hl()*
 --     Sets a highlight group.

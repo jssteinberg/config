@@ -188,7 +188,7 @@ let g:terminal_color_14 = "#9fd1d8"
 let g:terminal_color_15 = "#e9f5e6"
 
 if get(g:, "nightcool_bgs", 0)
-	hi WinSeparator guibg=#0c0a19 guifg=#0c0a19
+	hi WinSeparator guibg=#0c0a19 guifg=#342c6d
 	hi NeoTreeNormal cterm=NONE gui=NONE ctermbg=NONE guibg=#0c0a19 ctermfg=10 guifg=#add89f
 	" Expan separator area
 	hi LineNr guibg=#0c0a19
