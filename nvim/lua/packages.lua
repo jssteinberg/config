@@ -38,6 +38,8 @@ require("lazy").setup({
 	{ "embark-theme/vim",               as = "embark" },
 	{ "wolandark/NotePad-Vim" },
 	{ "Verf/deepwhite.nvim" },
+	-- File types
+	{ "andreshazard/vim-freemarker" },
 
 	--- Colors highlight
 	{

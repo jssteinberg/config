@@ -35,7 +35,7 @@ function! StatuslineModeLabels(sep_l = "", sep_r = "") abort
 				\ ? mode() : "V"
 endfunction
 
-function! NotThisHackline(status) abort
+function! Hackline(status) abort
 	let l:active = a:status
 	" separator label
 	let l:sep_l = " "
