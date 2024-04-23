@@ -135,6 +135,16 @@ require("lazy").setup({
 		end
 	},
 
+	-- LSP mouse hover
+	{
+		"soulis-1256/eagle.nvim",
+		event = "CursorHold",
+		config = function()
+			require("eagle").setup({})
+			vim.o.mousemoveevent = true
+		end
+	},
+
 	-- LSP and other autocompletion
 	{
 		"hrsh7th/nvim-cmp",

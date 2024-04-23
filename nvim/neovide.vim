@@ -1,6 +1,5 @@
 if has("macunix")
-	let g:neovide_transparency = 0
-	let g:neovide_background_color = "#0c0a19f1"
+	" let g:neovide_transparency = 0
 endif
 
 let g:neovide_floating_blur_amount_x = 1.0
