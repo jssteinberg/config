@@ -29,7 +29,7 @@ ln -s .config/viebrc .viebrc
 - [fnm](https://github.com/Schniz/fnm) for fast Node.js version managing. *Previously used [nvm](https://github.com/nvm-sh/nvm), and for fish [fish-nvm](https://github.com/FabioAntunes/fish-nvm).*
 - multiplexer: zellij, tmux, (keep an eye on [tab-rs](https://github.com/austinjones/tab-rs)).
 - exa, `ls` replacement.
-- neovim GUI: [goneovim](https://github.com/akiyosi/goneovim) or neovide.
+- neovim GUI: [goneovim](//github.com/akiyosi/goneovim) or [neovide](//neovide.dev).
 
 ### *Tips*
 
