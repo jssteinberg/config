@@ -2,6 +2,7 @@
 
 set clipboard+=unnamedplus
 set undofile
+set diffopt+=vertical
 
 " Auto commands
 augroup nvim_init
