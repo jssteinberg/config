@@ -53,12 +53,12 @@ nnoremap <leader>Z :call ZenModeFloat()<cr>
 function! ZenModeFloat() abort
 	let s:zen_prev_win = nvim_get_current_win()
 	let l:b = bufnr('%')
-	tabnew
-	wincmd o
+	" Get editor dimensions
+	tabnew | wincmd o
 	let l:w = winwidth(0)
 	let l:h = winheight(0)
 	bd
-	" let l:h = &laststatus || len(nvim_list_wins()) > 1 ? l:h + 1 : l:h
+	" Create zen window (and container)
 	let l:h = !&laststatus || (&laststatus == 1 && len(nvim_list_wins())) ? l:h : l:h + 1
 	let l:r = &showtabline == 2 || &showtabline && len(nvim_list_tabpages()) > 1 ? 1 : 0
 	let l:empty_buf = nvim_create_buf(0, 1)
@@ -69,15 +69,17 @@ function! ZenModeFloat() abort
 endfunction
 
 function! s:close_zen() abort
+	" Perform with timeout to check if focus was returned
 	try | if exists('s:zen_win')
-		call nvim_win_close(s:zen_win, 0)
+		call nvim_win_close(s:zen_win, 1)
 		call nvim_win_close(s:zen_container, 1)
 		unlet s:zen_win
-		call nvim_set_current_win(s:zen_prev_win)
+		" call nvim_set_current_win(s:zen_prev_win)
 	endif | catch | endtry
 endfunction
 
 augroup zen_win
 	autocmd!
-	autocmd WinLeave * call s:close_zen()
+	autocmd WinLeave,WinResized * call s:close_zen()
+	autocmd VimResized * call ZenModeFloat()
 augroup END

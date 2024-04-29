@@ -28,6 +28,7 @@ nnoremap * /<c-r><c-w><cr>
 nnoremap # ?<c-r><c-w><cr>
 nn n nzz
 nn N Nzz
+cnoremap cd tcd
 
 " Line motions includes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
