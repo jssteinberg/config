@@ -81,5 +81,6 @@ endfunction
 augroup zen_win
 	autocmd!
 	autocmd WinLeave,WinResized * call s:close_zen()
-	autocmd VimResized * call ZenModeFloat()
+	" on resize, if s:zen_win call ZenModeFloat
+	autocmd VimResized * if exists('s:zen_win') | call ZenModeFloat() | endif
 augroup END
