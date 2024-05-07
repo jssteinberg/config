@@ -31,13 +31,7 @@ require("lazy").setup({
 	-- { "echasnovski/mini.colors",        version = "*" },
 	-- { "echasnovski/mini.hues",          version = "*" },
 	-- Colorschemes
-	{ "p00f/alabaster.nvim" },
-	{ "oxfist/night-owl.nvim" },
 	{ "ajgrf/parchment" },
-	{ "lunacookies/vim-colors-xcode" },
-	{ "embark-theme/vim",               as = "embark" },
-	{ "wolandark/NotePad-Vim" },
-	{ "Verf/deepwhite.nvim" },
 	-- File types
 	{ "andreshazard/vim-freemarker" },
 

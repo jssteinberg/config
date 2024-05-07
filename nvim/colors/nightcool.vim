@@ -5,6 +5,7 @@ let g:colors_name="nightcool"
 " Options:
 " - `let g:nightcool_bg="default" ` or "transparent"
 " - `let g:nightcool_comments="default", "bright" or "gray"
+" - `let g:nightcool_bgs=v:true` to enable more background colors for groups
 "
 " Supports: treesitter, winbar, vim-matchup, fugitive, neo-tree, vim-illuminate, treesitter-context
 
