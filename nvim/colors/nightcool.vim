@@ -18,14 +18,6 @@ if get(g:, "nightcool_bg", "default") == "transparent"
 	hi Normal guibg=NONE
 endif
 
-" Comment
-hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
-if get(g:, "nightcool_comments", "normal") == "bright"
-	hi Comment gui=italic guifg=#c39fd8
-elseif get(g:, "nightcool_comments", "normal") == "gray"
-	hi Comment gui=NONE guifg=#7d78a1
-endif
-
 " General groups
 hi Conceal cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi Bold cterm=bold gui=bold
@@ -33,7 +25,17 @@ hi Error cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi Italic cterm=italic gui=italic
 hi NonText gui=NONE ctermfg=235 guifg=#342c6d " keep cterm same as `SpecialKey`
 hi Title cterm=bold gui=bold ctermfg=10 guifg=#add89f
-hi Todo cterm=bold gui=NONE ctermbg=NONE guibg=#552c6d ctermfg=7 guifg=#ffffff
+" comment related
+hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
+hi Todo cterm=bold gui=NONE ctermbg=NONE guibg=#985cbc ctermfg=7 guifg=#ffffff
+if get(g:, "nightcool_comments", "normal") == "bright"
+	hi Comment gui=italic guifg=#c39fd8
+	hi Todo guibg=#c39fd8
+elseif get(g:, "nightcool_comments", "normal") == "gray"
+	hi Comment gui=NONE guifg=#7d78a1
+	hi Todo guibg=#7d78a1
+endif
+" general linked
 hi! link NvimInternalError Error
 hi! link Underlined Title
 hi! link SpecialKey NonText " ...also for list char in Vim
@@ -141,8 +143,8 @@ hi! link WinBar CursorLineNr
 hi! link WinBarNC LineNr
 
 " Folds
-hi! link Folded Todo
-hi! link FoldColumn Folded
+hi! link Folded TabLine
+hi! link FoldColumn CursorLineNr
 
 " (N)VIM PLUGINS
 " lazy.nvim
