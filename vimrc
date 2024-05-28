@@ -74,6 +74,7 @@ nn <silent> <leader>gP :packadd vim-fugitive<bar>G push<cr>
 let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 map <Leader>j :packadd vim-easymotion<cr><Plug>(easymotion-j)
 map <Leader>k :packadd vim-easymotion<cr><Plug>(easymotion-k)
+nmap <tab> <Plug>(easymotion-overwin-line)
 " Codium
 let g:codeium_disable_bindings = 1
 imap <script><silent><nowait><expr> <tab> codeium#Accept()
@@ -87,6 +88,7 @@ nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
 nn <silent> <leader>t<cr> <cmd>call termcwd#tabGet()<cr>
 nn <silent> <leader>1 <cmd>call termcwd#spGet(0,'')<cr>
 let g:termcwd_split_full_bottom = v:true
+let g:termcwd_height = 15
 
 " LSP KEYMAPS
 function! s:on_lsp_buffer_enabled() abort

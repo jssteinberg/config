@@ -39,6 +39,7 @@ vn gx y:OpenSearchURL duckduckgo <c-r>"<cr>
 " Hop
 noremap <leader>j <cmd>HopVertical<cr>
 noremap <leader>k <cmd>HopVertical<cr>
+noremap <tab> <cmd>HopLineMW<cr>
 
 " Emmet
 imap <c-e><c-e> <plug>(emmet-expand-abbr)
@@ -69,7 +70,7 @@ function! ZenModeFloat() abort
 endfunction
 
 function! s:close_zen() abort
-	" Perform with timeout to check if focus was returned
+	" Do with timeout to check if focus was returned
 	try | if exists('s:zen_win')
 		call nvim_win_close(s:zen_win, 1)
 		call nvim_win_close(s:zen_container, 1)
@@ -78,9 +79,15 @@ function! s:close_zen() abort
 	endif | catch | endtry
 endfunction
 
+function! s:check_close_zen() abort
+	if exists('s:zen_win')
+		call s:close_zen()
+	endif
+endfunction
+
 augroup zen_win
 	autocmd!
-	autocmd WinLeave,WinResized * call s:close_zen()
+	autocmd WinLeave,WinResized * call s:check_close_zen()
 	" on resize, if s:zen_win call ZenModeFloat
-	autocmd VimResized * if exists('s:zen_win') | call ZenModeFloat() | endif
+	" autocmd VimResized * if exists('s:zen_win') | call ZenModeFloat() | endif
 augroup END
