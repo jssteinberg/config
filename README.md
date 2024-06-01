@@ -100,7 +100,7 @@ U
 
 ## Troubleshooting
 
-- UTF-8 fish, tmux, neovim LANG, LC_ALL error. Try adding this to your `~/.config/fish/config.fish`:
+- UTF-8 fish, tmux, neovim LANG, LC_ALL error. Try adding this to `~/.config/fish/config.fish`:
 
 	```bash
 	set -gx  LC_ALL en_US.UTF-8

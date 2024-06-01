@@ -3,63 +3,36 @@ BorderlessWindow = true
 HideTitlebar = true
 
 ## Editor minimum window width (>= 400)
-Width = 1000
+Width = 1100
 ## Editor minimum window height (>= 300)
 Height = 800
 ## Margin adds a margin between the window and the drawn content.
 ## This value is 0 by default for Linux and 2 by default for MacOS and Windows.
-Margin = 1
+Margin = 3
 ## Gap create a gap on the left and right sides of the application window.
 # Gap = 0
-
-## Reverses the direction of scrolling with the mouse wheel.
-# ReversingScrollDirection = false
-
-## Specifies the amount of scrolling by the mouse wheel. The default value is 1.
-# LineToScroll = 1
 
 ## This option makes the whole GUI window in semi-transparent.
 ## This setting also implicitly enables the Drawborder setting
 Transparent = 0.95
 
-## Launch goneovim with full screen window size.
-# StartFullscreen = false
-## Launch goneovim with maximized window size.
-# StartMaximizedWindow = false
-
-## Enabling WindowGeometryBasedOnFontmetrics sets the minimum unit of window geometry change 
-## to the width and height values specified by font metrics.
-## When enabled, maximization with the GonvimMaximize command may not work well due to 
-## the combination of screen size and font metrics.
-# WindowGeometryBasedOnFontmetrics = false
-
 ## Enable the ability to remember the last window geometry that was displayed
 ## and restore it at the next startup.
 RestoreWindowGeometry = true
-
-## Editor external font-family, font-siz.
-## This is the font settings of the graphical UI as an nvim front end.
-FontFamily = "Cousine Nerd Font Mono"
-FontSize = 14
-## letterspace is
-# Letterspace = 0
 
 ## Neovim external UI features
 ## The following is the default value of goneovim.
 ## You can change the behavior of the GUI by changing the following boolean values.
 ## If you prefer the traditional Vim UI, set it to false for all.
 ## Also, `ExtMessages` is still experimental at this time and we don't recommend setting it to true if you want stability.
-# ExtCmdline   = false
-# ExtPopupmenu = false
-# ExtTabline   = false
-# ExtMessages  = false
+ExtCmdline   = false
+ExtPopupmenu = false
+ExtTabline   = false
+ExtMessages  = false
 
-## Goneovim has a cached rendering feature enabled to speed up the process.
-## If you want to disable it, set it to false
-# CachedDrawing = true
-## You can specify the cache size to be used by the cache rendering feature of goneovim.
-## The default is 400.
-# CacheSize = 400
+## Editor external font-family, font-siz.
+## This is the font settings of the graphical UI as an nvim front end.
+FontSize = 14
 
 ## Copy yanked text to clipboard
 Clipboard = true
@@ -71,14 +44,12 @@ Clipboard = true
 SmoothScroll = true
 ## Specifies the speed of animation in smooth scrolling.
 SmoothScrollDuration = 300
-## Disables horizontal scrolling for smooth scrolling with the touchpad.
-# DisableHorizontalScroll = true
 
 ## Draw border on a float window
 DrawBorderForFloatWindow = false
 
 ## Draw shadow under a float window
-# DrawShadowForFloatWindow = true
+DrawShadowForFloatWindow = true
 
 ## Enable desktop notification settings for nvim messages.
 ## This option works only if `ExtMessages` is enabled.

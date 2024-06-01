@@ -76,6 +76,7 @@ require("lazy").setup({
 			vim.g.termcwd_split_full_bottom = true
 			vim.g.termcwd_insert = true
 			vim.g.termcwd_height = 15
+			vim.g.termcwd_minimal = true
 			vim.keymap.set("n", "<leader><cr>", require("termcwd").sp(), { desc = "Shell (CWD)" })
 			vim.keymap.set("n", "<leader>t<cr>", require("termcwd").tab(), { desc = "Tabshell (CWD)" })
 			vim.keymap.set("n", "<leader>1", require("termcwd").sp(1, ""), { desc = "Shell" })

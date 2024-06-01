@@ -4,6 +4,11 @@ set clipboard+=unnamedplus
 set undofile
 set diffopt+=vertical
 
+if has("gui_running")
+	set guifont=cousine\ nerd\ font\ mono:h14,menlo:h13
+	set linespace=2
+en
+
 " Auto commands
 augroup nvim_init
 	au!

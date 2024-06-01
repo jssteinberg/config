@@ -5,16 +5,16 @@ let s:d = "set bg=dark termguicolors t_Co=256"
 
 let s:l = "set bg=light termguicolors t_Co=256"
 			\." | colo quiet"
+			\." | hi Comment guifg=purple gui=NONE"
 			\." | hi Identifier guifg=blue"
 			\." | hi Keyword gui=bold"
 			\." | hi Special gui=bold"
 			\." | hi Title gui=bold"
-			\." | hi Comment guifg=darkblue gui=italic"
+			\." | hi TabLineSel guibg=NONE guifg=NONE"
 			\." | hi! link MiniPickPrompt Normal"
+			\." | hi! link MiniPickNormal Normal"
 			\." | hi! link MiniPickMatchRanges Pmenu"
 			\." | hi! link MiniPickMatchCurrent PmenuSel"
-			" \." | hi! link WinSeparator LineNr"
-			" \." | hi! link MiniPickMatchCurrent PmenuSel"
 
 function! InitColo()
 	exe(s:d)

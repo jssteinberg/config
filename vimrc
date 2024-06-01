@@ -6,6 +6,8 @@ set wildmenu " display completion matches in a status line
 set ttimeout " time out for key codes
 set ttimeoutlen=100 " wait up to 100ms after Esc for special key
 set incsearch
+set regexpengine=0 " needs to be explicitly set to always be active
+set mouse+=a
 " Don't use Q for Ex mode, use it for Esc.
 map Q <esc>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
@@ -51,10 +53,8 @@ let g:netrw_banner=0 " Remove top banner
 let g:netrw_preview=1 " Vertical preview
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
-try | set background=dark | colo nightcool
-catch | try | colo lunaperche
-	catch | colo slate " for older Vim versions
-endtry | endtry
+try | set background=dark | colo lunaperche | catch | colo slate " fallback for older Vim versions
+endtry
 
 " KEYMAPS
 " Core improve
@@ -87,11 +87,10 @@ imap <c-x>   <cmd>call codeium#Clear()<cr>
 nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
 nn <silent> <leader>t<cr> <cmd>call termcwd#tabGet()<cr>
 nn <silent> <leader>1 <cmd>call termcwd#spGet(0,'')<cr>
-let g:termcwd_split_full_bottom = v:true
-let g:termcwd_height = 15
 
 " LSP KEYMAPS
 function! s:on_lsp_buffer_enabled() abort
+	let g:lsp_diagnostics_virtual_text_align="right"
 	setlocal omnifunc=lsp#complete
 	if exists("+tagfunc") | setlocal tagfunc=lsp#tagfunc | endif
 	nmap <buffer> gd <plug>(lsp-definition)

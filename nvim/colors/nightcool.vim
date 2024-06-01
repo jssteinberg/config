@@ -117,7 +117,7 @@ hi! link diffRemoved DiffDelete
 
 " Search
 hi IncSearch cterm=bold,underline gui=NONE ctermbg=241 guibg=#646d2c ctermfg=NONE guifg=#ffffff
-hi Search cterm=NONE gui=NONE ctermbg=238 guibg=#2c446d ctermfg=NONE guifg=NONE
+hi Search cterm=NONE gui=NONE ctermbg=237 guibg=#2c446d ctermfg=NONE guifg=NONE
 
 " StatusLine and borders
 hi StatusLine cterm=underline ctermbg=NONE ctermfg=7 guibg=#342c6d gui=NONE guifg=#ffffff
