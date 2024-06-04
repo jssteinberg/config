@@ -31,6 +31,7 @@ config.keys = {
 	{ key = "j", mods = "LEADER|CTRL", action = act.ActivatePaneDirection "Down", },
 	{ key = "-", mods = "SUPER",       action = wezterm.action.DecreaseFontSize },
 	{ key = "+", mods = "SUPER",       action = wezterm.action.IncreaseFontSize },
+  { key = 'x', mods = 'LEADER|CTRL', action = act.RotatePanes 'Clockwise' },
 	{
 		key = "l",
 		mods = "SUPER",
