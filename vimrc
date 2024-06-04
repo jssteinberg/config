@@ -8,18 +8,12 @@ set ttimeoutlen=100 " wait up to 100ms after Esc for special key
 set incsearch
 set regexpengine=0 " needs to be explicitly set to always be active
 set mouse+=a
-" Don't use Q for Ex mode, use it for Esc.
-map Q <esc>
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
+set shortmess-=S " display short messages in ruler
 " Enable file type detection.
 " Use the default filetype settings, so that mail gets 'tw' set to 72,
 " 'cindent' is on in C files, etc.
 " Also load indent files, to automatically do language-dependent indenting.
-" Revert with ":filetype off".
 filetype plugin indent on
-" Revert with ":syntax off".
 syntax on
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -107,6 +101,7 @@ endfunction
 function! SetNetrwKeymaps() abort
 	nn <buffer> s /
 	nmap <buffer> <c-j> <cr>
+	nmap <buffer> <c-k> v
 endfunction
 
 " AUTO COMMANDS

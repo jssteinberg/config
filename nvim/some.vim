@@ -14,8 +14,9 @@
 " R: replace (search and replace)
 " S: substitute
 
-let g:indent_width=2
-let g:config_scrolloff=5
+let g:conf_iw=2
+let g:conf_so=5
+let g:conf_spl="en_us"
 
 " Core improved keymaps
 vnoremap < <gv
@@ -26,9 +27,9 @@ nnoremap <c-e> $
 xnoremap <c-e> $
 nnoremap * /<c-r><c-w><cr>
 nnoremap # ?<c-r><c-w><cr>
-nn n nzz
-nn N Nzz
-
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
 " Line motions includes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
@@ -56,14 +57,14 @@ nnoremap <leader>er <cmd>e README.md<cr>
 nnoremap <leader>ee <cmd>e .env<cr>
 
 " Close tab or quit all
-nn <silent> <leader>C <cmd>exe "try\n tabclose\n catch\n qa\n endtry"<cr>
+nnoremap <silent> <leader>C <cmd>exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 
 " Close window or quit
 nnoremap <silent> <leader>c :exe "try\n hide\n catch\n q\n endtry"<cr>
 
 " Resize windows vertically
-nn <leader>+ :vert resize +5<cr>
-nn <leader>- :vert resize -5<cr>
+nnoremap <leader>+ :vert resize +5<cr>
+nnoremap <leader>- :vert resize -5<cr>
 
 " Replace [word, selection]
 nnoremap <leader>R "ryiw:%s/<c-r>r/
@@ -74,13 +75,14 @@ nnoremap <leader>S :%s/
 vnoremap <leader>S :s/
 
 " Quickfix [next, previous, toggle]
-nnoremap <silent> Q :exe "cnext\n setlocal scrolloff=" . g:config_scrolloff<cr>
+nnoremap <c-q> <cmd>cnext<cr>
+nnoremap <silent> Q :exe "cnext\n setlocal scrolloff=" . g:conf_so<cr>
 nnoremap <leader>q :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " No/now (toggle options)
 " TODO: handle other spelllang like nb
-nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<bar>set spelllang=en_us<cr>'
+nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<bar>set spelllang=' . g:conf_spl . '<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 nnoremap <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'
 nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
@@ -92,14 +94,14 @@ nnoremap <leader>gm :silent! grep! -e "<<<<<<<"<cr>
 
 " Project/session management
 " create session directory if it doesn't exist
-if !isdirectory($HOME.'/.vs') | call mkdir($HOME.'/.vs', '', 0770) | endif
+if !isdirectory($HOME.'/.vims') | call mkdir($HOME.'/.vims', '', 0770) | endif
 " save session
-nn <leader>ps :mks! ~/.vs/
+nnoremap <leader>ps :mks! ~/.vims/
 " load session
-nn <leader>po :source ~/.vs/*
+nnoremap <leader>po :source ~/.vims/*
 
 " Go to tab B
-nn gl <cmd>call GoToTabB()<cr>
+nnoremap gl <cmd>call GoToTabB()<cr>
 " store tabB
 aug tabB | au! | au TabLeave * let g:tabB = tabpagenr() | aug end
 " fn go to g:last_t if an existing tab, else go to prev tab
@@ -174,8 +176,8 @@ set timeoutlen=750 " Timeout for keymaps
 set updatetime=100
 set copyindent
 
-let &ts=g:indent_width | let &sw=g:indent_width " indent size
-let &scrolloff=g:config_scrolloff " Keep cursor off from top/bottom
+let &ts=g:conf_iw | let &sw=g:conf_iw " indent size
+let &scrolloff=g:conf_so " Keep cursor off from top/bottom
 
 " FORMAT OPTIONS
 " (c) auto hard wrap comments
@@ -195,7 +197,7 @@ endif
 " AUTO COMMANDS
 aug some_config | au!
 	" Set tabstop if noexpandtab
-	au BufWinEnter,FocusGained * call SetTabWidth(g:indent_width)
+	au BufWinEnter,FocusGained * call SetTabWidth(g:conf_iw)
 aug END
 
 " GLOBAL FUNCTIONS
