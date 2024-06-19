@@ -20,7 +20,7 @@ config.send_composed_key_when_left_alt_is_pressed = true
 
 config.leader = { key = "z", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
-	{ key = "C", mods = "SUPER",  action = act.CopyTo "ClipboardAndPrimarySelection" },
+	{ key = "C", mods = "SUPER",       action = act.CopyTo "ClipboardAndPrimarySelection" },
 	{ key = "V", mods = "SUPER",       action = act.PasteFrom "Clipboard" },
 	{ key = "f", mods = "SUPER|CTRL",  action = wezterm.action.ToggleFullScreen },
 	{ key = "v", mods = "LEADER|CTRL", action = wezterm.action.SplitPane { direction = "Right" } },
@@ -31,7 +31,7 @@ config.keys = {
 	{ key = "j", mods = "LEADER|CTRL", action = act.ActivatePaneDirection "Down", },
 	{ key = "-", mods = "SUPER",       action = wezterm.action.DecreaseFontSize },
 	{ key = "+", mods = "SUPER",       action = wezterm.action.IncreaseFontSize },
-  { key = 'x', mods = 'LEADER|CTRL', action = act.RotatePanes 'Clockwise' },
+	{ key = "x", mods = "LEADER|CTRL", action = act.RotatePanes "Clockwise" },
 	{
 		key = "l",
 		mods = "SUPER",
