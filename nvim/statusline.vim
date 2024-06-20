@@ -30,7 +30,7 @@ function! Hacktabs() abort
 	return line .. '%#TabLineFill#%T'
 endfunction
 
-function! StatuslineModeLabels(sep_l = "", sep_r = "") abort
+function! StatuslineModeLabels() abort
 	return matchstr(mode(), "[nictrsv]") != ""
 				\ ? mode() : "V"
 endfunction
@@ -38,7 +38,7 @@ endfunction
 function! Hackline(status) abort
 	let l:active = a:status
 	" separator label
-	let l:sep_l = " "
+	let l:sep_label = " "
 	" separator sections
 	let l:sep = #{l: "  /  ", r: "  /  "}
 	" seperator secondary
@@ -80,13 +80,11 @@ function! Hackline(status) abort
 	let l:line .= "%(%{hackline#ui#dir#info('md')}/%)"
 	" filename
 	let l:line .= "%(%t%)"
+	" nvim LSP
+	if l:active && has("nvim")
+		let l:line .= hackline#ui#nvim_lsp#info(l:sep.l, "LSP", l:sep_label, l:sep_i.r, l:sep.r)
+	endif
 
-	" Statusline MIDDLE
-	" --------------
-	let l:line .= "%=  –  "
-	" Cursor position
-	let l:line .= "l-%l/%L c-%c"
-	let l:line .= "  –  "
 
 	" Statusline END
 	" --------------
@@ -95,15 +93,8 @@ function! Hackline(status) abort
 	" truncation point
 	let l:line .= "%<"
 
-	" vim lsp
-	if l:active && get(b:, "hackline_use_vim_lsp", "0")
-		let l:line .= "LSP" . l:sep.r
-	endif
-
-	" nvim LSP
-	if l:active && has("nvim")
-		let l:line .= hackline#ui#nvim_lsp#info("", "LSP", l:sep_l, l:sep_i.r, l:sep.r)
-	endif
+	" Cursor position
+	let l:line .= "l-%l/%L c-%c" . l:sep.r
 
 	" spelllang
 	if l:active && &spell == 1

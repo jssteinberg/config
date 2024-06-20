@@ -71,7 +71,6 @@ map <Leader>k :packadd vim-easymotion<cr><Plug>(easymotion-k)
 nmap <tab> <Plug>(easymotion-overwin-line)
 " Codium
 let g:codeium_disable_bindings = 1
-imap <script><silent><nowait><expr> <tab> codeium#Accept()
 imap <script><silent><nowait><expr> <c-f> codeium#Accept()
 imap <c-j>   <cmd>call codeium#CycleCompletions(1)<cr>
 imap <c-k>   <cmd>call codeium#CycleCompletions(-1)<cr>
