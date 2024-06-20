@@ -74,12 +74,11 @@ require("lazy").setup({
 		"jssteinberg/termcwd",
 		config = function()
 			vim.g.termcwd_split_full_bottom = true
-			vim.g.termcwd_insert = true
 			vim.g.termcwd_height = 15
-			vim.g.termcwd_minimal = true
 			vim.keymap.set("n", "<leader><cr>", require("termcwd").sp(), { desc = "Shell (CWD)" })
 			vim.keymap.set("n", "<leader>t<cr>", require("termcwd").tab(), { desc = "Tabshell (CWD)" })
-			vim.keymap.set("n", "<leader>1", require("termcwd").sp(1, ""), { desc = "Shell" })
+			vim.keymap.set("n", "<leader>1", require("termcwd").sp(1, ""), { desc = "Shell 1" })
+			vim.keymap.set("n", "<leader>2", require("termcwd").sp(2, ""), { desc = "Shell 2" })
 		end
 	},
 
@@ -172,12 +171,12 @@ require("lazy").setup({
 	},
 
 	-- Context topbar
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		event = "cursorhold",
-		config = function() require "treesitter-context".setup {} end
-	},
+	-- {
+	-- 	"nvim-treesitter/nvim-treesitter-context",
+	-- 	dependencies = { "nvim-treesitter/nvim-treesitter" },
+	-- 	event = "cursorhold",
+	-- 	config = function() require "treesitter-context".setup {} end
+	-- },
 
 	-- AI code completion
 	{
@@ -218,7 +217,7 @@ require("lazy").setup({
 	-- Hop motion commands
 	{
 		"phaazon/hop.nvim",
-		cmd = { "HopChar1", "HopVerticalAC", "HopVerticalBC", "HopVertical" },
+		cmd = { "HopChar1", "HopVerticalAC", "HopVerticalBC", "HopVertical", "HopLineMW" },
 		config = function() require "hop".setup() end
 	},
 

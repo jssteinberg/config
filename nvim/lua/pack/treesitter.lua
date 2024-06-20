@@ -1,8 +1,8 @@
 local M = {}
 
 M.config = function()
-	local ignore_ts = { "markdown", "markdown_inline", "lua" }
-	local disable_ts_ft = { "markdown", "lua" }
+	local ignore_ts = { "markdown", "markdown_inline" }
+	local disable_ts_ft = { "markdown" }
 
 	require("nvim-treesitter.configs").setup({
 		ignore_install = ignore_ts,

@@ -81,6 +81,8 @@ imap <c-x>   <cmd>call codeium#Clear()<cr>
 nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
 nn <silent> <leader>t<cr> <cmd>call termcwd#tabGet()<cr>
 nn <silent> <leader>1 <cmd>call termcwd#spGet(0,'')<cr>
+let g:termcwd_split_full_bottom = 1
+let g:termcwd_height = 20
 
 " LSP KEYMAPS
 function! s:on_lsp_buffer_enabled() abort
