@@ -45,7 +45,7 @@ funcsave ls
 
 # to remove
 functions --erase ls
-functions -n
+funcsave ls
 ```
 
 *You can also use file: .config/fish/config.fish*
