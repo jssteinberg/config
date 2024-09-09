@@ -45,8 +45,10 @@ hi! link SpecialKey NonText " ...also for list char in Vim
 hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=11 guifg=#d0d89f
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
-hi Type       cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
+hi Keyword    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
+"hi Type       cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
 hi! link Identifier Constant
+hi! link Type Normal
 hi! link Special Type
 hi! link Statement Normal
 
