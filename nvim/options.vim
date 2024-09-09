@@ -5,7 +5,8 @@ set undofile
 set diffopt+=vertical
 
 if has("gui_running")
-	set guifont=cousine\ nerd\ font\ mono:h15,menlo:h14
+	set guifont=cousine\ nerd\ font\ mono:h15
+	set guifont=menlo:h14
 	set linespace=2
 en
 

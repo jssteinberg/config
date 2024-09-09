@@ -27,13 +27,13 @@ hi NonText gui=NONE ctermfg=235 guifg=#342c6d " keep cterm same as `SpecialKey`
 hi Title cterm=bold gui=bold ctermfg=10 guifg=#add89f
 " comment related
 hi Comment cterm=NONE gui=NONE ctermfg=8 guifg=#985cbc
-hi Todo cterm=bold gui=NONE ctermbg=NONE guibg=#985cbc ctermfg=7 guifg=#ffffff
+hi Todo cterm=bold gui=bold ctermbg=NONE guifg=#c39fd8 ctermfg=7 guibg=NONE
 if get(g:, "nightcool_comments", "normal") == "bright"
 	hi Comment gui=italic guifg=#c39fd8
-	hi Todo guibg=#c39fd8
+	hi Todo guifg=#ffffff
 elseif get(g:, "nightcool_comments", "normal") == "gray"
 	hi Comment gui=NONE guifg=#7d78a1
-	hi Todo guibg=#7d78a1
+	hi Todo guifg=#985cbc
 endif
 " general linked
 hi! link NvimInternalError Error

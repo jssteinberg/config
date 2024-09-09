@@ -49,13 +49,13 @@ vmap <c-e><c-e> <plug>(emmet-expand-abbr)
 nn <leader>lR <cmd>LspRestart<cr>
 
 " Zen mode
-nnoremap <leader>Z :call ZenModeFloat()<cr>
+nnoremap <leader>Z <cmd>call ZenModeFloat()<cr>
 
 function! ZenModeFloat() abort
 	let s:zen_prev_win = nvim_get_current_win()
 	let l:b = bufnr('%')
 	" Get editor dimensions
-	tabnew | wincmd o
+	tabnew | silent wincmd o
 	let l:w = winwidth(0)
 	let l:h = winheight(0)
 	bd
@@ -67,6 +67,8 @@ function! ZenModeFloat() abort
 	let s:zen_win = nvim_open_win(l:b, 1, { "relative": "editor", "width": 100, "height": l:h, "row": l:r, "col": (l:w - 100) / 2 })
 	call nvim_win_set_option(s:zen_container, 'winhl', 'Normal:Normal')
 	call nvim_win_set_option(s:zen_win, 'winhl', 'Normal:Normal')
+	let g:zen_win_w = winwidth(0)
+	let g:zen_win_h = winheight(0)
 endfunction
 
 function! s:close_zen() abort
@@ -80,14 +82,15 @@ function! s:close_zen() abort
 endfunction
 
 function! s:check_close_zen() abort
-	if exists('s:zen_win')
+	if exists('s:zen_win') && (winwidth(0) != g:zen_win_w || winheight(0) != g:zen_win_h)
 		call s:close_zen()
 	endif
 endfunction
 
 augroup zen_win
 	autocmd!
-	autocmd WinLeave,WinResized * call s:check_close_zen()
+	autocmd WinLeave * call s:close_zen()
+	autocmd WinResized * call s:check_close_zen()
 	" on resize, if s:zen_win call ZenModeFloat
 	" autocmd VimResized * if exists('s:zen_win') | call ZenModeFloat() | endif
 augroup END

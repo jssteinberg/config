@@ -32,6 +32,7 @@ require("lazy").setup({
 	-- { "echasnovski/mini.hues",          version = "*" },
 	-- Colorschemes
 	{ "ajgrf/parchment" },
+	{ "EdenEast/nightfox.nvim" },
 	-- File types
 	{ "andreshazard/vim-freemarker" },
 
@@ -73,8 +74,8 @@ require("lazy").setup({
 	{
 		"jssteinberg/termcwd",
 		config = function()
-			vim.g.termcwd_split_full_bottom = true
-			vim.g.termcwd_height = 15
+			vim.g.termcwd_split_full_top = true
+			vim.g.termcwd_height = 20
 			vim.keymap.set("n", "<leader><cr>", require("termcwd").sp(), { desc = "Shell (CWD)" })
 			vim.keymap.set("n", "<leader>t<cr>", require("termcwd").tab(), { desc = "Tabshell (CWD)" })
 			vim.keymap.set("n", "<leader>1", require("termcwd").sp(1, ""), { desc = "Shell 1" })
@@ -83,7 +84,16 @@ require("lazy").setup({
 	},
 
 	-- SEARCH/EXPLORE
-
+	-- Quickfix window
+	{
+		"kevinhwang91/nvim-bqf",
+		ft = "qf",
+		opts = {
+			preview = {
+				auto_preview = false
+			}
+		}
+	},
 	-- Netrw replacement
 	{ "stevearc/oil.nvim", config = require("pack.oil") },
 	-- Tree viewer
@@ -240,11 +250,17 @@ require("lazy").setup({
 	},
 
 	-- Matchparen
+	-- {
+	-- 	"andymass/vim-matchup",
+	-- 	event = "CursorHold",
+	-- },
 	{
-		"andymass/vim-matchup",
-		event = "CursorHold",
-		-- "putilyre/sentiment.nvim",
-		-- config = function() require("sentiment").setup() end,
+		"utilyre/sentiment.nvim",
+		version = "*",
+		event = "VeryLazy", -- keep for lazy loading
+		opts = {
+			-- config
+		},
 	},
 
 	-- Illuminate cursor word
@@ -272,13 +288,10 @@ require("lazy").setup({
 
 	-- git wrapper
 	{ "tpope/vim-fugitive",  cmd = { "G", "Git", "Gdiffsplit", "Gvdiffsplit", "Flog", "Flogsplit" } },
-
 	-- git log
 	{ "rbong/vim-flog",      dependencies = { "tpope/vim-fugitive" },                               cmd = "Flog" },
-
 	-- git blame inline
 	{ "APZelos/blamer.nvim", cmd = "BlamerToggle" }, -- git blame
-
 	-- git link
 	{
 		"9seconds/repolink.nvim",
