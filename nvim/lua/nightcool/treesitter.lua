@@ -14,10 +14,10 @@ vim.api.nvim_set_hl(0, "@none.svelte", { link = "@label" })
 vim.api.nvim_set_hl(0, "@property", { link = "String" }) -- CSS classes are `@property`. Keep same as String since classes in HTML are strings
 vim.api.nvim_set_hl(0, "@property.vim", { link = "Normal" })
 -- vim.api.nvim_set_hl(0, "@punctuation.special", { fg = "#685cbc" })
-vim.api.nvim_set_hl(0, "@punctuation", { fg = "#5c80bc" })
+vim.api.nvim_set_hl(0, "@punctuation", { fg = "#5cb1bc" })
 -- keep like Type since CSS els are @type
 vim.api.nvim_set_hl(0, "@tag", { link = "@variable" })
 vim.api.nvim_set_hl(0, "@tag.attribute", { link = "Keyword" })
-vim.api.nvim_set_hl(0, "@tag.delimiter", { ctermfg = 13, fg = "#a69fd8" })
+vim.api.nvim_set_hl(0, "@tag.delimiter", { link = "@tag.attribute" })
 vim.api.nvim_set_hl(0, "@type.css", { link = "String" })
 vim.api.nvim_set_hl(0, "@type.scss", { link = "String" })
