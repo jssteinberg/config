@@ -75,7 +75,7 @@ require("lazy").setup({
 		"jssteinberg/termcwd",
 		config = function()
 			vim.g.termcwd_split_full_top = true
-			vim.g.termcwd_height = 20
+			-- vim.g.termcwd_height = 20
 			vim.keymap.set("n", "<leader><cr>", require("termcwd").sp(), { desc = "Shell (CWD)" })
 			vim.keymap.set("n", "<leader>t<cr>", require("termcwd").tab(), { desc = "Tabshell (CWD)" })
 			vim.keymap.set("n", "<leader>1", require("termcwd").sp(1, ""), { desc = "Shell 1" })

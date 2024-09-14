@@ -67,8 +67,8 @@ M.config = function()
 				on_attach = max_client,
 			}
 		end,
-		["tsserver"] = function()
-			lspconfig.tsserver.setup {
+		["ts_ls"] = function()
+			lspconfig["ts_ls"].setup {
 				on_attach = max_client,
 				settings = {
 					javascript = {

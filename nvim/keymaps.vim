@@ -9,6 +9,8 @@ nnoremap <silent> <leader>nc :call NowColo()<cr>
 nn <leader>et :Neotree<cr>
 nn <leader><leader> :Neotree action=show toggle=true<cr>
 nn <leader>e. :Neotree position=current reveal<cr>
+" leader eb opens neotree of buffers
+nn <leader>eb :Neotree buffers<cr>
 
 " Fuzzy finder
 nnoremap <leader>ff :Pick files<cr>
@@ -73,12 +75,12 @@ endfunction
 
 function! s:close_zen() abort
 	" Do with timeout to check if focus was returned
-	try | if exists('s:zen_win')
+	if exists('s:zen_win') | try
 		call nvim_win_close(s:zen_win, 1)
 		call nvim_win_close(s:zen_container, 1)
 		unlet s:zen_win
 		" call nvim_set_current_win(s:zen_prev_win)
-	endif | catch | endtry
+	catch | endtry | endif
 endfunction
 
 function! s:check_close_zen() abort
@@ -89,8 +91,6 @@ endfunction
 
 augroup zen_win
 	autocmd!
-	autocmd WinLeave * call s:close_zen()
+	autocmd WinLeave,VimResized * call s:close_zen()
 	autocmd WinResized * call s:check_close_zen()
-	" on resize, if s:zen_win call ZenModeFloat
-	" autocmd VimResized * if exists('s:zen_win') | call ZenModeFloat() | endif
 augroup END

@@ -4,6 +4,7 @@
 --glob=!node_modules/*
 --glob=!package-lock.json
 --glob=!yarn.lock
+--glob=!pnpm-lock.yaml
 --glob=!ios/App/App.xcarchive/*
 
 # Don't let ripgrep vomit really long lines to my terminal, and show a preview.
