@@ -15,8 +15,8 @@
 " S: substitute
 
 let g:conf_iw=2
-let g:conf_so=5
-let g:conf_spl="en_us"
+let g:conf_so=999
+let g:conf_spl=["en_us", "nb"]
 
 " Core improved keymaps
 vnoremap < <gv
@@ -27,9 +27,10 @@ nnoremap <c-e> $
 xnoremap <c-e> $
 nnoremap * /<c-r><c-w><cr>
 nnoremap # ?<c-r><c-w><cr>
+nnoremap <leader>K <c-]>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
+inoremap <c-u> <c-g>u<c-u>
 " Line motions includes wrapped lines
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
@@ -81,8 +82,8 @@ nnoremap <leader>q :cprev<cr>
 nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " No/now (toggle options)
-" TODO: handle other spelllang like nb
-nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<bar>set spelllang=' . g:conf_spl . '<cr>'
+" TODO: handle other spelllang in g:conf_spl
+nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<bar>set spelllang=' . g:conf_spl[0] . '<cr>'
 nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
 nnoremap <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'
 nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
@@ -115,19 +116,19 @@ endfunction
 " SPACE CONFIRMS - maps to cmdline that are confirmed with <space>
 " Setup:
 " <space> is enter key in command mode if `space_confirms`
-cno <expr> <space> exists("g:space_confirms") ? "<cr>" : " "
+cnoremap <expr> <space> exists("g:space_confirms") ? "<cr>" : " "
 " space_confirms is unlet by autocmd so it's deactivated
 augroup space_confirms | au!
 	au CmdlineLeave * if exists("g:space_confirms") | unlet g:space_confirms | en
 augroup end
 " Mappings:
 " search in normal and visual mode
-nn s <cmd>let g:space_confirms=1<cr>/
-xn s <cmd>let g:space_confirms=1<cr>/
+nnoremap s <cmd>let g:space_confirms=1<cr>/
+xnoremap s <cmd>let g:space_confirms=1<cr>/
 " backward search in normal mode
-nn S <cmd>let g:space_confirms=1<cr>?
+nnoremap S <cmd>let g:space_confirms=1<cr>?
 " switch buffer in normal mode
-nn <leader><tab> <cmd>let g:space_confirms=1<cr>:buffer <c-z>
+nnoremap <leader><tab> <cmd>let g:space_confirms=1<cr>:buffer <c-z>
 
 " Grep [args, selection]
 nnoremap <leader>G :silent grep -e ""<left>
