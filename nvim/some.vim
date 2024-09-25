@@ -23,11 +23,11 @@ vnoremap < <gv
 vnoremap > >gv
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
-nnoremap <c-e> $
+nn <c-e> $
 xnoremap <c-e> $
-nnoremap * /<c-r><c-w><cr>
-nnoremap # ?<c-r><c-w><cr>
-nnoremap <leader>K <c-]>
+nn * /<c-r><c-w><cr>
+nn # ?<c-r><c-w><cr>
+nn <leader>K <c-]>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <c-u> <c-g>u<c-u>
@@ -39,76 +39,76 @@ noremap <expr> k v:count ? 'k' : 'gk'
 inoremap jk <esc>
 
 " Alternate buffer
-nnoremap <silent> <leader>b <cmd>buffer#<cr>
+nn <silent> <leader>b <cmd>buffer#<cr>
 
 " Write/save file
-nnoremap <silent> <leader>w <cmd>write<cr>
-nnoremap <silent> <leader>W <cmd>write!<cr>
+nn <silent> <leader>w <cmd>write<cr>
+nn <silent> <leader>W <cmd>write!<cr>
 
 " Edit/tabedit commonly used
-nnoremap <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
-nnoremap <leader>ed <cmd>wincmd v<bar>wincmd H<bar>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
-nnoremap <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
-nnoremap <leader>et <cmd>wincmd v<bar>wincmd H<bar>e.<cr><cmd>call search(expand("#:t"))<cr>
-nnoremap <leader>tb <cmd>tabedit %<cr>'"
-nnoremap <leader>ew :e **/
-nnoremap <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>
-nnoremap <leader>ep <cmd>e package.json<cr>
-nnoremap <leader>er <cmd>e README.md<cr>
-nnoremap <leader>ee <cmd>e .env<cr>
+nn <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
+nn <leader>ed <cmd>wincmd v<bar>wincmd H<bar>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
+nn <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
+nn <leader>et <cmd>wincmd v<bar>wincmd H<bar>e.<cr><cmd>call search(expand("#:t"))<cr>
+nn <leader>tb <cmd>tabedit %<cr>'"
+nn <leader>ew :e **/
+nn <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>
+nn <leader>ep <cmd>e package.json<cr>
+nn <leader>er <cmd>e README.md<cr>
+nn <leader>ee <cmd>e .env<cr>
 
 " Close tab or quit all
-nnoremap <silent> <leader>C <cmd>exe "try\n tabclose\n catch\n qa\n endtry"<cr>
+nn <silent> <leader>C <cmd>exe "try\n tabclose\n catch\n qa\n endtry"<cr>
 
 " Close window or quit
-nnoremap <silent> <leader>c :exe "try\n hide\n catch\n q\n endtry"<cr>
+nn <silent> <leader>c :exe "try\n hide\n catch\n q\n endtry"<cr>
 
 " Resize windows vertically
-nnoremap <leader>+ :vert resize +5<cr>
-nnoremap <leader>- :vert resize -5<cr>
+nn <leader>+ :vert resize +5<cr>
+nn <leader>- :vert resize -5<cr>
 
 " Replace [word, selection]
-nnoremap <leader>R "ryiw:%s/<c-r>r/
+nn <leader>R "ryiw:%s/<c-r>r/
 vnoremap <leader>R "ry:%s/<c-r>r/
 
 " Substitute in [buffer, selection]
-nnoremap <leader>S :%s/
+nn <leader>S :%s/
 vnoremap <leader>S :s/
 
 " Quickfix [next, previous, toggle]
-nnoremap <c-q> <cmd>cnext<cr>
-nnoremap <silent> Q :exe "cnext\n setlocal scrolloff=" . g:conf_so<cr>
-nnoremap <leader>q :cprev<cr>
-nnoremap <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
+nn <c-q> <cmd>cnext<cr>
+nn <silent> Q :exe "cnext\n setlocal scrolloff=" . g:conf_so<cr>
+nn <leader>q :cprev<cr>
+nn <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 " No/now (toggle options)
 " TODO: handle other spelllang in g:conf_spl
-nnoremap <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<bar>set spelllang=' . g:conf_spl[0] . '<cr>'
-nnoremap <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
-nnoremap <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'
-nnoremap <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
-nnoremap <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
+nn <expr> <leader>ns &spell ? ':set nospell<cr>' : ':set spell<bar>set spelllang=' . g:conf_spl[0] . '<cr>'
+nn <expr> <leader>nw &wrap ? ':set nowrap<cr>' : ':set wrap breakindent linebreak<cr>'
+nn <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'
+nn <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
+nn <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
 
 " Git
 " grep for git merge conflicts
-nnoremap <leader>gm :silent! grep! -e "<<<<<<<"<cr>
+nn <leader>gm :silent! grep! -e "<<<<<<<"<cr>
 
 " Project/session management
 " create session directory if it doesn't exist
 if !isdirectory($HOME.'/.vims') | call mkdir($HOME.'/.vims', '', 0770) | endif
 " save session
-nnoremap <leader>ps :mks! ~/.vims/
+nn <leader>ps :mks! ~/.vims/
 " load session
-nnoremap <leader>po :source ~/.vims/*
+nn <leader>po :source ~/.vims/*
 
 " Go to tab B
-nnoremap gl <cmd>call GoToTabB()<cr>
-" store tabB
-aug tabB | au! | au TabLeave * let g:tabB = tabpagenr() | aug end
+nn gl <cmd>call LastTabActivate()<cr>
+" Autocmd store last tab
+aug LastTab | au! | au TabLeave * let g:last_tab_nr = tabpagenr() | aug end
 " fn go to g:last_t if an existing tab, else go to prev tab
-function! GoToTabB() abort
-	try | if g:tabB != tabpagenr()
-		exe "tabn" . g:tabB | return
+function! LastTabActivate() abort
+	try | if g:last_tab_nr != tabpagenr()
+		exe "tabn" . g:last_tab_nr | return
 	end | catch | endtry
 	exe "tabp"
 endfunction
@@ -123,23 +123,23 @@ augroup space_confirms | au!
 augroup end
 " Mappings:
 " search in normal and visual mode
-nnoremap s <cmd>let g:space_confirms=1<cr>/
+nn s <cmd>let g:space_confirms=1<cr>/
 xnoremap s <cmd>let g:space_confirms=1<cr>/
 " backward search in normal mode
-nnoremap S <cmd>let g:space_confirms=1<cr>?
+nn S <cmd>let g:space_confirms=1<cr>?
 " switch buffer in normal mode
-nnoremap <leader><tab> <cmd>let g:space_confirms=1<cr>:buffer <c-z>
+nn <leader><tab> <cmd>let g:space_confirms=1<cr>:buffer <c-z>
 
 " Grep [args, selection]
-nnoremap <leader>G :silent grep -e ""<left>
+nn <leader>G :silent grep -e ""<left>
 vnoremap <leader>G <cmd>call RgVisual()<cr>
 
 " Grep reference [word, selection]
-nnoremap gr <cmd>call Rg()<cr>
+nn gr <cmd>call Rg()<cr>
 vmap gr <leader>G
 
 " Grep substitute [word, selection]
-nnoremap gs :call Rg()<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
+nn gs :call Rg()<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 vnoremap gs :call RgVisual()<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
 
 function! Rg() abort
@@ -170,6 +170,7 @@ set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git/**
 set list " Show tab characters
 set listchars=tab:\·\ ,trail:\~,extends:…,precedes:…
+" set fillchars=vert:·,fold:·,eob:·
 set signcolumn=yes number
 set cursorline " Highlight cursor line
 set splitright

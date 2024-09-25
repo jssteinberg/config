@@ -41,6 +41,7 @@ set clipboard=unnamed " Sync system clioboard
 set hlsearch " Highlight search matches
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set undodir=$HOME/.vimundo undofile
+set fillchars=vert:·,fold:·,eob:·
 
 " NETRW OPTIONS
 let g:netrw_banner=0 " Remove top banner
@@ -102,6 +103,7 @@ endfunction
 " NETRW KEYMAPS
 function! SetNetrwKeymaps() abort
 	nn <buffer> s /
+	nn <buffer> S ?
 	nmap <buffer> <c-j> <cr>
 	nmap <buffer> <c-k> v
 endfunction
