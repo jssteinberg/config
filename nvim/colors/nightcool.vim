@@ -5,7 +5,7 @@ let g:colors_name="nightcool"
 " Options:
 " - `let g:nightcool_bg="default" ` or "transparent"
 " - `let g:nightcool_comments="default", "bright" or "gray"
-" - `let g:nightcool_bgs=v:true` to enable more background colors for groups
+" - `let g:nightcool_bgs=v:false` to disable more background colors for groups
 "
 " Supports: treesitter, winbar, vim-matchup, fugitive, neo-tree, vim-illuminate, treesitter-context
 
@@ -85,8 +85,8 @@ hi PmenuThumb ctermbg=8 guibg=#342c6d " Pmenu affects some floating windows
 hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff  " Pmenu affects some floating windows
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8
 hi TabLineFill cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
-hi TabLine cterm=NONE gui=NONE ctermbg=0 guibg=#0c0a19 ctermfg=8 guifg=#7d78a1
-hi TabLineSel cterm=bold gui=bold ctermbg=NONE guibg=#1a1636 ctermfg=15 guifg=#ffffff
+hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=#0c0a19 ctermfg=8 guifg=#7d78a1
+hi TabLineSel cterm=bold gui=bold ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#ffffff
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#ffffff
@@ -192,7 +192,7 @@ let g:terminal_color_13 = "#a69fd8"
 let g:terminal_color_14 = "#9fd1d8"
 let g:terminal_color_15 = "#e9f5e6"
 
-if get(g:, "nightcool_bgs", 0)
+if get(g:, "nightcool_bgs", v:true)
 	hi WinSeparator guibg=#0c0a19 guifg=#0c0a19
 	hi NeoTreeNormal cterm=NONE gui=NONE ctermbg=NONE guibg=#0c0a19 ctermfg=10 guifg=#add89f
 	" Expan separator area

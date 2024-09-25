@@ -62,6 +62,7 @@ nn <leader>fl ?\v\S+[:\|.]\S+<cr>
 nn <leader>s :call FuzzyFiles("rg --files", ":e")<cr>
 " Git
 nn <silent> <leader>gg :packadd vim-fugitive<bar>G<cr>
+nn <leader>gc :packadd vim-fugitive<bar>G log -p -50 %<cr>
 nn <silent> <leader>gp :packadd vim-fugitive<bar>G pull<cr>
 nn <silent> <leader>gP :packadd vim-fugitive<bar>G push<cr>
 " Easymotions
