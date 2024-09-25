@@ -41,7 +41,7 @@ set clipboard=unnamed " Sync system clioboard
 set hlsearch " Highlight search matches
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set undodir=$HOME/.vimundo undofile
-set fillchars=vert:·,fold:·,eob:·
+set fillchars=vert:·,fold:·,eob:\ 
 
 " NETRW OPTIONS
 let g:netrw_banner=0 " Remove top banner
@@ -60,7 +60,8 @@ tnoremap jk <c-w>N
 " Find links
 nn <leader>fl ?\v\S+[:\|.]\S+<cr>
 " Fuzzy find files
-nn <leader>s :call FuzzyFiles("rg --files", ":e")<cr>
+" nn <leader>s :call FuzzyFiles("rg --files", ":e")<cr>
+nn <leader>s :Clap files<cr>
 " Git
 nn <silent> <leader>gg :packadd vim-fugitive<bar>G<cr>
 nn <leader>gc :packadd vim-fugitive<bar>G log -p -50 %<cr>
@@ -141,13 +142,10 @@ fu! PackInit() abort
 	call minpac#add("tpope/vim-fugitive", {"type": "opt"})
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")
-	" call minpac#add("prabirshrestha/asyncomplete.vim")
-	" call minpac#add("prabirshrestha/asyncomplete-buffer.vim")
-	" call minpac#add("prabirshrestha/asyncomplete-lsp.vim")
-	" call minpac#add("yami-beta/asyncomplete-omni.vim")
 	call minpac#add("tpope/vim-vinegar")
 	call minpac#add("Exafunction/codeium.vim")
 	call minpac#add("tweekmonster/startuptime.vim")
+	call minpac#add("liuchengxu/vim-clap", {"do": ":Clap install-binary"})
 	" Filetypes
 	call minpac#add("othree/html5.vim")
 	call minpac#add("pangloss/vim-javascript")

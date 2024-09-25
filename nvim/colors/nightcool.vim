@@ -124,7 +124,7 @@ hi Search cterm=NONE gui=NONE ctermbg=237 guibg=#2c446d ctermfg=NONE guifg=NONE
 " StatusLine and borders
 hi StatusLine cterm=underline ctermbg=NONE ctermfg=7 guibg=#342c6d gui=NONE guifg=#ffffff
 hi StatusLineNC cterm=underline ctermbg=NONE ctermfg=8 gui=NONE guibg=#342c6d guifg=#7d78a1
-hi FloatBorder ctermbg=NONE ctermfg=0 guibg=NONE guifg=#342c6d
+hi FloatBorder cterm=NONE ctermbg=NONE ctermfg=8 guibg=NONE guifg=#342c6d
 
 " UI LINKED
 
@@ -140,7 +140,7 @@ hi! link QuickFixLine Visual
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
 hi! link WinSeparator FloatBorder
-hi! link VertSplit WinSeparator
+hi! link VertSplit FloatBorder
 hi! link WinBar CursorLineNr
 hi! link WinBarNC LineNr
 

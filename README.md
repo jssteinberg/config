@@ -69,10 +69,11 @@ Install Neovim >= 0.8.0 (needs to be built with LuaJIT), fzf, ripgrep, fd, bat, 
 
 ## Vim 8 +lua
 
-A Vim config that works without plugins. It gives no errors on missing plugins unless keymaps/commands requiring plugins are used. Requries:
+A Vim config that works without plugins. It gives no errors on missing plugins unless keymaps/commands requiring plugins are used. Requires:
 
-- Vim >= version 8 +lua.
+- Vim >= version 8 +lua
 - Package managing with [minpac](//github.com/k-takata/minpac)
+- Plugins require Git, Rust
 
 ## Maintenance
 
