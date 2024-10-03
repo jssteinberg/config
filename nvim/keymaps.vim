@@ -74,13 +74,25 @@ function! ZenModeFloat() abort
 endfunction
 
 function! s:close_zen() abort
-	" Do with timeout to check if focus was returned
-	if exists('s:zen_win') | try
-		call nvim_win_close(s:zen_win, 1)
-		call nvim_win_close(s:zen_container, 1)
+	if exists('s:zen_win')
+		try
+			call nvim_win_close(s:zen_container, 1)
+		catch | endtry
+		try
+			call nvim_win_close(s:zen_win, 1)
+			" call nvim_set_current_win(s:zen_prev_win)
+		catch | endtry
 		unlet s:zen_win
-		" call nvim_set_current_win(s:zen_prev_win)
-	catch | endtry | endif
+	endif
+endfunction
+
+function! s:zen_win_leave() abort
+	" Check if current window is s:zen_win
+	if exists('s:zen_win') && nvim_get_current_win() != s:zen_win
+		call nvim_win_set_option(s:zen_win, 'winhl', 'Normal:Normal')
+	else
+		call s:close_zen()
+	endif
 endfunction
 
 function! s:check_close_zen() abort
@@ -91,6 +103,7 @@ endfunction
 
 augroup zen_win
 	autocmd!
-	autocmd WinLeave,VimResized * call s:close_zen()
+	autocmd WinLeave * call s:zen_win_leave()
 	autocmd WinResized * call s:check_close_zen()
+	autocmd VimResized * call s:close_zen()
 augroup END

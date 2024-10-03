@@ -74,7 +74,7 @@ require("lazy").setup({
 	{
 		"jssteinberg/termcwd",
 		config = function()
-			vim.g.termcwd_split_full_top = true
+			vim.g.termcwd_split_full_bottom = true
 			vim.g.termcwd_height = 20
 			vim.keymap.set("n", "<leader><cr>", require("termcwd").sp(), { desc = "Shell (CWD)" })
 			vim.keymap.set("n", "<leader>t<cr>", require("termcwd").tab(), { desc = "Tabshell (CWD)" })
@@ -180,24 +180,36 @@ require("lazy").setup({
 		config = function() require "pack.treesitter".config() end
 	},
 
-	-- Context topbar
-	-- {
-	-- 	"nvim-treesitter/nvim-treesitter-context",
-	-- 	dependencies = { "nvim-treesitter/nvim-treesitter" },
-	-- 	event = "cursorhold",
-	-- 	config = function() require "treesitter-context".setup {} end
-	-- },
-
 	-- AI code completion
+	-- {
+	-- 	"github/copilot.vim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		vim.g.copilot_no_tab_map = true
+	-- 		vim.cmd([[
+	-- 			imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
+	-- 		]])
+	-- 	end
+	-- },
+	-- codeium
 	{
-		"github/copilot.vim",
+		"Exafunction/codeium.vim",
 		event = "VimEnter",
 		config = function()
-			vim.g.copilot_no_tab_map = true
-			vim.cmd([[
-				imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
-			]])
-			-- imap <tab> <Plug>(copilot-accept-word)
+			vim.g.codeium_disable_bindings = 1
+			-- vim.cmd([[
+			-- 	imap <script><silent><nowait><expr> <c-f> codeium#Accept()
+			-- 	imap <c-j>   <cmd>call codeium#CycleCompletions(1)<cr>
+			-- 	imap <c-k>   <cmd>call codeium#CycleCompletions(-1)<cr>
+			-- 	imap <c-x>   <cmd>call codeium#Clear()<cr>
+			-- ]])
+			-- rewrite keymaps to lua
+			vim.keymap.set("i", "<c-f>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+			vim.keymap.set("i", "<c-j>", function() return vim.fn["codeium#CycleCompletions"](1) end,
+				{ expr = true, silent = true })
+			vim.keymap.set("i", "<c-k>", function() return vim.fn["codeium#CycleCompletions"](-1) end,
+				{ expr = true, silent = true })
+			vim.keymap.set("i", "<c-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true, silent = true })
 		end
 	},
 
