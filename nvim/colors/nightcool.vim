@@ -94,7 +94,7 @@ hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 gui
 hi DiagnosticError cterm=italic gui=italic ctermfg=1 guifg=#bc675c
 hi DiagnosticHint cterm=italic gui=italic ctermfg=8 guifg=#5c80bc
 hi DiagnosticWarn cterm=italic gui=italic ctermfg=4 guifg=#7d78a1
-hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#bc675c
+hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#bc675c guibg=#361a16
 hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#2c446d
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
 
