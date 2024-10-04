@@ -141,6 +141,15 @@ require("lazy").setup({
 		end
 	},
 
+	-- LSP hover info
+	{
+		"LukasPietzschmann/boo.nvim",
+		config = function()
+			local boo = require("boo")
+			-- vim.keymap.set("n", "<leader>lh", boo.boo(), { desc = "Cursor info" })
+		end
+	},
+
 	-- LSP mouse hover
 	{
 		"soulis-1256/eagle.nvim",
@@ -181,29 +190,12 @@ require("lazy").setup({
 	},
 
 	-- AI code completion
-	-- {
-	-- 	"github/copilot.vim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		vim.g.copilot_no_tab_map = true
-	-- 		vim.cmd([[
-	-- 			imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
-	-- 		]])
-	-- 	end
-	-- },
 	-- codeium
 	{
 		"Exafunction/codeium.vim",
 		event = "VimEnter",
 		config = function()
 			vim.g.codeium_disable_bindings = 1
-			-- vim.cmd([[
-			-- 	imap <script><silent><nowait><expr> <c-f> codeium#Accept()
-			-- 	imap <c-j>   <cmd>call codeium#CycleCompletions(1)<cr>
-			-- 	imap <c-k>   <cmd>call codeium#CycleCompletions(-1)<cr>
-			-- 	imap <c-x>   <cmd>call codeium#Clear()<cr>
-			-- ]])
-			-- rewrite keymaps to lua
 			vim.keymap.set("i", "<c-f>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
 			vim.keymap.set("i", "<c-j>", function() return vim.fn["codeium#CycleCompletions"](1) end,
 				{ expr = true, silent = true })

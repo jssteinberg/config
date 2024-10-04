@@ -94,14 +94,14 @@ hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 gui
 hi DiagnosticError cterm=italic gui=italic ctermfg=1 guifg=#bc675c
 hi DiagnosticHint cterm=italic gui=italic ctermfg=8 guifg=#5c80bc
 hi DiagnosticWarn cterm=italic gui=italic ctermfg=4 guifg=#7d78a1
-hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#bc675c guibg=#361a16
+hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#d8a69f guibg=#361a16
 hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#2c446d
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
 
 hi RedrawDebugClear     ctermbg=11 ctermfg=0 guibg=#d0d89f guifg=#0c0a19
 hi RedrawDebugComposed  ctermbg=10 ctermfg=0 guibg=#add89f guifg=#0c0a19
 hi RedrawDebugRecompose ctermbg=9  ctermfg=0 guibg=#d8a69f guifg=#0c0a19
-hi SpellBad cterm=underline gui=NONE ctermbg=NONE ctermfg=1 guifg=#d8a69f
+hi SpellBad cterm=underline ctermbg=NONE ctermfg=1 gui=underline guifg=NONE guisp=#d8a69f
 hi SpellCap   cterm=underline gui=undercurl ctermbg=NONE guisp=#5c80bc
 hi SpellRare  cterm=underline gui=undercurl ctermbg=NONE guisp=#685cbc
 hi SpellLocal cterm=underline gui=undercurl ctermbg=NONE guisp=#5cb1bc
