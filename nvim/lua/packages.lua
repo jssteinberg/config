@@ -33,6 +33,7 @@ require("lazy").setup({
 	-- Colorschemes
 	{ "ajgrf/parchment" },
 	{ "EdenEast/nightfox.nvim" },
+	{ "miikanissi/modus-themes.nvim" },
 	-- File types
 	{ "andreshazard/vim-freemarker" },
 
@@ -138,15 +139,6 @@ require("lazy").setup({
 		},
 		config = function()
 			require "pack.lsp".config()
-		end
-	},
-
-	-- LSP hover info
-	{
-		"LukasPietzschmann/boo.nvim",
-		config = function()
-			local boo = require("boo")
-			-- vim.keymap.set("n", "<leader>lh", boo.boo(), { desc = "Cursor info" })
 		end
 	},
 

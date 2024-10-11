@@ -41,15 +41,15 @@ set clipboard=unnamed " Sync system clioboard
 set hlsearch " Highlight search matches
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set undodir=$HOME/.vimundo undofile
-set fillchars=vert:·,fold:·,eob:\ 
 
 " NETRW OPTIONS
 let g:netrw_banner=0 " Remove top banner
 let g:netrw_preview=1 " Vertical preview
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
-try | set background=dark | colo lunaperche | catch | colo slate " fallback for older Vim versions
-endtry
+try | set background=dark | colo nightcool | catch
+try | colo lunaperche | catch | colo slate " fallback for older Vim versions
+endtry | endtry
 
 " KEYMAPS
 " Core improve

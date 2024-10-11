@@ -3,6 +3,7 @@
 set clipboard+=unnamedplus
 set undofile
 set diffopt+=vertical
+set fillchars+=eob:\  " ...
 
 if has("gui_running")
 	set guifont=cousine\ nerd\ font\ mono:h15

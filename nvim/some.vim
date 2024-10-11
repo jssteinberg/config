@@ -52,7 +52,7 @@ nn <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(e
 nn <leader>et <cmd>wincmd v<bar>wincmd H<bar>e.<cr><cmd>call search(expand("#:t"))<cr>
 nn <leader>tb <cmd>tabedit %<cr>'"
 nn <leader>ew :e **/
-nn <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd %:h<cr>
+nn <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd ~/.config<cr>
 nn <leader>ep <cmd>e package.json<cr>
 nn <leader>er <cmd>e README.md<cr>
 nn <leader>ee <cmd>e .env<cr>
@@ -170,7 +170,6 @@ set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git/**
 set list " Show tab characters
 set listchars=tab:\·\ ,trail:\~,extends:…,precedes:…
-" set fillchars=vert:·,fold:·,eob:·
 set signcolumn=yes number
 set cursorline " Highlight cursor line
 set splitright

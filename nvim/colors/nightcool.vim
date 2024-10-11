@@ -54,6 +54,7 @@ hi! link Statement Normal
 
 " SPECIFIC SYNTAX GROUPS
 
+hi htmlStrike cterm=strikethrough gui=strikethrough
 hi! link markdownLinkDelimiter Statement
 hi! link htmlTag Statement
 " HTML elements like Type since CSS treesitter uses (still?) that for elements
@@ -72,8 +73,8 @@ hi! link vimCommentString Todo
 hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#0c0a19
-hi CursorLine cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636
-hi CursorLineNr cterm=NONE gui=NONE ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#7d78a1
+hi CursorLine cterm=NONE gui=NONE ctermbg=232 guibg=#1a1636
+hi CursorLineNr cterm=underline,bold gui=NONE ctermbg=NONE guibg=#1a1636 ctermfg=8 guifg=#7d78a1
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
 hi LineNr ctermfg=8 guifg=#2c446d
@@ -86,7 +87,7 @@ hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8
 hi TabLineFill cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=#0c0a19 ctermfg=8 guifg=#7d78a1
-hi TabLineSel cterm=bold gui=bold ctermbg=0 guibg=#1a1636 ctermfg=15 guifg=#ffffff
+hi TabLineSel cterm=NONE gui=bold ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#ffffff
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#ffffff
@@ -118,13 +119,13 @@ hi diffAdded cterm=NONE gui=NONE ctermfg=2 guifg=#80bc5c
 hi! link diffRemoved DiffDelete
 
 " Search
-hi IncSearch cterm=bold,underline gui=NONE ctermbg=241 guibg=#646d2c ctermfg=NONE guifg=#ffffff
-hi Search cterm=NONE gui=NONE ctermbg=237 guibg=#2c446d ctermfg=NONE guifg=NONE
+hi IncSearch cterm=bold,underline gui=NONE ctermbg=240 guibg=#646d2c ctermfg=NONE guifg=#ffffff
+hi Search cterm=NONE gui=NONE ctermbg=236 guibg=#2c446d ctermfg=NONE guifg=NONE
 
 " StatusLine and borders
-hi StatusLine cterm=underline ctermbg=NONE ctermfg=7 guibg=#342c6d gui=NONE guifg=#ffffff
-hi StatusLineNC cterm=underline ctermbg=NONE ctermfg=8 gui=NONE guibg=#342c6d guifg=#7d78a1
-hi FloatBorder cterm=NONE ctermbg=NONE ctermfg=8 guibg=NONE guifg=#342c6d
+hi StatusLine cterm=bold ctermbg=0 ctermfg=7 guibg=#342c6d gui=NONE guifg=#ffffff
+hi StatusLineNC cterm=NONE ctermbg=0 ctermfg=8 gui=NONE guibg=#342c6d guifg=#7d78a1
+hi FloatBorder cterm=NONE ctermbg=NONE ctermfg=0 guibg=NONE guifg=#342c6d
 
 " UI LINKED
 
