@@ -4,11 +4,11 @@ M.config = function()
 	local cmp = require "cmp"
 	local luasnip = require "luasnip"
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	local has_words_before = function()
-		unpack = unpack or table.unpack
-		local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-		return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-	end
+	-- local has_words_before = function()
+	-- 	unpack = unpack or table.unpack
+	-- 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	-- 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+	-- end
 
 	-- Add additional capabilities supported by nvim-cmp
 	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -35,11 +35,11 @@ M.config = function()
 			end,
 		},
 		mapping = {
-			["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-			["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-			["<C-c>"] = cmp.mapping.abort(),
-			["<C-Space>"] = cmp.mapping.complete(),
-			["<CR>"] = function(fallback)
+			["<c-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+			["<c-u>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+			["<c-c>"] = cmp.mapping.abort(),
+			["<c-l>"] = cmp.mapping.complete(),
+			["<cr>"] = function(fallback)
 				if cmp.get_active_entry() then
 					cmp.confirm({ select = false }) -- `false` to not automatically select the first item
 				else

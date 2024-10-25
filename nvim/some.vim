@@ -153,7 +153,7 @@ function! RgVisual() abort
 endfunction
 
 function! s:rgG() abort
-	let l:q = escape(@g, "'()#<")
+	let l:q = escape(@g, "'()#<.")
 	exe "silent grep -e '" . l:q . "'"
 	redraw!
 	echo l:q

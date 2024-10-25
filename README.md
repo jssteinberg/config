@@ -48,6 +48,8 @@ functions --erase ls
 funcsave ls
 ```
 
+*For PATH fish has `fish_add_path`.*
+
 *You can also use file: .config/fish/config.fish*
 
 ## Neovim

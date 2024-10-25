@@ -73,8 +73,8 @@ hi! link vimCommentString Todo
 hi ColorColumn ctermbg=233 guibg=#361a16
 hi Cursor cterm=NONE ctermbg=8 ctermfg=16 guibg=fg guifg=#0c0a19 gui=NONE
 hi CursorColumn ctermbg=0 guibg=#0c0a19
-hi CursorLine cterm=NONE gui=NONE ctermbg=232 guibg=#1a1636
-hi CursorLineNr cterm=underline,bold gui=NONE ctermbg=NONE guibg=#1a1636 ctermfg=8 guifg=#7d78a1
+hi CursorLine cterm=NONE gui=NONE ctermbg=234 guibg=#1a1636
+hi CursorLineNr cterm=bold gui=NONE ctermbg=NONE guibg=#1a1636 ctermfg=7 guifg=#7d78a1
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
 hi LineNr ctermfg=8 guifg=#2c446d
