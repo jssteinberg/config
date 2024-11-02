@@ -40,8 +40,8 @@ set -Ux FZF_DEFAULT_COMMAND rg --files --hidden --follow
 set -Ux EDITOR "vim"
 
 # create and save alias
-alias ls "exa"
-funcsave ls
+alias ip "curl ifcfg.me"
+funcsave ip
 
 # to remove
 functions --erase ls
