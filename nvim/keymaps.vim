@@ -71,19 +71,32 @@ function! ZenModeFloat() abort
 	call nvim_win_set_option(s:zen_win, 'winhl', 'Normal:Normal')
 	let g:zen_win_w = winwidth(0)
 	let g:zen_win_h = winheight(0)
+
+	augroup zen_win
+		autocmd!
+		autocmd WinLeave * call s:zen_win_leave()
+		autocmd WinResized * call s:check_close_zen()
+		autocmd VimResized * call s:close_zen()
+		autocmd BufEnter * call s:check_close_zen()
+	augroup END
 endfunction
 
 function! s:close_zen() abort
-	if exists('s:zen_win')
-		try
-			call nvim_win_close(s:zen_container, 1)
-		catch | endtry
-		try
-			call nvim_win_close(s:zen_win, 1)
-			" call nvim_set_current_win(s:zen_prev_win)
-		catch | endtry
-		unlet s:zen_win
-	endif
+	if !exists('s:zen_win') | return | endif
+
+	try
+		call nvim_win_close(s:zen_container, 1)
+	catch | endtry
+
+	try
+		call nvim_win_close(s:zen_win, 1)
+	catch | endtry
+
+	unlet s:zen_win
+
+	augroup zen_win
+		autocmd!
+	augroup END
 endfunction
 
 function! s:zen_win_leave() abort
@@ -96,14 +109,9 @@ function! s:zen_win_leave() abort
 endfunction
 
 function! s:check_close_zen() abort
-	if exists('s:zen_win') && (winwidth(0) != g:zen_win_w || winheight(0) != g:zen_win_h)
+	if exists('s:zen_win') && exists('g:zen_win_w') && (winwidth(0) != g:zen_win_w || winheight(0) != g:zen_win_h)
 		call s:close_zen()
+	else
+		call nvim_win_set_option(s:zen_win, 'winhl', 'Normal:Normal')
 	endif
 endfunction
-
-augroup zen_win
-	autocmd!
-	autocmd WinLeave * call s:zen_win_leave()
-	autocmd WinResized * call s:check_close_zen()
-	autocmd VimResized * call s:close_zen()
-augroup END
