@@ -37,6 +37,7 @@ config.keys = {
 		mods = "SUPER",
 		action = wezterm.action.ActivateLastTab,
 	},
+	{ key = "h", mods = "CMD", action = wezterm.action.HideApplication },
 }
 
 config.colors = {

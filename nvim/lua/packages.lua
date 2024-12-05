@@ -34,6 +34,7 @@ require("lazy").setup({
 	{ "ajgrf/parchment" },
 	{ "EdenEast/nightfox.nvim" },
 	{ "miikanissi/modus-themes.nvim" },
+	{ "bettervim/yugen.nvim" },
 	-- File types
 	{ "andreshazard/vim-freemarker" },
 
