@@ -27,6 +27,7 @@ local types = require("luasnip.util.types")
 local parse = require("luasnip.util.parser").parse_snippet
 
 local date = function() return { os.date("%Y-%m-%d") } end
+local utc = function() return { os.date("%Y-%m-%dT%H:%M:%S%z") } end
 local end_tag_name = function(args, parent)
 	return args[1][1]
 end
@@ -36,7 +37,14 @@ ls.add_snippets(nil, {
 		s({
 			trig = "date",
 			namr = "Date",
-			dscr = "Date in the form of YYYY-MM-DD",
+			dscr = "Date format YYYY-MM-DD",
+		}, {
+			f(date, {}),
+		}),
+		s({
+			trig = "utc",
+			namr = "UTC",
+			dscr = "Date format UTC",
 		}, {
 			f(date, {}),
 		}),

@@ -24,7 +24,7 @@ M.config = function()
 			{ name = "nvim_lsp",               trigger_characters = { "-" } },
 			{ name = "omni" },
 			{ name = "buffer" },
-			{ name = "nvim_lsp_signature_help" }
+			{ name = "nvim_lsp_signature_help" },
 		},
 		experimental = {
 			ghost_text = false -- this feature conflict with copilot's preview
@@ -38,7 +38,24 @@ M.config = function()
 			["<c-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 			["<c-u>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
 			["<c-c>"] = cmp.mapping.abort(),
-			["<c-l>"] = cmp.mapping.complete(),
+			-- ctrl-a autocompletes
+			["<c-a>"] = cmp.mapping(function()
+				-- if cmp.visible() then
+				if cmp.get_active_entry() then
+					cmp.confirm({ select = true })
+				else
+					cmp.complete()
+				end
+			end, { "i", "s" }),
+			-- ctrl-l opens/completes lsp (is it contextual? should be)
+			["<c-l>"] = cmp.mapping.complete({
+				config = {
+					sources = {
+						{ name = "nvim_lsp" },
+					}
+				}
+			}),
+			-- enter intuitively confirms
 			["<cr>"] = function(fallback)
 				if cmp.get_active_entry() then
 					cmp.confirm({ select = false }) -- `false` to not automatically select the first item
@@ -46,6 +63,7 @@ M.config = function()
 					fallback()
 				end
 			end,
+			-- ctrl-s completes/navigates snippets
 			["<c-s>"] = cmp.mapping(function()
 				if luasnip.jumpable() then
 					luasnip.jump(1)
@@ -63,15 +81,10 @@ M.config = function()
 					fallback()
 				end
 			end, { "i", "s" }),
+			-- tab/shift-tab selects next/prev item
 			["<Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
-					-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-					-- they way you will only jump inside the snippet region
-					--elseif luasnip.expand_or_jumpable() then
-					--	luasnip.expand_or_jump()
-					--elseif has_words_before() then
-					--	cmp.complete()
 				else
 					fallback()
 				end
