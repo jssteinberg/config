@@ -56,7 +56,7 @@ hi! link Statement Normal
 
 hi htmlStrike cterm=strikethrough gui=strikethrough
 hi! link markdownLinkDelimiter Statement
-hi! link htmlTag Statement
+hi! link htmlTag Constant
 " HTML elements like Type since CSS treesitter uses (still?) that for elements
 hi! link htmlTagName Type
 hi! link cssTagName htmlTagName

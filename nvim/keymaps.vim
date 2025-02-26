@@ -30,7 +30,7 @@ nnoremap <leader>gq <cmd>Git mergetool<cr>
 nnoremap <leader>go <cmd>RepoLink!<cr>
 vnoremap <leader>go  <cmd>RepoLink!<cr>
 
-" Color highlight groups
+" Color highlight groups (treesitter)
 nnoremap <leader>hc <cmd>Inspect<cr>
 nn <leader>ht <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
 
