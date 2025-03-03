@@ -23,14 +23,15 @@ require("lazy").setup({
 	-- Indent keymap motions
 	{ "michaeljsmith/vim-indent-object" },
 	-- Measure startup time
-	{ "tweekmonster/startuptime.vim",   cmd = "StartupTime" },
+	{ "tweekmonster/startuptime.vim",                cmd = "StartupTime" },
 	-- Visual undo tree
-	{ "mbbill/undotree",                cmd = "UndotreeToggle" },
+	{ "mbbill/undotree",                             cmd = "UndotreeToggle" },
 	-- Colorscheme util
 	-- { "rktjmp/lush.nvim", lazy = false },
 	-- { "echasnovski/mini.colors",        version = "*" },
 	-- { "echasnovski/mini.hues",          version = "*" },
 	-- Colorschemes
+	{ "https://codeberg.org/johanland/nightcool-vim" },
 	{ "ajgrf/parchment" },
 	{ "EdenEast/nightfox.nvim" },
 	{ "miikanissi/modus-themes.nvim" },

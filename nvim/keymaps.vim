@@ -13,7 +13,7 @@ nn <leader>e. :Neotree position=current reveal<cr>
 nn <leader>eb :Neotree buffers<cr>
 
 " Fuzzy finder
-nnoremap <leader>ff :Pick files<cr>
+nnoremap <leader>ff :Pick buffers<cr>
 nnoremap <leader>fb :Pick buffers<cr>
 nnoremap <leader>fs :Pick grep_live<cr>
 nnoremap <leader>s :Pick files<cr>

@@ -1,13 +1,6 @@
 hi clear
 set bg=dark
-let g:colors_name="nightcool"
-
-" Options:
-" - `let g:nightcool_bg="default" ` or "transparent"
-" - `let g:nightcool_comments="default", "bright" or "gray"
-" - `let g:nightcool_bgs=v:false` to disable more background colors for groups
-"
-" Supports: treesitter, winbar, vim-matchup, fugitive, neo-tree, vim-illuminate, treesitter-context
+let g:colors_name="nightcool_org"
 
 " GROUP NAMES (:h group-name)
 
@@ -46,7 +39,6 @@ hi Constant   cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=11 guifg=#d0d8
 hi PreProc    cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
 hi String     cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=10 guifg=#add89f
 hi Keyword    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fb4d8
-"hi Type       cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=14 guifg=#9fd1d8
 hi! link Identifier Constant
 hi! link Type Normal
 hi! link Special Type
@@ -57,7 +49,7 @@ hi! link Statement Normal
 hi htmlStrike cterm=strikethrough gui=strikethrough
 hi! link markdownLinkDelimiter Statement
 hi! link htmlTag Constant
-" HTML elements like Type since CSS treesitter uses (still?) that for elements
+" HTML elements eq Type since CSS treesitter uses (still? – don't think so) that for elements
 hi! link htmlTagName Type
 hi! link cssTagName htmlTagName
 hi! link cssAttrRegion htmlTagName " to fix selector withing media

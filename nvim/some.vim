@@ -90,7 +90,7 @@ nn <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
 nn <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
 
 " Search for URLs
-nn <leader>gl /\v(^\|\s\|[([{<])@<=(https?:)?(\/\/)?(www\.)?(\a\|[0-9]){2,}((:\d{2,5})\|(\.\a{2,}))(\a\|[0-9]\|[\/\-_.#?&=])*<cr>
+nn <leader>fl /\v(^\|\s\|[([{<])@<=(https?:)?(\/\/)?(www\.)?(\a\|[0-9]){2,}((:\d{2,5})\|(\.\a{2,}))(\a\|[0-9]\|[\/\-_.#?&=])*<cr>
 
 " Git
 " grep for git merge conflicts

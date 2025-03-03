@@ -5,7 +5,7 @@ if wezterm.config_builder then config = wezterm.config_builder() end
 
 -- CONFIG OPTIONS
 
-config.window_background_opacity = .95
+config.window_background_opacity = .90
 config.font_size = 14
 config.line_height = 1.1
 config.use_dead_keys = false
