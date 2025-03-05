@@ -89,8 +89,8 @@ nn <expr> <leader>nd &bg == "dark" ? ':set bg=light<cr>' : ':set bg=dark<cr>'
 nn <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
 nn <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
 
-" Search for URLs
-nn <leader>fl /\v(^\|\s\|[([{<])@<=(https?:)?(\/\/)?(www\.)?(\a\|[0-9]){2,}((:\d{2,5})\|(\.\a{2,}))(\a\|[0-9]\|[\/\-_.#?&=])*<cr>
+" Search for links/URLs
+nn <leader>fl /\v(^\|\s\|[([{<])@<=(https?:)?(\/\/)(\(\a\|\d\|-\)+\.)?\a(\a\|\d){1,}((:\d{2,5})\|(\.\a{2,}))(\a\|\d\|[\/\-_.#?&=])*<cr>
 
 " Git
 " grep for git merge conflicts
