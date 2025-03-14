@@ -5,7 +5,7 @@ if wezterm.config_builder then config = wezterm.config_builder() end
 
 -- CONFIG OPTIONS
 
-config.window_background_opacity = .90
+config.window_background_opacity = .95
 config.font_size = 14
 config.line_height = 1.1
 config.use_dead_keys = false
@@ -85,7 +85,7 @@ config.colors = {
 	},
 
 	-- Arbitrary colors of the palette in the range from 16 to 255
-	indexed = { [136] = "#af8700" },
+	indexed = { [136] = "#e1a138" },
 
 	-- Since: 20220319-142410-0fcdea07
 	-- When the IME, a dead key or a leader key are being processed and are effectively
@@ -104,12 +104,12 @@ config.colors = {
 	--  "Olive", "Navy", "Purple", "Teal", "Silver", "Grey", "Red", "Lime",
 	-- "Yellow", "Blue", "Fuchsia", "Aqua" or "White".
 	copy_mode_active_highlight_fg = { AnsiColor = "Black" },
-	copy_mode_inactive_highlight_bg = { Color = "#52ad70" },
+	copy_mode_inactive_highlight_bg = { Color = "#80bc5c" },
 	copy_mode_inactive_highlight_fg = { AnsiColor = "White" },
 
 	quick_select_label_bg = { Color = "peru" },
 	quick_select_label_fg = { Color = "#ffffff" },
-	quick_select_match_bg = { AnsiColor = "Navy" },
+	quick_select_match_bg = { Color = "#3877e1" },
 	quick_select_match_fg = { Color = "#ffffff" },
 }
 
