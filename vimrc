@@ -55,6 +55,8 @@ endtry | endtry
 " Core improve
 nnoremap Y y$
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
+inoremap <expr> <tab> pumvisible() ? "\<c-n>" : match(getline('.')[max([0, col('.') - 2])], '\v[[:alnum:]]') != -1 ? "\<c-n>" : "\<tab>"
+
 " Additional esc map
 tnoremap jk <c-w>N
 " Find links
