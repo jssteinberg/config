@@ -5,6 +5,10 @@ set undofile
 set diffopt+=vertical
 set fillchars+=eob:\  " ...
 
+function! TermcwdCallback() abort
+	setlocal nonumber
+endfunction
+
 if has("gui_running")
 	set guifont=cousine\ nerd\ font\ mono:h15
 	set guifont=menlo:h14

@@ -59,8 +59,6 @@ inoremap <expr> <tab> pumvisible() ? "\<c-n>" : match(getline('.')[max([0, col('
 
 " Additional esc map
 tnoremap jk <c-w>N
-" Find links
-nn <leader>fl ?\v\S+[:\|.]\S+<cr>
 " Fuzzy find files
 " nn <leader>s :call FuzzyFiles("rg --files", ":e")<cr>
 nn <leader>s :Clap files<cr>
@@ -148,6 +146,7 @@ fu! PackInit() abort
 	call minpac#add("Exafunction/codeium.vim")
 	call minpac#add("tweekmonster/startuptime.vim")
 	call minpac#add("liuchengxu/vim-clap", {"do": ":Clap install-binary"})
+	call minpac#add("subnut/visualstar.vim")
 	" Filetypes
 	call minpac#add("othree/html5.vim")
 	call minpac#add("pangloss/vim-javascript")
@@ -165,3 +164,7 @@ let g:svelte_preprocessors=[
 			\"postcss"] " "sass", "typescript"
 " Astro
 let g:astro_typescript = "enable"
+
+function! TermcwdCallback() abort
+	setlocal nonumber
+endf
