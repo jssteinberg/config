@@ -41,7 +41,6 @@ vn gx y:OpenSearchURL duckduckgo <c-r>"<cr>
 " Hop
 noremap <leader>j <cmd>HopVertical<cr>
 noremap <leader>k <cmd>HopVertical<cr>
-noremap <tab> <cmd>HopLineMW<cr>
 
 " Emmet
 imap <c-e><c-e> <plug>(emmet-expand-abbr)

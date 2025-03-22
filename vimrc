@@ -71,13 +71,15 @@ nn <silent> <leader>gP :packadd vim-fugitive<bar>G push<cr>
 let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 map <Leader>j :packadd vim-easymotion<cr><Plug>(easymotion-j)
 map <Leader>k :packadd vim-easymotion<cr><Plug>(easymotion-k)
-nmap <tab> <Plug>(easymotion-overwin-line)
 " Codium
-let g:codeium_disable_bindings = 1
-imap <script><silent><nowait><expr> <c-f> codeium#Accept()
-imap <c-j>   <cmd>call codeium#CycleCompletions(1)<cr>
-imap <c-k>   <cmd>call codeium#CycleCompletions(-1)<cr>
-imap <c-x>   <cmd>call codeium#Clear()<cr>
+" let g:codeium_disable_bindings = 1
+" imap <script><silent><nowait><expr> <c-f> codeium#Accept()
+" imap <c-j>   <cmd>call codeium#CycleCompletions(1)<cr>
+" imap <c-k>   <cmd>call codeium#CycleCompletions(-1)<cr>
+" imap <c-x>   <cmd>call codeium#Clear()<cr>
+" Augment
+let g:augment_disable_tab_mapping = v:true
+inoremap <c-f> <cmd>call augment#Accept()<cr>
 
 " TERMINAL
 nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
@@ -143,7 +145,8 @@ fu! PackInit() abort
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")
 	call minpac#add("tpope/vim-vinegar")
-	call minpac#add("Exafunction/codeium.vim")
+	" call minpac#add("Exafunction/codeium.vim")
+	call minpac#add("augmentcode/augment.vim")
 	call minpac#add("tweekmonster/startuptime.vim")
 	call minpac#add("liuchengxu/vim-clap", {"do": ":Clap install-binary"})
 	call minpac#add("subnut/visualstar.vim")
