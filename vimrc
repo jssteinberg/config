@@ -47,15 +47,15 @@ let g:netrw_banner=0 " Remove top banner
 let g:netrw_preview=1 " Vertical preview
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
-try | set background=dark | colo nightcool | catch
+" try | set background=dark | colo nightcool | catch
 try | colo lunaperche | catch | colo slate " fallback for older Vim versions
-endtry | endtry
+endtry "| endtry
 
 " KEYMAPS
 " Core improve
 nnoremap Y y$
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
-inoremap <expr> <tab> pumvisible() ? "\<c-n>" : match(getline('.')[max([0, col('.') - 2])], '\v[[:alnum:]]') != -1 ? "\<c-n>" : "\<tab>"
+inoremap <expr> <tab> pumvisible() ? "\<c-n>" : match(getline('.')[max([0, col('.') - 2])], '\v[[:space:]]') > -1 ? "\<tab>" : "\<c-n>"
 
 " Additional esc map
 tnoremap jk <c-w>N
@@ -72,14 +72,14 @@ let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 map <Leader>j :packadd vim-easymotion<cr><Plug>(easymotion-j)
 map <Leader>k :packadd vim-easymotion<cr><Plug>(easymotion-k)
 " Codium
-" let g:codeium_disable_bindings = 1
-" imap <script><silent><nowait><expr> <c-f> codeium#Accept()
-" imap <c-j>   <cmd>call codeium#CycleCompletions(1)<cr>
-" imap <c-k>   <cmd>call codeium#CycleCompletions(-1)<cr>
-" imap <c-x>   <cmd>call codeium#Clear()<cr>
+let g:codeium_disable_bindings = 1
+imap <script><silent><nowait><expr> <c-f> codeium#Accept()
+imap <c-j>   <cmd>call codeium#CycleCompletions(1)<cr>
+imap <c-k>   <cmd>call codeium#CycleCompletions(-1)<cr>
+imap <c-x>   <cmd>call codeium#Clear()<cr>
 " Augment
-let g:augment_disable_tab_mapping = v:true
-inoremap <c-f> <cmd>call augment#Accept()<cr>
+" let g:augment_disable_tab_mapping = v:true
+" inoremap <c-f> <cmd>call augment#Accept()<cr>
 
 " TERMINAL
 nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
@@ -90,7 +90,10 @@ let g:termcwd_height = 20
 
 " LSP KEYMAPS
 function! s:on_lsp_buffer_enabled() abort
+	" let g:lsp_use_native_client = 1
+	" let g:lsp_diagnostics_virtual_text_enabled = 0
 	let g:lsp_diagnostics_virtual_text_align="right"
+	let g:lsp_diagnostics_virtual_text_wrap="truncate"
 	setlocal omnifunc=lsp#complete
 	if exists("+tagfunc") | setlocal tagfunc=lsp#tagfunc | endif
 	nmap <buffer> gd <plug>(lsp-definition)
@@ -101,6 +104,7 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> <c-k> <plug>(lsp-previous-diagnostic)
 	nmap <buffer> <c-j> <plug>(lsp-next-diagnostic)
 	nmap <buffer> <leader>lh <plug>(lsp-hover)
+	nmap <buffer> <leader>K <plug>(lsp-hover)
 endfunction
 
 " NETRW KEYMAPS
@@ -109,6 +113,7 @@ function! SetNetrwKeymaps() abort
 	nn <buffer> S ?
 	nmap <buffer> <c-j> <cr>
 	nmap <buffer> <c-k> v
+	nmap o %
 endfunction
 
 " AUTO COMMANDS
@@ -145,8 +150,8 @@ fu! PackInit() abort
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")
 	call minpac#add("tpope/vim-vinegar")
-	" call minpac#add("Exafunction/codeium.vim")
-	call minpac#add("augmentcode/augment.vim")
+	call minpac#add("Exafunction/codeium.vim")
+	" call minpac#add("augmentcode/augment.vim")
 	call minpac#add("tweekmonster/startuptime.vim")
 	call minpac#add("liuchengxu/vim-clap", {"do": ":Clap install-binary"})
 	call minpac#add("subnut/visualstar.vim")
