@@ -38,6 +38,18 @@ require("lazy").setup({
 	{ "bettervim/yugen.nvim" },
 	-- File types
 	{ "andreshazard/vim-freemarker" },
+	-- Debug https://theosteiner.de/debugging-javascript-frameworks-in-neovim
+	{
+		"mfussenegger/nvim-dap",
+		lazy = true,
+		keys = {
+			{ "<leader>db", function() require("dap").toggle_breakpoint() end },
+			{ "<leader>dc", function() require("dap").continue() end },
+		},
+		config = function()
+			require("dapui").setup()
+		end
+	},
 
 	--- Colors highlight
 	{

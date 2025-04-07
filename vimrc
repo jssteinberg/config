@@ -1,18 +1,14 @@
 set nocompatible
-set wildcharm=<c-z> " Enable usage in map target
+set wildmenu wildcharm=<c-z> " Enable usage in map target
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
 set showcmd " display incomplete commands
-set wildmenu " display completion matches in a status line
 set ttimeout " time out for key codes
 set ttimeoutlen=100 " wait up to 100ms after Esc for special key
 set incsearch
 set regexpengine=0 " needs to be explicitly set to always be active
 set mouse+=a
 set shortmess-=S " display short messages in ruler
-" Enable file type detection.
-" Use the default filetype settings, so that mail gets 'tw' set to 72,
-" 'cindent' is on in C files, etc.
-" Also load indent files, to automatically do language-dependent indenting.
+" Enable file type detection & default filetype settings & indent files
 filetype plugin indent on
 syntax on
 " Convenient command to see the difference between the current buffer and the
@@ -41,21 +37,21 @@ set clipboard=unnamed " Sync system clioboard
 set hlsearch " Highlight search matches
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set undodir=$HOME/.vimundo undofile
+set fillchars+=eob:\ ,vert:\·
 
 " NETRW OPTIONS
-let g:netrw_banner=0 " Remove top banner
 let g:netrw_preview=1 " Vertical preview
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
-" try | set background=dark | colo nightcool | catch
-try | colo lunaperche | catch | colo slate " fallback for older Vim versions
-endtry "| endtry
+try | colo lunaperche
+hi VertSplit cterm=NONE ctermbg=NONE
+catch | colo slate | endtry
 
 " KEYMAPS
 " Core improve
 nnoremap Y y$
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
-inoremap <expr> <tab> pumvisible() ? "\<c-n>" : match(getline('.')[max([0, col('.') - 2])], '\v[[:space:]]') > -1 ? "\<tab>" : "\<c-n>"
+inoremap <expr> <tab> getline('.')[col('.') - 2] =~ '\s' ? "\<tab>" : col('.') == 1 ? "\<tab>" : "\<c-n>"
 
 " Additional esc map
 tnoremap jk <c-w>N
@@ -90,8 +86,6 @@ let g:termcwd_height = 20
 
 " LSP KEYMAPS
 function! s:on_lsp_buffer_enabled() abort
-	" let g:lsp_use_native_client = 1
-	" let g:lsp_diagnostics_virtual_text_enabled = 0
 	let g:lsp_diagnostics_virtual_text_align="right"
 	let g:lsp_diagnostics_virtual_text_wrap="truncate"
 	setlocal omnifunc=lsp#complete
@@ -113,7 +107,6 @@ function! SetNetrwKeymaps() abort
 	nn <buffer> S ?
 	nmap <buffer> <c-j> <cr>
 	nmap <buffer> <c-k> v
-	nmap o %
 endfunction
 
 " AUTO COMMANDS
@@ -172,7 +165,3 @@ let g:svelte_preprocessors=[
 			\"postcss"] " "sass", "typescript"
 " Astro
 let g:astro_typescript = "enable"
-
-function! TermcwdCallback() abort
-	setlocal nonumber
-endf

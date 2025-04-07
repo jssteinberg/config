@@ -1,5 +1,5 @@
 let s:d = "set bg=dark termguicolors t_Co=256"
-			\." | let g:nightcool_bgs=0"
+			\." | let g:nightcool_bgs=v:true"
 			\." | let g:nightcool_bg='transparent'"
 			\." | let g:nightcool_comments='bright'"
 			\." | colo nightcool_org"

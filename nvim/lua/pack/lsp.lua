@@ -69,6 +69,13 @@ M.config = function()
 			lspconfig.svelte.setup {
 				on_attach = max_client,
 			}
+			-- → svelte.plugin.svelte.format.config.printWidth                  default: 80
+			-- → svelte.plugin.svelte.format.config.singleQuote                 default: false
+			-- → svelte.plugin.svelte.format.config.svelteAllowShorthand        default: true
+			-- → svelte.plugin.svelte.format.config.svelteBracketNewLine        default: true
+			-- → svelte.plugin.svelte.format.config.svelteIndentScriptAndStyle  default: true
+			-- → svelte.plugin.svelte.format.config.svelteSortOrder             default: "options-scripts-markup-styles"
+			-- → svelte.plugin.svelte.format.config.svelteStrictMode            default: false
 		end,
 		["ts_ls"] = function()
 			lspconfig["ts_ls"].setup {

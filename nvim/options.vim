@@ -6,6 +6,7 @@ set diffopt+=vertical
 set fillchars+=eob:\  " ...
 
 function! TermcwdCallback() abort
+	setlocal winheight=20
 	setlocal nonumber
 endfunction
 

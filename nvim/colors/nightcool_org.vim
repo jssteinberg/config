@@ -104,6 +104,7 @@ hi SpellLocal cterm=underline gui=undercurl ctermbg=NONE guisp=#5cb1bc
 hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
 hi DiffDelete cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
 hi DiffChange cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=2 guifg=#80bc5c
+hi DiffLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=3 guifg=#bc985c
 hi! link DiffText DiffAdd
 " `hi`s in own context, so can grey out and use green/red
 hi gitDiff cterm=bold gui=bold ctermfg=8 guifg=#7d78a1
