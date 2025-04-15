@@ -1,17 +1,17 @@
 local M = {}
 
 -- Register keymaps per buffer
-M.register_keymaps = function(client, bufnr)
+M.register_keymaps = function(_, _)
 	local bufopts = { noremap = true, silent = true }
 
 	-- vim.keymap.set("n", "<space>lf", function()
 	-- 	vim.lsp.buf.format { async = true }
 	-- end, { buffer = bufopts })
 	vim.keymap.set("n", "<cr>", vim.diagnostic.open_float, bufopts)
-	vim.keymap.set("n", "<leader>lp", vim.diagnostic.goto_prev)
-	vim.keymap.set("n", "<leader>ln", vim.diagnostic.goto_next)
-	vim.keymap.set("n", "<c-k>", vim.diagnostic.goto_prev)
-	vim.keymap.set("n", "<c-j>", vim.diagnostic.goto_next)
+	vim.keymap.set("n", "<leader>lp", vim.diagnostic.jump({ count = 1 }))
+	vim.keymap.set("n", "<leader>ln", vim.diagnostic.jump({ count = -1 }))
+	vim.keymap.set("n", "<c-j>", vim.diagnostic.jump({ count = 1 }))
+	vim.keymap.set("n", "<c-k>", vim.diagnostic.jump({ count = -1 }))
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
@@ -34,7 +34,7 @@ M.config = function()
 	local lspconfig = require("lspconfig")
 	local mason_lspconfig = require("mason-lspconfig")
 	local lsp_format = require("lsp-format")
-	local on_attach_general = function(client, bufnr)
+	local on_attach_general = function(_, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	end
 	local max_client = function(client, bufnr)
