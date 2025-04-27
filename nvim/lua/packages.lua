@@ -69,7 +69,8 @@ require("lazy").setup({
 	-- Statusline
 	{
 		"jssteinberg/hackline.vim",
-		dependencies = "itchyny/vim-gitbranch"
+		dependencies = "itchyny/vim-gitbranch",
+		branch = "fix-deprecated",
 	},
 
 	-- gx

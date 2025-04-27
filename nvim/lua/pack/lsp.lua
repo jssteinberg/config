@@ -1,17 +1,17 @@
 local M = {}
 
 -- Register keymaps per buffer
-M.register_keymaps = function(_, _)
+M.register_keymaps = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true }
 
 	-- vim.keymap.set("n", "<space>lf", function()
 	-- 	vim.lsp.buf.format { async = true }
 	-- end, { buffer = bufopts })
 	vim.keymap.set("n", "<cr>", vim.diagnostic.open_float, bufopts)
-	vim.keymap.set("n", "<leader>lp", vim.diagnostic.jump({ count = 1 }))
-	vim.keymap.set("n", "<leader>ln", vim.diagnostic.jump({ count = -1 }))
-	vim.keymap.set("n", "<c-j>", vim.diagnostic.jump({ count = 1 }))
-	vim.keymap.set("n", "<c-k>", vim.diagnostic.jump({ count = -1 }))
+	vim.keymap.set("n", "<leader>lp", vim.diagnostic.goto_prev)
+	vim.keymap.set("n", "<leader>ln", vim.diagnostic.goto_next)
+	vim.keymap.set("n", "<c-k>", vim.diagnostic.goto_prev)
+	vim.keymap.set("n", "<c-j>", vim.diagnostic.goto_next)
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
