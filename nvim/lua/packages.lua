@@ -38,6 +38,8 @@ require("lazy").setup({
 	{ "bettervim/yugen.nvim" },
 	-- File types
 	{ "andreshazard/vim-freemarker" },
+	-- DB
+	{ "tpope/vim-dadbod" },
 	-- Debug https://theosteiner.de/debugging-javascript-frameworks-in-neovim
 	{
 		"mfussenegger/nvim-dap",
