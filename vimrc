@@ -30,7 +30,7 @@ endif
 let mapleader=" "
 
 " Source common vim/nvim config
-source $HOME/.config/nvim/some.vim
+source $HOME/.config/some.vim
 
 " OPTIONS
 set clipboard=unnamed " Sync system clioboard
