@@ -1,9 +1,19 @@
-" NEOVIM OPTIONS
-
+" OPTIONS
 set clipboard+=unnamedplus
 set undofile
 set diffopt+=vertical
 set fillchars+=eob:\  " ...
+
+" NETRW OPTIONS
+let g:netrw_preview=1 " Vertical preview
+
+" NETRW KEYMAPS
+function! SetNetrwKeymaps() abort
+	nn <buffer> s /
+	nn <buffer> S ?
+	nmap <buffer> <c-j> <cr>
+	nmap <buffer> <c-k> v
+endfunction
 
 function! TermcwdCallback() abort
 	setlocal winheight=20
@@ -23,4 +33,6 @@ augroup nvim_init
 	autocmd FocusGained,BufEnter * :checktime
 	" Open quickfix window when relevant
 	au QuickFixCmdPost [^l]* cwindow
+	" Set netrw maps
+	autocmd filetype netrw call SetNetrwKeymaps()
 augroup END

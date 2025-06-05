@@ -37,9 +37,15 @@ require("lazy").setup({
 	{ "miikanissi/modus-themes.nvim" },
 	{ "bettervim/yugen.nvim" },
 	-- File types
+	-- java
 	{ "andreshazard/vim-freemarker" },
+	-- Environments
+	-- ...
 	-- DB
-	{ "tpope/vim-dadbod" },
+	{
+		"tpope/vim-dadbod",
+		cmd = { "DB" }
+	},
 	-- Debug https://theosteiner.de/debugging-javascript-frameworks-in-neovim
 	{
 		"mfussenegger/nvim-dap",
@@ -159,28 +165,61 @@ require("lazy").setup({
 		end
 	},
 
-	-- LSP diagnostics
+	-- typescript better error messages
 	-- {
-	-- 	"rachartier/tiny-inline-diagnostic.nvim",
-	-- 	event = "VeryLazy", -- Or `LspAttach`
-	-- 	priority = 1000,  -- needs to be loaded in first
-	-- 	config = function()
-	-- 		require("tiny-inline-diagnostic").setup({
-	-- 			preset = "minimal",
-	-- 		})
-	-- 		vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
-	-- 	end
+	-- 	"dmmulroy/ts-error-translator.nvim",
+	-- 	event = "VeryLazy",
 	-- },
+
+	-- LSP status and notify
+	{
+		"j-hui/fidget.nvim",
+		event = "VeryLazy",
+		opts = {
+			notification = {
+				window = {
+					align = "top"
+				}
+			}
+		}
+	},
+
+	-- LSP client auto stop/start
+	{
+		"zeioth/garbage-day.nvim",
+		dependencies = "neovim/nvim-lspconfig",
+		event = "VeryLazy",
+		-- opts = {
+		-- 	notifications = true
+		-- }
+	},
 
 	-- LSP mouse hover
 	{
 		"soulis-1256/eagle.nvim",
 		event = "CursorHold",
+		keys = { "<cr>" },
 		config = function()
-			require("eagle").setup({})
+			require("eagle").setup({
+				border = "solid",
+				keyboard_mode = true,
+				max_width_factor = 1.5,
+			})
 			vim.o.mousemoveevent = true
+			vim.keymap.set("n", "<cr>", ":EagleWin<CR>", { noremap = true, silent = true })
 		end
 	},
+
+	-- LSP signature
+	-- {
+	-- 	"Dan7h3x/signup.nvim",
+	-- 	branch = "main",
+	-- 	config = function()
+	-- 		require("signup").setup({
+	-- 			dock_toggle_key = "<Leader>ls",
+	-- 		})
+	-- 	end
+	-- },
 
 	-- LSP and other autocompletion
 	{
@@ -283,10 +322,7 @@ require("lazy").setup({
 	{
 		"utilyre/sentiment.nvim",
 		version = "*",
-		event = "VeryLazy", -- keep for lazy loading
-		opts = {
-			-- config
-		},
+		event = "CursorHold",
 	},
 
 	-- Illuminate cursor word

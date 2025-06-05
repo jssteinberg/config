@@ -13,8 +13,8 @@ M.to_not_load = function()
 	vim.g.loaded_zip = 1
 	vim.g.loaded_zipPlugin = 1
 	vim.api.nvim_set_var("netrw_nogx", 1) -- disable netrw's gx mapping.
-	vim.g.loaded_netrw = 1
-	vim.g.loaded_netrwPlugin = 1
+	-- vim.g.loaded_netrw = 1
+	-- vim.g.loaded_netrwPlugin = 1
 end
 
 M.add_filetypes = function()

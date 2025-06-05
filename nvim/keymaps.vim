@@ -6,9 +6,9 @@ nnoremap <silent> <leader>nc :call NowColo()<cr>
 
 " PACKAGE/PLUGIN MAPPINGS
 
+nn <leader>e. :Oil .<cr>
 nn <leader>et :Neotree<cr>
 nn <leader><leader> :Neotree action=show toggle=true<cr>
-nn <leader>e. :Neotree position=current reveal<cr>
 " leader eb opens neotree of buffers
 nn <leader>eb :Neotree buffers<cr>
 
@@ -31,8 +31,8 @@ nnoremap <leader>go <cmd>RepoLink!<cr>
 vnoremap <leader>go  <cmd>RepoLink!<cr>
 
 " Color highlight groups (treesitter)
-nnoremap <leader>hc <cmd>Inspect<cr>
-nn <leader>ht <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
+nnoremap <leader>ti <cmd>Inspect<cr>
+nn <leader>tt <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
 
 " URL
 nn gx <cmd>OpenURLFind<cr>
@@ -47,7 +47,7 @@ imap <c-e><c-e> <plug>(emmet-expand-abbr)
 vmap <c-e><c-e> <plug>(emmet-expand-abbr)
 
 " LSP
-nn <leader>lR <cmd>LspRestart<cr>
+nn <silent> <leader>lR :LspStop<cr>:LspStart<cr>
 
 " Zen mode
 nnoremap <leader>Z <cmd>call ZenModeFloat()<cr>

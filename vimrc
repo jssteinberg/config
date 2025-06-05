@@ -88,7 +88,11 @@ let g:termcwd_height = 20
 function! s:on_lsp_buffer_enabled() abort
 	let g:lsp_diagnostics_virtual_text_align="right"
 	let g:lsp_diagnostics_virtual_text_wrap="truncate"
+	let g:lsp_format_sync_timeout = 1000
 	setlocal omnifunc=lsp#complete
+	setlocal foldmethod=expr
+		\ foldexpr=lsp#ui#vim#folding#foldexpr()
+		\ foldtext=lsp#ui#vim#folding#foldtext()
 	if exists("+tagfunc") | setlocal tagfunc=lsp#tagfunc | endif
 	nmap <buffer> gd <plug>(lsp-definition)
 	nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
@@ -99,6 +103,8 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> <c-j> <plug>(lsp-next-diagnostic)
 	nmap <buffer> <leader>lh <plug>(lsp-hover)
 	nmap <buffer> <leader>K <plug>(lsp-hover)
+	nmap <buffer> <cr> :LspDocumentDiagnostics<cr>
+	autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
 endfunction
 
 " NETRW KEYMAPS
@@ -111,10 +117,9 @@ endfunction
 
 " AUTO COMMANDS
 aug vim_config | au!
-	" FileTypes
+	" Set filetypes
 	au BufNewFile,BufRead *.mdx set ft=markdown
-	au TerminalWinOpen * setlocal bufhidden=hide
-	" call s:on_lsp_buffer_enabled only for languages that has the server registered.
+	" Call s:on_lsp_buffer_enabled only for languages that has the server registered.
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 	" Set netrw maps
 	autocmd filetype netrw call SetNetrwKeymaps()

@@ -54,6 +54,7 @@ nn <silent> <leader>w <cmd>write<cr>
 nn <silent> <leader>W <cmd>write!<cr>
 
 " Edit/tabedit commonly used
+nn <leader>r <cmd>e<cr>
 nn <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
 nn <leader>ed <cmd>wincmd v<bar>wincmd H<bar>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nn <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
@@ -88,6 +89,11 @@ nn <c-q> <cmd>cnext<cr>
 nn <silent> Q :exe "cnext\n setlocal scrolloff=" . g:conf_so<cr>
 nn <leader>q :cprev<cr>
 nn <expr> <leader>Q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
+
+" Location list [next, previous, toggle]
+nn <silent> <leader>z :exe "lnext\n setlocal scrolloff=" . g:conf_so<cr>
+nn <leader>Z :lprev<cr>
+nn <leader>L :lclose<cr>
 
 " No/now (toggle options)
 " TODO: handle other spelllang in g:conf_spl
@@ -164,7 +170,7 @@ function! RgVisual() abort
 endfunction
 
 function! s:rgG() abort
-	let l:q = escape(@g, "'()#<.")
+	let l:q = escape(@g, "'()#<.$")
 	exe "silent grep -e '" . l:q . "'"
 	redraw!
 	echo l:q

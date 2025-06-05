@@ -13,14 +13,15 @@ config.line_height = 1.1
 config.use_dead_keys = false
 config.window_decorations = "RESIZE"
 config.window_padding = { left = 1, right = 1, top = 30, bottom = 0 }
--- tab bar
+-- Tab bar
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
--- fix non-US Mac keyboard layout
+-- Fix non-US Mac keyboard layout
 config.send_composed_key_when_left_alt_is_pressed = true
-
+-- Leader key
 config.leader = { key = "z", mods = "CTRL", timeout_milliseconds = 1000 }
+-- Key bindings
 config.keys = {
 	{ key = "C", mods = "SUPER",       action = act.CopyTo "ClipboardAndPrimarySelection" },
 	{ key = "V", mods = "SUPER",       action = act.PasteFrom "Clipboard" },
@@ -34,13 +35,23 @@ config.keys = {
 	{ key = "-", mods = "SUPER",       action = wezterm.action.DecreaseFontSize },
 	{ key = "+", mods = "SUPER",       action = wezterm.action.IncreaseFontSize },
 	{ key = "x", mods = "LEADER|CTRL", action = act.RotatePanes "Clockwise" },
+	{ key = "h", mods = "CMD",         action = wezterm.action.HideApplication },
+	{
+		key = ",",
+		mods = "SUPER",
+		action = wezterm.action.SpawnCommandInNewTab({
+			cwd = os.getenv("WEZTERM_CONFIG_DIR"),
+			args = { os.getenv("SHELL"), "-c", "$EDITOR $WEZTERM_CONFIG_FILE" },
+		}),
+	},
 	{
 		key = "l",
 		mods = "SUPER",
 		action = wezterm.action.ActivateLastTab,
 	},
-	{ key = "h", mods = "CMD", action = wezterm.action.HideApplication },
 }
+
+-- COLORS
 
 config.colors = {
 	tab_bar = {

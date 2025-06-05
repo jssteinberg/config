@@ -80,10 +80,6 @@ function! Hackline(status) abort
 	let l:line .= "%(%{hackline#ui#dir#info('md')}/%)"
 	" filename
 	let l:line .= "%(%t%)"
-	" nvim LSP
-	if l:active && has("nvim")
-		let l:line .= hackline#ui#nvim_lsp#info(l:sep.l, "LSP", l:sep_label, l:sep_i.r, l:sep.r)
-	endif
 
 
 	" Statusline END
@@ -93,8 +89,13 @@ function! Hackline(status) abort
 	" truncation point
 	let l:line .= "%<"
 
+	" nvim LSP
+	if l:active && has("nvim")
+		let l:line .= hackline#ui#nvim_lsp#info(l:sep.l, "LSP", l:sep_label, l:sep_i.r, l:sep.r)
+	endif
+
 	" Cursor position
-	let l:line .= "l-%l/%L c-%c" . l:sep.r
+	let l:line .= "(%l:%c)/%L" . l:sep.r
 
 	" spelllang
 	if l:active && &spell == 1

@@ -10,6 +10,7 @@ return function()
 	end, { desc = "Vertical split open parent dir" })
 
 	require "oil".setup({
+		default_file_explorer = false,
 		use_default_keymaps = false,
 		keymaps = {
 			["g?"] = "actions.show_help",
