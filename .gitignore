@@ -35,3 +35,5 @@ nvim/lua/pack/.DS_Store
 !wezterm/*
 !_alacritty/
 !_alacritty/*
+!helix/
+!helix/*

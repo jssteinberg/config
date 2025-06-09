@@ -1,0 +1,24 @@
+theme = "dracula_at_night"
+
+[editor]
+line-number = "relative"
+
+# esc
+[keys.insert.j]
+k = "normal_mode"
+
+[keys.normal]
+# s = "search"
+# C-R redo
+C-R = "redo"
+
+# write/quit
+[keys.normal.Z]
+Z = ":write-quit"
+Q = ":quit"
+
+[keys.normal."space"]
+# write
+w = ":write"
+# edit
+e = { c = ":open ~/.config/helix/config.toml" }
