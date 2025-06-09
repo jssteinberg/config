@@ -46,11 +46,16 @@ funcsave ip
 # to remove
 functions --erase ls
 funcsave ls
+
+# for pnpm -g
+mkdir ~/.pnpm
+set -Ux PNPM_HOME ~/.pnpm
+fish_add_path ~/.pnpm
 ```
 
-*For PATH fish has `fish_add_path`.*
+For PATH fish has `fish_add_path`
 
-*You can also use file: .config/fish/config.fish*
+Config file can also be used: .config/fish/config.fish
 
 ## Neovim
 

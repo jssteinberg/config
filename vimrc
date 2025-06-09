@@ -1,3 +1,4 @@
+" LEGACY FIX
 set nocompatible
 set wildmenu wildcharm=<c-z> " Enable usage in map target
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
@@ -8,44 +9,37 @@ set incsearch
 set regexpengine=0 " needs to be explicitly set to always be active
 set mouse+=a
 set shortmess-=S " display short messages in ruler
+" Langmap can break plugins when compiled with it
+if has("langmap") && exists("+langremap") | set nolangremap | en
 " Enable file type detection & default filetype settings & indent files
-filetype plugin indent on
-syntax on
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-" Revert with: ":delcommand DiffOrig".
-if !exists(":DiffOrig")
-	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-				\ | wincmd p | diffthis
-endif
-" Prevent that the langmap option applies to characters that result from a
-" mapping.  If set (default), this may break plugins (but it's backward
-" compatible).
-if has("langmap") && exists("+langremap")
-	set nolangremap
-endif
+filetype plugin indent on | syntax on
 
+" CONFIG OPTIONS
 " Set space as leader key
 let mapleader=" "
-
-" Source common vim/nvim config
+" Set land.vim
 source $HOME/.config/some.vim
-
-" OPTIONS
+" Additional options
 set clipboard=unnamed " Sync system clioboard
 set hlsearch " Highlight search matches
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set undodir=$HOME/.vimundo undofile
 set fillchars+=eob:\ ,vert:\·
-
-" NETRW OPTIONS
+set wildoptions=pum " Popoup wildmenu
+set relativenumber " Relative line numbers
+" Netrw config
 let g:netrw_preview=1 " Vertical preview
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
 try | colo lunaperche
 hi VertSplit cterm=NONE ctermbg=NONE
 catch | colo slate | endtry
+
+" COMMANDS - diff of current buffer and the file it was loaded from.
+if !exists(":DiffOrig")
+	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+				\ | wincmd p | diffthis
+en
 
 " KEYMAPS
 " Core improve
@@ -86,8 +80,12 @@ let g:termcwd_height = 20
 
 " LSP KEYMAPS
 function! s:on_lsp_buffer_enabled() abort
-	let g:lsp_diagnostics_virtual_text_align="right"
+	let g:lsp_diagnostics_virtual_text_enabled=0
+	let g:lsp_inlay_hints_enabled=1
+	let g:lsp_diagnostics_virtual_text_padding_left=2
+	let g:lsp_diagnostics_virtual_text_align="after"
 	let g:lsp_diagnostics_virtual_text_wrap="truncate"
+	let g:lsp_diagnostics_float_cursor=1
 	let g:lsp_format_sync_timeout = 1000
 	setlocal omnifunc=lsp#complete
 	setlocal foldmethod=expr
@@ -147,9 +145,7 @@ fu! PackInit() abort
 	call minpac#add("tpope/vim-fugitive", {"type": "opt"})
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")
-	call minpac#add("tpope/vim-vinegar")
 	call minpac#add("Exafunction/codeium.vim")
-	" call minpac#add("augmentcode/augment.vim")
 	call minpac#add("tweekmonster/startuptime.vim")
 	call minpac#add("liuchengxu/vim-clap", {"do": ":Clap install-binary"})
 	call minpac#add("subnut/visualstar.vim")
