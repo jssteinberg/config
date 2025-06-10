@@ -1,34 +1,31 @@
-" Set space as leader key
-nnoremap <space> <nop>
-let mapleader=' '
-
-" Source config
-runtime ../some.vim
-
-" Options
+" OPTIONS
 set clipboard+=unnamedplus
 set undofile
 set diffopt+=vertical
 set fillchars+=eob:\ ,vert:\·
 
-" Additional esc map
-tnoremap jk <c-\><c-n>
-" Find files
-nn <leader>f :Pick files<cr>
-" Live grep
-nn <leader>r :Pick grep_live<cr>
-
-" Netrw options
+" NETRW OPTIONS
 let g:netrw_banner=0
 let g:netrw_preview=1 " Vertical preview
 
-" Netrw keymaps
+" NETRW KEYMAPS
 function! SetNetrwKeymaps() abort
 	nn <buffer> s /
 	nn <buffer> S ?
 	nmap <buffer> <c-j> <cr>
 	nmap <buffer> <c-k> v
 endfunction
+
+function! TermcwdCallback() abort
+	setlocal winheight=20
+	setlocal nonumber
+endfunction
+
+if has("gui_running")
+	set guifont=cousine\ nerd\ font\ mono:h15
+	set guifont=menlo:h14
+	set linespace=2
+en
 
 " Auto commands
 augroup nvim_init
@@ -40,7 +37,3 @@ augroup nvim_init
 	" Set netrw maps
 	autocmd filetype netrw call SetNetrwKeymaps()
 augroup END
-
-lua << EOF
-	require("config.lazy")
-EOF
