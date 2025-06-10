@@ -1,25 +1,25 @@
 # [language-server]
 # deno = { command = "deno", args = [ "lsp" ]}
-# emmet-ls = { command = "emmet-ls", args = [ "--stdio" ]}
+emmet-ls = { command = "emmet-ls", args = [ "--stdio" ]}
 
-# [language-server.eslint]
-# command = "vscode-eslint-language-server"
-# args = ["--stdio"]
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
 
-# [language-server.eslint.config]
-# codeActionsOnSave = { mode = "all", "source.fixAll.eslint" = true }
+[language-server.eslint.config]
+codeActionsOnSave = { mode = "all", "source.fixAll.eslint" = true }
 # format = { enable = true }
-# nodePath = ""
-# quiet = false
-# rulesCustomizations = []
-# run = "onType"
-# validate = "on"
-# experimental = {}
-# problems = { shortenToSingleLine = false }
+nodePath = ""
+quiet = false
+rulesCustomizations = []
+run = "onType"
+validate = "on"
+experimental = {}
+problems = { shortenToSingleLine = false }
 
-# [language-server.eslint.config.codeAction]
-# disableRuleComment = { enable = true, location = "separateLine" }
-# showDocumentation = { enable = false }
+[language-server.eslint.config.codeAction]
+disableRuleComment = { enable = true, location = "separateLine" }
+showDocumentation = { enable = false }
 
 # [language-server.vscode-json-language-server.config]
 # json = { validate = { enable = true }, format = { enable = true } }
@@ -31,12 +31,11 @@
 # less = { validate = { enable = true } }
 # provideFormatter = true
 
-# [[language]]
-# name = "typescript"
-# language-servers = [ "typescript-language-server", "eslint", "emmet-ls" ]
-# # formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
-# formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
-# auto-format = true
+[[language]]
+name = "typescript"
+language-servers = [ "typescript-language-server", "eslint", "emmet-ls" ]
+formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+auto-format = true
 
 # [[language]]
 # name = "tsx"
@@ -45,12 +44,11 @@
 # formatter = { command = "dprint", args = [ "fmt", "--stdin", "tsx" ] }
 # auto-format = true
 
-# [[language]]
-# name = "javascript"
-# language-servers = [ "typescript-language-server", "eslint", "emmet-ls" ]
-# # formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
-# formatter = { command = "dprint", args = [ "fmt", "--stdin", "javascript" ] }
-# auto-format = true
+[[language]]
+name = "javascript"
+language-servers = [ "typescript-language-server", "eslint", "emmet-ls" ]
+formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+auto-format = true
 
 # [[language]]
 # name = "jsx"

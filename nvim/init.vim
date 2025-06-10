@@ -1,5 +1,6 @@
 " NETRW KEYMAPS
 function! SetNetrwKeymaps() abort
+	let g:netrw_preview=1 " Vertical preview
 	nn <buffer> s /
 	nn <buffer> S ?
 	nmap <buffer> <c-j> <cr>

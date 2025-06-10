@@ -52,10 +52,10 @@ tnoremap jk <c-w>N
 " nn <leader>f :call FuzzyFiles("rg --files", ":e")<cr>
 nn <leader>f :Clap files<cr>
 " Git
-nn <silent> <leader>Gg :packadd vim-fugitive<bar>G<cr>
-nn <leader>Gc :packadd vim-fugitive<bar>G log -p -50 %<cr>
-nn <silent> <leader>Gp :packadd vim-fugitive<bar>G pull<cr>
-nn <silent> <leader>GP :packadd vim-fugitive<bar>G push<cr>
+nn <silent> <leader>gg :packadd vim-fugitive<bar>G<cr>
+nn <leader>gc :packadd vim-fugitive<bar>G log -p -50 %<cr>
+nn <silent> <leader>gp :packadd vim-fugitive<bar>G pull<cr>
+nn <silent> <leader>gP :packadd vim-fugitive<bar>G push<cr>
 " Easymotions
 let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 map <Leader>j :packadd vim-easymotion<cr><Plug>(easymotion-j)
@@ -101,7 +101,7 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> <leader>lh <plug>(lsp-hover)
 	nmap <buffer> <leader>K <plug>(lsp-hover)
 	nmap <buffer> <cr> :LspDocumentDiagnostics<cr>
-	nn <leader>r <cmd>LspStopServer<cr><cmd>e<cr>
+	nn <leader>R <cmd>LspStopServer<cr><cmd>e<cr>
 	autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
 endfunction
 
