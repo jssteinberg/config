@@ -105,22 +105,12 @@ function! s:on_lsp_buffer_enabled() abort
 	autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
 endfunction
 
-" NETRW KEYMAPS
-function! SetNetrwKeymaps() abort
-	nn <buffer> s /
-	nn <buffer> S ?
-	nmap <buffer> <c-j> <cr>
-	nmap <buffer> <c-k> v
-endfunction
-
 " AUTO COMMANDS
 aug vim_config | au!
 	" Set filetypes
 	au BufNewFile,BufRead *.mdx set ft=markdown
 	" Call s:on_lsp_buffer_enabled only for languages that has the server registered.
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-	" Set netrw maps
-	autocmd filetype netrw call SetNetrwKeymaps()
 augroup END
 
 " FUZZY EDIT W/FZY

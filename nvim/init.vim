@@ -5,40 +5,42 @@ let mapleader=' '
 " Source config
 runtime ../some.vim
 
-" Options
+" OPTIONS
 set clipboard+=unnamedplus
 set undofile
 set diffopt+=vertical
 set fillchars+=eob:\ ,vert:\·
-
-" Additional esc map
-tnoremap jk <c-\><c-n>
-" Find files
-nn <leader>f :Pick files<cr>
-" Live grep
-nn <leader>r :Pick grep_live<cr>
-
-" Netrw options
+" Netrw
 let g:netrw_banner=0
 let g:netrw_preview=1 " Vertical preview
 
-" Netrw keymaps
-function! SetNetrwKeymaps() abort
-	nn <buffer> s /
-	nn <buffer> S ?
-	nmap <buffer> <c-j> <cr>
-	nmap <buffer> <c-k> v
-endfunction
+" KEYMAPS
+" Additional esc map
+tnoremap jk <c-\><c-n>
+" Completion
+inoremap <expr> <tab> getline('.')[col('.') - 2] =~ '\s' ? "\<tab>" : col('.') == 1 ? "\<tab>" : "\<c-n>"
+" Find files
+nn <leader>f :Pick files<cr>
+" Explore folder
+nn <leader>ef <cmd>lua MiniFiles.open()<cr>
+" Live grep
+nn <leader>sr :Pick grep_live<cr>
+" Hop
+noremap <leader>j <cmd>HopVertical<cr>
+noremap <leader>k <cmd>HopVertical<cr>
+" Color highlight groups (treesitter)
+nn <leader>ti <cmd>Inspect<cr>
+nn <leader>tt <cmd>so $VIMRUNTIME/syntax/hitest.vim<cr>
 
-" Auto commands
+" AUTO COMMANDS
 augroup nvim_init
 	au!
 	" Check if file has been updated
 	autocmd FocusGained,BufEnter * :checktime
 	" Open quickfix window when relevant
 	au QuickFixCmdPost [^l]* cwindow
-	" Set netrw maps
-	autocmd filetype netrw call SetNetrwKeymaps()
+	" Highlight yanked text
+	autocmd TextYankPost * silent! lua vim.hl.on_yank {higroup='Search', timeout=250}
 augroup END
 
 lua << EOF
