@@ -21,7 +21,7 @@ nvim/.DS_Store
 !nvim/lua/*
 nvim/lua/.DS_Store
 !nvim/lua/config/*
-!nvim/lua/plugin/*
+!nvim/lua/plugins/*
 nvim/lua/pack/.DS_Store
 !nvim/lua/utils/*
 !nvim/lua/wip/*

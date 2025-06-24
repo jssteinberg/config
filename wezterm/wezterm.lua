@@ -5,8 +5,8 @@ if wezterm.config_builder then config = wezterm.config_builder() end
 
 -- CONFIG OPTIONS
 
-config.initial_rows = 50
-config.initial_cols = 150
+config.initial_rows = 40
+config.initial_cols = 140
 config.window_background_opacity = .95
 config.font_size = 14
 config.line_height = 1.1

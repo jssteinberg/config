@@ -2,12 +2,21 @@ hi clear
 set bg=dark
 let g:colors_name="nightcool_org"
 
+" Options:
+" - `let g:nightcool_bg="default"` or `"transparent"`
+" - `let g:nightcool_comments="default"`, `"bright"` or `"gray"`
+" - `let g:nightcool_bgs=v:false` to disable GUI BGs for LineNr, SignColumn, NeoTree, …
+" - `let g:nightcool_statusline="default"` or `"transparent"`
+
 " GROUP NAMES (:h group-name)
 
 " Normal
 hi FG ctermfg=15 guifg=#e9f5e6
 hi Normal ctermfg=15 guibg=#000000 guifg=#e9f5e6
-hi NormalFloat ctermbg=0 guibg=#0c0a19 ctermfg=15 guifg=#e9f5e6
+hi NormalFloat ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
+if !exists("+winborder") || match(&winborder, '\v(^$|none|solid|shadow)') != -1
+	hi NormalFloat ctermbg=0 guibg=#0c0a19
+endif
 if get(g:, "nightcool_bg", "default") == "transparent"
 	hi Normal guibg=NONE
 endif
@@ -70,7 +79,7 @@ hi CursorLine cterm=NONE gui=NONE ctermbg=234 guibg=#1a1636
 hi CursorLineNr cterm=bold gui=NONE ctermbg=NONE guibg=NONE ctermfg=7 guifg=#7d78a1
 hi Directory cterm=bold gui=bold ctermfg=4 guifg=#5c80bc
 hi EndOfBuffer ctermfg=0 guifg=#1a1636
-hi LineNr ctermfg=8 guifg=#2c446d
+hi LineNr ctermfg=8 guifg=#342c6d
 hi MatchParen cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d guifg=#a69fd8
 hi MatchWord cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
 hi NvimInternalError ctermfg=1 ctermbg=1 guifg=#bc675c guibg=#bc675c
@@ -80,14 +89,16 @@ hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8
 hi TabLineFill cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=#0c0a19 ctermfg=8 guifg=#7d78a1
-hi TabLineSel cterm=NONE gui=bold ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#ffffff
+hi TabLineSel cterm=NONE gui=bold ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afc5c7
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#ffffff
+hi WinBar cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#afc5c7
+hi WinBarNC cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 
 hi DiagnosticError cterm=italic gui=italic ctermfg=1 guifg=#bc675c
 hi DiagnosticHint cterm=italic gui=italic ctermfg=8 guifg=#5c80bc
-hi DiagnosticWarn cterm=italic gui=italic ctermfg=4 guifg=#7d78a1
+hi DiagnosticWarn cterm=italic gui=italic ctermfg=4 guifg=#bc985c
 hi DiagnosticUnderlineError cterm=underline gui=underline guisp=#d8a69f guibg=#361a16
 hi DiagnosticUnderlineHint cterm=underline gui=underline guisp=#2c446d
 hi DiagnosticUnderlineWarn cterm=underline gui=underline guisp=#bc985c
@@ -120,6 +131,10 @@ hi Search cterm=NONE gui=NONE ctermbg=236 guibg=#2c446d ctermfg=NONE guifg=NONE
 hi StatusLine cterm=bold ctermbg=0 ctermfg=7 guibg=#342c6d gui=NONE guifg=#ffffff
 hi StatusLineNC cterm=NONE ctermbg=0 ctermfg=8 gui=NONE guibg=#342c6d guifg=#7d78a1
 hi FloatBorder cterm=NONE ctermbg=NONE ctermfg=0 guibg=NONE guifg=#342c6d
+if get(g:, "nightcool_statusline", "default") == "transparent"
+	hi StatusLine ctermbg=NONE guibg=NONE
+	hi StatusLineNC ctermbg=NONE guibg=NONE
+endif
 
 " UI LINKED
 
@@ -136,12 +151,29 @@ hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
 hi! link WinSeparator FloatBorder
 hi! link VertSplit FloatBorder
-hi! link WinBar CursorLineNr
-hi! link WinBarNC LineNr
 
 " Folds
 hi! link Folded TabLine
-hi! link FoldColumn CursorLineNr
+hi! link FoldColumn LineNr
+
+" Adjust when with backgrounds
+if get(g:, "nightcool_bgs", v:true)
+	hi WinSeparator guibg=#0c0a19 guifg=#0c0a19
+	hi NeoTreeNormal cterm=NONE gui=NONE ctermbg=NONE guibg=#0c0a19 ctermfg=10 guifg=#add89f
+	" Backgrounds for separator area
+	hi LineNr guibg=#0c0a19 guifg=#2c446d
+	hi CursorLineNr guibg=#1a1636
+	hi SignColumn guibg=#0c0a19
+	hi DiagnosticError guibg=#1a1636 guifg=#d8a69f
+	hi DiagnosticHint guibg=#1a1636 guifg=#9fd1d8
+	hi DiagnosticWarn guibg=#1a1636
+	hi WinBar guibg=#0c0a19
+	hi WinBarNC guibg=#0c0a19
+
+	if !exists("+winborder") || match(&winborder, '\v(^$|none|solid)') != -1
+		hi NormalFloat guibg=#1a1636
+	endif
+endif
 
 " (N)VIM PLUGINS
 " lazy.nvim
@@ -149,7 +181,16 @@ hi! link LazyButtonActive StatusLine
 " oil.nvim
 hi! link OilFile String
 " mini.pick
-hi! link MiniPickNormal FG
+if exists("+winborder") && match(&winborder, '\v(none|solid|shadow)') != -1
+	hi! link MiniPickNormal NormalFloat
+	hi! link MiniPickPrompt NormalFloat
+	hi! link MiniPickPromptPrefix NormalFloat
+else
+	hi! link MiniPickNormal Normal
+	hi! link MiniPickBorder NonText
+	hi! link MiniPickPrompt Normal
+	hi! link MiniPickPromptPrefix Normal
+endif
 hi! link MiniPickMatchCurrent PmenuSel
 " illuminate.vim
 hi IlluminatedWordText cterm=NONE gui=NONE ctermbg=0 guibg=#342c6d
@@ -186,19 +227,6 @@ let g:terminal_color_12 = "#9fb4d8"
 let g:terminal_color_13 = "#a69fd8"
 let g:terminal_color_14 = "#9fd1d8"
 let g:terminal_color_15 = "#e9f5e6"
-
-if get(g:, "nightcool_bgs", v:true)
-	hi WinSeparator guibg=#0c0a19 guifg=#0c0a19
-	hi NeoTreeNormal cterm=NONE gui=NONE ctermbg=NONE guibg=#0c0a19 ctermfg=10 guifg=#add89f
-	" Expan separator area
-	hi LineNr guibg=#0c0a19
-	hi CursorLineNr guibg=#1a1636
-	hi SignColumn guibg=#0c0a19
-	hi NormalFloat guibg=#1a1636
-	hi DiagnosticError guibg=#1a1636 guifg=#d8a69f
-	hi DiagnosticHint guibg=#1a1636 guifg=#9fd1d8
-	hi DiagnosticWarn guibg=#1a1636
-endif
 
 " NEOVIM Treesitter (version 0.8 is new hi syn "@group")
 if has("nvim-0.8")

@@ -15,8 +15,6 @@ if has("langmap") && exists("+langremap") | set nolangremap | en
 filetype plugin indent on | syntax on
 
 " CONFIG OPTIONS
-" Set space as leader key
-let mapleader=" "
 " Set land.vim
 source $HOME/.config/some.vim
 " Additional options
@@ -52,10 +50,10 @@ tnoremap jk <c-w>N
 " nn <leader>f :call FuzzyFiles("rg --files", ":e")<cr>
 nn <leader>f :Clap files<cr>
 " Git
-nn <silent> <leader>gg :packadd vim-fugitive<bar>G<cr>
-nn <leader>gc :packadd vim-fugitive<bar>G log -p -50 %<cr>
-nn <silent> <leader>gp :packadd vim-fugitive<bar>G pull<cr>
-nn <silent> <leader>gP :packadd vim-fugitive<bar>G push<cr>
+nn <silent> <leader>vg :packadd vim-fugitive<bar>:tabnew<bar>G<bar>wincmd o<cr>
+nn <leader>vc :packadd vim-fugitive<bar>G log -p -50 %<cr>
+nn <silent> <leader>vp :packadd vim-fugitive<bar>G pull<cr>
+nn <silent> <leader>vP :packadd vim-fugitive<bar>G push<cr>
 " Easymotions
 let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 map <Leader>j :packadd vim-easymotion<cr><Plug>(easymotion-j)
@@ -102,7 +100,7 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> <leader>K <plug>(lsp-hover)
 	nmap <buffer> <cr> :LspDocumentDiagnostics<cr>
 	nn <leader>R <cmd>LspStopServer<cr><cmd>e<cr>
-	autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+	autocmd! BufWritePre *.rs,*.lua call execute('LspDocumentFormatSync')
 endfunction
 
 " AUTO COMMANDS

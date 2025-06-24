@@ -3,13 +3,13 @@
 " KEYMAPS
 " jk -- escape
 " s -- space search
-" gr -- grep word
+" grw -- grep word
 " gs -- grep word substitution
 " <leader>
 "  f -- find/fuzzy files
 "  w -- write
 "  b -- buffer alternate
-"  g -- git
+"  v -- version control (git)
 "   ...
 "  c -- close window
 "  C -- tabclose || close all
@@ -35,6 +35,8 @@
 let g:conf_iw=2
 let g:conf_so=15
 let g:conf_spl=["en_us", "nb"]
+" Space as leader key
+let mapleader=" "
 
 " Core improved keymaps
 vnoremap < <gv
@@ -66,14 +68,13 @@ nn <silent> <leader>W <cmd>write!<cr>
 nn <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
 nn - <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nn <leader>ed <cmd>wincmd v<bar>wincmd H<bar>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
-nn <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nn <leader>et <cmd>wincmd v<bar>wincmd H<bar>e.<cr><cmd>call search(expand("#:t"))<cr>
 nn <leader>tb <cmd>tabedit %<cr>'"
 nn <leader>ew :e **/
 nn <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd ~/.config<cr>
 nn <leader>ep <cmd>e package.json<cr>
 nn <leader>er <cmd>e README.md<cr>
-nn <leader>ee <cmd>e .env<cr>
+nn <leader>ee :e .env<c-z>
 
 " Close tab or quit all
 nn <silent> <leader>C <cmd>exe "try\n tabclose\n catch\n qa\n endtry"<cr>
@@ -117,7 +118,7 @@ nn <silent> <leader>sl /\v(^\|\s\|[([{<])@<=(https?:\/\/[0-9.]{2,}\|(https?:)?\/
 
 " Git
 " grep for git merge conflicts
-nn <leader>sc :silent! grep! -e "<<<<<<<"<cr>
+nn <leader>vc :silent! grep! -e "<<<<<<<"<cr>
 
 " Netrw
 function! SetNetrwKeymaps() abort
@@ -171,8 +172,8 @@ nn <leader>r :silent grep -e ""<left>
 vnoremap <leader>r <cmd>call RgVisual()<cr>
 
 " Grep reference [word, selection]
-nn gr <cmd>call Rg()<cr>
-vmap gr <leader>g
+nn grw <cmd>call Rg()<cr>
+vmap gr <cmd>call RgVisual()<cr>
 
 " Grep substitute [word, selection]
 nn gs :call Rg()<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
