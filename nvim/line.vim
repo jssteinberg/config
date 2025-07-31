@@ -22,8 +22,10 @@ function! Hacktab(n) abort
 				\..a:n . "gt"
 				\..(bufname == ""
 				\	? " [NO NAME]"
+				\ : (fnamemodify(bufname, ":t") == ""
+				\	? ""
 				\	: " " .. fnamemodify(bufname, ":t")
-				\)
+				\))
 endfunction
 
 function! Hacktabs() abort
