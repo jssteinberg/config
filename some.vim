@@ -118,7 +118,7 @@ nn <silent> <leader>sl /\v(^\|\s\|[([{<])@<=(https?:\/\/[0-9.]{2,}\|(https?:)?\/
 
 " Git
 " grep for git merge conflicts
-nn <leader>vc :silent! grep! -e "<<<<<<<"<cr>
+nn <leader>vm :silent! grep! -e "<<<<<<<"<cr>
 
 " Netrw
 function! SetNetrwKeymaps() abort

@@ -1,5 +1,5 @@
 set laststatus=3
-set winbar=\ %m%{Pathname()}%t\ %#Normal#
+set winbar=\ %(:b%{bufnr()}\ %)%{Pathname()}%t\ %m\ %#Normal#
 set tabline=%!Hacktabs()  " custom tabline
 
 function! Pathname() abort
@@ -18,7 +18,7 @@ function! Hacktab(n) abort
 	" store if any buffer is modified
 	for b in buflist | if getbufvar(b, "&mod") | let l:m = 1 | endif | endfor
 	" return tab label
-	return (get(l:, "m", 0) ? "[+]" : "")
+	return (get(l:, "m", 0) ? "[+] " : "")
 				\..a:n . "gt"
 				\..(bufname == ""
 				\	? " [NO NAME]"
@@ -44,10 +44,8 @@ endfunction
 
 function! Hackline(status) abort
 	let l:active = a:status
-	" separator label
-	let l:sep_label = " "
 	" separator sections
-	let l:sep = #{l: " -- ", r: " -- "}
+	let l:sep = #{l: " -- ", r: " / "}
 	" seperator secondary
 	let l:sep_s = #{l: " " , r: " "}
 	" separator items
@@ -58,25 +56,27 @@ function! Hackline(status) abort
 	let l:line = ""
 
 	" set statusline default color
-	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
+	let l:line .= l:active ? "%#StatusLineNC#" : "%#StatusLineNC#"
 	" Start spacing
-	let l:line .= " "
-
-	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
+	let l:line .= ""
 
 	" CWD
 	if len(getcwd(0)) > 1
+		" sep
 		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
 		" Git
-		let l:line .= hackline#ui#git#info(" *")
-		let l:line .= l:sep.l
+		let l:line .= hackline#ui#git#info("*")
+		let l:line .= l:sep_i.l
 	endif
-
-	" buffern number
-	let l:line .= "%(:b%{bufnr()}%)"
-
-	" filetype
-	let l:line .= "%(" . l:sep_i.l . "%{&filetype}%)"
+	" file path
+	let l:line .= "%#Bold#"
+	let l:line .= '%(%{hackline#ui#dir#info()}/%)%t'
+	let l:line .= " %m"
+	let l:line .= l:active ? "%#StatusLineNC#" : "%#StatusLineNC#"
+	let l:line .= "%y"
+	" Cursor position
+	let l:line .= l:sep_i.l
+	let l:line .= "%p%%/%L L" . l:sep_s.l . "%l:%c"
 
 	" END left
 	" --------------
@@ -87,15 +87,8 @@ function! Hackline(status) abort
 
 	" nvim LSP
 	if l:active && has("nvim")
-		let l:line .= hackline#ui#nvim_lsp#info(l:sep.l, "LSP", l:sep_label, l:sep_i.r, l:sep.r)
+		let l:line .= hackline#ui#nvim_lsp#info(l:sep_s.l, ":Lsp…", " ", "/", l:sep.r)
 	endif
-
-	" Start END
-	" --------------
-	let l:line .= "%=" . l:sep_s.r
-
-	" Cursor position
-	let l:line .= "%l:%c" . l:sep_s.l . "L %L" . l:sep.r
 
 
 	" spelllang
@@ -103,14 +96,14 @@ function! Hackline(status) abort
 		let l:line .= "%(spl=%{&spelllang}" . l:sep_i.r . "%)"
 	endif
 	" tabs/spaces
-	let l:line .= "%(%{hackline#ui#tab#info('min')}" . l:sep_i.r . "%)"
+	let l:line .= "%(%{hackline#ui#tab#info()}" . l:sep_i.r . "%)"
 	" encoding
 	let l:line .= "%(%{hackline#fileencoding#info()}%)"
 	" format
 	let l:line .= "%(" . l:sep_i.r . "%{&fileformat}%)"
 
 	" End spacing
-	let l:line .= "  "
+	let l:line .= " "
 
 	return l:line
 endfunction

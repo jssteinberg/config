@@ -13,7 +13,7 @@ let g:nightcool_bgs = v:false
 set clipboard+=unnamedplus
 set undofile
 set diffopt+=vertical
-set fillchars+=eob:\ ,vert:\·
+set fillchars+=eob:\  " Hide ~ at end of buffer
 " Completion
 set completeopt=menuone,noselect,noinsert
 set shortmess+=c
