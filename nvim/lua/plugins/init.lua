@@ -7,7 +7,7 @@ return {
 			-- vim.g.nightcool_bg = "transparent"
 			-- vim.g.nightcool_statusline = "transparent"
 			-- vim.g.nightcool_bgs = false
-			vim.cmd([[colorscheme nightcool]])
+			-- vim.cmd([[colorscheme nightcool]])
 		end,
 	},
 	-- Tabs and editorconfig

@@ -89,7 +89,7 @@ hi PmenuSel cterm=NONE gui=NONE ctermbg=0 guibg=#552c6d ctermfg=15 guifg=#ffffff
 hi SignColumn ctermbg=NONE guibg=NONE guifg=#9fd1d8
 hi TabLineFill cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=8 guifg=#7d78a1
 hi TabLine cterm=NONE gui=NONE ctermbg=NONE guibg=#0c0a19 ctermfg=8 guifg=#7d78a1
-hi TabLineSel cterm=NONE gui=bold ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afc5c7
+hi TabLineSel cterm=bold gui=bold ctermbg=0 guibg=#1a1636 ctermfg=7 guifg=#afc5c7
 hi Visual cterm=NONE gui=NONE ctermbg=238 guibg=#552c6d " also affects TelescopePreviewLine
 hi WarningMsg ctermfg=3 guifg=#bc985c
 hi WildMenu cterm=underline,bold gui=bold ctermbg=0 guibg=#342c6d ctermfg=15 guifg=#ffffff
@@ -132,8 +132,9 @@ hi StatusLine cterm=bold ctermbg=0 ctermfg=7 guibg=#342c6d gui=NONE guifg=#fffff
 hi StatusLineNC cterm=NONE ctermbg=0 ctermfg=8 gui=NONE guibg=#342c6d guifg=#7d78a1
 hi FloatBorder cterm=NONE ctermbg=NONE ctermfg=0 guibg=NONE guifg=#342c6d
 if get(g:, "nightcool_statusline", "default") == "transparent"
-	hi StatusLine ctermbg=NONE guibg=NONE ctermfg=13 guifg=#a69fd8
-	hi StatusLineNC ctermbg=NONE guibg=NONE ctermfg=7 guifg=#7d78a1
+	hi StatusLine guibg=NONE guifg=#685cbc
+	hi StatusLineNC guibg=NONE guifg=#342c6d
+	hi FloatBorder guifg=#1a1636
 endif
 
 " UI LINKED

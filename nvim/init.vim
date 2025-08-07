@@ -8,12 +8,14 @@ runtime line.vim
 let g:nightcool_bg = "transparent"
 let g:nightcool_statusline = "transparent"
 let g:nightcool_bgs = v:false
-"colo nightcool_org
+colo nightcool_org
 " OPTIONS
 set clipboard+=unnamedplus
 set undofile
 set diffopt+=vertical
 set fillchars+=eob:\  " Hide ~ at end of buffer
+set titlestring=Dev%(\ %{split(getcwd(0),'/')[-1]}%)
+set title
 " Completion
 set completeopt=menuone,noselect,noinsert
 set shortmess+=c

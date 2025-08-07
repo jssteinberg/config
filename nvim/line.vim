@@ -58,24 +58,26 @@ function! Hackline(status) abort
 	let l:line = ""
 
 	" set statusline default color
-	let l:line .= l:active ? "%#StatusLineNC#" : "%#StatusLineNC#"
+	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
 	" Start spacing
 	let l:line .= ""
 
 	" CWD
 	if len(getcwd(0)) > 1
-		" sep
+		let l:line .= l:active ? "%#Bold#" : "%#StatusLineNC#"
 		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
+		let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
 		" Git
+		let l:line .= l:active ? "%#Italic#" : "%#StatusLineNC#"
 		let l:line .= hackline#ui#git#info("*")
-		let l:line .= l:sep_i.l
+		let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
+		let l:line .= l:sep_s.l
 	endif
 	" file path
-	let l:line .= "%#Bold#"
+	let l:line .= l:active ? "%#Bold#" : "%#StatusLineNC#"
 	let l:line .= '%(%{hackline#ui#dir#info()}/%)%t'
-	let l:line .= " %m"
-	let l:line .= l:active ? "%#StatusLineNC#" : "%#StatusLineNC#"
-	let l:line .= "%y"
+	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
+	let l:line .= "%(\ %m%y%)"
 	" Cursor position
 	let l:line .= l:sep_i.l
 	let l:line .= "%p%%/%L L" . l:sep_s.l . "%l:%c"
