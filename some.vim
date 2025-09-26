@@ -168,8 +168,8 @@ nn S <cmd>let g:space_confirms=1<cr>?
 nn <leader><tab> <cmd>let g:space_confirms=1<cr>:buffer <c-z>
 
 " Grep [args, selection]
-nn <leader>r :silent grep -e ""<left>
-vnoremap <leader>r <cmd>call RgVisual()<cr>
+nn <leader>gr :silent grep -e ""<left>
+vnoremap <leader>gr <cmd>call RgVisual()<cr>
 
 " Grep reference [word, selection]
 nn grw <cmd>call Rg()<cr>

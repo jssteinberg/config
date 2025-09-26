@@ -56,26 +56,25 @@ function! Hackline(status) abort
 	" Statusline Start
 	" ----------------
 	let l:line = ""
-
-	" set statusline default color
+	" Default color
 	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
 	" Start spacing
 	let l:line .= ""
-
-	" CWD
 	if len(getcwd(0)) > 1
+		" Git
+		let l:line .= l:active ? "%#Bold#" : "%#StatusLineNC#"
+		let l:line .= hackline#ui#git#info(["*", " "])
+		let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
+		" CWD
 		let l:line .= l:active ? "%#Bold#" : "%#StatusLineNC#"
 		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
 		let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
-		" Git
-		let l:line .= l:active ? "%#Italic#" : "%#StatusLineNC#"
-		let l:line .= hackline#ui#git#info("*")
-		let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
 		let l:line .= l:sep_s.l
 	endif
-	" file path
+	" File path
 	let l:line .= l:active ? "%#Bold#" : "%#StatusLineNC#"
-	let l:line .= '%(%{hackline#ui#dir#info()}/%)%t'
+	"let l:line .= '%(%{hackline#ui#dir#info()}/%)'
+	let l:line .= "%t"
 	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
 	let l:line .= "%(\ %m%y%)"
 	" Cursor position
@@ -93,7 +92,6 @@ function! Hackline(status) abort
 	if l:active && has("nvim")
 		let l:line .= hackline#ui#nvim_lsp#info(l:sep_s.l, ":Lsp…", " ", "/", l:sep.r)
 	endif
-
 
 	" spelllang
 	if l:active && &spell == 1

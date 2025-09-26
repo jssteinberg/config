@@ -14,7 +14,7 @@ set clipboard+=unnamedplus
 set undofile
 set diffopt+=vertical
 set fillchars+=eob:\  " Hide ~ at end of buffer
-set titlestring=Dev%(\ %{split(getcwd(0),'/')[-1]}%)
+set titlestring=vi%(\ %{split(getcwd(0),'/')[-1]}%)
 set title
 " Completion
 set completeopt=menuone,noselect,noinsert
