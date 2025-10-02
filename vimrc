@@ -92,7 +92,7 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> gd <plug>(lsp-definition)
 	nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
 	nmap <buffer> gi <plug>(lsp-implementation)
-	nmap <buffer> <leader>lr <plug>(lsp-references)
+	nmap <buffer> grr <plug>(lsp-references)
 	nmap <buffer> <leader>lt <plug>(lsp-type-definition)
 	nmap <buffer> <c-k> <plug>(lsp-previous-diagnostic)
 	nmap <buffer> <c-j> <plug>(lsp-next-diagnostic)
@@ -100,7 +100,7 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> <leader>K <plug>(lsp-hover)
 	nmap <buffer> <cr> :LspDocumentDiagnostics<cr>
 	nn <leader>R <cmd>LspStopServer<cr><cmd>e<cr>
-	autocmd! BufWritePre *.rs,*.lua call execute('LspDocumentFormatSync')
+	" autocmd! BufWritePre *.rs,*.lua call execute('LspDocumentFormatSync')
 endfunction
 
 " AUTO COMMANDS
