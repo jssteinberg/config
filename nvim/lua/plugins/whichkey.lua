@@ -7,7 +7,7 @@ return {
 			{ "<leader>v",  group = "Version/Git" },
 			{ "<leader>g",  group = "Grep" },
 			{ "<leader>t",  group = "Treesitter" },
-			{ "<leader>s",  group = "Search/substitute" },
+			{ "<leader>s",  group = "Search/substitute", mode = { "n", "v" } },
 			{ "<leader>l",  group = "LSP" },
 			{ "<leader>lw", group = "Workspace" },
 		})

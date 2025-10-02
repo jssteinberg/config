@@ -20,6 +20,14 @@ return {
 	{ "mbbill/undotree",          cmd = "UndotreeToggle" },
 	-- Statusline
 	{ "jssteinberg/hackline.vim", dependencies = "itchyny/vim-gitbranch" },
+	-- Quickfix
+	{ "kevinhwang91/nvim-bqf",    ft = "qf" },
+	-- Hop motion commands
+	{
+		"phaazon/hop.nvim",
+		cmd = { "HopChar1", "HopVerticalAC", "HopVerticalBC", "HopVertical", "HopLineMW" },
+		config = function() require "hop".setup() end
+	},
 	-- Terminal
 	{
 		"jssteinberg/termcwd",
@@ -56,12 +64,6 @@ return {
 			{ "<leader>ls",  function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
 			{ "<leader>lws", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
 		},
-	},
-	-- Hop motion commands
-	{
-		"phaazon/hop.nvim",
-		cmd = { "HopChar1", "HopVerticalAC", "HopVerticalBC", "HopVertical", "HopLineMW" },
-		config = function() require "hop".setup() end
 	},
 	-- LSP status notification
 	{
