@@ -30,13 +30,13 @@ endfunction
 
 function! Hacktabs() abort
 	let line = "" | for i in range(tabpagenr('$'))
-		let highlight = i + 1 == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
+		let highlight = i + 1 == tabpagenr() ? '%#StatusLineSel#' : '%#StatusLine#'
 		let tabpagenrForMouseClick = '%' .. (i + 1) .. 'T'
 		let tablabel = " %{Hacktab(" .. (i + 1) .. ")} "
 		let line .= highlight .. tabpagenrForMouseClick .. tablabel
 	endfor
-	" after last tab, fill with TabLineFill and reset tab page nr
-	return line .. '%#TabLineFill#%T'
+	" after last tab, fill with StatusLineFill and reset tab page nr
+	return line .. '%#StatusLineFill#%T'
 endfunction
 
 function! StatuslineModeLabels() abort
@@ -51,31 +51,32 @@ function! Hackline(status) abort
 	" seperator secondary
 	let l:sep_s = #{l: " " , r: " "}
 	" separator items
-	let l:sep_i = #{l: ", " , r: ", "}
+	let l:sep_i = #{l: "  " , r: ", "}
 
 	" Statusline Start
 	" ----------------
 	let l:line = ""
 	" Default color
-	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
+	let l:line .= l:active ? "%#StatusLine#" : "%#LineNr#"
 	" Start spacing
 	let l:line .= ""
 	if len(getcwd(0)) > 1
-		" Git
-		let l:line .= l:active ? "%#Bold#" : "%#StatusLineNC#"
-		let l:line .= hackline#ui#git#info(["*", " "])
-		let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
 		" CWD
-		let l:line .= l:active ? "%#Bold#" : "%#StatusLineNC#"
+		let l:line .= l:active ? "%#StatusLine# " : "%#LineNr# "
 		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
-		let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
+		" Git
+		let l:line .= l:active ? "%#StatusLine#" : "%#LineNr#"
+		let l:line .= hackline#ui#git#info(["*", " "])
+		"let l:line .= l:active ? "%#StatusLine#" : "%#LineNr#"
 		let l:line .= l:sep_s.l
+		" Reset
+		let l:line .= l:active ? "%#StatusLine# " : "%#LineNr# "
 	endif
 	" File path
-	let l:line .= l:active ? "%#Bold#" : "%#StatusLineNC#"
+	let l:line .= l:active ? "%#Italic#" : "%#Italic#"
 	"let l:line .= '%(%{hackline#ui#dir#info()}/%)'
 	let l:line .= "%t"
-	let l:line .= l:active ? "%#StatusLine#" : "%#StatusLineNC#"
+	let l:line .= l:active ? "%#StatusLine#" : "%#LineNr#"
 	let l:line .= "%(\ %m%y%)"
 	" Cursor position
 	let l:line .= l:sep_i.l

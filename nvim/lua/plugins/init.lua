@@ -17,16 +17,30 @@ return {
 	-- Extend `.` repeat
 	{ "tpope/vim-repeat" },
 	-- Visual undo tree
-	{ "mbbill/undotree",          cmd = "UndotreeToggle" },
+	{ "mbbill/undotree",   cmd = "UndotreeToggle" },
 	-- Statusline
-	{ "jssteinberg/hackline.vim", dependencies = "itchyny/vim-gitbranch" },
+	{
+		"jssteinberg/hackline.vim",
+		-- dependencies = "itchyny/vim-gitbranch"
+	},
 	-- Quickfix
-	{ "kevinhwang91/nvim-bqf",    ft = "qf" },
+	{ "kevinhwang91/nvim-bqf", ft = "qf" },
 	-- Hop motion commands
 	{
 		"phaazon/hop.nvim",
 		cmd = { "HopChar1", "HopVerticalAC", "HopVerticalBC", "HopVertical", "HopLineMW" },
 		config = function() require "hop".setup() end
+	},
+	-- Emmet
+	{
+		"mattn/emmet-vim",
+		event = { "InsertEnter" },
+		keys = { "<c-e>" },
+		config = function()
+			vim.g.user_emmet_leader_key = "<c-e>"
+			vim.keymap.set("i", "<c-e><c-e>", "<plug>(emmet-expand-abbr)")
+			vim.keymap.set("v", "<c-e><c-e>", "<plug>(emmet-expand-abbr)")
+		end
 	},
 	-- Terminal
 	{
@@ -49,7 +63,7 @@ return {
 			input = { enabled = true },
 			quickfile = { enabled = true },
 			scroll = { enabled = true },
-			git = { enabled = true, },
+			-- git = { enabled = true, },
 			picker = { enabled = true },
 			explorer = {
 				enabled = true,

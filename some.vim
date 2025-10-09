@@ -15,6 +15,12 @@
 "  C -- tabclose || close all
 "  R -- replace (search and replace)
 "  K -- Look up ...
+"  n -- no/now (toggle options)
+"   s -- spell
+"   w -- wrap
+"   d -- dark
+"   n -- number
+"   r -- relativenumber
 "  e -- edit
 "   ...
 "  s -- search
