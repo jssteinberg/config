@@ -20,6 +20,7 @@ end
 M.add_filetypes = function()
 	vim.filetype.add({
 		extension = {
+			mdoc = "markdown",
 			mdx = "markdown",
 			postcss = "css",
 		},

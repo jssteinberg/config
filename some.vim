@@ -1,18 +1,34 @@
 " some.vim for (Neo)vim
 
 " KEYMAPS
+" jk -- escape
+" s -- space search
+" grw -- grep word
+" gs -- grep word substitution
 " <leader>
-" b: buffer alternate
-" c: close window
-" e: edit
-" g: git
-" f: find/fuzzy files
-" s: search files
-" t: tab
-" C: tabclose || close all
-" G: grep
-" R: replace (search and replace)
-" S: substitute
+"  f -- find/fuzzy files
+"  w -- write
+"  b -- buffer alternate
+"  v -- version control (git)
+"   ...
+"  c -- close window
+"  C -- tabclose || close all
+"  R -- replace (search and replace)
+"  K -- Look up ...
+"  n -- no/now (toggle options)
+"   s -- spell
+"   w -- wrap
+"   d -- dark
+"   n -- number
+"   r -- relativenumber
+"  e -- edit
+"   ...
+"  s -- search
+"   c -- conflicts (grep)
+"   l -- links
+"   u -- substitute
+"  t -- tab
+"   ...
 "
 " Some keymaps are created unconditionally when Nvim starts:
 " - "grn" is mapped in Normal mode to |vim.lsp.buf.rename()|
@@ -23,16 +39,16 @@
 " - CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
 
 let g:conf_iw=2
-let g:conf_so=999
+let g:conf_so=15
 let g:conf_spl=["en_us", "nb"]
+" Space as leader key
+let mapleader=" "
 
 " Core improved keymaps
 vnoremap < <gv
 vnoremap > >gv
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
-nn <c-e> $
-xnoremap <c-e> $
 nn * /<c-r><c-w><cr>
 nn # ?<c-r><c-w><cr>
 nn <leader>K <c-]>
@@ -44,7 +60,8 @@ noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
 
 " Esc mappings
-inoremap jk <esc>
+ino jk <esc>
+cno jk <esc>
 
 " Alternate buffer
 nn <silent> <leader>b <cmd>buffer#<cr>
@@ -54,17 +71,16 @@ nn <silent> <leader>w <cmd>write<cr>
 nn <silent> <leader>W <cmd>write!<cr>
 
 " Edit/tabedit commonly used
-nn <leader>r <cmd>e<cr>
 nn <leader>e. <cmd>e.<cr><cmd>call search(expand("#:t"))<cr>
+nn - <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nn <leader>ed <cmd>wincmd v<bar>wincmd H<bar>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
-nn <leader>eh <cmd>exe "try\n e %:h\n catch\n e.\n endtry"<cr><cmd>call search(expand("#:t"))<cr>
 nn <leader>et <cmd>wincmd v<bar>wincmd H<bar>e.<cr><cmd>call search(expand("#:t"))<cr>
 nn <leader>tb <cmd>tabedit %<cr>'"
 nn <leader>ew :e **/
 nn <leader>ec <cmd>tabedit $MYVIMRC<cr><cmd>tcd ~/.config<cr>
 nn <leader>ep <cmd>e package.json<cr>
 nn <leader>er <cmd>e README.md<cr>
-nn <leader>ee <cmd>e .env<cr>
+nn <leader>ee :e .env<c-z>
 
 " Close tab or quit all
 nn <silent> <leader>C <cmd>exe "try\n tabclose\n catch\n qa\n endtry"<cr>
@@ -81,8 +97,8 @@ nn <leader>R "ryiw:%s/<c-r>r/
 vnoremap <leader>R "ry:%s/<c-r>r/
 
 " Substitute in [buffer, selection]
-nn <leader>S :%s/
-vnoremap <leader>S :s/
+nn <leader>sr :%s/
+vnoremap <leader>sr :s/
 
 " Quickfix [next, previous, toggle]
 nn <c-q> <cmd>cnext<cr>
@@ -104,11 +120,21 @@ nn <expr> <leader>nn &number ? ':set nonumber<cr>' : ':set number<cr>'
 nn <expr> <leader>nr &relativenumber ? ':set norelativenumber<cr>' : ':set relativenumber<cr>'
 
 " Search for links/URLs
-nn <silent> <leader>fl /\v(^\|\s\|[([{<])@<=(https?:\/\/[0-9.]{2,}\|(https?:)?\/\/(www\.)?(\a){2,}(\.\a{2,})?)(:\d{2,5})?[/#?]?(\a\|[0-9]\|[\/\-_.#?&=])*<cr>
+nn <silent> <leader>sl /\v(^\|\s\|[([{<])@<=(https?:\/\/[0-9.]{2,}\|(https?:)?\/\/(www\.)?(\a){2,}(\.\a{2,})?)(:\d{2,5})?[/#?]?(\a\|[0-9]\|[\/\-_.#?&=])*<cr>
 
 " Git
 " grep for git merge conflicts
-nn <leader>gm :silent! grep! -e "<<<<<<<"<cr>
+nn <leader>vm :silent! grep! -e "<<<<<<<"<cr>
+
+" Netrw
+function! SetNetrwKeymaps() abort
+	nn <buffer> s /
+	nn <buffer> S ?
+	nmap <buffer> <c-j> <cr>
+	nmap <buffer> <c-k> v
+	nmap <buffer> o %
+	nmap <buffer> O d
+endfunction
 
 " Project/session management
 " create session directory if it doesn't exist
@@ -148,12 +174,12 @@ nn S <cmd>let g:space_confirms=1<cr>?
 nn <leader><tab> <cmd>let g:space_confirms=1<cr>:buffer <c-z>
 
 " Grep [args, selection]
-nn <leader>G :silent grep -e ""<left>
-vnoremap <leader>G <cmd>call RgVisual()<cr>
+nn <leader>gr :silent grep -e ""<left>
+vnoremap <leader>gr <cmd>call RgVisual()<cr>
 
 " Grep reference [word, selection]
-nn gr <cmd>call Rg()<cr>
-vmap gr <leader>G
+nn grw <cmd>call Rg()<cr>
+vmap gr <cmd>call RgVisual()<cr>
 
 " Grep substitute [word, selection]
 nn gs :call Rg()<cr>:cfdo %s/<c-r>=escape('<c-r>g', '#')<cr>/
@@ -187,7 +213,7 @@ set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git/**
 set list " Show tab characters
 set listchars=tab:\·\ ,trail:\~,extends:…,precedes:…
-set signcolumn=yes number
+set signcolumn=yes number relativenumber
 set cursorline " Highlight cursor line
 set splitright
 set timeoutlen=750 " Timeout for keymaps
@@ -216,6 +242,8 @@ endif
 aug some_config | au!
 	" Set tabstop if noexpandtab
 	au BufWinEnter,FocusGained * call SetTabWidth(g:conf_iw)
+	" Set netrw maps
+	autocmd filetype netrw call SetNetrwKeymaps()
 aug END
 
 " GLOBAL FUNCTIONS

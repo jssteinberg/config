@@ -5,14 +5,14 @@ if wezterm.config_builder then config = wezterm.config_builder() end
 
 -- CONFIG OPTIONS
 
-config.initial_rows = 50
-config.initial_cols = 150
+config.initial_rows = 40
+config.initial_cols = 140
 config.window_background_opacity = .95
 config.font_size = 14
 config.line_height = 1.1
 config.use_dead_keys = false
 config.window_decorations = "RESIZE"
-config.window_padding = { left = 1, right = 1, top = 30, bottom = 0 }
+config.window_padding = { left = 8, right = 1, top = 22, bottom = 1 }
 -- Tab bar
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true

@@ -1,3 +1,4 @@
+" LEGACY FIX
 set nocompatible
 set wildmenu wildcharm=<c-z> " Enable usage in map target
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
@@ -8,44 +9,34 @@ set incsearch
 set regexpengine=0 " needs to be explicitly set to always be active
 set mouse+=a
 set shortmess-=S " display short messages in ruler
+" Langmap can break plugins when compiled with it
+if has("langmap") && exists("+langremap") | set nolangremap | en
 " Enable file type detection & default filetype settings & indent files
-filetype plugin indent on
-syntax on
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-" Revert with: ":delcommand DiffOrig".
-if !exists(":DiffOrig")
-	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-				\ | wincmd p | diffthis
-endif
-" Prevent that the langmap option applies to characters that result from a
-" mapping.  If set (default), this may break plugins (but it's backward
-" compatible).
-if has("langmap") && exists("+langremap")
-	set nolangremap
-endif
+filetype plugin indent on | syntax on
 
-" Set space as leader key
-let mapleader=" "
-
-" Source common vim/nvim config
-source $HOME/.config/nvim/some.vim
-
-" OPTIONS
+" CONFIG OPTIONS
+" Set land.vim
+source $HOME/.config/some.vim
+" Additional options
 set clipboard=unnamed " Sync system clioboard
 set hlsearch " Highlight search matches
 set omnifunc=syntaxcomplete#Complete " c-x c-o to complete syntax
 set undodir=$HOME/.vimundo undofile
 set fillchars+=eob:\ ,vert:\·
-
-" NETRW OPTIONS
+set wildoptions=pum " Popoup wildmenu
+" Netrw config
 let g:netrw_preview=1 " Vertical preview
 
 " COLORS - recommended (dual) lunaperche quiet (dark) habamax industry slate (light) zellner
 try | colo lunaperche
 hi VertSplit cterm=NONE ctermbg=NONE
 catch | colo slate | endtry
+
+" COMMANDS - diff of current buffer and the file it was loaded from.
+if !exists(":DiffOrig")
+	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+				\ | wincmd p | diffthis
+en
 
 " KEYMAPS
 " Core improve
@@ -56,13 +47,12 @@ inoremap <expr> <tab> getline('.')[col('.') - 2] =~ '\s' ? "\<tab>" : col('.') =
 " Additional esc map
 tnoremap jk <c-w>N
 " Fuzzy find files
-" nn <leader>s :call FuzzyFiles("rg --files", ":e")<cr>
-nn <leader>s :Clap files<cr>
+nn <leader>f :packadd vim-clap<bar>:Clap files<cr>
 " Git
-nn <silent> <leader>gg :packadd vim-fugitive<bar>G<cr>
-nn <leader>gc :packadd vim-fugitive<bar>G log -p -50 %<cr>
-nn <silent> <leader>gp :packadd vim-fugitive<bar>G pull<cr>
-nn <silent> <leader>gP :packadd vim-fugitive<bar>G push<cr>
+nn <silent> <leader>vv :packadd vim-fugitive<bar>:tabnew<bar>G<bar>wincmd o<cr>
+nn <leader>vc :packadd vim-fugitive<bar>G log -p -50 %<cr>
+nn <silent> <leader>vp :packadd vim-fugitive<bar>G pull<cr>
+nn <silent> <leader>vP :packadd vim-fugitive<bar>G push<cr>
 " Easymotions
 let g:EasyMotion_startofline = 0 " keep cursor colum JK motion
 map <Leader>j :packadd vim-easymotion<cr><Plug>(easymotion-j)
@@ -73,9 +63,6 @@ imap <script><silent><nowait><expr> <c-f> codeium#Accept()
 imap <c-j>   <cmd>call codeium#CycleCompletions(1)<cr>
 imap <c-k>   <cmd>call codeium#CycleCompletions(-1)<cr>
 imap <c-x>   <cmd>call codeium#Clear()<cr>
-" Augment
-" let g:augment_disable_tab_mapping = v:true
-" inoremap <c-f> <cmd>call augment#Accept()<cr>
 
 " TERMINAL
 nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
@@ -86,8 +73,12 @@ let g:termcwd_height = 20
 
 " LSP KEYMAPS
 function! s:on_lsp_buffer_enabled() abort
-	let g:lsp_diagnostics_virtual_text_align="right"
+	let g:lsp_diagnostics_virtual_text_enabled=0
+	let g:lsp_inlay_hints_enabled=1
+	let g:lsp_diagnostics_virtual_text_padding_left=2
+	let g:lsp_diagnostics_virtual_text_align="after"
 	let g:lsp_diagnostics_virtual_text_wrap="truncate"
+	let g:lsp_diagnostics_float_cursor=1
 	let g:lsp_format_sync_timeout = 1000
 	setlocal omnifunc=lsp#complete
 	setlocal foldmethod=expr
@@ -97,22 +88,15 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> gd <plug>(lsp-definition)
 	nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
 	nmap <buffer> gi <plug>(lsp-implementation)
-	nmap <buffer> <leader>lr <plug>(lsp-references)
+	nmap <buffer> grr <plug>(lsp-references)
 	nmap <buffer> <leader>lt <plug>(lsp-type-definition)
 	nmap <buffer> <c-k> <plug>(lsp-previous-diagnostic)
 	nmap <buffer> <c-j> <plug>(lsp-next-diagnostic)
 	nmap <buffer> <leader>lh <plug>(lsp-hover)
 	nmap <buffer> <leader>K <plug>(lsp-hover)
 	nmap <buffer> <cr> :LspDocumentDiagnostics<cr>
-	autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-endfunction
-
-" NETRW KEYMAPS
-function! SetNetrwKeymaps() abort
-	nn <buffer> s /
-	nn <buffer> S ?
-	nmap <buffer> <c-j> <cr>
-	nmap <buffer> <c-k> v
+	nn <leader>R <cmd>LspStopServer<cr><cmd>e<cr>
+	nn <expr> gq exists("*LspDocumentFormatSync") ? ':LspDocumentFormatSync<cr>' : 'gq'
 endfunction
 
 " AUTO COMMANDS
@@ -121,19 +105,7 @@ aug vim_config | au!
 	au BufNewFile,BufRead *.mdx set ft=markdown
 	" Call s:on_lsp_buffer_enabled only for languages that has the server registered.
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-	" Set netrw maps
-	autocmd filetype netrw call SetNetrwKeymaps()
 augroup END
-
-" FUZZY EDIT W/FZY
-fu! FuzzyFiles(choice_command, vim_command) abort
-	try | let output = system(a:choice_command . " | fzy ")
-	catch /Vim:Interrupt/ | endtry | redraw!
-
-	if v:shell_error == 0 && !empty(output)
-		exec a:vim_command . " " . output
-	en
-endf
 
 " PLUGINS
 fu! PackInit() abort
@@ -144,14 +116,12 @@ fu! PackInit() abort
 	call minpac#add("tpope/vim-surround")
 	call minpac#add("tpope/vim-commentary")
 	call minpac#add("easymotion/vim-easymotion", {"type": "opt"})
-	call minpac#add("tpope/vim-fugitive", {"type": "opt"})
+	call minpac#add("tpope/vim-fugitive")
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")
-	call minpac#add("tpope/vim-vinegar")
 	call minpac#add("Exafunction/codeium.vim")
-	" call minpac#add("augmentcode/augment.vim")
 	call minpac#add("tweekmonster/startuptime.vim")
-	call minpac#add("liuchengxu/vim-clap", {"do": ":Clap install-binary"})
+	call minpac#add("liuchengxu/vim-clap", {"do": ":Clap install-binary", "type": "opt"}) " :call clap#installer#download_binary()
 	call minpac#add("subnut/visualstar.vim")
 	" Filetypes
 	call minpac#add("othree/html5.vim")

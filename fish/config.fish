@@ -10,8 +10,9 @@ bind \cB backward-word
 alias vi='nvim'
 
 # Git aliases
+alias G "git"
 alias co "git checkout"
-alias gb "git branch"
-alias gp "git pull"
-alias gP "git push"
-alias gs "git status"
+alias vb "git branch"
+alias vp "git pull"
+alias vP "git push"
+alias vs "git status"

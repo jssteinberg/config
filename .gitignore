@@ -4,6 +4,7 @@
 !README.md
 !tmux.conf
 !vimrc
+!*.vim
 !kitty/
 !kitty/*
 !contour/
@@ -19,7 +20,8 @@ nvim/.DS_Store
 !nvim/colors/*
 !nvim/lua/*
 nvim/lua/.DS_Store
-!nvim/lua/pack/*
+!nvim/lua/config/*
+!nvim/lua/plugins/*
 nvim/lua/pack/.DS_Store
 !nvim/lua/utils/*
 !nvim/lua/wip/*
@@ -35,3 +37,5 @@ nvim/lua/pack/.DS_Store
 !wezterm/*
 !_alacritty/
 !_alacritty/*
+!helix/
+!helix/*
