@@ -13,6 +13,7 @@ let g:colors_name="nightcool_org"
 " Normal
 hi FG ctermfg=15 guifg=#e9f5e6
 hi Normal ctermfg=15 guibg=#000000 guifg=#e9f5e6
+hi NormalNC ctermfg=8 guifg=#7d78a1
 hi NormalFloat ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 if !exists("+winborder") || match(&winborder, '\v(^$|none|solid|shadow)') != -1
 	hi NormalFloat ctermbg=0 guibg=#0c0a19
@@ -113,9 +114,9 @@ hi SpellLocal cterm=underline gui=undercurl ctermbg=NONE guisp=#5cb1bc
 
 " Diffs
 " `hi`s in context of normal syntax, so can't use green/red---distinguish another way
-hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#ffffff
+hi DiffAdd    cterm=bold gui=bold ctermbg=NONE guibg=NONE ctermfg=15 guifg=#77e138
 hi DiffDelete cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=1 guifg=#bc675c
-hi DiffChange cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=2 guifg=#80bc5c
+hi DiffChange cterm=NONE gui=italic ctermbg=NONE guibg=NONE ctermfg=2 guifg=#80bc5c
 hi DiffLine cterm=NONE gui=NONE ctermbg=NONE guibg=NONE ctermfg=3 guifg=#bc985c
 hi! link DiffText DiffAdd
 " `hi`s in own context, so can grey out and use green/red

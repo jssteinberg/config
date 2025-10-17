@@ -21,7 +21,7 @@ return {
 	-- Statusline
 	{
 		"jssteinberg/hackline.vim",
-		-- dependencies = "itchyny/vim-gitbranch"
+		dependencies = "itchyny/vim-gitbranch"
 	},
 	-- Quickfix
 	{ "kevinhwang91/nvim-bqf", ft = "qf" },

@@ -30,7 +30,7 @@ endfunction
 
 function! Hacktabs() abort
 	let line = "" | for i in range(tabpagenr('$'))
-		let highlight = i + 1 == tabpagenr() ? '%#StatusLineSel#' : '%#StatusLine#'
+		let highlight = i + 1 == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
 		let tabpagenrForMouseClick = '%' .. (i + 1) .. 'T'
 		let tablabel = " %{Hacktab(" .. (i + 1) .. ")} "
 		let line .= highlight .. tabpagenrForMouseClick .. tablabel
@@ -63,12 +63,11 @@ function! Hackline(status) abort
 	if len(getcwd(0)) > 1
 		" CWD
 		let l:line .= l:active ? "%#StatusLine# " : "%#LineNr# "
-		let l:line .= "%(%{split(getcwd(0), '/')[-1]}%)"
+		let l:line .= "%(%{split(getcwd(0), '/')[-1]} %)"
 		" Git
 		let l:line .= l:active ? "%#StatusLine#" : "%#LineNr#"
-		let l:line .= hackline#ui#git#info(["*", " "])
-		"let l:line .= l:active ? "%#StatusLine#" : "%#LineNr#"
-		let l:line .= l:sep_s.l
+		let l:line .= "%(*%{hackline#git#branch()} %)"
+		let l:line .= "%(%{hackline#git#status()} %)"
 		" Reset
 		let l:line .= l:active ? "%#StatusLine# " : "%#LineNr# "
 	endif

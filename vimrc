@@ -47,10 +47,9 @@ inoremap <expr> <tab> getline('.')[col('.') - 2] =~ '\s' ? "\<tab>" : col('.') =
 " Additional esc map
 tnoremap jk <c-w>N
 " Fuzzy find files
-" nn <leader>f :call FuzzyFiles("rg --files", ":e")<cr>
-nn <leader>f :Clap files<cr>
+nn <leader>f :packadd vim-clap<bar>:Clap files<cr>
 " Git
-nn <silent> <leader>vg :packadd vim-fugitive<bar>:tabnew<bar>G<bar>wincmd o<cr>
+nn <silent> <leader>vv :packadd vim-fugitive<bar>:tabnew<bar>G<bar>wincmd o<cr>
 nn <leader>vc :packadd vim-fugitive<bar>G log -p -50 %<cr>
 nn <silent> <leader>vp :packadd vim-fugitive<bar>G pull<cr>
 nn <silent> <leader>vP :packadd vim-fugitive<bar>G push<cr>
@@ -64,9 +63,6 @@ imap <script><silent><nowait><expr> <c-f> codeium#Accept()
 imap <c-j>   <cmd>call codeium#CycleCompletions(1)<cr>
 imap <c-k>   <cmd>call codeium#CycleCompletions(-1)<cr>
 imap <c-x>   <cmd>call codeium#Clear()<cr>
-" Augment
-" let g:augment_disable_tab_mapping = v:true
-" inoremap <c-f> <cmd>call augment#Accept()<cr>
 
 " TERMINAL
 nn <silent> <leader><cr> <cmd>call termcwd#spGet()<cr>
@@ -100,7 +96,7 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> <leader>K <plug>(lsp-hover)
 	nmap <buffer> <cr> :LspDocumentDiagnostics<cr>
 	nn <leader>R <cmd>LspStopServer<cr><cmd>e<cr>
-	" autocmd! BufWritePre *.rs,*.lua call execute('LspDocumentFormatSync')
+	nn <expr> gq exists("*LspDocumentFormatSync") ? ':LspDocumentFormatSync<cr>' : 'gq'
 endfunction
 
 " AUTO COMMANDS
@@ -110,16 +106,6 @@ aug vim_config | au!
 	" Call s:on_lsp_buffer_enabled only for languages that has the server registered.
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
-
-" FUZZY EDIT W/FZY
-fu! FuzzyFiles(choice_command, vim_command) abort
-	try | let output = system(a:choice_command . " | fzy ")
-	catch /Vim:Interrupt/ | endtry | redraw!
-
-	if v:shell_error == 0 && !empty(output)
-		exec a:vim_command . " " . output
-	en
-endf
 
 " PLUGINS
 fu! PackInit() abort
@@ -135,7 +121,7 @@ fu! PackInit() abort
 	call minpac#add("mattn/vim-lsp-settings")
 	call minpac#add("Exafunction/codeium.vim")
 	call minpac#add("tweekmonster/startuptime.vim")
-	call minpac#add("liuchengxu/vim-clap", {"do": ":Clap install-binary"})
+	call minpac#add("liuchengxu/vim-clap", {"do": ":Clap install-binary", "type": "opt"}) " :call clap#installer#download_binary()
 	call minpac#add("subnut/visualstar.vim")
 	" Filetypes
 	call minpac#add("othree/html5.vim")
