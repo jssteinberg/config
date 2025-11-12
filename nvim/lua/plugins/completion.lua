@@ -2,8 +2,9 @@ return {
 	-- AI code completion
 	-- codeium
 	{
-		"Exafunction/codeium.vim",
-		event = "InsertEnter",
+		"Exafunction/windsurf.vim",
+		event = "VeryLazy",
+		cmd = "CodeiumChat",
 		config = function()
 			vim.g.codeium_disable_bindings = 1
 			vim.keymap.set("i", "<c-f>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
@@ -17,7 +18,7 @@ return {
 	-- Completion menu
 	{
 		"saghen/blink.cmp",
-		event = "VeryLazy",
+		event = "InsertEnter",
 		-- use a release tag to download pre-built binaries
 		version = "1.*",
 		opts = {

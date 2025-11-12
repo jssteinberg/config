@@ -61,7 +61,7 @@ Config file can also be used: .config/fish/config.fish
 
 Functional, lightweight and 'native extending' neovim config with a focus on web front-end coding, though it's usable for most text editing. Uncomplicated config for dummies hacking (author included).
 
-Install Neovim >= 0.8.0 (needs to be built with LuaJIT), fzf, ripgrep, fd, bat, delta, treesitter CLI. `nvim` and [Lazy.nvim](//github.com/folke/lazy.nvim) installs. Then:
+Install Neovim (needs to be built with LuaJIT), fzf, ripgrep, fd, bat, delta, treesitter CLI. `nvim` and [Lazy.nvim](//github.com/folke/lazy.nvim) installs. Then:
 
 - `:TSInstall all`/`:TSUpdate`
 - `:Mason` to install LSPs

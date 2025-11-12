@@ -213,7 +213,7 @@ set ignorecase smartcase " Wildmenu ignores case, search smart-ignores case
 set wildignorecase wildmode=lastused:full wildignore+=**/node_modules/**,**/.git/**
 set list " Show tab characters
 set listchars=tab:\·\ ,trail:\~,extends:…,precedes:…
-set signcolumn=yes number relativenumber
+set signcolumn=number number relativenumber
 set cursorline " Highlight cursor line
 set splitright
 set timeoutlen=750 " Timeout for keymaps

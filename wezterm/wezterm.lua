@@ -49,6 +49,23 @@ config.keys = {
 		mods = "SUPER",
 		action = wezterm.action.ActivateLastTab,
 	},
+	-- Keymap to open a wezterm window running nvim
+	{
+		key = "e",
+		mods = "SUPER",
+		action = wezterm.action_callback(function(window, pane)
+			local cwd = pane:get_current_working_dir()
+			if cwd then
+				cwd = cwd.file_path
+			else
+				cwd = os.getenv("HOME")
+			end
+			wezterm.mux.spawn_window({
+				cwd = cwd,
+				args = { os.getenv("SHELL"), "-l", "-c", "nvim" },
+			})
+		end),
+	},
 }
 
 -- COLORS

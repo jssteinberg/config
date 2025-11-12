@@ -39,3 +39,5 @@ nvim/lua/pack/.DS_Store
 !_alacritty/*
 !helix/
 !helix/*
+!opencode/
+!opencode/*

@@ -119,15 +119,17 @@ fu! PackInit() abort
 	call minpac#add("tpope/vim-fugitive")
 	call minpac#add("prabirshrestha/vim-lsp")
 	call minpac#add("mattn/vim-lsp-settings")
-	call minpac#add("Exafunction/codeium.vim")
+	call minpac#add("Exafunction/windsurf.vim")
 	call minpac#add("tweekmonster/startuptime.vim")
-	call minpac#add("liuchengxu/vim-clap", {"do": ":Clap install-binary", "type": "opt"}) " :call clap#installer#download_binary()
+	call minpac#add("liuchengxu/vim-clap", {"do": ":call clap#installer#download_binary()", "type": "opt"})
 	call minpac#add("subnut/visualstar.vim")
 	" Filetypes
 	call minpac#add("othree/html5.vim")
 	call minpac#add("pangloss/vim-javascript")
 	call minpac#add("evanleck/vim-svelte")
 	call minpac#add("wuelnerdotexe/vim-astro")
+	" Colorschemes
+	call minpac#add("cocopon/iceberg.vim")
 endf
 
 command! Update source $MYVIMRC | call PackInit() | call minpac#update()

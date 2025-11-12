@@ -2,10 +2,14 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
 	build = ":TSUpdate",
-	branch = 'master',
+	branch = "master",
 	config = function()
-		local ignore_ts = { "markdown", "markdown_inline" }
-		local disable_ts_ft = { "markdown" }
+		local ignore_ts = {
+			-- "markdown", "markdown_inline"
+		}
+		local disable_ts_ft = {
+			-- "markdown"
+		}
 		require("nvim-treesitter.configs").setup({
 			auto_install = true,
 			ignore_install = ignore_ts,
@@ -15,7 +19,7 @@ return {
 			},
 			playground = {
 				enable = true,
-				updatetime = 25,      -- Debounced time for highlighting nodes in the playground from source code
+				updatetime = 25,     -- Debounced time for highlighting nodes in the playground from source code
 				persist_queries = false, -- Whether the query persists across vim sessions
 				keybindings = {
 					toggle_query_editor = "o",
