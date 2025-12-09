@@ -39,9 +39,11 @@ return {
 		config = function()
 			local map = vim.keymap.set
 
-			require("mason").setup()
-			require("mason-lspconfig").setup({
+			require("mason").setup({
 				ensure_installed = { "prettierd" },
+				automatic_enable = true,
+			})
+			require("mason-lspconfig").setup({
 				automatic_enable = true,
 			})
 
