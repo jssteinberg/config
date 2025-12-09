@@ -62,12 +62,31 @@ config.keys = {
 			else
 				cwd = os.getenv("HOME")
 			end
-			local new_window = wezterm.mux.spawn_window({
+			
+			-- Get screen info to center the window
+			local screen = wezterm.gui.screens().active
+			local screen_width = screen.width
+			local screen_height = screen.height
+			
+			-- Calculate approximate window dimensions
+			-- Font size is 14, line height is 1.1
+			local char_width = 14 * 0.6  -- approximate character width
+			local char_height = 14 * 1.1  -- line height
+			local window_width = 140 * char_width
+			local window_height = 40 * char_height
+			
+			-- Calculate center position
+			local x = math.floor((screen_width - window_width) / 2)
+			local y = math.floor((screen_height - window_height) / 2)
+			
+			local tab, new_pane, new_window = wezterm.mux.spawn_window({
 				cwd = cwd,
-				args = { os.getenv("SHELL"), "-l", "-c", "nvim" },
+				args = { os.getenv("SHELL"), "-l", "-c", "nvim -c 'colorscheme tokyonight'" },
 			})
-			-- Try to apply config overrides to the new window
+			
+			-- Set position and padding after spawning
 			if new_window then
+				new_window:gui_window():set_position(x, y)
 				new_window:gui_window():set_config_overrides({
 					window_padding = {
 						left = 0,
