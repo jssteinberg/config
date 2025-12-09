@@ -1,4 +1,5 @@
 return {
+	{ "folke/tokyonight.nvim", opts = { style = "night" } },
 	{
 		"https://codeberg.org/johanland/nightcool-vim",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
@@ -17,7 +18,7 @@ return {
 	-- Extend `.` repeat
 	{ "tpope/vim-repeat" },
 	-- Visual undo tree
-	{ "mbbill/undotree",   cmd = "UndotreeToggle" },
+	{ "mbbill/undotree",       cmd = "UndotreeToggle" },
 	-- Statusline
 	{
 		"jssteinberg/hackline.vim",

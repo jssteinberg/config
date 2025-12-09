@@ -12,7 +12,7 @@ config.font_size = 14
 config.line_height = 1.1
 config.use_dead_keys = false
 config.window_decorations = "RESIZE"
-config.window_padding = { left = 8, right = 1, top = 22, bottom = 1 }
+config.window_padding = { top = 22, bottom = 1 }
 -- Tab bar
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
@@ -36,6 +36,8 @@ config.keys = {
 	{ key = "+", mods = "SUPER",       action = wezterm.action.IncreaseFontSize },
 	{ key = "x", mods = "LEADER|CTRL", action = act.RotatePanes "Clockwise" },
 	{ key = "h", mods = "CMD",         action = wezterm.action.HideApplication },
+	-- option cmd h - hide all other windows
+	-- { key = "h", mods = "ALT|SUPER",   action = wezterm.action.HideOtherApplications },
 	{
 		key = ",",
 		mods = "SUPER",
@@ -60,10 +62,21 @@ config.keys = {
 			else
 				cwd = os.getenv("HOME")
 			end
-			wezterm.mux.spawn_window({
+			local new_window = wezterm.mux.spawn_window({
 				cwd = cwd,
 				args = { os.getenv("SHELL"), "-l", "-c", "nvim" },
 			})
+			-- Try to apply config overrides to the new window
+			if new_window then
+				new_window:gui_window():set_config_overrides({
+					window_padding = {
+						left = 0,
+						right = 0,
+						top = 0,
+						bottom = 0,
+					},
+				})
+			end
 		end),
 	},
 }
