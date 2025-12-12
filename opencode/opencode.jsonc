@@ -3,6 +3,11 @@
   "theme": "system",
   // "editor": "nvim",
   "agent": {
+    "strong": {
+      "description": "Powerful agent for complex reasoning and difficult tasks",
+      "model": "anthropic/claude-4.5-opus-latest",
+      "mode": "subagent",
+    },
     "fast": {
       "description": "Fast, cheap AI for quick tasks",
       "model": "anthropic/claude-3-5-haiku-latest",
@@ -14,10 +19,8 @@
         "edit": false,
       },
     },
-    "code-reviewer": {
+    "review": {
       "description": "Reviews code for best practices and potential issues",
-      "model": "anthropic/claude-sonnet-4-20250514",
-      "mode": "subagent",
       "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
       "tools": {
         "write": false,
