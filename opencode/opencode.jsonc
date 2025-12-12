@@ -1,120 +1,25 @@
 {
-  "": "https://opencode.ai/config.json",
+  "$schema": "https://opencode.ai/config.json",
   "theme": "system",
   // "editor": "nvim",
   "agent": {
     "fast": {
-      "description": "Fast, cheap AI",
+      "description": "Fast, cheap AI for quick tasks",
       "model": "anthropic/claude-3-5-haiku-latest",
+      "mode": "subagent",
       "temperature": 0.2,
-      "max_tool_iterations": 5,
+      "maxSteps": 5,
       "tools": {
-        // Disable file modification tools for fast agent
         "write": false,
         "edit": false,
       },
-      "search_strategy": {
-        "priority": [
-          "ripgrep",
-          "fd",
-          "bat",
-          "read"      // Fallback
-        ],
-        "tools_config": {
-          "ripgrep": {
-            "default_flags": [
-              "--max-columns=150",
-              "--max-columns-preview",
-              "--smart-case",
-              "--hidden",
-              "--follow"
-            ],
-          },
-          "fd": {
-            "default_flags": [
-              "--hidden",
-              "--follow",
-              "--exclude", ".git",
-              "--exclude", "node_modules"
-            ]
-          },
-          "bat": {
-            "default_flags": [
-              "--style=numbers",
-              "--color=always",
-              "--line-range", ":100"  // Limit preview to first 100 lines
-            ]
-          },
-          "read": {
-            "max_file_size": "1MB",  // Prevent reading extremely large files
-            "encoding": "utf-8",
-            "line_limit": 5000  // Limit number of lines read
-          }
-        }
-      },
-    },
-    "fast-build": {
-      "description": "Build-focused fast agent",
-      "model": "anthropic/claude-3-5-haiku-latest",
-      "temperature": 0.3,
-      "max_tool_iterations": 7,
-      "tools": {
-        // Enable file modification tools for build agent
-        "write": true,
-        "edit": true,
-      },
-      "search_strategy": {
-        "priority": [
-          "ripgrep",
-          "fd",
-          "bat",
-          "read"      // Fallback
-        ],
-        "tools_config": {
-          "ripgrep": {
-            "default_flags": [
-              "--max-columns=200",
-              "--max-columns-preview",
-              "--smart-case",
-              "--hidden",
-              "--follow"
-            ],
-          },
-          "fd": {
-            "default_flags": [
-              "--hidden",
-              "--follow",
-              "--exclude", ".git",
-              "--exclude", "node_modules",
-              "--exclude", "build",
-              "--exclude", "dist"
-            ]
-          },
-          "bat": {
-            "default_flags": [
-              "--style=numbers",
-              "--color=always",
-              "--line-range", ":200"  // Expanded line preview for build context
-            ]
-          },
-          "read": {
-            "max_file_size": "5MB",  // Larger file size for build-related files
-            "encoding": "utf-8",
-            "line_limit": 10000  // More lines for build scripts and configs
-          }
-        }
-      },
-      "build_specific_config": {
-        "preferred_build_tools": ["make", "cmake", "npm", "gradle", "maven"],
-        "default_build_flags": ["--verbose", "--progress"]
-      }
     },
     "code-reviewer": {
       "description": "Reviews code for best practices and potential issues",
       "model": "anthropic/claude-sonnet-4-20250514",
+      "mode": "subagent",
       "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
       "tools": {
-        // Disable file modification tools for review-only agent
         "write": false,
         "edit": false,
       },
