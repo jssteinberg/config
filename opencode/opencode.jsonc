@@ -3,9 +3,9 @@
   "theme": "system",
   // "editor": "nvim",
   "agent": {
-    "build": {
-      "prompt": "{file:./build-prompt.txt}"
-    },
+    // "build": {
+    //   "prompt": "{file:./build-prompt.txt}"
+    // },
     "strong": {
       "description": "Powerful agent for complex reasoning and difficult tasks",
       "model": "anthropic/claude-4.5-opus-latest",
