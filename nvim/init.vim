@@ -34,7 +34,7 @@ nn <silent> <leader>f :Pick files<cr>
 " Live grep
 nn <leader>gl :Pick grep_live<cr>
 " Git
-nn <silent> <leader>vv :tabnew<bar>G<bar>wincmd o<cr>
+nn <silent> <leader>vv :G<cr>
 nn <leader>vs <cmd>G<cr>
 nn <leader>vc <cmd>G log -p -50 %<cr>
 nn <leader>vd <cmd>tabnew %<cr><cmd>Gvdiffsplit<cr>

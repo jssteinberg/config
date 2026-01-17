@@ -12,10 +12,10 @@ config.font_size = 14
 config.line_height = 1.1
 config.use_dead_keys = false
 config.window_decorations = "RESIZE"
-config.window_padding = { top = 22, bottom = 1 }
+config.window_padding = { left = 0, right = 0, top = 0, bottom = 2 }
 -- Tab bar
-config.hide_tab_bar_if_only_one_tab = true
-config.tab_bar_at_bottom = true
+config.hide_tab_bar_if_only_one_tab = false
+config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
 -- Fix non-US Mac keyboard layout
 config.send_composed_key_when_left_alt_is_pressed = true
@@ -55,35 +55,35 @@ config.keys = {
 	{
 		key = "e",
 		mods = "SUPER",
-		action = wezterm.action_callback(function(window, pane)
+		action = wezterm.action_callback(function(_, pane)
 			local cwd = pane:get_current_working_dir()
 			if cwd then
 				cwd = cwd.file_path
 			else
 				cwd = os.getenv("HOME")
 			end
-			
+
 			-- Get screen info to center the window
 			local screen = wezterm.gui.screens().active
 			local screen_width = screen.width
 			local screen_height = screen.height
-			
+
 			-- Calculate approximate window dimensions
 			-- Font size is 14, line height is 1.1
-			local char_width = 14 * 0.6  -- approximate character width
-			local char_height = 14 * 1.1  -- line height
+			local char_width = 14 * 0.6 -- approximate character width
+			local char_height = 14 * 1.1 -- line height
 			local window_width = 140 * char_width
 			local window_height = 40 * char_height
-			
+
 			-- Calculate center position
 			local x = math.floor((screen_width - window_width) / 2)
 			local y = math.floor((screen_height - window_height) / 2)
-			
+
 			local tab, new_pane, new_window = wezterm.mux.spawn_window({
 				cwd = cwd,
 				args = { os.getenv("SHELL"), "-l", "-c", "nvim -c 'colorscheme tokyonight'" },
 			})
-			
+
 			-- Set position and padding after spawning
 			if new_window then
 				new_window:gui_window():set_position(x, y)

@@ -46,8 +46,8 @@ return {
 	-- Terminal
 	{
 		"jssteinberg/termcwd",
-		branch = "fix-toggle",
 		config = function()
+			vim.g.termcwd_height = 15
 			vim.g.termcwd_split_full_bottom = true
 			vim.keymap.set("n", "<leader><cr>", require("termcwd").sp(), { desc = "Terminal CWD" })
 			vim.keymap.set("n", "<leader>1", require("termcwd").sp(1, ""), { desc = "Terminal CWD 1" })
