@@ -50,8 +50,9 @@ return {
 			vim.g.termcwd_height = 15
 			vim.g.termcwd_split_full_bottom = true
 			vim.keymap.set("n", "<leader><cr>", require("termcwd").sp(), { desc = "Terminal CWD" })
-			vim.keymap.set("n", "<leader>1", require("termcwd").sp(1, ""), { desc = "Terminal CWD 1" })
-			vim.keymap.set("n", "<leader>2", require("termcwd").sp(2, ""), { desc = "Terminal CWD 2" })
+			vim.keymap.set("n", "<leader>1", require("termcwd").sp(1), { desc = "Terminal CWD 1" })
+			vim.keymap.set("n", "<leader>2", require("termcwd").sp(2), { desc = "Terminal CWD 2" })
+			vim.keymap.set("n", "<leader>0", require("termcwd").sp("g", ""), { desc = "Terminal instance" })
 		end
 	},
 	-- Sancks modules
