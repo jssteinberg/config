@@ -5,6 +5,7 @@ if status is-interactive
 end
 
 bind \cB backward-word
+bind \co edit_command_buffer
 
 # alias vi "nvim"
 alias vi='nvim'
