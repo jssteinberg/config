@@ -12,7 +12,7 @@ config.font_size = 14
 config.line_height = 1.1
 config.use_dead_keys = false
 config.window_decorations = "RESIZE"
-config.window_padding = { left = 0, right = 0, top = 0, bottom = 2 }
+config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 -- Tab bar
 config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = false
@@ -160,14 +160,15 @@ config.colors = {
 	-- In copy_mode, the color of the active text is:
 	-- 1. copy_mode_active_highlight_* if additional text was selected using the mouse
 	-- 2. selection_* otherwise
-	copy_mode_active_highlight_bg = { Color = "#000000" },
+	-- copy_mode_active_highlight_bg = { Color = "#000000" },
 	-- use `AnsiColor` to specify one of the ansi color palette values
 	-- (index 0-15) using one of the names "Black", "Maroon", "Green",
 	--  "Olive", "Navy", "Purple", "Teal", "Silver", "Grey", "Red", "Lime",
 	-- "Yellow", "Blue", "Fuchsia", "Aqua" or "White".
-	copy_mode_active_highlight_fg = { AnsiColor = "Black" },
-	copy_mode_inactive_highlight_bg = { Color = "#80bc5c" },
-	copy_mode_inactive_highlight_fg = { AnsiColor = "White" },
+	copy_mode_inactive_highlight_bg = { AnsiColor = "Yellow" },
+	copy_mode_inactive_highlight_fg = { AnsiColor = "Black" },
+	copy_mode_active_highlight_bg = { Color = "#80bc5c" },
+	copy_mode_active_highlight_fg = { AnsiColor = "White" },
 
 	quick_select_label_bg = { Color = "peru" },
 	quick_select_label_fg = { Color = "#ffffff" },
