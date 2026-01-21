@@ -23,6 +23,7 @@ config.send_composed_key_when_left_alt_is_pressed = true
 config.leader = { key = "z", mods = "CTRL", timeout_milliseconds = 1000 }
 -- Key bindings
 config.keys = {
+	{ key = "p", mods = "SUPER|SHIFT", action = act.ActivateCommandPalette },
 	{ key = "C", mods = "SUPER",       action = act.CopyTo "ClipboardAndPrimarySelection" },
 	{ key = "V", mods = "SUPER",       action = act.PasteFrom "Clipboard" },
 	{ key = "f", mods = "SUPER|CTRL",  action = wezterm.action.ToggleFullScreen },
