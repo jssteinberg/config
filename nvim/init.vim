@@ -62,30 +62,10 @@ augroup nvim_init
 	autocmd TextYankPost * silent! lua vim.hl.on_yank { higroup='Search', timeout=125 }
 augroup END
 
-" WezTerm user variable - sends current file path for Super+E integration
-augroup wezterm_user_var
-	au!
-	autocmd BufEnter * call s:set_wezterm_user_var()
-augroup END
-
-function! s:set_wezterm_user_var() abort
-	if $TERM_PROGRAM == 'WezTerm'
-		let l:file = expand('%:p')
-		lua << LUA
-			local file = vim.fn.expand('%:p')
-			local encoded = ""
-			if file ~= "" then
-				encoded = vim.base64.encode(file)
-			end
-			io.stdout:write("\x1b]1337;SetUserVar=nvim_file=" .. encoded .. "\x07")
-			io.stdout:flush()
-LUA
-	endif
-endfunction
-
 lua << EOF
 	require'options'.add_filetypes()
 	require("config.lazy")
+	require("wezterm").setup()
 EOF
 
 " ZEN MODE
