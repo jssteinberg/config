@@ -23,18 +23,30 @@ M.setup = function()
 		return
 	end
 
+	local group = vim.api.nvim_create_augroup("wezterm_user_var", { clear = true })
+
+	-- Helper to send user var to WezTerm via OSC 1337 SetUserVar escape sequence
+	local function set_user_var(value)
+		local encoded = value ~= "" and vim.base64.encode(value) or ""
+		io.stdout:write("\x1b]1337;SetUserVar=nvim_file=" .. encoded .. "\x07")
+		io.stdout:flush()
+	end
+
 	vim.api.nvim_create_autocmd("BufEnter", {
-		group = vim.api.nvim_create_augroup("wezterm_user_var", { clear = true }),
+		group = group,
 		callback = function()
-			local file = vim.fn.expand("%:p") -- Get full path of current buffer
-			local encoded = ""
-			if file ~= "" then
-				encoded = vim.base64.encode(file)
+			-- Skip special buffers (help, terminal, quickfix, etc.)
+			if vim.bo.buftype ~= "" then
+				return
 			end
-			-- OSC 1337 SetUserVar escape sequence (iTerm2/WezTerm protocol)
-			-- Sets nvim_file user var which WezTerm can read via wezterm.user_var
-			io.stdout:write("\x1b]1337;SetUserVar=nvim_file=" .. encoded .. "\x07")
-			io.stdout:flush()
+			set_user_var(vim.fn.expand("%:p"))
+		end,
+	})
+
+	vim.api.nvim_create_autocmd("VimLeave", {
+		group = group,
+		callback = function()
+			set_user_var("")
 		end,
 	})
 end
