@@ -64,6 +64,27 @@ config.keys = {
 				cwd = os.getenv("HOME")
 			end
 
+			-- Check if pane is running vim/nvim and has a file open
+			local nvim_file = nil
+			local proc_name = pane:get_foreground_process_name()
+			local user_vars = pane:get_user_vars()
+
+			if proc_name and proc_name:match("nvim") then
+				if user_vars and user_vars.nvim_file and user_vars.nvim_file ~= "" then
+					local f = io.open(user_vars.nvim_file, "r")
+					if f then
+						f:close()
+						nvim_file = user_vars.nvim_file
+					end
+				end
+			end
+
+			-- Build nvim command with optional file argument
+			local nvim_cmd = "nvim -c 'colorscheme tokyonight'"
+			if nvim_file and nvim_file ~= "" then
+				nvim_cmd = nvim_cmd .. " " .. wezterm.shell_quote_arg(nvim_file)
+			end
+
 			-- Get screen info to center the window
 			local screen = wezterm.gui.screens().active
 			local screen_width = screen.width
@@ -82,7 +103,7 @@ config.keys = {
 
 			local tab, new_pane, new_window = wezterm.mux.spawn_window({
 				cwd = cwd,
-				args = { os.getenv("SHELL"), "-l", "-c", "nvim -c 'colorscheme tokyonight'" },
+				args = { os.getenv("SHELL"), "-l", "-c", nvim_cmd },
 			})
 
 			-- Set position and padding after spawning
