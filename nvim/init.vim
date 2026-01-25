@@ -24,7 +24,7 @@ let g:netrw_banner=0
 let g:netrw_preview=1 " Vertical preview
 
 " KEYMAPS
-nn mm %
+nmap gm %
 " Additional esc map
 tnoremap jk <c-\><c-n>
 " Completion
