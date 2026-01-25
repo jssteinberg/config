@@ -23,23 +23,25 @@ M.setup = function()
 		return
 	end
 
-	local group = vim.api.nvim_create_augroup("wezterm_user_var", { clear = true })
+	local group = vim.api.nvim_create_augroup("wezterm_user_var", {})
 
 	-- Helper to send user var to WezTerm via OSC 1337 SetUserVar escape sequence
 	local function set_user_var(value)
 		local encoded = value ~= "" and vim.base64.encode(value) or ""
-		io.stdout:write("\x1b]1337;SetUserVar=nvim_file=" .. encoded .. "\x07")
-		io.stdout:flush()
+		pcall(function()
+			io.stdout:write("\x1b]1337;SetUserVar=nvim_file=" .. encoded .. "\x07")
+			io.stdout:flush()
+		end)
 	end
 
 	vim.api.nvim_create_autocmd("BufEnter", {
 		group = group,
-		callback = function()
+		callback = function(args)
 			-- Skip special buffers (help, terminal, quickfix, etc.)
-			if vim.bo.buftype ~= "" then
+			if vim.bo[args.buf].buftype ~= "" then
 				return
 			end
-			set_user_var(vim.fn.expand("%:p"))
+			set_user_var(vim.api.nvim_buf_get_name(args.buf))
 		end,
 	})
 
@@ -49,6 +51,12 @@ M.setup = function()
 			set_user_var("")
 		end,
 	})
+
+	-- Initialize current buffer (handles deferred/lazy loading)
+	local buf = vim.api.nvim_get_current_buf()
+	if vim.bo[buf].buftype == "" then
+		set_user_var(vim.api.nvim_buf_get_name(buf))
+	end
 end
 
 return M
