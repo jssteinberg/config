@@ -3,15 +3,42 @@ return {
 	cmd = "Fern",
 	config = function()
 		vim.g["fern#default_hidden"] = 1
-		-- TODO: autocmd to reveal file when entering buffer
 		vim.api.nvim_create_autocmd("BufEnter", {
 			group = vim.api.nvim_create_augroup("fern_extension", {}),
 			callback = function(args)
-				-- Skip special buffers (help, terminal, quickfix, etc.)
-				if vim.bo[args.buf].buftype ~= "" then
+				-- Guard against re-entry during reveal
+				if vim.g.fern_revealing then
 					return
 				end
-				-- reveal file in fern if open
+				-- Skip special buffers and Fern itself
+				if vim.bo[args.buf].buftype ~= "" or vim.bo[args.buf].filetype == "fern" then
+					return
+				end
+
+				local file_path = vim.api.nvim_buf_get_name(args.buf)
+				if file_path == "" then
+					return
+				end
+
+				-- Find visible Fern window and reveal file
+				for _, win in ipairs(vim.api.nvim_list_wins()) do
+					local buf = vim.api.nvim_win_get_buf(win)
+					if vim.bo[buf].filetype == "fern" then
+						vim.g.fern_revealing = true
+						-- Small delay to let buffer fully load when opening from Fern
+						vim.defer_fn(function()
+							local current_win = vim.api.nvim_get_current_win()
+							-- Re-check the file path in case buffer changed
+							local reveal_path = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
+							if reveal_path ~= "" then
+								vim.cmd("Fern . -drawer -reveal=" .. vim.fn.fnameescape(reveal_path))
+								vim.api.nvim_set_current_win(current_win)
+							end
+							vim.g.fern_revealing = false
+						end, 50)
+						return
+					end
+				end
 			end,
 		})
 	end
