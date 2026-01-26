@@ -1,5 +1,5 @@
 set laststatus=3
-set winbar=\ %(:b%{bufnr()}\ %)%{Pathname()}%t\ %m\ %#Normal#
+set winbar=\ %(:b%{bufnr()}\ %)%<%{Pathname()}%t\ %m\ %#Normal#
 set tabline=%!Hacktabs()  " custom tabline
 
 function! Pathname() abort

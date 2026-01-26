@@ -20,7 +20,6 @@ return {
 				["-"] = "actions.parent",
 				["<CR>"] = "actions.select",
 				["<C-j>"] = "actions.select",
-				-- ["V"] = "actions.select_vsplit",
 				["<C-k>"] = "actions.select_vsplit",
 				["S"] = "actions.select_split",
 				["<C-s>"] = "actions.select_split",

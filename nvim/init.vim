@@ -31,6 +31,8 @@ tnoremap jk <c-\><c-n>
 inoremap <expr> <tab> getline('.')[col('.') - 2] =~ '\s' ? "\<tab>" : col('.') == 1 ? "\<tab>" : "\<c-n>"
 " Find files
 nn <silent> <leader>f :Pick files<cr>
+nn <silent> <leader>et :Fern . -drawer -reveal=%<cr>
+
 " Live grep
 nn <leader>gl :Pick grep_live<cr>
 " Git

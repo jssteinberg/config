@@ -37,7 +37,7 @@ More global fish config from the shell:
 
 ```sh
 set -Ux FZF_DEFAULT_COMMAND rg --files --hidden --follow
-set -Ux EDITOR "vim"
+set -Ux EDITOR "nvim"
 
 # create and save alias
 alias ip "curl ifcfg.me"
