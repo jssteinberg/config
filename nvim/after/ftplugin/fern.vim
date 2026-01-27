@@ -10,6 +10,7 @@ try
 	nunmap <buffer> c
 	nunmap <buffer> fe
 	nunmap <buffer> fi
+	nunmap <buffer> t
 catch | endtry
 
 nmap <buffer> ZQ :q!<cr>
@@ -40,6 +41,7 @@ nmap <buffer> <esc> <Plug>(fern-action-mark:clear)
 " Item actions
 nmap <buffer> <cr> <Plug>(fern-action-open-or-expand)
 nmap <buffer> <c-j> <Plug>(fern-action-open-or-expand)
+nmap <buffer> <c-t> <Plug>(fern-action-open:tabedit)
 nmap <buffer> - <Plug>(fern-action-collapse)
 nmap <buffer> P <Plug>(fern-action-open-or-expand)
 nmap <buffer> <c-k> <Plug>(fern-action-open:side)

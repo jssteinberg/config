@@ -24,7 +24,7 @@ return {
 				["S"] = "actions.select_split",
 				["<C-s>"] = "actions.select_split",
 				["<leader>tf"] = "actions.select_tab",
-				["<C-t>"] = "actions.select_tab",
+				["<C-t>"] = { "actions.select", opts = { tab = true } },
 				["<C-p>"] = "actions.preview",
 				["<C-l>"] = "actions.refresh",
 				["cd"] = "actions.tcd",
