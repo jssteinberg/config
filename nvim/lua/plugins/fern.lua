@@ -12,34 +12,32 @@ return {
 				-- Skip special buffers and Fern itself
 				if vim.g.fern_revealing or vim.bo[args.buf].buftype ~= "" or vim.bo[args.buf].filetype == "fern" then
 					return
-				else
-					local file_path = vim.api.nvim_buf_get_name(args.buf)
-					if file_path == "" then
-						return
-					end
 				end
 
-				-- Find visible Fern window and reveal file
-				for _, win in ipairs(vim.api.nvim_list_wins()) do
-					local buf = vim.api.nvim_win_get_buf(win)
+				local file_path = vim.api.nvim_buf_get_name(args.buf)
+				if file_path == "" then
+					return
+				end
 
-					if vim.bo[buf].filetype == "fern" then
-						vim.g.fern_revealing = true
-						-- Small delay to let buffer fully load when opening from Fern
-						vim.defer_fn(function()
+				-- Defer to let window state settle (avoids reopening Fern when closing it)
+				vim.schedule(function()
+					-- Find visible Fern window and reveal file
+					for _, win in ipairs(vim.api.nvim_list_wins()) do
+						local buf = vim.api.nvim_win_get_buf(win)
+
+						if vim.bo[buf].filetype == "fern" then
+							vim.g.fern_revealing = true
 							local current_win = vim.api.nvim_get_current_win()
-							-- Re-check the file path in case buffer changed
 							local reveal_path = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
 							if reveal_path ~= "" then
 								vim.cmd("Fern . -drawer -reveal=" .. vim.fn.fnameescape(reveal_path))
 								vim.api.nvim_set_current_win(current_win)
 							end
 							vim.g.fern_revealing = false
-						end, 50)
-
-						return
+							return
+						end
 					end
-				end
+				end)
 			end,
 		})
 	end
