@@ -1,8 +1,8 @@
 return {
-	-- Netrw replacement
 	"stevearc/oil.nvim",
 	config = function()
-		vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+		vim.keymap.set("n", "<leader>e.", function() require("oil").open(".") end, { desc = "Root dir." })
+		vim.keymap.set("n", "-", require("oil").open, { desc = "Parent dir." })
 		vim.keymap.set("n", "<leader>ed", function()
 			vim.cmd [[
 				wincmd v
@@ -10,7 +10,7 @@ return {
 			]]
 			require("oil").open()
 			vim.cmd("call search('" .. vim.fn.expand("#:t") .. "')")
-		end, { desc = "Vertical split open parent dir" })
+		end, { desc = "Parent dir. left vert." })
 
 		require "oil".setup({
 			default_file_explorer = false,
