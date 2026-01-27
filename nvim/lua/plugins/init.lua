@@ -1,4 +1,5 @@
 return {
+	-- Colorschemes
 	{ "folke/tokyonight.nvim", opts = { style = "night" } },
 	{
 		"https://codeberg.org/johanland/nightcool-vim",
