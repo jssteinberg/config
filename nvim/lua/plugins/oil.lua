@@ -1,5 +1,6 @@
 return {
 	"stevearc/oil.nvim",
+	keys = { "<leader>e.", "-", "<leader>ed" },
 	config = function()
 		vim.keymap.set("n", "<leader>e.", function() require("oil").open(".") end, { desc = "Root dir." })
 		vim.keymap.set("n", "-", require("oil").open, { desc = "Parent dir." })
