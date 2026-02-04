@@ -49,7 +49,7 @@ tnoremap jk <c-w>N
 " Fuzzy find files
 nn <leader>f :packadd vim-clap<bar>:Clap files<cr>
 " Git
-nn <silent> <leader>vv :packadd vim-fugitive<bar>:tabnew<bar>G<bar>wincmd o<cr>
+nn <silent> <leader>vv :packadd vim-fugitive<bar>G<cr>
 nn <leader>vc :packadd vim-fugitive<bar>G log -p -50 %<cr>
 nn <silent> <leader>vp :packadd vim-fugitive<bar>G pull<cr>
 nn <silent> <leader>vP :packadd vim-fugitive<bar>G push<cr>

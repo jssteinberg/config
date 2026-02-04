@@ -2,7 +2,7 @@
 setlocal nonumber norelativenumber nocursorcolumn
 let g:fern#renderer#default#leaf_symbol = "   "
 let g:fern#renderer#default#collapsed_symbol = "·  "
-let g:fern#renderer#default#expanded_symbol = "   "
+let g:fern#renderer#default#expanded_symbol = "-  "
 
 " Mappings
 " unmap
@@ -42,6 +42,7 @@ nmap <buffer> <esc> <Plug>(fern-action-mark:clear)
 nmap <buffer> <cr> <Plug>(fern-action-open-or-expand)
 nmap <buffer> <c-j> <Plug>(fern-action-open-or-expand)
 nmap <buffer> <c-t> <Plug>(fern-action-open:tabedit)
+nmap <buffer> <c-v> <Plug>(fern-action-open:vsplit)
 "nmap <buffer> - <Plug>(fern-action-collapse)
 nmap <buffer> - <Plug>(fern-action-collapse-or-leave)
 nmap <buffer> P <Plug>(fern-action-open-or-expand)

@@ -11,6 +11,7 @@ return {
 	-- Terminal
 	{
 		"jssteinberg/termcwd",
+		branch = "fix",
 		config = function()
 			vim.g.termcwd_height = 15
 			vim.g.termcwd_split_full_bottom = true
@@ -21,7 +22,7 @@ return {
 			-- enter term in insert mode
 			vim.g.termcwd_insert = true
 			-- more mappings to exit insert mode in terminal
-			vim.keymap.set("t", "<leader><cr>", "<c-\\><c-n><c-w><c-w>")
+			-- vim.keymap.set("t", "<leader><cr>", "<c-\\><c-n><c-w><c-w>")
 		end
 	},
 }
