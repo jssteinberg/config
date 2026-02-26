@@ -11,7 +11,6 @@ return {
 	-- Terminal
 	{
 		"jssteinberg/termcwd",
-		branch = "fix",
 		config = function()
 			vim.g.termcwd_height = 15
 			vim.g.termcwd_split_full_bottom = true
