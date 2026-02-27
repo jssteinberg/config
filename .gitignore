@@ -16,6 +16,7 @@
 nvim/.DS_Store
 !nvim/after/*
 !nvim/after/ftplugin/*
+!nvim/after/lsp/*
 !nvim/after/plugin/*
 !nvim/colors/*
 !nvim/lua/*
