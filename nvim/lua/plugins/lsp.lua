@@ -66,8 +66,19 @@ return {
 			map("n", "gD", vim.lsp.buf.declaration)
 			map("n", "gq", function() vim.lsp.buf.format({ async = false }) end)
 			map("x", "gq", function() vim.lsp.buf.format({ async = true }) end)
-			map("n", "<c-j>", function() vim.diagnostic.jump({ count = 1, float = true }) end)
-			map("n", "<c-k>", function() vim.diagnostic.jump({ count = -1, float = true }) end)
+			local diag_float_id
+			local function diag_jump(count)
+				if diag_float_id and vim.api.nvim_win_is_valid(diag_float_id) then
+					vim.api.nvim_win_close(diag_float_id, true)
+				end
+				vim.diagnostic.jump({ count = count })
+				vim.schedule(function()
+					local _, win = vim.diagnostic.open_float({ focus = false })
+					diag_float_id = win
+				end)
+			end
+			map("n", "<c-j>", function() diag_jump(1) end)
+			map("n", "<c-k>", function() diag_jump(-1) end)
 			map("n", "<leader>a", vim.lsp.buf.code_action)
 
 			-- Notifications

@@ -18,4 +18,12 @@ return {
 			})
 		end
 	},
+	-- Extra pickers (oldfiles, etc.)
+	{
+		"echasnovski/mini.extra",
+		version = false,
+		keys = {
+			{ "<leader>r", function() require("mini.extra").pickers.oldfiles({ current_dir = true }) end, desc = "Recent files (cwd)" },
+		},
+	},
 }
