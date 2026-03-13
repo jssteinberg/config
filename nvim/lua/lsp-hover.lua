@@ -72,21 +72,61 @@ function M.hover()
 	local lnum = api.nvim_win_get_cursor(0)[1] - 1
 	local diag_entries = build_diag_entries(lnum)
 	local params = lsp.util.make_position_params()
-	lsp.buf_request_all(0, "textDocument/hover", params, function(results)
+	local hover_done, sig_done = false, false
+	local hover_lines, sig_lines = {}, {}
+
+	local function try_show()
+		if not hover_done or not sig_done then return end
 		local lines = {}
-		for _, res in pairs(results) do
-			if res.result and res.result.contents then
-				vim.list_extend(lines, lsp.util.convert_input_to_markdown_lines(res.result.contents))
-			end
+		vim.list_extend(lines, hover_lines)
+		if #sig_lines > 0 and #hover_lines > 0 then
+			table.insert(lines, "---")
 		end
+		vim.list_extend(lines, sig_lines)
 		if #lines == 0 and #diag_entries == 0 then return end
 		vim.schedule(function()
+			if #lines == 0 then lines = { "" } end
 			local buf, win = lsp.util.open_floating_preview(lines, "markdown", { focus = false })
 			vim.wo[win].foldcolumn = "1"
 			if #diag_entries > 0 then
 				append_diagnostics(buf, win, lines, diag_entries)
 			end
 		end)
+	end
+
+	lsp.buf_request_all(0, "textDocument/hover", params, function(results)
+		for _, res in pairs(results) do
+			if res.result and res.result.contents then
+				vim.list_extend(hover_lines, lsp.util.convert_input_to_markdown_lines(res.result.contents))
+			end
+		end
+		hover_done = true
+		try_show()
+	end)
+
+	lsp.buf_request_all(0, "textDocument/signatureHelp", params, function(results)
+		for _, res in pairs(results) do
+			local r = res.result
+			if r and r.signatures and #r.signatures > 0 then
+				local active = (r.activeSignature or 0) + 1
+				local sig = r.signatures[active] or r.signatures[1]
+				table.insert(sig_lines, "```")
+				table.insert(sig_lines, sig.label)
+				table.insert(sig_lines, "```")
+				if sig.parameters and #sig.parameters > 0 then
+					table.insert(sig_lines, "**Parameters:**")
+					for _, p in ipairs(sig.parameters) do
+						local doc = p.documentation
+						if type(doc) == "table" then doc = doc.value end
+						local line = "- `" .. p.label .. "`"
+						if doc and doc ~= "" then line = line .. " — " .. doc end
+						table.insert(sig_lines, line)
+					end
+				end
+			end
+		end
+		sig_done = true
+		try_show()
 	end)
 end
 

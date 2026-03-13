@@ -10,6 +10,7 @@ return {
 			query_updaters = "",
 			items = {
 				starter.sections.recent_files(8, true),
+				{ name = "[n] New buffer", action = "enew", section = "" },
 			},
 			content_hooks = {
 				starter.gen_hook.aligning("center", "center"),
@@ -25,6 +26,7 @@ return {
 				local opts = { buffer = buf, silent = true }
 				vim.keymap.set("n", "j", "<Cmd>lua MiniStarter.update_current_item('next')<CR>", opts)
 				vim.keymap.set("n", "k", "<Cmd>lua MiniStarter.update_current_item('prev')<CR>", opts)
+				vim.keymap.set("n", "n", "<Cmd>enew<CR>", opts)
 				vim.wo.statusline = " "
 			end,
 		})

@@ -1,16 +1,4 @@
 return {
-	-- {
-	-- 	"Fildo7525/pretty_hover",
-	-- 	keys = { "<cr>" },
-	-- 	config = function()
-	-- 		require("pretty_hover").setup({
-	-- 			border = "none",
-	-- 		})
-	-- 		vim.keymap.set("n", "<cr>", function()
-	-- 			require("pretty_hover").hover()
-	-- 		end, { silent = true })
-	-- 	end
-	-- },
 	-- LSP client auto stop/start
 	{
 		"zeioth/garbage-day.nvim",
@@ -57,6 +45,20 @@ return {
 						vim.keymap.del("n", "K", { buffer = args.buf })
 						vim.keymap.del("n", "<c-s>", { buffer = args.buf })
 					end)
+					-- Auto signature help when typing ( or ,
+					vim.api.nvim_create_autocmd("InsertCharPre", {
+						buffer = args.buf,
+						callback = function()
+							local char = vim.v.char
+							if char == "(" or char == "," then
+								vim.defer_fn(function()
+									if vim.fn.mode() == "i" then
+										vim.lsp.buf.signature_help()
+									end
+								end, 0)
+							end
+						end,
+					})
 				end,
 			})
 

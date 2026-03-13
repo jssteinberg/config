@@ -1,4 +1,4 @@
-vim.lsp.config("ts_ls", {
+return {
 	root_dir = function(bufnr)
 		return require("lspconfig.util").root_pattern("package.json", "tsconfig.json", ".git")(bufnr)
 	end,
@@ -11,4 +11,4 @@ vim.lsp.config("ts_ls", {
 			},
 		},
 	},
-})
+}
