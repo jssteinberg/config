@@ -27,6 +27,11 @@ return {
 		config = function()
 			local map = vim.keymap.set
 
+			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+				vim.lsp.handlers.signature_help,
+				{ focusable = false }
+			)
+
 			require("mason").setup({
 				ensure_installed = { "prettierd" },
 				automatic_enable = true,
