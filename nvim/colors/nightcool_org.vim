@@ -16,7 +16,7 @@ hi Normal ctermfg=15 guibg=#000000 guifg=#e9f5e6
 hi NormalNC ctermfg=8 guifg=#7d78a1
 hi NormalFloat ctermbg=NONE guibg=NONE ctermfg=15 guifg=#e9f5e6
 if !exists("+winborder") || match(&winborder, '\v(^$|none|solid|shadow)') != -1
-	hi NormalFloat ctermbg=0 guibg=#0c0a19
+	hi NormalFloat ctermbg=0 guibg=#1a1636
 endif
 if get(g:, "nightcool_bg", "default") == "transparent"
 	hi Normal guibg=NONE

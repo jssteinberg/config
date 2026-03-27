@@ -6,10 +6,7 @@ return {
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000,
 		config = function()
-			-- vim.g.nightcool_bg = "transparent"
-			-- vim.g.nightcool_statusline = "transparent"
-			-- vim.g.nightcool_bgs = false
-			vim.cmd([[colorscheme nightcool]])
+			-- vim.cmd([[colorscheme nightcool]])
 		end,
 	},
 	-- Tabs and editorconfig

@@ -91,7 +91,6 @@ function M.hover()
 				callback = function() hover_win = nil end,
 			})
 			vim.keymap.set("n", "<cr>", function() api.nvim_win_close(win, true) end, { buffer = buf })
-			vim.wo[win].foldcolumn = "1"
 			if has_diags then
 				highlight_diagnostics(buf, diag_entries)
 			end
