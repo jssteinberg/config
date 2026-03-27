@@ -27,11 +27,6 @@ return {
 		config = function()
 			local map = vim.keymap.set
 
-			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-				vim.lsp.handlers.signature_help,
-				{ focusable = false }
-			)
-
 			require("mason").setup({
 				ensure_installed = { "prettierd" },
 				automatic_enable = true,
@@ -58,7 +53,7 @@ return {
 							if char == "(" or char == "," then
 								vim.defer_fn(function()
 									if vim.fn.mode() == "i" then
-										vim.lsp.buf.signature_help()
+										vim.lsp.buf.signature_help({ focusable = false })
 									end
 								end, 0)
 							end

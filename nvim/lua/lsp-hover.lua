@@ -68,7 +68,14 @@ end
 
 local M = {}
 
+local hover_win = nil
+
 function M.hover()
+	if hover_win and api.nvim_win_is_valid(hover_win) then
+		api.nvim_set_current_win(hover_win)
+		return
+	end
+
 	local lnum = api.nvim_win_get_cursor(0)[1] - 1
 	local diag_entries = build_diag_entries(lnum)
 	local params = lsp.util.make_position_params()
@@ -87,6 +94,12 @@ function M.hover()
 		vim.schedule(function()
 			if #lines == 0 then lines = { "" } end
 			local buf, win = lsp.util.open_floating_preview(lines, "markdown", { focus = false })
+			hover_win = win
+			api.nvim_create_autocmd("WinClosed", {
+				pattern = tostring(win),
+				once = true,
+				callback = function() hover_win = nil end,
+			})
 			vim.wo[win].foldcolumn = "1"
 			if #diag_entries > 0 then
 				append_diagnostics(buf, win, lines, diag_entries)
