@@ -59,7 +59,9 @@ function M.hover()
 
 	local lnum = api.nvim_win_get_cursor(0)[1] - 1
 	local diag_entries = build_diag_entries(lnum)
-	local params = lsp.util.make_position_params()
+	local client = vim.iter(lsp.get_clients({ bufnr = 0 })):next()
+	if not client then return end
+	local params = lsp.util.make_position_params(0, client.offset_encoding)
 	local hover_done, sig_done = false, false
 	local hover_lines, sig_lines = {}, {}
 
