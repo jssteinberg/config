@@ -2,6 +2,7 @@ local api = vim.api
 local diagnostic = vim.diagnostic
 local lsp = vim.lsp
 local severity = diagnostic.severity
+local ns = api.nvim_create_namespace("lsp-hover")
 
 local severity_hl = {
 	[severity.ERROR] = "DiagnosticError",
@@ -57,7 +58,10 @@ local function append_diagnostics(buf, win, lines, diag_entries)
 	end
 	api.nvim_buf_set_lines(buf, -1, -1, false, diag_texts)
 	for i, entry in ipairs(diag_entries) do
-		api.nvim_buf_add_highlight(buf, -1, entry.hl, sep_line + i - 1, entry.hl_start, entry.hl_end)
+		api.nvim_buf_set_extmark(buf, ns, sep_line + i - 1, entry.hl_start, {
+			end_col = entry.hl_end,
+			hl_group = entry.hl,
+		})
 	end
 	vim.bo[buf].modifiable = false
 	local total = api.nvim_buf_line_count(buf)
