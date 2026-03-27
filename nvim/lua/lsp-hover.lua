@@ -38,36 +38,13 @@ local function build_diag_entries(lnum)
 	return entries
 end
 
-local function append_diagnostics(buf, win, lines, diag_entries)
-	vim.bo[buf].modifiable = true
-	local width = api.nvim_win_get_width(win)
-	local max_width = width
-	local diag_texts = {}
+local function highlight_diagnostics(buf, diag_entries)
 	for i, entry in ipairs(diag_entries) do
-		diag_texts[i] = entry.text
-		if #entry.text > max_width then max_width = #entry.text end
-	end
-	if max_width > width then
-		api.nvim_win_set_width(win, max_width)
-		width = max_width
-	end
-	local sep_line = api.nvim_buf_line_count(buf)
-	if #lines > 0 then
-		api.nvim_buf_set_lines(buf, -1, -1, false, { string.rep("─", width - 2) })
-		sep_line = sep_line + 1
-	end
-	api.nvim_buf_set_lines(buf, -1, -1, false, diag_texts)
-	for i, entry in ipairs(diag_entries) do
-		api.nvim_buf_set_extmark(buf, ns, sep_line + i - 1, entry.hl_start, {
+		api.nvim_buf_set_extmark(buf, ns, i - 1, entry.hl_start, {
 			end_col = entry.hl_end,
 			hl_group = entry.hl,
 		})
 	end
-	vim.bo[buf].modifiable = false
-	local total = api.nvim_buf_line_count(buf)
-	local last = api.nvim_buf_get_lines(buf, total - 1, total, false)
-	if last[1] == "" then total = total - 1 end
-	api.nvim_win_set_height(win, math.max(1, total - 1))
 end
 
 local M = {}
@@ -89,14 +66,21 @@ function M.hover()
 	local function try_show()
 		if not hover_done or not sig_done then return end
 		local lines = {}
+		for _, entry in ipairs(diag_entries) do
+			table.insert(lines, entry.text)
+		end
+		local has_diags = #lines > 0
+		local has_hover = #hover_lines > 0 or #sig_lines > 0
+		if has_diags and has_hover then
+			table.insert(lines, "")
+		end
 		vim.list_extend(lines, hover_lines)
 		if #sig_lines > 0 and #hover_lines > 0 then
 			table.insert(lines, "---")
 		end
 		vim.list_extend(lines, sig_lines)
-		if #lines == 0 and #diag_entries == 0 then return end
+		if #lines == 0 then return end
 		vim.schedule(function()
-			if #lines == 0 then lines = { "" } end
 			local buf, win = lsp.util.open_floating_preview(lines, "markdown", { focus = false })
 			hover_win = win
 			api.nvim_create_autocmd("WinClosed", {
@@ -104,9 +88,10 @@ function M.hover()
 				once = true,
 				callback = function() hover_win = nil end,
 			})
+			vim.keymap.set("n", "<cr>", function() api.nvim_win_close(win, true) end, { buffer = buf })
 			vim.wo[win].foldcolumn = "1"
-			if #diag_entries > 0 then
-				append_diagnostics(buf, win, lines, diag_entries)
+			if has_diags then
+				highlight_diagnostics(buf, diag_entries)
 			end
 		end)
 	end
