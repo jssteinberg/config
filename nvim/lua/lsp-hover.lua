@@ -121,7 +121,8 @@ function M.hover()
 					for _, p in ipairs(sig.parameters) do
 						local doc = p.documentation
 						if type(doc) == "table" then doc = doc.value end
-						local line = "- `" .. p.label .. "`"
+						local label = type(p.label) == "table" and sig.label:sub(p.label[1] + 1, p.label[2]) or p.label
+						local line = "- `" .. label .. "`"
 						if doc and doc ~= "" then line = line .. " — " .. doc end
 						table.insert(sig_lines, line)
 					end
