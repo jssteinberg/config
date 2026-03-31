@@ -4,8 +4,10 @@ return {
 	build = ":TSUpdate",
 	branch = "main",
 	config = function()
-		require("nvim-treesitter").setup({
-			auto_install = true,
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(ev)
+				if pcall(vim.treesitter.start, ev.buf) then return end
+			end,
 		})
-	end
+	end,
 }
