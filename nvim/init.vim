@@ -10,7 +10,6 @@ let g:nightcool_statusline = "transparent"
 let g:nightcool_bgs = v:false
 colo nightcool_org
 " OPTIONS
-"set winborder=shadow
 set clipboard+=unnamedplus
 set undofile
 set diffopt+=vertical
