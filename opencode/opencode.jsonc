@@ -1,34 +1,4 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "system",
-  // "editor": "nvim",
-  "agent": {
-    // "build": {
-    //   "prompt": "{file:./build-prompt.txt}"
-    // },
-    "strong": {
-      "description": "Powerful agent for complex reasoning and difficult tasks",
-      "model": "anthropic/claude-4.5-opus-latest",
-      "mode": "subagent",
-    },
-    "fast": {
-      "description": "Fast, cheap AI for quick tasks",
-      "model": "anthropic/claude-3-5-haiku-latest",
-      "mode": "subagent",
-      "temperature": 0.2,
-      "maxSteps": 5,
-      "tools": {
-        "write": false,
-        "edit": false,
-      },
-    },
-    "review": {
-      "description": "Reviews code for best practices and potential issues",
-      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
-      "tools": {
-        "write": false,
-        "edit": false,
-      },
-    },
-  },
+  "share": "disabled",
 }
