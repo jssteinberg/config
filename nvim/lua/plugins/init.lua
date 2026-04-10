@@ -67,17 +67,6 @@ return {
 			{ "<leader>lws", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
 		},
 	},
-	-- LSP status notification
-	{
-		"j-hui/fidget.nvim",
-		event = "CursorHold",
-		opts = {
-			notification = {
-				override_vim_notify = true,
-				window = { relative = "win", }
-			}
-		}
-	},
 	--- Colors highlight
 	{
 		"uga-rosa/ccc.nvim",

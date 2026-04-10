@@ -95,7 +95,12 @@ return {
 						name
 					)
 
-					vim.notify(msg, level)
+					local ok, notify = pcall(require, "notify")
+					if ok then
+						notify(msg, level, { title = "LSP Diagnostics" })
+					else
+						vim.notify(msg, level)
+					end
 				end,
 			}
 		end,
