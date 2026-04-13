@@ -1,3 +1,4 @@
+set -g fish_greeting
 set -gx LC_ALL en_US.UTF-8
 
 if status is-interactive
