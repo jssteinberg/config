@@ -62,7 +62,10 @@ function M.hover()
 	local client = vim.iter(lsp.get_clients({ bufnr = 0 })):next()
 	if not client then return end
 	local params = lsp.util.make_position_params(0, client.offset_encoding)
-	local hover_done, sig_done = false, false
+	local has_sig = vim.iter(lsp.get_clients({ bufnr = 0 })):any(function(c)
+		return c.server_capabilities.signatureHelpProvider ~= nil
+	end)
+	local hover_done, sig_done = false, not has_sig
 	local hover_lines, sig_lines = {}, {}
 
 	local function try_show()
@@ -107,31 +110,33 @@ function M.hover()
 		try_show()
 	end)
 
-	lsp.buf_request_all(0, "textDocument/signatureHelp", params, function(results)
-		for _, res in pairs(results) do
-			local r = res.result
-			if r and r.signatures and #r.signatures > 0 then
-				local active = (r.activeSignature or 0) + 1
-				local sig = r.signatures[active] or r.signatures[1]
-				table.insert(sig_lines, "```")
-				table.insert(sig_lines, sig.label)
-				table.insert(sig_lines, "```")
-				if sig.parameters and #sig.parameters > 0 then
-					table.insert(sig_lines, "**Parameters:**")
-					for _, p in ipairs(sig.parameters) do
-						local doc = p.documentation
-						if type(doc) == "table" then doc = doc.value end
-						local label = type(p.label) == "table" and sig.label:sub(p.label[1] + 1, p.label[2]) or p.label
-						local line = "- `" .. label .. "`"
-						if doc and doc ~= "" then line = line .. " — " .. doc end
-						table.insert(sig_lines, line)
+	if not sig_done then
+		lsp.buf_request_all(0, "textDocument/signatureHelp", params, function(results)
+			for _, res in pairs(results) do
+				local r = res.result
+				if r and r.signatures and #r.signatures > 0 then
+					local active = (r.activeSignature or 0) + 1
+					local sig = r.signatures[active] or r.signatures[1]
+					table.insert(sig_lines, "```")
+					table.insert(sig_lines, sig.label)
+					table.insert(sig_lines, "```")
+					if sig.parameters and #sig.parameters > 0 then
+						table.insert(sig_lines, "**Parameters:**")
+						for _, p in ipairs(sig.parameters) do
+							local doc = p.documentation
+							if type(doc) == "table" then doc = doc.value end
+							local label = type(p.label) == "table" and sig.label:sub(p.label[1] + 1, p.label[2]) or p.label
+							local line = "- `" .. label .. "`"
+							if doc and doc ~= "" then line = line .. " — " .. doc end
+							table.insert(sig_lines, line)
+						end
 					end
 				end
 			end
-		end
-		sig_done = true
-		try_show()
-	end)
+			sig_done = true
+			try_show()
+		end)
+	end
 end
 
 return M

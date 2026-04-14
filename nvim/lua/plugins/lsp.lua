@@ -54,7 +54,7 @@ return {
 								vim.defer_fn(function()
 									if vim.fn.mode() ~= "i" then return end
 									local client = vim.iter(vim.lsp.get_clients({ bufnr = args.buf })):find(function(c)
-										return c.supports_method("textDocument/signatureHelp", { bufnr = args.buf })
+										return c.server_capabilities.signatureHelpProvider ~= nil
 									end)
 									if client then
 										vim.lsp.buf.signature_help({ focusable = false })

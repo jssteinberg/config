@@ -1,6 +1,4 @@
 return {
-	root_dir = function(bufnr)
-		return require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")(bufnr)
-	end,
+	root_markers = { "deno.json", "deno.jsonc" },
 	single_file_support = false,
 }
