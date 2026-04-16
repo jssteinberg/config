@@ -1,7 +1,4 @@
-theme = "dracula_at_night"
-
-[editor]
-line-number = "relative"
+theme = "dracula"
 
 # esc
 [keys.insert.j]
@@ -11,6 +8,16 @@ k = "normal_mode"
 # s = "search"
 # C-R redo
 C-R = "redo"
+
+# Muscle memory
+"{" = ["goto_prev_paragraph", "collapse_selection"]
+"}" = ["goto_next_paragraph", "collapse_selection"]
+G = "goto_file_end"
+"%" = "match_brackets"
+V = ["select_mode", "extend_to_line_bounds"]
+C = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection", "insert_mode"]
+D = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection"]
+S = "surround_add" # Would be nice to be able to do something after this but it isn't chainable
 
 # write/quit
 [keys.normal.Z]
@@ -22,3 +29,4 @@ Q = ":quit"
 w = ":write"
 # edit
 e = { c = ":open ~/.config/helix/config.toml" }
+
