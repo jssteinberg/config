@@ -21,6 +21,8 @@ return {
 					TRACE = "->",
 					WARN = "W"
 				},
+				render = "wrapped-compact",
+				-- stages = "fade",
 			})
 		end
 	},
