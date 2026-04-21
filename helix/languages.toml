@@ -1,4 +1,4 @@
-# [language-server]
+[language-server]
 # deno = { command = "deno", args = [ "lsp" ]}
 emmet-ls = { command = "emmet-ls", args = [ "--stdio" ]}
 
