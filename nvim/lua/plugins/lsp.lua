@@ -38,6 +38,8 @@ return {
 			-- On attach
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
+					-- Disable document_color (Neovim 0.12 bug: integer overflow on some CSS colors)
+					vim.lsp.document_color.enable(false, { buf = args.buf })
 					-- Unset 'formatexpr'
 					vim.bo[args.buf].formatexpr = nil
 					-- Unmap some default mappings

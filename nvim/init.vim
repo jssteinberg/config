@@ -66,6 +66,17 @@ augroup nvim_init
 augroup END
 
 lua << EOF
+	-- Route vim.schedule errors through vim.notify instead of blocking messages
+	local orig_schedule = vim.schedule
+	vim.schedule = function(fn)
+		orig_schedule(function()
+			local ok, err = pcall(fn)
+			if not ok then
+				vim.notify(tostring(err), vim.log.levels.ERROR)
+			end
+		end)
+	end
+
 	require'options'.add_filetypes()
 	require("config.lazy")
 	require("wezterm").setup()
