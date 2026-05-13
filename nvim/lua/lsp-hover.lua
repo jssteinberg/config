@@ -12,10 +12,10 @@ local severity_hl = {
 }
 
 local severity_label = {
-	[severity.ERROR] = "Error",
-	[severity.WARN] = "Warn",
-	[severity.INFO] = "Info",
-	[severity.HINT] = "Hint",
+	[severity.ERROR] = "error",
+	[severity.WARN] = "warning",
+	[severity.INFO] = "info",
+	[severity.HINT] = "hint",
 }
 
 local function build_diag_entries(lnum)
@@ -24,7 +24,7 @@ local function build_diag_entries(lnum)
 	local entries = {}
 	for i, d in ipairs(diags) do
 		local num = i .. ". "
-		local label_and_msg = severity_label[d.severity] .. ": " .. d.message
+		local label_and_msg = d.message .. " (" .. severity_label[d.severity] .. ")"
 		local extra = ""
 		if d.code then extra = extra .. " [" .. d.code .. "]" end
 		if d.source then extra = extra .. " " .. d.source end
@@ -94,6 +94,7 @@ function M.hover()
 				callback = function() hover_win = nil end,
 			})
 			vim.keymap.set("n", "<cr>", function() api.nvim_win_close(win, true) end, { buffer = buf })
+				vim.keymap.set("n", "<esc>", function() api.nvim_win_close(win, true) end, { buffer = buf })
 			if has_diags then
 				highlight_diagnostics(buf, diag_entries)
 			end
