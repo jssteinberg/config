@@ -88,27 +88,6 @@ return {
 			map("n", "<c-j>", function() diag_jump(1) end)
 			map("n", "<c-k>", function() diag_jump(-1) end)
 			map("n", "<leader>a", vim.lsp.buf.code_action)
-
-			-- Notifications
-			vim.diagnostic.handlers["lsp/diagnostics/notification"] = {
-				show = function(namespace, bufnr, diagnostics, opts)
-					local level = opts["lsp/diagnostics/notification"].log_level
-					local name = vim.diagnostic.get_namespace(namespace).name
-					local msg = string.format(
-						"%d diagnostics in buffer %d from %s",
-						#diagnostics,
-						bufnr,
-						name
-					)
-
-					local ok, notify = pcall(require, "notify")
-					if ok then
-						notify(msg, level, { title = "LSP Diagnostics" })
-					else
-						vim.notify(msg, level)
-					end
-				end,
-			}
 		end,
 	},
 }
